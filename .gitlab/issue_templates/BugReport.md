@@ -1,19 +1,23 @@
-# Bug report - <title>
+# Bug report - *title here*
 
-## Expected behaviour
+### What feature is affected?
+What feature does this bug affect?
 
+### Expected behaviour
+What is the expected behavour of the affected feature?
 
-## Actual behaviour
+### Actual behaviour
+What is the actual behaviour of the affected feature?
 
-
-## Steps to reproduce
+### Steps to reproduce
 - [ ] Can be reproduced
 1. ...
 2. ...
 3. ...
 
-## Any other comments?
+### Any other comments?
+Further comments about the bug.
 
-
-## Technical details
-Browser used:
+### Technical details
+**Browser:**
+**Browser version:**
