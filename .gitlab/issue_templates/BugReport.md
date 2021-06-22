@@ -1,4 +1,5 @@
 # Bug report - *title here*
+Unless you have a specific reason not to, bugs should be submitted as incidents.
 
 ### What feature is affected?
 What feature does this bug affect?
