@@ -1,14 +1,16 @@
 # Documentation - *Title here*
+Documentation requests should be submitted as an issue.
 
-### Check the box that applies to the issue:
-- [ ] The documentation is missing entirely
-- [ ] The documentation is of poor quality
-- [ ] The documentation is dated and needs to be updated
-- [ ] Other
+### Current state of the documentation:
+Suggestions:
+The documentation is missing entirely.
+The documentation is of poor quality.
+The documentation is dated and needs to be updated.
+
 
 ### Describe the issue
 What feature does it relate to?
-What is the current state of documentation?
+If any, what does the current documentation lack?
 
 ### What questions should be answered in the documentation?
 - Any relevant questions the documentation should aim to answer
