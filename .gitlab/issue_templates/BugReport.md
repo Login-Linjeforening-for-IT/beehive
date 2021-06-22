@@ -20,4 +20,4 @@ Further comments about the bug.
 
 ### Technical details
 **Browser:**
-**Browser version:**
+<br/>**Browser version:**
