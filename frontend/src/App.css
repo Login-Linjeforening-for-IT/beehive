@@ -1,0 +1,38 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Defaults */
+* {
+  margin: 0;  
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* For mobile: */
+@media only screen and (min-width: 0px) {
+  .App {
+    background-color: #2b2b2b;
+    min-height: 100vh;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+/* For tablets */
+@media only screen and (min-width: 800px) {
+  .App {
+    background-color: #2b2b2b;
+    min-height: 100vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+}
+
+/* For desktop: */
+@media only screen and (min-width: 1200px) {
+  .App {
+    background-color: #2b2b2b;
+    min-height: 100vh;
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+}
