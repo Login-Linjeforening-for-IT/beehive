@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import TopBar from './components/topbar/TopBar';
+import Footer from './components/footer/Footer';
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,7 @@ function App() {
       </main>
 
       <footer>
-      
+        <Footer />
       </footer>
     </div>
   );
