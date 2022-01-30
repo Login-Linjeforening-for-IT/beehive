@@ -10,6 +10,7 @@ import './App.css';
 import TopBar from './components/topbar/TopBar';
 import LandingPage from './components/landing/LandingPage';
 import Footer from './components/footer/Footer';
+import ContentContainer from './components/container/Container';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<ContentContainer component={LandingPage} />} />
           </Routes>
         </main>
         
