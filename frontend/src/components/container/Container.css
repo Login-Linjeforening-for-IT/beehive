@@ -1,0 +1,25 @@
+/* Mobile devices: */
+@media only screen and (min-width: 0px) {
+  .ContentContainer {
+    margin-top: 1em;
+    background-color: #3b3b3b;
+    color: white; 
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+
+  .ContentContainer h3 {
+    font-size: 2em;
+  }
+  
+  .ContentContainer p {
+    margin-top: 0.5em;
+  }
+}
+
+/* Tablet devices: */
+@media only screen and (min-width: 800px) {
+  .ContentContainer{
+    padding: 2em;
+  }
+}
