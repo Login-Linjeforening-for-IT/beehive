@@ -15,6 +15,11 @@
   .ContentContainer p {
     margin-top: 0.5em;
   }
+
+  .ContentContainer a {
+    font-size: 1em;
+    text-decoration: underline;
+  }
 }
 
 /* Tablet devices: */
