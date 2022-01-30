@@ -17,6 +17,11 @@
   main {
     height: 90vh;
   }
+  
+  main {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
 }
 
 /* For tablets */
