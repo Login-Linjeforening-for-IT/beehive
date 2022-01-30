@@ -7,6 +7,6 @@ import (
 
 func main() {
     r := gin.Default()
-    r.Use(spa.Middleware("/", "./web/react"))
+    r.Use(spa.Middleware("/", "./web/build"))
     r.Run()
 }
