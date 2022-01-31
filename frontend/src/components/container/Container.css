@@ -20,6 +20,10 @@
     font-size: 1em;
     text-decoration: underline;
   }
+
+  .ContentContainer hr {
+    color: #f0802a;
+  }
 }
 
 /* Tablet devices: */
