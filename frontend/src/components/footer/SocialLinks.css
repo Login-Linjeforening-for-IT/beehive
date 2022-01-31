@@ -1,14 +1,27 @@
-.SocialLinks {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20vw;
+@media only screen and (min-width: 0px) {
+  .SocialLinks {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
+
+  .SocialIcon img {
+    width: 2.5em;
+  }
+  .SocialSpacer {
+    width: 2.5em;
+  }
 }
 
-.SocialIcon img{
-  width: 2em;
-}
+@media only screen and (min-width: 800px) {
+  .SocialIcon img {
+    width: 3em;
+  }
 
-.SocialSpacer {
-  width: 0.5em;
+  .SocialSpacer {
+    width: 2em;
+  }
 }
