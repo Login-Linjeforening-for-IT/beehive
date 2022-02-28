@@ -12,6 +12,7 @@ import LandingPage from './components/landing/LandingPage';
 import Footer from './components/footer/Footer';
 import ContentContainer from './components/container/Container';
 import About from './components/about/About';
+import Events from './components/event/Events';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ContentContainer component={LandingPage} />} />
             <Route path="/about" element={<ContentContainer component={About} />} />
+            <Route path="/events" element={<ContentContainer component={Events} />} />
           </Routes>
         </main>
         

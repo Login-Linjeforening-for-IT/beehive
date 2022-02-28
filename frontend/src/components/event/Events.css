@@ -1,0 +1,10 @@
+@media only screen and (min-width: 0px) {
+  .EventList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .EventList li {
+    list-style-type: none;
+  }
+}
