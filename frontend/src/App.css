@@ -16,13 +16,18 @@
    
   main {
     min-height: 90vh;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
   }
 }
 
 /* For tablets */
 @media only screen and (min-width: 800px) {
+  main {
+  padding-left: 10%;
+  padding-right: 10%;
+  }
+
   .App {
     background-color: #2b2b2b;
     min-height: 100vh;
@@ -31,6 +36,11 @@
 
 /* For desktop: */
 @media only screen and (min-width: 1200px) {
+  main {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
   .App {
     background-color: #2b2b2b;
     min-height: 100vh;
