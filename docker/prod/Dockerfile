@@ -8,15 +8,15 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # copy the dependency files
-COPY ../../frontend/package.json ./
-COPY ./frontend/package-lock.json ./
+COPY frontend/package.json ./
+COPY frontend/package-lock.json ./
 
 # install the dependencies
 RUN npm ci --silent
 RUN npm install react-scripts@3.4.1 -g --silent
 
 # copy the whole frontend directory
-COPY ../../frontend ./
+COPY frontend/ ./
 
 # build the react application
 RUN npm run build
@@ -30,14 +30,14 @@ FROM golang:1.16-alpine
 WORKDIR /app
 
 # copy the dependency files
-COPY ../../backend/go.mod ./
-COPY ../../backend/go.sum ./
+COPY backend/go.mod ./
+COPY backend/go.sum ./
 
 # install the dependencies
 RUN go mod download
 
 # copy the whole backend directory
-COPY ../../backend ./
+COPY backend ./
 
 # copy the built react application
 COPY --from=build /app/build/ ./web/build/
