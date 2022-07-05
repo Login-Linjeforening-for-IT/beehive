@@ -1,0 +1,24 @@
+version: '3'
+services:
+  development-server:
+    build:
+      context: ./
+      dockerfile: ./docker/dev/Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: beehive-dev
+    stdin_open: true
+    volumes:
+      - ./frontend:/usr/local/app
+      - /usr/local/app/node_modules
+    profiles:
+      - dev
+  production-server:
+    build:
+      context: ./
+      dockerfile: ./docker/prod/Dockerfile
+    ports:
+      - 8080:8080
+    container_name: beehive-prod
+    profiles:
+      - prod
