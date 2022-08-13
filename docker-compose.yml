@@ -1,24 +1,64 @@
 version: '3'
 services:
-  development-server:
+  development-frontend-server:
     build:
       context: ./
-      dockerfile: ./docker/dev/Dockerfile
-    ports:
-      - "3000:3000"
-    container_name: beehive-dev
+      dockerfile: ./docker/dev/Dockerfile.frontend
+    container_name: beehive-dev-frontend
     stdin_open: true
     volumes:
       - ./frontend:/usr/local/app
       - /usr/local/app/node_modules
     profiles:
       - dev
+  
+  development-db:
+    build:
+      context: ./
+      dockerfile: ./docker/dev/Dockerfile.db
+    restart: always
+    container_name: beehive-dev-database
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: beehive
+      POSTGRES_DB: events
+    profiles:
+      - dev
+      - dev-backend
+      - dev-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+
+  development-backend-server:
+    build:
+      context: ./
+      dockerfile: ./docker/dev/Dockerfile.backend
+    container_name: beehive-dev-backend
+    ports:
+      - "127.0.0.1:4000:4000"
+    environment:
+      DB_PASSWORD: "beehive"
+      BH_DB_HOST: "development-db"
+      BH_DB_PORT: "5432"
+      BH_DB_USER: "postgres"
+      BH_DB_NAME: "events"
+    profiles:
+      - dev
+      - dev-backend
+    depends_on:
+      development-db:
+        condition: service_healthy
+
   production-server:
     build:
       context: ./
       dockerfile: ./docker/prod/Dockerfile
     ports:
-      - 8080:8080
+      - "8080:8080"
     container_name: beehive-prod
     profiles:
       - prod

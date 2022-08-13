@@ -1,0 +1,4 @@
+FROM postgres:14
+
+USER postgres
+COPY ./dummydb.sql /docker-entrypoint-initdb.d/1-dummydb.sql
