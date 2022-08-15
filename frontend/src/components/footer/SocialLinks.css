@@ -1,27 +1,31 @@
+.SocialLinks {
+  display: flex;
+}
+
+.SocialIcon img {
+  display: block;
+  transition: .2s;
+  height: 1.5rem;
+}
+
+.SocialLinks img:hover {
+  transform: scale(1.1);
+}
+
 @media only screen and (min-width: 0px) {
   .SocialLinks {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-  }
-
-  .SocialIcon img {
-    width: 2.5em;
-  }
-  .SocialSpacer {
-    width: 2.5em;
+    padding: 3rem 0;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-center;
   }
 }
 
 @media only screen and (min-width: 800px) {
-  .SocialIcon img {
-    width: 3em;
-  }
-
-  .SocialSpacer {
-    width: 2em;
+  .SocialLinks {
+    padding: 2rem 0 2rem 1rem;
+    margin: 0;
+    gap: 2rem;
   }
 }

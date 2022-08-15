@@ -1,0 +1,86 @@
+.EventListItem {
+	display: inline-flex;
+	width: 100%;
+	cursor: pointer;
+	transition: .2s;
+	-webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+	overflow-wrap: break-word;
+	margin-bottom: 1rem;
+}
+
+.EventListItem:hover {
+	background-color: #212121;
+}
+
+.EventInfo {
+	width: 100%;
+	min-width: 1%;
+}
+
+.EventInfo h4 {
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	font-weight: 400;
+	margin: 0;
+}
+
+.EventInfo>div {
+	padding-top: .5rem;
+}
+
+.EventInfo div {
+	display: inline-block;
+	font-size: 1rem;
+	line-height: 1.2rem;
+	color: #a9a9a9;
+}
+
+.EventInfo div i {
+	padding-right: .2rem;
+	color: #a9a9a9;
+}
+
+.Divider {
+	font-weight: 900;
+	padding: 0 .5rem;
+}
+
+.EventImg img, .EventImg svg {
+	display: block;
+	max-height: 6rem;
+    height: 100%;
+	width: 15rem;
+    object-fit: cover;
+}
+
+@media only screen and (min-width: 0px) {
+
+	.EventInfo {
+		padding: 1rem;
+		padding-bottom: .6rem;
+	}
+
+	.EventImg {
+	    display: none;
+	}
+
+}
+
+@media only screen and (min-width: 800px) {
+
+	.EventInfo {
+		padding: 1.4rem;
+		padding-bottom: 1rem;
+	}
+
+	.EventImg {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+
+}

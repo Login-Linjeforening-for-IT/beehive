@@ -1,53 +1,131 @@
-import { Link } from 'react-router-dom';
+import TabNavItem from './TabNavItem'
+import TabContent from './TabContent'
+import EventkomLogo from './logos/EventkomLogo'
+import PrkomLogo from './logos/PrkomLogo'
+import TekkomLogo from './logos/TekkomLogo'
+import CtfkomLogo from './logos/CtfkomLogo'
+import StyretLogo from './logos/StyretLogo'
+import LogChamp from './LogChamp'
+
+import { useState } from 'react';
 
 import './Committees.css';
+import './LogChamp.css';
 
-const PR = () => {
+
+const Tabs = () => {
+  const [activeTab, setActiveTab] = useState("styret");
+ 
   return (
-    <div className="Committee">
-      <h4>PR</h4>
-      <p>PR er Logins ansikt utad og har ansvar for Logins offentlige media. Dette innebærer å benytte Logins sosiale platformer som Facebook og Discord, samt e-post saksbehandlingssystemet til Login.</p>
-      <p>I den daglige driften er hovedoppgaven å følge med på RT og besvare relevante eposter, eventuelt sende de videre til styret. En stor del av denne oppgaven innebærer kontakt med bedrifter som vi samarbeider med for å hjelpe våre studenter på veien inn i arbeidslivet. Videre er PR med på å representere Login på events og bistår også med rekruttering av nye medlemmer.</p>
+    <div className="Tabs">
+      <ul>
+        <TabNavItem title={<StyretLogo />} id="styret" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabNavItem title={<EventkomLogo />} id="event" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabNavItem title={<TekkomLogo />} id="tek" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabNavItem title={<PrkomLogo />} id="pr" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabNavItem title={<CtfkomLogo />} id="ctf" activeTab={activeTab} setActiveTab={setActiveTab}/>
+      </ul>
+ 
+      <div className="outlet">
+        <TabContent id="styret" activeTab={activeTab}>
+          <h3>Styret</h3>
+          <p className='StyretInfo'>
+            Øverste leddet i foreningen er styret. Under årsmøtet blir leder, nestleder, sekretær og økonomi-ansvarlig stemt frem, og disse sitter sammen med lederene fra de ulike komiteene i styret. Sammen er disse ansvarlige for å drive foreningen, styre økonomien og sørge for at alle utfører de oppgavene de skal.
+          </p>
+          <div className='BoardMembers'>
+            <LogChamp img="./img/portrett_leder.jpg" name="Anders Eiken" stilling="Leder" discord="Eiken#6059" />
+            <LogChamp img="./img/portrett_nestleder.jpg" name="Mads Halland" stilling="Nestleder" discord="¬.¬#6719" />
+            <LogChamp img="./img/portrett_økonomi.jpg" name="Sebastian Hestsveen" stilling="Økonomi-ansvarlig" discord="stubbe#8694" />
+            <LogChamp img="./img/portrett_sekretær.jpg" name="Celina Brynildsen" stilling="Sekretær" discord="Celina#6955" />
+            <LogChamp img="./img/portrett_eventkom-leder.jpg" name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
+            <LogChamp img="./img/portrett_pr-leder.jpg" name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
+            <LogChamp img="./img/portrett_tekkom-leder.jpg" name="Simon Edna" stilling="TekKom leder" discord="Sim#3909" />
+            <LogChamp img="./img/portrett_placeholder.svg" name="ikke valgt" stilling="CTF leder" discord="" />
+          </div>
+        </TabContent>
+        <TabContent id="event" activeTab={activeTab}>
+          <h3>EventKom</h3>
+          <div className='ComiteInfo'>
+            <div>
+              <p className='Classy'>
+                EventKom er Logins party-komite hvor målet er å bruke opp alle inntektene PR sørger for.
+              </p>
+              <p>
+                EvntKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret.
+                Vi tilbyr sammenkomster der studenter kan møtes på tvers av studieprogram, år og klasser for å få
+                et avbrekk fra studiehverdagen. Målet til EventKom er å bygge et sterkt fellesskap blant IT-studentene ved skolen,
+                som du kan lene deg på når studiehverdagen tar på. Dersom du har forslag til aktiviteter, eller ønsker å
+                være med i komiteen er det bare å kontakte oss på <a href="https://discord.gg/login-ntnu\" target="_blank" rel="noreferrer">Discord</a>. Forslag og tilbakemeldinger tas imot
+                med glede, og vi håper å høre fra deg.
+              </p>
+            </div>
+            <LogChamp img="./img/portrett_eventkom-leder.jpg" name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
+          </div>
+        </TabContent>
+        <TabContent id="tek" activeTab={activeTab}>
+          <h3>TekKom</h3>
+          <div className='ComiteInfo'>
+            <div>
+              <p className='Classy'>
+                Tekkom påstår at de jobber med denne nettsiden men hovedsaklig spiser de pizza. Dette er komiteen for de som liker å lære tekniske ting som å progge og drifte høyteknologisk infrastruktur.
+              </p>
+              <p>
+                TekKom har ansvaret for infrastrukturen til Login. Våre oppgaver innebærer utvikling og vedlikehold
+                av blant annet nettsidene og tjenestene foreningen avhenger av, i tillegg til andre sideprosjekter. Vi organiserer åpne
+                arbeidskvelder med pizza hver uke der vi jobber med TekKom-prosjekter. Her stiller vi ingen forventninger annet enn at man er nysgjerrig og
+                forøker å bidra med det man kan. Hvis du liker å kode, eller bare har et vilt prosjekt i tankene, så er dette komiteen for deg!
+              </p>
+            </div>
+            <LogChamp img="./img/portrett_tekkom-leder.jpg" name="Simon Edna" stilling="TekKom leder" discord="Sim#3909" />
+          </div>
+        </TabContent>
+        <TabContent id="pr" activeTab={activeTab}>
+          <h3>PR</h3>
+          <div className='ComiteInfo'>
+            <div>
+              <p className='Classy'>
+                PR er Logins gyldene ku og uten dem hadde ikke pengene strømmet inn og ingen av de andre komiteene kunne drevet med sprel!
+              </p>
+              <p>
+                PR er Logins ansikt utad og har ansvar for Logins offentlige mediakanaler. PR følger med på vårt ­ticketsystem og svarer bedriftskontakter. 
+                De jobber også for å gi studenter et innsyn og vei inn i næringslivet ved å arrangere bedpresser, workshops/fagpres og ­karrieredager, som også er Logins hovedinntektskilde!
+                Videre er PR med på å representere Login på events og bistår også med rekruttering av nye medlemmer.
+              </p>
+            </div>
+            <LogChamp img="./img/portrett_pr-leder.jpg" name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
+          </div>
+        </TabContent>
+        <TabContent id="ctf" activeTab={activeTab}>
+          <h3>CTFkom</h3>
+          <div className='ComiteInfo'>
+            <div>
+              <p className='Classy'>
+                CTFkom er Logins hacker-komite. Deres viktigste oppdrag er å hacke seg inn på INGA sin infrastruktur og lage sprel der!
+              </p>
+              <p>
+                CTFKom er komiteen som stiller i stand CTF arrangementer på campus. De arbeider for at alle IT-
+                studentene ved skolen skal kunne utvikle sine ferdigheter gjennom Capture the Flag konkurranser.
+                Annenhver uke samles de på skolen for å løse oppgaver sammen, og tilbyr en arena der studenter fra
+                ulike studieprogram, år og klasser kan treffes og ha det gøy sammen. Utover dette er vi aktive på
+                Discord, og sørger for at du alltid kan holde deg oppdatert på nye og interessante CTFer. I CTFkom er ingen spørsmål for dumme og
+                dersom du sitter fast i en CTF, eller bare lurer på noe er det bare å sende en melding i kanalen på 
+                <a href="https://discord.gg/login-ntnu\" target="_blank" rel="noreferrer"> Discord</a>.
+              </p>
+            </div>
+            <LogChamp img="./img/portrett_placeholder.svg" name="ikke valgt" stilling="CTF leder" discord="" />
+          </div>
+        </TabContent>
+      </div>
     </div>
   )
 }
 
-const TekKom = () => {
+const Committees = () => {
   return (
-    <div className="Committee">
-      <h4>TekKom</h4>
-      <p>TekKom har ansvaret for infrastrukturen til Login. Våre oppgaver innebærer utvikling og vedlikehold av blant annet nettsidene og tjenestene foreningen avhenger av, i tillegg til mindre hobbyprosjekter. TekKom er for studenter som liker det tekniske og ønsker å få erfaring fra et ekte produksjonsmiljø. Det er en flott arena for å møte likesinnede studenter, oppdage og bli kjent med ny teknologi, og for å benytte deg av kunnskapene du tilegner deg i og utenfor studiene.</p>
-      <p>Vi organiserer faste arbeidskvelder og noen arbeidshelger i løpet av semesteret der vi jobber med TekKom-prosjekter. Her vil vi som regel jobbe med videreutvikling av nettsiden, oppgradering av tjenester og servere og utvikling av interne prosjekter. Her stiller vi ingen forventninger annet enn at man er nysgjerrig og forøker å bidrea med det man kan. Du finner mer informasjon om de faste møtene våre på <Link to="/arrangementer">arrangementer</Link>-siden, eller på <a href="https://discord.gg/login-ntnu" target="_blank" rel="noreferrer">discord</a></p>
-      <p>Dersom du ønsker å bli en del av et sosialt miljø som knytter studenter fra flere studieprogram på tvers av år og studieretninger er dette komiteen for deg. Hos oss vil du få anledning til å gjøre tjenestetilbudet vårt enda bedre, og hjelpe foreningen å vokse.</p>
-    </div>
+    <>
+      <Tabs />
+    </>
   )
 }
 
-const EvntKom = () => {
-  return ( 
-    <div className="Committee">
-      <h4>EvntKom</h4>
-      <p>EvntKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret. Vi tilbyr sammenkomster der studenter kan møtes på tvers av studieprogram, år og klasser for å få et avbrekk fra studiehverdagen.</p>
-      <p>Vi er også den yngste komiteen i Login, og her vil du ha rom for å forme vårt tilbud. Målet til EvntKom er å bygge et sterkt fellesskap blant IT-studentene ved skolen, som du kan lene deg på når studiehverdagen tar på.</p>
-      <p>Dersom du er en kreativ sjel som liker å stelle i stand fest og moro er dette komiteen for deg. Dersom du har forslag til aktiviteter, eller ønsker å være med i komiteen er det bare å kontakte oss på <a href="https://discord.gg/login-ntnu" target="_blank" rel="noreferrer">discord</a>. Forslag og tilbakemeldinger tas imot med glede, og vi håper å høre fra deg.</p>
-    </div>
-  )
-}
-
-const CTFKom = () => {
-  return (
-    <div className="Committee">
-      <h4>CTFKom</h4>
-      <p>CTFKom er komiteen som stiller i stand CTF arrangementer på campus. Vi arbeider for at alle IT-studentene ved skolen skal kunne utvikle sine ferdigheter gjennom Capture the Flag konkurranser. Annenhver uke samles vi på skolen for å løse oppgaver sammen, og tilbyr en arena der studenter fra ulike studieprogram, år og klasser kan treffes og ha det gøy sammen.</p>
-      <p>CTFKom er komiteen som stiller i stand CTF arrangementer på campus. Vi arbeider for at alle IT-studentene ved skolen skal kunne utvikle sine ferdigheter gjennom Capture the Flag konkurranser. Annenhver uke samles vi på skolen for å løse oppgaver sammen, og tilbyr en arena der studenter fra ulike studieprogram, år og klasser kan treffes og ha det gøy sammen.</p>
-      <p>Utover dette er vi aktive på Discord, og sørger for at du alltid kan holde deg oppdatert på nye og interessante CTFer. For oss er det viktig å bygge oppunder et inklusivt og støttende miljø, der ingen spørsmål er for dumme. Dersom du sitter fast i en CTF, eller bare lurer på noe er det bare å sende en melding i kanalen på <a href="https://discord.gg/login-ntnu" target="_blank" rel="noreferrer">discord</a>.</p>
-    </div>
-  )
-}
-
-export {
-  PR,
-  TekKom,
-  EvntKom,
-  CTFKom
-}
+export default Committees

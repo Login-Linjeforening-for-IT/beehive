@@ -1,0 +1,35 @@
+.Active .TekkomLogo .caret {
+    animation: caret 1.2s ease;
+    fill: white;
+}
+
+.Active .TekkomLogo .block {
+    animation: block 1.2s ease;
+}
+
+@keyframes caret {
+    0% {
+        stroke: white;
+    }
+    55% {
+        animation-timing-function: steps(3);
+        d: path("m15 25 l0 50");
+    }
+    80% {
+        d: path("m85 25 l0 50");
+        stroke: white;
+    }
+    100% {
+        stroke: white;
+    }
+}
+
+@keyframes block {
+    55% {
+        animation-timing-function: steps(3);
+        d: path("m 16 25 l 70 0 l 0 50 l -70 0 z");
+    }
+    80% {
+        d: path("m 86 25 l 0 0 l 0 50 l 0 0 z");
+    }
+}

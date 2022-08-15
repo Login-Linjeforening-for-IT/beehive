@@ -1,0 +1,201 @@
+/* grid layout */
+
+.EventPage {
+    display: grid;
+    column-gap: 2rem;
+    align-items: start;
+}
+
+.EventDetails {
+    grid-area: a;
+}
+
+.EventBanner {
+    grid-area: b;
+}
+
+.EventDescription {
+    grid-area: c;
+}
+
+
+/* event details */
+
+.EventDetails {
+    background-color: #212121;
+}
+
+.EventCategory {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 600;
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
+    background-color: #101010;
+}
+
+.EventDetails .Date {
+    display: flex;
+    padding: 0;
+}
+
+.EventDetails>div {
+    display: inline-flex;
+    margin: auto;
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.EventDetails>div>div:first-child {
+    color: rgb(200, 200, 200);
+    width: min-content;
+    padding-right: 1rem;
+}
+
+.EventDetails>div>div:last-child {
+    color: white;
+    width: 100%;
+}
+
+.EventDetails .Day {
+    width: 14rem;
+    font-size: 1.9rem;
+    line-height: 3rem;
+}
+
+.EventDetails .SocialIcon {
+	padding-left: 1rem;
+    display: inline-block;
+}
+
+
+/* event banner */
+
+.EventBanner picture {
+    display: block;
+}
+
+.EventBanner picture img, .EventBanner .Default {
+    display: block;
+    aspect-ratio: 10 / 4;
+    object-fit: cover;
+    width: 100%;
+}
+
+
+/* event description */
+
+.EventDescription ul, .EventDescription ol {
+    margin: 1rem 2rem;
+}
+
+.EventDescription ul {
+    list-style: none;
+}
+
+.EventDescription ul li:before {
+    content: '\2022';
+    color: #fd8738;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.EventDescription a {
+    margin: 1rem;
+}
+
+.EventDescription a:hover {
+    text-decoration: underline;
+}
+
+
+/* map */
+
+.Map {
+	grid-area: d;
+    width: 100%;
+}
+
+.Map iframe {
+    height: 30rem;
+    max-width: 35rem;
+}
+
+
+
+@media only screen and (min-width: 0px) {
+    .EventPage {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "b"
+            "a"
+            "c"
+            "d";
+    }
+
+    .EventDetails {
+        width: 100%;
+    }
+
+    .EventCategory {
+        font-size: 1.5rem;
+    }
+
+    .EventDetails>div>div:last-child {
+        text-align: left;
+    }
+
+    .EventDetails .Day {
+        padding: 1rem;
+    }
+
+    .Map {
+        padding: 2rem;
+    }
+
+  }
+  
+  @media only screen and (min-width: 800px) {
+    .EventPage {
+        grid-template-columns: 20rem 1fr;
+        grid-template-areas: 
+            "a b"
+            "a c"
+            "a c"
+            "d c";
+        padding: 2rem 1rem;
+    }
+
+    .EventDetails {
+        width: 20rem;
+    }
+
+    .EventCategory {
+        font-size: 2rem;
+    }
+
+    .EventDetails>div {
+        width: 100%;
+    }
+
+    .EventDetails>div>div:last-child {
+        text-align: right;
+    }
+
+    .EventDetails .Day {
+        padding: 1.5rem;
+    }
+
+    .Map {
+        padding: 2rem 0 0 0;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+  
+  }
+  

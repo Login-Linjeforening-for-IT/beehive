@@ -10,13 +10,16 @@ import './App.css';
 import TopBar from './components/topbar/TopBar';
 import LandingPage from './components/landing/LandingPage';
 import Footer from './components/footer/Footer';
-import ContentContainer from './components/container/Container';
 import About from './components/about/About';
 import Events from './components/event/Events';
+import Companies from './components/business/CompaniesPage';
+import EventPage from './components/event/EventPage';
+import NotFoundPage from './components/notfoundpage/NotFoundPage';
 
 function App() {
   return (
     <div className="App">
+
       <BrowserRouter>
         <header>
           <TopBar/>
@@ -24,18 +27,21 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<ContentContainer component={LandingPage} />} />
-            <Route path="/about" element={<ContentContainer component={About} />} />
-            <Route path="/events" element={<ContentContainer component={Events} />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/about" element={<About /> } />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventPage />} />
+            <Route path="/companies" element={<Companies />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
-        
+
         <footer>
           <Footer />
         </footer>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;

@@ -60,12 +60,12 @@ func main() {
 	// configure the API
 	if *production {
 		APIRouter.Use(cors.New(cors.Config{
-			AllowOrigins:			[]string{"http://localhost:3000"},
+			AllowOrigins:     []string{"http://localhost:3000"},
 			AllowMethods:     []string{"GET", "PUT", "PATCH"},
 			AllowHeaders:     []string{"Origin"},
 			ExposeHeaders:    []string{"Content-Length"},
 			AllowCredentials: true,
-			MaxAge: 12 * time.Hour,
+			MaxAge:           12 * time.Hour,
 		}))
 	} else {
 		APIRouter.Use(cors.Default())
@@ -75,10 +75,28 @@ func main() {
 
 	// API routes
 	APIRouter.GET("/events", func(c *gin.Context) { handler.GetEvents(c, conn) })
-	APIRouter.POST("/events", func(c *gin.Context) { if VerifySession(c) != nil { c.AbortWithStatus(http.StatusUnauthorized) } else { handler.CreateEvent(c, conn) } })
+	APIRouter.POST("/events", func(c *gin.Context) {
+		if VerifySession(c) != nil {
+			c.AbortWithStatus(http.StatusUnauthorized)
+		} else {
+			handler.CreateEvent(c, conn)
+		}
+	})
 	APIRouter.GET("/events/:eventID", func(c *gin.Context) { handler.GetEvent(c, conn) })
-	APIRouter.PATCH("/events/:eventID", func(c *gin.Context) { if VerifySession(c) != nil { c.AbortWithStatus(http.StatusUnauthorized) } else {handler.UpdateEvent(c, conn) } })
-	APIRouter.DELETE("/events/:eventID", func(c *gin.Context) { if VerifySession(c) != nil { c.AbortWithStatus(http.StatusUnauthorized) } else { handler.DeleteEvent(c, conn) } })
+	APIRouter.PATCH("/events/:eventID", func(c *gin.Context) {
+		if VerifySession(c) != nil {
+			c.AbortWithStatus(http.StatusUnauthorized)
+		} else {
+			handler.UpdateEvent(c, conn)
+		}
+	})
+	APIRouter.DELETE("/events/:eventID", func(c *gin.Context) {
+		if VerifySession(c) != nil {
+			c.AbortWithStatus(http.StatusUnauthorized)
+		} else {
+			handler.DeleteEvent(c, conn)
+		}
+	})
 	APIRouter.GET("/categories", func(c *gin.Context) { handler.GetCategories(c, conn) })
 	APIRouter.POST("/login", func(c *gin.Context) { handler.Login(c) })
 
@@ -93,7 +111,7 @@ func VerifySession(c *gin.Context) error {
 	// Fetch the expiry times
 	exp := session.Get("exp")
 	max := session.Get("max")
-	
+
 	if exp == nil {
 		return errors.New("No active session")
 	}
@@ -110,7 +128,6 @@ func VerifySession(c *gin.Context) error {
 
 	fmt.Printf("%T\n%T\n", expTime, maxTime)
 
-
 	// Verify that the session is still valid
 	t := time.Now()
 	if expTime.Before(t) || maxTime.Before(t) {
@@ -118,7 +135,7 @@ func VerifySession(c *gin.Context) error {
 	}
 
 	// Update the expiry of the session
-	session.Set("exp", t.Add(time.Minute * 15).Format(time.RFC3339))
+	session.Set("exp", t.Add(time.Minute*15).Format(time.RFC3339))
 	session.Save()
 
 	return nil

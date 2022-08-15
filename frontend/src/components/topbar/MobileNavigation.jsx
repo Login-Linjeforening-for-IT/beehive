@@ -1,13 +1,23 @@
-import { Link } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const MobileNavigation = (props) => {
-    return (
-        <nav className={(props.hidden ? 'hidden ' : '') + 'MobileNavigation'}>
-            <Link to="/about">Om oss</Link>
-            <Link to="/events">Arrangementer</Link>
-            <Link to="/page/companies">For Bedrifter</Link>
-        </nav>
-    );
+  const close = () => {
+    props.setIsOpen(false);
+  }
+
+  return (
+    <nav className={(props.open ? 'Open ' : '') + 'MobileNavigation'}>
+      <NavLink onClick={close} to="/about">
+        <li>OM OSS</li>
+      </NavLink>
+      <NavLink onClick={close} to="events">
+        <li>ARRANGEMENTER</li>
+      </NavLink>
+      <NavLink onClick={close} to="companies">
+        <li>FOR BEDRIFTER</li>
+      </NavLink>
+    </nav>
+  );
 }
 
 export default MobileNavigation;

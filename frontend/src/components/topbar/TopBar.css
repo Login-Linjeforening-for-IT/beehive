@@ -1,117 +1,173 @@
-/* For mobile phones: */
-@media only screen and (min-width: 0px) {
-  .TopBar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.TopBar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 75rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  height: 5rem;
+  transition: 0.5s;
+}
 
-    height: 3em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 15%;
-    padding-right: 15%;
-
-  }
-
-  .HamburgerMenu {
-    position: fixed;
-    top: 0.5em;
-    left: 1em;
-
-    height: 4em;
-
-    background-color: transparent;
-    border: none;
-    padding: 0;
-  }
-  
-  .Logo {
-    height: 100%;
-  }
-
-  .Logo img {
-    height: 100%;
-  }
-
-  .Navigation {
-    display: none;
-  }
-
-  .MobileNavigation {
-    background-color: #1b1b1b;
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 4em;
-    left: 0;
-    z-index: 999;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  a {
-    color: white;
-    font-size: 1.5em;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #f0802a;
-  }
+.Logo img {
+  display: block;
 }
 
 
-/* For desktop: */
-@media only screen and (min-width: 1200px) {
-  .TopBar {
-    height: 10vh;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .HamburgerMenu {
-    display: none;
-  }
+/* navigation */
 
-  .Logo {
-    width: 10vw;
+.Navigation li {
+  list-style: none;
+}
+
+.Navigation li {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 1rem;
+  letter-spacing: .1rem;
+}
+
+/* bottom right corner decoration to display on hover */
+.Navigation li:after {
+  content: ' ';
+  position: absolute;
+  width: .7rem;
+  height: .7rem;
+  border: .2rem none #f0802a;
+  margin-top: .8rem;
+  margin-right: .6rem;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.Navigation li:hover::after {
+  border-style: none solid solid none;
+}
+
+
+/* mobile navigation */
+.MobileNavigation {
+  position: fixed;
+  top: 5rem;
+}
+
+.MobileNavigation li {
+  list-style: none;  
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-align: right;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin-right: 3rem;
+  transition: opacity 1.5s, height 2s, padding .5s;
+}
+
+
+/* higlight active navlink and prevent hover */
+
+.Navigation .active li:hover::after {
+  border-style: none;
+}
+
+.Navigation .active li, .MobileNavigation .active li {
+  color: #f0802a;
+}
+
+
+/* For mobile phones: */
+@media only screen and (min-width: 0px) {
+
+  .TopBar {
+    flex-wrap: wrap;
   }
 
   .Logo img {
-    width: 100%;
-  }
-  
-
-  .Separator {
-    padding-left: 1.5em;
+    height: 3rem;
   }
 
   .Navigation {
-    display: flex;
-    justify-content: space-between;
-    width: 45vw;
+    display: none;
+  }
+
+  .TopBar.Open {
+    height: 100vh;
+    background-color: rgba(20, 20, 20, .8);
+  }
+
+  .Open.MobileNavigation li {
+    opacity: 1;
+    width: auto;
+    height: auto;
+    padding-top: 2rem;
+  }
+
+  .MobileNavigation {
+    width: 100vw;
+  }
+
+  .HamburgerIcon {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .HamburgerIcon div {
+    background: white;
+    height: .2rem;
+    position: absolute;
+    width: 2rem;
+    transition: all 0.4s cubic-bezier(0, 0, 0, 1) 0s;
+    left: 6px;
+  }
+  
+  .HamburgerIcon div:first-child {
+    top: 1rem;
+  }
+  
+  .HamburgerIcon div:last-child {
+    top: 1.8rem;
+  }
+  
+  .HamburgerIcon.Open div:first-child {
+    transform: rotate(-45deg) translate(-4.59px, 4.59px);
+  }
+  
+  .HamburgerIcon.Open div:last-child {
+    transform: rotate(45deg) translate(-4.59px, -4.59px)
+  }  
+}
+
+/* For desktop: */
+@media only screen and (min-width: 800px) {
+  
+  .TopBar.Open {
+    height: 5rem;
+  }
+
+  .Logo img {
+    height: 3rem;
+  }
+
+  .HamburgerIcon {
+    display: none;
   }
 
   .MobileNavigation {
     display: none;
   }
 
-  a {
-    color: white;
-    font-size: 1.5em;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #f0802a;
+  .Navigation {
+    display: flex;
+    justify-content: space-between;
+    max-width: 31rem;
+    width: 100%;
   }
 }
