@@ -1,0 +1,64 @@
+
+.StudyPrograms {
+    background-color: #212121;
+}
+
+.StudyPrograms>li {
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding: 1rem 1rem 1rem 3.5rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.StudyPrograms>li:hover {
+    background-color: #101010;
+}
+
+.StudyPrograms>li>i {
+    font-size: 2rem;
+    color: #fd8738;
+    position: absolute;
+    margin: 0 0 0 -2rem;
+    transition: .2s;
+}
+
+.StudyPrograms>.active>i {
+    transform: rotate(90deg);
+}
+
+.StudyPrograms>ul {
+    padding-left: 3.5rem;
+    padding-bottom: .5rem;
+}
+
+.StudyPrograms>ul>li {
+    font-size: 1rem;
+    list-style: none;
+    padding: .5rem 0;
+}
+
+.StudyPrograms>ul>li::before {
+    content: '\2022';
+    color: #fd8738;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+@media only screen and (min-width: 0px) { 
+    .StudyPrograms {
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .StudyPrograms {
+        margin: 0 1rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}

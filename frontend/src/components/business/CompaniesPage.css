@@ -1,0 +1,40 @@
+.CompaniesPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Card {
+    max-width: 35rem;
+}
+
+@media only screen and (min-width: 0px) {
+    .CompaniesPage {
+        max-width: 35rem;
+        margin: auto;
+    }
+
+    .CompaniesPage div:first-child {
+        max-width: 35rem;
+    }
+    
+}
+
+@media only screen and (min-width: 800px) {
+    
+}
+
+@media only screen and (min-width: 1200px) {
+    .CompaniesPage {
+        max-width: 75rem;
+    }
+
+    .CompaniesPage>div:first-child {
+        max-width: 50rem;
+        padding-right: 15rem;
+    } 
+    
+    .CompaniesPage>div:last-child {
+        grid-column: 1 / 2;
+    } 
+}

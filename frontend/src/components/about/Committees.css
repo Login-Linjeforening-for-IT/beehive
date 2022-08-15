@@ -1,3 +1,150 @@
-.Committee {
-  margin-top: 2em;
+.Tabs {
+    max-width: 73rem;
+    margin: auto;
+}
+
+.Tabs ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Tabs ul li {
+    list-style: none;
+}
+
+.Tabs ul li:hover {
+    cursor: pointer;
+}
+
+.Tabs ul li svg {
+    width: 100%;
+    display: block;
+    margin: auto;
+    max-width: 6rem;
+}
+
+.FillbgColor {
+    fill: #212121;
+}
+
+.FillWhite {
+    fill: #505050; /* grey when not active */
+    transition: .2s;
+}
+
+.LogoCorner {
+    fill: none; /* change this if you want to show corners */
+}
+
+.StrokeWhite {
+    stroke: #505050; /* grey when not active */
+    transition: .2s;
+}
+
+.Tabs ul li {
+    background-color: #212121;
+    transition: .2s;
+}
+
+.Tabs ul li:hover .LogoCorner, .Active .LogoCorner {
+    fill: none; /* change this if you want to show corners on hover and active */
+}
+
+.Tabs ul li:hover .StrokeWhite, .Active .StrokeWhite {
+    stroke: white;
+}
+
+.Tabs ul li:hover .FillWhite, .Active .FillWhite {
+    fill: white;
+}
+
+.Active {
+    background-color: #101010 !important; /* background color of tab content to higlight tap */
+}
+
+.Active .FillbgColor {
+    fill: #101010;  /* background color of tab content to higlight tab */
+}
+
+.TabContent {
+    background-color: #101010;
+}
+
+.TabContent h3 {
+    margin-bottom: 0;
+}
+
+.ComiteInfo {
+    display: grid;
+    grid-gap: 3rem;
+    align-items: start;
+}
+
+.ComiteInfo p {
+    grid-column: 1 / -2;
+    max-width: 40rem;
+}
+
+.BoardMembers {
+    grid-template-columns: repeat(auto-fit, 15rem);
+    display: grid;
+    grid-gap: 2rem;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+
+
+@media only screen and (min-width: 0px) {
+    .Tabs ul {
+        flex-wrap: wrap;
+    }
+    
+    .Tabs ul li {
+        border-radius: .5rem;
+        margin: .5rem;
+    }
+
+    .TabContent {
+        padding: 1rem;
+        padding-bottom: 3rem;
+    }
+
+    .ComiteInfo {
+        grid-template-columns: auto;
+    }
+}
+
+@media only screen and (min-width: 310px) { 
+    .Tabs ul {
+        flex-wrap: nowrap;
+    }
+
+    .Tabs ul li {
+        width: 100%;
+        border-radius: 1rem 1rem 0 0;
+        transform: translateY(10%);
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .ComiteInfo {
+        grid-template-columns: auto 15rem;
+    }
+
+    .Tabs ul li {
+        border-radius: 1.5rem 1.5rem 0 0;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    
+}
+
+@media only screen and (min-width: 1200px) {
+    .TabContent {
+        padding: 1.5rem 2rem 2rem 2rem;
+    }
 }

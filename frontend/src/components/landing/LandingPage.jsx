@@ -1,15 +1,80 @@
 import './LandingPage.css';
+import {useEffect} from "react";
+/*import Background from './components/background/Background'  - dont know what this was meant for, but got errors */ 
+import Container from '../container/Container'
+/*import SmallEvent from './SmallEvent'*/
+import {Link} from 'react-router-dom';
 
-const LandingPage = () => {
+const WelcomeBanner = () => {
   return (
-    <div className="LandingPage">
-      <h3>Velkommen til Login!</h3>
-      <hr />
-      <div className="LandingContent">
-        <p>Login er linjeforeningen for IT ved NTNU i Gjøvik. Foreningen drives av studenter og målet med arbeidet vårt er å forbedre studiemiljøet på universitetet. I tillegg til dette fungerer vi som bindeleddet mellom studier og arbeidsliv, så vi sørger for bedriftspresentasjoner og karrieredager på campus.</p>
-        <p>Vi er stadig på utkikk etter flere bidragsytere, og du kan enkelt ta kontakt med oss ett eller annet sted for å lære mer.</p>
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+    <div className="Welcome">
+      <picture>
+        <source srcSet={process.env.PUBLIC_URL + '/img/welcome_banner.svg'} />
+        <img alt="Login har fått ny hjemmeside!" />
+      </picture>
+    </div>
+  );
+}
+
+const ComingEvents = () => {
+  return(
+    <div>
+      {/*<h3>Arrangementer</h3>
+      <div className="events">
+        <SmallEvent date={"21. jun"} name={"Kodekveld"}/>
+        <SmallEvent date={"24. jun"} name={"Tacokveld"}/>
+        <SmallEvent date={"25. jun"} name={"Filmkveld"}/>
+        <SmallEvent date={"28. jun"} name={"Badekveld"}/>
+        <SmallEvent date={"30. aug"} name={"Tirsdagskveld"}/>
+        <div className={"more-events"}>
+          <Link to={"/events"}>Flere arrangementer</Link>
+        </div>
+      </div>*/}
+    </div>
+  )
+}
+
+const SmallInfo = () => {
+  return (
+    <>
+      <div className='LandingPageInfo'>
+        <div>
+          <h2>Hvem er vi?</h2>
+          <p>Login er linjeforeningen for IT ved NTNU i Gjøvik. Foreningen drives av studenter og målet med arbeidet vårt er å forbedre studiemiljøet på universitetet.</p>
+        </div>
+        <picture>
+					<source srcSet={process.env.PUBLIC_URL + '/img/styret.jpg'} />
+          <img alt="Login styret" />
+        </picture>
+        <Link to="/about">Les mer</Link>
       </div>
+
+      <div className='LandingPageInfo'>
+        <div>
+          <h2>For berifter</h2>
+          <p>Login fungerer som bindeleddet mellom studier og arbeidsliv. Sjekk ut hva vi kan tilby bedrifter.</p>
+        </div>
+        <picture>
+          <source srcSet={process.env.PUBLIC_URL + '/img/cyberdagen_preben.jpg'} />
+          <img alt="Cyberdagen" />
+        </picture>
+        <Link to="/companies">Les mer</Link>
+      </div>
+    </>
+  );
+}
+
+  
+const LandingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [])
+
+  return (
+    <div className='LandingPage'>
+      <WelcomeBanner/>
+      <ComingEvents/>
+      <SmallInfo/>
     </div>
   );
 }
