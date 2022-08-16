@@ -16,7 +16,7 @@ const getDefaultBanner = (category, color) => {
 			return <DefaultTekkomBanner color={color} />;
 		case 'CTF':
 			return <DefaultCtfBanner color={color} />;
-		case 'BEDPRES':
+		case 'BEDPRESS':
 			return <DefaultBedpressBanner color={color} />;
 	  default:
 		  return <DefaultEventBanner color={color} />;
@@ -57,7 +57,7 @@ const EventListItem = (props) => {
       <div className='EventImg'>
         {showImage ? (
           <picture>
-            <img alt={props.evt.eventname} src={props.evt.image} onError={hideImg} />
+            <img alt={props.evt.eventname} src={process.env.PUBLIC_URL + '/img/events/' +  props.evt.image} onError={hideImg} />
           </picture>
         ) : (
           getDefaultBanner(props.category.Name, color)
