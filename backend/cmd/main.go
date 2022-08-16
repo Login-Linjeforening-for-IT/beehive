@@ -34,7 +34,7 @@ func main() {
 	go WWWRouter.Run("0.0.0.0:8080")
 
 	// get db connection details from environment
-	password := os.Getenv("DB_PASSWORD")
+	password := os.Getenv("BH_DB_PASSWORD")
 	dbHost := os.Getenv("BH_DB_HOST")
 	dbPort := os.Getenv("BH_DB_PORT")
 	dbUser := os.Getenv("BH_DB_USER")

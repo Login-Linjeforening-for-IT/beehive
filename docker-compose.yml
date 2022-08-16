@@ -23,8 +23,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: beehive
-      POSTGRES_DB: events
+      - POSTGRES_PASSWORD=beehive
+      - POSTGRES_DB=events
     profiles:
       - dev
       - dev-backend
@@ -43,11 +43,11 @@ services:
     ports:
       - "127.0.0.1:4000:4000"
     environment:
-      DB_PASSWORD: "beehive"
-      BH_DB_HOST: "development-db"
-      BH_DB_PORT: "5432"
-      BH_DB_USER: "postgres"
-      BH_DB_NAME: "events"
+      - BH_DB_PASSWORD=beehive
+      - BH_DB_HOST=development-db
+      - BH_DB_PORT=5432
+      - BH_DB_USER=postgres
+      - BH_DB_NAME=events
     profiles:
       - dev
       - dev-backend
@@ -59,8 +59,11 @@ services:
     build:
       context: ./
       dockerfile: ./docker/prod/Dockerfile
+    env_file:
+      - prod.env
     ports:
       - "8080:8080"
+      - "4000:4000"
     container_name: beehive-prod
     profiles:
       - prod
