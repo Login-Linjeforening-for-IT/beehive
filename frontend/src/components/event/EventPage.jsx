@@ -82,9 +82,10 @@ const EventPage = () => {
 		setEventIsLoading(false);
 	}, []);
 
+	// Correct the time so it makes sense in production... this should be fixed in a more proper manner at some point
 	if (eventData && !dateFix) {
-		eventData.startt.setHours(eventData.startt.getHours() - 1);
-		eventData.endt.setHours(eventData.endt.getHours() - 1);
+		eventData.startt.setHours(eventData.startt.getHours() - 2);
+		eventData.endt.setHours(eventData.endt.getHours() - 2);
 		setDateFix(true);
 	}
 
@@ -129,6 +130,7 @@ const EventPage = () => {
 							}
 						</div>
 					</div>
+					{ eventData.roomno || eventData.street &&
 					<div>
 						<div>Lokasjon:</div>
 						<div>
@@ -138,6 +140,7 @@ const EventPage = () => {
 							}
 						</div>
 					</div>
+					}
 					<div>
 						{(eventData.discorlink || eventData.fblink) &&
 							<div>Lenker: </div>
@@ -166,7 +169,7 @@ const EventPage = () => {
 					{/*TODO: Add proper response in api for no image.*/}
 					{/*eventData.image != 'none' &&
 						<picture>
-							<source srcSet={eventData.image} />
+							<source srcSet={eventData.image} /
 							<img alt={eventData.eventname} />
 						</picture>
 					}
