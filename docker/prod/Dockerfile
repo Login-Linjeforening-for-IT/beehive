@@ -24,7 +24,7 @@ RUN npm run build
 #######################################
 
 # production environment
-FROM golang:1.16-alpine
+FROM golang:1.18-alpine
 
 # set the working directory
 WORKDIR /app
@@ -45,8 +45,9 @@ COPY --from=build /app/build/ ./web/build/
 # build the go application
 RUN go build -o beehive ./cmd/main.go
 
-# expose the port
+# expose the ports
 EXPOSE 8080
+EXPOSE 4000
 
 # run the server
 CMD ["./beehive"]
