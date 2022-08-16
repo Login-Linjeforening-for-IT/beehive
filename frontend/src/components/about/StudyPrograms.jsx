@@ -14,7 +14,7 @@ const StudyPrograms = () => {
 
   return(
     <ul className='StudyPrograms'>
-      <li onClick={() => handleClick('bachleor')} className={activeTab === 'bachleor' ? 'active' : ''}><i className='fa fa-angle-right'/>Bachleor studier</li>
+      <li onClick={() => handleClick('bachleor')} className={activeTab === 'bachleor' ? 'active' : ''}><i className='fa fa-angle-right'/>Bachleor</li>
       {activeTab === "bachleor" &&
         <ul>
           <li>Dataingeniør <a href="https://www.ntnu.no/studier/bidata" target="_blank"><i className="fa fa-external-link"></i></a></li>
@@ -23,7 +23,7 @@ const StudyPrograms = () => {
         </ul>
       }
 
-      <li onClick={() => handleClick('master')} className={activeTab === 'master' ? 'active' : ''}><i className='fa fa-angle-right'/>Master studier</li>
+      <li onClick={() => handleClick('master')} className={activeTab === 'master' ? 'active' : ''}><i className='fa fa-angle-right'/>Master</li>
       {activeTab === "master" &&
         <ul>
           <li>Information security <a href="https://www.ntnu.no/studier/mis" target="_blank"><i className="fa fa-external-link"></i></a></li>

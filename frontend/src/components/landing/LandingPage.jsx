@@ -51,8 +51,8 @@ const SmallInfo = () => {
 
       <div className='LandingPageInfo'>
         <div>
-          <h2>For berifter</h2>
-          <p>Login fungerer som bindeleddet mellom studier og arbeidsliv. Sjekk ut hva vi kan tilby bedrifter.</p>
+          <h2>For bedrifter</h2>
+          <p>Login fungerer som bindeleddet mellom studier og arbeidsliv. Sjekk ut hva vi kan tilby din bedrift.</p>
         </div>
         <picture>
           <source srcSet={process.env.PUBLIC_URL + '/img/cyberdagen_preben.jpg'} />

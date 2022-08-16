@@ -54,7 +54,7 @@ const getDefaultBanner = (category, color) => {
 			return <DefaultTekkomBanner color={color} />;
 		case 'CTF':
 			return <DefaultCtfBanner color={color} />;
-		case 'BEDPRES':
+		case 'BEDPRESS':
 			return <DefaultBedpressBanner color={color} />;
 	  default:
 		return <DefaultEventBanner color={color} />;
@@ -179,7 +179,7 @@ const EventPage = () => {
 					<div>
 						{showImage ? (
 							<picture>
-								<img alt={eventData.eventname} src={eventData.image} onError={hideImg} />
+								<img alt={eventData.eventname} src={process.env.PUBLIC_URL + '/img/events/' + eventData.image} onError={hideImg} />
 							</picture>
 						) : (
 							getDefaultBanner(eventData.category, "#" + category.find((c) => c.Name === eventData.category).Color)
