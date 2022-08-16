@@ -39,6 +39,7 @@ func main() {
 	dbPort := os.Getenv("BH_DB_PORT")
 	dbUser := os.Getenv("BH_DB_USER")
 	dbName := os.Getenv("BH_DB_NAME")
+	dbSSL := os.Getenv("BH_DB_SSL")
 
 	// connect to database
 	// urlExample := "postgres://username:password@localhost:5432/database_name"
@@ -47,6 +48,9 @@ func main() {
 		dbURL = *databaseString
 	} else {
 		dbURL = fmt.Sprintf("postgres://%s:%s@%s:%s/%s", dbUser, password, dbHost, dbPort, dbName)
+	}
+	if dbSSL == "true" {
+		dbURL = dbURL + "?sslmode=require"
 	}
 	conn, err := pgxpool.Connect(context.Background(), dbURL)
 	if err != nil {
