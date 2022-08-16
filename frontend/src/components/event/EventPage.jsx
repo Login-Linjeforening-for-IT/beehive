@@ -73,10 +73,10 @@ const EventPage = () => {
 
 	useEffect(() => {
 		var category = ""
-		fetch("http://localhost:4000/events/" + id)
+		fetch("http://api.login.no/events/" + id)
 			.then((response) => {setStatusCode(response.status); return response.json()})
 			.then((data) => {data.startt = new Date(data.startt); data.endt = new Date(data.endt); category = data.category; setEventData(data)});
-		fetch("http://localhost:4000/categories")
+		fetch("http://api.login.no/categories")
 			.then((response) => response.json())
 			.then((data) => setCategory(data))
 		setEventIsLoading(false);
