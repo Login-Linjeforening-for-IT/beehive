@@ -10,10 +10,10 @@ const Events = () => {
 
 
 	useEffect(() => {
-		fetch("http://localhost:4000/events")
+		fetch("http://api.login.no/events")
 			.then((response) => response.json())
 			.then((data) => {setEventData(data)});
-		fetch("http://localhost:4000/categories")
+		fetch("http://api.login.no/categories")
 			.then((response) => response.json())
 			.then((data) => {setCategoryData(data)});
 		setIsLoading(false);
