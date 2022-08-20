@@ -9,6 +9,7 @@ import DefaultCtfBanner from './DefaultCtfBanner';
 import DefaultTekkomBanner from './DefaultTekkomBanner';
 import DefaultBedpressBanner from './DefaultBedpressBanner';
 import DefaultSocialBanner from './DefaultSocialBanner';
+import { config } from '../../Constants';
 
 import './EventPage.css'
 
@@ -26,11 +27,11 @@ const getDiffDays = (date) => {
 const getDayStr = (date)  => {
 	const diffDays = getDiffDays(date);
 
-	if (diffDays == 0) {
+	if (diffDays === 0) {
 		return expresions[0];
-	} else if (diffDays == 1) {
+	} else if (diffDays === 1) {
 		return expresions[1];
-	} else if (diffDays == -1) {
+	} else if (diffDays === -1) {
 		return expresions[2];
 	} else if (diffDays <= -1) {
 		return Math.abs(diffDays) + expresions[3];
@@ -73,10 +74,10 @@ const EventPage = () => {
 
 	useEffect(() => {
 		var category = ""
-		fetch("https://api.login.no/events/" + id)
+		fetch(config.url.API_URL + "/events/" + id)
 			.then((response) => {setStatusCode(response.status); return response.json()})
 			.then((data) => {data.startt = new Date(data.startt); data.endt = new Date(data.endt); category = data.category; setEventData(data)});
-		fetch("https://api.login.no/categories")
+		fetch(config.url.API_URL + "/categories")
 			.then((response) => response.json())
 			.then((data) => setCategory(data))
 		setEventIsLoading(false);
@@ -115,7 +116,7 @@ const EventPage = () => {
 					<div>
 						<div>Slutter: </div>
 						<div>
-							{(eventData.endt.getDate() == eventData.startt.getDate())
+							{(eventData.endt.getDate() === eventData.startt.getDate())
 								? eventData.endt.toString().slice(16,21)
 								: eventData.endt.toString().slice(4,11).trim() + ", " + eventData.endt.toString().slice(16,21)
 							}
@@ -130,7 +131,7 @@ const EventPage = () => {
 							}
 						</div>
 					</div>
-					{ eventData.roomno || eventData.street &&
+					{ (eventData.roomno || eventData.street) &&
 					<div>
 						<div>Lokasjon:</div>
 						<div>
@@ -173,7 +174,7 @@ const EventPage = () => {
 							<img alt={eventData.eventname} />
 						</picture>
 					}
-					{eventData.image == 'none' &&
+					{eventData.image === 'none' &&
 						<DefaultEventBanner color={"#" + category.find((c) => c.Name === eventData.category).Color}/>
 					*/}
 					<div>
@@ -195,8 +196,8 @@ const EventPage = () => {
 				</div>
 			</div>
 		}
-		{statusCode == 204 && <Navigate to="/404" />}
-		{statusCode == 500 && <Navigate to="/404" />}
+		{statusCode === 204 && <Navigate to="/404" />}
+		{statusCode === 500 && <Navigate to="/404" />}
 		</>
 	)
 }

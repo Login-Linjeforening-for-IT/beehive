@@ -44,13 +44,13 @@ const EventListItem = (props) => {
           <div>
             <i className="fa fa-clock-o"></i> {props.evt.startt.slice(11,16)}
           </div>
-					{ props.evt.roomno || props.evt.street &&
+					{ (props.evt.roomno || props.evt.street) &&
           <div className="Divider" style={{color: color}}> | </div>
 					}
           <div>
-						{ props.evt.roomno || props.evt.street && <i className="fa fa-map-marker"></i>}
-							{props.evt.roomno && <>{props.evt.roomno}, {props.evt.campus}</>} 
-							{props.evt.street && <>{props.evt.street}, {props.evt.postcode} {props.evt.city}</>}
+						{ (props.evt.roomno || props.evt.street) && <i className="fa fa-map-marker"></i>}
+							{ props.evt.roomno && <>{props.evt.roomno}, {props.evt.campus}</>} 
+							{ props.evt.street && <>{props.evt.street}, {props.evt.postcode} {props.evt.city}</>}
           </div>
         </div>
       </div>
