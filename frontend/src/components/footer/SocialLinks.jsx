@@ -9,7 +9,7 @@ const SocialLinks = () => {
           <img alt="Linkedin's logo" />
         </picture>
       </a>
-      <a className="SocialIcon" href="https://facebook.com/LogNTNU" target="_blank" rel="noreferrer">
+      <a title="hei" className="SocialIcon" href="https://facebook.com/LogNTNU" target="_blank" rel="noreferrer">
         <picture>
           <source srcSet={process.env.PUBLIC_URL + '/icons/Facebook_logo.svg'} />
           <img alt="Facebook's logo" />

@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.SocialLinks a {
+  height: 1.5rem;
+}
+
 .SocialIcon img {
   display: block;
   transition: .2s;

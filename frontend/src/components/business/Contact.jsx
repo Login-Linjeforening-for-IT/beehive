@@ -16,10 +16,12 @@ const Contact = () => {
           <h4>Epost:</h4>
           <p>kontakt@logntnu.no</p>
         </div>
-        <MazeMap mazeref="https://use.mazemap.com/#v=1&campusid=55&sharepoitype=poi&sharepoi=229153" />
+        <div className='Map'>
+          <MazeMap mazeref="https://use.mazemap.com/#v=1&campusid=55&sharepoitype=poi&sharepoi=229153" />
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Contact;
