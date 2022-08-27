@@ -103,10 +103,6 @@
     margin-left: -1em;
 }
 
-.EventDescription a {
-    margin: 1rem;
-}
-
 .EventDescription a:hover {
     text-decoration: underline;
 }
@@ -114,18 +110,12 @@
 
 /* map */
 
-.Map {
+.EventPage .Map {
 	grid-area: d;
-    width: 100%;
-}
-
-.Map iframe {
-    height: 30rem;
-    max-width: 35rem;
 }
 
 
-
+  
 @media only screen and (min-width: 0px) {
     .EventPage {
         display: grid;
@@ -153,20 +143,19 @@
         padding: 1rem;
     }
 
-    .Map {
-        padding: 2rem;
+    .EventPage .Map {
+        padding: 0 2rem;
     }
-
-  }
+}
   
-  @media only screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
     .EventPage {
         grid-template-columns: 20rem 1fr;
         grid-template-areas: 
             "a b"
             "a c"
-            "a c"
-            "d c";
+            "d c"
+            ". c";
         padding: 2rem 1rem;
     }
 
@@ -190,12 +179,12 @@
         padding: 1.5rem;
     }
 
-    .Map {
-        padding: 2rem 0 0 0;
+    .EventPage .Map {
+        padding: 0;
     }
-  }
+}
   
-  @media only screen and (min-width: 1200px) {
-  
-  }
+@media only screen and (min-width: 1200px) {
+
+}
   

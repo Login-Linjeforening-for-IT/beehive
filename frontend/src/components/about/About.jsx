@@ -5,10 +5,6 @@ import {useEffect} from 'react';
 import './About.css';
 
 const About = () => {
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, []);
-
   return (
     <div className="AboutContent">
       <h1>Hvem er vi?</h1>
@@ -30,7 +26,7 @@ const About = () => {
           <p className='Classy'>Foreningen drives av frivillige studenter som arbeider for at du skal få mest mulig ut av studiene dine ved NTNU.</p>
           <p>
             Vi arrangerer regelmessig sosiale arrangementer og bedriftspresentasjoner. Vi holder kontakt med aktuelle
-            bedrifter og inviterer til blant annet karrieredag én gang i semesteret slik at du som student skal bli kjent
+            bedrifter og inviterer til blant annet cyberdagene én gang i semesteret slik at du som student skal bli kjent
             med mulighetene utdanningen din gir deg.
           </p>
           <p>

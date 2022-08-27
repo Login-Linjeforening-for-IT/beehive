@@ -30,12 +30,12 @@ const Tabs = () => {
         <TabContent id="styret" activeTab={activeTab}>
           <h3>Styret</h3>
           <p className='StyretInfo'>
-            Øverste leddet i foreningen er styret. Under årsmøtet blir leder, nestleder, sekretær og økonomi-ansvarlig stemt frem, og disse sitter sammen med lederene fra de ulike komiteene i styret. Sammen er disse ansvarlige for å drive foreningen, styre økonomien og sørge for at alle utfører de oppgavene de skal.
+            Øverste leddet i foreningen er styret. Under årsmøtet blir leder, nestleder, sekretær og økonomiansvarlig stemt frem, og disse sitter sammen med lederene fra de ulike komiteene i styret. Sammen er disse ansvarlige for å drive foreningen, styre økonomien og sørge for at alle utfører de oppgavene de skal.
           </p>
           <div className='BoardMembers'>
             <LogChamp img="./img/portrett_leder.jpg" name="Anders Eiken" stilling="Leder" discord="Eiken#6059" />
             <LogChamp img="./img/portrett_nestleder.jpg" name="Mads Halland" stilling="Nestleder" discord="¬.¬#6719" />
-            <LogChamp img="./img/portrett_økonomi.jpg" name="Sebastian Hestsveen" stilling="Økonomi-ansvarlig" discord="stubbe#8694" />
+            <LogChamp img="./img/portrett_økonomi.jpg" name="Sebastian Hestsveen" stilling="Økonomiansvarlig" discord="stubbe#8694" />
             <LogChamp img="./img/portrett_sekretær.jpg" name="Celina Brynildsen" stilling="Sekretær" discord="Celina#6955" />
             <LogChamp img="./img/portrett_eventkom-leder.jpg" name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
             <LogChamp img="./img/portrett_pr-leder.jpg" name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
@@ -48,10 +48,11 @@ const Tabs = () => {
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
-                EventKom er Logins party-komite hvor målet er å bruke opp alle inntektene PR sørger for.
+                EventKom er Logins party-komité hvor målet er å bruke opp alle inntektene PR sørger for.
               </p>
+              {/*TODO: Skal avslutningen skrives om? */}
               <p>
-                EvntKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret.
+                EventKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret.
                 Vi tilbyr sammenkomster der studenter kan møtes på tvers av studieprogram, år og klasser for å få
                 et avbrekk fra studiehverdagen. Målet til EventKom er å bygge et sterkt fellesskap blant IT-studentene ved skolen,
                 som du kan lene deg på når studiehverdagen tar på. Dersom du har forslag til aktiviteter, eller ønsker å
@@ -100,11 +101,12 @@ const Tabs = () => {
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
-                CTFkom er Logins hacker-komite. Deres viktigste oppdrag er å hacke seg inn på INGA sin infrastruktur og lage sprel der!
+                {/*TODO: Sjekk om det kommer alfa eller bare en a, også samme problem som Eventkom*/}
+                CTFkom er Logins hacker-komité. Deres viktigste oppdrag er å hacke seg inn på ING:α sin infrastruktur og lage sprel der!
               </p>
               <p>
                 CTFKom er komiteen som stiller i stand CTF arrangementer på campus. De arbeider for at alle IT-
-                studentene ved skolen skal kunne utvikle sine ferdigheter gjennom Capture the Flag konkurranser.
+                studentene ved skolen skal kunne utvikle sine ferdigheter gjennom Capture The Flag konkurranser.
                 Annenhver uke samles de på skolen for å løse oppgaver sammen, og tilbyr en arena der studenter fra
                 ulike studieprogram, år og klasser kan treffes og ha det gøy sammen. Utover dette er vi aktive på
                 Discord, og sørger for at du alltid kan holde deg oppdatert på nye og interessante CTFer. I CTFkom er ingen spørsmål for dumme og

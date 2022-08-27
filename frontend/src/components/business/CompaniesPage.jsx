@@ -6,10 +6,6 @@ import { businessData } from '../../testdata';
 import {useEffect} from "react";
 
 const CompaniesPage = () => {
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, []);
-
   return (
     <div className="CompaniesPage">
       <div>
