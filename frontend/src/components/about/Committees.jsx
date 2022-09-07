@@ -28,7 +28,7 @@ const Tabs = () => {
  
       <div className="outlet">
         <TabContent id="styret" activeTab={activeTab}>
-          <h3>Styret</h3>
+          <h3><i className="logfont-styret-filled"></i> Styret</h3>
           <p className='StyretInfo'>
             Øverste leddet i foreningen er styret. Under årsmøtet blir leder, nestleder, sekretær og økonomiansvarlig stemt frem, og disse sitter sammen med lederene fra de ulike komiteene i styret. Sammen er disse ansvarlige for å drive foreningen, styre økonomien og sørge for at alle utfører de oppgavene de skal.
           </p>
@@ -44,7 +44,7 @@ const Tabs = () => {
           </div>
         </TabContent>
         <TabContent id="event" activeTab={activeTab}>
-          <h3>EventKom</h3>
+          <h3><i className="logfont-eventkom"></i> EventKom</h3>
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
@@ -64,7 +64,7 @@ const Tabs = () => {
           </div>
         </TabContent>
         <TabContent id="tek" activeTab={activeTab}>
-          <h3>TekKom</h3>
+          <h3><i className="logfont-tekkom"></i> TekKom</h3>
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
@@ -81,7 +81,7 @@ const Tabs = () => {
           </div>
         </TabContent>
         <TabContent id="pr" activeTab={activeTab}>
-          <h3>PR</h3>
+          <h3><i className="logfont-pr"></i> PR</h3>
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
@@ -97,7 +97,7 @@ const Tabs = () => {
           </div>
         </TabContent>
         <TabContent id="ctf" activeTab={activeTab}>
-          <h3>CTFkom</h3>
+          <h3><i className="logfont-ctf"></i> CTFkom</h3>
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
