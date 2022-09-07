@@ -110,11 +110,11 @@ const EventPage = () => {
 						<div className='Day'>{getDayStr(eventData.startt)}</div>
 					</div>
 					<div>
-						<div>Starter: </div>
+						<div><i className="fa fa-clock-o"></i> Starter: </div>
 						<div>{eventData.startt.toString().slice(16,21)}</div>
 					</div>
 					<div>
-						<div>Slutter: </div>
+						<div><i className="fa fa-clock-o"></i> Slutter: </div>
 						<div>
 							{(eventData.endt.getDate() === eventData.startt.getDate())
 								? eventData.endt.toString().slice(16,21)
@@ -123,7 +123,7 @@ const EventPage = () => {
 						</div>
 					</div>
 					<div>
-						<div>Arrangør: </div>
+						<div><i className="fa fa-user"></i> Arrangør: </div>
 						<div>
 							{isExt(eventData.organizerlink)
 								? <a href={eventData.organizerlink}>{eventData.organizer}</a>
@@ -133,7 +133,7 @@ const EventPage = () => {
 					</div>
 					{ (eventData.roomno || eventData.street) &&
 					<div>
-						<div>Lokasjon:</div>
+						<div><i className="fa fa-map-marker"></i>Lokasjon:</div>
 						<div>
 							{eventData.roomno
 								? eventData.roomno + ", " + eventData.campus
@@ -144,7 +144,7 @@ const EventPage = () => {
 					}
 					<div>
 						{(eventData.discorlink || eventData.fblink) &&
-							<div>Lenker: </div>
+							<div><i className="fa fa-link"></i>Lenker: </div>
 						}
 							<div>
 								{eventData.discordlink &&
