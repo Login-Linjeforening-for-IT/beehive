@@ -1,5 +1,5 @@
 # build environment
-FROM node:13.12.0-alpine as build
+FROM node:16.14.0-alpine as build
 
 # set the working directory
 WORKDIR /app
