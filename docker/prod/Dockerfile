@@ -12,7 +12,7 @@ COPY frontend/package.json ./
 COPY frontend/package-lock.json ./
 
 # install the dependencies
-RUN npm ci --silent
+RUN npm ci --silent --omit=dev
 RUN npm install react-scripts@3.4.1 -g --silent
 
 # copy the whole frontend directory
