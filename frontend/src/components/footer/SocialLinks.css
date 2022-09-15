@@ -1,35 +1,43 @@
 .SocialLinks {
-  display: flex;
+  display: grid;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
 }
 
 .SocialLinks a {
-  height: 1.5rem;
-}
-
-.SocialIcon img {
   display: block;
-  transition: .2s;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  margin: auto;
 }
 
-.SocialLinks img:hover {
-  transform: scale(1.1);
+.SocialLinks a i {
+  line-height: 2rem;
+  font-size: 1.5rem;
+  transition: .2s;
+  text-align: center;
+  display: block;
+}
+
+.SocialLinks a i:hover {
+  font-size: 1.8rem;
 }
 
 @media only screen and (min-width: 0px) {
   .SocialLinks {
-    padding: 3rem 0;
     margin: auto;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-center;
+    grid-template-columns: auto auto auto;
+    gap: 2rem;
+    max-width: 12rem;
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 600px) {
   .SocialLinks {
-    padding: 2rem 0 2rem 1rem;
     margin: 0;
-    gap: 2rem;
+    grid-auto-flow: column;
+    max-width: 20rem;
+    gap: 0;
   }
 }

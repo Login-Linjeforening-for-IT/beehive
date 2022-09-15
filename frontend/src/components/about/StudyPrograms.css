@@ -1,6 +1,7 @@
 
 .StudyPrograms {
     background-color: #212121;
+    overflow: hidden;
 }
 
 .StudyPrograms>li {
@@ -56,6 +57,7 @@
 @media only screen and (min-width: 800px) {
     .StudyPrograms {
         margin: 0 1rem;
+        border-radius: .3rem;
     }
 }
 

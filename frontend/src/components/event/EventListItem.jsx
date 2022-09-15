@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import './EventListItem.css';
 import DateSquare from './DateSquare'
-import DefaultEventBanner from './DefaultEventBanner';
-import DefaultCtfBanner from './DefaultCtfBanner';
-import DefaultTekkomBanner from './DefaultTekkomBanner';
-import DefaultBedpressBanner from './DefaultBedpressBanner';
-import DefaultSocialBanner from './DefaultSocialBanner';
+import DefaultEventBanner from './defualtBanners/DefaultEventBanner';
+import DefaultCtfBanner from './defualtBanners/DefaultCtfBanner';
+import DefaultTekkomBanner from './defualtBanners/DefaultTekkomBanner';
+import DefaultBedpresBanner from './defualtBanners/DefaultBedpresBanner';
+import DefaultSocialBanner from './defualtBanners/DefaultSocialBanner';
 
 
 const getDefaultBanner = (category, color) => {
@@ -16,8 +16,8 @@ const getDefaultBanner = (category, color) => {
 			return <DefaultTekkomBanner color={color} />;
 		case 'CTF':
 			return <DefaultCtfBanner color={color} />;
-		case 'BEDPRESS':
-			return <DefaultBedpressBanner color={color} />;
+		case 'BEDPRES':
+			return <DefaultBedpresBanner color={color} />;
 	  default:
 		  return <DefaultEventBanner color={color} />;
 	}
@@ -27,7 +27,7 @@ const getDefaultBanner = (category, color) => {
 /* Renders the Event card of the supplied json item*/
 const EventListItem = (props) => {
   const id = props.evt.link;
-	const color = "#" + props.category.Color
+	const color = '#' + props.category.Color
 
   const [showImage, setShowImage] = useState(true);
 	const hideImg = (event) => {
@@ -36,25 +36,25 @@ const EventListItem = (props) => {
 	};
 
   return (
-		<div className="EventListItem">
+		<div className='EventListItem'>
       <DateSquare date={new Date(props.evt.startt)} color={color} />
-      <div className="EventInfo">
-        <h4>{props.evt.eventname}</h4>
-        <div>
+      <div className='EventListItemInfo'>
+        <div className='EventListItemInfoName'>{props.evt.eventname}</div>
+        <div className='EventListItemInfoDetails'>
           <div>
-            <i className="fa fa-clock-o"></i> {props.evt.startt.slice(11,16)}
+            <i className='fa fa-clock-o'></i> {props.evt.startt.slice(11,16)}
           </div>
 					{ (props.evt.roomno || props.evt.street) &&
-          <div className="Divider" style={{color: color}}> | </div>
+            <div className='EventListItemInfoDetailsDivider' style={{color: color}}> | </div>
 					}
           <div>
-						{ (props.evt.roomno || props.evt.street) && <i className="fa fa-map-marker"></i>}
+						{ (props.evt.roomno || props.evt.street) && <i className='fa fa-map-marker'></i>}
 							{ props.evt.roomno && <>{props.evt.roomno}, {props.evt.campus}</>} 
 							{ props.evt.street && <>{props.evt.street}, {props.evt.postcode} {props.evt.city}</>}
           </div>
         </div>
       </div>
-      <div className='EventImg'>
+      <div className='EventListItemImg'>
         {showImage ? (
           <picture>
             <img alt={props.evt.eventname} src={process.env.PUBLIC_URL + '/img/events/' +  props.evt.image} onError={hideImg} />
