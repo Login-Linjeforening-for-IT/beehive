@@ -7,10 +7,14 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    gap: .7rem;
+    margin-bottom: .7rem;
 }
 
 .Tabs ul li {
     list-style: none;
+    border-radius: .3rem;
+    overflow: hidden;
 }
 
 .Tabs ul li:hover {
@@ -21,7 +25,12 @@
     width: 100%;
     display: block;
     margin: auto;
-    max-width: 6rem;
+    border-bottom: .3rem solid #212121;
+    transition: .2s;
+}
+
+.Active svg {
+    border-bottom: .3rem solid #fd8738 !important;
 }
 
 .FillbgColor {
@@ -100,12 +109,11 @@
     .Tabs ul {
         flex-wrap: wrap;
     }
-    
-    .Tabs ul li {
-        border-radius: .5rem;
-        margin: .5rem;
-    }
 
+    .Tabs ul li svg {
+        max-width: 4rem;
+    }
+    
     .TabContent {
         padding: 1rem;
         padding-bottom: 3rem;
@@ -123,9 +131,10 @@
 
     .Tabs ul li {
         width: 100%;
-        border-radius: 1rem 1rem 0 0;
-        transform: translateY(10%);
-        margin: 0;
+    }
+
+    .Tabs ul li svg {
+        max-width: 6rem;
     }
 }
 
@@ -133,18 +142,11 @@
     .ComiteInfo {
         grid-template-columns: auto 15rem;
     }
-
-    .Tabs ul li {
-        border-radius: 1.5rem 1.5rem 0 0;
-    }
-}
-
-@media only screen and (min-width: 800px) {
-    
 }
 
 @media only screen and (min-width: 1200px) {
     .TabContent {
         padding: 1.5rem 2rem 2rem 2rem;
+        border-radius: .3rem;
     }
 }

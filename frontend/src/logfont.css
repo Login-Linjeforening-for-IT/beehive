@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'logfont';
-  src:  url('fonts/logfont.eot?g23wx');
-  src:  url('fonts/logfont.eot?g23wx#iefix') format('embedded-opentype'),
-    url('fonts/logfont.ttf?g23wx') format('truetype'),
-    url('fonts/logfont.woff?g23wx') format('woff'),
-    url('fonts/logfont.svg?g23wx#logfont') format('svg');
+  src:  url('fonts/logfont.eot?8lposd');
+  src:  url('fonts/logfont.eot?8lposd#iefix') format('embedded-opentype'),
+    url('fonts/logfont.ttf?8lposd') format('truetype'),
+    url('fonts/logfont.woff?8lposd') format('woff'),
+    url('fonts/logfont.svg?8lposd#logfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -20,144 +20,31 @@
   text-transform: none;
   line-height: 1;
 
-  padding: 0 .2rem;
-
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.logfont-chaplin:before {
-  content: "\e949";
+.logfont-tools:before {
+  content: "\e95d";
 }
-.logfont-gjvik-kommune:before {
-  content: "\e914";
+.logfont-presentation:before {
+  content: "\e95e";
 }
-.logfont-huset:before {
-  content: "\e94a";
+.logfont-beer:before {
+  content: "\e90e";
 }
-.logfont-huset-text:before {
-  content: "\e94b";
+.logfont-clipboard:before {
+  content: "\e958";
 }
-.logfont-ntnu:before {
-  content: "\e94c";
+.logfont-clipboard-check:before {
+  content: "\e959";
 }
-.logfont-ntnui-gjvik:before {
-  content: "\e94f";
+.logfont-hammer:before {
+  content: "\e90c";
 }
-.logfont-ntnui-simple:before {
-  content: "\e950";
-}
-.logfont-peppes:before {
-  content: "\e913";
-}
-.logfont-pizzabakeren:before {
-  content: "\e90a";
-}
-.logfont-sit:before {
-  content: "\e94d";
-}
-.logfont-sit-text:before {
-  content: "\e94e";
-}
-.logfont-ctf-corners:before {
-  content: "\e946";
-}
-.logfont-eventkom:before {
-  content: "\e903";
-}
-.logfont-eventkom-corners:before {
-  content: "\e90f";
-}
-.logfont-login:before {
-  content: "\e907";
-}
-.logfont-login-small:before {
-  content: "\e910";
-}
-.logfont-pr:before {
-  content: "\e904";
-}
-.logfont-pr-corners:before {
-  content: "\e900";
-}
-.logfont-styret:before {
-  content: "\e905";
-}
-.logfont-styret-corners:before {
-  content: "\e911";
-}
-.logfont-tekkom:before {
-  content: "\e906";
-}
-.logfont-tekkom-corners:before {
-  content: "\e912";
-}
-.logfont-cog:before {
-  content: "\e994";
-}
-.logfont-cogs:before {
-  content: "\e995";
-}
-.logfont-database:before {
-  content: "\e964";
-}
-.logfont-drive:before {
-  content: "\e963";
-}
-.logfont-glass:before {
-  content: "\e9a0";
-}
-.logfont-glass2:before {
-  content: "\e9a1";
-}
-.logfont-key:before {
-  content: "\e98d";
-}
-.logfont-lab:before {
-  content: "\e9aa";
-}
-.logfont-lock:before {
-  content: "\e98f";
-}
-.logfont-magic-wand:before {
-  content: "\e997";
-}
-.logfont-mug:before {
-  content: "\e9a2";
-}
-.logfont-pacman:before {
-  content: "\e951";
-}
-.logfont-pizza:before {
-  content: "\e957";
-}
-.logfont-power-cord:before {
-  content: "\e9b7";
-}
-.logfont-switch:before {
-  content: "\e9b6";
-}
-.logfont-terminal2:before {
-  content: "\ea81";
-}
-.logfont-tree:before {
-  content: "\e9bc";
-}
-.logfont-trophy:before {
-  content: "\e99e";
-}
-.logfont-unlocked:before {
-  content: "\e990";
-}
-.logfont-apple:before {
-  content: "\e95b";
-}
-.logfont-arduino:before {
-  content: "\e95c";
-}
-.logfont-windows:before {
-  content: "\e95a";
+.logfont-suitcase:before {
+  content: "\e956";
 }
 .logfont-1password:before {
   content: "\e90b";
@@ -171,11 +58,20 @@
 .logfont-bitcoin:before {
   content: "\e917";
 }
+.logfont-chaplin:before {
+  content: "\e949";
+}
 .logfont-cisco:before {
   content: "\e918";
 }
 .logfont-codepen:before {
   content: "\e909";
+}
+.logfont-cog:before {
+  content: "\e994";
+}
+.logfont-cogs:before {
+  content: "\e995";
 }
 .logfont-cpp:before {
   content: "\e919";
@@ -183,11 +79,17 @@
 .logfont-css3:before {
   content: "\e91a";
 }
+.logfont-database:before {
+  content: "\e964";
+}
 .logfont-debian:before {
   content: "\e91b";
 }
 .logfont-digitalocean:before {
   content: "\e91c";
+}
+.logfont-discord:before {
+  content: "\e908";
 }
 .logfont-discord2:before {
   content: "\e91d";
@@ -195,8 +97,17 @@
 .logfont-docker:before {
   content: "\e91e";
 }
+.logfont-drive:before {
+  content: "\e963";
+}
 .logfont-duckduckgo:before {
   content: "\e91f";
+}
+.logfont-eventkom:before {
+  content: "\e903";
+}
+.logfont-eventkom-corners:before {
+  content: "\e90f";
 }
 .logfont-facebook:before {
   content: "\e920";
@@ -210,11 +121,29 @@
 .logfont-github:before {
   content: "\e923";
 }
+.logfont-gitlab:before {
+  content: "\e901";
+}
+.logfont-gjvik-kommune:before {
+  content: "\e914";
+}
+.logfont-glass:before {
+  content: "\e9a0";
+}
+.logfont-glass2:before {
+  content: "\e9a1";
+}
 .logfont-go:before {
   content: "\e924";
 }
 .logfont-html5:before {
   content: "\e925";
+}
+.logfont-huset:before {
+  content: "\e94a";
+}
+.logfont-huset-text:before {
+  content: "\e94b";
 }
 .logfont-instagram:before {
   content: "\e926";
@@ -225,14 +154,32 @@
 .logfont-javascript:before {
   content: "\e928";
 }
+.logfont-key:before {
+  content: "\e98d";
+}
 .logfont-kubernetes:before {
   content: "\e929";
+}
+.logfont-lab:before {
+  content: "\e9aa";
 }
 .logfont-linkedin:before {
   content: "\e92a";
 }
 .logfont-linux:before {
   content: "\e92b";
+}
+.logfont-lock:before {
+  content: "\e98f";
+}
+.logfont-login:before {
+  content: "\e907";
+}
+.logfont-login-small:before {
+  content: "\e910";
+}
+.logfont-magic-wand:before {
+  content: "\e997";
 }
 .logfont-manjaro:before {
   content: "\e92c";
@@ -242,6 +189,9 @@
 }
 .logfont-mozillafirefox:before {
   content: "\e92e";
+}
+.logfont-mug:before {
+  content: "\e9a2";
 }
 .logfont-mysql:before {
   content: "\e92f";
@@ -255,14 +205,41 @@
 .logfont-npm:before {
   content: "\e932";
 }
+.logfont-ntnu:before {
+  content: "\e94c";
+}
+.logfont-ntnui-gjvik:before {
+  content: "\e94f";
+}
+.logfont-ntnui-simple:before {
+  content: "\e950";
+}
+.logfont-pacman:before {
+  content: "\e951";
+}
+.logfont-peppes:before {
+  content: "\e913";
+}
+.logfont-pizzabakeren:before {
+  content: "\e90a";
+}
 .logfont-postgresql:before {
   content: "\e933";
 }
 .logfont-postman:before {
   content: "\e934";
 }
+.logfont-power-cord:before {
+  content: "\e9b7";
+}
 .logfont-powershell:before {
   content: "\e935";
+}
+.logfont-pr:before {
+  content: "\e904";
+}
+.logfont-pr-corners:before {
+  content: "\e900";
 }
 .logfont-python:before {
   content: "\e936";
@@ -276,8 +253,17 @@
 .logfont-redhat:before {
   content: "\e939";
 }
+.logfont-redmine:before {
+  content: "\e90d";
+}
 .logfont-rust:before {
   content: "\e93a";
+}
+.logfont-sit:before {
+  content: "\e94d";
+}
+.logfont-sit-text:before {
+  content: "\e94e";
 }
 .logfont-snapchat:before {
   content: "\e93b";
@@ -285,8 +271,35 @@
 .logfont-stackoverflow:before {
   content: "\e93c";
 }
+.logfont-styret:before {
+  content: "\e905";
+}
+.logfont-styret-corners:before {
+  content: "\e911";
+}
+.logfont-switch:before {
+  content: "\e9b6";
+}
+.logfont-tekkom:before {
+  content: "\e906";
+}
+.logfont-tekkom-corners:before {
+  content: "\e912";
+}
+.logfont-terminal2:before {
+  content: "\ea81";
+}
 .logfont-tor:before {
   content: "\e93d";
+}
+.logfont-tree:before {
+  content: "\e9bc";
+}
+.logfont-trophy:before {
+  content: "\e99e";
+}
+.logfont-tux:before {
+  content: "\eabd";
 }
 .logfont-twitter:before {
   content: "\e93e";
@@ -296,6 +309,9 @@
 }
 .logfont-udemy:before {
   content: "\e940";
+}
+.logfont-unlocked:before {
+  content: "\e990";
 }
 .logfont-untappd:before {
   content: "\e941";
@@ -318,20 +334,14 @@
 .logfont-zoom:before {
   content: "\e948";
 }
-.logfont-gitlab:before {
-  content: "\e901";
-}
-.logfont-discord:before {
-  content: "\e908";
-}
-.logfont-redmine:before {
-  content: "\e90d";
-}
-.logfont-tux:before {
-  content: "\eabd";
-}
 .logfont-ctf:before {
   content: "\e902";
+}
+.logfont-apple:before {
+  content: "\e95b";
+}
+.logfont-arduino:before {
+  content: "\e95c";
 }
 .logfont-ctf-filled:before {
   content: "\e955";
@@ -339,17 +349,32 @@
 .logfont-eventkom-filled:before {
   content: "\e954";
 }
+.logfont-pizza:before {
+  content: "\e957";
+}
 .logfont-pr-filled:before {
   content: "\e953";
 }
 .logfont-styret-filled:before {
   content: "\e952";
 }
+.logfont-windows:before {
+  content: "\e95a";
+}
 .logfont-bug:before {
   content: "\f188";
 }
+.logfont-ctf-corners:before {
+  content: "\e946";
+}
 .logfont-gamepad:before {
   content: "\f11b";
+}
+.logfont-git-text:before {
+  content: "\f1d3";
+}
+.logfont-git-text2:before {
+  content: "\f1d2";
 }
 .logfont-keyboard:before {
   content: "\f11c";
@@ -359,34 +384,4 @@
 }
 .logfont-usb:before {
   content: "\f287";
-}
-.logfont-git-text2:before {
-  content: "\f1d2";
-}
-.logfont-git-text:before {
-  content: "\f1d3";
-}
-.logfont-drink:before {
-  content: "\e95e";
-}
-.logfont-pictures:before {
-  content: "\e95f";
-}
-.logfont-tools:before {
-  content: "\e956";
-}
-.logfont-presentation:before {
-  content: "\e95d";
-}
-.logfont-clipboard:before {
-  content: "\e958";
-}
-.logfont-clipboard-check:before {
-  content: "\e959";
-}
-.logfont-beer:before {
-  content: "\e90e";
-}
-.logfont-hammer:before {
-  content: "\e90c";
 }

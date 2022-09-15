@@ -1,6 +1,5 @@
 import './LandingPage.css';
 import {useEffect} from "react";
-/*import Background from './components/background/Background'  - dont know what this was meant for, but got errors */ 
 import Container from '../container/Container'
 /*import SmallEvent from './SmallEvent'*/
 import {Link} from 'react-router-dom';
@@ -9,9 +8,10 @@ const WelcomeBanner = () => {
   return (
     <div className="Welcome">
       <picture>
-        <source srcSet={process.env.PUBLIC_URL + '/img/welcome_banner.svg'} />
-        <img alt="Login har fått ny hjemmeside!" />
+        <source srcSet={process.env.PUBLIC_URL + '/img/logo-tekst-white.svg'} />
+        <img alt="Login Linjeforeningen for IT" />
       </picture>
+      <p>Velkommen til <span className="gradient-text-color">Login.no</span>!</p>
     </div>
   );
 }
@@ -41,24 +41,24 @@ const SmallInfo = () => {
         <div>
           <h2>Hvem er vi?</h2>
           <p>Login er linjeforeningen for IT ved NTNU i Gjøvik. Foreningen drives av studenter og målet med arbeidet vårt er å forbedre studiemiljøet på universitetet.</p>
+          <Link to="/about">Les mer</Link>
         </div>
         <picture>
 					<source srcSet={process.env.PUBLIC_URL + '/img/styret.jpg'} />
           <img alt="Login styret" />
         </picture>
-        <Link to="/about">Les mer</Link>
       </div>
 
       <div className='LandingPageInfo'>
         <div>
           <h2>For bedrifter</h2>
           <p>Login fungerer som bindeleddet mellom studier og arbeidsliv. Sjekk ut hva vi kan tilby din bedrift.</p>
+          <Link to="/companies">Les mer</Link>
         </div>
         <picture>
           <source srcSet={process.env.PUBLIC_URL + '/img/cyberdagen_preben.jpg'} />
           <img alt="Cyberdagen" />
         </picture>
-        <Link to="/companies">Les mer</Link>
       </div>
     </>
   );

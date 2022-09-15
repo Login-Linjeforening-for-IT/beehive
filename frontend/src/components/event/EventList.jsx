@@ -1,5 +1,6 @@
 import EventListItem from "./EventListItem";
 import {Link} from 'react-router-dom';
+import { useEffect } from "react";
 
 const EventList = ( {categories, events, name} ) => {
   return(

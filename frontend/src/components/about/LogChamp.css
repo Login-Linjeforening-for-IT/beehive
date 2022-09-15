@@ -5,6 +5,7 @@
     display: block;
     width: 15rem;
     margin: 0 auto;
+    border-radius: .3rem;
 }
 
 .ProfilePic img {
@@ -31,20 +32,6 @@
     margin-top: 0;
 }
 
-.DiscordTag {
-    display: inline-flex;
+.LogChamp p:last-child {
     margin-top: 1rem;
-}
-
-.DiscordTag img {
-    display: block;
-    height: 1.5rem;
-    padding: .2rem;
-    padding-right: 1rem;
-}
-
-.DiscordTag p {
-    display: block;
-    font-size: 1rem;
-    line-height: 1.5rem;
 }

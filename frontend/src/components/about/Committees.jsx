@@ -68,7 +68,7 @@ const Tabs = () => {
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
-                Tekkom påstår at de jobber med denne nettsiden men hovedsaklig spiser de pizza. Dette er komiteen for de som liker å lære tekniske ting som å progge og drifte høyteknologisk infrastruktur.
+                TekKom påstår at de jobber med denne nettsiden men hovedsaklig spiser de pizza. Dette er komiteen for de som liker å lære tekniske ting som å progge og drifte høyteknologisk infrastruktur.
               </p>
               <p>
                 TekKom har ansvaret for infrastrukturen til Login. Våre oppgaver innebærer utvikling og vedlikehold
@@ -85,11 +85,11 @@ const Tabs = () => {
           <div className='ComiteInfo'>
             <div>
               <p className='Classy'>
-                PR er Logins gyldene ku og uten dem hadde ikke pengene strømmet inn og ingen av de andre komiteene kunne drevet med sprel!
+                PR er Logins gyldene ku og uten dem hadde ikke pengene strømmet inn og ingen av de andre komiteene kunne drevet med sprell!
               </p>
               <p>
                 PR er Logins ansikt utad og har ansvar for Logins offentlige mediakanaler. PR følger med på vårt ­ticketsystem og svarer bedriftskontakter. 
-                De jobber også for å gi studenter et innsyn og vei inn i næringslivet ved å arrangere bedpresser, workshops/fagpres og ­karrieredager, som også er Logins hovedinntektskilde!
+                De jobber også for å gi studenter et innsyn og vei inn i næringslivet ved å arrangere bedpreser, workshops/fagpres og ­karrieredager, som også er Logins hovedinntektskilde!
                 Videre er PR med på å representere Login på events og bistår også med rekruttering av nye medlemmer.
               </p>
             </div>
@@ -102,7 +102,7 @@ const Tabs = () => {
             <div>
               <p className='Classy'>
                 {/*TODO: Sjekk om det kommer alfa eller bare en a, også samme problem som Eventkom*/}
-                CTFkom er Logins hacker-komité. Deres viktigste oppdrag er å hacke seg inn på ING:α sin infrastruktur og lage sprel der!
+                CTFkom er Logins hacker-komité. Deres viktigste oppdrag er å hacke seg inn på ING:α sin infrastruktur og lage sprell der!
               </p>
               <p>
                 CTFKom er komiteen som stiller i stand CTF arrangementer på campus. De arbeider for at alle IT-

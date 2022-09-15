@@ -11,6 +11,7 @@
 
 .Logo img {
   display: block;
+  height: 3rem;
 }
 
 
@@ -88,10 +89,6 @@
     flex-wrap: wrap;
   }
 
-  .Logo img {
-    height: 3rem;
-  }
-
   .Navigation {
     display: none;
   }
@@ -105,7 +102,8 @@
     opacity: 1;
     width: auto;
     height: auto;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .MobileNavigation {
@@ -137,23 +135,18 @@
   }
   
   .HamburgerIcon.Open div:first-child {
-    transform: rotate(-45deg) translate(-4.59px, 4.59px);
+    transform: rotate(-45deg) translate(-4.6px, 4.6px);
   }
   
   .HamburgerIcon.Open div:last-child {
-    transform: rotate(45deg) translate(-4.59px, -4.59px)
+    transform: rotate(45deg) translate(-4.6px, -4.6px)
   }  
 }
 
 /* For desktop: */
 @media only screen and (min-width: 800px) {
-  
   .TopBar.Open {
     height: 5rem;
-  }
-
-  .Logo img {
-    height: 3rem;
   }
 
   .HamburgerIcon {
