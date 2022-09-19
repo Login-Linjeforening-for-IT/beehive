@@ -2,7 +2,7 @@
 const prod = {
 	url: {
 		API_URL: 'https://api.login.no',
-		CDN_URL: 'http://cdn.login.no'
+		CDN_URL: 'https://cdn.login.no'
 	}
 };
 
@@ -10,7 +10,7 @@ const prod = {
 const dev = {
 	url: {
 		API_URL: 'http://localhost:4000',
-		CDN_URL: 'http://cdn.login.no'
+		CDN_URL: 'https://cdn.login.no'
 	}
 };
 
