@@ -1,12 +1,13 @@
 import SocialLinks from './SocialLinks';
 import './Footer.css';
+import { config } from '../../Constants';
 
 const Footer = () => {
     return (
         <div className="FooterContainer">
             <div>
                 <picture>
-                    <source srcSet={process.env.PUBLIC_URL + '/img/logo-tekst-white.svg'} />
+                    <source srcSet={ config.url.CDN_URL + '/img/logo/logo-tekst-white.svg' } />
                     <img alt="Login Linjeforeningen for IT" />
                 </picture>
                 <SocialLinks />

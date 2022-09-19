@@ -6,6 +6,7 @@ import DefaultCtfBanner from './defualtBanners/DefaultCtfBanner';
 import DefaultTekkomBanner from './defualtBanners/DefaultTekkomBanner';
 import DefaultBedpresBanner from './defualtBanners/DefaultBedpresBanner';
 import DefaultSocialBanner from './defualtBanners/DefaultSocialBanner';
+import { config } from '../../Constants';
 
 
 const getDefaultBanner = (category, color) => {
@@ -35,6 +36,8 @@ const EventListItem = (props) => {
 		setShowImage(false);
 	};
 
+	console.log(config.url.CDN_URL);
+
   return (
 		<div className='EventListItem'>
       <DateSquare date={new Date(props.evt.startt)} color={color} />
@@ -57,7 +60,7 @@ const EventListItem = (props) => {
       <div className='EventListItemImg'>
         {showImage ? (
           <picture>
-            <img alt={props.evt.eventname} src={process.env.PUBLIC_URL + '/img/events/' +  props.evt.image} onError={hideImg} />
+            <img alt={props.evt.eventname} src={ config.url.CDN_URL + '/img/events/' +  props.evt.image} onError={hideImg} />
           </picture>
         ) : (
           getDefaultBanner(props.category.Name, color)
