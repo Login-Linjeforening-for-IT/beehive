@@ -3,12 +3,13 @@ import {useEffect} from "react";
 import Container from '../container/Container'
 /*import SmallEvent from './SmallEvent'*/
 import {Link} from 'react-router-dom';
+import { config } from '../../Constants';
 
 const WelcomeBanner = () => {
   return (
     <div className="Welcome">
       <picture>
-        <source srcSet={process.env.PUBLIC_URL + '/img/logo-tekst-white.svg'} />
+        <source srcSet={ config.url.CDN_URL + '/img/logo/logo-tekst-white.svg'} />
         <img alt="Login Linjeforeningen for IT" />
       </picture>
       <p>Velkommen til <span className="gradient-text-color">Login.no</span>!</p>
@@ -44,7 +45,7 @@ const SmallInfo = () => {
           <Link to="/about">Les mer</Link>
         </div>
         <picture>
-					<source srcSet={process.env.PUBLIC_URL + '/img/styret.jpg'} />
+					<source srcSet={ config.url.CDN_URL + '/img/styret.jpg' } />
           <img alt="Login styret" />
         </picture>
       </div>
@@ -56,7 +57,7 @@ const SmallInfo = () => {
           <Link to="/companies">Les mer</Link>
         </div>
         <picture>
-          <source srcSet={process.env.PUBLIC_URL + '/img/cyberdagen_preben.jpg'} />
+          <source srcSet={ config.url.CDN_URL + '/img/cyberdagen_preben.jpg' } />
           <img alt="Cyberdagen" />
         </picture>
       </div>

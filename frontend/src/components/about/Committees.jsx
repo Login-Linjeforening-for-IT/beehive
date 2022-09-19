@@ -1,11 +1,12 @@
-import TabNavItem from './TabNavItem'
-import TabContent from './TabContent'
-import EventkomLogo from './logos/EventkomLogo'
-import PrkomLogo from './logos/PrkomLogo'
-import TekkomLogo from './logos/TekkomLogo'
-import CtfkomLogo from './logos/CtfkomLogo'
-import StyretLogo from './logos/StyretLogo'
-import LogChamp from './LogChamp'
+import TabNavItem from './TabNavItem';
+import TabContent from './TabContent';
+import EventkomLogo from './logos/EventkomLogo';
+import PrkomLogo from './logos/PrkomLogo';
+import TekkomLogo from './logos/TekkomLogo';
+import CtfkomLogo from './logos/CtfkomLogo';
+import StyretLogo from './logos/StyretLogo';
+import LogChamp from './LogChamp';
+import { config } from '../../Constants';
 
 import { useState } from 'react';
 
@@ -33,14 +34,14 @@ const Tabs = () => {
             Øverste leddet i foreningen er styret. Under årsmøtet blir leder, nestleder, sekretær og økonomiansvarlig stemt frem, og disse sitter sammen med lederene fra de ulike komiteene i styret. Sammen er disse ansvarlige for å drive foreningen, styre økonomien og sørge for at alle utfører de oppgavene de skal.
           </p>
           <div className='BoardMembers'>
-            <LogChamp img="./img/portrett_leder.jpg" name="Anders Eiken" stilling="Leder" discord="Eiken#6059" />
-            <LogChamp img="./img/portrett_nestleder.jpg" name="Mads Halland" stilling="Nestleder" discord="¬.¬#6719" />
-            <LogChamp img="./img/portrett_økonomi.jpg" name="Sebastian Hestsveen" stilling="Økonomiansvarlig" discord="stubbe#8694" />
-            <LogChamp img="./img/portrett_sekretær.jpg" name="Celina Brynildsen" stilling="Sekretær" discord="Celina#6955" />
-            <LogChamp img="./img/portrett_eventkom-leder.jpg" name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
-            <LogChamp img="./img/portrett_pr-leder.jpg" name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
-            <LogChamp img="./img/portrett_tekkom-leder.jpg" name="Simon Edna" stilling="TekKom leder" discord="Sim#3909" />
-            <LogChamp img="./img/portrett_placeholder.svg" name="ikke valgt" stilling="CTF leder" discord="" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_leder.jpg"} name="Anders Eiken" stilling="Leder" discord="Eiken#6059" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_nestleder.jpg" } name="Mads Halland" stilling="Nestleder" discord="¬.¬#6719" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_økonomi.jpg" } name="Sebastian Hestsveen" stilling="Økonomiansvarlig" discord="stubbe#8694" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_sekretær.jpg" } name="Celina Brynildsen" stilling="Sekretær" discord="Celina#6955" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_eventkom-leder.jpg" } name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_pr-leder.jpg" } name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_tekkom-leder.jpg" } name=" Simon Edna" stilling="TekKom leder" discord="Sim#3909" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_placeholder.svg" } name="ikke valgt" stilling="CTF leder" discord="" />
           </div>
         </TabContent>
         <TabContent id="event" activeTab={activeTab}>
@@ -60,7 +61,7 @@ const Tabs = () => {
                 med glede, og vi håper å høre fra deg.
               </p>
             </div>
-            <LogChamp img="./img/portrett_eventkom-leder.jpg" name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_eventkom-leder.jpg" } name="Sofie Hagen" stilling="Eventkom leder" discord="sofiee#9763" />
           </div>
         </TabContent>
         <TabContent id="tek" activeTab={activeTab}>
@@ -77,7 +78,7 @@ const Tabs = () => {
                 forøker å bidra med det man kan. Hvis du liker å kode, eller bare har et vilt prosjekt i tankene, så er dette komiteen for deg!
               </p>
             </div>
-            <LogChamp img="./img/portrett_tekkom-leder.jpg" name="Simon Edna" stilling="TekKom leder" discord="Sim#3909" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_tekkom-leder.jpg"} name="Simon Edna" stilling="TekKom leder" discord="Sim#3909" />
           </div>
         </TabContent>
         <TabContent id="pr" activeTab={activeTab}>
@@ -93,7 +94,7 @@ const Tabs = () => {
                 Videre er PR med på å representere Login på events og bistår også med rekruttering av nye medlemmer.
               </p>
             </div>
-            <LogChamp img="./img/portrett_pr-leder.jpg" name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_pr-leder.jpg" } name="Kristina Kataki" stilling="PR leder" discord="Kataki#7254" />
           </div>
         </TabContent>
         <TabContent id="ctf" activeTab={activeTab}>
@@ -114,7 +115,7 @@ const Tabs = () => {
                 <a href="https://discord.gg/login-ntnu\" target="_blank" rel="noreferrer"> Discord</a>.
               </p>
             </div>
-            <LogChamp img="./img/portrett_placeholder.svg" name="ikke valgt" stilling="CTF leder" discord="" />
+            <LogChamp img={ config.url.CDN_URL + "/img/portraits/portrett_placeholder.svg" } name="ikke valgt" stilling="CTF leder" discord="" />
           </div>
         </TabContent>
       </div>

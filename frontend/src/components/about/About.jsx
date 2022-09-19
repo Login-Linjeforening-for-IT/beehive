@@ -1,6 +1,7 @@
 import Committees from './Committees';
 import StudyPrograms from './StudyPrograms';
 import {useEffect} from 'react';
+import { config } from '../../Constants';
 
 import './About.css';
 
@@ -16,7 +17,7 @@ const About = () => {
           <StudyPrograms/>
         </div>
         <picture>
-          <source srcSet={process.env.PUBLIC_URL + '/img/styret2.jpg'} />
+          <source srcSet={ config.url.CDN_URL + '/img/styret2.jpg'} />
           <img alt="Login styret" />
         </picture>
       </section>

@@ -185,7 +185,7 @@ const EventPage = () => {
 					<div>
 						{showImage ? (
 							<picture>
-								<img alt={eventData.eventname} src={process.env.PUBLIC_URL + '/img/events/' + eventData.image} onError={hideImg} />
+								<img alt={eventData.eventname} src={ config.url.CDN_URL + '/img/events/' + eventData.image} onError={hideImg} />
 							</picture>
 						) : (
 							getDefaultBanner(eventData.category, '#' + category.find((c) => c.Name === eventData.category).Color)
