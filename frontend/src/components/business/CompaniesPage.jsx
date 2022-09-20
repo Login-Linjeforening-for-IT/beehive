@@ -1,15 +1,9 @@
 import './CompaniesPage.css';
 import Card from '../container/Card';
-import Container from '../container/Container';
 import Contact from './Contact'
-import { businessData } from '../../testdata';
-import {useEffect} from "react";
+import { businessData } from '../../businessData';
 
 const CompaniesPage = () => {
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, []);
-
   return (
     <div className="CompaniesPage">
       <div>

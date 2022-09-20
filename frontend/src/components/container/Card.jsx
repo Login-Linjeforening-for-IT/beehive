@@ -1,8 +1,8 @@
 const Card = ({data}) => {
   return (
     <div className="Card">
-      <h2>{data.title}</h2>
-      <p>{data.text}</p>
+      <h2 dangerouslySetInnerHTML={{__html: data.title}} />
+      <p dangerouslySetInnerHTML={{__html: data.text}} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 .DateSquare {
-	text-align: center;
+	padding: .5rem;
+	border-radius: .2rem;
 }
 
 .DateDay {
@@ -18,21 +19,4 @@
     width: 4rem;
 	display: block;
 	transform: translateY(-.2rem);
-}
-
-
-@media only screen and (min-width: 0px) {
-
-	.DateSquare {
-		padding: .5rem !important;
-	}
-
-}
-
-@media only screen and (min-width: 800px) {
-
-	.DateSquare {
-		padding: 1rem !important;
-	}
-
 }

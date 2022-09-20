@@ -4,20 +4,20 @@
   margin: auto;
 }
 
-.EventList {
-  padding: 1rem;
-}
-
 .EventList li {
   list-style-type: none;
 }
 
 @media only screen and (min-width: 0px) {
- 
+  .EventList {
+    padding: 0;
+  }
 }
 
 @media only screen and (min-width: 800px) {
-
+  .EventList {
+    padding: 1rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {

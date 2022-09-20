@@ -9,7 +9,7 @@
 }
 
 .ContactCard h4 {
-    margin: 2rem 0;
+    margin: 2rem 0 0 0;
 }
 
 .ContactCard h4:first-child {
@@ -25,18 +25,14 @@
     margin: 1rem;
 } 
 
-.ContactCard iframe {
-    display: block;
-    max-width: 35rem;
+.ContactCard .Map {
+    padding: 0 2rem;
     margin: auto;
-    width: 100%;
-    height: 30rem;
 }
 
+
 @media only screen and (min-width: 0px) {
-    .ContactCard iframe {
-        padding: 0 1rem;
-    }
+
 }
 
 @media only screen and (min-width: 800px) {

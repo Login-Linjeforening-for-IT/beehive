@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 
 import Spinner from '../spinner/Spinner';
 import DateSquare from './DateSquare';
 import MazeMap from '../mazemap/map';
-import DefaultEventBanner from './DefaultEventBanner';
-import DefaultCtfBanner from './DefaultCtfBanner';
-import DefaultTekkomBanner from './DefaultTekkomBanner';
-import DefaultBedpressBanner from './DefaultBedpressBanner';
-import DefaultSocialBanner from './DefaultSocialBanner';
+import DefaultEventBanner from './defualtBanners/DefaultEventBanner';
+import DefaultCtfBanner from './defualtBanners/DefaultCtfBanner';
+import DefaultTekkomBanner from './defualtBanners/DefaultTekkomBanner';
+import DefaultBedpresBanner from './defualtBanners/DefaultBedpresBanner';
+import DefaultSocialBanner from './defualtBanners/DefaultSocialBanner';
+import { config } from '../../Constants';
 
 import './EventPage.css'
 
@@ -17,20 +18,25 @@ const days = ['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag'
 const expresions = ['I dag', 'I morgen', 'I går', ' dager siden']
 
 const getDiffDays = (date) => {
-	const oneDay = 24 * 60 * 60 * 1000;
-	const nowDate = new Date();
-	
-	return Math.round(((date.getTime() - nowDate.getTime()) / oneDay));
+	const oneDay = 24 * 60 * 60 * 1000
+	const nowDate = new Date()
+	const d = new Date(date.getTime())
+
+	// set h:m:s:m to 0 in order to compare only date without time
+	d.setHours(0, 0, 0, 0)
+	nowDate.setHours(0, 0, 0, 0)
+
+	return Math.round(((d.getTime() - nowDate.getTime()) / oneDay))
 }
 
 const getDayStr = (date)  => {
 	const diffDays = getDiffDays(date);
 
-	if (diffDays == 0) {
+	if (diffDays === 0) {
 		return expresions[0];
-	} else if (diffDays == 1) {
+	} else if (diffDays === 1) {
 		return expresions[1];
-	} else if (diffDays == -1) {
+	} else if (diffDays === -1) {
 		return expresions[2];
 	} else if (diffDays <= -1) {
 		return Math.abs(diffDays) + expresions[3];
@@ -40,7 +46,7 @@ const getDayStr = (date)  => {
 }
 
 const isExt = (lnk) => {
-	if (lnk.search("http") >= 0) {
+	if (lnk.search('http') >= 0) {
 		return true
 	}
 	return false
@@ -54,8 +60,8 @@ const getDefaultBanner = (category, color) => {
 			return <DefaultTekkomBanner color={color} />;
 		case 'CTF':
 			return <DefaultCtfBanner color={color} />;
-		case 'BEDPRESS':
-			return <DefaultBedpressBanner color={color} />;
+		case 'BEDPRES':
+			return <DefaultBedpresBanner color={color} />;
 	  default:
 		return <DefaultEventBanner color={color} />;
 	}
@@ -72,11 +78,11 @@ const EventPage = () => {
 	const [category, setCategory] = useState(null);
 
 	useEffect(() => {
-		var category = ""
-		fetch("https://api.login.no/events/" + id)
+		var category = ''
+		fetch(config.url.API_URL + '/events/' + id)
 			.then((response) => {setStatusCode(response.status); return response.json()})
 			.then((data) => {data.startt = new Date(data.startt); data.endt = new Date(data.endt); category = data.category; setEventData(data)});
-		fetch("https://api.login.no/categories")
+		fetch(config.url.API_URL + '/categories')
 			.then((response) => response.json())
 			.then((data) => setCategory(data))
 		setEventIsLoading(false);
@@ -95,94 +101,94 @@ const EventPage = () => {
 		// this.setState({ showImg: false });
 		setShowImage(false);
 	};
-	  
-
+	
 	return (
 		<>
-		{eventIsLoading && <Spinner w="3rem" h="3rem" />}
+		{eventIsLoading && <Spinner w='3rem' h='3rem' />}
 		{eventData && category &&
 			<div className='EventPage'>
-				<div className="EventDetails">
-					<p className="EventCategory">{eventData.category}</p>
+				<div className='EventDetails'>
+					
 					<div className='Date'>
-						<DateSquare date={eventData.startt} color={"#" + category.find((c) => c.Name === eventData.category).Color} />
-						<div className='Day'>{getDayStr(eventData.startt)}</div>
+						<DateSquare date={eventData.startt} color={'#' + category.find((c) => c.Name === eventData.category).Color} />
+						<div className='DateExpresion'>{getDayStr(eventData.startt)}</div>
 					</div>
-					<div>
-						<div>Starter: </div>
-						<div>{eventData.startt.toString().slice(16,21)}</div>
-					</div>
-					<div>
-						<div>Slutter: </div>
-						<div>
-							{(eventData.endt.getDate() == eventData.startt.getDate())
+					
+					<div className='EventDetailsList'>
+						<div className='EventDetailsList-lable'><i className='fa fa-clock-o'></i> Starter: </div>
+						<div className='EventDetailsList-info'>{eventData.startt.toString().slice(16,21)}</div>
+				
+						<div className='EventDetailsList-lable'><i className='fa fa-clock-o'></i> Slutter: </div>
+						<div className='EventDetailsList-info'>
+							{(eventData.endt.getDate() === eventData.startt.getDate())
 								? eventData.endt.toString().slice(16,21)
-								: eventData.endt.toString().slice(4,11).trim() + ", " + eventData.endt.toString().slice(16,21)
+								: eventData.endt.toString().slice(4,11).trim() + ', ' + eventData.endt.toString().slice(16,21)
 							}
 						</div>
-					</div>
-					<div>
-						<div>Arrangør: </div>
-						<div>
-							{isExt(eventData.organizerlink)
-								? <a href={eventData.organizerlink}>{eventData.organizer}</a>
-								: <Link to={eventData.organizerlink}>{eventData.organizer}</Link>
-							}
-						</div>
-					</div>
-					{ eventData.roomno || eventData.street &&
-					<div>
-						<div>Lokasjon:</div>
-						<div>
-							{eventData.roomno
-								? eventData.roomno + ", " + eventData.campus
-								: eventData.street + ", " + eventData.postcode + " " + eventData.city
-							}
-						</div>
-					</div>
-					}
-					<div>
-						{(eventData.discorlink || eventData.fblink) &&
-							<div>Lenker: </div>
+
+						{ (eventData.roomno || eventData.street) &&
+							<>
+							<div className='EventDetailsList-lable'><i className='fa fa-map-marker'></i>Lokasjon:</div>
+							<div className='EventDetailsList-info'>
+								{eventData.roomno
+									? eventData.roomno + ', ' + eventData.campus
+									: eventData.street + ', ' + eventData.postcode + ' ' + eventData.city
+								}
+							</div>
+							</>
 						}
-							<div>
+
+						<div className='EventDetailsList-lable'><i className='fa fa-circle'></i>Type:</div>
+						<div className='EventDetailsList-info'>
+							
+							{/* Adding category color to dot icon, using !important to overide text color. Super hacky but gets the job done apperantly */}
+							<i className="fa fa-circle" ref={(node) => {
+								if (node) {
+									node.style.setProperty("color", '#' + category.find((c) => c.Name === eventData.category).Color, "important");
+								}
+							}}> </i> {eventData.category}
+						</div>
+				
+						<div className='EventDetailsList-lable'><i className='fa fa-user'></i> Arrangør: </div>
+						<div className='EventDetailsList-info'>
+						{eventData.organizerlink === '' 
+							? <>{eventData.organizer}</>
+							: <>
+								{isExt(eventData.organizerlink) 
+									? <a href={eventData.organizerlink} target="_blank">{eventData.organizer}</a>
+									: <Link to={eventData.organizerlink}>{eventData.organizer}</Link>}
+							</>
+						}
+						</div>
+
+						{(eventData.discorlink || eventData.fblink) &&
+							<>
+							<div className='EventDetailsList-lable'><i className='fa fa-link'></i>Lenker: </div>
+							<div className='EventDetailsList-info'>
 								{eventData.discordlink &&
-									<a className="SocialIcon" href={eventData.discordlink} target="_blank" rel="noreferrer">
-										<picture>
-											<source srcSet={process.env.PUBLIC_URL + '/icons/Discord_logo.svg'} />
-											<img alt="Discord's logo" />
-										</picture>
+									<a href={eventData.discordlink} target='_blank' rel='noreferrer'>
+										<i className='logfont-discord'></i> Discord<br/>
 									</a>
 								}
 								{eventData.fblink &&
-									<a className="SocialIcon" href={eventData.fblink} target="_blank" rel="noreferrer">
-										<picture>
-											<source srcSet={process.env.PUBLIC_URL + '/icons/Facebook_logo.svg'} />
-											<img alt="Facebook's logo" />
-										</picture>
+									<a href={eventData.fblink} target='_blank' rel='noreferrer'>
+										<i className='logfont-facebook'></i> Facebook 
 									</a>
 								}
 							</div>
+							</>
+						}
+						
 					</div>
 				</div>
 				<div className='EventBanner'>
-					{/*TODO: Add proper response in api for no image.*/}
-					{/*eventData.image != 'none' &&
-						<picture>
-							<source srcSet={eventData.image} /
-							<img alt={eventData.eventname} />
-						</picture>
-					}
-					{eventData.image == 'none' &&
-						<DefaultEventBanner color={"#" + category.find((c) => c.Name === eventData.category).Color}/>
-					*/}
 					<div>
 						{showImage ? (
 							<picture>
-								<img alt={eventData.eventname} src={process.env.PUBLIC_URL + '/img/events/' + eventData.image} onError={hideImg} />
+								<img alt={eventData.eventname} src={ config.url.CDN_URL + '/img/events/' + eventData.image} onError={hideImg} />
 							</picture>
 						) : (
-							getDefaultBanner(eventData.category, "#" + category.find((c) => c.Name === eventData.category).Color)
+							getDefaultBanner(eventData.category, '#' + category.find((c) => c.Name === eventData.category).Color)
 						)}
 					</div>
 				</div>
@@ -195,8 +201,8 @@ const EventPage = () => {
 				</div>
 			</div>
 		}
-		{statusCode == 204 && <Navigate to="/404" />}
-		{statusCode == 500 && <Navigate to="/404" />}
+		{statusCode === 204 && <Navigate to='/404' />}
+		{statusCode === 500 && <Navigate to='/404' />}
 		</>
 	)
 }

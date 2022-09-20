@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import './logfont.css';
 
 import TopBar from './components/topbar/TopBar';
 import LandingPage from './components/landing/LandingPage';
@@ -15,6 +16,7 @@ import Events from './components/event/Events';
 import Companies from './components/business/CompaniesPage';
 import EventPage from './components/event/EventPage';
 import NotFoundPage from './components/notfoundpage/NotFoundPage';
+import Scroll from "./components/utility/Scroll";
 
 function App() {
   return (
@@ -26,14 +28,16 @@ function App() {
         </header>
 
         <main>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/about" element={<About /> } />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/:id" element={<EventPage />} />
-            <Route path="/companies" element={<Companies />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          <Scroll>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/about" element={<About /> } />
+              <Route path="/events" element={<Events />} />
+              <Route path="/events/:id" element={<EventPage />} />
+              <Route path="/companies" element={<Companies />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Scroll>
         </main>
 
         <footer>
