@@ -1,23 +1,43 @@
 .Welcome {
     width: 100%;
     padding: 4rem 1rem;
+    background: radial-gradient(circle, rgba(10,10,10) 0%, rgba(24,24,24) 100%);
 }
 
 .Welcome img {
     width: 100%;
+    max-width: 40rem;
+    margin: auto;
+    display: block;
+}
+
+.Welcome p {
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    color: white;
+    margin: 0;
+    padding: 6rem 0 2rem 0;
+}
+
+.gradient-text-color {
+    background: linear-gradient(90deg, #f100ff, #00fff6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
 }
 
 .LandingPageInfo {
     max-width: 75rem;
     width: 100%;
-    margin: auto;
+    margin: 3rem auto;
     display: grid;
     column-gap: 2rem;
 }
 
 .LandingPageInfo div {
     grid-area: a;
-    display: block;
     max-width: 33rem;
     width: 100%;
     margin: auto;
@@ -26,26 +46,22 @@
 
 .LandingPageInfo p {
     padding: 1rem 0;
-    color: rgb(200, 200, 200);
 }
 
 .LandingPageInfo a {
-    grid-area: c;
-    display: block;
     padding: 1rem;
-    max-width: 33rem;
-    width: 100%;
-    margin: auto;
     font-size: 1.2rem;
+    width: fit-content;
+    display: block;
 }
 
 .LandingPageInfo a:after {
     content: ' ';
     position: absolute;
-    width: 1rem;
-    height: 1rem;
+    width: .8rem;
+    height: .8rem;
     border: .2rem none #f0802a;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     margin-left: -.2rem;
     transition: .2s;
     cursor: pointer;
@@ -81,7 +97,7 @@
     max-height: 22rem;
     object-fit: cover;
     height: 100%;
-    border-radius: .5rem;
+    border-radius: .3rem;
     clip-path: polygon(7rem 0, 100% 0, 100% 100%, 0 100%, 0 7rem, 2rem 7rem, 2rem 2rem, 7rem 2rem);
 }
 
@@ -89,34 +105,27 @@
 @media only screen and (min-width: 0px) {
     .LandingPageInfo {
         padding: 1rem;
-        margin-bottom: 3rem;
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
         grid-template-areas: 
             "b"
-            "a"
-            "c";
+            "a";
     }
 }
   
 @media only screen and (min-width: 800px) {
     .LandingPageInfo {
         padding: 3rem;
-        margin-bottom: 1rem;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
     }
 
     .LandingPageInfo:nth-child(odd) {
         grid-template-areas: 
-            "b a"
-            "b c";
+            "b a";
     }
 
     .LandingPageInfo:nth-child(even) {
         grid-template-areas: 
-            "a b"
-            "c b";
+            "a b";
     }
 
     .LandingPageInfo:nth-child(even) a {

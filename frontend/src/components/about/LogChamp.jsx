@@ -8,13 +8,7 @@ const LogChamp = ({name, stilling, img, discord}) => {
       <p>{stilling}</p>
       <p>{name}</p>
       {discord !== '' &&
-        <div className="DiscordTag">
-          <picture>
-            <source srcSet={process.env.PUBLIC_URL + '/icons/Discord_logo.svg'} />
-            <img alt="Discord's logo" />
-          </picture>
-          <p>{discord}</p>
-        </div>
+          <p><i className="logfont-discord"> </i>{discord}</p>
       }
     </div>
   );

@@ -1,0 +1,10 @@
+.Map {
+    width: 100%;
+    max-width: 32rem;
+}
+
+.Map iframe {
+    border-radius: .8rem;
+    height: 28rem;
+    max-width: 28rem;
+}

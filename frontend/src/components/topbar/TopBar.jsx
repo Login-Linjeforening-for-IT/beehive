@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import MobileNavigation from './MobileNavigation';
+import { config } from '../../Constants';
 
 import './TopBar.css';
 
@@ -13,7 +14,7 @@ const TopBar = () => {
       <div className={`TopBar ${isOpen ? 'Open' : ''}`}>
         <Link className="Logo" to="/" onClick={isOpen ? toggle : ''} >
           <picture>
-            <source srcSet={process.env.PUBLIC_URL + '/img/logo-white-small.svg'} />
+            <source srcSet={ config.url.CDN_URL + '/img/logo/logo-white-small.svg' } />
             <img alt="Login's logo" />
           </picture>
         </Link>

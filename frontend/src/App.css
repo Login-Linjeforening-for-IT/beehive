@@ -25,7 +25,6 @@ body {
 
 main {
   flex: 1;
-  max-width: 75rem;
   width: 100%;
   margin: auto;
   min-height: calc(100vh - 10rem); /* 10rem being topbar height */
