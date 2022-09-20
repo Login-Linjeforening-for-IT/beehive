@@ -9,7 +9,14 @@ docker-build:
   rules:
     - if: $CI_MERGE_REQUEST_DESTINATION_BRANCH_NAME != /master/
       when: never
-  script:
+  before_script:
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
-    - docker build -t $CI_REGISTRY_IMAGE --profile prod .
+  script:
+    - |
+      if [[ "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" == "dev" ]]; then
+        tag="staging"
+      else if [[ "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+      fi
+    - docker build --pull -t $CI_REGISTRY_IMAGE${tag} --profile prod .
     - docker push $CI_REGISTRY_IMAGE
