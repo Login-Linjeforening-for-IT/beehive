@@ -1,0 +1,15 @@
+#
+# This is the CI/CD yml file for Beehive
+#
+
+docker-build:
+  image: docker:20.10.18
+  services:
+    - docker:20.10.18-dind
+  rules:
+    - if: $CI_MERGE_REQUEST_DESTINATION_BRANCH_NAME != /master/
+      when: never
+  script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - docker build -t $CI_REGISTRY_IMAGE --profile prod .
+    - docker push $CI_REGISTRY_IMAGE
