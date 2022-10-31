@@ -1,0 +1,30 @@
+.decor-pic {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.decor-pic__svg {
+  display: block;
+  filter: var(--drop-shadow-img);
+}
+
+.decor-pic__svg--1 {
+  border-radius: 0 .3rem .3rem .3rem;
+}
+
+.decor-pic__svg--2 {
+  border-radius: .3rem 0 .3rem .3rem;
+}
+
+.decor-pic__svg--3 {
+  border-radius: .3rem .3rem 0 .3rem;
+}
+
+.decor-pic__svg--4 {
+  border-radius: .3rem .3rem .3rem 0;
+}
+
+.decor-pic__rect--orange {
+  fill: var(--c-orange);
+}

@@ -1,0 +1,167 @@
+.topbar {
+  display: flex;
+  max-width: 75rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  height: 5rem;
+  transition: 0.5s;
+}
+
+.topbar--open {
+  height: 100vh;
+  background-color: rgba(20, 20, 20, .8);
+}
+
+.topbar__img {
+  display: block;
+  height: 3rem;
+}
+
+.topbar__toggle {
+  display: flex;
+  margin: 0 1rem;
+  gap: 1rem;
+  width: calc(100vw - 8rem);
+  justify-content: end;
+}
+
+
+/* main-nav */
+
+.main-nav {
+  display: none;
+}
+
+.main-nav__item {
+  list-style: none;
+}
+
+.main-nav__item {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 1rem;
+  letter-spacing: .1rem;
+}
+
+/* bottom right corner decoration to display on hover */
+.main-nav__item:after {
+  content: ' ';
+  position: absolute;
+  width: .7rem;
+  height: .7rem;
+  border: .2rem none var(--c-orange);
+  margin-top: .8rem;
+  margin-right: .6rem;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.main-nav__item:hover::after {
+  border-style: none solid solid none;
+}
+
+/* mobile main-nav */
+.mobile-nav {
+  position: fixed;
+  top: 5rem;
+  width: 100vw;
+}
+
+.topbar__hamburger {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.topbar__burger-bun {
+  background: white;
+  height: .2rem;
+  position: absolute;
+  width: 2rem;
+  transition: all 0.4s cubic-bezier(0, 0, 0, 1) 0s;
+  left: 6px;
+}
+
+.topbar__burger-bun--top {
+  top: 1rem;
+}
+
+.topbar__burger-bun--bottom {
+  top: 1.8rem;
+}
+
+.topbar__hamburger--open .topbar__burger-bun--top {
+  transform: rotate(-45deg) translate(-4.6px, 4.6px);
+}
+
+.topbar__hamburger--open .topbar__burger-bun--bottom {
+  transform: rotate(45deg) translate(-4.6px, -4.6px)
+}
+
+
+.mobile-nav__item {
+  list-style: none;  
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-align: right;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin-right: 3rem;
+  transition: opacity 1.5s, height 2s, padding .5s;
+}
+
+.mobile-nav--open .mobile-nav__item {
+  opacity: 1;
+  width: auto;
+  height: auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+
+/* higlight active navlink and prevent hover */
+
+.active .main-nav__item, .active .mobile-nav__item {
+  color: #f0802a;
+}
+
+
+/* For desktop: */
+@media only screen and (min-width: 800px) {
+
+  .topbar {
+    justify-content: space-between;
+  }
+
+  .topbar--open {
+    height: 5rem;
+  }
+
+  .topbar__hamburger {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 31rem;
+    width: 100%;
+  }
+
+  .topbar__toggle {
+    width: fit-content;
+  }
+}

@@ -1,17 +1,82 @@
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+
+:root {
+
+  color-scheme: dark; /* both supported */
+
+  --c-orange: #fd8738;
+  --c-bg-main: #181818;
+  --c-bg-topbar: rgba(20, 20, 20, 0.6);
+  --c-bg-footer: #101010;
+
+  --c-bg-welcome: radial-gradient(circle, rgba(10,10,10) 0%, rgba(24,24,24) 100%);
+
+  --c-bg-box: #212121;
+  --c-bg-box-hover: #282828;
+  --c-font-box-unselected: #454545;
+
+  --c-corner-decor: #282828;
+
+  --c-font-main: #fff;
+  --c-font-title: #fff;
+  --c-font-regular-p: rgb(220, 220, 220);
+  --c-font-discret: rgb(180, 180, 180);
+
+  --shadow-box: none;
+  --drop-shadow-img: none;
+
+  --h-topbar: 5rem;
+
+  --w-page: 75rem;
+
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Lora', serif;
+
+}
+
+.light {
+
+    color-scheme: light; /* both supported */
+
+    --c-orange: #fd8738;
+    --c-bg-main: rgb(240, 240, 240);
+    --c-bg-topbar: rgba(0,0,0, 0.85);
+    --c-bg-footer: #212121;
+
+    --c-bg-welcome: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(222, 222, 222) 100%);
+    
+    --c-bg-box: rgb(250, 250, 250);
+    --c-bg-box-hover: rgb(255, 255, 255);
+    --c-font-box-unselected: #bababa;
+
+    --c-corner-decor: rgb(200, 200, 200);
+
+    --c-font-main: #000;
+    --c-font-title: #212121;
+    --c-font-regular-p: rgb(50, 50, 50);
+    --c-font-discret: rgb(100, 100, 100);
+
+    --shadow-box: 0 0 .5rem 0 rgba(200,200,200, 0.4);;
+    --drop-shadow-img: drop-shadow(.08rem .08rem .08rem rgba(90, 90, 90, 0.5));
+
+}
+
+
 /* Defaults */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  color: white;
+  font-family: var(--font-primary);
+  color: var(--c-font-main);
+  transition: .2s;
+
 }
 
 body {
-  background-color: #181818;
+  background-color: var(--c-bg-main);
 }
 
 
@@ -21,13 +86,20 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: var(--c-bg-main);
 }
 
 main {
   flex: 1;
   width: 100%;
+  margin: var(--h-topbar) auto;
+  min-height: calc(100vh - var(--h-topbar) - var(--h-topbar));
+}
+
+.page-container {
+  max-width: var(--w-page);
+  width: 100%;
   margin: auto;
-  min-height: calc(100vh - 10rem); /* 10rem being topbar height */
 }
 
 header {
@@ -39,7 +111,7 @@ header {
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   header {
-    background-color: rgba(20, 20, 20, 0.6);
+    background-color: var(--c-bg-topbar);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px); /* This should provide support for Safari, but needs to be tested */
   }
@@ -52,103 +124,112 @@ header {
 }
 
 footer {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--c-bg-footer);
 }
 
 
 /* Headlines */
 
-h1 {
+.heading-1 {
   margin: 1rem;
   z-index: 2;
   font-weight: 600;
+  font-size: 2rem;
+  color: var(--c-font-title);
 }
 
-h2 {
-  margin: 2rem 1rem 1rem 1rem;
+.heading-2 {
+  margin: 1rem 0 .5rem 0;
   z-index: 2;
   font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--c-font-title);
 }
 
-h3 {
-  margin: 1rem;
+.heading-3 {
+  margin: 1rem 0;
   font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--c-font-title);
 }
 
-h4 {
-  margin: 0 1rem;
+.heading-4 {
+  font-weight: 600;
+  margin: 1rem 0 .5rem 0;
+  font-size: 1.2rem;
+  color: var(--c-font-title);
 }
+
 
 /* standard links */
 a {
-  color: #fd8738;
+  color: var(--c-orange);
   text-decoration: none;
   cursor: pointer;
 }
 
 
-/* paragraph */
-p {
-  margin: 1rem;
-  padding: .5rem 0;
-  line-height: 1.8rem;
-  color: rgb(220, 220, 220);
+/* standard abbreviasion */
+abbr {
+  text-decoration-color: var(--c-orange);
 }
 
-.Classy {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-  font-size: 1.3rem;
-  color: white;
-  padding-left: 1rem !important;
-  border-left: .3rem solid #fd8738;
+
+/* paragraphs */
+
+.p--regular {
+  padding-bottom: 1.2rem;
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
+  max-width: 50rem;
 }
+
+.p--highlighted {
+  padding: .5rem 0;
+  margin-bottom: 1.2rem;
+  margin-top: 1.2rem;
+  line-height: 1.8rem;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--c-font-main);
+  padding-left: 1rem;
+  border-left: .3rem solid var(--c-orange);
+  max-width: 50rem;
+}
+
 
 /* text selection */
 
 ::-moz-selection { /* Code for Firefox */
-  color: white;
-  background: #fd8738;
+  color: white !important;
+  background: var(--c-orange) !important;
 }
 
 ::selection {
-  color: white;
-  background: #fd8738;
-}
-
-
-/* For mobile: */
-@media only screen and (min-width: 0px) {
-  main {
-    margin: 5rem auto;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }  
-
-  h3 {
-    font-size: 1.2rem;
-  }
+  color: white !important;
+  background: var(--c-orange) !important;
 }
 
 
 /* For mobile: */
 @media only screen and (min-width: 400px) {
-  h1 {
+
+  .heading-1 {
     font-size: 2.5rem;
   }
 
-  h2 {
-    font-size: 2rem;
+  .heading-2 {
+    font-size: 2.1rem;
   }  
 
-  h3 {
-    font-size: 1.5rem;
+  .heading-3 {
+    font-size: 1.8rem;
+  }
+
+  .heading-4 {
+    font-size: 1.3rem;
   }
 }
 
@@ -156,71 +237,122 @@ p {
 /* For tablets */
 @media only screen and (min-width: 800px) {
 
-  h1 {
+  .page-container {
+    padding-top: 2rem;
+  }
+
+  .heading-1 {
     font-size: 3.5rem;
     padding: 0 1.5rem;
     letter-spacing: .1rem;
   }
 
-  /* Decoration corner (top left) */
-  h1:before {
+  /* Decoration corner */
+  .heading-1--top-left-corner:before {
     z-index: -1;
-    content: ' ';
-    position: absolute;
-    width: 4rem;
-    height: 2rem;
-    border: .7rem #353030bc;
-    border-style: solid none none solid;
-    margin-left: -1.5rem;
-  }
-  
-  /* Decoration corner (bottom right) */
-  h1:after {
-    z-index: -1;
-    content: ' ';
-    position: absolute;
-    width: 1.8rem;
-    height: 2.5rem;
-    border: .7rem #353030bc;
-    border-style: none solid solid none;
-    margin-left: -1rem;
-    margin-top: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-    line-height: 3rem;
-    padding-top: 1rem;
-    letter-spacing: .1rem;
-  }
-
-  /* Decoration corner (top right) */
-  h2::after {
-    z-index: -1;
-    content: ' ';
+    content: '';
     position: absolute;
     width: 2rem;
     height: 2rem;
-    border: .5rem #353030bc;
+    border-width: .7rem;
+    border-color: var(--c-corner-decor);
+    border-style: solid none none solid;
+    margin-left: -1.5rem;
+    margin-top: -.2rem;
+    z-index: 2;
+    transition: .1s;
+  }
+  
+  /* Decoration corner */
+  .heading-1--top-right-corner:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-width: .7rem;
+    border-color: var(--c-corner-decor);
     border-style: solid solid none none;
-    margin-left: -1rem;
-    margin-top: -1rem;
+    margin-left: -1.5rem;
+    margin-top: -.2rem;
+    z-index: 2;
+    transition: .1s;
+  }
+  
+  /* Decoration corner */
+ .heading-1--bottom-right-corner:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-width: .7rem;
+    border-color: var(--c-corner-decor);
+    border-style: none solid solid none;
+    margin-left: -1.4rem;
+    margin-top: 3rem;
+    z-index: 2;
+    transition: .1s;
   }
 
-  h3 {
+  
+  /* Decoration corner */
+  .heading-1--bottom-left-corner:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-width: .7rem;
+    border-color: var(--c-corner-decor);
+    border-style: none none solid solid;
+    margin-left: -1.5rem;
+    margin-top: 3rem;
+    z-index: 2;
+    transition: .1s;
+  }
+
+  .heading-2 {
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+  }
+
+  .heading-3 {
     font-size: 2rem;
   }
+  
+  .heading-4 {
+    font-size: 1.3rem;
+  }
 
+  .p--highlighted {
+    font-size: 1.2rem;
+  }
 
-  /* Split long paragraphs into two columns */
-  .WideTextContainer {
+  /* Split wide paragraphs into two columns */
+  .p--columes {
     column-count: 2;
-    column-gap: 2rem;
-    column-rule: .2rem solid #101010;
+    column-gap: 4rem;
+    column-rule: .2rem solid var(--c-corner-decor);
+    margin: 1rem 0;
+  }
+
+  .p--columes .p--highlighted {
+    margin-top: 0;
   }
 }
 
 /* For desktop: */
 @media only screen and (min-width: 1200px) {
+  .heading-1 {
+    letter-spacing: .2rem;
+  }
 
+  .heading-2 {
+    letter-spacing: .15rem;
+  }  
+
+  .heading-3 {
+    letter-spacing: .1rem;
+  }
 }
