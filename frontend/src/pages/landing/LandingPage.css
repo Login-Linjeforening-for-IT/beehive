@@ -1,0 +1,115 @@
+.welcome {
+    width: 100%;
+    padding: 4rem 1rem;
+    background: var(--c-bg-welcome);
+}
+
+.landing-logo {
+    width: 100%;
+    max-width: 40rem;
+    margin: auto;
+    display: block;
+}
+
+.landing-logo__letter {
+    fill: var(--c-font-main);
+    transition: 1s .1s;
+}
+
+.landing-logo__corner {
+    fill: none;
+    stroke: var(--c-orange);
+    stroke-miterlimit: 10;
+    stroke-width: 3.5px;
+}
+
+.welcome__text {
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    color: var(--c-font-main);
+    margin: 0;
+    padding: 6rem 0 2rem 0;
+}
+
+.welcome__text--gradient {
+    background: linear-gradient(90deg, #f100ff, #00fff6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.landing-info {
+    max-width: 75rem;
+    width: 100%;
+    margin: 3rem auto;
+    display: grid;
+    column-gap: 2rem;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        'b'
+        'a';
+}
+
+.landing-info__text {
+    grid-area: a;
+    max-width: 31rem;
+    width: 100%;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+.landing-info__link {
+    padding: 1rem 1rem 1rem 0;
+    font-size: 1.2rem;
+    width: fit-content;
+    display: block;
+}
+
+.landing-info__link:after {
+    content: ' ';
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    border: .2rem none var(--c-orange);
+    margin-top: 1.2rem;
+    margin-left: -.2rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.landing-info__link:hover::after {
+    border-style: none solid solid none;
+}
+
+.landing-info picture {
+    grid-area: b;
+    width: 100%;
+    margin: auto;
+    max-width: 31rem;
+}
+
+
+@media only screen and (min-width: 800px) {
+    .landing-info {
+        padding: 3rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .landing-info:nth-child(odd) {
+        grid-template-areas: 
+            'a b';
+    }
+
+    .landing-info:nth-child(even) {
+        grid-template-areas: 
+            'b a';
+    }
+
+    .landing-info picture {
+        margin-bottom: auto;
+    }
+}
+  

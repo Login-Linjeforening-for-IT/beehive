@@ -1,0 +1,9 @@
+{
+  "title": "Arrangementer",
+  "noEvents": "Ingen kommene arrangementer",
+  "filter": {
+    "title": "filter",
+    "searchHint": "Søk...",
+    "resetButton": "Nullstill filter"
+  }
+}

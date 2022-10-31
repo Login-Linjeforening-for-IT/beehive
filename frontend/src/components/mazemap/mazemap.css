@@ -1,10 +1,9 @@
-.Map {
+.mazemap {
     width: 100%;
-    max-width: 32rem;
-}
-
-.Map iframe {
-    border-radius: .8rem;
+    border-radius: 1rem;
     height: 28rem;
-    max-width: 28rem;
+    margin: auto;
+    max-width: 40rem;
+    display: block;
+    box-shadow: 0 0 0 .2rem var(--c-corner-decor);
 }

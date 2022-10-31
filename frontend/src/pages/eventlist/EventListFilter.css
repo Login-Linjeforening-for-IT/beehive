@@ -1,0 +1,137 @@
+.filter {
+    margin: 1rem;
+}
+
+.filter__content {
+    padding: .5rem 1rem 1rem 1rem;
+}
+
+.filter__search {
+    width: 100%;
+    border: none;
+    padding: .8rem;
+    background-color: var(--c-bg-main);
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+    border: .15rem solid;
+    border-color: var(--c-bg-main);
+    font-size: 1rem;
+}
+
+.filter__search:focus {
+    border-color: var(--c-orange);
+    outline: none;
+}
+
+.filter__checkboxes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.filter__button {
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: var(--c-corner-decor);
+    border-radius: .2rem;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.filter__button:hover {
+    background-color: var(--c-orange);
+}
+
+.checkbox {
+    display: block;
+    width: fit-content;
+    padding: .3rem;
+}
+
+.checkbox__label {
+    padding-left: 1.8rem;
+    padding-right: .5rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color .2s ease-in;
+}
+
+.checkbox__label:before {
+    width: 1rem;
+    height: 1rem;
+    content: '';
+    border: .2rem solid var(--c-corner-decor);
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: -.05rem 0;
+    border-radius: .2rem;
+    z-index: 2;
+    position: absolute;
+    margin-left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all .1s ease-in;
+}
+
+.checkbox__input {
+    width: 32px;
+    height: 32px;
+    order: 1;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.checkbox__input:checked ~ .checkbox__label:before {
+    background-color: var(--c-orange);
+    border-color: var(--c-orange);
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+}
+
+@media only screen and (min-width: 400px) {
+    
+    .filter__checkboxes {
+        flex-direction: row;
+    }
+
+    .filter__button {
+        width: fit-content;
+    }
+    
+}
+
+@media only screen and (min-width: 1000px) {
+    
+    .filter {
+        margin-left: 0;
+    }
+
+    .filter__content {
+        padding: 1rem;
+    }
+
+    .filter__checkboxes {
+        flex-direction: column;
+    }
+
+    .filter .accordion__nav-item {
+        display: none;
+    }
+
+    .filter .accordion__content {
+        max-height: inherit;
+    }
+
+    .filter__button {
+        width: 100%;
+    }
+    
+}
