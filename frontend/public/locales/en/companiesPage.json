@@ -3,7 +3,7 @@
     "title":"For companies",
     "intro": "Is your company looking for sharp IT students? Check out everything we have to offer your company.",
     "bedpres": {
-      "title": "<i class='logfont-presentation'></i> Compres",
+      "title": "<i class='logfont-presentation'></i> Company presentation",
       "body": "Login's PR committee organizes company presentations where your company gets the opportunity to present to the students what you work on, what services you offer, how you work, etc. With this the students become aware of what you offer, and your working environment. We offer arrangements for food service (pizza) during the presentation, but it is most common to stroll down to a restaurant in town for dining and mingling between students and company representatives."
     },
     "cyberdays":{
@@ -15,7 +15,7 @@
       "body": "Capture the Flag is a perfect arena for both getting to know and developing the students' info-sec skills. Here you as a company can challenge our students to solve tasks together! We encourage you to have a self-made CTF that the students can play with. After the CTF itself, it is customary to take all the participants down to a restaurant for dining and mingling with the company representatives."
     },
     "workshop": {
-      "title": "<i class='logfont-tools'></i> Workshop & Subpres",
+      "title": "<i class='logfont-tools'></i> Workshop & Subject Presentation",
       "body": "Login also organizes workshops and subject presentations. Workshops involve the company getting some time where they can present themselves, followed by students working on various projects they have at the same time as company representatives mingle and give tips to students. With a professional presentation, the company will again be able to briefly introduce itself before a professionally focused presentation of the company is held. Here it can be the dissemination of technologies or principles that your company works with."
     },
     "profiling": {

@@ -105,17 +105,17 @@ const EventPage = ({t,i18n}) => {
 						</div>
 
 						<div className='event-details__list'>
-							<div className='event-details__lable'><i className='event-details__icon fa fa-clock-o'></i> {t('info.start')}: </div>
+							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-clock-o'></i> {t('info.start')}: </div>
 							<div className='event-details__info'>{DatetimeFormatter.getTimeHHmm(eventData.startt)}</div>
 
-							{DatetimeFormatter.showEndTime(eventData.endt) && <><div className='event-details__lable'><i className='event-details__icon fa fa-clock-o'></i> {t('info.end')}: </div>
+							{DatetimeFormatter.showEndTime(eventData.endt) && <><div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-clock-o'></i> {t('info.end')}: </div>
 							<div className='event-details__info'>
 								{DatetimeFormatter.getTimeHHmm(eventData.endt)}
 							</div></>}
 
 							{ (eventData.roomno || eventData.street) &&
 								<>
-									<div className='event-details__lable'><i className='event-details__icon fa fa-map-marker'></i>{t('info.location')}:</div>
+									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-map-marker'></i>{t('info.location')}:</div>
 									<div className='event-details__info'>
 										{eventData.roomno
 											? eventData.roomno + ', ' + eventData.campus
@@ -125,7 +125,7 @@ const EventPage = ({t,i18n}) => {
 								</>
 							}
 
-							<div className='event-details__lable'><i className='event-details__icon fa fa-circle'></i>{t('info.type')}:</div>
+							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-circle'></i>{t('info.type')}:</div>
 							<div className='event-details__info'>
 
 								{/* Adding category color to dot icon, using !important to overide text color. Super hacky but gets the job done apperantly */}
@@ -136,29 +136,32 @@ const EventPage = ({t,i18n}) => {
 								}}></i>{eventData.category}
 							</div>
 
-							<div className='event-details__lable'><i className='event-details__icon fa fa-user'></i> {t('info.organizer')}: </div>
+							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-user'></i> {t('info.organizer')}: </div>
 							<div className='event-details__info'>
 								{eventData.organizerlink === ''
 									? <>{eventData.organizer}</>
 									: <>
 										{isExt(eventData.organizerlink)
 											? <a href={eventData.organizerlink} target='_blank'>{eventData.organizer}</a>
-											: <Link to={eventData.organizerlink}>{eventData.organizer}</Link>}
+											: <Link className='standard-link standard-link--underscore-hover' to={eventData.organizerlink}>{eventData.organizer}</Link>}
 									</>
 								}
 							</div>
 
 							{(eventData.discorlink || eventData.fblink) &&
 								<>
-									<div className='event-details__lable'><i className='event-details__icon fa fa-link'></i>{t('info.links')}: </div>
+									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-link'></i>{t('info.links')}: </div>
 									<div className='event-details__info'>
 										{eventData.discordlink &&
-											<a href={eventData.discordlink} target='_blank' rel='noreferrer'>
-												<i className='event-details__icon logfont-discord'></i>Discord<br/>
-											</a>
+											<>
+												<a className='standard-link standard-link--underscore-hover' href={eventData.discordlink} target='_blank' rel='noreferrer'>
+													<i className='event-details__icon logfont-discord'></i>Discord
+												</a>
+												<br/>
+											</>
 										}
 										{eventData.fblink &&
-											<a href={eventData.fblink} target='_blank' rel='noreferrer'>
+											<a className='standard-link standard-link--underscore-hover' href={eventData.fblink} target='_blank' rel='noreferrer'>
 												<i className='event-details__icon logfont-facebook'></i>Facebook
 											</a>
 										}

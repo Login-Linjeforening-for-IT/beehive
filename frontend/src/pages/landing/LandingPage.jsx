@@ -22,18 +22,18 @@ const SmallInfo = ({t}) => {
     <>
       <div className='landing-info'>
         <div className='landing-info__text'>
-          <h2 className='heading-2 heading-2--top-right-corner'>{t('landing.whoAreWe.title')}</h2>
+          <h2 className='heading-2'>{t('landing.whoAreWe.title')}</h2>
           <p className='p--regular'>{t('landing.whoAreWe.body')}</p>
-          <Link className='landing-info__link' to='/about'>{t('landing.readMore')}</Link>
+          <Link className='landing-info__link standard-link standard-link--corner-hover' to='/about'>{t('landing.readMore')}</Link>
         </div>
         <DecoratedPicture imgurl={config.url.CDN_URL + '/img/styret.jpg'} decorationNr={1} cornerSize={400} w={1420} h={947} />
       </div>
 
       <div className='landing-info'>
         <div className='landing-info__text'>
-          <h2 className='heading-2 heading-2--top-right-corner'>{t('landing.companiesInfo.title')}</h2>
+          <h2 className='heading-2'>{t('landing.companiesInfo.title')}</h2>
           <p className='p--regular'>{t('landing.companiesInfo.body')}</p>
-          <Link className='landing-info__link' to='/companies'>{t('landing.readMore')}</Link>
+          <Link className='landing-info__link standard-link standard-link--corner-hover' to='/companies'>{t('landing.readMore')}</Link>
         </div>
         <DecoratedPicture imgurl={config.url.CDN_URL + '/img/cyberdagen_preben.jpg'} decorationNr={3} cornerSize={400} w={1420} h={947} />
       </div>

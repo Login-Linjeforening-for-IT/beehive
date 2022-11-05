@@ -4,6 +4,6 @@
   "filter": {
     "title": "filter",
     "searchHint": "Search...",
-    "resetButton": "Reset filter"
+    "resetButton": "Reset"
   }
 }

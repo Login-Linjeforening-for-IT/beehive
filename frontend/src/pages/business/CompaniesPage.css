@@ -11,6 +11,17 @@
     row-gap: 1rem;
 }
 
+.companies-page__intro {
+    margin: 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .companies-page__intro {
+        margin-top: 2rem;
+    }
+}
+
 
 @media only screen and (min-width: 1000px) {
 
@@ -23,10 +34,5 @@
         column-gap: 4rem;
         row-gap: 2rem;
         margin-bottom: 4rem;
-    }
-
-    .companies-page__intro {
-        grid-column: 1 / -1;
-        max-width: 35rem;
     }
 }

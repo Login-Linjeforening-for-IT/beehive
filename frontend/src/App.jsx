@@ -16,7 +16,7 @@ import Events from './pages/eventlist/Events';
 import Companies from './pages/business/CompaniesPage';
 import EventPage from './pages/event/EventPage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
-import Scroll from './components/utility/Scroll';
+import Scroll from './utils/Scroll';
 
 function App() {
   

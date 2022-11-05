@@ -22,8 +22,8 @@ const TopBar = () => {
       </Link>
       <Navigation/>
       <nav className='topbar__toggle'>
-        <LangToggle/>
         <ThemeToggle/>
+        <LangToggle/>
       </nav>
       <div className={`topbar__hamburger ${isOpen ? 'topbar__hamburger--open' : ''}`} onClick={toggle}>
           <div className='topbar__burger-bun topbar__burger-bun--top'></div>

@@ -91,7 +91,7 @@
 @media only screen and (min-width: 800px) {
 
 	.events-item {
-		border-radius: .2rem;
+		border-radius: 0 .2rem .2rem 0;
 	}
 
 	.events-item__middle {
@@ -101,5 +101,13 @@
 	.events-item__name {
 		font-size: 1.5rem;
 		line-height: 2rem;
+	}
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+	.events-item {
+		border-radius: .2rem;
 	}
 }

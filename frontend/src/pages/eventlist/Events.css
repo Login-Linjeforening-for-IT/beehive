@@ -2,18 +2,14 @@
   width: 100%;
 }
 
-
-
-
 .event-list {
   list-style-type: none;
 }
 
 
 @media only screen and (min-width: 800px) {
-  .event-list {
-    padding: 1rem;
-  }
+
+  
 
 }
 
