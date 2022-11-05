@@ -1,26 +1,50 @@
 .filter {
-    margin: 1rem;
+    margin: 0 1rem 1rem 1rem;
+    position: sticky;
+    top: calc(var(--h-topbar)  + 1rem);
 }
 
 .filter__content {
     padding: .5rem 1rem 1rem 1rem;
 }
 
-.filter__search {
-    width: 100%;
-    border: none;
-    padding: .8rem;
-    background-color: var(--c-bg-main);
+.filter__search-bar {
+    display: flex;
+    background-color: none;
     margin-bottom: 1rem;
-    border-radius: .3rem;
-    border: .15rem solid;
-    border-color: var(--c-bg-main);
-    font-size: 1rem;
 }
 
-.filter__search:focus {
+.filter__search-input {
+    width: 100%;
+    border: none;
+    padding: 0 0 .3rem 2rem;
+    margin-left: -2rem;
+    background: none;
+    border-bottom: .2rem solid #6d6d6d;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.filter__search-input::placeholder {
+    color: #6d6d6d;
+}
+
+.filter__search-input:focus  {
     border-color: var(--c-orange);
     outline: none;
+}
+
+.filter__search-icon {
+    display: block;
+    width: 2rem;
+    z-index: 5;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: #6d6d6d;
+}
+
+.filter__search-bar:focus-within .filter__search-icon {
+    color: var(--c-orange);
 }
 
 .filter__checkboxes {
@@ -29,19 +53,26 @@
     flex-wrap: wrap;
 }
 
-.filter__button {
-    padding: .5rem 1rem;
+.filter__btn {
+    padding: .5rem 1.5rem;
     margin-top: 1rem;
     border: none;
-    background-color: var(--c-corner-decor);
     border-radius: .2rem;
     cursor: pointer;
     width: 100%;
     font-size: 1rem;
 }
 
-.filter__button:hover {
-    background-color: var(--c-orange);
+.filter__btn i {
+    margin-left: .3rem;
+}
+
+.filter__btn--reset {
+    background-color: var(--c-btn-reset);
+}
+
+.filter__btn--reset:hover {
+    background-color: var(--c-btn-reset-hover);
 }
 
 .checkbox {
@@ -63,7 +94,7 @@
     width: 1rem;
     height: 1rem;
     content: '';
-    border: .2rem solid var(--c-corner-decor);
+    border: .15rem solid #6d6d6d;
     background-image: none;
     background-repeat: no-repeat;
     background-position: -.05rem 0;
@@ -98,24 +129,30 @@
 
 @media only screen and (min-width: 400px) {
     
+    .filter__content {
+        padding: 1.5rem;
+    }
+
     .filter__checkboxes {
         flex-direction: row;
     }
 
-    .filter__button {
+    .checkbox {
+        padding-right: 1rem;
+    }
+
+    .filter__btn {
         width: fit-content;
+        margin-top: 2rem;
     }
     
 }
 
 @media only screen and (min-width: 1000px) {
-    
-    .filter {
-        margin-left: 0;
-    }
 
-    .filter__content {
-        padding: 1rem;
+    .accordion.filter {
+        background-color: rgb(0,0,0,0);
+        box-shadow: none;
     }
 
     .filter__checkboxes {
@@ -130,7 +167,11 @@
         max-height: inherit;
     }
 
-    .filter__button {
+    .checkbox {
+        padding-right: .5rem;
+    }
+
+    .filter__btn {
         width: 100%;
     }
     

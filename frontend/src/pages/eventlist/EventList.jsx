@@ -6,14 +6,14 @@ import EventListFilter from './EventListFilter'
 const EventList = ( {categoryData,events} ) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [categories, setCategories] = useState([
-    {category_name:'Login',color:'fd8738',isChecked: false, isVisible: false},
+    {category_name:'LOGIN',color:'fd8738',isChecked: false, isVisible: false},
     {category_name:'CTF',color:'2da62b',isChecked:false, isVisible: false},
-    {category_name:'TekKom',color:'a206c9',isChecked:false, isVisible: false},
-    {category_name:'Karrieredag',color:'02dede',isChecked:false, isVisible: false},
-    {category_name:'Fadderuka',color:'fa75a6',isChecked:false, isVisible: false},
-    {category_name:'Social',color:'d62f43',isChecked:false, isVisible: false},
-    {category_name:'Bedpres',color:'4060e3',isChecked:false, isVisible: false},
-    {category_name:'Annet',color:'fa75a6',isChecked:false, isVisible: false},
+    {category_name:'TEKKOM',color:'a206c9',isChecked:false, isVisible: false},
+    {category_name:'KARRIEREDAG',color:'02dede',isChecked:false, isVisible: false},
+    {category_name:'FADDERUKA',color:'fa75a6',isChecked:false, isVisible: false},
+    {category_name:'SOCIAL',color:'d62f43',isChecked:false, isVisible: false},
+    {category_name:'BEDPRES',color:'4060e3',isChecked:false, isVisible: false},
+    {category_name:'ANNET',color:'fa75a6',isChecked:false, isVisible: false},
   ])
 
   useEffect(() => {
@@ -32,6 +32,13 @@ const EventList = ( {categoryData,events} ) => {
   }, [])
 
   const resetFilter = () => {
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     setSearchTerm('')
 
     const newState = categories.map(obj => {
@@ -51,6 +58,13 @@ const EventList = ( {categoryData,events} ) => {
   }
 
   const handleCategoryChange = (e) => {
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     const newState = categories.map(obj => {
       if (obj.category_name.toLowerCase() === e.target.name.toLowerCase()) {
         return {...obj, isChecked: !obj.isChecked}
@@ -62,6 +76,13 @@ const EventList = ( {categoryData,events} ) => {
   }
 
   const handleSearchChange = event => {
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+
     setSearchTerm(event.target.value)
   }
 

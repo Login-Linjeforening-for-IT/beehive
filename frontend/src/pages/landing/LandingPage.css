@@ -45,7 +45,7 @@
     width: 100%;
     margin: 3rem auto;
     display: grid;
-    column-gap: 2rem;
+    column-gap: 4rem;
     padding: 1rem;
     grid-template-columns: 1fr;
     grid-template-areas: 
@@ -62,26 +62,10 @@
 }
 
 .landing-info__link {
-    padding: 1rem 1rem 1rem 0;
-    font-size: 1.2rem;
+    padding: .5rem .8rem .5rem 0;
+    font-size: 1.3rem;
     width: fit-content;
     display: block;
-}
-
-.landing-info__link:after {
-    content: ' ';
-    position: absolute;
-    width: .8rem;
-    height: .8rem;
-    border: .2rem none var(--c-orange);
-    margin-top: 1.2rem;
-    margin-left: -.2rem;
-    transition: .2s;
-    cursor: pointer;
-}
-
-.landing-info__link:hover::after {
-    border-style: none solid solid none;
 }
 
 .landing-info picture {

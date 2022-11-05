@@ -49,7 +49,7 @@ const DecoratedPicture = ({imgurl, decorationNr, w, h, cornerSize}) => {
                 <clipPath id={maskID}>
                     <polygon points={`0,0 ${w},0 ${w},${h} ${cornerSize},${h} ${cornerSize},${h - (cornerSize / 3)} ${cornerSize / 3},${h - (cornerSize / 3)} ${cornerSize / 3},${h - (cornerSize)} 0,${h - (cornerSize)}`} />
                 </clipPath>
-                <image width={w} height={h} clipPath={'url(#' + maskID + ')'} className='decor-pic__img'  href={imgurl} />
+                <image loading='lazy' width={w} height={h} clipPath={'url(#' + maskID + ')'} className='decor-pic__img'  href={imgurl} />
                 <rect className='decor-pic__rect--orange' x='0' y={h - (cornerSize / 3 * .5)} width={cornerSize - (cornerSize / 3 * .5)} height={cornerSize / 3 * .5} />
                 <rect className='decor-pic__rect--orange' x='0' y={h - cornerSize + (cornerSize / 3 * .5)} width={cornerSize / 3 * .5} height={cornerSize - (cornerSize / 3 * .5)} />
                 </>

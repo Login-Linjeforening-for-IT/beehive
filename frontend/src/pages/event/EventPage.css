@@ -64,10 +64,13 @@
 /* lable icon */
 .event-details__icon {
     line-height: 1.5rem;
-    color: var(--c-font-discret);
     width: 1.5rem;
     text-align: center;
     padding-right: .5rem;
+}
+
+.event-details__icon--lable-color {
+    color: var(--c-font-discret);
 }
 
 .event-details__info {

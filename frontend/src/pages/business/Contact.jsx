@@ -18,7 +18,7 @@ const Contact = ({t,i18n}) => {
             2815 GJØVIK
           </p>
           <h4 className='heading-4'>{t('contact.email')}:</h4>
-          <p className='p--regular'><a href='mailto:kontakt@login.no'>kontakt@login.no</a></p>
+          <p className='p--regular'><a className='standard-link standard-link--underscore-hover' href='mailto:kontakt@login.no'>kontakt@login.no</a></p>
         </div>
         <div className='contact-card__map'>
           <MazeMap mazeref={'https://use.mazemap.com/#v=1&campusid=55&sharepoitype=poi&sharepoi=229153&lang=' + i18n.language} />
