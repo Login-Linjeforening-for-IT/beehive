@@ -21,4 +21,3 @@ const NotFoundPage = ({t}) => {
 }
 
 export default withTranslation('notfound')(NotFoundPage)
-
