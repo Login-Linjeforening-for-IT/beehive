@@ -1,0 +1,38 @@
+.companies-page {
+    max-width: 40rem;
+    margin: auto;
+}
+
+.companies-page__grid-container {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    row-gap: 1rem;
+}
+
+.companies-page__intro {
+    margin: 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .companies-page__intro {
+        margin-top: 2rem;
+    }
+}
+
+
+@media only screen and (min-width: 1000px) {
+
+    .companies-page {
+        max-width: 75rem;
+    }
+
+    .companies-page__grid-container {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 4rem;
+        row-gap: 2rem;
+        margin-bottom: 4rem;
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Events",
+  "noEvents": "No upcoming events",
+  "filter": {
+    "title": "filter",
+    "searchHint": "Search...",
+    "resetButton": "Reset"
+  }
+}

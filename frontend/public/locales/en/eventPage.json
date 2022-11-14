@@ -1,0 +1,10 @@
+{
+  "info": {
+    "start": "Starts",
+    "end": "Ends",
+    "location": "Location",
+    "type": "Category",
+    "organizer": "Organizer",
+    "links": "Links"
+  }
+}
