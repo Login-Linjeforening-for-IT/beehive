@@ -285,9 +285,14 @@ Tyholt	7052
 --
 
 COPY public.category (name, color, description) FROM stdin;
-PARTY	8df25e	These events are parties where alcohol is served
-COURSE	5a7aed	This event is a course
-BEDPRES	4060e3	This event is a business presentation
+SOCIAL	c73041	Social event
+BEDPRES	3439ba	Presentation by business
+CTF	27a82b	Capture the flag
+TEKKOM	8e00c2	Tekkom booiii
+FADDERUKA	fc81e8	Getting shitfaced every single day for a week
+CYBERDAG	02dede	Get that job son
+OTHER	736d6d	Other stuff idk
+LOGIN	fd8738	Login event
 \.
 
 
@@ -5440,11 +5445,11 @@ COPY public.city (postcode, name) FROM stdin;
 --
 
 COPY public.committee (name, aboutlink) FROM stdin;
-TEKKOM	/about/tekkom
-EVNTKOM	/about/evntkom
-CTFKOM	/about/ctfkom
-PRKOM	/about/prkom
-STYRET	/about/styret
+TEKKOM	/about
+EVENTKOM	/about
+CTFKOM	/about
+PRKOM	/about
+STYRET	/about
 LOGIN	/about
 \.
 
@@ -5454,8 +5459,19 @@ LOGIN	/about
 --
 
 COPY public.event (eventid, parent, organizer, eventname, startt, endt, publisht, description, audience, category, image, fblink, discordlink) FROM stdin;
-1	\N	TEKKOM	Lanseringsfest	2022-08-10 20:00:00	2022-08-15 23:59:59	2022-05-05 00:00:00	Lanseringsfest for beehive	LOGIN	PARTY	/events/party.png	facebook.com	discord.com
-2	\N	EVNTKOM	Kakebakedag	2022-08-19 16:00:00	2022-08-19 21:00:00	2022-05-05 00:00:00	Vi skal bake kaker og sånt	LOGIN	COURSE	/events/kake.png	facebook.com	discord.com
+1	\N	TEKKOM	Lanseringsfest	2032-01-12 20:00:00	2032-01-12 23:59:59	2022-08-13 00:00:00	Lanseringsfest for beehive!	LOGIN	SOCIAL	/bilde	 https://www.facebook.com	https://www.discord.com
+2	\N	EVENTKOM	Veldig laaangt navn, men np, Johannes har skillz	2032-02-15 18:30:00	2032-02-15 20:00:00	2022-08-13 00:00:00	Her står det noe info...	LOGIN	SOCIAL	/bilde	 https://www.facebook.com	https://www.discord.com
+3	\N	EVENTKOM	TOGA PARTY	2032-02-19 16:00:00	2032-02-20 06:00:00	2022-08-13 00:00:00	Fest og greier. Det er stas.	LOGIN	FADDERUKA	/events/kake.png	https://www.facebook.com	https://www.discord.com
+4	\N	PRKOM	Bedpres med Mnemonic	2032-03-25 16:00:00	2032-03-25 21:00:00	2022-08-13 00:00:00	Kanskje du vil jobbe for Mnemonic, kanskje ikke. Uansett, kom og spis go mat på deres regning	LOGIN	BEDPRES	/mnemonic.svg	https://www.facebook.com	https://www.discord.com
+5	\N	PRKOM	Bedpres med Kongsberg gruppen	2032-04-13 16:00:00	2032-04-13 21:00:00	2022-08-13 00:00:00	Kanskje du vil jobbe for kongsberg, kanskje ikke. Uansett, kom og spis go mat på deres regning	LOGIN	BEDPRES	/kongsberg-group.svg	https://www.facebook.com	https://www.discord.com
+6	\N	PRKOM	Bedpres med KPMG 	2032-05-25 16:00:00	2032-05-25 21:00:00	2022-08-13 00:00:00	Kanskje du vil jobbe for KPMG, kanskje ikke. Uansett, kom og spis go mat på deres regning	LOGIN	BEDPRES	/KPMG_logo.svg	https://www.facebook.com	https://www.discord.com
+7	\N	PRKOM	Bedpres med Microsoft University	2032-06-01 16:00:00	2032-06-01 21:00:00	2022-08-13 00:00:00	Kanskje du vil jobbe for Microsoft, kanskje ikke. Uansett, kom og spis go mat på deres regning	LOGIN	BEDPRES	/ms-university.png	https://www.facebook.com	https://www.discord.com
+8	\N	PRKOM	Bedpres med Norconsult	2032-07-18 16:00:00	2032-07-18 21:00:00	2022-08-13 00:00:00	Kanskje du vil jobbe for Norconsult, kanskje ikke. Uansett, kom og spis go mat på deres regning	LOGIN	BEDPRES	/norconsult.png	https://www.facebook.com	https://www.discord.com
+9	\N	TEKKOM	Tekkom samling	2032-08-27 16:00:00	2032-08-27 21:00:00	2022-08-13 00:00:00	Pizza er digg	LOGIN	TEKKOM	/bilde	https://www.facebook.com	https://www.discord.com
+10	\N	CTFKOM	CTF	2032-09-28 16:00:00	2032-09-28 21:00:00	2022-08-13 00:00:00	hackerman	LOGIN	CTF	/bilde	https://www.facebook.com	https://www.discord.com
+11	\N	PRKOM	Cyberdagen	2032-10-15 16:00:00	2032-10-15 21:00:00	2022-08-13 00:00:00	<p>Login - Linjeforeningen for IT-studenter ved NTNU Gj&oslash;vik, arrangerer en Cybedag</p><p>Karrieredagen arrangeres en gang i semesteret og er en super arena for &aring; utvide ditt nettverk innenfor IT milj&oslash;et i Norge. Dette semesteret arrangerer vi to dagers opplegg som vi kaller &ldquo;Cyberdagene&rdquo;. 29.september er siste dagen! Dette er hvilke bedrifter som kommer:</p><ul><li>E-corp</li><li>Beta</li><li><abbr title="Norges teknisk-naturvitenskapelige universitet">NTNU</abbr></li><li>McRonalds</li><li>Michaelsoft</li><li>Pied Piper</li></ul><p>Ta turen og f&aring; deg jobb da vel!</p>	LOGIN	CYBERDAG	/Cyberdagene_H22_Banner_nettside.png	https://www.facebook.com	https://www.discord.com
+12	\N	STYRET	Generalforsamling	2032-11-29 16:00:00	2032-11-29 21:00:00	2022-08-13 00:00:00	Hør på Login-medlemmer krangle om alt mellom himmel og jord	LOGIN	LOGIN	/bilde	https://www.facebook.com	https://www.discord.com
+13	\N	LOGIN	Leksehjelp	2032-12-05 16:00:00	2032-12-05 21:00:00	2022-08-13 00:00:00	Ta også hjelp Johannes med lekser, han er ikke flink og trenger hjelp	LOGIN	OTHER	/events/leksehjelp.png	https://www.facebook.com	https://www.discord.com
 \.
 
 
@@ -5466,6 +5482,16 @@ COPY public.event (eventid, parent, organizer, eventname, startt, endt, publisht
 COPY public.eventlocation (location, event) FROM stdin;
 1	1
 2	2
+2	3
+1	4
+1	5
+1	6
+1	7
+1	8
+1	9
+1	10
+1	12
+1	13
 \.
 
 
@@ -5493,7 +5519,7 @@ COPY public.location (locationid) FROM stdin;
 --
 
 COPY public.onpremlocation (locationid, roomno, campus, mazeref) FROM stdin;
-1	A255	Gjøvik	https://link.mazemap.com/Ti90Oyh0
+1	A255	Gjøvik	https://use.mazemap.com/#v=1&campusid=55&sharepoitype=poi&sharepoi=229153
 \.
 
 
@@ -5502,8 +5528,6 @@ COPY public.onpremlocation (locationid, roomno, campus, mazeref) FROM stdin;
 --
 
 COPY public.organization (name, link) FROM stdin;
-TEKNOLOGIFIRMAET	www.google.com
-ELVRY	www.google.com
 \.
 
 
@@ -5513,13 +5537,11 @@ ELVRY	www.google.com
 
 COPY public.organizer (name, logo) FROM stdin;
 TEKKOM	
-EVNTKOM	
+EVENTKOM	
 CTFKOM	
 PRKOM	
 STYRET	
 LOGIN	
-ELVRY	
-TEKNOLOGIFIRMAET	
 \.
 
 

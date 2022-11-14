@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "about": "OM OSS",
+    "events": "ARRANGEMENTER",
+    "companies": "FOR BEDRIFTER"
+  },
+  "footer": {
+    "msg": "Nettsiden er i BETA. Endringer skjer fortløpende. Dette medfører at ting ikke alltid fungerer som de skal. Skulle du snuble over en feil så setter vi pris på en <a href='mailto:kontakt@login.no'>epost</a>",
+    "copy": "Opphavsrett &copy; 2022 Login - Linjeforeningen for IT, NO 811 940 372"
+  }
+}
