@@ -1,0 +1,31 @@
+.event-page {
+  width: 100%;
+}
+
+.event-list {
+  list-style-type: none;
+}
+
+
+@media only screen and (min-width: 800px) {
+
+  
+
+}
+
+@media only screen and (min-width: 1000px) {
+
+  .event-grid-wrapper {
+    display: grid;
+    grid-template-columns: auto 18rem;
+    grid-template-areas: 'left right';
+  }  
+
+  .event-grid-wrapper--left {
+    grid-area: left;
+  }
+  
+  .event-grid-wrapper--right {
+    grid-area: right;
+  }
+}
