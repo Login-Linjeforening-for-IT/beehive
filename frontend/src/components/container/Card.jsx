@@ -1,8 +1,8 @@
-const Card = ({title,body}) => {
+const Card = ({data}) => {
   return (
-    <div>
-      <h2 className='heading-2' dangerouslySetInnerHTML={{__html: title}} />
-      <p className='p--regular' dangerouslySetInnerHTML={{__html: body}} />
+    <div className="Card">
+      <h2 dangerouslySetInnerHTML={{__html: data.title}} />
+      <p dangerouslySetInnerHTML={{__html: data.text}} />
     </div>
   );
 }

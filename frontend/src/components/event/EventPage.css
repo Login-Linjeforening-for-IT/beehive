@@ -1,0 +1,198 @@
+/* grid layout */
+
+.EventPage {
+    display: grid;
+    align-items: start;
+    max-width: 75rem;
+    margin: auto;
+}
+
+.EventDetails {
+    grid-area: det;
+}
+
+.EventBanner {
+    grid-area: ban;
+}
+
+.EventDescription {
+    grid-area: des;
+}
+
+.EventPage .Map {
+	grid-area: map;
+}
+
+
+/* event details */
+
+.EventDetails {
+    overflow: hidden;
+    width: 100%;
+}
+
+.EventDetails .Date {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.EventDetails .DateExpresion {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: auto 0;
+}
+
+.EventDetailsList {
+    display: grid;
+    grid-template-columns: min-content auto;
+    gap: 1rem;
+}
+
+.EventDetailsList-lable {
+    color: #a9a9a9;
+    display: inline-flex;
+}
+
+/* lable icon */
+.EventDetailsList-lable>i {
+    line-height: 1.5rem;
+    color: #a9a9a9;
+    width: 1.5rem;
+    text-align: center;
+    padding-right: .5rem;
+}
+
+.EventDetailsList-info {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+	overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+
+/* event banner */
+
+.EventBanner {
+    overflow: hidden;
+}
+
+.EventBanner picture {
+    display: block;
+}
+
+.EventBanner picture img, .EventBanner .Default {
+    display: block;
+    aspect-ratio: 10 / 4;
+    object-fit: cover;
+    width: 100%;
+}
+
+
+/* event description */
+
+.EventDescription h2, 
+.EventDescription h3, 
+.EventDescription h4, 
+.EventDescription p {
+    margin: 1rem 0;
+}
+
+.EventDescription ul, .EventDescription ol {
+    margin: 1rem;
+}
+
+.EventDescription ul {
+    list-style: none;
+}
+
+.EventDescription ul li:before {
+    content: '\2022';
+    color: #fd8738;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.EventDescription a:hover {
+    text-decoration: underline;
+}
+
+  
+@media only screen and (min-width: 0px) {
+    .EventPage {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "ban"
+            "det"
+            "des"
+            "map";
+        column-gap: 0;
+    }
+
+    .EventDetails {
+        padding: 1rem;
+        background-color: #212121;
+        text-align: right;
+    }
+
+    .EventPage .Map {
+        padding: 3rem;
+        margin: auto;
+    }
+
+    .EventDescription {
+        padding: 1rem;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .EventDetails {
+        padding: 2rem;
+        text-align: left;
+    }
+
+}
+
+  
+@media only screen and (min-width: 800px) {
+    .EventPage {
+        grid-template-columns: 20rem 1fr;
+        grid-template-areas: 
+            "det ban"
+            "det des"
+            "map des"
+            ".   des";
+        column-gap: 5%;
+        padding: 2rem 1rem;
+    }
+
+    .EventDetails {
+        border-radius: .3rem;
+        padding: 0;
+        margin-bottom: 3rem;
+        background: none;
+        text-align: right;
+    }
+
+    .EventBanner {
+        border-radius: .3rem;
+    }
+
+    .EventPage .Map {
+        padding: 0;
+    }   
+
+    .EventDescription {
+        padding: 0;
+    }
+}
+  
+@media only screen and (min-width: 1200px) {
+
+}
+

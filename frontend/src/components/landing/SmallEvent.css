@@ -1,0 +1,12 @@
+.smallEvent {
+    overflow: auto;
+    text-decoration: none;
+}
+
+.date {
+    float: left;
+}
+
+.name {
+    float: right;
+}

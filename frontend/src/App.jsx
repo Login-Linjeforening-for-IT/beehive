@@ -3,60 +3,24 @@ import {
   BrowserRouter,
   Routes,
   Route
-} from 'react-router-dom';
+} from "react-router-dom";
 
 import './App.css';
-import './assets/fonts/logfont.css';
+import './logfont.css';
 
-import TopBar from './layouts/topbar/TopBar';
-import LandingPage from './pages/landing/LandingPage';
-import Footer from './layouts/footer/Footer';
-import About from './pages/about/About';
-import Events from './pages/eventlist/Events';
-import Companies from './pages/business/CompaniesPage';
-import EventPage from './pages/event/EventPage';
-import NotFoundPage from './pages/notfoundpage/NotFoundPage';
-import Scroll from './utils/Scroll';
+import TopBar from './components/topbar/TopBar';
+import LandingPage from './components/landing/LandingPage';
+import Footer from './components/footer/Footer';
+import About from './components/about/About';
+import Events from './components/event/Events';
+import Companies from './components/business/CompaniesPage';
+import EventPage from './components/event/EventPage';
+import NotFoundPage from './components/notfoundpage/NotFoundPage';
+import Scroll from "./components/utility/Scroll";
 
 function App() {
-  
-  // trust me, this looks good in the console
-  const consoleStr = (
-      '%c███████╗                              ███████╗\n' +
-      '██╔════╝                              ╚════██║\n' + 
-      '██║%c ██╗     ██████╗  ██████╗ ██╗███╗   ██╗ %c██║\n' +
-      '╚═╝%c ██║    ██╔═══██╗██╔════╝ ██║████╗  ██║ %c╚═╝%c\n' +
-      '    ██║    ██║   ██║██║  ███╗██║██╔██╗ ██║\n' +
-      '    ██║    ██║   ██║██║   ██║██║██║╚██╗██║\n' +
-      '%c██╗%c ██████╗╚██████╔╝╚██████╔╝██║██║ ╚████║ %c██╗\n' +
-      '██║%c ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝ %c██║\n' +
-      '███████╗%c                              %c███████║\n' + 
-      '╚══════╝                              ╚══════╝%c\n\n' +
-      '       - Laget av TekKom med 🍕 og ❤️'
-  )
-
-  console.log(
-      consoleStr,       // ascii art output
-      // each string is the CSS to apply for each consecutive %c
-      'color: #fd8738', // apply style (orange color)
-      '',               // clear the style for every non orange part
-      'color: #fd8738',
-      '',
-      'color: #fd8738',
-      '',
-      'color: #fd8738',
-      '',
-      'color: #fd8738',
-      '',
-      'color: #fd8738',
-      '',
-      'color: #fd8738',
-      ''
-  )
-  
-
   return (
-    <div className='App'>
+    <div className="App">
 
       <BrowserRouter>
         <header>
@@ -66,12 +30,12 @@ function App() {
         <main>
           <Scroll>
             <Routes>
-              <Route path='/' element={<LandingPage />} />
-              <Route path='/about' element={<About /> } />
-              <Route path='/events' element={<Events />} />
-              <Route path='/events/:id' element={<EventPage />} />
-              <Route path='/companies' element={<Companies />} />
-              <Route path='*' element={<NotFoundPage />} />
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/about" element={<About /> } />
+              <Route path="/events" element={<Events />} />
+              <Route path="/events/:id" element={<EventPage />} />
+              <Route path="/companies" element={<Companies />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Scroll>
         </main>
