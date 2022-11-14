@@ -1,0 +1,62 @@
+.accordion {
+    background-color: var(--c-bg-box);
+    overflow: hidden;
+    margin: 0 1rem;
+    border-radius: .3rem;
+    box-shadow: var(--shadow-box);
+}
+
+.accordion__nav-item {
+    font-size: 1.5rem;
+    padding: 1rem 1rem 1rem 3.5rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.accordion__nav-item:hover {
+    background-color: var(--c-bg-box-hover);
+}
+
+.accordion__icon--left {
+    font-size: 2rem;
+    position: absolute;
+    margin-left: -2rem;
+    transition: .3s;
+    color: var(--c-orange);
+}
+
+.accordion__nav-item--active .accordion__icon--left {
+    transform: rotate(90deg);
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    /* got these transitions from a tutorial.
+       A simple "all .3s" does not work and I dont know why */
+    transition: all .5s cubic-bezier(0,1,0,1);
+}
+
+.accordion__content--open {
+    height: auto;
+    max-height: 100rem;
+    transition: all .5s cubic-bezier(1,0,1,0);
+}
+
+.accordion__content-item {
+    font-size: 1rem;
+    list-style: none;
+    padding: .5rem 1rem .5rem 3.5rem;
+}
+
+.accordion__content-item:last-child {
+    padding-bottom: 1rem;
+}
+
+
+@media only screen and (min-width: 800px) {
+    .accordion {
+        margin: 0;
+    }
+}
+
