@@ -1,6 +1,5 @@
 const DefaultTekkomBanner = ({color}) => {
     return (
-        
         <svg className='default-banner' viewBox='0 0 150 60' fill={color} xmlns='http://www.w3.org/2000/svg'>
             <rect x='133' width='17' height='4' />
             <rect width='4' height='17' />
@@ -15,7 +14,6 @@ const DefaultTekkomBanner = ({color}) => {
             <path fillRule='evenodd' clipRule='evenodd' d='M25.3202 39.5871L32.3202 19.5871L34.6798 20.413L27.6798 40.4129L25.3202 39.5871Z' />
             <path fillRule='evenodd' clipRule='evenodd' d='M43.2323 30L36.6161 23.3839L38.3839 21.6161L46.7677 30L38.3839 38.3839L36.6161 36.6161L43.2323 30Z' />
         </svg>
-
     )
 }
 
