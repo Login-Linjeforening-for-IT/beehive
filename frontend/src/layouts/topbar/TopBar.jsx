@@ -6,6 +6,7 @@ import ThemeToggle from '../../components/themetoggle/ThemeToggle'
 
 import './TopBar.css'
 import LangToggle from "../../components/langtoggle/LangToggle";
+import {ThemeProvider} from "../../context/ThemeContext";
 
 const TopBar = () => {
   const [isOpen, setIsOpen] = useState(false)
