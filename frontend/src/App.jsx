@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -17,9 +17,11 @@ import Companies from './pages/business/CompaniesPage';
 import EventPage from './pages/event/EventPage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import Scroll from './utils/Scroll';
+import ThemeContext from "./context/ThemeContext";
 
 function App() {
-  
+  const [theme, setTheme] = useState(localStorage.getItem('theme'))
+
   // trust me, this looks good in the console
   const consoleStr = (
       '%c███████╗                              ███████╗\n' +
@@ -56,31 +58,32 @@ function App() {
   
 
   return (
-    <div className='App'>
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <div className='App'>
+        <BrowserRouter>
+          <header>
+            <TopBar/>
+          </header>
 
-      <BrowserRouter>
-        <header>
-          <TopBar/>
-        </header>
+          <main>
+            <Scroll>
+              <Routes>
+                <Route path='/' element={<LandingPage />} />
+                <Route path='/about' element={<About /> } />
+                <Route path='/events' element={<Events />} />
+                <Route path='/events/:id' element={<EventPage />} />
+                <Route path='/companies' element={<Companies />} />
+                <Route path='*' element={<NotFoundPage />} />
+              </Routes>
+            </Scroll>
+          </main>
 
-        <main>
-          <Scroll>
-            <Routes>
-              <Route path='/' element={<LandingPage />} />
-              <Route path='/about' element={<About /> } />
-              <Route path='/events' element={<Events />} />
-              <Route path='/events/:id' element={<EventPage />} />
-              <Route path='/companies' element={<Companies />} />
-              <Route path='*' element={<NotFoundPage />} />
-            </Routes>
-          </Scroll>
-        </main>
-
-        <footer>
-          <Footer />
-        </footer>
-      </BrowserRouter>
-    </div>
+          <footer>
+            <Footer />
+          </footer>
+        </BrowserRouter>
+      </div>
+    </ThemeContext.Provider>
   )
 }
 

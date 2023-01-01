@@ -1,20 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './ThemeToggle.css'
+import ThemeContext from "../../context/ThemeContext";
 
 const ThemeToggle = () => {
+    const {theme, setTheme} = useContext(ThemeContext)
+
     const body = document.body
     const lightTheme = 'light'
     const darkTheme = 'dark'
-    let theme
-
-    if (localStorage) {
-        theme = localStorage.getItem('theme')
-    }
 
     if (theme === lightTheme || theme === darkTheme) {
         body.classList.add(theme)
     } else {
-        theme = darkTheme
+        setTheme(darkTheme)
         body.classList.add(theme)
     }
 
@@ -23,12 +21,14 @@ const ThemeToggle = () => {
             body.classList.replace(darkTheme, lightTheme)
             e.target.classList.replace(darkTheme, lightTheme)
             localStorage.setItem('theme', 'light')
-            theme = lightTheme
+
+            setTheme(lightTheme)
         } else {
             body.classList.replace(lightTheme, darkTheme)
             e.target.classList.replace(lightTheme, darkTheme)
             localStorage.setItem('theme', 'dark')
-            theme = darkTheme
+
+            setTheme(darkTheme)
         }
     }
 

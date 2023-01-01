@@ -12,11 +12,25 @@
   display: block;
 }
 
-.footer__picture img {
+.footer__picture__login img {
   display: block;
   max-width: 12rem;
   width: 100%;
   margin: 3rem auto;
+}
+
+.footer__picture__sponsor img {
+  display: block;
+  max-width: 20rem;
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.footer__picture__sponsor p {
+  color: #a9a9a9;
+  font-size: 1.1rem;
+  text-align: center;
+  padding-bottom: 2rem;
 }
 
 .footer__p {
@@ -44,10 +58,21 @@
     align-items: start;
   }
 
-  .footer__picture img {
+  .footer__picture__login img {
     margin: auto;
-    max-width: 20rem;
+    max-width: 15rem;
     height: 8rem;
   }
 
+  .footer__picture__sponsor img {
+    margin: auto;
+    max-width: 23rem;
+    height: 8rem;
+  }
+
+  .footer__picture__sponsor p {
+    color: #a9a9a9;
+    font-size: 1.1rem;
+    text-align: center;
+  }
 }
