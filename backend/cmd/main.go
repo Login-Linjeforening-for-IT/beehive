@@ -64,7 +64,7 @@ func main() {
 	// configure the API
 	if *production {
 		APIRouter.Use(cors.New(cors.Config{
-			AllowOrigins:     []string{"http://api.login.no"},
+			AllowOrigins:     []string{"http://login.no"},
 			AllowMethods:     []string{"GET"},
 			AllowHeaders:     []string{"Origin"},
 			ExposeHeaders:    []string{"Content-Length"},
