@@ -1,0 +1,10 @@
+.NotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Picture-Pizza img{
+    height: 40rem;
+}
