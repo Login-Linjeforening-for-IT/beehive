@@ -247,6 +247,21 @@ abbr {
   color: var(--c-font-main);
 }
 
+.p--wide {
+  padding-bottom: 1.2rem;
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
+}
+
+/* No bottom padding, used in e.g. lists */
+.p--short {
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
+  max-width: 50rem;
+}
+
 /* text selection */
 
 ::-moz-selection { /* Code for Firefox */
