@@ -16,7 +16,7 @@ const Footer = ({t}) => {
                     <source srcSet={config.url.CDN_URL + '/img/company/mnemonic-logo_light-nopayoff-2021.svg '} />
                     <img alt='mnemonic' />
                   </picture>
-                  <p>Hovedsamarbeidspartner</p>
+                  <p>{t('footer.sponsor')}</p>
                 </a>
               <SocialLinks />
             </div>

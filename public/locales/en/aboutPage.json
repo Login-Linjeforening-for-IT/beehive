@@ -67,6 +67,14 @@
   },
   "publicDocs": {
     "title": "Public documents",
-    "body": "For more information and public documents, visit <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>."
+    "body": "For more information and public documents, visit <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>, here you can find the following types of documents:",
+    "bulletPoints": {
+      "agendas": "Agenda",
+      "minutes": "Minutes",
+      "budgets": "Budget",
+      "honorary-member": "Honorary member",
+      "bylaws": "Bylaws"
+    }
   }
+
 }

@@ -16,6 +16,19 @@
     max-width: 50rem;
 }
 
+.about-public-docs ul {
+    list-style: none;
+}
+
+.about-public-docs ul li:before {
+    content: '\2022';
+    color: var(--c-orange);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: 1em;
+}
+
 .about-intro__grid-container {
     display: flex;
     align-items: start;

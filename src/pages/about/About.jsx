@@ -30,9 +30,18 @@ const About = ({t}) => {
         <p className='about-section__p p--regular'>{t('committeeSection.intro')}</p>
         <CommitteeTabs/>
       </section>
-      <section className='about-section'>
+      <section className='about-public-docs-section'>
         <h2 className='about-section__heading heading-2'>{t('publicDocs.title')}</h2>
-        <p className='about-section__p p--regular' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
+        <p className='about-section__p p--wide' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
+        <div className='about-public-docs '>
+          <ul>
+            <li className='p--short'>{t('publicDocs.bulletPoints.agendas')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.minutes')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.budgets')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.honorary-member')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.bylaws')}</li>
+          </ul>
+        </div>
       </section>
     </div>
   )
