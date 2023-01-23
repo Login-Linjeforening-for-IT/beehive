@@ -18,7 +18,6 @@ const Footer = ({t}) => {
                   </picture>
                   <p>{t('footer.sponsor')}</p>
               </a>
-              <SocialLinks />
             </div>
             <SocialLinks />
             <p className='footer__p' dangerouslySetInnerHTML={{__html: t('footer.msg')}} />
