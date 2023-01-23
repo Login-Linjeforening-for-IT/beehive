@@ -2,7 +2,7 @@ import './SatkomLogoAnimation.css';
 
 const SatkomLogo = () => {
     return (
-        <svg className='satkom-logo committee-logo' width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <svg className='satkom-logo committee-logo' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M44 5 L4.6 43.4' className='committee-logo--stroke-color satkom-logo__flash1' strokeWidth='8'/>
             <path d='M44 5 L4.6 43.4' className='committee-logo--stroke-color satkom-logo__flash2' strokeWidth='3'/>
             <path fillRule='evenodd' clipRule='evenodd' d='M0 0H100V100H0V0ZM76.5 48C76.5 63.7401 63.7401 76.5 48 76.5C32.2599 76.5 19.5 63.7401 19.5 48C19.5 32.2599 32.2599 19.5 48 19.5C63.7401 19.5 76.5 32.2599 76.5 48Z' className='committee-logo--fill-bg-color'/>
