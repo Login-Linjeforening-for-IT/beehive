@@ -9,7 +9,7 @@ import './About.css'
 const About = ({t}) => {
   return (
     <div className='about-page page-container'>
-      <h1 className='heading-1 heading-1--bottom-left-corner heading-1--top-right-corner'>{t('title')}</h1>
+      <h1 className='heading-1 heading-1--top-left-corner'>{t('title')}</h1>
       <section className='about-section about-intro'>
         <p className='about-intro__p about-section__p p--highlighted' dangerouslySetInnerHTML={{__html: t('intro')}}/>
         <div className='about-intro__grid-container'>

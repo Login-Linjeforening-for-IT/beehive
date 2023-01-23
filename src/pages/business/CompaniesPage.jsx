@@ -6,7 +6,7 @@ import {withTranslation} from "react-i18next";
 const CompaniesPage = ({t}) => {
   return (
     <div className='companies-page page-container'>
-      <h1 className='heading-1 heading-1--top-right-corner heading-1--bottom-left-corner'>{t('companies.title')}</h1>
+      <h1 className='heading-1 heading-1--top-left-corner'>{t('companies.title')}</h1>
       <p className='p--highlighted companies-page__intro'>{t('companies.intro')}</p>
       <div className='companies-page__grid-container'>
         <Card title={t('companies.bedpres.title')} body={t('companies.bedpres.body')}/>
