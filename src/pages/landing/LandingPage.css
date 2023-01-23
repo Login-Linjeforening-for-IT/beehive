@@ -1,14 +1,39 @@
 .welcome {
     width: 100%;
-    padding: 4rem 1rem;
     background: var(--c-bg-welcome);
 }
 
+.welcome__container {
+    padding: 4rem 1rem;
+    max-width: 40rem;
+    margin: auto;
+}
+
+.welcome__text {
+    display: block;
+    width: fit-content;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: var(--c-font-main);
+    font-weight: 400;
+    margin-top: 5rem;
+}
+
+.welcome__text--gradient {
+    background: linear-gradient(90deg, #f100ff, #00fff6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 4.5rem;
+}
+
 .landing-logo {
+    display: block;
     width: 100%;
     max-width: 40rem;
     margin: auto;
-    display: block;
 }
 
 .landing-logo__letter {
@@ -23,22 +48,16 @@
     stroke-width: 3.5px;
 }
 
-.welcome__text {
-    text-align: center;
-    font-size: 2.5rem;
-    line-height: 3rem;
-    color: var(--c-font-main);
-    margin: 0;
-    padding: 6rem 0 2rem 0;
+.welcome__pic {
+    display: block;
+    max-width: 50rem;
+    width: 100%;
+    margin: auto;
 }
 
-.welcome__text--gradient {
-    background: linear-gradient(90deg, #f100ff, #00fff6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 600;
-}
+
+
+
 
 .landing-info {
     max-width: 75rem;
@@ -77,23 +96,90 @@
 
 
 @media only screen and (min-width: 800px) {
+
+    .welcome__container {
+        display: flex;
+        
+        align-items: center;
+        justify-content: space-around;
+        max-width: 75rem;
+        padding: 8rem 3rem 10rem;
+        gap: 4rem;
+        
+    }
+
+    .welcome__text {
+        font-size: 2rem;
+        margin: auto;
+    }
+
+    .welcome__text--gradient {
+        font-size: 4.5rem;
+    }
+
     .landing-info {
-        padding: 3rem;
-        grid-template-columns: 1fr 1fr;
+        padding: 4rem 2rem;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4rem; 
     }
 
     .landing-info:nth-child(odd) {
         grid-template-areas: 
-            'a b';
+            'a a a b b b b';
     }
 
     .landing-info:nth-child(even) {
         grid-template-areas: 
-            'b a';
+            'b b b b a a a';
     }
 
     .landing-info picture {
         margin-bottom: auto;
+        max-width: 40rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .welcome__container {
+        padding: 9rem 3rem 11rem;
+        gap: 5rem;
+    }
+
+    .welcome__text {
+        font-size: 2.3rem;
+    }
+
+    .welcome__text--gradient {
+        font-size: 5.2rem;
+        line-height: 5.6rem;
+    }
+
+    .landing-info {
+        gap: 5rem; 
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+    .welcome__container {
+        padding: 10rem 3rem 11rem;
+        gap: 7rem;
+    }
+
+    .welcome__text {
+        font-size: 2.6rem;
+        line-height: 3rem;
+    }
+
+    .welcome__text--gradient {
+        font-size: 5.6rem;
+        line-height: 6rem;
+    }
+
+    .landing-info {
+        gap: 6rem; 
     }
 }
   
