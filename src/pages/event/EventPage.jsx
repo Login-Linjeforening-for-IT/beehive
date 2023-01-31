@@ -148,7 +148,7 @@ const EventPage = ({t,i18n}) => {
 								}
 							</div>
 
-							{(eventData.discorlink || eventData.fblink) &&
+							{(eventData.discordlink || eventData.fblink) &&
 								<>
 									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-link'></i>{t('info.links')}: </div>
 									<div className='event-details__info'>
