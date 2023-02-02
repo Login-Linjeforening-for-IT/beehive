@@ -44,17 +44,6 @@ const SmallInfo = ({t}) => {
 
       <div className='landing-info'>
         <div className='landing-info__text'>
-          <h2 className='heading-2'>{t('landing.sponsor.title')}</h2>
-          <p className='p--regular'>{t('landing.sponsor.body')}</p>
-          <a className='landing-info__link standard-link standard-link--corner-hover' href='https://www.mnemonic.io/' target='_blank'>{t('landing.readMore')}</a>
-        </div>
-        <a href='https://www.mnemonic.io/' target='_blank'>
-          <DecoratedPicture imgurl={config.url.CDN_URL + getSponsorPath()} decorationNr={1} cornerSize={400} w={1420} h={947} />
-        </a>
-      </div>
-
-      <div className='landing-info'>
-        <div className='landing-info__text'>
           <h2 className='heading-2'>{t('landing.companiesInfo.title')}</h2>
           <p className='p--regular'>{t('landing.companiesInfo.body')}</p>
           <Link className='landing-info__link standard-link standard-link--corner-hover' to='/companies'>{t('landing.readMore')}</Link>
