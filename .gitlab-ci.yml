@@ -32,7 +32,6 @@ docker-build-prod:
     - docker build --build-arg API_URL=$PROD_API_URL -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
 
-
 # For the staging build
 docker-build-staging:
   variables:

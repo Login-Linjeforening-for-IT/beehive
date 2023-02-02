@@ -23,6 +23,20 @@
   color: #a9a9a9;
 }
 
+.footer__picture__sponsor img {
+  display: block;
+  max-width: 20rem;
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.footer__picture__sponsor p {
+  color: #a9a9a9;
+  font-size: 1.1rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
 .footer__p {
   font-size: .8rem;
   line-height: 1.2rem;
