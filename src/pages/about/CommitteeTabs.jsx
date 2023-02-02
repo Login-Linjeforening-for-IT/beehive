@@ -62,7 +62,7 @@ const CommitteeTabs = ({t}) => {
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted'>{t('committeeSection.tekkom.intro')}</p>
-              <p className='p--regular' dangerouslySetInnerHTML={{__html: t('committeeSection.tekkom.body')}} />
+              <p className='p--regular'>{t('committeeSection.tekkom.body')}</p>
             </div>
             <LogChamp img={config.url.CDN_URL + '/img/portraits/portrett_tekkom-leder.jpg'} name='Simon Edna' stilling={t('committeeSection.board.tekkom')} discord='Sim#3909' />
           </div>
@@ -72,7 +72,7 @@ const CommitteeTabs = ({t}) => {
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted'>{t('committeeSection.pr.intro')}</p>
-              <p className='p--regular' dangerouslySetInnerHTML={{__html: t('committeeSection.pr.body')}} />
+              <p className='p--regular'>{t('committeeSection.pr.body')}</p>
             </div>
             <LogChamp img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'} name='Kristina Kataki' stilling={t('committeeSection.board.pr')} discord='Kataki#7254' />
           </div>
@@ -91,7 +91,7 @@ const CommitteeTabs = ({t}) => {
         <h3 className='committees__heading heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.title')}} />
           <div className='committees__info'>
             <div className='committees__text'>
-              <p className='p--highlighted'>{t('committeeSection.satkom.intro')}</p>
+              <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.intro')}} />
               <p className='p--regular' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.body')}} />
             </div>
             <LogChamp img={config.url.CDN_URL + '/img/portraits/portrett_økonomi.jpg'} name='Sebastian Hestsveen' stilling={t('committeeSection.board.satkom')} discord='stubbe#8694' />

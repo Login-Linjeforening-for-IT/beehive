@@ -27,7 +27,7 @@ const Events = ({t}) => {
 		{ isLoading && <Spinner w='3rem' h='3rem' /> }
 		{ eventsData && categoryData && 
 			<>
-				<h1 className='heading-1 heading-1--top-left-corner heading-1--bottom-right-corner'>{t('title')}</h1>
+				<h1 className='heading-1 heading-1--top-left-corner'>{t('title')}</h1>
 				{eventsData ? <EventList events={eventsData} categoryData={categoryData}/> : <h3>{t('no-events')}</h3>}
 			</>
 		}

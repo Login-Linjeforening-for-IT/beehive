@@ -60,13 +60,21 @@
       "body": "CTFkom is the committee that organizes CTF events on campus. They work to ensure that all IT students at the school can develop their skills through Capture The Flag competitions. Every other week they gather at the school to solve tasks together and offer an arena where students from different study programmes, years and classes can meet and have fun together. In addition to this, we are active on Discord, and ensure that you can always stay up to date on new and interesting CTFs. In CTFkom, no question is too stupid and if you are stuck in a CTF, or just wondering about something, just send a message in the channel on <a class='standard-link standard-link--underscore-hover' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>."
     },
     "satkom":{
-      "title": "<abbr title=\"Systematiserte Automatiser Transaksjoner\">SATkom</abbr>",
-      "intro": "SATkom is the committee that guards Login's money bin and ensures that the money flows both in and out. If you have financial skills, or just want to be Login's new sugar daddy, then this is the committee for you!",
+      "title": "SATkom",
+      "intro": "<abbr title=\"Systematiserte Automatiser Transaksjoner\">SATkom</abbr> is the committee that guards Login's money bin and ensures that the money flows both in and out. If you have financial skills, or just want to be Login's new sugar daddy, then this is the committee for you!",
       "body": "SATkom stands for Systematized Automated Transactions, and they work with managing the funds Login has available. Their duties involve paying bills, sending out invoices and purchasing for the association. They prepare weekly accounts, and make sure that the committees do not exceed their budgets too much. The committee also has a 'Dungeon Master' who is tasked with looking after the Lounge, and that all our members get enough caffeine. Furthermore, the committee is involved in budgeting, various financial matters and other minor matters."
     }
   },
   "publicDocs": {
     "title": "Public documents",
-    "body": "For more information and public documents, visit <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>."
+    "body": "For more information and public documents, visit <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>, here you can find the following types of documents:",
+    "bulletPoints": {
+      "agendas": "Agenda",
+      "minutes": "Minutes",
+      "budgets": "Budget",
+      "honorary-member": "Honorary member",
+      "bylaws": "Bylaws"
+    }
   }
+
 }
