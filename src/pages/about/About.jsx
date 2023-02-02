@@ -9,7 +9,7 @@ import './About.css'
 const About = ({t}) => {
   return (
     <div className='about-page page-container'>
-      <h1 className='heading-1 heading-1--bottom-left-corner heading-1--top-right-corner'>{t('title')}</h1>
+      <h1 className='heading-1 heading-1--top-left-corner'>{t('title')}</h1>
       <section className='about-section about-intro'>
         <p className='about-intro__p about-section__p p--highlighted' dangerouslySetInnerHTML={{__html: t('intro')}}/>
         <div className='about-intro__grid-container'>
@@ -30,9 +30,18 @@ const About = ({t}) => {
         <p className='about-section__p p--regular'>{t('committeeSection.intro')}</p>
         <CommitteeTabs/>
       </section>
-      <section className='about-section'>
+      <section className='about-public-docs-section'>
         <h2 className='about-section__heading heading-2'>{t('publicDocs.title')}</h2>
-        <p className='about-section__p p--regular' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
+        <p className='about-section__p p--wide' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
+        <div className='about-public-docs '>
+          <ul>
+            <li className='p--short'>{t('publicDocs.bulletPoints.agendas')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.minutes')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.budgets')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.honorary-member')}</li>
+            <li className='p--short'>{t('publicDocs.bulletPoints.bylaws')}</li>
+          </ul>
+        </div>
       </section>
     </div>
   )

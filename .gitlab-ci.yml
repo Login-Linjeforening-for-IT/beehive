@@ -17,10 +17,6 @@ services:
     DOCKER_TLS_CERTDIR: "/certs"
   stage: build
   image: docker:latest
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $IMAGE_TAG .
-    - docker push $IMAGE_TAG
 
 # For the production build
 docker-build-prod:
@@ -31,7 +27,10 @@ docker-build-prod:
     # and generate certificates in the specified directory.
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
-
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg API_URL=$PROD_API_URL -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
 
 # For the staging build
 docker-build-staging:
@@ -42,3 +41,7 @@ docker-build-staging:
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
   extends: .docker-build
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg API_URL=$STAGING_API_URL -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG

@@ -7,6 +7,14 @@ const DecoratedPicture = ({imgurl, decorationNr, w, h, cornerSize}) => {
     
     const Corner = () => {
         switch(decorationNr) {
+            case 0 : 
+            return(
+                <>
+                
+                <image width={w} height={h} clipPath={'url(#' + maskID + ')'} className='decor-pic__img'  href={imgurl} />
+                
+                </>
+            ) 
             case 1 : 
             return(
                 <>

@@ -247,6 +247,21 @@ abbr {
   color: var(--c-font-main);
 }
 
+.p--wide {
+  padding-bottom: 1.2rem;
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
+}
+
+/* No bottom padding, used in e.g. lists */
+.p--short {
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
+  max-width: 50rem;
+}
+
 /* text selection */
 
 ::-moz-selection { /* Code for Firefox */
@@ -317,9 +332,15 @@ abbr {
     position: absolute;
     width: 2rem;
     height: 2rem;
+    /*
     border-width: .7rem;
     border-color: var(--c-corner-decor);
     border-style: solid solid none none;
+    
+    testing different syntax to see if color change correctly on light mode
+    */
+    border-left: .7rem solid var(--c-corner-decor);
+    border-top: .7rem solid var(--c-corner-decor);
     margin-left: -1.5rem;
     margin-top: -.2rem;
     z-index: 2;

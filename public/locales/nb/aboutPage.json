@@ -60,13 +60,20 @@
       "body": "CTFKom er komiteen som stiller i stand CTF arrangementer på campus. De arbeider for at alle IT- studentene ved skolen skal kunne utvikle sine ferdigheter gjennom Capture The Flag konkurranser. Annenhver uke samles de på skolen for å løse oppgaver sammen, og tilbyr en arena der studenter fra ulike studieprogram, år og klasser kan treffes og ha det gøy sammen. Utover dette er vi aktive på Discord, og sørger for at du alltid kan holde deg oppdatert på nye og interessante CTFer. I CTFkom er ingen spørsmål for dumme og dersom du sitter fast i en CTF, eller bare lurer på noe er det bare å sende en melding i kanalen på <a class='standard-link standard-link--underscore-hover' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>."
     },
     "satkom":{
-      "title": "<abbr title=\"Systematiserte Automatiserte Transaksjoner\">SATkom</abbr>",
-      "intro": "SATkom er komiteen som vokter Login sin pengebinge, og sørger for at pengene både flyter inn og ut. Hvis du har økonomisk sans, eller bare vil bli Login's nye sugar daddy, så er dette komiteen for deg!",
+      "title": "SATkom",
+      "intro": "<abbr title=\"Systematiserte Automatiserte Transaksjoner\">SATkom</abbr> er komiteen som vokter Login sin pengebinge, og sørger for at pengene både flyter inn og ut. Hvis du har økonomisk sans, eller bare vil bli Login's nye sugar daddy, så er dette komiteen for deg!",
       "body": "SATkom står for Sytematiserte Automatiserte Transaksjoner, og de jobber med å forvalte midlene Login har tilgengelig. Deres oppgaver innebærer betaling av regninger, utsending av fakturaer og innkjøp til foreningen. De lager ukentlige regnskap, og passer på at komiteene ikke overskrider budsjettene for mye. Komiteen har også en 'Dungeon Master' som har i oppgave å passe på Loungen, og at alle medlemmene våre får nok koffein. Videre er komiteen involvert i budsjettering, diverse økonomiske saker og andre ablegøyer."
     }
   },
   "publicDocs": {
     "title": "Offentlige dokumenter",
-    "body": "For mer informasjon og offentlige dokumenter kan du besøke <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>."
+    "body": "For mer informasjon og offentlige dokumenter kan du besøke <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>, her kan du blant annet finne følgende type dokumenter:",
+    "bulletPoints": {
+      "agendas": "Agenda",
+      "minutes": "Referat",
+      "budgets": "Budsjett",
+      "honorary-member": "Æresmedlem",
+      "bylaws": "Vedtekter"
+    }
   }
 }
