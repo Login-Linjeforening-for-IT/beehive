@@ -22,7 +22,7 @@
   transition: .2s;
   text-align: center;
   display: block;
-  color: white;
+  color: var(--c-white);
 }
 
 
