@@ -17,4 +17,5 @@
 
 .logchamp p:last-child {
     margin-top: 1rem;
+    font-size: .9rem; /* some idiot's discord tag was too long */
 }
