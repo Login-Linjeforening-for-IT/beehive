@@ -6,123 +6,68 @@
 
   color-scheme: dark; /* both supported */
 
-
-  /* color values */
-  --c-bright-orange: #fd8738;
-  --c-dark-orange: #d95d0a;
-
-  --c-black:    rgb(0, 0, 0);
-  --c-grey-16:  rgb(16, 16, 16);
-  --c-grey-24:  rgb(24, 24, 24);
-  --c-grey-33:  rgb(33, 33, 33);
-  --c-grey-39:  rgb(39, 39, 39);
-  --c-grey-48:  rgb(48, 48, 48);
-  --c-grey-53:  rgb(53, 53, 53);
-  --c-grey-69:  rgb(69, 69, 69);
-  --c-grey-180: rgb(180, 180, 180);
-  --c-grey-196: rgb(196, 196, 196);
-  --c-grey-200: rgb(200, 200, 200);
-  --c-grey-220: rgb(220, 220, 220);
-  --c-grey-240: rgb(240, 240, 240);
-  --c-grey-250: rgb(250, 250, 250);
-  --c-white:    rgb(255, 255, 255);
-
-
-  /* brand colors */
-  --c-primary: var(--c-bright-orange);
-  --c-primary-dark: var(--c-dark-orange);
-
-  
-  /* background colors */
-  --c-bg-body: var(--c-grey-24);
-  --c-bg-box: var(--c-grey-33);
-  --c-bg-box-hover: var(--c-grey-39);
+  --c-orange: #fd8738;
+  --c-bg-main: #181818;
   --c-bg-topbar: rgba(20, 20, 20, 0.6);
-  --c-bg-footer: var(--c-grey-16);
-  /* hero section */
+  --c-bg-footer: #101010;
+
   --c-bg-welcome: radial-gradient(circle, rgba(10,10,10) 0%, rgba(24,24,24) 100%);
-  --c-bg-mobile-nav-open: rgba(20, 20, 20, .8);
 
+  --c-bg-box: #212121;
+  --c-bg-box-hover: #282828;
+  --c-font-box-unselected: #454545;
 
-  /* buttons */
-  --c-btn: var(--c-grey-33);
-  --c-btn-hover: var(--c-grey-48);
-  /* use on-box if the element is on top
-   of somthing with the bg-box background */
-  --c-btn-on-box: var(--c-grey-48);
-  --c-btn-on-box-hover: var(--c-grey-69);
-  
+  --c-corner-decor: #282828;
 
-  /* font colors */
-  --c-font-main: var(--c-white);
-  --c-font-title: var(--c-white);
-  --c-font-regular: var(--c-grey-220);
-  --c-font-discret: var(--c-grey-180);
-  --c-link: var(--c-primary);
-  /* use "on-box-dim" to make element look
-   "not in focus" or "not selected" */
-  --c-on-box-dim: var(--c-grey-69);
+  --c-font-main: #fff;
+  --c-font-title: #fff;
+  --c-font-regular-p: rgb(220, 220, 220);
+  --c-font-discret: rgb(180, 180, 180);
+  --c-link-color: var(--c-orange);
 
+  --c-btn-reset: #272727;
+  --c-btn-reset-hover: #353535;
 
-  /* decoration */
-  --c-corner-decor: var(--c-grey-48);
-
-
-  /* font family */
-  --font-primary: 'Poppins', sans-serif;
-  --font-secondary: 'Lora', serif;
-
-
-  /* distances */
-  --h-topbar: 5rem;
-  --w-page: 75rem;
-  
-
-  /* shadows (only being uesd in light mode) */ 
   --shadow-box: none;
   --drop-shadow-img: none;
 
+  --h-topbar: 5rem;
+
+  --w-page: 75rem;
+
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Lora', serif;
+
 }
 
-/* light mode */
 .light {
 
-  color-scheme: light; /* both supported */
+    color-scheme: light; /* both supported */
 
-  /* backgrounds */
-  --c-bg-body: var(--c-grey-240);
-  --c-bg-topbar: rgba(250,250,250, 0.85);
-  --c-bg-footer: var(--c-grey-33);
-  --c-bg-box: var(--c-grey-250);
-  --c-bg-box-hover: var(--c-white);
-  /* hero section */
-  --c-bg-welcome: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(222, 222, 222) 100%);
-  --c-bg-mobile-nav-open: rgba(0, 0, 0, .9);
+    --c-orange: #fd8738;
+    --c-bg-main: rgb(240, 240, 240);
+    --c-bg-topbar: rgba(0,0,0, 0.85);
+    --c-bg-footer: #212121;
 
+    --c-bg-welcome: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(222, 222, 222) 100%);
+    
+    --c-bg-box: rgb(250, 250, 250);
+    --c-bg-box-hover: rgb(255, 255, 255);
+    --c-font-box-unselected: #bababa;
 
-  /* font colors */
-  --c-font-main: var(--c-black);
-  --c-font-title: var(--c-black);
-  --c-font-regular: var(--c-grey-39);
-  --c-font-discret: var(--c-grey-69);
-  --c-link: var(--c-primary-dark);
-  --c-on-box-dim: var(--c-grey-180);
+    --c-corner-decor: rgb(200, 200, 200);
 
+    --c-font-main: #000;
+    --c-font-title: #212121;
+    --c-font-regular-p: rgb(50, 50, 50);
+    --c-font-discret: rgb(100, 100, 100);
+    --c-link-color: #d95d0a;
 
-  /* buttons */
-  --c-btn: var(--c-grey-200);
-  --c-btn-hover: var(--c-grey-180);
-  --c-btn-on-box: var(--c-grey-220);
-  --c-btn-on-box-hover: var(--c-grey-196);
+    --c-btn-reset: #dddddd;
+    --c-btn-reset-hover: #c4c4c4;
 
-
-  /* decorations */
-  --c-corner-decor: var(--c-grey-196);
-
-
-  /* shadows */
-  --shadow-box: 0 .1rem .5rem .1rem rgba(200,200,200, 0.3);
-  --drop-shadow-img: drop-shadow(.08rem .08rem .08rem rgba(90, 90, 90, 0.5));
+    --shadow-box: 0 .1rem .5rem .1rem rgba(200,200,200, 0.3);;
+    --drop-shadow-img: drop-shadow(.08rem .08rem .08rem rgba(90, 90, 90, 0.5));
 
 }
 
@@ -135,10 +80,11 @@
   font-family: var(--font-primary);
   color: var(--c-font-main);
   transition: .2s;
+
 }
 
 body {
-  background-color: var(--c-bg-body);
+  background-color: var(--c-bg-main);
 }
 
 
@@ -148,7 +94,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: var(--c-bg-body);
+  background-color: var(--c-bg-main);
 }
 
 main {
@@ -227,11 +173,11 @@ footer {
 
 a {
   text-decoration: none;
-  color: var(--c-link);
+  color: var(--c-link-color);
   cursor: pointer;
 }
 
-.standard-link {
+.light .standard-link {
   font-weight: 500;
 }
 
@@ -256,7 +202,7 @@ a {
 }
 
 .standard-link--corner-hover:hover::after {
-  border-color: var(--c-link);
+  border-color: var(--c-link-color);
   right: 0;
   bottom: 0;
 }
@@ -265,7 +211,7 @@ a {
 
 /* standard abbreviasion */
 abbr {
-  text-decoration-color: var(--c-primary);
+  text-decoration-color: var(--c-orange);
 }
 
 
@@ -274,12 +220,13 @@ abbr {
 .p--regular {
   padding-bottom: 1.2rem;
   line-height: 1.8rem;
-  color: var(--c-font-regular);
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
   max-width: 50rem;
 }
 
 .p--regular i {
-  color: var(--c-font-regular);
+  color: var(--c-font-regular-p);
 }
 
 .p--highlighted {
@@ -292,7 +239,7 @@ abbr {
   font-size: 1.2rem;
   color: var(--c-font-main);
   padding-left: 1rem;
-  border-left: .3rem solid var(--c-primary);
+  border-left: .3rem solid var(--c-orange);
   max-width: 50rem;
 }
 
@@ -300,46 +247,35 @@ abbr {
   color: var(--c-font-main);
 }
 
-
-/* material icons */
-.material-symbols-sharp {
-  vertical-align: middle;
+.p--wide {
+  padding-bottom: 1.2rem;
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
 }
 
-
-/* lists */
-
-.ul--regular {
-  list-style: none;
+/* No bottom padding, used in e.g. lists */
+.p--short {
+  line-height: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--c-font-regular-p);
+  max-width: 50rem;
 }
-
-.ul--regular li {
-  color: var(--c-font-regular);
-}
-
-.ul--regular li:before {
-  content: '\2022';
-  color: var(--c-primary);
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: .5em;
-}
-
 
 /* text selection */
 
 ::-moz-selection { /* Code for Firefox */
   color: white !important;
-  background: var(--c-primary) !important;
+  background: var(--c-orange) !important;
 }
 
 ::selection {
   color: white !important;
-  background: var(--c-primary) !important;
+  background: var(--c-orange) !important;
 }
 
 
+/* For mobile: */
 @media only screen and (min-width: 400px) {
 
   .heading-1 {
@@ -396,6 +332,13 @@ abbr {
     position: absolute;
     width: 2rem;
     height: 2rem;
+    /*
+    border-width: .7rem;
+    border-color: var(--c-corner-decor);
+    border-style: solid solid none none;
+    
+    testing different syntax to see if color change correctly on light mode
+    */
     border-left: .7rem solid var(--c-corner-decor);
     border-top: .7rem solid var(--c-corner-decor);
     margin-left: -1.5rem;

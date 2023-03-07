@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import EventList from './EventList'
 import Spinner from '../../components/spinner/Spinner'
-import {withTranslation} from 'react-i18next'
+import {withTranslation} from "react-i18next";
 import { config } from '../../Constants'
 
+import './Events.css'
 
 const Events = ({t}) => {
 	const [eventsData, setEventData] = useState(null)
@@ -22,7 +23,7 @@ const Events = ({t}) => {
 	}, [])
 
   return (
-    <div className='page-container'>
+    <div className='events-page page-container'>
 		{ isLoading && <Spinner w='3rem' h='3rem' /> }
 		{ eventsData && categoryData && 
 			<>

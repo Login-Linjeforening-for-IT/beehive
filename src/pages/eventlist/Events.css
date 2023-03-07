@@ -1,13 +1,15 @@
+.event-page {
+  width: 100%;
+}
+
 .event-list {
   list-style-type: none;
 }
 
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 800px) {
 
-  .event-list {
-    margin: 0 1rem;
-  }
+  
 
 }
 
@@ -15,7 +17,7 @@
 
   .event-grid-wrapper {
     display: grid;
-    grid-template-columns: auto 17rem;
+    grid-template-columns: auto 18rem;
     grid-template-areas: 'left right';
   }  
 

@@ -15,12 +15,6 @@
     margin: 1rem;
 }
 
-.companies-page__header-icon {
-    font-size: 1.2em;
-    line-height: inherit;
-    vertical-align: top;
-}
-
 @media only screen and (min-width: 800px) {
 
     .companies-page__intro {

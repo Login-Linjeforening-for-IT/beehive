@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import EventListFilter from './EventListFilter'
 
-import './EventList.css'
-
 const EventList = ( {categoryData,events} ) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [categories, setCategories] = useState([

@@ -1,5 +1,7 @@
+import './Events.css';
 import {withTranslation} from 'react-i18next'
 import ListFilter from '../../components/filter/ListFilter'
+
 
 import {useState} from 'react'
 
@@ -12,17 +14,15 @@ const EventListFilter = ({t,categories, searchTerm, handleSearchChange, handleCa
 
   return (
     <ul className='accordion filter'>
-      <AccordionItem id='filter' title={<>Filter <i className='material-symbols-sharp filter__filter-icon'>filter_alt</i></>} activeAccordionItem={activeAccordionItem} setActiveAccordionItem={setActiveAccordionItem} />
+      <AccordionItem id='filter' title={<><i className='accordion__icon--left fa fa-angle-right'></i>Filter <i className='fa fa-filter'></i></>} activeAccordionItem={activeAccordionItem} setActiveAccordionItem={setActiveAccordionItem} />
       <AccordionContent id='filter' activeAccordionItem={activeAccordionItem}>
         <div className='filter__content'>
           <form className='filter__search-bar'>
-            <i class='material-symbols-sharp filter__search-icon'>search</i>
+            <i className='fa fa-search filter__search-icon'></i>
             <input className='filter__search-input' type='text' placeholder={t('filter.searchHint')} value={searchTerm} onChange={handleSearchChange}/>
           </form>
           <ListFilter categories={categories} handleChange={handleCategoryChange}/>
-          <button className='filter__btn filter__btn--reset' onClick={resetFilter}>
-            {t('filter.resetButton')} <span class='material-symbols-sharp filter__reset-icon'>refresh</span>
-          </button>
+          <button className='filter__btn filter__btn--reset' onClick={resetFilter}>{t('filter.resetButton')} <i className='fa fa-undo'> </i></button>
         </div>
       </AccordionContent>
     </ul>

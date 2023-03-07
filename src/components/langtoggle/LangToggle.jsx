@@ -1,31 +1,27 @@
-import {withTranslation} from 'react-i18next'
-import {useEffect, useState} from 'react'
+import {withTranslation} from "react-i18next";
+import {useEffect, useState} from 'react';
 
 import './LangToggle.css'
 
 const LangToggle = ({i18n}) => {
-  const [buttonText, setButtonText] = useState('')
-  const [jump, setJump] = useState(false);
+  const [buttonText, setButtonText] = useState('');
   
   useEffect( () => {
-    i18n.language === 'no' || i18n.language === 'nb' ? setButtonText('en') : setButtonText('no')
-  }, [i18n.language])
+    i18n.language === 'no' || i18n.language === 'nb' ? setButtonText('NO') : setButtonText('EN')
+  }, [i18n.language]);
 
   function handleClick(event) {
     if (i18n.language === 'no' || i18n.language === 'nb') {
-      i18n.changeLanguage(event.target.value = 'en')
-      setButtonText('en')
+      i18n.changeLanguage(event.target.value = 'en');
+      setButtonText('NO');
     } else {
-      i18n.changeLanguage(event.target.value = 'nb')
-      setButtonText('no')
+      i18n.changeLanguage(event.target.value = 'nb');
+      setButtonText('EN');
     }
-
-    setJump(true)
-    setTimeout(() => setJump(false), 400)
   }
 
   return(
-    <div value={i18n.language} onClick={handleClick} className='lang-toggle'><i className={`lang-toggle__icon material-symbols-sharp ${jump ? 'lang-toggle__icon--jump' : ''}`}>language</i> {buttonText}</div>
+    <div value={i18n.language} onClick={handleClick} className="lang-toggle">{buttonText}</div>
   )
 }
 

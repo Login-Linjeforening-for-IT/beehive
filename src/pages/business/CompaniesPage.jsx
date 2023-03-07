@@ -1,4 +1,5 @@
 import './CompaniesPage.css';
+import Card from '../../components/container/Card';
 import Contact from './Contact'
 import {withTranslation} from "react-i18next";
 
@@ -8,26 +9,11 @@ const CompaniesPage = ({t}) => {
       <h1 className='heading-1 heading-1--top-left-corner'>{t('companies.title')}</h1>
       <p className='p--highlighted companies-page__intro'>{t('companies.intro')}</p>
       <div className='companies-page__grid-container'>
-        <div>
-          <h2 className='heading-2'><i class='companies-page__header-icon material-symbols-sharp'>flowsheet</i> {t('companies.bedpres.title')}</h2>
-          <p className='p--regular'>{t('companies.bedpres.body')}</p>
-        </div>
-        <div>
-          <h2 className='heading-2'><i class='companies-page__header-icon logfont-pr'></i> {t('companies.cyberdays.title')}</h2>
-          <p className='p--regular'>{t('companies.cyberdays.body')}</p>
-        </div>
-        <div>
-          <h2 className='heading-2'><i class='companies-page__header-icon logfont-ctfkom'></i> {t('companies.ctf.title')}</h2>
-          <p className='p--regular'>{t('companies.ctf.body')}</p>
-        </div>
-        <div>
-          <h2 className='heading-2'><i class='companies-page__header-icon material-symbols-sharp'>build</i> {t('companies.workshop.title')}</h2>
-          <p className='p--regular'>{t('companies.workshop.body')}</p>
-        </div>
-        <div>
-          <h2 className='heading-2'><i class='companies-page__header-icon material-symbols-sharp'>campaign</i> {t('companies.profiling.title')}</h2>
-          <p className='p--regular'>{t('companies.profiling.body')}</p>
-        </div>
+        <Card title={t('companies.bedpres.title')} body={t('companies.bedpres.body')}/>
+        <Card title={t('companies.cyberdays.title')} body={t('companies.cyberdays.body')}/>
+        <Card title={t('companies.ctf.title')} body={t('companies.ctf.body')}/>
+        <Card title={t('companies.workshop.title')} body={t('companies.workshop.body')}/>
+        <Card title={t('companies.profiling.title')} body={t('companies.profiling.body')}/>
       </div>
       <Contact/>
     </div>

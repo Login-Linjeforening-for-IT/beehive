@@ -1,53 +1,10 @@
-
-/* copied a bunch from landing page */
-
-.not-found {
-    padding: 1rem;
-    max-width: 40rem;
-    margin: auto;
+.NotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.not-found__pic {
-    display: block;
-    max-width: 40rem;
-    width: 100%;
-    margin: auto;
-}
-
-.not-found__img {
-    display: block;
-    width: 100%;
-    max-width: 40rem;
-    margin: auto;
-}
-
-.not-found__text {
-    display: block;
-    width: 100%;
-    margin-top: 1rem;
-}
-
-.not-found__link {
-    margin-top: 1rem;
-    padding: .5rem .8rem .5rem 0;
-    font-size: 1.3rem;
-    width: fit-content;
-    display: block;
-}
-
-@media only screen and (min-width: 800px) {
-    .not-found {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        max-width: 75rem;
-        gap: 2rem;
-    }
-
-    .not-found__text {
-        margin: auto;
-        width: fit-content;
-        text-align: left;
-        padding-right: 1rem;
-    }
+.Picture-Pizza img{
+    height: 40rem;
 }

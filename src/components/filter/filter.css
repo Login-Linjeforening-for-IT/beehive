@@ -5,17 +5,7 @@
 }
 
 .filter__content {
-    padding: 1rem;
-}
-
-.filter__filter-icon {
-    font-size: 1.7rem;
-}
-
-.filter__reset-icon {
-    line-height: inherit;
-    font-size: 1.2rem;
-    vertical-align: top;
+    padding: .5rem 1rem 1rem 1rem;
 }
 
 .filter__search-bar {
@@ -27,17 +17,12 @@
 .filter__search-input {
     width: 100%;
     border: none;
-    padding: 0 0 .3rem 2.2rem;
+    padding: 0 0 .3rem 2rem;
     margin-left: -2rem;
     background: none;
     border-bottom: .2rem solid #6d6d6d;
     font-size: 1.2rem;
     line-height: 2rem;
-
-    /* prevent rounded corners on mobile browsers */
-    -webkit-appearance: none;
-    -webkit-border-radius: 0; 
-    border-radius: none;
 }
 
 .filter__search-input::placeholder {
@@ -45,7 +30,7 @@
 }
 
 .filter__search-input:focus  {
-    border-color: var(--c-link);
+    border-color: var(--c-orange);
     outline: none;
 }
 
@@ -53,13 +38,13 @@
     display: block;
     width: 2rem;
     z-index: 5;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     color: #6d6d6d;
 }
 
 .filter__search-bar:focus-within .filter__search-icon {
-    color: var(--c-link);
+    color: var(--c-orange);
 }
 
 .filter__checkboxes {
@@ -83,11 +68,11 @@
 }
 
 .filter__btn--reset {
-    background-color: var(--c-btn-on-box);
+    background-color: var(--c-btn-reset);
 }
 
 .filter__btn--reset:hover {
-    background-color: var(--c-btn-on-box-hover);
+    background-color: var(--c-btn-reset-hover);
 }
 
 .checkbox {
@@ -137,12 +122,16 @@
 }
 
 .checkbox__input:checked ~ .checkbox__label:before {
-    background-color: var(--c-primary);
-    border-color: var(--c-primary);
+    background-color: var(--c-orange);
+    border-color: var(--c-orange);
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
 }
 
 @media only screen and (min-width: 400px) {
+    
+    .filter__content {
+        padding: 1.5rem;
+    }
 
     .filter__checkboxes {
         flex-direction: row;
@@ -184,14 +173,6 @@
 
     .filter__btn {
         width: 100%;
-    }
-
-    .filter__btn--reset {
-        background-color: var(--c-btn);
-    }
-    
-    .filter__btn--reset:hover {
-        background-color: var(--c-btn-hover);
     }
     
 }

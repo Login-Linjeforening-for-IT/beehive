@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
-import './assets/fonts/logfont/logfont.css';
+import './assets/fonts/logfont.css';
 
 import TopBar from './layouts/topbar/TopBar';
 import LandingPage from './pages/landing/LandingPage';

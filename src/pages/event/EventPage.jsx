@@ -5,11 +5,11 @@ import { Navigate, useParams, Link } from 'react-router-dom';
 import Spinner from '../../components/spinner/Spinner';
 import DateTile from '../../components/datetile/DateTile';
 import MazeMap from '../../components/mazemap/map';
-import DefaultEventBanner from '../../components/svg/defaultbanners/DefaultEventBanner';
-import DefaultCtfBanner from '../../components/svg/defaultbanners/DefaultCtfBanner';
-import DefaultTekkomBanner from '../../components/svg/defaultbanners/DefaultTekkomBanner';
-import DefaultBedpresBanner from '../../components/svg/defaultbanners/DefaultBedpresBanner';
-import DefaultSocialBanner from '../../components/svg/defaultbanners/DefaultSocialBanner';
+import DefaultEventBanner from '../../assets/svg/defualtBanners/DefaultEventBanner';
+import DefaultCtfBanner from '../../assets/svg/defualtBanners/DefaultCtfBanner';
+import DefaultTekkomBanner from '../../assets/svg/defualtBanners/DefaultTekkomBanner';
+import DefaultBedpresBanner from '../../assets/svg/defualtBanners/DefaultBedpresBanner';
+import DefaultSocialBanner from '../../assets/svg/defualtBanners/DefaultSocialBanner';
 import { config } from '../../Constants';
 import {withTranslation} from "react-i18next";
 import * as DatetimeFormatter from '../../utils/DatetimeFormatter'
@@ -105,17 +105,17 @@ const EventPage = ({t,i18n}) => {
 						</div>
 
 						<div className='event-details__list'>
-							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>schedule</i> {t('info.start')}: </div>
+							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-clock-o'></i> {t('info.start')}: </div>
 							<div className='event-details__info'>{DatetimeFormatter.getTimeHHmm(eventData.startt)}</div>
 
-							{DatetimeFormatter.showEndTime(eventData.endt) && <><div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>schedule</i>{t('info.end')}: </div>
+							{DatetimeFormatter.showEndTime(eventData.endt) && <><div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-clock-o'></i> {t('info.end')}: </div>
 							<div className='event-details__info'>
 								{DatetimeFormatter.getTimeHHmm(eventData.endt)}
 							</div></>}
 
 							{ (eventData.roomno || eventData.street) &&
 								<>
-									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>location_on</i>{t('info.location')}:</div>
+									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-map-marker'></i>{t('info.location')}:</div>
 									<div className='event-details__info'>
 										{eventData.roomno
 											? eventData.roomno + ', ' + eventData.campus
@@ -125,17 +125,18 @@ const EventPage = ({t,i18n}) => {
 								</>
 							}
 
-							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>category</i>{t('info.type')}:</div>
+							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-circle'></i>{t('info.type')}:</div>
 							<div className='event-details__info'>
+
 								{/* Adding category color to dot icon, using !important to overide text color. Super hacky but gets the job done apperantly */}
-								{eventData.category} <i className='event-details__icon logfont-circle' ref={(node) => {
+								<i className='event-details__icon fa fa-circle' ref={(node) => {
 									if (node) {
 										node.style.setProperty('color', '#' + category.find((c) => c.Name === eventData.category).Color, 'important');
 									}
-								}}></i>
+								}}></i>{eventData.category}
 							</div>
 
-							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>person</i>{t('info.organizer')}: </div>
+							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-user'></i> {t('info.organizer')}: </div>
 							<div className='event-details__info'>
 								{eventData.organizerlink === ''
 									? <>{eventData.organizer}</>
@@ -149,7 +150,7 @@ const EventPage = ({t,i18n}) => {
 
 							{(eventData.discordlink || eventData.fblink) &&
 								<>
-									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>link</i>{t('info.links')}: </div>
+									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color fa fa-link'></i>{t('info.links')}: </div>
 									<div className='event-details__info'>
 										{eventData.discordlink &&
 											<>
@@ -167,6 +168,7 @@ const EventPage = ({t,i18n}) => {
 									</div>
 								</>
 							}
+
 						</div>
 					</div>
 					<div className='event-banner'>
