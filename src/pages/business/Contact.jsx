@@ -5,7 +5,7 @@ import {withTranslation} from "react-i18next";
 const Contact = ({t,i18n}) => {
   return(
     <div className='contact-card'>
-      <h2 className='heading-2'>{t('contact.title')}</h2>
+      <h2 className='heading-2'><i class='companies-page__header-icon material-symbols-sharp'>travel_explore</i> {t('contact.title')}</h2>
       <div className='contact-card__info'>
         <div className='contact-card__text'>
           <h4 className='heading-4'>{t('contact.address')}:</h4>

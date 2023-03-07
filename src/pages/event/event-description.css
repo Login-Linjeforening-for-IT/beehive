@@ -31,7 +31,7 @@
 .event-description p {
     padding: 1rem 0;
     line-height: 1.8rem;
-    color: var(--c-font-regular-p);
+    color: var(--c-font-regular);
 }
 
 .event-description ul, .event-description ol {
@@ -42,13 +42,17 @@
     list-style: none;
 }
 
+.event-description li {
+    color: var(--c-font-regular);
+}
+
 .event-description ul li:before {
     content: '\2022';
-    color: var(--c-orange);
+    color: var(--c-primary);
     font-weight: bold;
     display: inline-block;
     width: 1em;
-    margin-left: -1em;
+    margin-left: -.5em;
 }
 
 .event-description a:hover {

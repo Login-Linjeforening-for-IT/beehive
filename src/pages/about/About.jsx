@@ -1,7 +1,7 @@
 import CommitteeTabs from './CommitteeTabs'
 import StudyProgramsAcordion from './StudyProgramsAccordion'
 import DecoratedPicture from '../../components/picture/DecoratedPicture'
-import {withTranslation} from "react-i18next";
+import {withTranslation} from 'react-i18next';
 import { config } from '../../Constants';
 
 import './About.css'
@@ -30,18 +30,16 @@ const About = ({t}) => {
         <p className='about-section__p p--regular'>{t('committeeSection.intro')}</p>
         <CommitteeTabs/>
       </section>
-      <section className='about-public-docs-section'>
+      <section className='about-section about-public-docs'>
         <h2 className='about-section__heading heading-2'>{t('publicDocs.title')}</h2>
-        <p className='about-section__p p--wide' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
-        <div className='about-public-docs '>
-          <ul>
-            <li className='p--short'>{t('publicDocs.bulletPoints.agendas')}</li>
-            <li className='p--short'>{t('publicDocs.bulletPoints.minutes')}</li>
-            <li className='p--short'>{t('publicDocs.bulletPoints.budgets')}</li>
-            <li className='p--short'>{t('publicDocs.bulletPoints.honorary-member')}</li>
-            <li className='p--short'>{t('publicDocs.bulletPoints.bylaws')}</li>
-          </ul>
-        </div>
+        <p className='about-section__p p--regular' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
+        <ul className='about-public-docs__list ul--regular'>
+          <li>{t('publicDocs.bulletPoints.agendas')}</li>
+          <li>{t('publicDocs.bulletPoints.minutes')}</li>
+          <li>{t('publicDocs.bulletPoints.budgets')}</li>
+          <li>{t('publicDocs.bulletPoints.honorary-member')}</li>
+          <li>{t('publicDocs.bulletPoints.bylaws')}</li>
+        </ul>
       </section>
     </div>
   )
