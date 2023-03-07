@@ -1,11 +1,11 @@
 import TabNavItem from '../../components/tabs/TabNavItem'
 import TabContent from '../../components/tabs/TabContent'
-import EventkomLogo from '../../assets/svg/logos/EventkomLogo'
-import PrkomLogo from '../../assets/svg/logos/PrkomLogo'
-import TekkomLogo from '../../assets/svg/logos/TekkomLogo'
-import CtfkomLogo from '../../assets/svg/logos/CtfkomLogo'
-import StyretLogo from '../../assets/svg/logos/StyretLogo'
-import SatkomLogo from '../../assets/svg/logos/SatkomLogo'
+import EventkomLogo from '../../components/svg/committeelogos/EventkomLogo'
+import PrkomLogo from '../../components/svg/committeelogos/PrkomLogo'
+import TekkomLogo from '../../components/svg/committeelogos/TekkomLogo'
+import CtfkomLogo from '../../components/svg/committeelogos/CtfkomLogo'
+import StyretLogo from '../../components/svg/committeelogos/StyretLogo'
+import SatkomLogo from '../../components/svg/committeelogos/SatkomLogo'
 import LogChamp from '../../components/logchamp/LogChamp'
 import { config } from '../../Constants';
 
