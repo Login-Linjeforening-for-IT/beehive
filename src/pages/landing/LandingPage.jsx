@@ -1,6 +1,6 @@
 import './LandingPage.css'
 import DecoratedPicture from '../../components/picture/DecoratedPicture'
-import LoginLogo from '../../assets/svg/LoginLogo';
+import LoginLogo from '../../components/svg/brandlogos/LoginLogo';
 import {Link} from 'react-router-dom'
 import { config } from '../../Constants'
 import {withTranslation} from "react-i18next";
