@@ -7,7 +7,7 @@
 .logchamp__title {
     margin-top: 1rem;
     font-size: 1.2rem;
-    color: var(--c-primary);
+    color: var(--c-orange);
     font-weight: 500;
 }
 
@@ -17,5 +17,4 @@
 
 .logchamp p:last-child {
     margin-top: 1rem;
-    font-size: .9rem; /* some idiot's discord tag was too long */
 }

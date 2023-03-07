@@ -1,11 +1,7 @@
-
 .about-section {
-    margin-bottom: 3rem; /* creates nice spacing between content */
+    margin-bottom: 3rem;
 }
 
-
-/* gave headers and paragrapfs margins instead of giving it to 
-   the 'about-section' class because the 'tabs-section' is an exception */
 .about-section__heading {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -16,11 +12,21 @@
     margin-right: 1rem;
 }
 
-
-/* intro section */
-
 .about-intro__p {
     max-width: 50rem;
+}
+
+.about-public-docs ul {
+    list-style: none;
+}
+
+.about-public-docs ul li:before {
+    content: '\2022';
+    color: var(--c-orange);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: 1em;
 }
 
 .about-intro__grid-container {
@@ -35,18 +41,10 @@
     width: 100%;
 }
 
-/* BEM exception becasue its a picture component */
 .about-intro__grid-container picture {
     max-width: 33rem;
     width: 100%;
     margin: 3rem 1rem 1rem 1rem;
-}
-
-
-/* public docs dection */
-
-.about-public-docs__list {
-    margin: 0 1rem;
 }
 
 

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import DateTile from '../../components/datetile/DateTile'
-import DefaultEventBanner from '../../components/svg/defaultbanners/DefaultEventBanner';
-import DefaultCtfBanner from '../../components/svg/defaultbanners/DefaultCtfBanner';
-import DefaultTekkomBanner from '../../components/svg/defaultbanners/DefaultTekkomBanner';
-import DefaultBedpresBanner from '../../components/svg/defaultbanners/DefaultBedpresBanner';
-import DefaultSocialBanner from '../../components/svg/defaultbanners/DefaultSocialBanner';
+import DefaultEventBanner from '../../assets/svg/defualtBanners/DefaultEventBanner';
+import DefaultCtfBanner from '../../assets/svg/defualtBanners/DefaultCtfBanner';
+import DefaultTekkomBanner from '../../assets/svg/defualtBanners/DefaultTekkomBanner';
+import DefaultBedpresBanner from '../../assets/svg/defualtBanners/DefaultBedpresBanner';
+import DefaultSocialBanner from '../../assets/svg/defualtBanners/DefaultSocialBanner';
 import { config } from '../../Constants';
 import * as TimeFormatter from '../../utils/DatetimeFormatter'
 import * as ImageLinker from '../../utils/ImageLinker'
@@ -44,12 +44,12 @@ const EventListItem = (props) => {
         <div className='events-item__name'>{props.evt.eventname}</div>
         <ul className='events-item__details'>
           <li className='events-item__detail'>
-            <i className='events-item__icon material-symbols-sharp'>schedule</i>{TimeFormatter.getTimeHHmm(props.evt.startt)}
+            <i className='events-item__icon fa fa-clock-o'></i>{TimeFormatter.getTimeHHmm(props.evt.startt)}
           </li>
           
           { (props.evt.roomno || props.evt.street) &&
             <li className='events-item__detail'>
-              <i className='events-item__icon material-symbols-sharp'>location_on</i>
+              <i className='events-item__icon fa fa-map-marker'></i>
               {/* Only rendering postcode and city if it's not in gjøvik to save some space
                and because if it's not specified it's obviuosly in gjøvik */}
               { props.evt.roomno && <>{props.evt.roomno}{ props.evt.campus =! 'GJØVIK' && <>, {props.evt.campus}</>}</>}

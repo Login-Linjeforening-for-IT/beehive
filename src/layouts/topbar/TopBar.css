@@ -8,23 +8,15 @@
   transition: 0.5s;
 }
 
+.topbar--open {
+  height: 100vh;
+  background-color: rgba(20, 20, 20, .8);
+}
+
 .topbar__img {
   display: block;
   height: 3rem;
 }
-
-
-/* logo component from assets -> svg */
-.logo-small {
-  display: block;
-  height: 3rem;
-}
-
-.logo-small__letter {
-  fill: var(--c-font-main);
-  transition: 1s .1s;
-}
-
 
 .topbar__toggle {
   display: flex;
@@ -40,8 +32,7 @@
 }
 
 
-/* mobile nav */
-
+/* mobile main-nav */
 .mobile-nav {
   position: fixed;
   top: 5rem;
@@ -56,7 +47,7 @@
 }
 
 .topbar__burger-bun {
-  background: var(--c-font-main);
+  background: white;
   height: .2rem;
   position: absolute;
   width: 2rem;
@@ -74,18 +65,16 @@
 
 .topbar__hamburger--open .topbar__burger-bun--top {
   transform: rotate(-45deg) translate(-4.6px, 4.6px);
-  background: var(--c-white);
 }
 
 .topbar__hamburger--open .topbar__burger-bun--bottom {
-  transform: rotate(45deg) translate(-4.6px, -4.6px);
-  background: var(--c-white);
+  transform: rotate(45deg) translate(-4.6px, -4.6px)
 }
 
 
 .mobile-nav__item {
   list-style: none;  
-  color: var(--c-white);
+  color: white;
   text-decoration: none;
   font-size: 1.5rem;
   line-height: 1.5rem;
@@ -108,26 +97,8 @@
 
 /* higlight active navlink and prevent hover */
 
-.active .mobile-nav__item {
-  color: var(--c-primary);
-}
-
-
-.topbar__toggle {
-  height: 3rem;
-  margin-right: 1rem;
-}
-
-
-/* to ensure that the mobile nav can never be open on desktop view */
-@media only screen and (max-width: 800px) {
-  .topbar--open {
-    height: 100vh;
-    background-color: var(--c-bg-mobile-nav-open);
-  }
-  .topbar--open .logo-small__letter {
-    fill: var(--c-white);
-  }
+.active .main-nav__item, .active .mobile-nav__item {
+  color: #f0802a;
 }
 
 
@@ -139,14 +110,14 @@
   }
 
   .topbar--open {
-    height: var(--h-topbar);
-  }
-
-  .mobile-nav {
-    display: none;
+    height: 5rem;
   }
 
   .topbar__hamburger {
+    display: none;
+  }
+
+  .mobile-nav {
     display: none;
   }
 
@@ -161,20 +132,15 @@
   .main-nav__item {
     list-style: none;
     display: block;
-    color: var(--c-font-main);
+    color: white;
     text-decoration: none;
     font-size: 1rem;
     line-height: 1rem;
     padding: .8rem;
-    font-weight: 500;
-  }
-
-  .active .main-nav__item {
-    color: var(--c-link);
+    letter-spacing: .1rem;
   }
 
   .topbar__toggle {
     width: fit-content;
-    margin-right: 0;
   }
 }

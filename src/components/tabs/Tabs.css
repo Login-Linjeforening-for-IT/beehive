@@ -31,7 +31,7 @@
     display: block;
     margin: auto;
     transition: .2s;
-    color: var(--c-on-box-dim);
+    color: var(--c-font-box-unselected);
     padding: .5rem;
     border-bottom: .3rem solid var(--c-bg-box);
 }
@@ -42,7 +42,7 @@
 
 .tabs__nav-title--active {
     color: var(--c-font-main);
-    border-color: var(--c-primary);
+    border-color: var(--c-orange);
 }
 
 .tabs__content {

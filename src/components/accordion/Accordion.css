@@ -18,11 +18,11 @@
 }
 
 .accordion__icon--left {
-    font-size: 2.2rem;
+    font-size: 2rem;
     position: absolute;
-    margin-left: -2.7rem;
+    margin-left: -2rem;
     transition: .3s;
-    color: var(--c-link);
+    color: var(--c-orange);
 }
 
 .accordion__nav-item--active .accordion__icon--left {

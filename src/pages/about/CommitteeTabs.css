@@ -59,9 +59,9 @@
 
 
 
-/* ----------------------------------------------- */
-/* Comittee-logo color managment for tab animation */
-/* ----------------------------------------------- */
+/* -------------------------------------- */
+/* Comittee logo colors for tab animation */
+/* -------------------------------------- */
 
 
 /* fill color to match background of tab */
@@ -70,7 +70,7 @@
 }
 
 .committee-logo--fill-color {
-    fill: var(--c-on-box-dim);
+    fill: var(--c-font-box-unselected);
     transition: .2s;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .committee-logo--stroke-color {
-    stroke: var(--c-on-box-dim);
+    stroke: var(--c-font-box-unselected);
     transition: .2s;
 }
 
@@ -113,6 +113,8 @@
         flex-wrap: nowrap;
         justify-content: space-between;
     }
+
+    
 
     .committees .tabs__nav-title svg {
         max-width: 6rem;
@@ -153,3 +155,5 @@
         padding: 2rem 5rem 3rem 5rem;
     }
 }
+
+

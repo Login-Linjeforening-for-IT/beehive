@@ -3,14 +3,12 @@
 	width: 100%;
 	cursor: pointer;
 	transition: .2s;
-	padding: .5rem 1rem;
-
-	/* cleaner word-breaking */
 	-webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
 	overflow-wrap: break-word;
+	padding: .5rem 1rem;
 }
 
 .events-item:hover {
@@ -59,10 +57,7 @@
 
 .events-item__icon {
 	color: var(--c-font-discret);
-	padding-right: .4rem;
-	line-height: inherit;
-	font-size: 1.3em;
-	vertical-align: top;
+	padding-right: .5rem;
 }
 
 .events-item__picture {
@@ -96,15 +91,23 @@
 @media only screen and (min-width: 800px) {
 
 	.events-item {
-		border-radius: .2rem;
+		border-radius: 0 .2rem .2rem 0;
 	}
 
 	.events-item__middle {
-		padding: 0 1rem;
+		padding: 0 1rem 0 1rem;
 	}
 
 	.events-item__name {
 		font-size: 1.5rem;
 		line-height: 2rem;
+	}
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+	.events-item {
+		border-radius: .2rem;
 	}
 }
