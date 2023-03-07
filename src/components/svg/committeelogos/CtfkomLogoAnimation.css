@@ -36,7 +36,6 @@
     @keyframes flagpiece3 {
         50% {
             d: path('m 70 35 l 0 0 l 5 25 l 0 0 z');
-            stroke: white;
         }
         51% {
             stroke: none;

@@ -30,6 +30,7 @@
     line-height: 4.5rem;
 }
 
+/* logo component from assets -> svg */
 .landing-logo {
     display: block;
     width: 100%;
@@ -44,7 +45,7 @@
 
 .landing-logo__corner {
     fill: none;
-    stroke: var(--c-orange);
+    stroke: var(--c-primary);
     stroke-miterlimit: 10;
     stroke-width: 3.5px;
 }
@@ -79,7 +80,7 @@
 }
 
 .landing-info__link {
-    padding: .5rem .8rem .5rem 0;
+    padding: .7rem 1rem .7rem 0;
     font-size: 1.3rem;
     width: fit-content;
     display: block;
@@ -96,13 +97,11 @@
 @media only screen and (min-width: 800px) {
     .welcome__container {
         display: flex;
-        
         align-items: center;
         justify-content: space-around;
         max-width: 75rem;
         padding: 8rem 3rem 10rem;
         gap: 4rem;
-        
     }
 
     .welcome__text {
