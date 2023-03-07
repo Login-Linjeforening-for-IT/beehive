@@ -34,8 +34,8 @@ const CommitteeTabs = ({t}) => {
         <TabContent id='styret' activeTab={activeTab}>
           <div className='board-members'>
             <div className='board-members__intro'>
-              <h3 className='heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.board.title')}} />
-              <p className='p--regular'>{t('committeeSection.board.body')}</p>
+              <h3 className='committees__heading heading-3'><i class='logfont-styret-filled'></i> {t('committeeSection.board.title')}</h3>
+              <p className='p--highlighted'>{t('committeeSection.board.body')}</p>
             </div>
             <LogChamp img={config.url.CDN_URL + '/img/portraits/portrett_placeholder.svg'} name='Tormod Mork Müller' stilling={t('committeeSection.board.leader')} discord='Backsiide#3129' />
             <LogChamp img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'} name='Kristina Kataki' stilling={t('committeeSection.board.deputyChairman')} discord='Kataki#7254' />
@@ -48,7 +48,7 @@ const CommitteeTabs = ({t}) => {
           </div>
         </TabContent>
         <TabContent id='event' activeTab={activeTab}>
-          <h3 className='committees__heading heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.eventkom.title')}} />
+          <h3 className='committees__heading heading-3'><i class='logfont-eventkom'></i> {t('committeeSection.eventkom.title')}</h3>
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted'>{t('committeeSection.eventkom.intro')}</p>
@@ -58,7 +58,7 @@ const CommitteeTabs = ({t}) => {
           </div>
         </TabContent>
         <TabContent id='tek' activeTab={activeTab}>
-          <h3 className='committees__heading heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.tekkom.title')}} />
+          <h3 className='committees__heading heading-3'><i class='logfont-tekkom'></i> {t('committeeSection.tekkom.title')}</h3>
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted'>{t('committeeSection.tekkom.intro')}</p>
@@ -68,7 +68,7 @@ const CommitteeTabs = ({t}) => {
           </div>
         </TabContent>
         <TabContent id='pr' activeTab={activeTab}>
-          <h3 className='committees__heading heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.pr.title')}} />
+          <h3 className='committees__heading heading-3'><i class='logfont-pr'></i> {t('committeeSection.pr.title')}</h3>
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted'>{t('committeeSection.pr.intro')}</p>
@@ -78,7 +78,7 @@ const CommitteeTabs = ({t}) => {
           </div>
         </TabContent>
         <TabContent id='ctf' activeTab={activeTab}>
-          <h3 className='committees__heading heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.ctfkom.title')}} />
+          <h3 className='committees__heading heading-3'><i class='logfont-ctfkom'></i> {t('committeeSection.ctfkom.title')}</h3>
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted'>{t('committeeSection.ctfkom.intro')}</p>
@@ -88,11 +88,11 @@ const CommitteeTabs = ({t}) => {
           </div>
         </TabContent>
         <TabContent id='sat' activeTab={activeTab}>
-          <h3 className='committees__heading heading-3' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.title')}} />
+          <h3 className='committees__heading heading-3'><i class='logfont-satkom'></i> {t('committeeSection.satkom.title')}</h3>
           <div className='committees__info'>
             <div className='committees__text'>
               <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.intro')}} />
-              <p className='p--regular' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.body')}} />
+              <p className='p--regular'>{t('committeeSection.satkom.body')}</p>
             </div>
             <LogChamp img={config.url.CDN_URL + '/img/portraits/portrett_placeholder.svg'} name='Trygve Sollund' stilling={t('committeeSection.board.satkom')} discord='Spikeupine#4356' />
           </div>
@@ -101,5 +101,6 @@ const CommitteeTabs = ({t}) => {
     </div>
   )
 }
+
 
 export default withTranslation('aboutPage')(CommitteeTabs)
