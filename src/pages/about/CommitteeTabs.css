@@ -19,6 +19,7 @@
     padding: 0;
 }
 
+/* breaking BEM rules because the svg is a component */
 .committees .tabs__nav-title svg {
     display: block;
     width: 100%;
