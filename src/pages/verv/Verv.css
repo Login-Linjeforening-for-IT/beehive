@@ -1,0 +1,72 @@
+
+.verv-section {
+    margin-bottom: 3rem; /* creates nice spacing between content */
+}
+
+
+/* gave headers and paragrapfs margins instead of giving it to 
+   the 'verv-section' class because the 'tabs-section' is an exception */
+.verv-section__heading {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.verv-section__p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+/* intro section */
+
+.verv-intro__p {
+    max-width: 50rem;
+}
+
+.verv-intro__grid-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.verv-intro__grid-container .accordion {
+    width: 100%;
+}
+
+/* BEM exception becasue its a picture component */
+.verv-intro__grid-container picture {
+    max-width: 33rem;
+    width: 100%;
+    margin: 3rem 1rem 1rem 1rem;
+}
+
+
+/* public docs dection */
+
+.verv-public-docs__list {
+    margin: 0 1rem;
+}
+
+
+@media only screen and (min-width: 800px) {
+
+    .verv-section {
+        margin-bottom: 0;
+    }
+
+    .verv-intro__p {
+        max-width: 50rem;
+        margin-top: 2rem;
+    }
+
+    .verv-intro__grid-container {
+        flex-wrap: nowrap;
+        padding: 1rem;
+    }
+
+    .verv-intro__grid-container picture {
+        margin: 0;
+    }
+}

@@ -15,6 +15,7 @@ import About from './pages/about/About';
 import Events from './pages/eventlist/Events';
 import Companies from './pages/business/CompaniesPage';
 import EventPage from './pages/event/EventPage';
+import Verv from './pages/verv/Verv';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import Scroll from './utils/Scroll';
 import ThemeContext from "./context/ThemeContext";
@@ -73,6 +74,8 @@ function App() {
                 <Route path='/events' element={<Events />} />
                 <Route path='/events/:id' element={<EventPage />} />
                 <Route path='/companies' element={<Companies />} />
+                <Route path='/verv' element={<Verv />} />
+                <Route path='/rekruttering' element={<Verv />} />
                 <Route path='*' element={<NotFoundPage />} />
               </Routes>
             </Scroll>
