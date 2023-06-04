@@ -13,10 +13,10 @@ import {useState} from 'react'
 import {withTranslation} from 'react-i18next'
 
 import '../../components/tabs/Tabs.css'
-import './CommitteeTabs.css'
+import './VervTabs.css'
 
 
-const CommitteeTabs = ({t}) => {
+const VervTabs = ({t}) => {
   const [activeTab, setActiveTab] = useState('styret')
 
   return (
@@ -35,7 +35,7 @@ const CommitteeTabs = ({t}) => {
             <h3 className='committees__heading heading-3'>
               <i className='logfont-styret-filled'></i> {t('committeeSection.board.title')}
             </h3>
-            <p className='p--highlighted'>{t('committeeSection.board.body')}</p>
+            <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t('committeeSection.board.body')}} />
           </div>
           <LogChamp 
             img={config.url.CDN_URL + '/img/portraits/portrett_leder.jpg'}
@@ -177,4 +177,4 @@ const CommitteeTabs = ({t}) => {
 }
 
 
-export default withTranslation('vervPage')(CommitteeTabs)
+export default withTranslation('vervPage')(VervTabs)

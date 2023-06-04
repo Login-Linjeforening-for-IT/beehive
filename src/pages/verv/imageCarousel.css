@@ -1,79 +1,73 @@
-.imagecarousel {
-    /* aligns with other sections without 
-    using margin og padding */
-    max-width: calc(var(--w-page) - 2rem);
-    margin: auto;
-}
-
-.imagecarousel .tabs__nav {
-    justify-content: space-between;
-}
-
-.imagecarousel .tabs__nav-item {
-    width: 100%;
-}
-
-.imagecarousel .tabs__nav-title {
-    padding: 0;
-}
-
-/* breaking BEM rules because the svg is a component */
-.imagecarousel .tabs__nav-title svg {
-    display: block;
-    width: 100%;
-    max-width: 4rem;
-}
-
-.imagecarousel .tabs__content {
-    padding: 1rem 1rem 2rem 1rem;
-}
-
-@media only screen and (min-width: 800px) {
-
-    .verv-section {
-        margin-bottom: 8rem;
-    }
-
-    .verv-intro__p {
-        max-width: 50rem;
-        margin-top: 2rem;
-    }
-
-    .verv-intro__grid-container {
-        flex-wrap: nowrap;
-        padding: 1rem;
-    }
-
-    .verv-intro__grid-container picture {
-        margin: 0;
-    }
-}
-
-.triplecarousel {
-    max-width: calc(var(--w-page) - 2rem);
+.imageCarousel {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    height: 329px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    border-radius: 10px;
 }
 
-.carouselimage {
-    margin: 1rem auto;
-    justify-content: space-evenly;
-    position: relative;
-    display: block;
-    width: 22rem;
-    aspect-ratio: 3/2;
-    animation: slide 10s linear infinite;
+.slide-track {
+    display: flex;
+    width: calc(500px * 10); /* 500px * maxImages*2 */
+    animation: scroll 60s linear infinite;
+    border-radius: 10px;
 }
 
-@keyframes slide {
-    from {
-        transform: translateX(0%);
+.slide-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
     }
-    to {
-        transform: translateX(-100%);
+    100% {
+        transform: translateX(calc(-500px * 5)); /* -250px * maxImages */
     }
+}
+
+.slide {
+    height: 100%;
+    width: 500px;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.slide:hover {
+    transition: transform 1s;
+    transform: scale(1.05);
+}
+
+.carouselImage {
+    width: 100%;
+    transition: transform 1s;
+    border-radius: 10px;
+}
+
+.info {
+    position: absolute;
+    z-index: 10;
+    background-color: #11111180;
+    align-content:end;
+    justify-content: center;
+    width: 470px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.info-title {
+    margin-left: 5px;
+}
+
+.info-description {
+    margin-left: 5px;
 }

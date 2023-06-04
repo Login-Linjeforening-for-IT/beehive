@@ -25,57 +25,50 @@
       }
     },
     "committeeSection": {
-      "title": "The board and the committees",
-      "intro": "The association is made up of a main board and a number of committees.",
-      "board": {
-        "title": "Board",
-        "body": "The highest level of the association is the board. During the annual meeting, the chairman, deputy chairman and secretary are voted in, and these sit together with the leaders from the various committees on the board. Together, these are responsible for running the association, managing the finances and ensuring that everyone performs the tasks they are supposed to.",
-        "leader": "Leader",
-        "deputyChairman": "Deputy chairman",
-        "secretary": "Secretary",
-        "eventkom": "EventKom leader",
-        "pr": "PR leader",
-        "tekkom": "TekKom leader",
-        "ctfkom": "CTF leader",
-        "satkom": "SATkom leader"
+          "title": "The board and the committees",
+          "intro": "The association is made up of a main board and a number of committees.",
+          "board": {
+          "title": "Board",
+          "body": "The highest level of the association is the board. The board consists of a chairman, deputy chairman, secretary, and committee leaders. You can only run for verv during our <a class='standard-link standard-link--underscore-hover' href=\"https://wiki.login.no/public/docs/annualmeeting\\\" target=\"_blank\" rel=\"noreferrer\">annual meetings</a>.",
+          "leader": "Chairman",
+          "deputyChairman": "Deputy chairman",
+          "secretary": "Secretary",
+          "eventkom": "EvntKom leader",
+          "pr": "PR leader",
+          "tekkom": "TekKom leader",
+          "ctfkom": "CTF leader",
+          "satkom": "SATkom leader"
+        },
+        "eventkom": {
+          "title": "EvntKom",
+          "intro": "EvntKom are responsible for Logins events.",
+          "body": "With verv in EvntKom you will be extremely visible to our students. You help with hosting all of our events. This is the committee for you if you would like to have responsibility, but still be social and active."
+        },
+        "tekkom": {
+          "title": "TekKom",
+          "intro": "TekKom develops Logins infrastructure.",
+          "body": "This is a very open verv. You can help on existing projects like our website and app, or start new ones. We are both looking for developers and designers."
+        },
+        "pr": {
+          "title": "PR",
+          "intro": "PR is Logins face to the outside. They are responsible for all of our social media.",
+          "body": "With verv in PR you will help communicate both with our students and companies. PR promotes events and other things that regard Login and our students in social media. PR also helps with recruitment. Whether you would like to take pictures, or be our next Logfluencer, this is the committee for you!"
+        },
+        "ctfkom": {
+          "title": "CTFkom",
+          "intro": "CTFkom is Logins hacker-committee",
+          "body": "CTFKom is the committee that hosts Login CTFs on campus. Their most important task is to hack ING:α, and have fun there. With verv in CTFkom you will both help develop CTF challenges, and host company CTFs. Here you will help all students of Login to enhance their CTF skills by developing challenging CTF tasks. Every other week Login hosts a CTF. CTFkom also likes to participate in international challenges, so this will be an excellent opportunity to enhance your own CTF skills, at the same time as you get to speak with the most security oriented companies."
+        },
+        "satkom":{
+          "title": "SATkom",
+          "intro": "<abbr title=\"Systematic Automatic Transactions\">SATkom</abbr> is the committee guarding Logins money vault, making sure the money flows both in and out. Whether you have a financial sense or would like to be Login's new sugar daddy, this is the committe for you!",
+          "body": "With verv in SATkom you will help distribute the funds we have available, making sure SATkoms leader is not taken by the tax authorities. SATkom creates weekly budgets, and makes sure no committeeleader exceeds their budget too much. The committee also has a 'Dungeon Master' which is responsible for the Login Lounge, and making sure every member gets enough coffeine. Furthermore the committee is involved in budgeting, financial matters and other able-goers."
+        }
       },
-      "eventkom": {
-        "title": "EventKom",
-        "intro": "EventKom is Login's party committee, where the goal is to use up all the income PR provides.",
-        "body": "EventKom is responsible for setting up social events on behalf of Login throughout the semester. We offer gatherings where students can meet across study programmes, years and classes in order to have a break from everyday study life. The aim of EventKom is to build a strong community among the IT students at the school, which you can lean on when the study life gets busy. If you have suggestions for activities, or want to join the committee, just contact us on <a class='standard-link standard-link--underscore-hover' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>. Suggestions and feedback are welcomed, and we hope to hear from you."
-      },
-      "tekkom": {
-        "title": "TekKom",
-        "intro": "TekKom claims that they work on this website, but they mainly eat pizza. This is the committee for those who like to learn technical things such as programming and operating high-tech infrastructure.",
-        "body": "TekKom is responsible for Login's infrastructure. Our tasks involve development and maintenance of, among other things, the websites and services the association depends on, in addition to other side projects. We organize open work evenings with pizza every week where we work on TekKom projects. Here we set no expectations other than that you are curious and try to contribute what you can. If you enjoy coding, or just have a wild project in mind, this is the committee for you!"
-      },
-      "pr": {
-        "title": "PR",
-        "intro": "PR is Login's golden calf and without them the money wouldn't have flowed in and none of the other committees could do the trick!",
-        "body": "PR is Login's public face and is responsible for Login's social media channels. PR monitors our ticket system and responds to company contacts. They also work to give students a sneak peek into the business world, by arranging company presentations and a career fair called The Cyberdays each semester. Furthermore, PR helps to represent Login at events and also assists with the recruitment of new members."
-      },
-      "ctfkom": {
-        "title": "CTFkom",
-        "intro": "CTFkom is Login's hacker committee. Their most important mission is to hack into ING:α's infrastructure and create havoc!",
-        "body": "CTFkom is the committee that organizes CTF events on campus. They work to ensure that all IT students at the school can develop their skills through Capture The Flag competitions. Every other week they gather at the school to solve tasks together and offer an arena where students from different study programmes, years and classes can meet and have fun together. In addition to this, we are active on Discord, and ensure that you can always stay up to date on new and interesting CTFs. In CTFkom, no question is too stupid and if you are stuck in a CTF, or just wondering about something, just send a message in the channel on <a class='standard-link standard-link--underscore-hover' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>."
-      },
-      "satkom":{
-        "title": "SATkom",
-        "intro": "<abbr title=\"Systematiserte Automatiser Transaksjoner\">SATkom</abbr> is the committee that guards Login's money bin and ensures that the money flows both in and out. If you have financial skills, or just want to be Login's new sugar daddy, then this is the committee for you!",
-        "body": "SATkom stands for Systematized Automated Transactions, and they work with managing the funds Login has available. Their duties involve paying bills, sending out invoices and purchasing for the association. They prepare weekly accounts, and make sure that the committees do not exceed their budgets too much. The committee also has a 'Dungeon Master' who is tasked with looking after the Lounge, and that all our members get enough caffeine. Furthermore, the committee is involved in budgeting, various financial matters and other minor matters."
+      "apply": {
+        "title": "Apply for verv",
+        "body": "The committees are continuously accepting new members. For further questions regarding a specific committee please contact the respective committee leader. For general inquiries, please speak to our <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>recruitment officer</a>, or send us a <a class='standard-link standard-link--underscore-hover' href='mailto:kontakt@login.no'>mail</a>."
       }
-    },
-    "publicDocs": {
-      "title": "Public documents",
-      "body": "For more information and public documents, visit <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>Redmine <i class='logfont-redmine'></i></a>, here you can find the following types of documents:",
-      "bulletPoints": {
-        "agendas": "Agenda",
-        "minutes": "Minutes",
-        "budgets": "Budget",
-        "honorary-member": "Honorary member",
-        "bylaws": "Bylaws"
-      }
-    }
   
   }
   

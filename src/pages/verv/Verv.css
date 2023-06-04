@@ -43,12 +43,19 @@
 }
 
 
-/* public docs dection */
-
-.verv-public-docs__list {
-    margin: 0 1rem;
+/* apply section */
+.apply-section {
+    margin-top: 2rem;
+}
+.apply-title {
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
+.apply-body {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
 
 @media only screen and (min-width: 800px) {
 

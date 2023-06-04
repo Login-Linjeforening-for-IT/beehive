@@ -1,4 +1,4 @@
-import CommitteeTabs from './CommitteeTabs'
+import VervTabs from './VervTabs'
 import StudyProgramsAcordion from './StudyProgramsAccordion'
 import DecoratedPicture from '../../components/picture/DecoratedPicture'
 import {withTranslation} from 'react-i18next';
@@ -18,18 +18,11 @@ const Verv = ({t}) => {
       <section className='verv-section verv-committees'>
         <h2 className='verv-section__heading heading-2'>{t('committeeSection.title')}</h2>
         <p className='verv-section__p p--regular'>{t('committeeSection.intro')}</p>
-        <CommitteeTabs/>
+        <VervTabs/>
       </section>
-      <section className='verv-section verv-public-docs'>
-        <h2 className='verv-section__heading heading-2'>{t('publicDocs.title')}</h2>
-        <p className='verv-section__p p--regular' dangerouslySetInnerHTML={{__html: t('publicDocs.body')}}/>
-        <ul className='verv-public-docs__list ul--regular'>
-          <li>{t('publicDocs.bulletPoints.agendas')}</li>
-          <li>{t('publicDocs.bulletPoints.minutes')}</li>
-          <li>{t('publicDocs.bulletPoints.budgets')}</li>
-          <li>{t('publicDocs.bulletPoints.honorary-member')}</li>
-          <li>{t('publicDocs.bulletPoints.bylaws')}</li>
-        </ul>
+      <section className='apply-section'>
+        <h1 className='apply-title' dangerouslySetInnerHTML={{__html: t('apply.title')}} />
+        <p className='apply-body' dangerouslySetInnerHTML={{__html: t('apply.body')}} />
       </section>
     </div>
   )
