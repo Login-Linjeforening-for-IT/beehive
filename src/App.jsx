@@ -19,6 +19,7 @@ import Verv from './pages/verv/Verv';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import Scroll from './utils/Scroll';
 import ThemeContext from "./context/ThemeContext";
+import Profile from './pages/profile/Profile';
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
@@ -90,6 +91,7 @@ function App() {
                 <Route path='/events/:id' element={<EventPage />} />
                 <Route path='/companies' element={<Companies />} />
                 <Route path='/verv' element={<Verv />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/rekruttering' element={<Verv />} />
                 <Route path='*' element={<NotFoundPage />} />
               </Routes>
