@@ -30,7 +30,7 @@ const VervTabs = ({t}) => {
       </ul>
       <TabContent id='event' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i class='logfont-eventkom'></i> {t('committeeSection.eventkom.title')}
+          <i className='logfont-eventkom'></i> {t('committeeSection.eventkom.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>
@@ -47,7 +47,7 @@ const VervTabs = ({t}) => {
       </TabContent>
       <TabContent id='tek' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i class='logfont-tekkom'></i> {t('committeeSection.tekkom.title')}
+          <i className='logfont-tekkom'></i> {t('committeeSection.tekkom.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>
@@ -64,7 +64,7 @@ const VervTabs = ({t}) => {
       </TabContent>
       <TabContent id='pr' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i class='logfont-pr'></i> {t('committeeSection.pr.title')}
+          <i className='logfont-pr'></i> {t('committeeSection.pr.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>
@@ -81,7 +81,7 @@ const VervTabs = ({t}) => {
       </TabContent>
       <TabContent id='ctf' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i class='logfont-ctfkom'></i> {t('committeeSection.ctfkom.title')}
+          <i className='logfont-ctfkom'></i> {t('committeeSection.ctfkom.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>
@@ -98,7 +98,7 @@ const VervTabs = ({t}) => {
       </TabContent>
       <TabContent id='sat' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i class='logfont-satkom'></i> {t('committeeSection.satkom.title')}
+          <i className='logfont-satkom'></i> {t('committeeSection.satkom.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>

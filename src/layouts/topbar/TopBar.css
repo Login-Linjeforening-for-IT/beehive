@@ -32,6 +32,10 @@
   justify-content: end;
 }
 
+.topbar_profile {
+    margin-top: 0.9rem;
+    margin-left: 0.7rem;
+}
 
 /* main-nav */
 

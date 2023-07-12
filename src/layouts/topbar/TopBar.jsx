@@ -25,7 +25,7 @@ const TopBar = () => {
         <nav className='topbar__toggle'>
             <ThemeToggle/>
             <LangToggle/>
-            <div style={{margin: 'auto', paddingTop: 6, paddingLeft: 15}}>
+            <div className='topbar_profile'>
                 <NavLink to='profile'>
                     <picture>
                         <ProfileSVG />

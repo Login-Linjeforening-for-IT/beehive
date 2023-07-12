@@ -21,8 +21,8 @@ const DisplayImages = ({t}) => {
 
     return Array.from({ length: maxImages }, (_, i) => (
         <div key={i} className='slide' onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(-1)}>
-            <img key={i} className='carouselImage' src={`${config.url.CDN_URL}/img/imagecarousel/${i+1}.jpg`} />
-            {hovered == i && <InfoText key={i} hovered={hovered+1} t={t} />}
+            <img key={'img' + i} className='carouselImage' src={`${config.url.CDN_URL}/img/imagecarousel/${i+1}.jpg`} />
+            {hovered == i && <InfoText key={'infotext' + i} hovered={hovered+1} t={t} />}
         </div>
     ))
 }
