@@ -23,6 +23,7 @@ const Verv = ({t}) => {
       <section className='apply-section'>
         <h1 className='apply-title' dangerouslySetInnerHTML={{__html: t('apply.title')}} />
         <p className='apply-body' dangerouslySetInnerHTML={{__html: t('apply.body')}} />
+        <a className='apply-action' href='https://forms.gle/nQrJuqo3C9URLRM29'>{t('apply.action')}</a>
       </section>
     </div>
   )

@@ -67,7 +67,8 @@
       },
       "apply": {
         "title": "Apply for verv",
-        "body": "The committees are continuously accepting new members. For further questions regarding a specific committee please contact the respective committee leader. For general inquiries, please speak to our <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>recruitment officer</a>, or send us a <a class='standard-link standard-link--underscore-hover' href='mailto:kontakt@login.no'>mail</a>."
+        "body": "The committees are continuously accepting new members. For further questions regarding a specific committee please contact the respective committee leader. For general inquiries, please speak to our <a class='standard-link standard-link--underscore-hover' href='https://redmine.login.no/projects/wiki/wiki'>recruitment officer</a>, or send us a <a class='standard-link standard-link--underscore-hover' href='mailto:kontakt@login.no'>mail</a>.",
+        "action": "Apply"
       }
   
   }

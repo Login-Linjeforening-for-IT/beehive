@@ -17,76 +17,17 @@ import './VervTabs.css'
 
 
 const VervTabs = ({t}) => {
-  const [activeTab, setActiveTab] = useState('styret')
+  const [activeTab, setActiveTab] = useState('event')
 
   return (
     <div className='tabs committees'>
       <ul className='tabs__nav'>
-        <TabNavItem title={<StyretLogo/>} id='styret' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<EventkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<TekkomLogo/>} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<PrkomLogo/>} id='pr' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<CtfkomLogo/>} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<SatkomLogo/>} id='sat' activeTab={activeTab} setActiveTab={setActiveTab}/>
       </ul>
-      <TabContent id='styret' activeTab={activeTab}>
-        <div className='board-members'>
-          <div className='board-members__intro'>
-            <h3 className='committees__heading heading-3'>
-              <i className='logfont-styret-filled'></i> {t('committeeSection.board.title')}
-            </h3>
-            <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t('committeeSection.board.body')}} />
-          </div>
-          <LogChamp 
-            img={config.url.CDN_URL + '/img/portraits/portrett_leder.jpg'}
-            name='Tormod Mork Müller'
-            stilling={t('committeeSection.board.leader')}
-            discord='Backsiide#3129'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_nestleder.jpg'}
-            name='Kristina Kataki'
-            stilling={t('committeeSection.board.deputyChairman')}
-            discord='Kataki#7254'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_sekretær.jpg'}
-            name='Aleksander Aaboen'
-            stilling={t('committeeSection.board.secretary')}
-            discord='aleksanderaa#2130'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_eventkom-leder.jpg'}
-            name='Sander Tøkje Hauge'
-            stilling={t('committeeSection.board.eventkom')}
-            discord='Sandiss#5586'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'}
-            name='Ida Haavik Førland'
-            stilling={t('committeeSection.board.pr')}
-            discord='IdaForland#1277'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_tekkom-leder.jpg'}
-            name='Eirik Hanasand'
-            stilling={t('committeeSection.board.tekkom')}
-            discord='Axe#9595'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_ctfkom-leder.jpg'}
-            name='Eskil Refsgaard'
-            stilling={t('committeeSection.board.ctfkom')}
-            discord='ezkill#9067'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_økonomi.jpg'}
-            name='Trygve Sollund'
-            stilling={t('committeeSection.board.satkom')}
-            discord='Spikeupine#4356'
-          />
-        </div>
-      </TabContent>
       <TabContent id='event' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
           <i class='logfont-eventkom'></i> {t('committeeSection.eventkom.title')}
