@@ -25,13 +25,14 @@ const TopBar = () => {
         <nav className='topbar__toggle'>
             <ThemeToggle/>
             <LangToggle/>
-            <div className='topbar_profile'>
+            {/* TODO */}
+            {/* <div className='topbar_profile'>
                 <NavLink to='profile'>
                     <picture>
                         <ProfileSVG />
                     </picture>
                 </NavLink>
-            </div>
+            </div> */}
         </nav>
         <div className={`topbar__hamburger ${isOpen ? 'topbar__hamburger--open' : ''}`} onClick={toggle}>
             <div className='topbar__burger-bun topbar__burger-bun--top'></div>
