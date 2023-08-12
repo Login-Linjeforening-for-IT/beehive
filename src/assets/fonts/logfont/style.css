@@ -115,6 +115,9 @@
 .logfont-peppes:before {
   content: "\e913";
 }
+.logfont-pizza:before {
+  content: "\e957";
+}
 .logfont-pizzabakeren:before {
   content: "\e90c";
 }

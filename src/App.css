@@ -10,11 +10,8 @@
   /* color values */
   --c-bright-orange: #fd8738;
   --c-dark-orange: #d95d0a;
-
   --c-yellow: rgb(255, 225, 1);
-
   --c-blue: rgb(94, 73, 230);
-
   --c-black:    rgb(0, 0, 0);
   --c-grey-16:  rgb(16, 16, 16);
   --c-grey-24:  rgb(24, 24, 24);
@@ -70,7 +67,6 @@
 
   /* decoration */
   --c-corner-decor: var(--c-grey-48);
-
 
   /* theme toggle */
   --c-sun: var(--c-yellow);
