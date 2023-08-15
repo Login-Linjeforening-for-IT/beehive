@@ -5,12 +5,10 @@ import {withTranslation} from 'react-i18next';
 import { config } from '../../Constants';
 
 import './About.css'
-import Form from '../../components/form/Form';
 
 const About = ({t}) => {
   return (
     <div className='about-page page-container'>
-      <Form/>
       <h1 className='heading-1 heading-1--top-left-corner'>{t('title')}</h1>
       <section className='about-section about-intro'>
         <p className='about-intro__p about-section__p p--highlighted' dangerouslySetInnerHTML={{__html: t('intro')}}/>
