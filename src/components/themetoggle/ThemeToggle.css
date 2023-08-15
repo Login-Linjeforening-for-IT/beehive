@@ -14,11 +14,11 @@
 }
 
 .light .theme-toggle__svg {
-    fill: rgb(94, 73, 230);
+    fill: var(--c-moon);
 }
 
 .dark .theme-toggle__svg {
-    fill: rgb(205, 166, 10);
+    fill: var(--c-sun);
 }
 
 .theme-toggle__sun-ray {

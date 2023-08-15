@@ -1,0 +1,48 @@
+.form-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-button {
+    background-color: #fd8738;
+    width: 10rem;
+	padding: .5rem;
+	border-radius: 2rem;
+    text-align: center;
+}
+
+.form-button:hover {
+    cursor: pointer;
+}
+
+.form-send-button {
+    background-color: #fd8738;
+    width: 10rem;
+	padding: .5rem;
+	border-radius: 2rem;
+    text-align: center;
+}
+
+.form-send-button:hover {
+    cursor: pointer;
+}
+
+.form-cancel-button {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-cancel-button:hover {
+    cursor: pointer;
+}
+
+.form-confirmation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

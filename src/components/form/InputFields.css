@@ -1,0 +1,15 @@
+.inputfield-parent {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.inputfield {
+    border-radius: 2rem;
+    border: none;
+    text-align: center;
+}
+
+.input-text {
+    margin-right: 2rem;
+}

@@ -4,7 +4,7 @@
   width: 100%;
   margin: auto;
   padding: 1rem;
-  height: 5rem;
+  height: var(--h-topbar);
   transition: 0.5s;
 }
 
@@ -32,6 +32,10 @@
   justify-content: end;
 }
 
+.topbar_profile {
+    margin-top: 0.9rem;
+    margin-left: 0.7rem;
+}
 
 /* main-nav */
 
@@ -117,7 +121,6 @@
   height: 3rem;
   margin-right: 1rem;
 }
-
 
 /* to ensure that the mobile nav can never be open on desktop view */
 @media only screen and (max-width: 800px) {

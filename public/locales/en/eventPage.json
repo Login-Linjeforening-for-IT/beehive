@@ -5,6 +5,19 @@
     "location": "Location",
     "type": "Category",
     "organizer": "Organizer",
-    "links": "Links"
+    "links": "Links",
+    "form": {
+        "button": "Join event",
+        "full": "This event is full!",
+        "send": "Send",
+        "sent": "You have signed up for this event.",
+        "cancel": "Cancel signup",
+        "name": "Name",
+        "degree": "Degree",
+        "study_year": "Study year",
+        "mail": "Mail",
+        "preferences": "Preferences",
+        "allergies": "Allergies"
+    }
   }
 }

@@ -1,0 +1,64 @@
+
+.profile-section {
+    margin-bottom: 3rem; /* creates nice spacing between content */
+}
+
+
+/* gave headers and paragrapfs margins instead of giving it to 
+   the 'profile-section' class because the 'tabs-section' is an exception */
+.profile-section__heading {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.profile-section__p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+/* intro section */
+
+.profile-intro__p {
+    max-width: 50rem;
+}
+
+.profile-intro__grid-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.profile-intro__grid-container .accordion {
+    width: 100%;
+}
+
+/* BEM exception becasue its a picture component */
+.profile-intro__grid-container picture {
+    max-width: 33rem;
+    width: 100%;
+    margin: 3rem 1rem 1rem 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .profile-section {
+        margin-bottom: 0;
+    }
+
+    .profile-intro__p {
+        max-width: 50rem;
+        margin-top: 2rem;
+    }
+
+    .profile-intro__grid-container {
+        flex-wrap: nowrap;
+        padding: 1rem;
+    }
+
+    .profile-intro__grid-container picture {
+        margin: 0;
+    }
+}

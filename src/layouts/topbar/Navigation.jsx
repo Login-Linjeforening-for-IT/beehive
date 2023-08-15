@@ -13,6 +13,9 @@ const Navigation = ({t}) => {
           <NavLink to='companies'>
             <li className='main-nav__item standard-link--corner-hover'>{t('nav.companies')}</li>
           </NavLink>
+          <NavLink to='verv'>
+            <li className='main-nav__item standard-link--corner-hover'>{t('nav.verv')}</li>
+          </NavLink>
         </nav>
     )
 }
