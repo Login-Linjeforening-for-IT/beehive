@@ -42,6 +42,7 @@ const VervTabs = ({t}) => {
             name='Sander Tøkje Hauge'
             stilling={t('committeeSection.board.eventkom')}
             discord='Sandiss#5586'
+            discordlink='https://discordapp.com/users/171972901501796352'
           />
         </div>
       </TabContent>
@@ -59,6 +60,7 @@ const VervTabs = ({t}) => {
             name='Eirik Hanasand'
             stilling={t('committeeSection.board.tekkom')}
             discord='Axe#9595'
+            discordlink='https://discordapp.com/users/376827396764073997'
           />
         </div>
       </TabContent>
@@ -76,6 +78,7 @@ const VervTabs = ({t}) => {
             name='Ida Haavik Førland'
             stilling={t('committeeSection.board.pr')}
             discord='IdaForland#1277'
+            discordlink='https://discordapp.com/users/470279697465606159'
           />
         </div>
       </TabContent>
@@ -93,6 +96,7 @@ const VervTabs = ({t}) => {
             name='Eskil Refsgaard'
             stilling={t('committeeSection.board.ctfkom')}
             discord='ezkill#9067'
+            discordlink='https://discordapp.com/users/522483274933731331'
           />
         </div>
       </TabContent>
@@ -110,6 +114,7 @@ const VervTabs = ({t}) => {
             name='Trygve Sollund'
             stilling={t('committeeSection.board.satkom')}
             discord='Spikeupine#4356'
+            discordlink='https://discordapp.com/users/209395476288634881'
           />
         </div>
       </TabContent>
