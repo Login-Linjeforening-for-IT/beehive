@@ -18,8 +18,8 @@ const SocialLinks = () => {
       <a className='social-links__link'title='Gitlab' href='https://git.logntnu.no/' target='_blank' rel='noreferrer'>
         <i className='social-links__icon social-links__icon--gitlab logfont-gitlab'></i>
       </a>
-      <a className='social-links__link'title='Redmine' href='https://redmine.logntnu.no/' target='_blank' rel='noreferrer'>
-        <i className='social-links__icon social-links__icon--redmine logfont-redmine'></i>
+      <a className='social-links__link'title='"Wiki"' href='https://wiki.login.no' target='_blank' rel='noreferrer'>
+        <i className='social-links__icon social-links__icon--wikijs logfont-wikijs'></i>
       </a>
     </div>
   );

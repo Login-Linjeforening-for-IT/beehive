@@ -1,7 +1,7 @@
 import './LogChamp.css'
 import DecoratedPicture from '../picture/DecoratedPicture'
 
-const LogChamp = ({name, stilling, img, discord}) => {
+const LogChamp = ({name, stilling, img, discord, discordlink}) => {
 
   return (
     <div className='logchamp'>
@@ -10,7 +10,7 @@ const LogChamp = ({name, stilling, img, discord}) => {
         <p className='logchamp__title'>{stilling}</p>
         <p className='logchamp__name'>{name}</p>
         {discord !== '' &&
-            <p><i className='logfont-discord'> </i>{discord}</p>
+            <p className='logchamp__discord'><i className='logfont-discord'> </i><a href={discordlink}>{discord}</a></p>
         }
       </div>
     </div>

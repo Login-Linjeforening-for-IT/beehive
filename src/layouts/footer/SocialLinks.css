@@ -36,7 +36,7 @@
   color: #2c87ff;
 }
 
-/* exstra fancy gradient for instagram */
+/* extra fancy gradient for instagram */
 .social-links__icon--instagram {
   background: radial-gradient(circle at 30% 107%, #fff695 0%, #fff695 5%, #ff5445 45%,#ff37c0 60%,#3d6dff 90%);
   background-clip: text;
@@ -55,8 +55,8 @@
   color: #f6492e;
 }
 
-.social-links__icon--redmine:hover {
-  color: rgb(200, 0, 0);
+.social-links__icon--wikijs:hover {
+  color: rgb(5, 186, 243);
 }
 
 

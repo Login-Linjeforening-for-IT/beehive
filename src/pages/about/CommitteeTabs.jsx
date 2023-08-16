@@ -42,48 +42,56 @@ const CommitteeTabs = ({t}) => {
             name='Tormod Mork Müller'
             stilling={t('committeeSection.board.leader')}
             discord='Backsiide#3129'
+            discordlink='https://discordapp.com/users/210124409816612876'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_nestleder.jpg'}
             name='Kristina Kataki'
             stilling={t('committeeSection.board.deputyChairman')}
             discord='Kataki#7254'
+            discordlink='https://discordapp.com/users/877108421772582962'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_sekretær.jpg'}
             name='Aleksander Aaboen'
             stilling={t('committeeSection.board.secretary')}
             discord='aleksanderaa#2130'
+            discordlink='https://discordapp.com/users/610784035777544202'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_eventkom-leder.jpg'}
             name='Sander Tøkje Hauge'
             stilling={t('committeeSection.board.eventkom')}
             discord='Sandiss#5586'
+            discordlink='https://discordapp.com/users/171972901501796352'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'}
             name='Ida Haavik Førland'
             stilling={t('committeeSection.board.pr')}
             discord='IdaForland#1277'
+            discordlink='https://discordapp.com/users/470279697465606159'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_tekkom-leder.jpg'}
             name='Eirik Hanasand'
             stilling={t('committeeSection.board.tekkom')}
             discord='Axe#9595'
+            discordlink='https://discordapp.com/users/376827396764073997'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_ctfkom-leder.jpg'}
             name='Eskil Refsgaard'
             stilling={t('committeeSection.board.ctfkom')}
             discord='ezkill#9067'
+            discordlink='https://discordapp.com/users/522483274933731331'
           />
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_økonomi.jpg'}
             name='Trygve Sollund'
             stilling={t('committeeSection.board.satkom')}
             discord='Spikeupine#4356'
+            discordlink='https://discordapp.com/users/209395476288634881'
           />
         </div>
       </TabContent>
@@ -101,6 +109,7 @@ const CommitteeTabs = ({t}) => {
             name='Sander Tøkje Hauge'
             stilling={t('committeeSection.board.eventkom')}
             discord='Sandiss#5586'
+            discordlink='https://discordapp.com/users/171972901501796352'
           />
         </div>
       </TabContent>
@@ -118,6 +127,7 @@ const CommitteeTabs = ({t}) => {
             name='Eirik Hanasand'
             stilling={t('committeeSection.board.tekkom')}
             discord='Axe#9595'
+            discordlink='https://discordapp.com/users/376827396764073997'
           />
         </div>
       </TabContent>
@@ -135,6 +145,7 @@ const CommitteeTabs = ({t}) => {
             name='Ida Haavik Førland'
             stilling={t('committeeSection.board.pr')}
             discord='IdaForland#1277'
+            discordlink='https://discordapp.com/users/470279697465606159'
           />
         </div>
       </TabContent>
@@ -152,6 +163,7 @@ const CommitteeTabs = ({t}) => {
             name='Eskil Refsgaard'
             stilling={t('committeeSection.board.ctfkom')}
             discord='ezkill#9067'
+            discordlink='https://discordapp.com/users/522483274933731331'
           />
         </div>
       </TabContent>
@@ -169,6 +181,7 @@ const CommitteeTabs = ({t}) => {
             name='Trygve Sollund'
             stilling={t('committeeSection.board.satkom')}
             discord='Spikeupine#4356'
+            discordlink='https://discordapp.com/users/209395476288634881'
           />
         </div>
       </TabContent>
