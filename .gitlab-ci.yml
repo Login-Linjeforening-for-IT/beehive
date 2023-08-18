@@ -54,6 +54,8 @@ docker-build-staging:
 
 docker-deploy-staging:
   extends: .docker-deploy
+  dependencies:
+    - docker-build-staging
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
   script:
