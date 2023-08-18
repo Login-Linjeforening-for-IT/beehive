@@ -54,6 +54,7 @@ docker-build-staging:
   before_script:
     - apk add --update bash && rm -rf /var/cache/apk/*
     - apk add --update curl && rm -rf /var/cache/apk/*
+    - mkdir ~/.ssh
 
 docker-deploy-staging:
   extends: .docker-deploy
