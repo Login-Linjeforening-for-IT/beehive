@@ -51,6 +51,9 @@ docker-build-staging:
 .docker-deploy:
   stage: deploy
   image: docker:latest
+  before_script:
+    - apk add --update bash && rm -rf /var/cache/apk/*
+    - apk add --update curl && rm -rf /var/cache/apk/*
 
 docker-deploy-staging:
   extends: .docker-deploy
