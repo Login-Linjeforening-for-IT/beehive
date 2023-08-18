@@ -67,3 +67,15 @@ docker-deploy-staging:
     - chmod 600 .secure_files/gitlab_ssh
     - ssh-keyscan -t rsa 10.133.94.149 >> ~/.ssh/known_hosts
     - ssh -i .secure_files/gitlab_ssh root@10.133.94.149 'docker service update --with-registry-auth --image registry.git.logntnu.no/tekkom/web/beehive/frontend:staging beehive-staging'
+
+docker-deploy-production:
+  extends: .docker-deploy
+  dependencies:
+    - docker-build-prod
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+  script:
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | bash
+    - chmod 600 .secure_files/gitlab_ssh
+    - ssh-keyscan -t rsa 10.133.94.149 >> ~/.ssh/known_hosts
+    - ssh -i .secure_files/gitlab_ssh root@10.133.94.149 'docker service update --with-registry-auth --image registry.git.logntnu.no/tekkom/web/beehive/frontend beehive'
