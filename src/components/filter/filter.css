@@ -37,7 +37,7 @@
     /* prevent rounded corners on mobile browsers */
     -webkit-appearance: none;
     -webkit-border-radius: 0; 
-    border-radius: none;
+    border-radius: 0;
 }
 
 .filter__search-input::placeholder {
