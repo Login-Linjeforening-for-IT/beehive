@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import DateTile from '../../components/datetile/DateTile'
 import DefaultEventBanner from '../../components/svg/defaultbanners/DefaultEventBanner';
 import DefaultCtfBanner from '../../components/svg/defaultbanners/DefaultCtfBanner';
 import DefaultTekkomBanner from '../../components/svg/defaultbanners/DefaultTekkomBanner';
 import DefaultBedpresBanner from '../../components/svg/defaultbanners/DefaultBedpresBanner';
 import DefaultSocialBanner from '../../components/svg/defaultbanners/DefaultSocialBanner';
-import { config } from '../../Constants';
 import * as TimeFormatter from '../../utils/DatetimeFormatter'
 import * as ImageLinker from '../../utils/ImageLinker'
 
