@@ -4,7 +4,6 @@ import EventkomLogo from '../../components/svg/committeelogos/EventkomLogo'
 import PrkomLogo from '../../components/svg/committeelogos/PrkomLogo'
 import TekkomLogo from '../../components/svg/committeelogos/TekkomLogo'
 import CtfkomLogo from '../../components/svg/committeelogos/CtfkomLogo'
-import StyretLogo from '../../components/svg/committeelogos/StyretLogo'
 import SatkomLogo from '../../components/svg/committeelogos/SatkomLogo'
 import LogChamp from '../../components/logchamp/LogChamp'
 import {config} from '../../Constants';
