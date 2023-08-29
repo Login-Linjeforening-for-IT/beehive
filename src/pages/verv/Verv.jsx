@@ -1,8 +1,5 @@
 import VervTabs from './VervTabs'
-import StudyProgramsAcordion from './StudyProgramsAccordion'
-import DecoratedPicture from '../../components/picture/DecoratedPicture'
 import {withTranslation} from 'react-i18next';
-import { config } from '../../Constants';
 
 import './Verv.css'
 import ImageCarousel from './imageCarousel';

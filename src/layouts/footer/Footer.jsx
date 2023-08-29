@@ -20,7 +20,6 @@ const Footer = ({t}) => {
               </a>
             </div>
             <SocialLinks />
-            <p className='footer__p' dangerouslySetInnerHTML={{__html: t('footer.msg')}} />
             <p className='footer__p' dangerouslySetInnerHTML={{__html: t('footer.copy')}} />
         </div>
     )

@@ -1,5 +1,4 @@
 import {withTranslation} from 'react-i18next';
-import { config } from '../../Constants';
 
 import './Profile.css'
 
