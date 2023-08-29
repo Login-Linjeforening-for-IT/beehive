@@ -169,7 +169,7 @@ const CommitteeTabs = ({t}) => {
       </TabContent>
       <TabContent id='sat' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i class='logfont-satkom'></i> {t('committeeSection.satkom.title')}
+          <i class='logfont-satkom-filled'></i> {t('committeeSection.satkom.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>
