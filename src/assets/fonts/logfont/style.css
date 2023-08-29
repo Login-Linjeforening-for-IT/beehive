@@ -13,7 +13,6 @@
 [class^="logfont-"], [class*=" logfont-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'logfont' !important;
-  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -151,7 +150,7 @@
 .logfont-discord:before {
   content: "\e90b";
 }
-.logfont-redmine:before {
+.logfont-wikijs:before {
   content: "\e911";
 }
 .logfont-twitter:before {
