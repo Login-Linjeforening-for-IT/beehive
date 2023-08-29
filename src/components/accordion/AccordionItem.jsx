@@ -12,7 +12,7 @@ const AccordionItem = ({ id, title, activeAccordionItem, setActiveAccordionItem 
  
     return (
         <li onClick={handleClick} className={`accordion__nav-item ${activeAccordionItem === id ? 'accordion__nav-item--active' : ''}`}>
-            <i class='logfont-chevron-right accordion__icon--left'></i>{ title }
+            <i class='material-symbols-sharp accordion__icon--left'>chevron_right</i>{ title }
         </li>
     )
 }
