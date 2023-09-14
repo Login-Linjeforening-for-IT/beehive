@@ -1,0 +1,215 @@
+/* grid layout */
+
+.jobad-page {
+    display: grid;
+    align-items: start;
+    grid-template-columns: 1fr;
+}
+
+.jobad-page--banner {
+    grid-template-areas: 
+        'ban'               /* banner */
+        'det'               /* details */
+        'des'               /* description */
+}
+
+.jobad-page--noBanner {
+    grid-template-areas: 
+        'det'               /* details */
+        'des'               /* description */
+}
+
+.jobad-details {
+    grid-area: det;
+}
+
+.jobad-banner {
+    grid-area: ban;
+}
+
+.jobad-description {
+    grid-area: des;
+}
+
+
+/* jobad details */
+
+.jobad-details {
+    width: 100%;
+    padding: 2rem 1rem;
+    background-color: var(--c-bg-box);
+    position: relative;
+}
+
+.jobad-details__company {
+    display: flex;
+    gap: 1rem;
+}
+
+.jobad-details__company-logo {
+    display: block;
+    width: 7.5rem;
+    border-radius: .2rem;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+}
+
+.jobad-details__company {
+    margin-bottom: 2rem;
+}
+
+.jobad-details__company-name {
+    font-size: 1.5rem;
+    margin: auto 0;
+}
+
+.jobad-details__list {
+    display: grid;
+    grid-template-columns: min-content auto;
+    gap: 1rem;
+}
+
+.jobad-details__lable {
+    color: var(--c-font-discret);
+    display: inline-flex;
+}
+
+.jobad-details__icon--warning {
+    color: var(--c-warning);
+    margin-left: .5rem;
+}
+
+/* lable icon */
+.jobad-details__icon {
+    line-height: 1.5rem;
+    width: 2rem;
+    text-align: center;
+    padding-right: .5rem;
+}
+
+.jobad-details__icon--lable-color {
+    color: var(--c-font-discret);
+}
+
+.jobad-details__info {
+    word-break: break-word;
+	white-space: pre-line;
+	overflow-wrap: break-word;
+	-ms-word-break: break-word;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+.jobad-details__apply-btn {
+    margin-top: 3rem;
+}
+
+
+/* jobad banner */
+/* TODO fix bem */
+.jobad-banner picture {
+    display: block;
+}
+
+.jobad-banner picture img {
+    display: block;
+    aspect-ratio: 10 / 4;
+    object-fit: cover;
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 450px) {
+    .jobad-details {
+        padding: 2rem;
+    }
+
+    .jobad-details__company-logo {
+        width: 10rem;
+    }
+
+    .jobad-details__apply-btn {
+        width: fit-content;
+        min-width: 10rem;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    .jobad-page {
+        grid-template-columns: 20rem auto;
+        column-gap: 5%;
+        padding: 3rem 1rem 0 1rem;
+    }
+
+    .jobad-page--banner {
+        grid-template-areas: 
+            'det ban'
+            'det des';
+    }
+    
+    .jobad-page--noBanner {
+        grid-template-areas: 
+            'det des'
+            'det .';
+    }
+    
+
+    .jobad-details {
+        padding: 0 0 0 0;
+        background: none;
+    }
+
+    .jobad-details:after {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-width: .7rem;
+        border-color: var(--c-corner-decor);
+        border-style: none solid solid none;
+        bottom: 0;
+        right: 0;
+        transition: .1s;
+    }
+    
+    .jobad-details:before {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-width: .7rem;
+        border-color: var(--c-corner-decor);
+        border-style: solid solid none none;
+        top: 0;
+        right: 0;
+        transition: .1s;
+    }
+
+    .jobad-details__company {
+        display: block;
+    }
+
+    .jobad-details__company-name {
+        margin-top: 1rem;
+    }
+
+    .jobad-details__company-logo {
+        width: 12rem;
+    }
+
+    .jobad-details__apply-btn {
+        min-width: 12rem;
+    }
+
+    .jobad-banner {
+        padding-bottom: 2rem;
+    }
+
+    .jobad-banner img {
+        border-radius: .3rem;
+    }
+}
