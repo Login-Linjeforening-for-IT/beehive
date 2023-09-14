@@ -98,15 +98,15 @@
   width: auto;
   height: 0;
   opacity: 0;
-  padding-right: 1rem;
+  padding-right: .8rem;
   transition: opacity 1s, height 2s, padding .5s;
 }
 
 .mobile-nav--open .mobile-nav__item {
   opacity: 1;
   height: auto;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 
@@ -157,7 +157,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 31rem;
+    max-width: 35rem;
     width: 100%;
   }
 

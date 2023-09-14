@@ -1,9 +1,10 @@
 {
   "nav": {
-    "about": "ABOUT US",
-    "events": "EVENTS",
-    "companies": "FOR COMPANIES",
-    "verv": "VERV"
+    "about": "About",
+    "events": "Events",
+    "jobad": "Career",
+    "verv":"Verv",
+    "companies": "For companies"
   },
   "footer": {
     "sponsor": "Main partner",

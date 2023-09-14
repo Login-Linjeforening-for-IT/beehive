@@ -69,25 +69,11 @@
 }
 
 .filter__btn {
-    padding: .5rem 1.5rem;
     margin-top: 1rem;
-    border: none;
-    border-radius: .2rem;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
 }
 
 .filter__btn i {
     margin-left: .3rem;
-}
-
-.filter__btn--reset {
-    background-color: var(--c-btn-on-box);
-}
-
-.filter__btn--reset:hover {
-    background-color: var(--c-btn-on-box-hover);
 }
 
 .checkbox {
@@ -184,14 +170,6 @@
 
     .filter__btn {
         width: 100%;
-    }
-
-    .filter__btn--reset {
-        background-color: var(--c-btn);
-    }
-    
-    .filter__btn--reset:hover {
-        background-color: var(--c-btn-hover);
     }
     
 }

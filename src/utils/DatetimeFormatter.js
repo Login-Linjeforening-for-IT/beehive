@@ -21,6 +21,11 @@ export function getMonthInt(datetime) {
   return -1;
 }
 
+export function getYear(datetime) {
+  const date = new Date(datetime);
+  return date.getFullYear();
+}
+
 export function getOffsetDays(datetime) {
   const oneDay = 24 * 60 * 60 * 1000;
   const nowDate = new Date();
@@ -33,6 +38,8 @@ export function getOffsetDays(datetime) {
   return Math.round(((d.getTime() - nowDate.getTime()) / oneDay));
 }
 
+
+// no need for this with new db 
 export function showEndTime(datetime) {
   const hh = parseInt(datetime.slice(11,13));
   const mm = parseInt(datetime.slice(14,16));
@@ -41,4 +48,52 @@ export function showEndTime(datetime) {
   return !(hh === 23 && mm === 59 && ss === 59);
 }
 
+// return example: "Man 15. sep, 15:00"
+export function formatDateDT(date, language) {
+  const daysOfWeek = {
+    en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
+  };
+
+  const months = {
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],  };
+
+  const dayOfWeek = daysOfWeek[language][date.getDay()];
+  const dayOfMonth = String(date.getDate()).padStart(2, '0');
+  const month = months[language][date.getMonth()];
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  return `${dayOfWeek} ${dayOfMonth}. ${month}, ${hours}:${minutes}`;
+}
+
+// return example: "15:00, Man 15. sep 2023"
+export function formatDateTDY(date, language) {
+  const daysOfWeek = {
+    en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
+  };
+
+  const months = {
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],  };
+
+  const dayOfWeek = daysOfWeek[language][date.getDay()];
+  const dayOfMonth = String(date.getDate()).padStart(2, '0');
+  const month = months[language][date.getMonth()];
+  const year = String(date.getFullYear());
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  return `${hours}:${minutes}, ${dayOfWeek} ${dayOfMonth}. ${month} ${year}`;
+}
+
+export function formatDateToDDMMYYYY(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day}.${month}.${year}`;
+}
 

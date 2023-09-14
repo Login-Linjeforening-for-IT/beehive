@@ -2,7 +2,7 @@ import React from 'react';
 
 const Checkbox = ({id, title, name, handleChange, checked}) => {
   return (
-    <div class='checkbox'>
+    <div className='checkbox'>
       <input className='checkbox__input'
         id={id}
         type='checkbox'

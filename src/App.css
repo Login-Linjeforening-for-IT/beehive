@@ -68,9 +68,14 @@
   /* decoration */
   --c-corner-decor: var(--c-grey-48);
 
+  
   /* theme toggle */
   --c-sun: var(--c-yellow);
   --c-moon: var(--c-blue);
+
+  
+  /* signal colors */
+  --c-warning: var(--c-primary);
 
 
   /* font family */
@@ -112,6 +117,10 @@
   --c-font-discret: var(--c-grey-69);
   --c-link: var(--c-primary-dark);
   --c-on-box-dim: var(--c-grey-180);
+
+
+  /* signal colors */
+  --c-warning: var(--c-primary-dark);
 
 
   /* buttons */
@@ -266,6 +275,39 @@ a {
   bottom: 0;
 }
 
+
+/* buttons */
+
+.standard-button {
+  padding: .5rem 1.5rem;
+  display: block;
+  border-radius: .2rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.standard-button--primary {
+  background-color: var(--c-primary);
+  color: white;
+}
+
+.standard-button--primary i {
+  color: white;
+}
+
+.standard-button--primary:hover {
+  background-color: var(--c-primary-dark);
+}
+
+.standard-button--discret {
+  background-color: var(--c-btn-on-box);
+}
+
+.standard-button--discret:hover {
+  background-color: var(--c-btn-on-box-hover);
+}
 
 
 /* standard abbreviasion */
