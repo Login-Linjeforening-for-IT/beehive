@@ -7,7 +7,7 @@ const prod = {
 
 const dev = {
 	url: {
-		API_URL: 'http://localhost:4000',
+		API_URL: 'http://localhost:8080',
 		CDN_URL: 'https://cdn.login.no'
 	}
 };
