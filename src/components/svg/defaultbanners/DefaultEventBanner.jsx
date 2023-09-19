@@ -1,6 +1,6 @@
 const DefaultEventBanner = ({color}) => {
     return (
-        <svg className='default-banner' viewBox='0 0 150 60' fill={color} xmlns='http://www.w3.org/2000/svg'>
+        <svg className='default-banner' viewBox='0 0 150 60' fill={'#' + color} xmlns='http://www.w3.org/2000/svg'>
             <rect x='133' width='17' height='4' />
             <rect width='4' height='17' />
             <rect x='146' y='43' width='4' height='17' />
