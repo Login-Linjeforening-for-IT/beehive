@@ -22,7 +22,7 @@
   
 .Spinner .L {
     fill: none;
-    stroke: white;
+    stroke: var(--c-font-main);
     stroke-width: 4;
     stroke-dasharray: 50;
     animation: L 1.5s infinite ease;
