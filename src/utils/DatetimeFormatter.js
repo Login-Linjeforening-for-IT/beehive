@@ -60,7 +60,7 @@ export function formatDateDT(date, language) {
     no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],  };
 
   const dayOfWeek = daysOfWeek[language][date.getDay()];
-  const dayOfMonth = String(date.getDate()).padStart(2, '0');
+  const dayOfMonth = String(date.getDate());
   const month = months[language][date.getMonth()];
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
@@ -72,15 +72,16 @@ export function formatDateDT(date, language) {
 export function formatDateTDY(date, language) {
   const daysOfWeek = {
     en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
+    no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
   };
 
   const months = {
     en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],  };
+    no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
+  };
 
   const dayOfWeek = daysOfWeek[language][date.getDay()];
-  const dayOfMonth = String(date.getDate()).padStart(2, '0');
+  const dayOfMonth = String(date.getDate());
   const month = months[language][date.getMonth()];
   const year = String(date.getFullYear());
   const hours = String(date.getHours()).padStart(2, '0');
@@ -95,5 +96,32 @@ export function formatDateToDDMMYYYY(date) {
   const year = date.getFullYear();
 
   return `${day}.${month}.${year}`;
+}
+
+export const getDayName = (datetime,language)  => {
+
+  const daysOfWeek = {
+    en: ['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag'],
+    no: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  };
+
+  const dayExpration = {
+    en: ['I dag', 'I morgen', 'I går', ' dager siden'],
+    no: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  };
+
+  const diffDays = getOffsetDays(datetime);
+  
+	if (diffDays === 0) {
+		return dayExpration[language][0];
+	} else if (diffDays === 1) {
+		return dayExpration[language][1];
+	} else if (diffDays === -1) {
+		return dayExpration[language][2];
+	} else if (diffDays <= -1) {
+		return Math.abs(diffDays) + dayExpration[3];
+	}
+
+	return daysOfWeek[language][getDayIdxInt(datetime)];
 }
 
