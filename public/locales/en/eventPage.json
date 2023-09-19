@@ -6,6 +6,8 @@
     "type": "Category",
     "organizer": "Organizer",
     "links": "Links",
+    "stream": "Stream",
+    "capacity": "Capasity",
     "form": {
         "button": "Join event",
         "full": "This event is full!",
@@ -19,5 +21,11 @@
         "preferences": "Preferences",
         "allergies": "Allergies"
     }
+  }, 
+  "signup": {
+    "signup": "Sign up",
+    "signup-open": "Sign up opens",
+    "signup-closed": "Sign up closed",
+    "no-signup": "This event reqiers no sign up"
   }
 }
