@@ -51,9 +51,7 @@ const JobadsListItem = ({jobad, t}) => {
   const useEng = i18n.language === 'en'
   const tr = getTranslation(useEng);
 
-  const deadline = new Date(jobad.deadline);
-
-  const [imgSrc, setImgSrc] = useState(ImageLinker.getCDNLink(jobad.organization.logo));
+  const [imgSrc, setImgSrc] = useState(ImageLinker.getCDNLink(jobad.organization_logo));
   const handleError = () => setImgSrc(fallbackImg)
 
   return (
@@ -62,23 +60,23 @@ const JobadsListItem = ({jobad, t}) => {
         {isNew(jobad.time_publish) &&
           <div className='jobads-item__new-sticker'>{t('newSticker')}</div>
         }
-        <img className='jobads-item__img' alt={jobad.organization.logo}  src={imgSrc} onError={handleError} />
+        <img className='jobads-item__img' alt={jobad.organization_logo}  src={imgSrc} onError={handleError} />
       </picture>
       <div className='jobads-item__info'>
-        <div className='jobads-item__name'>{tr(jobad.name_en, jobad.name_no)}</div>
+        <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>
         <ul className='jobads-item__details'>
-          <li className='jobads-item__detail'>
+          {/*<li className='jobads-item__detail'>
             <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
-            {DatetimeFormatter.formatDateDT(deadline, useEng ? "en" : "no")}
-          </li>
+            {DatetimeFormatter.formatDateDT(new Date(jobad.application_deadline), useEng ? "en" : "no")}
+          </li>*/}
           <li className='jobads-item__detail'>
             <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
-            {tr(jobad.organization.name_en, jobad.organization.name_no)}
+            {tr(jobad.organization_name_en, jobad.organization_name_no)}
           </li>
-          {(jobad.position_title_no || jobad.type_no) && 
+          {(jobad.title_no || jobad.type_no) && 
             <li className='jobads-item__detail'>
               <i className='jobads-item__icon material-symbols-sharp'>badge</i>
-              {tr(jobad.position_title_en, jobad.position_title_no)}, {t(jobad.type_en, jobad.type_no)}
+              {tr(jobad.position_title_en, jobad.position_title_no)}, {jobad.job_type}
             </li>
           }
           {jobad.cities.length > 0 &&

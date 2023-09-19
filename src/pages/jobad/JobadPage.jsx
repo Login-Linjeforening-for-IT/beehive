@@ -9,40 +9,6 @@ import fallbackImg from "./jobad-fallback-logo.svg";
 import "./JobadPage.css";
 import "../../description.css";
 
-// dummie data
-let demoJobs = {
-  jobs: [
-    {
-      id: 1,
-      name_no:
-        "TekKom er et kult sted, og dette er en lang tittel for å se hvor mye plass jeg har å jobbe med",
-      name_en:
-        "TekKom is a cool place and this is a long title to see how much space I have to work with",
-      position_title_no: "utvikler",
-      position_title_en: "developer",
-      deadline: "2023-09-14T23:59",
-      published_date: "2023-09-15T00:00:00Z",
-      type_no: "Deltid",
-      type_en: "Part-time",
-      text_short_no: "Utvikler i TekKom",
-      text_short_en: "",
-      application_url:
-        "https://www.mnemonic.io/careers/open-positions/minternship-security-consultant/",
-      organization: {
-        shortname: "",
-        name_no: "Login - Linjeforening for IT",
-        name_en: "",
-        logo: "",
-      },
-      cities: ["Gjøvik"],
-      banner_image: "https://cdn.login.no/img/styret2.jpg",
-      description_en:
-        "<p>Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. </p>",
-      description_no:
-        "<p>Gira på å progge litt eller? Søk verv da vel bitch! Her er mer tekst. Her er mer tekst. Her er mer tekst. Her er mer tekst. Her er mer tekst.</p>",
-    },
-  ],
-};
 
 const getTranslation = (useEng) => {
   if (!useEng)

@@ -50,7 +50,6 @@
     display: block;
     width: 7.5rem;
     border-radius: .2rem;
-    object-fit: cover;
     aspect-ratio: 3 / 2;
 }
 
