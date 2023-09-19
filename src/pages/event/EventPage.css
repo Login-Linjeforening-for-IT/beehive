@@ -97,6 +97,32 @@
 }
 
 
+/* description */
+
+.event-informational {
+    display: flex;
+    padding: 1rem;
+    border-radius: .3rem;
+    /*background-color: rgba(171, 104, 0, 0.15);*/
+    box-shadow: 0 0 0 .2rem var(--c-primary);
+    margin: 1rem .2rem;
+    background-color: var(--c-bg-box);
+    max-width: 40rem;
+}
+
+.event-informational__icon {
+    padding-right: 1rem;
+    display: block;
+    font-size: 2.5rem;
+    color: var(--c-primary);
+}
+
+.event-informational__msg {
+    margin: auto 0;
+    font-size: 1.1rem;
+}
+
+
 /* Map */
 
 .event-map {
@@ -132,7 +158,6 @@
 
     .event-details {
         padding: 0;
-        padding-bottom: 2.5rem;
         background: none;
     }
 

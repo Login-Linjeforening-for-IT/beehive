@@ -31,12 +31,6 @@ function deadlineWarning(deadline) {
   return hoursRemaining < 24 && hoursRemaining > 0;
 }
 
-function stuff(jobad) {
-  const deadlineDate = new Date(jobad.job.deadline);
-  const publishDate = new Date(jobad.job.published_date);
-
-  return "stuff";
-}
 
 const JobadPage = ({ t, i18n }) => {
   let { id } = useParams();

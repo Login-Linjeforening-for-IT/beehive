@@ -1,19 +1,19 @@
-import {withTranslation} from "react-i18next";
+import * as TimeFormatter from "../../utils/DatetimeFormatter";
 import './DateTile.css'
 
-/* Array of the string representation of the months */
-const monthsNO = ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
-const monthsEN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Des']
+const months = {
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
+};
 
+const DateTile = ({ language, date, color}) => {
 
-
-const DateTile = ({ i18n, dayNumber, monthIdx, color }) => {
     return (
-        <div className='date-tile' style={{backgroundColor: color}}>
-            <span className='date-tile__day'>{dayNumber}</span>
-            <span className='date-tile__month'>{i18n.language === 'en' ? monthsEN[monthIdx] : monthsNO[monthIdx]}</span>
+        <div className='date-tile' style={{background: '#' + color}}>
+            <span className='date-tile__day'>{TimeFormatter.getDayInt(date)}</span>
+            <span className='date-tile__month'>{months[language][TimeFormatter.getMonthInt(date)]}</span>
         </div>
     )
 }
 
-export default withTranslation('eventPage')(DateTile)
+export default DateTile

@@ -5,9 +5,9 @@ import EventListFilter from './EventListFilter'
 
 import './EventList.css'
 
-const EventList = ( {categoryData,events} ) => {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [categories, setCategories] = useState([
+const EventList = ( {events} ) => {
+  //const [searchTerm, setSearchTerm] = useState('')
+  /*const [categories, setCategories] = useState([
     {category_name:'LOGIN',color:'fd8738',isChecked: false, isVisible: false},
     {category_name:'CTF',color:'2da62b',isChecked:false, isVisible: false},
     {category_name:'TEKKOM',color:'a206c9',isChecked:false, isVisible: false},
@@ -16,9 +16,9 @@ const EventList = ( {categoryData,events} ) => {
     {category_name:'SOCIAL',color:'d62f43',isChecked:false, isVisible: false},
     {category_name:'BEDPRES',color:'4060e3',isChecked:false, isVisible: false},
     {category_name:'ANNET',color:'fa75a6',isChecked:false, isVisible: false},
-  ])
+  ])*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     // Code to check which filter options should be active.
     const newState = categories.map(obj => {
       let found = false
@@ -31,9 +31,9 @@ const EventList = ( {categoryData,events} ) => {
     })
 
     setCategories(newState)
-  }, [])
+  }, [])*/
 
-  const resetFilter = () => {
+  /*const resetFilter = () => {
 
     window.scrollTo({
       top: 0,
@@ -86,11 +86,13 @@ const EventList = ( {categoryData,events} ) => {
     })
 
     setSearchTerm(event.target.value)
-  }
+  }*/
+
 
   return(
     <div className='event-grid-wrapper'>
       <div className='event-grid-wrapper--right'>
+        {/*
         <EventListFilter
           categories={categories}
           searchTerm={searchTerm}
@@ -98,9 +100,10 @@ const EventList = ( {categoryData,events} ) => {
           handleCategoryChange={handleCategoryChange}
           resetFilter={resetFilter}
         />
+        */}
       </div>
       <ul className='event-grid-wrapper--left event-list'>
-        {
+        {/*
           events
             .filter((val) => {
             if (isAllUnselected()) {
@@ -125,7 +128,14 @@ const EventList = ( {categoryData,events} ) => {
               </Link>
             </li>
           ))
-        }
+        */}
+        {events.map((evt) => 
+          <li key={evt.id}>
+            <Link to={'/events/' + evt.id}>
+              <EventListItem evt={evt} />
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   )
