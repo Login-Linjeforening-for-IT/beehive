@@ -151,6 +151,13 @@
   transition: .2s;
 }
 
+
+/* material icons */
+.material-symbols-sharp {
+  vertical-align: middle;
+}
+
+
 body {
   background-color: var(--c-bg-body);
 }
@@ -348,9 +355,17 @@ abbr {
 }
 
 
-/* material icons */
-.material-symbols-sharp {
-  vertical-align: middle;
+/* tags */
+
+.tag--primary {
+  background: linear-gradient(120deg, #ef5908 30%, #f49f29 100%);
+	border-radius: 1.5rem;
+	color: var(--c-grey-39);
+	display: block;
+	width: fit-content;
+  height: fit-content;
+	padding: .1rem .6rem 0;
+	font-size: .8rem;
 }
 
 
