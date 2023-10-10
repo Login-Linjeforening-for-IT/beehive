@@ -3,23 +3,13 @@ import { Navigate, useParams } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { config } from "../../Constants";
 import Spinner from "../../components/spinner/Spinner";
+import Article from '../../components/article/Article';
 import * as ImageLinker from "../../utils/ImageLinker";
 import * as TimeFormatter from "../../utils/DatetimeFormatter";
+import * as Translator from "../../utils/GetTranslation";
 import fallbackImg from "./jobad-fallback-logo.svg";
 import "./JobadPage.css";
-import "../../description.css";
 
-
-const getTranslation = (useEng) => {
-  if (!useEng)
-    return (_, no) => {
-      return no;
-    };
-
-  return (en, no) => {
-    return en ? en : no;
-  };
-};
 
 function deadlineWarning(deadline) {
   const currentTime = new Date();
@@ -40,7 +30,7 @@ const JobadPage = ({ t, i18n }) => {
   const [error, setError] = useState(null);
 
   const useEng = i18n.language === "en";
-  const tr = getTranslation(useEng);
+  const tr = Translator.getTranslation(useEng);
 
   const [logoImgSrc, setlogoImgSrc] = useState(fallbackImg);
   const handleLogoImgError = () => setlogoImgSrc(fallbackImg);
@@ -73,8 +63,6 @@ const JobadPage = ({ t, i18n }) => {
     };
     getData();
   }, []);
-
-  console.log(jobad);
 
   return (
     <>
@@ -169,24 +157,12 @@ const JobadPage = ({ t, i18n }) => {
               </picture>
             </div>
           )}
-          <div className="description">
-            <h1 className="description__header">
-              {tr(jobad.job.title_en, jobad.job.title_no)}
-            </h1>
-            <p className="description__published">
-              {t("published")}:{" "}
-              {TimeFormatter.formatDateTDY(
-                new Date(jobad.job.time_publish),
-                useEng ? "en" : "no"
-              )}
-            </p>
-            <div className="description__main"
-              dangerouslySetInnerHTML={{
-                __html: tr(
-                  jobad.job.description_long_en,
-                  jobad.job.description_long_no
-                )
-              }}
+          <div className="jobad-description">
+            <Article
+              title={tr(jobad.job.title_en, jobad.job.title_no)}
+              publishTime={jobad.job.time_publish}
+              informational={false}
+              description={tr(jobad.job.description_long_en, jobad.job.description_long_no)}
             />
           </div>
         </div>

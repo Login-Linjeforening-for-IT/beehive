@@ -51,6 +51,7 @@
     width: 7.5rem;
     border-radius: .2rem;
     aspect-ratio: 3 / 2;
+    object-fit: contain;
 }
 
 .jobad-details__company {
@@ -118,6 +119,13 @@
     aspect-ratio: 10 / 4;
     object-fit: cover;
     width: 100%;
+}
+
+/* description */
+
+.jobad-description {
+    padding: 1rem;
+    position: relative;
 }
 
 
@@ -210,5 +218,37 @@
 
     .jobad-banner img {
         border-radius: .3rem;
+    }
+
+    .jobad-description {
+        padding: 0;
+        padding-right: 2.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .jobad-description:after {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-width: .7rem;
+        border-color: var(--c-corner-decor);
+        border-style: solid solid none none;
+        top: 0;
+        right: 0;
+        transition: .1s;
+    }
+
+    .jobad-description:before {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-width: .7rem;
+        border-color: var(--c-corner-decor);
+        border-style: none solid solid none;
+        bottom: 0;
+        right: 0;
+        transition: .1s;
     }
 }
