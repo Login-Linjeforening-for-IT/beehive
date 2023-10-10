@@ -45,47 +45,54 @@ const formatCities = (cities) => {
   return (arr.join(', '))
 }
 
-const JobadsListItem = ({jobad, t}) => {
 
-  const {i18n} = useTranslation()
-  const useEng = i18n.language === 'en'
+const JobadsListItem = ({ i18n, jobad, t}) => {
+
+  const useEng = i18n.language === 'en';
   const tr = getTranslation(useEng);
 
   const [imgSrc, setImgSrc] = useState(ImageLinker.getCDNLink(jobad.organization_logo));
   const handleError = () => setImgSrc(fallbackImg)
 
   return (
-    <div className='jobads-item'>
-      <picture className='jobads-item__picture jobads-item__picture--new'>
-        {isNew(jobad.time_publish) &&
-          <div className='jobads-item__new-sticker'>{t('newSticker')}</div>
-        }
-        <img className='jobads-item__img' alt={jobad.organization_logo}  src={imgSrc} onError={handleError} />
-      </picture>
-      <div className='jobads-item__info'>
-        <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>
-        <ul className='jobads-item__details'>
-          {/*<li className='jobads-item__detail'>
-            <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
-            {DatetimeFormatter.formatDateDT(new Date(jobad.application_deadline), useEng ? "en" : "no")}
-          </li>*/}
-          <li className='jobads-item__detail'>
-            <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
-            {tr(jobad.organization_name_en, jobad.organization_name_no)}
-          </li>
-          {(jobad.title_no || jobad.type_no) && 
+    <div className={jobad.highlight ? "jobads-item jobads-item--highlight" : "jobads-item" }>
+      <div className="jobads-item__wrapper">
+        <picture className='jobads-item__picture'>
+          <img className='jobads-item__img' alt={jobad.organization_logo}  src={imgSrc} onError={handleError} />
+        </picture>
+        <div className='jobads-item__info'>
+          <div className="jobads-item__tags">
+            {isNew(jobad.time_publish) &&
+              <div className='jobads-item__tag tag--primary'>{t("new")}</div>
+            }
+            {jobad.highlight &&
+              <div className="jobads-item__tag tag--primary">{t("highlight")}</div>
+            }
+          </div>
+          <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>
+          <ul className='jobads-item__details'>
             <li className='jobads-item__detail'>
-              <i className='jobads-item__icon material-symbols-sharp'>badge</i>
-              {tr(jobad.position_title_en, jobad.position_title_no)}, {jobad.job_type}
+              <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
+              {DatetimeFormatter.formatDateDT(new Date(jobad.application_deadline), useEng ? "en" : "no")}
             </li>
-          }
-          {jobad.cities.length > 0 &&
             <li className='jobads-item__detail'>
-              <i className='jobads-item__icon material-symbols-sharp'>location_on</i>
-              {formatCities(jobad.cities)}
+              <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
+              {tr(jobad.organization_name_en, jobad.organization_name_no)}
             </li>
-          }
-        </ul>
+            {(jobad.title_no || jobad.type_no) && 
+              <li className='jobads-item__detail'>
+                <i className='jobads-item__icon material-symbols-sharp'>badge</i>
+                {tr(jobad.position_title_en, jobad.position_title_no)}, {jobad.job_type}
+              </li>
+            }
+            {jobad.cities.length > 0 &&
+              <li className='jobads-item__detail'>
+                <i className='jobads-item__icon material-symbols-sharp'>location_on</i>
+                {formatCities(jobad.cities)}
+              </li>
+            }
+          </ul>
+        </div>
       </div>
     </div>
   )
