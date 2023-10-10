@@ -49,7 +49,7 @@ export function showEndTime(datetime) {
 }
 
 // return example: "Man 15. sep, 15:00"
-export function formatDateDT(date, language) {
+export function formatDateDT(date, lang) {
   const daysOfWeek = {
     en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
@@ -59,9 +59,9 @@ export function formatDateDT(date, language) {
     en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],  };
 
-  const dayOfWeek = daysOfWeek[language][date.getDay()];
+  const dayOfWeek = daysOfWeek[lang][date.getDay()];
   const dayOfMonth = String(date.getDate());
-  const month = months[language][date.getMonth()];
+  const month = months[lang][date.getMonth()];
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
 
@@ -69,7 +69,7 @@ export function formatDateDT(date, language) {
 }
 
 // return example: "15:00, Man 15. sep 2023"
-export function formatDateTDY(date, language) {
+export function formatDateTDY(date, lang) {
   const daysOfWeek = {
     en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
@@ -80,9 +80,9 @@ export function formatDateTDY(date, language) {
     no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
   };
 
-  const dayOfWeek = daysOfWeek[language][date.getDay()];
+  const dayOfWeek = daysOfWeek[lang][date.getDay()];
   const dayOfMonth = String(date.getDate());
-  const month = months[language][date.getMonth()];
+  const month = months[lang][date.getMonth()];
   const year = String(date.getFullYear());
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
@@ -98,7 +98,7 @@ export function formatDateToDDMMYYYY(date) {
   return `${day}.${month}.${year}`;
 }
 
-export const getDayName = (datetime,language)  => {
+export const getDayName = (datetime,lang)  => {
 
   const daysOfWeek = {
     en: ['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag'],
@@ -106,22 +106,73 @@ export const getDayName = (datetime,language)  => {
   };
 
   const dayExpration = {
-    en: ['I dag', 'I morgen', 'I går', ' dager siden'],
-    no: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    en: ['Today', 'Tomorrow', 'Yesterday', ' days ago'],
+    no: ['I dag', 'I morgen', 'I går', ' dager siden']
   };
 
   const diffDays = getOffsetDays(datetime);
   
 	if (diffDays === 0) {
-		return dayExpration[language][0];
+		return dayExpration[lang][0];
 	} else if (diffDays === 1) {
-		return dayExpration[language][1];
+		return dayExpration[lang][1];
 	} else if (diffDays === -1) {
-		return dayExpration[language][2];
+		return dayExpration[lang][2];
 	} else if (diffDays <= -1) {
-		return Math.abs(diffDays) + dayExpration[3];
+		return Math.abs(diffDays) + dayExpration[lang][3];
 	}
 
-	return daysOfWeek[language][getDayIdxInt(datetime)];
+	return daysOfWeek[lang][getDayIdxInt(datetime)];
 }
 
+export function formatPublishedTime(datetime, lang) {
+  const now = new Date();
+  const publishedTime = new Date(datetime);
+
+  const minutesAgo = Math.floor((now - publishedTime) / (1000 * 60));
+  const hoursAgo = Math.floor(minutesAgo / 60);
+  const daysAgo = Math.floor(hoursAgo / 24);
+
+  const timeExpration = {
+    en: ['minutes ago'],
+    no: ['minutter siden']
+  };
+
+  const dayExpration = {
+    en: ['Today', 'Yesterday'],
+    no: ['I dag', 'I går']
+  };
+
+  const daysOfWeek = {
+    en: ['Sunday', 'Monday', 'Tueday', 'Wednesday', 'Thuday', 'Friday', 'Saturday'],
+    no: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
+  };
+
+  const months = {
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
+  };
+
+  if (minutesAgo < 60) {
+    return `${minutesAgo} ${timeExpration[lang][0]}`;
+  } else if (publishedTime.toDateString() === now.toDateString()) {
+    const hours = publishedTime.getHours();
+    const minutes = publishedTime.getMinutes();
+    return `${dayExpration[lang][0]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  } else if (daysAgo === 1) {
+    const hours = publishedTime.getHours();
+    const minutes = publishedTime.getMinutes();
+    return `${dayExpration[lang][1]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  } else if (daysAgo < 7) {
+    const hours = publishedTime.getHours();
+    const minutes = publishedTime.getMinutes();
+    return `${daysOfWeek[lang][publishedTime.getDay()]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  } else {
+    const day = publishedTime.getDate();
+    const month = publishedTime.getMonth();
+    const year = publishedTime.getFullYear();
+    const hours = publishedTime.getHours();
+    const minutes = publishedTime.getMinutes();
+    return `${day}. ${months[lang][month]}${year !== now.getFullYear() ? `, ${year}` : ''}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  }
+}
