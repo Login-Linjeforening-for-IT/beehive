@@ -1,6 +1,8 @@
 {
   "title": "Arrangementer",
   "noEvents": "Ingen kommene arrangementer",
+  "new": "NY",
+  "highlight": "FREMHEVET",
   "filter": {
     "title": "filter",
     "searchHint": "Søk...",

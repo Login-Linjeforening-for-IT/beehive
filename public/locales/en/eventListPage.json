@@ -1,6 +1,8 @@
 {
   "title": "Events",
   "noEvents": "No upcoming events",
+  "new": "NEW",
+  "highlight": "HIGHLIGHTED",
   "filter": {
     "title": "filter",
     "searchHint": "Search...",

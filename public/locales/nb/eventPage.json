@@ -26,6 +26,8 @@
     "signup": "Påmelding",
     "signup-open": "Påmelding åpner",
     "signup-closed": "Påmelding stengt",
-    "no-signup": "Dette arrangementet krever ingen påmelding"
-  }
+    "no-signup": "Dette arrangementet krever ingen påmelding",
+    "signup-full": "Arrangementet er fullt"
+  },
+  "published" : "PUBLISERT"
 }
