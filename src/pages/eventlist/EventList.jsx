@@ -22,8 +22,8 @@ const EventList = ( {events} ) => {
     // Code to check which filter options should be active.
     const newState = categories.map(obj => {
       let found = false
-      events.map(evt => {
-        if (obj.category_name.toLowerCase() === evt.category.toLowerCase()) {
+      events.map(event => {
+        if (obj.category_name.toLowerCase() === event.category.toLowerCase()) {
           found = true
         }
       })
@@ -121,18 +121,18 @@ const EventList = ( {events} ) => {
             if (obj.eventname.toLowerCase().includes(searchTerm.toLowerCase())) return true;
 
             return false;
-          })).map((evt) => (
-            <li key={evt.eventID}>
-              <Link to={'/events/' + evt.eventID}>
-                <EventListItem category={categoryData.find(c => c.Name === evt.category)} evt={evt} />
+          })).map((event) => (
+            <li key={event.eventID}>
+              <Link to={'/events/' + event.eventID}>
+                <EventListItem category={categoryData.find(c => c.Name === event.category)} event={event} />
               </Link>
             </li>
           ))
         */}
-        {events.map((evt) => 
-          <li key={evt.id}>
-            <Link to={'/events/' + evt.id}>
-              <EventListItem evt={evt} />
+        {events.map((event) => 
+          <li key={event.id}>
+            <Link to={'/events/' + event.id}>
+              <EventListItem event={event} />
             </Link>
           </li>
         )}
