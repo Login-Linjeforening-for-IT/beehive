@@ -40,7 +40,7 @@
 
 .event-details__date {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -83,6 +83,24 @@
 }
 
 
+.event-signup {
+    margin-top: 3rem;
+}
+
+.event-signup__msg {
+    padding: 0 1rem 0 0;
+    display: grid;
+    grid-template-columns: min-content auto;
+}
+
+.event-signup__msg-icon {
+    line-height: 1.5rem;
+    width: 2rem;
+    text-align: center;
+    padding-right: .5rem;
+}
+
+
 /* event banner */
 
 .event-banner picture {
@@ -99,27 +117,9 @@
 
 /* description */
 
-.event-informational {
-    display: flex;
+.event-description {
     padding: 1rem;
-    border-radius: .3rem;
-    /*background-color: rgba(171, 104, 0, 0.15);*/
-    box-shadow: 0 0 0 .2rem var(--c-primary);
-    margin: 1rem .2rem;
-    background-color: var(--c-bg-box);
-    max-width: 40rem;
-}
-
-.event-informational__icon {
-    padding-right: 1rem;
-    display: block;
-    font-size: 2.5rem;
-    color: var(--c-primary);
-}
-
-.event-informational__msg {
-    margin: auto 0;
-    font-size: 1.1rem;
+    position: relative;
 }
 
 
@@ -139,6 +139,11 @@
 
     .event-page {
         padding-top: 0;
+    }
+
+    .event-signup__btn {
+        width: fit-content;
+        min-width: 10rem;
     }
 }
 
@@ -187,16 +192,52 @@
         transition: .1s;
     }
 
+    .event-signup__btn {
+        min-width: 12rem;
+    }
+
+    .event-signup__msg {
+        padding: 0 2.5rem 2.5rem 0;
+    }
+
     .event-banner img {
         border-radius: .3rem;
+    }
+
+    .event-description {
+        padding: 0;
+        padding-right: 2.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .event-description:after {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-width: .7rem;
+        border-color: var(--c-corner-decor);
+        border-style: solid solid none none;
+        top: 0;
+        right: 0;
+        transition: .1s;
+    }
+
+    .event-description:before {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-width: .7rem;
+        border-color: var(--c-corner-decor);
+        border-style: none solid solid none;
+        bottom: 0;
+        right: 0;
+        transition: .1s;
     }
 
     .event-map {
         padding: 0;
     }   
-
-    .event-description {
-        padding: 0;
-    }
 }
 

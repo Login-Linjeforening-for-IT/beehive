@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { Navigate, useParams, Link } from "react-router-dom";
+import { config } from "../../Constants";
+import { withTranslation } from "react-i18next";
 
 import Spinner from "../../components/spinner/Spinner";
 import DateTile from "../../components/datetile/DateTile";
 import MazeMap from "../../components/mazemap/map";
 import EventSignUp from "./EventSignUp";
+import Article from '../../components/article/Article';
 import DefaultEventBanner from "../../components/svg/defaultbanners/DefaultEventBanner";
 import DefaultCtfBanner from "../../components/svg/defaultbanners/DefaultCtfBanner";
 import DefaultTekkomBanner from "../../components/svg/defaultbanners/DefaultTekkomBanner";
 import DefaultBedpresBanner from "../../components/svg/defaultbanners/DefaultBedpresBanner";
 import DefaultSocialBanner from "../../components/svg/defaultbanners/DefaultSocialBanner";
-import { config } from "../../Constants";
-import { withTranslation } from "react-i18next";
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
+import * as TimeFormatter from "../../utils/DatetimeFormatter";
 import * as ImageLinker from "../../utils/ImageLinker";
+import * as Translator from "../../utils/GetTranslation";
 
 import "./EventPage.css";
-import "../../description.css";
 
 // TODO match catergory id with new db id's
 const getDefaultBanner = (category, color) => {
@@ -33,6 +34,16 @@ const getDefaultBanner = (category, color) => {
       return <DefaultEventBanner color={color} />;
   }
 };
+
+const getURLAddress = (url) => {
+  try {
+    const parsedUrl = new URL(url);
+    // Extract and return the hostname (address) without the protocol
+    return parsedUrl.hostname;
+  } catch (error) {
+    return url;
+  }
+}
 
 const renderOrganizations = (organizations) => {
   // Check if organizations exists and is an array
@@ -56,6 +67,9 @@ const EventPage = ({ t, i18n }) => {
   const [eventData, setEventData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const useEng = i18n.language === "en";
+  const tr = Translator.getTranslation(useEng);
 
   const [showImage, setShowImage] = useState(true);
   const hideImg = () => {
@@ -97,7 +111,7 @@ const EventPage = ({ t, i18n }) => {
                 color={eventData.category.color}
               />
               <div className="event-details__date-expression">
-                {DatetimeFormatter.getDayName(
+                {TimeFormatter.getDayName(
                   eventData.event.time_start,
                   i18n.language == "en" ? "en" : "no"
                 )}
@@ -114,7 +128,7 @@ const EventPage = ({ t, i18n }) => {
                     {t("info.start")}:{" "}
                   </div>
                   <div className="event-details__info">
-                    {eventData.event.time_type == "tbd" ? "TBD" : DatetimeFormatter.getTimeHHmm(eventData.event.time_start)}
+                    {eventData.event.time_type == "tbd" ? "TBD" : TimeFormatter.getTimeHHmm(eventData.event.time_start)}
                   </div>
 
                   {eventData.event.time_type === "defualt" && 
@@ -126,7 +140,7 @@ const EventPage = ({ t, i18n }) => {
                         {t("info.end")}:{" "}
                       </div>
                       <div className="event-details__info">
-                        {DatetimeFormatter.getTimeHHmm(
+                        {TimeFormatter.getTimeHHmm(
                           eventData.event.time_end
                         )}
                       </div>
@@ -143,7 +157,7 @@ const EventPage = ({ t, i18n }) => {
                     {t("info.location")}:
                   </div>
                   <div className="event-details__info">
-                    {eventData.location.name_no}
+                    {tr(eventData.location.name_en, eventData.location.name_no)}
                     {eventData.location.city_name &&
                       ", " + eventData.location.city_name}
                   </div>
@@ -170,7 +184,7 @@ const EventPage = ({ t, i18n }) => {
                     }
                   }}
                 ></i>
-                {eventData.category.name_no}
+                {tr(eventData.category.name_en, eventData.category.name_no)}
               </div>
 
               <div className="event-details__lable">
@@ -180,7 +194,6 @@ const EventPage = ({ t, i18n }) => {
                 {t("info.organizer")}:{" "}
               </div>
               <div className="event-details__info">
-                {/* TODO: list all organizers  */}
                 {renderOrganizations(eventData.organizations)}
               </div>
 
@@ -199,8 +212,7 @@ const EventPage = ({ t, i18n }) => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {eventData.event.link_stream}{" "}
-                      <i className="material-symbols-sharp">arrow_outward</i>
+                      {getURLAddress(eventData.event.link_stream)} <i className="material-symbols-sharp">arrow_outward</i>
                     </a>
                   </div>
                 </>
@@ -224,8 +236,7 @@ const EventPage = ({ t, i18n }) => {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <i className="event-details__icon logfont-discord"></i>
-                          Discord
+                          Discord <i className="material-symbols-sharp">arrow_outward</i>
                         </a>
                         <br />
                       </>
@@ -237,8 +248,7 @@ const EventPage = ({ t, i18n }) => {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <i className="event-details__icon logfont-facebook"></i>
-                        Facebook
+                        Facebook <i className="material-symbols-sharp">arrow_outward</i>
                       </a>
                     )}
                   </div>
@@ -258,8 +268,9 @@ const EventPage = ({ t, i18n }) => {
                 </>
               )}
             </div>
-            {/* TODO: dont show if full or cancled */}
-            <EventSignUp event={eventData.event} />
+            {eventData.event.canceled == false &&
+              <EventSignUp event={eventData.event} />
+            }
           </div>
           <div className="event-banner">
             {showImage ? (
@@ -277,21 +288,12 @@ const EventPage = ({ t, i18n }) => {
               )
             )}
           </div>
-          <div className="description">
-            <h1 className="description__header">{eventData.event.name_no}</h1>
-            {eventData.event.informational_no && (
-              <div className="event-informational">
-                <i className="event-informational__icon material-symbols-sharp">
-                  info
-                </i>
-                <div className="event-informational__msg">{eventData.event.informational_no}</div>
-              </div>
-            )}
-            <div
-              className="description__main"
-              dangerouslySetInnerHTML={{
-                __html: eventData.event.description_no,
-              }}
+          <div className="event-description">
+            <Article
+              title={tr(eventData.event.name_no, eventData.event.name_no)}
+              publishTime={eventData.event.time_publish}
+              informational={tr(eventData.event.informational_en, eventData.event.informational_no)}
+              description={tr(eventData.event.description_en, eventData.event.description_no)}
             />
           </div>
           {/*
