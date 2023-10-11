@@ -44,7 +44,7 @@
         },
         "11": {
             "title": "Login at Bedpres",
-            "description": "About every week throughout the enitre semester Login hosts company presentations. These are very popular amongst the students, but would not be possible without some zealots."
+            "description": "About every week throughout the enitre semester Login hosts company presentations."
         },
         "12": {
             "title": "Access control to Bedpres",
@@ -83,10 +83,10 @@
             "intro": "TekKom develops the infrastructure of Login.",
             "body": "This is a very open verv where you can help with existing projects like this website or the Login app, or start your own. We both need experienced developers, and designers."
         },
-        "pr": {
-            "title": "PR",
-            "intro": "PR is the face of Login, and they are responsible for our social media.",
-            "body": "With verv in PR you will help communicate both with our students, and our companies. PR promotes events and other topics related to Login in social media. PR also helps with recruitment. Wether you are a good photographer, or just wants to be our next Logfluencer, this is the committee for you."
+        "bedkom": {
+            "title": "Bedkom",
+            "intro": "Bedkom is the face of Login, and they are responsible for our social media.",
+            "body": "With verv in Bedkom you will help communicate both with our students, and our companies. Bedkom promotes events and other topics related to Login in social media. Bedkom also helps with recruitment. Wether you are a good photographer, or just wants to be our next Logfluencer, this is the committee for you."
         },
         "ctfkom": {
             "title": "CTFkom",
@@ -97,11 +97,16 @@
             "title": "SATkom",
             "intro": "<abbr title=\"Systematic Automated Transactions\">SATkom</abbr> is the committee guarding Logins money bin, making sure the money flows both in, and out. Wether you have an economical eye, or just desires to become Logins next sugar daddy, this is the committee for you!",
             "body": "With verv in SATkom, you help manage the funds Login disposes, making sure we stay clear of the IRS. SATkom makes weekly budgets, and makes sure none of the committees go too much above budget. The committee also has a 'Dungeon Master' whose task is to watch over the Login Lounge, and make sure all of our members get enough caffeine. Furthermore the committee is involved with budgeting, various financial matters, and other able-goers."
+        },
+        "pr":{
+            "title": "PR",
+            "intro": "they didn't give me a intro to put here...",
+            "body": "PR is Login's graphic committee and is responsible for managing Login's public media channels. PR produces all the necessary graphic materials to promote the student organization and all our events, and designs all the merch and graphic content for random projects that arise. PR also provides a photographer for every event to document Login's history as it happens"
         }
     },
     "apply": {
         "title": "Apply for verv",
         "body": "The committees are continuously accepting applications below. For further questions or if you have not been convinced yet, please reach out to the respective committee leader. For general inquiries you may reach our recruitment manager via <a class='standard-link standard-link--underscore-hover' href='https://discordapp.com/users/877108421772582962'>Discord</a>, or send us a <a class='standard-link standard-link--underscore-hover' href='mailto:kontakt@login.no'>mail</a>.",
-        "action": "Apply for verv"
+        "action": "Apply here!"
     }
   }
