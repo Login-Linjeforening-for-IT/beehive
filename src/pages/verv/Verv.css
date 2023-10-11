@@ -4,7 +4,7 @@
 }
 
 
-/* gave headers and paragrapfs margins instead of giving it to 
+/* gave headers and paragrapfs margins on the sides instead of giving it to 
    the 'verv-section' class because the 'tabs-section' is an exception */
 .verv-section__heading {
     margin-left: 1rem;
@@ -31,9 +31,6 @@
     gap: 5%;
 }
 
-.verv-intro__grid-container .accordion {
-    width: 100%;
-}
 
 /* BEM exception becasue its a picture component */
 .verv-intro__grid-container picture {
@@ -44,42 +41,30 @@
 
 
 /* apply section */
-.apply-section {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.apply-title {
-    align-self: flex-start;
-    margin-left: 1rem;
-    margin-right: 1rem;
+
+.verv-apply__action {    
+    font-size: 1rem;
+    margin: 2rem 1rem 1rem 1rem;
 }
 
-.apply-body {
-    align-self: flex-start;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 2rem;
-}
+@media only screen and (min-width: 400px) {
 
-.apply-action {
-    align-self: center;
-    display: grid;
-    background-color: #fd8732;
-    border-radius: 10px;
-    place-items: center;
-    width: 200px;
-    color: white;
-    font-weight: 500;
-    height: 50px;
-    font-size: larger;
+    .verv-apply {
+        max-width: 50rem;
+        margin: auto;
+    }
+
+    .verv-apply__action {    
+        width: fit-content;
+        font-size: 1.3rem;
+        margin: 2rem auto 0 auto;
+    }
 }
 
 @media only screen and (min-width: 800px) {
 
     .verv-section {
-        margin-bottom: 0;
+        margin-bottom: 8rem;
     }
 
     .verv-intro__p {

@@ -17,10 +17,10 @@ const Verv = ({t}) => {
         <p className='verv-section__p p--regular'>{t('committeeSection.intro')}</p>
         <VervTabs/>
       </section>
-      <section className='apply-section'>
-        <h1 className='apply-title' dangerouslySetInnerHTML={{__html: t('apply.title')}} />
-        <p className='apply-body' dangerouslySetInnerHTML={{__html: t('apply.body')}} />
-        <a className='apply-action' href='https://forms.gle/nQrJuqo3C9URLRM29'>{t('apply.action')}</a>
+      <section className='verv-section verv-apply'>
+        <h2 className='verv-section__heading heading-2' dangerouslySetInnerHTML={{__html: t('apply.title')}} />
+        <p className='verv-section__p p--regular' dangerouslySetInnerHTML={{__html: t('apply.body')}} />
+        <a className='verv-apply__action standard-button standard-button--primary' href='https://forms.gle/nQrJuqo3C9URLRM29'>{t('apply.action')}</a>
       </section>
     </div>
   )

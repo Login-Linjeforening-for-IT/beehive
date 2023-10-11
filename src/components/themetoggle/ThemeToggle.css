@@ -21,13 +21,6 @@
     fill: var(--c-sun);
 }
 
-.light .info-title,
-.dark .info-title, 
-.light .info-description,
-.dark .info-description {
-    color: white; 
-}
-
 .theme-toggle__sun-ray {
     transition: .4s;
 }
