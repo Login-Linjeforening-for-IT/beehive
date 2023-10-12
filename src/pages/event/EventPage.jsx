@@ -279,6 +279,7 @@ const EventPage = ({ t, i18n }) => {
                   alt={eventData.eventname}
                   src={ImageLinker.getCDNLink(eventData.event.image_banner)}
                   onError={hideImg}
+                  loading="lazy"
                 />
               </picture>
             ) : (

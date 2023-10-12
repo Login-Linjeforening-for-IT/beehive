@@ -81,6 +81,7 @@ const EventListItem = ({ t, i18n, event }) => {
               alt={event.name_no}
               src={ImageLinker.getCDNLink(event.image_small)}
               onError={hideImg}
+              loading="lazy"
             />
           ) : (
             getDefaultBanner(event.category_name_no, event.category_color)

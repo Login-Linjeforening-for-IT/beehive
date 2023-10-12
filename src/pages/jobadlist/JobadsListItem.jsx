@@ -58,7 +58,7 @@ const JobadsListItem = ({ i18n, jobad, t}) => {
     <div className={jobad.highlight ? "jobads-item jobads-item--highlight" : "jobads-item" }>
       <div className="jobads-item__wrapper">
         <picture className='jobads-item__picture'>
-          <img className='jobads-item__img' alt={jobad.organization_logo}  src={imgSrc} onError={handleError} />
+          <img className='jobads-item__img' alt={jobad.organization_logo}  src={imgSrc} onError={handleError} loading="lazy" />
         </picture>
         <div className='jobads-item__info'>
           <div className="jobads-item__tags">
