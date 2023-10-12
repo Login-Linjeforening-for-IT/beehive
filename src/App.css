@@ -43,6 +43,9 @@
   /* hero section */
   --c-bg-welcome: radial-gradient(circle, rgba(10,10,10) 0%, rgba(24,24,24) 100%);
   --c-bg-mobile-nav-open: rgba(20, 20, 20, .8);
+  /* fancy backgrounds */
+  --c-bg-highlight-gradient: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
+  --c-bg-highlight-gradient-hover: linear-gradient(to right, #FF512F 0%, #F09819 20%, #FF512F 50%);
 
 
   /* buttons */
@@ -358,14 +361,15 @@ abbr {
 /* tags */
 
 .tag--primary {
-  background: linear-gradient(120deg, #ef5908 30%, #f49f29 100%);
+  background-color: var(--c-primary-dark);
 	border-radius: 1.5rem;
-	color: var(--c-grey-39);
+	color: white;
 	display: block;
 	width: fit-content;
   height: fit-content;
 	padding: .1rem .6rem 0;
 	font-size: .8rem;
+  font-weight: 500;
 }
 
 
