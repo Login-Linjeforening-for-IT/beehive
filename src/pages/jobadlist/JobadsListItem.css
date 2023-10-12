@@ -1,7 +1,7 @@
 .jobads-item {
 	cursor: pointer;
 	transition: .2s;
-	padding: .15rem;
+	padding: .13rem;
 	border-radius: .4rem;
 	margin: 0 .5rem;
 }
@@ -145,7 +145,7 @@
 @media only screen and (min-width: 800px) {
 
 	.jobads-item__wrapper {
-		padding: 1.5rem 1rem;
+		padding: 1rem;
 	}
 
 	.jobads-item__img {

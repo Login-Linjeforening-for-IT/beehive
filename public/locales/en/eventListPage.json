@@ -3,6 +3,7 @@
   "noEvents": "No upcoming events",
   "new": "NEW",
   "highlight": "HIGHLIGHTED",
+  "canceled": "CANCELED",
   "filter": {
     "title": "filter",
     "searchHint": "Search...",

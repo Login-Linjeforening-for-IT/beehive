@@ -1,5 +1,5 @@
 .events-item {
-	padding: .15rem;
+	padding: .13rem;
 	cursor: pointer;
 	transition: .2s;
 	border-radius: .3rem;
@@ -26,6 +26,7 @@
 	padding: .5rem;
 	z-index: 50;
 	border-radius: .2rem;
+	background-color: var(--c-bg-body);
 
 	/* cleaner word-breaking */
 	word-break: break-word;
@@ -37,7 +38,6 @@
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;
 	hyphens: auto;
-	background-color: var(--c-bg-body);
 }
 
 .events-item__tags {

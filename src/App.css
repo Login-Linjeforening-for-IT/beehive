@@ -360,16 +360,25 @@ abbr {
 
 /* tags */
 
-.tag--primary {
-  background-color: var(--c-primary-dark);
+.tag {
 	border-radius: 1.5rem;
-	color: white;
 	display: block;
 	width: fit-content;
   height: fit-content;
-	padding: .1rem .6rem 0;
+	padding: 0 .5rem;
 	font-size: .8rem;
   font-weight: 500;
+  border: .15rem solid;
+}
+
+.tag--primary {
+  background-color: var(--c-primary-dark);
+  border-color: var(--c-primary-dark);
+  color: white;
+}
+
+.tag--canceled {
+  border-color: rgb(127, 0, 0);
 }
 
 

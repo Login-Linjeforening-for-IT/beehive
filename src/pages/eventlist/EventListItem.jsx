@@ -51,11 +51,14 @@ const EventListItem = ({ t, i18n, event }) => {
         />
         <div className="events-item__middle">
           <div className="events-item__tags">
+            {event.canceled &&
+              <div className='events-item__tag tag tag--canceled'>{t("canceled")}</div>
+            }
             {isNew(event.time_publish) &&
-              <div className='events-item__tag tag--primary'>{t("new")}</div>
+              <div className='events-item__tag tag tag--primary'>{t("new")}</div>
             }
             {event.highlight &&
-              <div className="events-item__tag tag--primary">{t("highlight")}</div>
+              <div className="events-item__tag tag tag--primary">{t("highlight")}</div>
             }
           </div>
           <div className="events-item__name">{event.name_no}</div>

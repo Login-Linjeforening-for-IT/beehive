@@ -63,10 +63,10 @@ const JobadsListItem = ({ i18n, jobad, t}) => {
         <div className='jobads-item__info'>
           <div className="jobads-item__tags">
             {isNew(jobad.time_publish) &&
-              <div className='jobads-item__tag tag--primary'>{t("new")}</div>
+              <div className='jobads-item__tag tag tag--primary'>{t("new")}</div>
             }
             {jobad.highlight &&
-              <div className="jobads-item__tag tag--primary">{t("highlight")}</div>
+              <div className="jobads-item__tag tag tag--primary">{t("highlight")}</div>
             }
           </div>
           <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>
