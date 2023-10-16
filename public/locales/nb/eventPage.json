@@ -29,5 +29,6 @@
     "no-signup": "Dette arrangementet krever ingen påmelding",
     "signup-full": "Arrangementet er fullt"
   },
-  "published" : "PUBLISERT"
+  "published" : "PUBLISERT",
+  "rules": "Regler"
 }

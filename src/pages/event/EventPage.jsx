@@ -5,6 +5,7 @@ import { withTranslation } from "react-i18next";
 
 import Spinner from "../../components/spinner/Spinner";
 import DateTile from "../../components/datetile/DateTile";
+import DropDownBox from "../../components/dropdownbox/DropDownBox";
 import MazeMap from "../../components/mazemap/map";
 import EventSignUp from "./EventSignUp";
 import Article from '../../components/article/Article';
@@ -258,7 +259,7 @@ const EventPage = ({ t, i18n }) => {
                 <>
                   <div className="event-details__lable">
                     <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
-                      chair
+                      confirmation_number
                     </i>
                     {t("info.capacity")}:{" "}
                   </div>
@@ -296,6 +297,24 @@ const EventPage = ({ t, i18n }) => {
               informational={tr(eventData.event.informational_en, eventData.event.informational_no)}
               description={tr(eventData.event.description_en, eventData.event.description_no)}
             />
+            { eventData.rule && 
+              <div className="rules">
+                <DropDownBox
+                  title={
+                    <>
+                      <i class="material-symbols-sharp">gavel</i> {t("rules")}
+                    </>
+                  }
+                  content={
+                    <div className="rules__content">
+                      <h2 className="rules__title">{tr(eventData.rule.name_en, eventData.rule.name_no)}</h2>
+                      <div className="rules__description">
+                        {tr(eventData.rule.description_en, eventData.rule.description_no)}
+                      </div>
+                    </div>
+                  } />
+              </div>
+            }
           </div>
           {/*
           TODO: fix mazemap

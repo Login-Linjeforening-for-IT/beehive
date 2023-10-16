@@ -29,5 +29,6 @@
     "no-signup": "This event reqiers no sign up",
     "signup-full": "This event is full!"
   },
-  "published" : "PUBLISHED"
+  "published": "PUBLISHED",
+  "rules": "Rules"
 }

@@ -122,6 +122,15 @@
     position: relative;
 }
 
+.rules {
+    max-width: 40rem;
+    margin-top: 4rem;
+}
+
+.rules__content {
+    padding: 1rem;
+}
+
 
 /* Map */
 
@@ -206,8 +215,8 @@
 
     .event-description {
         padding: 0;
-        padding-right: 2.5rem;
-        padding-bottom: 1rem;
+        padding-right: 3rem;
+        padding-bottom: 3rem;
     }
 
     .event-description:after {
@@ -236,8 +245,15 @@
         transition: .1s;
     }
 
+    .rules {
+        margin-top: 4rem;
+    }
+    
+    .rules__content {
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+
     .event-map {
         padding: 0;
     }   
 }
-
