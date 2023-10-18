@@ -205,7 +205,7 @@ const CommitteeTabs = ({t}) => {
           </div>
           <LogChamp
             img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'}
-            name='BK'
+            name='Bjørn Kristian Strand'
             stilling={t('committeeSection.board.pr')}
             discord='bk_suup'
             discordlink='https://discordapp.com/users/353992260507140097'
