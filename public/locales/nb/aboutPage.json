@@ -4,7 +4,7 @@
   "bachelor": {
     "computerEngineer": "Dataingeniør",
     "digsec": "Digital infrastruktur og cybersikkerhet",
-    "prog": "Programmering "
+    "prog": "programmering "
   },
   "master": {
     "infosec": "Information security",
@@ -34,14 +34,15 @@
       "deputyChairman": "Nestleder",
       "secretary": "Sekretær",
       "eventkom": "EventKom leder",
-      "pr": "PR leder",
+      "bedkom": "Bedkom leder",
       "tekkom": "TekKom leder",
       "ctfkom": "CTF leder",
-      "satkom": "SATkom leder"
+      "satkom": "SATkom leder",
+      "pr": "PR leder"
     },
     "eventkom": {
       "title": "EventKom",
-      "intro": "EventKom er Logins party-komité hvor målet er å bruke opp alle inntektene PR sørger for.",
+      "intro": "EventKom er Logins party-komité hvor målet er å bruke opp alle inntektene Bedkom sørger for.",
       "body": "EventKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret. Vi tilbyr sammenkomster der studenter kan møtes på tvers av studieprogram, år og klasser for å få et avbrekk fra studiehverdagen. Målet til EventKom er å bygge et sterkt fellesskap blant IT-studentene ved skolen, som du kan lene deg på når studiehverdagen tar på. Dersom du har forslag til aktiviteter, eller ønsker å være med i komiteen er det bare å kontakte oss på <a class='standard-link standard-link--underscore-hover' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>. Forslag og tilbakemeldinger tas imot med glede, og vi håper å høre fra deg."
     },
     "tekkom": {
@@ -49,10 +50,10 @@
       "intro": "TekKom påstår at de jobber med denne nettsiden men hovedsaklig spiser de pizza. Dette er komiteen for de som liker å lære tekniske ting som å progge og drifte høyteknologisk infrastruktur.",
       "body": "TekKom har ansvaret for infrastrukturen til Login. Våre oppgaver innebærer utvikling og vedlikehold av blant annet nettsidene og tjenestene foreningen avhenger av, i tillegg til andre sideprosjekter. Vi organiserer åpne arbeidskvelder med pizza hver uke der vi jobber med TekKom-prosjekter. Her stiller vi ingen forventninger annet enn at man er nysgjerrig og forøker å bidra med det man kan. Hvis du liker å kode, eller bare har et vilt prosjekt i tankene, så er dette komiteen for deg!"
     },
-    "pr": {
-      "title": "PR",
-      "intro": "PR er Logins gyldene ku og uten dem hadde ikke pengene strømmet inn og ingen av de andre komiteene kunne drevet med sprell!",
-      "body": "PR er Logins ansikt utad og har ansvar for Logins offentlige mediakanaler. PR følger med på vårt ticketsystem og svarer bedriftskontakter. De jobber også for å gi studenter et innsyn og vei inn i næringslivet ved å arrangere bedpreser, workshops/fagpres og karrieredager, som også er Logins hovedinntektskilde! Videre er PR med på å representere Login på events og bistår også med rekruttering av nye medlemmer."
+    "bedkom": {
+      "title": "Bedkom",
+      "intro": "Bedkom er Logins gyldene ku og uten dem hadde ikke pengene strømmet inn og ingen av de andre komiteene kunne drevet med sprell!",
+      "body": "Bedkom er Logins ansikt utad og har ansvar for Logins offentlige mediakanaler. Bedkom følger med på vårt ticketsystem og svarer bedriftskontakter. De jobber også for å gi studenter et innsyn og vei inn i næringslivet ved å arrangere bedpresser, workshops/fagpres og karrieredager, som også er Logins hovedinntektskilde! Videre er Bedkom med på å representere Login på events og bistår også med rekruttering av nye medlemmer."
     },
     "ctfkom": {
       "title": "CTFkom",
@@ -63,6 +64,11 @@
       "title": "SATkom",
       "intro": "<abbr title=\"Systematiserte Automatiserte Transaksjoner\">SATkom</abbr> er komiteen som vokter Login sin pengebinge, og sørger for at pengene både flyter inn og ut. Hvis du har økonomisk sans, eller bare vil bli Login's nye sugar daddy, så er dette komiteen for deg!",
       "body": "SATkom står for Sytematiserte Automatiserte Transaksjoner, og de jobber med å forvalte midlene Login har tilgengelig. Deres oppgaver innebærer betaling av regninger, utsending av fakturaer og innkjøp til foreningen. De lager ukentlige regnskap, og passer på at komiteene ikke overskrider budsjettene for mye. Komiteen har også en 'Dungeon Master' som har i oppgave å passe på Loungen, og at alle medlemmene våre får nok koffein. Videre er komiteen involvert i budsjettering, diverse økonomiske saker og andre ablegøyer."
+    },
+    "pr":{
+      "title": "PR",
+      "intro": "PR dokumenterer og publiserer alt som skjer i foreningen. Hold et øye med våre kanaler, kanskje du ser deg selv!",
+      "body": "PR er Logins grafiske komité og har ansvar for å drifte Logins offentlige mediakanaler. PR lager det som trengs av grafisk materiale for å kunne promotere linjeforeningen og alle våre arrangementer, samt designer de alt av merch og grafisk innhold til randome prosjekter som kommer opp. PR stiller også opp med fotograf på samtlige arrangementer for å dokumentere historien til Login, mens den skjer!"
     }
   },
   "publicDocs": {
@@ -86,7 +92,7 @@
     "degree": "Studieretning",
     "study_year": "Studieår",
     "mail": "Mail",
-    "preferences": "Preferanser",
+    "preferences": "preferanser",
     "allergies": "Allergier"
 }
 }

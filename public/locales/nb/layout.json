@@ -1,9 +1,10 @@
 {
   "nav": {
-    "about": "OM OSS",
-    "events": "ARRANGEMENTER",
-    "companies": "FOR BEDRIFTER",
-    "verv": "VERV"
+    "about": "Om oss",
+    "events": "Arrangementer",
+    "jobad": "Karriere",
+    "verv":"Verv",
+    "companies": "For bedrifter"
   },
   "footer": {
     "sponsor": "Hovedsamarbeidspartner",

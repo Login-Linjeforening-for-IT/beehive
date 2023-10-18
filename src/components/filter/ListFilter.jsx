@@ -12,13 +12,20 @@ const ListFilter = ({categories, handleChange}) => {
         categories.map((obj,key) => {
           if (obj.isVisible) {
             return (
-                <Checkbox id={obj.category_name} title={obj.category_name} name={obj.category_name} checked={obj.isChecked} handleChange={handleChange}/>
+              <Checkbox
+                //key={obj.category_name}
+                id={obj.category_name}
+                title={obj.category_name}
+                name={obj.category_name}
+                checked={obj.isChecked}
+                handleChange={handleChange}
+              />
             )
           }
         })
       }
     </div>
-  );
+  )
 }
 
 export default ListFilter;

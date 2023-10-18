@@ -1,0 +1,11 @@
+{
+    "details" : {
+        "deadline" : "Frist",
+        "position" : "Stilling",
+        "type" : "Type",
+        "location" : "Sted",
+        "locations" : "Steder",
+        "apply-btn" : "Søk her"
+    },
+    "published" : "PUBLISERT"
+}

@@ -12,16 +12,21 @@ const EventListFilter = ({t,categories, searchTerm, handleSearchChange, handleCa
 
   return (
     <ul className='accordion filter'>
-      <AccordionItem id='filter' title={<>Filter <i className='material-symbols-sharp filter__filter-icon'>filter_alt</i></>} activeAccordionItem={activeAccordionItem} setActiveAccordionItem={setActiveAccordionItem} />
+      <AccordionItem 
+        id='filter' 
+        title={<>Filter <i className='material-symbols-sharp filter__filter-icon'>filter_alt</i></>} 
+        activeAccordionItem={activeAccordionItem} 
+        setActiveAccordionItem={setActiveAccordionItem} 
+      />
       <AccordionContent id='filter' activeAccordionItem={activeAccordionItem}>
         <div className='filter__content'>
           <form className='filter__search-bar'>
-            <i class='material-symbols-sharp filter__search-icon'>search</i>
+            <i className='material-symbols-sharp filter__search-icon'>search</i>
             <input className='filter__search-input' type='text' placeholder={t('filter.searchHint')} value={searchTerm} onChange={handleSearchChange}/>
           </form>
           <ListFilter categories={categories} handleChange={handleCategoryChange}/>
-          <button className='filter__btn filter__btn--reset' onClick={resetFilter}>
-            {t('filter.resetButton')} <span class='material-symbols-sharp filter__reset-icon'>refresh</span>
+          <button className='filter__btn standard-button standard-button--discret' onClick={resetFilter}>
+            {t('filter.resetButton')} <span className='material-symbols-sharp filter__reset-icon'>refresh</span>
           </button>
         </div>
       </AccordionContent>

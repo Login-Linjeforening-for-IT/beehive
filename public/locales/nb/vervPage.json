@@ -44,7 +44,7 @@
         },
         "11": {
             "title": "Login på Bedpres",
-            "description": "Omtrent hver uke gjennom hele semesteret arrangeres det bedriftpresentasjoner. Dette er svært populært blant studentene, men hadde ikke vært mulig uten noen ildsjeler."
+            "description": "Omtrent hver uke gjennom hele semesteret arrangeres det bedriftpresentasjoner."
         },
         "12": {
             "title": "Innslipp til Bedpres",
@@ -71,7 +71,8 @@
             "pr": "PR leader",
             "tekkom": "TekKom leader",
             "ctfkom": "CTF leader",
-            "satkom": "SATkom leader"
+            "satkom": "SATkom leader",
+            "bedkom": "Bedkom leader"
           },
         "eventkom": {
             "title": "EvntKom",
@@ -83,10 +84,10 @@
             "intro": "TekKom utvikler Login sin infrastruktur.",
             "body": "Dette er et veldig åpent verv, og det er både mulig å bidra på eksisterende prosjekter, som denne nettsiden og Login appen, eller begynne på helt nye prosjekter. Vi trenger både flinke utviklere, og flinke designere."
         },
-        "pr": {
-            "title": "PR",
-            "intro": "PR er Logins ansikt utad og har ansvar for Logins offentlige mediekanaler",
-            "body": "Med verv i PR vil du være med på å kommunisere med både studentene våre og bedriftene våre. PR promoterer arrangementer og andre ting som angår Login i sosiale medier. PR bistår også med rekruttering. Enten du er flink til å ta bilder, eller vil bli en Logfluencer er dette komitéen for deg."
+        "bedkom": {
+            "title": "Bedkom",
+            "intro": "Bedkom er Logins ansikt mot bedriftene, og har ansvar for bedriftspresentasjoner og karrieredager.",
+            "body": "Med verv i Bedkom vil du være med på å kommunisere med både studentene våre og bedriftene våre. Bedkom promoterer arrangementer og andre ting som angår Login i sosiale medier. Bedkom bistår også med rekruttering. Dersom du ønsker å gjøre en forskjell for studenter, samtidig som du blir kjent med bedrifter er dette komiteen for deg."
         },
         "ctfkom": {
             "title": "CTFkom",
@@ -97,11 +98,16 @@
             "title": "SATkom",
             "intro": "<abbr title=\"Systematiserte Automatiserte Transaksjoner\">SATkom</abbr> er komiteen som vokter Login sin pengebinge, og sørger for at pengene både flyter inn og ut. Enten du har økonomisk sans, eller bare vil bli Login's nye sugar daddy, så er dette komiteen for deg!",
             "body": "Med verv i SATkom hjelper man til med å forvalte midlene Login har tilgjengelig, og unngår at SATkom sin leder blir tatt av skatteetaten. SATkom lager ukentlige regnskap, og passer på at komiteene ikke overskrider budsjettene for mye. Komiteen har også en 'Dungeon Master' som har i oppgave å passe på Loungen, og at alle medlemmene våre får nok koffein. Videre er komiteen involvert i budsjettering, diverse økonomiske saker og andre ablegøyer."
+        },
+        "pr":{
+            "title": "PR",
+            "intro": "PR er Logins ansikt utad og har ansvar for Logins offentlige mediekanaler.",
+            "body": "PR er Logins grafiske komité og har ansvar for å drifte Logins offentlige mediakanaler. PR lager det som trengs av grafisk materiale for å kunne promotere linjeforeningen og alle våre arrangementer, samt designer de alt av merch og grafisk innhold til randome prosjekter som kommer opp. PR stiller også opp med fotograf på samtlige arrangementer for å dokumentere historien til Login, mens den skjer! Enten du er flink til å ta bilder, eller vil bli en Logfluencer er dette komitéen for deg."
         }
     },
     "apply": {
         "title": "Søk verv",
         "body": "Komitéene tar fortløpende imot søknader nedenfor. Dersom du har flere spørsmål om verv i en spesifikk komité eller er usikker på hvordan du kan bidra, kan du ta kontakt med den respektive komitelederen. For generelle henvendelser kan du ta kontakt med rekrutteringsansvarlig via <a class='standard-link standard-link--underscore-hover' href='https://discordapp.com/users/877108421772582962'>Discord</a>, eller sende oss en <a class='standard-link standard-link--underscore-hover' href='mailto:kontakt@login.no'>mail</a>.",
-        "action": "Søk verv"
+        "action": "Søk her!"
     }
   }
