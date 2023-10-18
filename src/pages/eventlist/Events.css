@@ -1,46 +1,48 @@
-.jobads {
+.events {
   padding: 0 .5rem;
 }
 
-.jobads__filter-container {
-  padding:  .5rem 1rem 1rem 1rem;
+.events__filter-container {
+  padding: .5rem 1rem 1rem 1rem;
 }
 
-.jobads__list {
-  list-style: none;
+.events__list {
+  list-style-type: none;
   padding-top: 2rem;
 }
 
 @media only screen and (min-width: 400px) {
-  .jobads {
+
+  .events {
     padding: 0 1rem;
   }
+
 }
 
 @media only screen and (min-width: 1000px) {
 
-  .jobads {
+  .events {
     display: grid;
-    grid-template-columns: 20rem auto;
+    grid-template-columns: 17rem auto;
     grid-template-areas: 'left right';
     gap: 3vw;
     padding: 2rem 1rem;
-  }
+  }  
 
-  .jobads__section--left {
+  .events__section--left {
     grid-area: left;
   }
   
-  .jobads__section--right {
+  .events__section--right {
     grid-area: right;
   }
 
-  .jobads__filter-container {
+  .events__filter-container {
     padding: .5rem 0 0 0;
     position: relative;
   }
 
-  .jobads__filter-container:after {
+  .events__filter-container:after {
     content: '';
     width: 2rem;
     height: 2rem;
@@ -53,38 +55,34 @@
     transition: .1s;
   }
 
-  .jobads__filter-container:before {
-      content: '';
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      border-width: .7rem;
-      border-color: var(--c-corner-decor);
-      border-style: solid solid none none;
-      top: 0;
-      right: 0;
-      transition: .1s;
+  .events__filter-container:before {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    border-width: .7rem;
+    border-color: var(--c-corner-decor);
+    border-style: solid solid none none;
+    top: 0;
+    right: 0;
+    transition: .1s;
   }
 
   /* disable any drop-down-box effects */
-  .jobads .drop-down-box {
+  .events .drop-down-box {
     box-shadow: none;
   }
-  .jobads .drop-down-box__toggle {
+  .events .drop-down-box__toggle {
     display: none;
   }
-  .jobads .drop-down-box__content {
+  .events .drop-down-box__content {
     background-color: rgb(0,0,0,0);
     height: auto;
     max-height: 100rem;
     border-radius: 0;
   }
 
-  .jobads__list {
-    list-style: none;
+  .events__list {
     padding-top: 0;
   }
-
 }
-
-  

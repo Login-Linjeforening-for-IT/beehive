@@ -1,16 +1,28 @@
 .date-tile {
-	padding: .5rem 0;
+	padding: .5rem .2rem;
 	border-radius: .2rem;
 	height: fit-content;
+	display: flex;
+	width: fit-content;
+	min-width: 4rem;
+	justify-content: space-around;
+}
+
+.date-tile__date {
+	width: fit-content;
+}
+
+.date-tile__devider {
+	font-size: bold;
+	font-size: 2rem;
+	line-height: 2.5rem;
+	color: white;
 }
 
 .date-tile__day {
-	font-size: 2.5rem;
+	font-size: 2.3rem;
 	line-height: 2.5rem;
-	height: 2.5rem;
 	text-align: center;
-	display: block;
-	width: 4rem;
 	color: white;
 }
 
@@ -18,8 +30,6 @@
 	font-size: 1.5rem;
 	line-height: 1.5rem;
 	text-align: center;
-    width: 4rem;
-	display: block;
 	transform: translateY(-.2rem);
 	color: white;
 }
@@ -28,5 +38,14 @@
 @media only screen and (min-width: 400px) {
 	.date-tile {
 		padding: .5rem;
+		min-width: 5rem;
+	}
+
+	.date-tile__day {
+		font-size: 2.5rem;
+	}
+	
+	.date-tile__month {
+		font-size: 1.5rem;
 	}
 }

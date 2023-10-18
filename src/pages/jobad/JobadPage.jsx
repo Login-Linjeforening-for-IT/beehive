@@ -5,7 +5,7 @@ import { config } from "../../Constants";
 import Spinner from "../../components/spinner/Spinner";
 import Article from '../../components/article/Article';
 import * as ImageLinker from "../../utils/ImageLinker";
-import * as TimeFormatter from "../../utils/DatetimeFormatter";
+import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 import * as Translator from "../../utils/GetTranslation";
 import fallbackImg from "./jobad-fallback-logo.svg";
 import "./JobadPage.css";
@@ -95,7 +95,7 @@ const JobadPage = ({ t, i18n }) => {
                 {t("details.deadline")}:
               </div>
               <div className="jobad-details__value">
-                {TimeFormatter.formatDateDT(
+                {DatetimeFormatter.formatDateDowDT(
                   new Date(jobad.job.application_deadline),
                   useEng ? "en" : "no"
                 )}
@@ -135,6 +135,15 @@ const JobadPage = ({ t, i18n }) => {
               <div className="jobad-details__value">
                 {jobad.job.cities.join(", ")}
               </div>
+              <div className="jobad-details__lable">
+                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                  build
+                </i>
+                {t("details.skills")}:
+              </div>
+              <div className="jobad-details__value">
+                {jobad.job.skills.join(", ")}
+              </div>
             </div>
             {jobad.job.application_url && (
               <a
@@ -162,6 +171,7 @@ const JobadPage = ({ t, i18n }) => {
               title={tr(jobad.job.title_en, jobad.job.title_no)}
               publishTime={jobad.job.time_publish}
               informational={false}
+              introduction={tr(jobad.job.description_short_en, jobad.job.description_short_no)}
               description={tr(jobad.job.description_long_en, jobad.job.description_long_no)}
             />
           </div>

@@ -107,7 +107,8 @@ const EventPage = ({ t, i18n }) => {
           <div className="event-details">
             <div className="event-details__date">
               <DateTile
-                date={eventData.event.time_start}
+                startDate={Date.parse(eventData.event.time_start)}
+                endDate={Date.parse(eventData.event.time_end)}
                 language={i18n.language == "en" ? "en" : "no"}
                 color={eventData.category.color}
               />
@@ -278,7 +279,7 @@ const EventPage = ({ t, i18n }) => {
               <picture>
                 <img
                   alt={eventData.eventname}
-                  src={ImageLinker.getCDNLink(eventData.event.image_banner)}
+                  src={/*ImageLinker.getCDNLink*/(eventData.event.image_banner)}
                   onError={hideImg}
                   loading="lazy"
                 />

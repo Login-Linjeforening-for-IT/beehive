@@ -51,29 +51,42 @@ const JobadsListItem = ({ i18n, jobad, t}) => {
   const useEng = i18n.language === 'en';
   const tr = getTranslation(useEng);
 
-  const [imgSrc, setImgSrc] = useState(ImageLinker.getCDNLink(jobad.organization_logo));
-  const handleError = () => setImgSrc(fallbackImg)
+  const [imgSrc, setImgSrc] = useState(/*ImageLinker.getCDNLink*/(jobad.organization_logo));
+  const handleError = () => setImgSrc(fallbackImg);
+
+
+  const useTags = (pt, hl) => {
+    if (isNew(pt)) { return true };
+    if (hl) { return true };
+    return false;
+  }
 
   return (
     <div className={jobad.highlight ? "jobads-item jobads-item--highlight" : "jobads-item" }>
-      <div className="jobads-item__wrapper">
+      <div className={useTags(jobad.time_publish, jobad.highlight) ? "jobads-item__wrapper jobads-item__wrapper--with-tags" : "jobads-item__wrapper" }>
+        {useTags(jobad.time_publish, jobad.highlight) && 
+          <div className="jobads-item__tags">
+            {isNew(jobad.time_publish) &&
+              <div className='jobads-item__tag tag tag--new'>
+                {t("new")}
+              </div>
+            }
+            {jobad.highlight &&
+              <div className="jobads-item__tag tag tag--highlight">
+                <i className='material-symbols-sharp'>grade</i>{t("highlight")}
+              </div>
+            }
+          </div>
+        }
         <picture className='jobads-item__picture'>
           <img className='jobads-item__img' alt={jobad.organization_logo}  src={imgSrc} onError={handleError} loading="lazy" />
         </picture>
         <div className='jobads-item__info'>
-          <div className="jobads-item__tags">
-            {isNew(jobad.time_publish) &&
-              <div className='jobads-item__tag tag tag--primary'>{t("new")}</div>
-            }
-            {jobad.highlight &&
-              <div className="jobads-item__tag tag tag--primary">{t("highlight")}</div>
-            }
-          </div>
           <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>
           <ul className='jobads-item__details'>
             <li className='jobads-item__detail'>
               <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
-              {DatetimeFormatter.formatDateDT(new Date(jobad.application_deadline), useEng ? "en" : "no")}
+              {DatetimeFormatter.formatDateDowDT(new Date(jobad.application_deadline), useEng ? "en" : "no")}
             </li>
             <li className='jobads-item__detail'>
               <i className='jobads-item__icon material-symbols-sharp'>apartment</i>

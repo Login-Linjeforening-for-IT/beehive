@@ -11,7 +11,13 @@
   --c-bright-orange: #fd8738;
   --c-dark-orange: #d95d0a;
   --c-yellow: rgb(255, 225, 1);
-  --c-blue: rgb(94, 73, 230);
+  --c-purple: rgb(94, 73, 230);
+  --c-blue:     rgb(24, 182, 240);
+  --c-blue-dark: rgb(9, 128, 192);
+  --c-red:      rgb(198, 0, 0);
+  --c-dark-red: rgb(128, 0, 0);
+  --c-darker-red: rgb(47, 0, 0);
+  
   --c-black:    rgb(0, 0, 0);
   --c-grey-16:  rgb(16, 16, 16);
   --c-grey-24:  rgb(24, 24, 24);
@@ -74,11 +80,20 @@
   
   /* theme toggle */
   --c-sun: var(--c-yellow);
-  --c-moon: var(--c-blue);
+  --c-moon: var(--c-purple);
 
   
   /* signal colors */
   --c-warning: var(--c-primary);
+  --c-new-text: var(--c-blue);
+  --c-new-bg: none;
+  --c-new-border: var(--c-blue);
+  --c-highlight-text: var(--c-primary);
+  --c-highlight-bg: none;
+  --c-highlight-boder: var(--c-primary);
+  --c-error-text: var(--c-red);
+  --c-error-border: var(--c-red);
+  --c-error-bg: var(--c-darker-red);
 
 
   /* font family */
@@ -124,6 +139,18 @@
 
   /* signal colors */
   --c-warning: var(--c-primary-dark);
+
+  --c-new-text: var(--c-white);
+  --c-new-bg: var(--c-blue-dark);
+  --c-new-border: var(--c-blue-dark);
+
+  --c-highlight-text: var(--c-white);
+  --c-highlight-bg: var(--c-primary-dark);
+  --c-highlight-border: var(--c-primary-dark);
+
+  --c-error-text: var(--c-white);
+  --c-error-border: var(--c-dark-red);
+  --c-error-bg: var(--c-dark-red);
 
 
   /* buttons */
@@ -313,10 +340,19 @@ a {
 
 .standard-button--discret {
   background-color: var(--c-btn-on-box);
+  color: white;
 }
 
 .standard-button--discret:hover {
   background-color: var(--c-btn-on-box-hover);
+}
+
+.standard-button--disabled {
+  background-color: var(--c-btn-on-box);
+  color: var(--c-font-discret);
+}
+.standard-button--disabled i {
+  color: var(--c-font-discret);
 }
 
 
@@ -361,24 +397,64 @@ abbr {
 /* tags */
 
 .tag {
-	border-radius: 1.5rem;
+  font-size: .7rem;
+	border-radius: 1em;
 	display: block;
 	width: fit-content;
   height: fit-content;
-	padding: 0 .5rem;
-	font-size: .8rem;
+	padding: .08em .6em 0 .6em;
   font-weight: 500;
-  border: .15rem solid;
+  border: .15em solid;
+  text-transform: uppercase;
 }
 
-.tag--primary {
-  background-color: var(--c-primary-dark);
-  border-color: var(--c-primary-dark);
-  color: white;
+.tag--highlight {
+  border-color: var(--c-highlight-border);
+  color: var(--c-highlight-text);
+  background-color: var(--c-highlight-bg);
+}
+.tag--highlight i {
+  font-size: 1.3em;
+  margin-left: -.3em;
+  margin-top: -.2em;
+  padding-right: .2em;
+  color: var(--c-highlight-text);
 }
 
 .tag--canceled {
-  border-color: rgb(127, 0, 0);
+  border-color: var(--c-error-border);
+  background-color: var(--c-error-bg);
+  color: var(--c-error-text);
+}
+.tag--canceled i {
+  font-size: 1.2em;
+  color: var(--c-error-text);
+  margin-top: -.18em;
+  margin-left: -.1em;
+  padding-right: .2em;
+}
+
+.tag--new {
+  background-color: var(--c-new-bg);
+  border-color: var(--c-new-border);
+  color: var(--c-new-text);
+}
+.tag--new i {
+  font-size: 1em;
+  margin-top: -.18em;
+  margin-left: -.3em;
+  color: var(--c-new-text);
+}
+
+@media only screen and (min-width: 600px) {
+  .tag {
+    font-size: .8rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .tag {
+    font-size: .9rem;
+  }
 }
 
 
@@ -471,7 +547,7 @@ abbr {
     position: absolute;
     width: 2rem;
     height: 2rem;
-    border-left: .7rem solid var(--c-corner-decor);
+    border-right: .7rem solid var(--c-corner-decor);
     border-top: .7rem solid var(--c-corner-decor);
     margin-left: -1.5rem;
     margin-top: -.2rem;

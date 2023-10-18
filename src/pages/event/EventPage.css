@@ -84,20 +84,28 @@
 
 
 .event-signup {
-    margin-top: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: .2rem solid var(--c-corner-decor);
 }
 
-.event-signup__msg {
-    padding: 0 1rem 0 0;
+.event-signup__header {
     display: grid;
     grid-template-columns: min-content auto;
+    color: var(--c-font-discret);
+    margin-bottom: .5rem;
 }
 
-.event-signup__msg-icon {
+.event-signup__header i {
+    color: var(--c-font-discret);
     line-height: 1.5rem;
     width: 2rem;
     text-align: center;
     padding-right: .5rem;
+}
+
+.event-signup__msg {
+    padding: 0 1rem 0 2rem;
 }
 
 
@@ -201,12 +209,16 @@
         transition: .1s;
     }
 
+    .event-details__list {
+        margin-bottom: 2rem;
+    }
+
     .event-signup__btn {
         min-width: 12rem;
     }
 
     .event-signup__msg {
-        padding: 0 2.5rem 2.5rem 0;
+        padding: 0 2.5rem 2.5rem 2rem;
     }
 
     .event-banner img {
