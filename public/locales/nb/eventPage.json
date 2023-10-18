@@ -7,7 +7,7 @@
     "organizer": "Arrangør",
     "links": "Lenker",
     "stream": "Stream",
-    "capacity": "Plasser",
+    "capacity": "Kapasitet",
     "form": {
         "button": "Meld meg på",
         "full": "Dette arrangementet er fullt!",
@@ -24,8 +24,9 @@
   }, 
   "signup": {
     "signup": "Påmelding",
-    "signup-open": "Påmelding åpner",
-    "signup-closed": "Påmelding stengt",
+    "signup-action": "Meld meg på",
+    "signup-open": "Åpner",
+    "signup-closed": "Stengt",
     "no-signup": "Dette arrangementet krever ingen påmelding",
     "signup-full": "Arrangementet er fullt"
   },

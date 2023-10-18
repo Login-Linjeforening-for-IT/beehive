@@ -24,8 +24,9 @@
   }, 
   "signup": {
     "signup": "Sign up",
-    "signup-open": "Sign up opens",
-    "signup-closed": "Sign up closed",
+    "signup-action": "Sign me up",
+    "signup-open": "Opens",
+    "signup-closed": "Closed",
     "no-signup": "This event reqiers no sign up",
     "signup-full": "This event is full!"
   },
