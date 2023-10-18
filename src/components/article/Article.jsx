@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next";
 import "./Article.css";
 
 
-const Article = ({ i18n, title, publishTime, informational, description }) => {
+const Article = ({ i18n, title, publishTime, informational, introduction, description }) => {
 
     const useEng = i18n.language === "en";
 
@@ -29,6 +29,12 @@ const Article = ({ i18n, title, publishTime, informational, description }) => {
                 </div>
               </div>
             )}
+            {introduction && 
+              <article
+                className="article__intro p--highlighted"
+                dangerouslySetInnerHTML={{ __html: introduction }}
+              />
+            }
             <article
                 className="article__main"
                 dangerouslySetInnerHTML={{ __html: description }}

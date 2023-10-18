@@ -22,7 +22,6 @@
     /*background-color: rgba(171, 104, 0, 0.15);*/
     border: .15rem solid var(--c-primary);
     margin: 1rem 0;
-    background-color: var(--c-bg-box);
     max-width: 40rem;
 }
 
