@@ -10,11 +10,11 @@ const LogChamp = ({name, stilling, img, discord, discordlink}) => {
         <p className='logchamp__title'>{stilling}</p>
         <p className='logchamp__name'>{name}</p>
         {discord !== '' &&
-            <p className='logchamp__discord'><i className='logfont-discord'> </i><a href={discordlink}>{discord}</a></p>
+          <p className='logchamp__discord'><i className='logfont-discord'> </i><a href={discordlink} target='_blank'>{discord}</a></p>
         }
       </div>
     </div>
   )
 }
 
- export default LogChamp
+export default LogChamp
