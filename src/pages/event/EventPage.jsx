@@ -295,6 +295,7 @@ const EventPage = ({ t, i18n }) => {
             <Article
               title={tr(eventData.event.name_no, eventData.event.name_no)}
               publishTime={eventData.event.time_publish}
+              updateTime={eventData.event.updated_at}
               informational={tr(eventData.event.informational_en, eventData.event.informational_no)}
               description={tr(eventData.event.description_en, eventData.event.description_no)}
             />

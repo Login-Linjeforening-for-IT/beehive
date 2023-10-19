@@ -170,6 +170,7 @@ const JobadPage = ({ t, i18n }) => {
             <Article
               title={tr(jobad.job.title_en, jobad.job.title_no)}
               publishTime={jobad.job.time_publish}
+              update={jobad.job.updated_at}
               informational={false}
               introduction={tr(jobad.job.description_short_en, jobad.job.description_short_no)}
               description={tr(jobad.job.description_long_en, jobad.job.description_long_no)}
