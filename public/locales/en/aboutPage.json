@@ -34,14 +34,15 @@
       "deputyChairman": "Deputy chairman",
       "secretary": "Secretary",
       "eventkom": "EventKom leader",
-      "pr": "PR leader",
+      "bedkom": "Bedkom leader",
       "tekkom": "TekKom leader",
       "ctfkom": "CTF leader",
-      "satkom": "SATkom leader"
+      "satkom": "SATkom leader",
+      "pr": "PR leader"
     },
     "eventkom": {
       "title": "EventKom",
-      "intro": "EventKom is Login's party committee, where the goal is to use up all the income PR provides.",
+      "intro": "EventKom is Login's party committee, where the goal is to use up all the income Bedkom provides.",
       "body": "EventKom is responsible for setting up social events on behalf of Login throughout the semester. We offer gatherings where students can meet across study programmes, years and classes in order to have a break from everyday study life. The aim of EventKom is to build a strong community among the IT students at the school, which you can lean on when the study life gets busy. If you have suggestions for activities, or want to join the committee, just contact us on <a class='standard-link standard-link--underscore-hover' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>. Suggestions and feedback are welcomed, and we hope to hear from you."
     },
     "tekkom": {
@@ -49,10 +50,10 @@
       "intro": "TekKom claims that they work on this website, but they mainly eat pizza. This is the committee for those who like to learn technical things such as programming and operating high-tech infrastructure.",
       "body": "TekKom is responsible for Login's infrastructure. Our tasks involve development and maintenance of, among other things, the websites and services the association depends on, in addition to other side projects. We organize open work evenings with pizza every week where we work on TekKom projects. Here we set no expectations other than that you are curious and try to contribute what you can. If you enjoy coding, or just have a wild project in mind, this is the committee for you!"
     },
-    "pr": {
-      "title": "PR",
-      "intro": "PR is Login's golden calf and without them the money wouldn't have flowed in and none of the other committees could do the trick!",
-      "body": "PR is Login's public face and is responsible for Login's social media channels. PR monitors our ticket system and responds to company contacts. They also work to give students a sneak peek into the business world, by arranging company presentations and a career fair called The Cyberdays each semester. Furthermore, PR helps to represent Login at events and also assists with the recruitment of new members."
+    "bedkom": {
+      "title": "Bedkom",
+      "intro": "BedKom accounts for the majority of our income, where all the money is going back to our students in the form of all the exciting events that our other committees organize throughout the year!",
+      "body": "BedKom often acts as Login's image towards the company representatives visiting our campus in Gjøvik. BedKom manages the majority of communication with all of the companies contacts through our ticketing system and responds to incoming emails and inquiries. They also work to provide students with insight and a pathway into the business world by organizing company presentations and career fairs, which are also Login's main source of income! "
     },
     "ctfkom": {
       "title": "CTFkom",
@@ -63,6 +64,11 @@
       "title": "SATkom",
       "intro": "<abbr title=\"Systematiserte Automatiser Transaksjoner\">SATkom</abbr> is the committee that guards Login's money bin and ensures that the money flows both in and out. If you have financial skills, or just want to be Login's new sugar daddy, then this is the committee for you!",
       "body": "SATkom stands for Systematized Automated Transactions, and they work with managing the funds Login has available. Their duties involve paying bills, sending out invoices and purchasing for the association. They prepare weekly accounts, and make sure that the committees do not exceed their budgets too much. The committee also has a 'Dungeon Master' who is tasked with looking after the Lounge, and that all our members get enough caffeine. Furthermore, the committee is involved in budgeting, various financial matters and other minor matters."
+    },
+    "pr":{
+      "title": "PR",
+      "intro": "PR documents and publishes everything that happens in Login. Keep an eye on our channels, maybe you see yourself!",
+      "body": "PR is Login's graphic committee and is responsible for managing Login's public media channels. PR produces all the necessary graphic materials to promote the student organization and all our events, and designs all the merch and graphic content for random projects that arise. PR also provides a photographer for every event to document Login's history as it happens"
     }
   },
   "publicDocs": {
@@ -86,7 +92,7 @@
     "degree": "Degree",
     "study_year": "Study year",
     "mail": "Mail",
-    "preferences": "Preferences",
+    "preferences": "preferences",
     "allergies": "Allergies"
   }
 }
