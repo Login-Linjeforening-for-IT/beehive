@@ -1,4 +1,44 @@
 @media only screen and (min-width: 800px) {
     
-    /* TODO: lag animasjon */
+    .tabs__nav-title--active .pr-logo__shutter {
+        animation: shut 1.8s;
+    }
+
+    .pr-logo__shutter {
+        transform-origin: 50% 52%;
+    }
+
+    @keyframes shut {
+        30% {
+            transform: scale(.25) rotate(-60deg);
+        }
+        40% {
+            transform: scale(.25) rotate(-60deg);
+        }
+        50% {
+            transform: scale(.4) rotate(-50deg);
+        }
+        85% {
+            transform: scale(.4) rotate(-50deg);
+        }
+        100% {
+            transform: scale(1) rotate(0);
+        }
+    }
+
+    .tabs__nav-title--active .pr-logo__button {
+        animation: down 1.8s;
+    }
+
+    @keyframes down {
+        30% {
+            transform: translateY(5%);
+        }
+        85% {
+            transform: translateY(5%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
 }
