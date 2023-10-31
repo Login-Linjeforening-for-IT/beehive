@@ -65,7 +65,7 @@ export function formatDateDowDT(datetime, lang="no") {
     return `${dayExpration[lang]}, ${hours}:${minutes}`;
   }
 
-  const oneWeek = 7 * 24 * 60 * 60 * 1000;
+  const sixDays = 6 * 24 * 60 * 60 * 1000;
   const daysOfWeek = {
     en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
@@ -73,8 +73,8 @@ export function formatDateDowDT(datetime, lang="no") {
 
   const dayOfWeek = daysOfWeek[lang][d.getDay()];
 
-  // if less than a week dif only display day of week and time
-  if((Math.abs(now - d)) < oneWeek) {
+  // if less than 6 days dif only display day of week and time
+  if((Math.abs(now - d)) < sixDays) {
     return `${dayOfWeek}, ${hours}:${minutes}`;
   }
 
@@ -178,7 +178,12 @@ export const getDayName = (datetime,lang)  => {
 }
 
 
-// return example: ""
+// return examples:
+// if less than an hour: mm minutes ago
+// if same day: today, hh:mm 
+// if less than 6 days ago: name of day, hh:mm
+// if current year: date, hh:mm
+// if different year: year, date, hh:mm
 export function formatPublishedTime(datetime, lang) {
   const now = new Date();
   const publishedTime = new Date(datetime);
@@ -186,6 +191,7 @@ export function formatPublishedTime(datetime, lang) {
   const minutesAgo = Math.floor((now - publishedTime) / (1000 * 60));
   const hoursAgo = Math.floor(minutesAgo / 60);
   const daysAgo = Math.floor(hoursAgo / 24);
+  const year = publishedTime.getFullYear();
 
   const timeExpration = {
     en: ['minutes ago'],
@@ -209,24 +215,28 @@ export function formatPublishedTime(datetime, lang) {
 
   if (minutesAgo < 60) {
     return `${minutesAgo} ${timeExpration[lang][0]}`;
-  } else if (publishedTime.toDateString() === now.toDateString()) {
-    const hours = publishedTime.getHours();
-    const minutes = publishedTime.getMinutes();
+  } 
+
+  const hours = publishedTime.getHours();
+  const minutes = publishedTime.getMinutes();
+
+  if (publishedTime.toDateString() === now.toDateString()) {
     return `${dayExpration[lang][0]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-  } else if (daysAgo === 1) {
-    const hours = publishedTime.getHours();
-    const minutes = publishedTime.getMinutes();
+  } 
+  if (daysAgo === 1) {
     return `${dayExpration[lang][1]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-  } else if (daysAgo < 7) {
-    const hours = publishedTime.getHours();
-    const minutes = publishedTime.getMinutes();
+  } 
+  if (daysAgo < 6) {
     return `${daysOfWeek[lang][publishedTime.getDay()]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-  } else {
-    const day = publishedTime.getDate();
-    const month = publishedTime.getMonth();
-    const year = publishedTime.getFullYear();
-    const hours = publishedTime.getHours();
-    const minutes = publishedTime.getMinutes();
-    return `${day}. ${months[lang][month]}${year !== now.getFullYear() ? `, ${year}` : ''}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  } 
+
+  const day = publishedTime.getDate();
+  const month = publishedTime.getMonth();
+
+  if (year === now.getFullYear()) {
+    return `${day}. ${months[lang][month]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
   }
+
+  return `${year} ${day}. ${months[lang][month]}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+
 }
