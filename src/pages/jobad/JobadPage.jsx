@@ -123,31 +123,40 @@ const JobadPage = ({ t, i18n }) => {
               <div className="jobad-details__value">
                 {tr(jobad.job.job_type, jobad.job.job_type)}
               </div>
-              <div className="jobad-details__lable">
-                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
-                  location_on
-                </i>
-                {jobad.job.cities.length > 1
-                  ? t("details.locations")
-                  : t("details.location")}
-                :
-              </div>
-              <div className="jobad-details__value">
-                {jobad.job.cities.join(", ")}
-              </div>
-              <div className="jobad-details__lable">
-                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
-                  build
-                </i>
-                {t("details.skills")}:
-              </div>
-              <div className="jobad-details__value">
-                {jobad.job.skills.join(", ")}
-              </div>
+              {jobad.job.cities.length > 0 &&
+                <>
+                  <div className="jobad-details__lable">
+                    <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                      location_on
+                    </i>
+                    {jobad.job.cities.length > 1
+                      ? t("details.locations")
+                      : t("details.location")}
+                    :
+                  </div>
+                  <div className="jobad-details__value">
+                    {jobad.job.cities.join(", ")}
+                  </div>
+                </>
+              }
+              {jobad.job.skills.length > 0 &&
+                <>
+                  <div className="jobad-details__lable">
+                    <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                      build
+                    </i>
+                    {t("details.skills")}:
+                  </div>
+                  <div className="jobad-details__value">
+                    {jobad.job.skills.join(", ")}
+                  </div>
+                </>
+              }
             </div>
             {jobad.job.application_url && (
               <a
                 href={jobad.job.application_url}
+                target="_blank"
                 className="jobad-details__apply-btn standard-button standard-button--primary"
               >
                 {t("details.apply-btn")}{" "}
