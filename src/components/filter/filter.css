@@ -17,11 +17,15 @@
 }
 
 .filter__title {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    letter-spacing: .1em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .filter__items {
     display: flex;
+    grid-template-columns: auto;
     flex-wrap: wrap;
 }
 
@@ -141,10 +145,6 @@
         margin-right: 0;
         margin-left: auto;
     }    
-
-    .filter__title {
-        font-size: 1.4rem;
-    }
     
     .filter__items--check {
         flex-direction: row;
@@ -162,10 +162,6 @@
     .filter-groups__reset {
         margin-left: 0;
         margin-right: auto;
-    }
-
-    .filter__title {
-        font-size: 1.6rem;
     }
 
     .filter__items--check {
