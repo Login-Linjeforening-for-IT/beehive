@@ -2,15 +2,15 @@
 import { withTranslation } from "react-i18next";
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 
-const EventSignUp = ({ t, i18n, event }) => {
-    const signupRelease = new Date(event.time_signup_release);
-    const signupDeadline = new Date(event.time_signup_deadline);
-    const currentTime = new Date();
+const EventSignUp = ({ t, i18n, url, full, releaseTime, deadlineTime }) => {
 
+    const signupRelease = new Date(releaseTime);
+    const signupDeadline = new Date(deadlineTime);
+    const currentTime = new Date();
     const lang = i18n.language == "en" ? "en" : "no";
 
-    if (event.link_signup) {
-      if (event.full) {
+    if (url) {
+      if (full) {
         return (
           <div className="event-signup">
             <div className="event-signup__header">
@@ -20,6 +20,13 @@ const EventSignUp = ({ t, i18n, event }) => {
             <div className="event-signup__msg">
               {t("signup.signup-full")}
             </div>
+            <a
+              href={url}
+              target="_blank"
+              className="event-signup__btn standard-button standard-button--disabled"
+            >
+              {t("signup.signup-action")} <i className="material-symbols-sharp">arrow_outward</i>
+            </a>
           </div>
         )
       }
@@ -30,8 +37,12 @@ const EventSignUp = ({ t, i18n, event }) => {
               <i className="material-symbols-sharp">exit_to_app</i>
               {t("signup.signup")}:
             </div>
+            <div className="event-signup__msg">
+              {t('signup.signup-deadline')}: {DatetimeFormatter.formatDateDowDT(signupDeadline, lang)}
+            </div>
             <a
-              href={event.link_signup}
+              href={url}
+              target="_blank"
               className="event-signup__btn standard-button standard-button--primary"
             >
               {t("signup.signup-action")} <i className="material-symbols-sharp">arrow_outward</i>
@@ -49,6 +60,13 @@ const EventSignUp = ({ t, i18n, event }) => {
             <div className="event-signup__msg">
               {t("signup.signup-open")}: {DatetimeFormatter.formatDateDowDT(signupRelease, lang)}
             </div>
+            <a
+              href={url}
+              target="_blank"
+              className="event-signup__btn standard-button standard-button--disabled"
+            >
+              {t("signup.signup-action")} <i className="material-symbols-sharp">arrow_outward</i>
+            </a>
           </div>
         );
       } 
@@ -60,7 +78,8 @@ const EventSignUp = ({ t, i18n, event }) => {
               {t("signup.signup")}:
             </div>
             <a
-              href={event.link_signup}
+              href={url}
+              target="_blank"
               className="event-signup__btn standard-button standard-button--disabled"
             >
               {t("signup.signup-closed")} <i className="material-symbols-sharp">arrow_outward</i>

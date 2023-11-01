@@ -271,7 +271,12 @@ const EventPage = ({ t, i18n }) => {
               )}
             </div>
             {eventData.event.canceled == false &&
-              <EventSignUp event={eventData.event} />
+              <EventSignUp
+                url={eventData.event.link_signup}
+                full={eventData.event.full}
+                releaseTime={eventData.event.time_signup_release}
+                deadlineTime={eventData.event.time_signup_deadline}
+              />
             }
           </div>
           <div className="event-banner">

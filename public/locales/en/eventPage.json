@@ -28,7 +28,8 @@
     "signup-open": "Opens",
     "signup-closed": "Closed",
     "no-signup": "This event reqiers no sign up",
-    "signup-full": "This event is full!"
+    "signup-full": "This event is full",
+    "signup-deadline": "Deadline"
   },
   "published": "PUBLISHED",
   "rules": "Rules"
