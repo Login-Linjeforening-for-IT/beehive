@@ -2,8 +2,29 @@ import './PrLogoAnimation.css';
 
 const PrLogo = () => {
     return (
-      <svg className='pr-logo committee-logo' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
-        <path className="committee-logo--fill-color" d="M22.4034 69V32.6364H34.6903C37.5431 32.6364 39.875 33.1513 41.6861 34.1811C43.509 35.1991 44.8584 36.5781 45.7344 38.3182C46.6103 40.0582 47.0483 41.9995 47.0483 44.142C47.0483 46.2846 46.6103 48.2318 45.7344 49.9837C44.8703 51.7356 43.5327 53.1323 41.7216 54.174C39.9105 55.2038 37.5904 55.7188 34.7614 55.7188H25.9545V51.8125H34.6193C36.5724 51.8125 38.1409 51.4751 39.3246 50.8004C40.5083 50.1257 41.3665 49.2143 41.8991 48.0661C42.4437 46.906 42.7159 45.598 42.7159 44.142C42.7159 42.6861 42.4437 41.384 41.8991 40.2358C41.3665 39.0876 40.5024 38.188 39.3068 37.5369C38.1113 36.8741 36.5251 36.5426 34.5483 36.5426H26.8068V69H22.4034ZM54.1417 69V32.6364H66.4286C69.2695 32.6364 71.6014 33.1217 73.4244 34.0923C75.2473 35.0511 76.5967 36.371 77.4727 38.0518C78.3486 39.7327 78.7866 41.6444 78.7866 43.7869C78.7866 45.9295 78.3486 47.8293 77.4727 49.4865C76.5967 51.1437 75.2532 52.4458 73.4421 53.3928C71.631 54.3279 69.3169 54.7955 66.4996 54.7955H56.5565V50.8182H66.3576C68.2989 50.8182 69.8614 50.5341 71.0451 49.9659C72.2406 49.3977 73.1048 48.5928 73.6374 47.5511C74.1819 46.4976 74.4542 45.2429 74.4542 43.7869C74.4542 42.331 74.1819 41.0585 73.6374 39.9695C73.0929 38.8804 72.2229 38.04 71.0273 37.4482C69.8318 36.8445 68.2515 36.5426 66.2866 36.5426H58.5451V69H54.1417ZM71.2582 52.6648L80.207 69H75.0934L66.2866 52.6648H71.2582Z" fill="white"/>
+      <svg className='pr-logo committee-logo' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g className="pr-logo__shutter">
+            <line x1="64.4047" y1="103.988" x2="147.335" y2="-39.2546" className='committee-logo--stroke-color' stroke-width="9"/>
+            <line x1="119.415" y1="75.8123" x2="202.128" y2="219.181" className='committee-logo--stroke-color' stroke-width="9"/>
+            <line x1="115.517" y1="136.354" x2="-49.9998" y2="136.354" className='committee-logo--stroke-color' stroke-width="9"/>
+            <line x1="80.5959" y1="134.122" x2="-2.80347" y2="-8.84861" className='committee-logo--stroke-color' stroke-width="9"/>
+            <line x1="84.4829" y1="73.5611" x2="250" y2="73.5611" className='committee-logo--stroke-color' stroke-width="9"/>
+            <line x1="134.926" y1="107.217" x2="51.8139" y2="250.355" className='committee-logo--stroke-color' stroke-width="9"/>
+        </g>
+        
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M210 -10H-10V210H210V-10ZM100 130C113.807 130 125 118.807 125 105C125 91.1929 113.807 80 100 80C86.1929 80 75 91.1929 75 105C75 118.807 86.1929 130 100 130Z" className='committee-logo--fill-bg-color'/>
+        <ellipse cx="100" cy="105" rx="30" ry="30" className='committee-logo--stroke-color' stroke-width="6"/>
+        <path d="M140 68H171V151H29V68H60H62.1098L63.3012 66.2587L75.1098 49H124.89L136.699 66.2587L137.89 68H140Z" className='committee-logo--stroke-color' stroke-width="8"/>
+        <rect className="pr-logo__button committee-logo--fill-color" x="35" y="50" width="17" height="8"/>
+
+        <path d="M14 150H0V200H14V150Z" className='committee-logo--corner'/>
+        <path d="M200 150H186V200H200V150Z" className='committee-logo--corner'/>
+        <path d="M200 0H186V50H200V0Z" className='committee-logo--corner'/>
+        <path d="M200 0H150V14H200V0Z" className='committee-logo--corner'/>
+        <path d="M50 186H0V200H50V186Z" className='committee-logo--corner'/>
+        <path d="M200 186H150V200H200V186Z" className='committee-logo--corner'/>
+        <path d="M50 0H0V14H50V0Z" className='committee-logo--corner'/>
+        <path d="M14 0H0V50H14V0Z" className='committee-logo--corner'/>
       </svg>
     )
   }
