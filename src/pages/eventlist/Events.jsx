@@ -8,31 +8,25 @@ import { Link } from "react-router-dom";
 
 import './Events.css';
 
-
 import { debounce } from '../../utils/utils'; // change name to debounce or somthin
-import { FilterGroup } from '../../components/filter/filter.jsx';
+import FilterGroup from '../../components/filter/filter.jsx';
+import prepFilter from "../../components/filter/utils.js"
 import { getEventCategoryFilters, getEvents } from '../../utils/api';
 
-function prepFilter(data, id, label, idKey='id', labelKey='label', countKey='count', type='check') {
-  const filters = {};
 
-  for (let value of Object.values(data)) {
-    filters[value[idKey]] = {
-      id: value[idKey],
-      label: value[labelKey],
-      count: value[countKey],
-    };
-  }
+const getLabelKeyWithLang = (key) => {
+	return (v) => {
+		const vNo = v[key + '_no'];
+		const vEn = v[key + '_en'] || vNo;
 
-  return {
-    id: id,
-    label: label,
-    filters: filters,
-    type: type
-  };
+		return {
+			no: vNo,
+			en: vEn,
+		}
+	}
 }
 
-async function getCategoryFilters(label) {
+async function getCategoryFilters() {
   const [ categoryFilterData, err ] = await getEventCategoryFilters();
   if (err) {
     console.error(err);
@@ -40,13 +34,13 @@ async function getCategoryFilters(label) {
   }
 
   const title = {
-    en: 'Skills',
-    no: 'Ferdigheter'
+    en: 'Categories',
+    no: 'Kategorier'
   };
 
-  return prepFilter(categoryFilterData, 'categories', 'Categories', 'id', label, 'count', 'check')
-}
 
+  return prepFilter(categoryFilterData, 'categories', title, 'id', getLabelKeyWithLang('name'), 'count', 'check', true)
+}
 
 const Events = ({i18n, t}) => {
 
@@ -56,7 +50,6 @@ const Events = ({i18n, t}) => {
 	const [ error, setError ] = useState(null);
 
 	const ap = debounce(async (v) => {
-		console.log('apply', v);
 		const [ eventsData, err ] = await getEvents(v.categories);
 		if (err) {
 			console.error(err);
@@ -64,25 +57,17 @@ const Events = ({i18n, t}) => {
 			return;
 		}
 
-		console.log('jobads', eventsData)
-
 		setEvents(eventsData);
-	}, 500);
+	}, 50);
 
 	const lang = i18n.language === "en" ? "en" : "no";
 
-	const catLabel = {
-		en: 'name_en',
-		no: 'name_no'
-	}
-
-	console.log(lang)
 
 	useEffect(() => {
 		(async () => {
 			const d = {};
 		
-			const categoryFilters = await getCategoryFilters(catLabel[lang]);
+			const categoryFilters = await getCategoryFilters();
 			if (categoryFilters) d['categories'] = categoryFilters;
 
 			setFilterData(d);

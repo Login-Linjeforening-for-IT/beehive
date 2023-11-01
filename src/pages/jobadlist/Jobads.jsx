@@ -8,66 +8,71 @@ import { config } from "../../Constants";
 import "./Jobads.css";
 
 import { debounce } from '../../utils/utils'; // change name to debounce or somthin
-import { FilterGroup } from '../../components/filter/filter.jsx';
+import FilterGroup from '../../components/filter/filter.jsx';
+import prepFilter from "../../components/filter/utils.js"
 import { getEventCategoryFilters, getJobs, getJobSkillFilters, getJobJobtypeFilters } from '../../utils/api';
 
-function prepFilter(data, id, label, idKey='id', labelKey='label', countKey='count', type) {
-  const filters = {};
+const jobTypeTranslations = {
+  'no': {
+    'summer': 'Sommerjobb',
+    'full': 'Fulltid',
+    'verv': 'Verv',
+    'part': 'Deltid',
+  },
+  'en': {
+    'summer': 'Sommer job',
+    'full': 'Fulltime',
+    'verv': 'Voluntary',
+    'part': 'Parttime',
+  }
+}
 
-  for (let value of Object.values(data)) {
-    filters[value[idKey]] = {
-      id: value[idKey],
-      label: value[labelKey],
-      count: value[countKey],
+const getLabelKey = (key) => {
+  return (v) => {
+    return {
+      'no': v[key],
+      'en': v[key],
     };
   }
+}
 
+const getJobTypeLabel = (v) => {  
+  const labelNo = jobTypeTranslations['no'][v['job_type']] || v['job_type'];
+  let labelEn = jobTypeTranslations['en'][v['job_type']] || labelNo;
   return {
-    id: id,
-    label: label,
-    filters: filters,
-    type: type
+    no: labelNo,
+    en: labelEn,
   };
-}
+};
 
-async function getCategoryFilters(label='name_no') {
-  const [ categoryFilterData, err ] = await getEventCategoryFilters();
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  return prepFilter(categoryFilterData, 'categories', 'Categories', 'id', label, 'count')
-}
-
-async function getJobTypeFilters(lang) {
+const getJobTypeFilters = async () => {
   const [ jobTypeFilterData, err ] = await getJobJobtypeFilters();
   if (err) {
     console.error(err);
     return;
   }
 
-  const title = {
+  const label = {
     en: 'Type',
     no: 'Type'
   };
 
-  return prepFilter(jobTypeFilterData, 'jobtypes', title[lang], 'job_type', 'job_type', 'count', 'check')
+  return prepFilter(jobTypeFilterData, 'jobtypes', label, 'job_type', getJobTypeLabel, 'count', 'check')
 }
 
-async function getSkillFilters(lang) {
+async function getSkillFilters() {
   const [ jobSkillFilterData, err ] = await getJobSkillFilters();
   if (err) {
     console.error(err);
     return;
   }
 
-  const title = {
+  const label = {
     en: 'Skills',
     no: 'Ferdigheter'
   };
 
-  return prepFilter(jobSkillFilterData, 'skills', title[lang], 'skill', 'skill', 'count', 'tag')
+  return prepFilter(jobSkillFilterData, 'skills', label, 'skill', getLabelKey('skill'), 'count', 'tag')
 }
 
 const Jobads = ({ t, i18n }) => {
@@ -85,8 +90,6 @@ const Jobads = ({ t, i18n }) => {
         return;
       }
 
-      console.log('jobads', jobadsData)
-
       setJobads(jobadsData);
   }, 50);
 
@@ -96,10 +99,10 @@ const Jobads = ({ t, i18n }) => {
     (async () => {
       const d = {};
 
-      const jobtypeFilters = await getJobTypeFilters(lang);
+      const jobtypeFilters = await getJobTypeFilters();
       if (jobtypeFilters) d['jobtypes'] = jobtypeFilters;
 
-      const skillFilters = await getSkillFilters(lang);
+      const skillFilters = await getSkillFilters();
       if (skillFilters) d['skills'] = skillFilters;
 
       setFilterData(d);
