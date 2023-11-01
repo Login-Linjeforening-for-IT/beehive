@@ -2,12 +2,10 @@ import { useState } from "react";
 import './DropDownBox.css';
 
 const DropDownBox = ({ title, content }) => {
-    console.log(new Date().getSeconds());
     const [isOpen, setOpen] = useState(false);
 
     const handleClick = () => {
         setOpen(!isOpen);
-        console.log(new Date().getSeconds());
     };
  
     return (
