@@ -13,6 +13,14 @@
     padding: .8rem .8rem;
 }
 
+
+/* 
+    NOTE: the ".light" class below class is used for the theme 
+    toggle animation.
+    Dont use this class for color changes, use root varibles
+    for color managment. See app.css
+*/
+
 .light .theme-toggle__svg {
     fill: var(--c-moon);
 }
@@ -22,7 +30,7 @@
 }
 
 .theme-toggle__sun-ray {
-    transition: .4s;
+    transition: opacity .4s;
 }
 
 .light .theme-toggle__sun-ray {
