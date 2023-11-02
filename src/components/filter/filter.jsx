@@ -74,8 +74,6 @@ const FilterGroup = ({ t, filters, onApply }) => {
     const selectedFilters = useRef({});
     const [ resetTrigger, setResetTrigger ] = useState(false);
 
-    // const lang = i18n.language == "en" ? "en" : "no";
-
     const onReset = () => {
         selectedFilters.current = {};
         setResetTrigger(!resetTrigger);
@@ -111,7 +109,6 @@ const FilterGroup = ({ t, filters, onApply }) => {
         <div className="filter-groups">
             {
                 Object.entries(filters).map(([filterGroupItemID, filterGroupItem]) => {
-                    console.log('filterGroupItem', filterGroupItem)
                     return (
                         <Filter
                             key={filterGroupItemID}

@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { withTranslation } from "react-i18next";
 import Spinner from "../../components/spinner/Spinner";
-import JobadsListItem from "./JobadsListItem.jsx";
+import JobadsListItem from "./JobadsListItem";
 import DropDownBox from "../../components/dropdownbox/DropDownBox";
 import { Link } from "react-router-dom";
 import { config } from "../../Constants";
 import "./Jobads.css";
 
-import { debounce } from '../../utils/utils'; // change name to debounce or somthin
-import FilterGroup from '../../components/filter/filter.jsx';
-import prepFilter from "../../components/filter/utils.js"
+import { debounce } from '../../utils/debounce.js';
+import FilterGroup from '../../components/filter/filter';
+import prepFilter from "../../components/filter/prepFilter.js"
 import { getEventCategoryFilters, getJobs, getJobSkillFilters, getJobJobtypeFilters } from '../../utils/api';
 
 const jobTypeTranslations = {

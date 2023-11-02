@@ -7,5 +7,5 @@ function debounce(func, timeout = 300){
 }
 
 export {
-    debounce,
+    debounce
 }
