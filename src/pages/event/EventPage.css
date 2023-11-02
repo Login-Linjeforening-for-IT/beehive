@@ -40,13 +40,13 @@
 
 .event-details__date {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 
 .event-details__date-expression {
     font-size: 1.5rem;
-    line-height: 1.3em;
+    line-height: 2rem;
     margin: auto 0;
 }
 
@@ -83,32 +83,6 @@
 }
 
 
-.event-signup {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: .2rem solid var(--c-corner-decor);
-}
-
-.event-signup__header {
-    display: grid;
-    grid-template-columns: min-content auto;
-    color: var(--c-font-discret);
-    margin-bottom: .5rem;
-}
-
-.event-signup__header i {
-    color: var(--c-font-discret);
-    line-height: 1.5rem;
-    width: 2rem;
-    text-align: center;
-    padding-right: .5rem;
-}
-
-.event-signup__msg {
-    padding: 0 1rem 2rem 2rem;
-}
-
-
 /* event banner */
 
 .event-banner picture {
@@ -120,23 +94,6 @@
     aspect-ratio: 10 / 4;
     object-fit: cover;
     width: 100%;
-}
-
-
-/* description */
-
-.event-description {
-    padding: 1rem;
-    position: relative;
-}
-
-.rules {
-    max-width: 40rem;
-    margin-top: 4rem;
-}
-
-.rules__content {
-    padding: 1rem;
 }
 
 
@@ -157,11 +114,6 @@
     .event-page {
         padding-top: 0;
     }
-
-    .event-signup__btn {
-        width: fit-content;
-        min-width: 10rem;
-    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -180,6 +132,7 @@
 
     .event-details {
         padding: 0;
+        padding-bottom: 2.5rem;
         background: none;
     }
 
@@ -209,67 +162,16 @@
         transition: .1s;
     }
 
-    .event-details__date {
-        margin-right: 1.3rem;
-    }
-
-    .event-details__list {
-        margin-bottom: 2rem;
-    }
-
-    .event-signup__btn {
-        min-width: 12rem;
-    }
-
-    .event-signup__msg {
-        padding: 0 2.5rem 2.5rem 2rem;
-    }
-
     .event-banner img {
         border-radius: .3rem;
-    }
-
-    .event-description {
-        padding: 0;
-        padding-right: 3rem;
-        padding-bottom: 3rem;
-    }
-
-    .event-description:after {
-        content: '';
-        width: 2rem;
-        height: 2rem;
-        position: absolute;
-        border-width: .7rem;
-        border-color: var(--c-corner-decor);
-        border-style: solid solid none none;
-        top: 0;
-        right: 0;
-        transition: .1s;
-    }
-
-    .event-description:before {
-        content: '';
-        width: 2rem;
-        height: 2rem;
-        position: absolute;
-        border-width: .7rem;
-        border-color: var(--c-corner-decor);
-        border-style: none solid solid none;
-        bottom: 0;
-        right: 0;
-        transition: .1s;
-    }
-
-    .rules {
-        margin-top: 4rem;
-    }
-    
-    .rules__content {
-        padding: 1rem 1.5rem 1.5rem 1.5rem;
     }
 
     .event-map {
         padding: 0;
     }   
+
+    .event-description {
+        padding: 0;
+    }
 }
+

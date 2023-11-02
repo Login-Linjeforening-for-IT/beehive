@@ -1,90 +1,30 @@
-.jobads {
-  padding: 0 .5rem;
-}
-
-.jobads__filter-container {
-  padding:  .5rem 1rem 1rem 1rem;
-}
-
-.jobads__list {
-  list-style: none;
-  padding-top: 2rem;
-}
-
-@media only screen and (min-width: 400px) {
-  .jobads {
-    padding: 0 1rem;
-  }
+.jobads-list {
+    list-style: none;
 }
 
 @media only screen and (min-width: 1000px) {
 
-  .jobads {
-    display: grid;
-    grid-template-columns: 20rem auto;
-    grid-template-areas: 'left right';
-    gap: 3vw;
-    padding: 2rem 1rem;
+  .jobads-list {
+    padding: 0 1rem;
+
+    /* remove this when filter is put in place */
+	  max-width: 55rem;
   }
 
-  .jobads__section--left {
+  /* todo: grid for the filter
+  .jobads-grid-wrapper {
+    display: grid;
+    grid-template-columns: auto 20rem;
+    grid-template-areas: 'left right';
+  } 
+  .jobads-grid-wrapper--left {
     grid-area: left;
   }
   
-  .jobads__section--right {
+  .jobads-grid-wrapper--right {
     grid-area: right;
-  }
-
-  .jobads__filter-container {
-    padding: .5rem 0 0 0;
-    position: relative;
-  }
-
-  .jobads__filter-container:after {
-    content: '';
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    border-width: .7rem;
-    border-color: var(--c-corner-decor);
-    border-style: none solid solid none;
-    bottom: 0;
-    right: 0;
-    transition: .1s;
-  }
-
-  .jobads__filter-container:before {
-      content: '';
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      border-width: .7rem;
-      border-color: var(--c-corner-decor);
-      border-style: solid solid none none;
-      top: 0;
-      right: 0;
-      transition: .1s;
-  }
-
-  /* disable any drop-down-box effects */
-  .jobads .drop-down-box {
-    box-shadow: none;
-  }
-  .jobads .drop-down-box__toggle {
-    display: none;
-  }
-  .jobads .drop-down-box__content {
-    background-color: rgb(0,0,0,0);
-    height: auto;
-    max-height: 100rem;
-    border-radius: 0;
-  }
-
-  .jobads__list {
-    list-style: none;
-    padding-top: 0;
-  }
-
+  }*/
+  
 }
 
   

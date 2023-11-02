@@ -5,7 +5,6 @@
         "type" : "Type",
         "location" : "Sted",
         "locations" : "Steder",
-        "skills" : "Ferdigheter",
         "apply-btn" : "Søk her"
     },
     "published" : "PUBLISERT"
