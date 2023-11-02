@@ -46,7 +46,7 @@
 
 .event-details__date-expression {
     font-size: 1.5rem;
-    line-height: 2rem;
+    line-height: 1.3em;
     margin: auto 0;
 }
 
@@ -207,6 +207,10 @@
         top: 0;
         right: 0;
         transition: .1s;
+    }
+
+    .event-details__date {
+        margin-right: 1.3rem;
     }
 
     .event-details__list {

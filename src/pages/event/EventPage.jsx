@@ -15,7 +15,7 @@ import DefaultTekkomBanner from "../../components/svg/defaultbanners/DefaultTekk
 import DefaultBedpresBanner from "../../components/svg/defaultbanners/DefaultBedpresBanner";
 import DefaultSocialBanner from "../../components/svg/defaultbanners/DefaultSocialBanner";
 import * as TimeFormatter from "../../utils/DatetimeFormatter";
-import * as ImageLinker from "../../utils/ImageLinker";
+//import * as ImageLinker from "../../utils/ImageLinker";
 import * as Translator from "../../utils/GetTranslation";
 
 import "./EventPage.css";
@@ -80,7 +80,7 @@ const EventPage = ({ t, i18n }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(config.url.API_URL + "/api/events/" + id);
+        const response = await fetch(config.url.API_URL + "/events/" + id);
         if (!response.ok) {
           throw new Error(
             `This is an HTTP error: The status is ${response.status}`
