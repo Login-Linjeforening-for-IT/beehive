@@ -1,6 +1,9 @@
 {
   "title": "Arrangementer",
   "noEvents": "Ingen kommene arrangementer",
+  "new": "NY",
+  "highlight": "FREMHEVET",
+  "canceled": "AVLYST",
   "filter": {
     "title": "filter",
     "searchHint": "Søk...",

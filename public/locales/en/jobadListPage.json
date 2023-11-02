@@ -1,4 +1,5 @@
 {
     "title" : "Job Listings",
-    "newSticker" : "New"
+    "new": "NEW",
+    "highlight": "HIGHLIGHTED"
 }

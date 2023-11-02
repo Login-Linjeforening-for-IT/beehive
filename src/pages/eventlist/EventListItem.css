@@ -1,9 +1,49 @@
 .events-item {
-	display: inline-flex;
-	width: 100%;
+	padding: .13rem;
 	cursor: pointer;
 	transition: .2s;
-	padding: .5rem 1rem;
+	border-radius: .3rem;
+}
+
+.events-item:hover .events-item__wrapper {
+	background-color: var(--c-bg-box);
+}
+
+.events-item--highlight {
+	background: var(--c-bg-highlight-gradient);
+	transition: .2s;
+	margin-bottom: 1rem;
+}
+
+.events-item--highlight:hover {
+	background: var(--c-bg-highlight-gradient-hover);
+}
+
+.events-item__wrapper {
+	display: grid;
+	grid-template-columns: min-content auto min-content;
+	width: 100%;
+	padding: .5rem;
+	z-index: 50;
+	border-radius: .2rem;
+	background-color: var(--c-bg-body);
+
+}
+
+.events-item__tags {
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+}
+
+.events-item__tag {
+	margin-bottom: .2rem;
+}
+
+.events-item__middle {
+	min-width: 10rem;
+	margin: auto 0;
+	padding: 0 0 0 1rem;
 
 	/* cleaner word-breaking */
 	word-break: break-word;
@@ -17,17 +57,6 @@
 	hyphens: auto;
 }
 
-.events-item:hover {
-	background-color: var(--c-bg-box);
-}
-
-.events-item__middle {
-	width: 100%;
-	min-width: 10rem;
-	margin: auto 0;
-	padding: 0 0 0 .5rem;
-}
-
 .events-item__name {
 	font-weight: 400;
 	margin: 0;
@@ -37,18 +66,21 @@
 
 .events-item__details {
 	list-style: none;
-	line-height: 1.4em;
 	margin-top: .2rem;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: .5rem;
+	row-gap: .1rem;
 }
 
 .events-item__detail {
 	display: inline-block;
-	color: var(--c-font-discret);
-	margin-right: .4rem;
+	color: var(--c-font-regular);
+	font-size: .9rem;
 }
 
 .events-item__icon {
-	color: var(--c-font-discret);
+	color: var(--c-font-regular);
 	padding-right: .3rem;
 	line-height: inherit;
 	font-size: 1.3em;
@@ -70,24 +102,27 @@
 
 @media only screen and (min-width: 600px) {
 	
-	.events-item {
+	.events-item__wrapper {
 		padding: 1rem;
 	}
 
 	.events-item__middle {
-		padding: 0 .5rem;
+		padding: 0 1rem;
+	}
+
+	.events-item__details {
+		margin-top: .2rem;
+		column-gap: 1rem;
+		row-gap: .2rem;
 	}
 
 	.events-item__picture {
 		display: block;
+		
 	}
 }
 
 @media only screen and (min-width: 800px) {
-
-	.events-item {
-		border-radius: .2rem;
-	}
 
 	.events-item__middle {
 		padding: 0 1rem;
@@ -97,7 +132,16 @@
 		font-size: 1.5rem;
 	}
 
-	.events-item__detail {
-		margin-right: 1rem;
+	.events-item__details {
+		margin-top: .2rem;
+		column-gap: 1.2rem;
+		row-gap: .5rem;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+
+	.events-item--highlight {
+		margin-bottom: 1rem;
 	}
 }

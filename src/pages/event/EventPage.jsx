@@ -1,196 +1,339 @@
+import { useState, useEffect } from "react";
+import { Navigate, useParams, Link } from "react-router-dom";
+import { config } from "../../Constants";
+import { withTranslation } from "react-i18next";
 
-import { useState, useEffect } from 'react';
-import { Navigate, useParams, Link } from 'react-router-dom';
+import Spinner from "../../components/spinner/Spinner";
+import DateTile from "../../components/datetile/DateTile";
+import DropDownBox from "../../components/dropdownbox/DropDownBox";
+import MazeMap from "../../components/mazemap/map";
+import EventSignUp from "./EventSignUp";
+import Article from '../../components/article/Article';
+import DefaultEventBanner from "../../components/svg/defaultbanners/DefaultEventBanner";
+import DefaultCtfBanner from "../../components/svg/defaultbanners/DefaultCtfBanner";
+import DefaultTekkomBanner from "../../components/svg/defaultbanners/DefaultTekkomBanner";
+import DefaultBedpresBanner from "../../components/svg/defaultbanners/DefaultBedpresBanner";
+import DefaultSocialBanner from "../../components/svg/defaultbanners/DefaultSocialBanner";
+import * as TimeFormatter from "../../utils/DatetimeFormatter";
+//import * as ImageLinker from "../../utils/ImageLinker";
+import * as Translator from "../../utils/GetTranslation";
 
-import Spinner from '../../components/spinner/Spinner';
-import DateTile from '../../components/datetile/DateTile';
-import MazeMap from '../../components/mazemap/map';
-import DefaultEventBanner from '../../components/svg/defaultbanners/DefaultEventBanner';
-import DefaultCtfBanner from '../../components/svg/defaultbanners/DefaultCtfBanner';
-import DefaultTekkomBanner from '../../components/svg/defaultbanners/DefaultTekkomBanner';
-import DefaultBedpresBanner from '../../components/svg/defaultbanners/DefaultBedpresBanner';
-import DefaultSocialBanner from '../../components/svg/defaultbanners/DefaultSocialBanner';
-import { config } from '../../Constants';
-import {withTranslation} from "react-i18next";
-import * as DatetimeFormatter from '../../utils/DatetimeFormatter'
-import * as ImageLinker from '../../utils/ImageLinker'
+import "./EventPage.css";
 
-import './EventPage.css'
-import './event-description.css'
-
-
-const daysNO = ['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag']
-const daysEN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-const expressionsNO = ['I dag', 'I morgen', 'I går', ' dager siden']
-const expressionsEN = ['Today', 'Tomorrow', 'Yesterday', ' days ago']
-
-const getDayStr = (datetime,i18n)  => {
-	const diffDays = DatetimeFormatter.getOffsetDays(datetime);
-
-	if (diffDays === 0) {
-		return i18n.language === 'en' ? expressionsEN[0] : expressionsNO[0];
-	} else if (diffDays === 1) {
-		return i18n.language === 'en' ? expressionsEN[1] : expressionsNO[1];
-	} else if (diffDays === -1) {
-		return i18n.language === 'en' ? expressionsEN[2] : expressionsNO[2];
-	} else if (diffDays <= -1) {
-		return i18n.language === 'en' ? Math.abs(diffDays) + expressionsEN[3] : Math.abs(diffDays) + expressionsNO[3];
-	}
-
-	const dayIdx = parseInt(DatetimeFormatter.getDayIdxInt(datetime));
-	return i18n.language === 'en' ? daysEN[dayIdx] : daysNO[dayIdx];
-}
-
-const isExt = (lnk) => {
-	if (lnk.search('http') >= 0) {
-		return true
-	}
-	return false
-}
-
+// TODO match catergory id with new db id's
 const getDefaultBanner = (category, color) => {
-	switch(category) {
-		case 'SOCIAL':
-			return <DefaultSocialBanner color={color} />;
-		case 'TEKKOM':
-			return <DefaultTekkomBanner color={color} />;
-		case 'CTF':
-			return <DefaultCtfBanner color={color} />;
-		case 'BEDPRES':
-			return <DefaultBedpresBanner color={color} />;
-	  default:
-		return <DefaultEventBanner color={color} />;
-	}
+  switch (category) {
+    case "Sosialt":
+      return <DefaultSocialBanner color={color} />;
+    case "TekKom":
+      return <DefaultTekkomBanner color={color} />;
+    case "CTF":
+      return <DefaultCtfBanner color={color} />;
+    case "Bedpres":
+      return <DefaultBedpresBanner color={color} />;
+    default:
+      return <DefaultEventBanner color={color} />;
+  }
+};
+
+const getURLAddress = (url) => {
+  try {
+    const parsedUrl = new URL(url);
+    // Extract and return the hostname (address) without the protocol
+    return parsedUrl.hostname;
+  } catch (error) {
+    return url;
+  }
 }
 
-const EventPage = ({t,i18n}) => {
+const renderOrganizations = (organizations) => {
+  // Check if organizations exists and is an array
+  if (!Array.isArray(organizations)) {
+    return null; // Handle the case where organizations is not an array
+  }
 
-	let { id } = useParams();
+  // Extract the names and join them with commas
+  const organizationNames = organizations.map(
+    (organization) => organization.name_no
+  );
 
-	const [eventData, setEventData] = useState(null);
-	const [statusCode, setStatusCode] = useState(null);
-	const [eventIsLoading, setEventIsLoading] = useState(true);
-	const [category, setCategory] = useState(null);
+  // Join the names with commas
+  return organizationNames.join(", ");
+};
 
-	useEffect(() => {
-		var category = ''
-		fetch(config.url.API_URL + '/events/' + id)
-			.then((response) => {
-				setStatusCode(response.status)
-				return response.json()})
-			.then((data) => {
-				category = data.category
-				setEventData(data)})
-		fetch(config.url.API_URL + '/categories')
-			.then((response) => response.json())
-			.then((data) => setCategory(data))
-		setEventIsLoading(false)
-	}, []);
 
-	const [showImage, setShowImage] = useState(true)
-	const hideImg = (event) => {
-		// this.setState({ showImg: false });
-		setShowImage(false)
-	}
-	
-	return (
-		<>
-			{eventIsLoading && <Spinner w='3rem' h='3rem' />}
-			{eventData && category &&
-				<div className='event-page page-container'>
-					<div className='event-details'>
-						<div className='event-details__date'>
-							<DateTile dayNumber={DatetimeFormatter.getDayInt(eventData.startt)} monthIdx={DatetimeFormatter.getMonthInt(eventData.startt)-1} color={'#' + category.find((c) => c.Name === eventData.category).Color} />
-							<div className='event-details__date-expression'>{getDayStr(eventData.startt, i18n)}</div>
-						</div>
+const EventPage = ({ t, i18n }) => {
+  let { id } = useParams();
 
-						<div className='event-details__list'>
-							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>schedule</i> {t('info.start')}: </div>
-							<div className='event-details__info'>{DatetimeFormatter.getTimeHHmm(eventData.startt)}</div>
+  const [eventData, setEventData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-							{DatetimeFormatter.showEndTime(eventData.endt) && <><div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>schedule</i>{t('info.end')}: </div>
-							<div className='event-details__info'>
-								{DatetimeFormatter.getTimeHHmm(eventData.endt)}
-							</div></>}
+  const useEng = i18n.language === "en";
+  const tr = Translator.getTranslation(useEng);
 
-							{ (eventData.roomno || eventData.street) &&
-								<>
-									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>location_on</i>{t('info.location')}:</div>
-									<div className='event-details__info'>
-										{eventData.roomno
-											? eventData.roomno + ', ' + eventData.campus
-											: eventData.street + ', ' + eventData.postcode + ' ' + eventData.city
-										}
-									</div>
-								</>
-							}
+  const [showImage, setShowImage] = useState(true);
+  const hideImg = () => {
+    setShowImage(false);
+  };
 
-							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>category</i>{t('info.type')}:</div>
-							<div className='event-details__info'>
-								{/* Adding category color to dot icon, using !important to overide text color. Super hacky but gets the job done apperantly */}
-								{eventData.category} <i className='event-details__icon logfont-circle' ref={(node) => {
-									if (node) {
-										node.style.setProperty('color', '#' + category.find((c) => c.Name === eventData.category).Color, 'important');
-									}
-								}}></i>
-							</div>
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch(config.url.API_URL + "/events/" + id);
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        let actualData = await response.json();
+        setEventData(actualData);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setEventData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getData();
+  }, []);
 
-							<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>person</i>{t('info.organizer')}: </div>
-							<div className='event-details__info'>
-								{eventData.organizerlink === ''
-									? <>{eventData.organizer}</>
-									: <>
-										{isExt(eventData.organizerlink)
-											? <a href={eventData.organizerlink} target='_blank'>{eventData.organizer}</a>
-											: <Link className='standard-link standard-link--underscore-hover' to={eventData.organizerlink}>{eventData.organizer}</Link>}
-									</>
-								}
-							</div>
+  return (
+    <>
+      {loading && <Spinner w="3rem" h="3rem" />}
+      {eventData && 
+        <div className="event-page page-container">
+          <div className="event-details">
+            <div className="event-details__date">
+              <DateTile
+                startDate={Date.parse(eventData.event.time_start)}
+                endDate={Date.parse(eventData.event.time_end)}
+                language={i18n.language == "en" ? "en" : "no"}
+                color={eventData.category.color}
+              />
+              <div className="event-details__date-expression">
+                {TimeFormatter.getDayName(
+                  eventData.event.time_start,
+                  i18n.language == "en" ? "en" : "no"
+                )}
+              </div>
+            </div>
 
-							{(eventData.discordlink || eventData.fblink) &&
-								<>
-									<div className='event-details__lable'><i className='event-details__icon event-details__icon--lable-color material-symbols-sharp'>link</i>{t('info.links')}: </div>
-									<div className='event-details__info'>
-										{eventData.discordlink &&
-											<>
-												<a className='standard-link standard-link--underscore-hover' href={eventData.discordlink} target='_blank' rel='noreferrer'>
-													<i className='event-details__icon logfont-discord'></i>Discord
-												</a>
-												<br/>
-											</>
-										}
-										{eventData.fblink &&
-											<a className='standard-link standard-link--underscore-hover' href={eventData.fblink} target='_blank' rel='noreferrer'>
-												<i className='event-details__icon logfont-facebook'></i>Facebook
-											</a>
-										}
-									</div>
-								</>
-							}
-						</div>
-					</div>
-					<div className='event-banner'>
-						{showImage ? (
-							<picture>
-								<img alt={eventData.eventname} src={ImageLinker.getCDNLink(eventData.image)} onError={hideImg} />
-							</picture>
-						) : (
-							getDefaultBanner(eventData.category, '#' + category.find((c) => c.Name === eventData.category).Color)
-						)}
-					</div>
-					<div className='event-description'>
-						<h2>{eventData.eventname}</h2>
-						<div dangerouslySetInnerHTML={{__html: eventData.description}}/>
-					</div>
-					<div className='event-map'>
-						<MazeMap eventID={eventData.eventID} mazeref={eventData.mazeref} language={i18n.language} />
-					</div>
-				</div>
-			}
-			{statusCode === 204 && <Navigate to='/404' />}
-			{statusCode === 500 && <Navigate to='/404' />}
-		</>
-	)
-}
+            <div className="event-details__list">
+              {eventData.event.time_type != "whole_day" && (
+                <>
+                  <div className="event-details__lable">
+                    <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                      schedule
+                    </i>{" "}
+                    {t("info.start")}:{" "}
+                  </div>
+                  <div className="event-details__info">
+                    {eventData.event.time_type == "tbd" ? "TBD" : TimeFormatter.getTimeHHmm(eventData.event.time_start)}
+                  </div>
 
-export default withTranslation('eventPage')(EventPage)
+                  {eventData.event.time_type === "defualt" && 
+                    <>
+                      <div className="event-details__lable">
+                        <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                          schedule
+                        </i>
+                        {t("info.end")}:{" "}
+                      </div>
+                      <div className="event-details__info">
+                        {TimeFormatter.getTimeHHmm(
+                          eventData.event.time_end
+                        )}
+                      </div>
+                    </>
+                  }
+                </>
+              )}
+              {eventData.location && (
+                <>
+                  <div className="event-details__lable">
+                    <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                      location_on
+                    </i>
+                    {t("info.location")}:
+                  </div>
+                  <div className="event-details__info">
+                    {tr(eventData.location.name_en, eventData.location.name_no)}
+                    {eventData.location.city_name &&
+                      ", " + eventData.location.city_name}
+                  </div>
+                </>
+              )}
+
+              <div className="event-details__lable">
+                <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                  category
+                </i>
+                {t("info.type")}:
+              </div>
+              <div className="event-details__info">
+                {/* Adding category color to dot icon, using !important to overide text color. Super hacky but gets the job done apperantly */}
+                <i
+                  className="event-details__icon logfont-circle"
+                  ref={(node) => {
+                    if (node) {
+                      node.style.setProperty(
+                        "color",
+                        "#" + eventData.category.color,
+                        "important"
+                      );
+                    }
+                  }}
+                ></i>
+                {tr(eventData.category.name_en, eventData.category.name_no)}
+              </div>
+
+              <div className="event-details__lable">
+                <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                  person
+                </i>
+                {t("info.organizer")}:{" "}
+              </div>
+              <div className="event-details__info">
+                {renderOrganizations(eventData.organizations)}
+              </div>
+
+              {eventData.event.link_stream && (
+                <>
+                  <div className="event-details__lable">
+                    <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                      live_tv
+                    </i>
+                    {t("info.stream")}:{" "}
+                  </div>
+                  <div className="event-details__info">
+                    <a
+                      className="standard-link standard-link--underscore-hover"
+                      href={eventData.event.link_stream}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {getURLAddress(eventData.event.link_stream)} <i className="material-symbols-sharp">arrow_outward</i>
+                    </a>
+                  </div>
+                </>
+              )}
+
+              {(eventData.event.link_discord ||
+                eventData.event.link_facebook) && (
+                <>
+                  <div className="event-details__lable">
+                    <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                      link
+                    </i>
+                    {t("info.links")}:{" "}
+                  </div>
+                  <div className="event-details__info">
+                    {eventData.event.link_discord && (
+                      <>
+                        <a
+                          className="standard-link standard-link--underscore-hover"
+                          href={eventData.event.link_discord}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Discord <i className="material-symbols-sharp">arrow_outward</i>
+                        </a>
+                        <br />
+                      </>
+                    )}
+                    {eventData.event.link_facebook && (
+                      <a
+                        className="standard-link standard-link--underscore-hover"
+                        href={eventData.event.link_facebook}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Facebook <i className="material-symbols-sharp">arrow_outward</i>
+                      </a>
+                    )}
+                  </div>
+                </>
+              )}
+              {eventData.event.capacity > 0 && (
+                <>
+                  <div className="event-details__lable">
+                    <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
+                      confirmation_number
+                    </i>
+                    {t("info.capacity")}:{" "}
+                  </div>
+                  <div className="event-details__info">
+                    {eventData.event.capacity}
+                  </div>
+                </>
+              )}
+            </div>
+            {eventData.event.canceled == false &&
+              <EventSignUp
+                url={eventData.event.link_signup}
+                full={eventData.event.full}
+                releaseTime={eventData.event.time_signup_release}
+                deadlineTime={eventData.event.time_signup_deadline}
+              />
+            }
+          </div>
+          <div className="event-banner">
+            {showImage ? (
+              <picture>
+                <img
+                  alt={eventData.eventname}
+                  src={/*ImageLinker.getCDNLink*/(eventData.event.image_banner)}
+                  onError={hideImg}
+                  loading="lazy"
+                />
+              </picture>
+            ) : (
+              getDefaultBanner(
+                eventData.category.name_no,
+                eventData.category.color
+              )
+            )}
+          </div>
+          <div className="event-description">
+            <Article
+              title={tr(eventData.event.name_no, eventData.event.name_no)}
+              publishTime={eventData.event.time_publish}
+              updateTime={eventData.event.updated_at}
+              informational={tr(eventData.event.informational_en, eventData.event.informational_no)}
+              description={tr(eventData.event.description_en, eventData.event.description_no)}
+            />
+            { eventData.rule && 
+              <div className="rules">
+                <DropDownBox
+                  title={
+                    <>
+                      <i class="material-symbols-sharp">gavel</i> {t("rules")}
+                    </>
+                  }
+                  content={
+                    <div className="rules__content">
+                      <h2 className="rules__title">{tr(eventData.rule.name_en, eventData.rule.name_no)}</h2>
+                      <div className="rules__description">
+                        {tr(eventData.rule.description_en, eventData.rule.description_no)}
+                      </div>
+                    </div>
+                  } />
+              </div>
+            }
+          </div>
+          {/*
+          TODO: fix mazemap
+          (eventData.location.type == 'mazemap') && 
+            <div className='event-map'>
+              <MazeMap eventID={eventData.event.id} mazeref={eventData.location.mazemap_poi_id} language={i18n.language} />
+            </div>
+          */}
+        </div>
+      }
+    </>
+  );
+};
+
+export default withTranslation("eventPage")(EventPage);

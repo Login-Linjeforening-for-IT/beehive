@@ -6,6 +6,8 @@
     "type": "Kategori",
     "organizer": "Arrangør",
     "links": "Lenker",
+    "stream": "Stream",
+    "capacity": "Kapasitet",
     "form": {
         "button": "Meld meg på",
         "full": "Dette arrangementet er fullt!",
@@ -19,5 +21,16 @@
         "preferences": "Preferanser",
         "allergies": "Allergier"
     }
-  }
+  }, 
+  "signup": {
+    "signup": "Påmelding",
+    "signup-action": "Meld meg på",
+    "signup-open": "Åpner",
+    "signup-closed": "Påmeldingen er stengt",
+    "no-signup": "Dette arrangementet krever ingen påmelding",
+    "signup-full": "Arrangementet er fullt",
+    "signup-deadline": "Frist"
+  },
+  "published" : "PUBLISERT",
+  "rules": "Regler"
 }

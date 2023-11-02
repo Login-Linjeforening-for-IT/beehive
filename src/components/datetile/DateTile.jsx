@@ -1,19 +1,47 @@
-import {withTranslation} from "react-i18next";
+import * as TimeFormatter from "../../utils/DatetimeFormatter";
 import './DateTile.css'
 
-/* Array of the string representation of the months */
-const monthsNO = ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
-const monthsEN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Des']
 
+const DateTile = ({ lang="no", startDate, endDate, color }) => {
+    const sTime = new Date(startDate);
+    const eTime = new Date(endDate);
 
+    const sDate = sTime.getDate();
+    const eDate = eTime.getDate();
 
-const DateTile = ({ i18n, dayNumber, monthIdx, color }) => {
-    return (
-        <div className='date-tile' style={{backgroundColor: color}}>
-            <span className='date-tile__day'>{dayNumber}</span>
-            <span className='date-tile__month'>{i18n.language === 'en' ? monthsEN[monthIdx] : monthsNO[monthIdx]}</span>
-        </div>
-    )
-}
+    const sMonth = sTime.getMonth();
+    const eMonth = eTime.getMonth();
 
-export default withTranslation('eventPage')(DateTile)
+    const months = {
+        en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
+    };
+
+    if (sDate === eDate) {
+        return (
+            <div className='date-tile' style={{background: '#' + color}}>
+                <div className='date-tile__date'>
+                    <div className='date-tile__day'>{sDate}</div>
+                    <div className='date-tile__month'>{months[lang][eMonth]}</div>
+                </div>
+            </div>
+        );
+    } else {
+        return (
+            <div className='date-tile' style={{background: '#' + color}}>
+                <div className='date-tile__date'>
+                    <div className='date-tile__day'>{sDate}</div>
+                    <div className='date-tile__month'>{months[lang][sMonth]}</div>
+                </div>
+                <div className='date-tile__devider'>-</div>
+                <div className='date-tile__date'>
+                    <div className='date-tile__day'>{eDate}</div>
+                    <div className='date-tile__month'>{months[lang][eMonth]}</div>
+                </div>
+            </div>
+        );
+    }
+};
+
+export default DateTile;
+
