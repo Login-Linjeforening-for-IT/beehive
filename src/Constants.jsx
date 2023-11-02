@@ -7,7 +7,7 @@ const prod = {
 
 const dev = {
 	url: {
-		API_URL: 'http://10.212.174.46/api', // ntnu network necessary, use vpn
+		API_URL: 'http://localhost:4000',
 		CDN_URL: 'https://cdn.login.no'
 	}
 };
