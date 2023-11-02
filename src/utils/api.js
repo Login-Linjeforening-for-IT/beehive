@@ -1,4 +1,6 @@
-const baseUrl = 'http://localhost:8080/api';
+import { config } from "../Constants";
+
+const baseUrl = config.url.API_URL;
 
 const _apiFetch = async (path) => {
     try {
@@ -34,7 +36,6 @@ const getJobs = async (skills = null, cities = null, organizations = null, jobty
 
     const query = new URLSearchParams(queryParts);
     const path = `/jobs/?${query}`;
-    console.log('path', path)
     return await _apiFetch(path);
 }
 
@@ -49,7 +50,6 @@ const getEvents = async (categories = null, limit = 20, offset = 0) => {
 
     const query = new URLSearchParams(queryParts);
     const path = `/events/?${query}`;
-    console.log('path', path)
     return await _apiFetch(path);
 }
 
