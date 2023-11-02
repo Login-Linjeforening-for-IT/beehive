@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { withTranslation, useTranslation } from 'react-i18next'
-import * as ImageLinker from '../../utils/ImageLinker'
+//import * as ImageLinker from '../../utils/ImageLinker'
 import './JobadsListItem.css'
-import fallbackImg from './jobad-fallback-logo.svg'
+import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
 import * as DatetimeFormatter from '../../utils/DatetimeFormatter'
 
 const getTranslation = (useEng) => {

@@ -4,10 +4,11 @@ import { withTranslation } from "react-i18next";
 import { config } from "../../Constants";
 import Spinner from "../../components/spinner/Spinner";
 import Article from '../../components/article/Article';
-import * as ImageLinker from "../../utils/ImageLinker";
+//import * as ImageLinker from "../../utils/ImageLinker";
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 import * as Translator from "../../utils/GetTranslation";
-import fallbackImg from "./jobad-fallback-logo.svg";
+import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
+
 import "./JobadPage.css";
 
 
@@ -32,7 +33,7 @@ const JobadPage = ({ t, i18n }) => {
   const useEng = i18n.language === "en";
   const tr = Translator.getTranslation(useEng);
 
-  const [logoImgSrc, setlogoImgSrc] = useState(fallbackImg);
+  const [logoImgSrc, setlogoImgSrc] = useState(/*ImageLinker.getCDNLink*/(jobad.organization_logo));
   const handleLogoImgError = () => setlogoImgSrc(fallbackImg);
 
   const [showBannerImg, setShowBannerImg] = useState(true);
@@ -43,7 +44,7 @@ const JobadPage = ({ t, i18n }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(config.url.API_URL + "/api/jobs/" + id);
+        const response = await fetch(config.url.API_URL + "/jobs/" + id);
         if (!response.ok) {
           throw new Error(
             `This is an HTTP error: The status is ${response.status}`
@@ -51,7 +52,7 @@ const JobadPage = ({ t, i18n }) => {
         }
         let actualData = await response.json();
         setJobad(actualData);
-        setlogoImgSrc(ImageLinker.getCDNLink(actualData.organization.logo));
+        setlogoImgSrc(actualData.organization.logo);
         if (actualData.job.banner_image == "") hideBannerImg();
         setError(null);
       } catch (err) {
