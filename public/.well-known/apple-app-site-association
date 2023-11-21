@@ -1,0 +1,34 @@
+{
+    "applinks": {
+        "details": [
+            {
+                "appIDs": [
+                    "6QALMLD2Y4.com.eirikhanasand.Login"
+                ],
+                "components": [
+                    {
+                        "/": "events/*",
+                        "comment": "Matches the events and an id"
+                    },
+                    {
+                        "/": "jobs/*",
+                        "comment": "Matches the jobs and an id"
+                    }
+                ]
+            },
+            {
+                "appID": "6QALMLD2Y4.com.eirikhanasand.Login",
+                "paths": ["/events/*", "/jobs/*"]
+              }
+        ]
+    },
+    "webcredentials": {
+        "apps": [ "6QALMLD2Y4.com.eirikhanasand.Login" ]
+    },
+    "appclips": {
+        "apps": ["6QALMLD2Y4.com.eirikhanasand.Login"]
+    },
+    "activitycontinuation": {
+        "apps": ["6QALMLD2Y4.com.eirikhanasand.Login"]
+    }
+}
