@@ -5,9 +5,15 @@
 # Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+
 stages:
 - build
 - deploy
+
+include:
+    project: tekkom/infrastructure/pipline-templates
+    ref: main
+    file: .container-build.gitlab-ci.yml
 
 services:
   - docker:dind
