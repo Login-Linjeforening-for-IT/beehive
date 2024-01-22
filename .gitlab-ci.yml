@@ -9,6 +9,7 @@
 stages:
 - build
 - deploy
+- trigger-stages
 
 include:
     project: tekkom/infrastructure/pipline-templates
