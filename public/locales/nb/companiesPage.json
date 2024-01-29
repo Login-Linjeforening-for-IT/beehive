@@ -4,11 +4,15 @@
     "intro": "Er din bedrift på utkikk etter skarpe IT-studenter? Sjekk ut alt vi har å tilby din bedrift.",
     "bedpres": {
       "title": "Bedpres",
-      "body": "Login sin PR komite arrangerer bedriftspresentasjoner hvor bedriften din får mulighet til å presentere til studentene hva dere jobber med, hvilke tjenester dere tilbyr, hvordan dere jobber osv. På denne måten blir studentene bevisst på hva dere tilbyr, og ikke minst arbeidsmiljøet deres. Vi tilbyr tilrettelegging for matservering (Pizza) under presentasjonen, men det er mest vanlig å rusle ned til en restaurant i byen for bespisning og mingling mellom studenter og bedriftsrepresentanter."
+      "body": "Login sin bedriftskomite arrangerer ukentlige bedriftspresentasjoner hvor din bedrift vil få mulighet til å presentere til studentene hva dere jobber med, hvilke tjenester dere tilbyr, hvordan dere jobber osv. På denne måten blir studentene bevisst på hva dere tilbyr, og ikke minst arbeidsmiljøet deres. Vi tilbyr tilrettelegging for matservering både under eller etter presentasjonen. Vi opplever positiv tilbakemelding fra studentene når det blir mingling med mat og bedriftsrepresentantene etter presentasjonen!",
+      "footer1": "Er dere interessert i en slik presentasjon? Ta kontakt med oss på ", 
+      "footer2": " hvis dere har spørsmål rundt arrangementet eller for å avtale noe nærmere!"
     },
     "cyberdays":{
       "title": "Cyberdagene",
-      "body": "Cyberdagene er vår karrieredag! Den arrangeres en gang per semester, og er en super arena for å rekruttere og promotere seg selv mot studentene våre. Her blir det mulighet til å ta en prat med studenter, markedsføre dere, og ikke minst annonsere sommerjobber til ivrige studenter! Bedriften får en stand og bestemmer selv hva dere ønsker å gjennomføre under selve karrieredagen. Her tilrettelegger vi også for speed intervjuer dersom det er ønskelig. På kvelden blir det lagt opp for mingling med studenter på Huset med en pils og noe mat."
+      "body": "Cyberdagene er våre karrieredager! De arrangeres en gang per semester, og er en super arena for å rekruttere og promotere seg selv mot studentene våre. Her blir det mulighet til å ta en prat med studenter, markedsføre dere, og ikke minst annonsere både deltids- og sommerjobber til ivrige studenter! Bedriften får en stand og bestemmer selv hva dere ønsker å gjennomføre under selve karrieredagen. Her tilrettelegger vi også for speed intervjuer dersom det er ønskelig. På kvelden blir det lagt opp for mingling med studenter på Huset med en pils og noe mat.",
+      "footer1": "Kunne dette være noe deres bedrift er interessert i å delta på? Send oss en mail på ", 
+      "footer2": " for å melde dere opp på våre mailinglister slik at dere får mer informasjon og invitasjon til å delta!"
     },
     "ctf": {
       "title": "CTF",
