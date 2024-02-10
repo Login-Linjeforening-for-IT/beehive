@@ -6,6 +6,8 @@
     "type": "Category",
     "organizer": "Organizer",
     "links": "Links",
+    "stream": "Stream",
+    "capacity": "Capasity",
     "form": {
         "button": "Join event",
         "full": "This event is full!",
@@ -19,5 +21,18 @@
         "preferences": "Preferences",
         "allergies": "Allergies"
     }
-  }
+  }, 
+  "signup": {
+    "title": "Sign up",
+    "action": "Sign me up",
+    "open": "Opens",
+    "closes": "Closes",
+    "closed": "Closed",
+    "none": "This event requires no sign up",
+    "full": "This event is full",
+    "canceled": "This event is canceled",
+    "not-ready": "Registration is not ready, more information will come later"
+  },
+  "published": "PUBLISHED",
+  "canceled": "CANCELED"
 }

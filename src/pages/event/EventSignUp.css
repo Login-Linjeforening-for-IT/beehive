@@ -1,0 +1,32 @@
+.event-signup {
+    margin-top: 1.8rem;
+    padding-top: 1.2rem;
+    border-top: .2rem solid var(--c-corner-decor);
+}
+
+.event-signup__list {
+    margin: 1rem 0;
+}
+
+.event-signup__header {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.event-signup__msg {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: min-content auto;
+    max-width: 17.5rem;
+}
+
+.event-signup__btn-container {
+    margin-top: 2rem;
+}
+
+@media only screen and (min-width: 400px) {
+    .event-signup__btn {
+        width: fit-content;
+        min-width: 10rem;
+    }
+}

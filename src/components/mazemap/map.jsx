@@ -1,19 +1,14 @@
 import './mazemap.css';
 
-const getPOIType = (ref) => {
-	if (ref.search(',') < 0 ) {
-		return 'poi'
-	}
-	return 'point'
-}
+const MazeMap = ({campusID, poi}) => {
 
-const MazeMap = (props) => {
 	return (
 		<>
-			{props.mazeref &&
+			{campusID && poi &&
 				<iframe
+					title='mazemap'
 					className='mazemap'
-					src={'https://use.mazemap.com/embed.html?newtablink=false#v=1&campusid=55&sharemode=false&sharepoitype=' + getPOIType(props.mazeref) + '&utm_medium=iframe&zoom=17&sharepoi=' + props.mazeref + '&lang=' + props.language}
+					src={`https://use.mazemap.com/embed.html?newtablink=false#v=1&campusid=${campusID}&sharemode=false&sharepoitype=poi&utm_medium=iframe&zoom=17&sharepoi=${poi}&lang=nb`}
 					width='100%'
 					height='100%'
 					frameBorder='0'
