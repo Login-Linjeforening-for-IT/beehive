@@ -4,7 +4,7 @@
 }
 
 .welcome__container {
-    padding: 4rem 1rem;
+    padding: 4rem 2rem;
     max-width: 40rem;
     margin: auto;
 }
@@ -12,12 +12,12 @@
 .welcome__text {
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: right;
     font-size: 1.5rem;
     line-height: 2.2rem;
     color: var(--c-font-main);
     font-weight: 400;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 .welcome__text--gradient {
@@ -27,7 +27,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 700;
     font-size: 3.5rem;
-    line-height: 4.5rem;
+    line-height: 1em;
 }
 
 /* logo component from assets -> svg */
@@ -58,6 +58,91 @@
 }
 
 
+
+.dynamic-preview {
+    width: fit-content;
+    max-width: 73rem;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+.dynamic-preview__heading {
+    margin-left: .5rem;
+}
+
+.dynamic-preview__list {
+    display: grid;
+    list-style-type: none;
+    row-gap: 1rem;
+    margin: 0 auto;
+}
+
+.dynamic-preview__list-item {
+    margin: 0 auto;
+}
+
+.dynamic-preview__view-more {
+    width: 100%;
+}
+
+.dynamic-preview__view-more-btn {
+    font-size: 1rem;
+    margin-top: 1rem;
+    min-width: 10rem;
+}
+
+@media only screen and (min-width: 400px) {
+    .dynamic-preview__view-more-btn {
+        font-size: 1.1rem;
+        align-self: center;
+        width: fit-content;
+        margin: 2rem auto 0 auto;
+    }
+}
+
+
+@media only screen and (min-width: 690px) {
+
+    .dynamic-preview__list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+
+    .dynamic-preview__view-more {
+        display: flex;
+        grid-column: 2;
+    }
+
+    .dynamic-preview__view-more-btn {
+        font-size: 1.1rem;
+        align-self: center;
+        margin: 0 auto;
+    }
+
+}
+
+@media only screen and (min-width: 1040px) {
+
+    .dynamic-preview {
+        width: 100%;
+    }
+
+    .dynamic-preview__heading {
+        margin-left: 1rem;
+    }
+
+    .dynamic-preview__list {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 0;
+    }
+
+    .dynamic-preview__view-more-btn {
+        margin-top: 2rem;
+        min-width: 10rem;
+    }
+}
+
+
 .landing-info {
     max-width: 75rem;
     width: 100%;
@@ -80,6 +165,7 @@
 }
 
 .landing-info__link {
+    margin-top: 1rem;
     padding: .7rem 1rem .7rem 0;
     font-size: 1.3rem;
     width: fit-content;
@@ -100,7 +186,7 @@
         align-items: center;
         justify-content: space-around;
         max-width: 75rem;
-        padding: 8rem 3rem 10rem;
+        padding: 5rem 3rem 6rem;
         gap: 4rem;
     }
 

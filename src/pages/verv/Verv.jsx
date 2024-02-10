@@ -20,7 +20,7 @@ const Verv = ({t}) => {
       <section className='verv-section verv-apply'>
         <h2 className='verv-section__heading heading-2' dangerouslySetInnerHTML={{__html: t('apply.title')}} />
         <p className='verv-section__p p--regular' dangerouslySetInnerHTML={{__html: t('apply.body')}} />
-        <a className='verv-apply__action standard-button standard-button--primary' href='https://forms.gle/nQrJuqo3C9URLRM29'>{t('apply.action')}</a>
+        <a className='verv-apply__action standard-button standard-button--primary standard-button--arrow-hover' target='_blank' href='https://forms.gle/nQrJuqo3C9URLRM29'>{t('apply.action')}</a>
       </section>
     </div>
   )

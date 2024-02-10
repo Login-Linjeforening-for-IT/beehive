@@ -1,6 +1,7 @@
 {
   "title": "Arrangementer",
   "noEvents": "Ingen kommene arrangementer",
+  "load-more": "Last inn flere",
   "filter": {
     "title": "filter",
     "searchHint": "Søk...",

@@ -1,215 +1,221 @@
-import { useState } from "react";
-import { Navigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { withTranslation } from "react-i18next";
-import * as ImageLinker from "../../utils/ImageLinker";
-import * as TimeFormatter from "../../utils/DatetimeFormatter";
-import fallbackImg from "./jobad-fallback-logo.svg";
+import { config } from "../../Constants";
+import Spinner from "../../components/spinner/Spinner";
+import Article from '../../components/article/Article';
+import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
+import * as Translator from "../../utils/GetTranslation";
+import { getJob } from '../../utils/api';
+import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
+
 import "./JobadPage.css";
-import "./jobad-description.css";
 
-// dummie data
-let demoJobs = {
-  jobs: [
-    {
-      id: 1,
-      name_no:
-        "TekKom er et kult sted, og dette er en lang tittel for å se hvor mye plass jeg har å jobbe med",
-      name_en:
-        "TekKom is a cool place and this is a long title to see how much space I have to work with",
-      position_title_no: "utvikler",
-      position_title_en: "developer",
-      deadline: "2023-09-14T23:59",
-      published_date: "2023-09-15T00:00:00Z",
-      type_no: "Deltid",
-      type_en: "Part-time",
-      text_short_no: "Utvikler i TekKom",
-      text_short_en: "",
-      application_url:
-        "https://www.mnemonic.io/careers/open-positions/minternship-security-consultant/",
-      organization: {
-        shortname: "",
-        name_no: "Login - Linjeforening for IT",
-        name_en: "",
-        logo: "",
-      },
-      cities: ["Gjøvik"],
-      banner_image: "https://cdn.login.no/img/styret2.jpg",
-      description_en:
-        "<p>Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. Steve wants reflections, so let's give him reflections. Maybe there's a happy little bush that lives right there. </p>",
-      description_no:
-        "<p>Gira på å progge litt eller? Søk verv da vel bitch! Her er mer tekst. Her er mer tekst. Her er mer tekst. Her er mer tekst. Her er mer tekst.</p>",
-    }
-  ]
-};
+const jobTypeTranslations = {
+  no: {
+    summer: 'Sommerjobb',
+    full: 'Fulltid',
+    verv: 'Verv',
+    part: 'Deltid'
+  },
+  en: {
+    summer: 'Sommer job',
+    full: 'Fulltime',
+    verv: 'Voluntary',
+    part: 'Parttime'
+  }
+}
 
-const getTranslation = (useEng) => {
-  if (!useEng)
-    return (_, no) => {
-      return no;
-    };
+const getJobTypeLabel = (job_type, lang="no") => {
 
-  return (en, no) => {
-    return en ? en : no;
-  };
+  const labelNo = jobTypeTranslations['no'][job_type] || job_type;
+  let labelEn = jobTypeTranslations['en'][job_type] || labelNo;
+
+  return lang === "en" ? labelEn : labelNo;
 };
 
 function deadlineWarning(deadline) {
-  const currentTime = new Date();
+  const now = new Date();
+  const diff = deadline - now;
+  const oneDay = 1000 * 60 * 60 * 24;
 
-  const timeDifference = deadline - currentTime;
-
-  const hoursRemaining = timeDifference / (1000 * 60 * 60);
-
-  return hoursRemaining < 24 && hoursRemaining > 0;
+  return diff < oneDay && diff > 0;
 }
 
+
 const JobadPage = ({ t, i18n }) => {
-  let { id } = useParams();
 
-  // TODO: use api to get job using id
-  const job = demoJobs.jobs[0];
-  const deadlineDate = new Date(job.deadline);
-  const publishDate = new Date(job.published_date);
-
+  const { id } = useParams();
   const useEng = i18n.language === "en";
-  const tr = getTranslation(useEng);
+  const lang = useEng ? 'en' : 'no';
+  const tr = Translator.getTranslation(useEng);
+  
+  const [useFallbackImg, setUseFallbackImg] = useState(false);
+  const handleImgError = () => setUseFallbackImg(true);
 
-  const [imgSrc, setImgSrc] = useState(
-    ImageLinker.getCDNLink(job.organization.logo)
-  );
-  const handleError = () => setImgSrc(fallbackImg);
+  const [showBannerImg, setShowBannerImg] = useState(true);
+  const hideBannerImg = () => setShowBannerImg(false);
 
-  const [showBannerImg, setShowBannerImg] = useState(
-    job.banner_image !== ""
-  );
-  const hideBannerImg = () => {
-    setShowBannerImg(false);
-  };
+  const [jobad, setEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // remove this when implementing api
-  const showDummieData = false;
-  if(showDummieData) {
-  // ^
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [ response, err ] = await getJob(id);
+
+        setEvent(response);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching job ad data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
   return (
-    <div
-      className={`jobad-page page-container ${
-        showBannerImg ? "jobad-page--banner" : "jobad-page--noBanner"
-      }`}
-    >
-      <div className="jobad-details">
-        <div className="jobad-details__company">
-          <picture>
-            <img
-              className="jobad-details__company-logo"
-              alt={tr(
-                job.name_en,
-                job.name_no
-              )}
-              src={imgSrc}
-              onError={handleError}
+    <>
+      {loading && <Spinner w="50" h="50" />}
+      {jobad && (
+        <div
+          className={`jobad-page page-container ${
+            showBannerImg ? "jobad-page--banner" : "jobad-page--noBanner"
+          }`}
+        >
+          <div className="jobad-details">
+            <div className="jobad-details__company">
+              <picture>
+                <img className='jobad-details__company-logo'
+                  alt={jobad.organization_logo}
+                  src={useFallbackImg ? fallbackImg : config.url.CDN_URL + '/img/organizations/' + jobad.organization.logo}
+                  onError={handleImgError}
+                  loading="lazy"
+                />
+              </picture>
+              <div className="jobad-details__company-name">
+                {jobad.organization.link_homepage ?
+                  <a
+                    className="jobad-details__company-name-link standard-link--underscore-hover"
+                    href={jobad.organization.link_homepage}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {tr(jobad.organization.name_en, jobad.organization.name_no) + " "}
+                    <i className="material-symbols-sharp">arrow_outward</i>
+                  </a>
+                  :
+                  tr(jobad.organization.name_en, jobad.organization.name_no)
+                }
+              </div>
+            </div>
+            <div className="jobad-details__list">
+              <div className="jobad-details__lable">
+                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                  hourglass_bottom
+                </i>
+                {t("details.deadline")}:
+              </div>
+              <div className="jobad-details__value">
+                {DatetimeFormatter.formatDeadlineDate(
+                  new Date(jobad.job.application_deadline),
+                  lang
+                )}
+                {deadlineWarning(new Date(jobad.job.application_deadline)) && (
+                  <i className="material-symbols-sharp jobad-details__icon jobad-details__icon--warning">
+                    acute
+                  </i>
+                )}
+              </div>
+              {jobad.job.position_title_no && 
+                <>
+                  <div className="jobad-details__lable">
+                    <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                      badge
+                    </i>
+                    {t("details.position")}:
+                  </div>
+                  <div className="jobad-details__value">
+                    {tr(jobad.job.position_title_en, jobad.job.position_title_no)}
+                  </div>
+                </>
+              }
+              <div className="jobad-details__lable">
+                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                  work_history
+                </i>
+                {t("details.type")}:
+              </div>
+              <div className="jobad-details__value">
+                {getJobTypeLabel(jobad.job.job_type, lang)}
+              </div>
+              {jobad.cities && jobad.job.cities.length > 0 &&
+                <>
+                  <div className="jobad-details__lable">
+                    <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                      location_on
+                    </i>
+                    {jobad.job.cities.length > 1
+                      ? t("details.locations")
+                      : t("details.location")}
+                    :
+                  </div>
+                  <div className="jobad-details__value">
+                    {jobad.job.cities.join(", ")}
+                  </div>
+                </>
+              }
+              {jobad.job.skills && jobad.job.skills.length > 0 &&
+                <>
+                  <div className="jobad-details__lable">
+                    <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                      build
+                    </i>
+                    {t("details.skills")}:
+                  </div>
+                  <div className="jobad-details__value">
+                    {jobad.job.skills.join(", ")}
+                  </div>
+                </>
+              }
+            </div>
+            {jobad.job.application_url && (
+              <a
+                href={jobad.job.application_url}
+                target="_blank"
+                className="jobad-details__apply-btn standard-button standard-button--primary"
+              >
+                {t("details.apply-btn")}{" "}
+                <i className="material-symbols-sharp">arrow_outward</i>
+              </a>
+            )}
+          </div>
+          {showBannerImg && (
+            <div className="jobad-banner">
+              <picture>
+                <img
+                  alt={jobad.job.banner_image}
+                  src={jobad.job.banner_image}
+                  onError={hideBannerImg}
+                />
+              </picture>
+            </div>
+          )}
+          <div className="jobad-description">
+            <Article
+              title={tr(jobad.job.title_en, jobad.job.title_no)}
+              publishTime={new Date(jobad.job.time_publish)}
+              updateTime={new Date(jobad.job.updated_at)}
+              informational={false}
+              introduction={tr(jobad.job.description_short_en, jobad.job.description_short_no)}
+              description={tr(jobad.job.description_long_en, jobad.job.description_long_no)}
             />
-          </picture>
-          <div className="jobad-details__company-name">
-            {tr(
-              job.organization.name_en,
-              job.organization.name_no
-            )}
           </div>
-        </div>
-        <div className="jobad-details__list">
-          <div className="jobad-details__lable">
-            <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
-              hourglass_bottom
-            </i>
-            {t("details.deadline")}:
-          </div>
-          <div className="jobad-details__value">
-            {TimeFormatter.formatDateDT(deadlineDate, useEng ? "en" : "no")}
-            {deadlineWarning(deadlineDate) && (
-              <i className="material-symbols-sharp jobad-details__icon jobad-details__icon--warning">
-                acute
-              </i>
-            )}
-          </div>
-          <div className="jobad-details__lable">
-            <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
-              badge
-            </i>
-            {t("details.position")}:
-          </div>
-          <div className="jobad-details__value">
-            {tr(
-              job.position_title_en,
-              job.position_title_no
-            )}
-          </div>
-          <div className="jobad-details__lable">
-            <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
-              work_history
-            </i>
-            {t("details.type")}:
-          </div>
-          <div className="jobad-details__value">
-            {tr(job.type_en, job.type_no)}
-          </div>
-          <div className="jobad-details__lable">
-            <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
-              location_on
-            </i>
-            {job.cities.length > 1
-              ? t("details.locations")
-              : t("details.location")}
-            :
-          </div>
-          <div className="jobad-details__value">
-            {job.cities.join(", ")}
-          </div>
-        </div>
-        {job.application_url && (
-          <a
-            href={job.application_url}
-            className="jobad-details__apply-btn standard-button standard-button--primary"
-          >
-            {t("details.apply-btn")}{" "}
-            <i className="material-symbols-sharp">arrow_outward</i>
-          </a>
-        )}
-      </div>
-      {showBannerImg && (
-        <div className="jobad-banner">
-          <picture>
-            <img
-              alt={job.banner_image}
-              src={ImageLinker.getCDNLink(job.banner_image)}
-              onError={hideBannerImg}
-            />
-          </picture>
         </div>
       )}
-      <div className="jobad-description">
-        <h1 className="jobad-description__h1">
-          {tr(job.name_en, job.name_no)}
-        </h1>
-        <p className="jobad-description__published">
-          {t("published")}:{" "}
-          {TimeFormatter.formatDateTDY(publishDate, useEng ? "en" : "no")}
-        </p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: tr(
-              job.description_en,
-              job.description_no
-            ),
-          }}
-        />
-      </div>
-    </div>
+    </>
   );
-  // remove this when implementing api
-  } else {
-    return (<Navigate to='/404' />)
-  }
-  // ^
 };
 
 export default withTranslation("jobadPage")(JobadPage);
