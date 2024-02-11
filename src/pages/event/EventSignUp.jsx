@@ -13,6 +13,7 @@ const EventSignUp = ({ t, i18n, url, full, canceled=false, cap=null, signupRelea
   let ready = true;
   let activeUrl = false;
   let showBtn = true;
+  let warning = false;
 
   if (canceled) {
     msg = t('signup.canceled');
@@ -26,9 +27,11 @@ const EventSignUp = ({ t, i18n, url, full, canceled=false, cap=null, signupRelea
     showBtn = false;
     msg = t('signup.not-ready');
   } else if (now > signupDeadline) {
-    msg = t('signup.closed') + ' ' + DatetimeFormatter.formatPublishedDate(signupDeadline);
+    msg = t('signup.closed') + ': ' + DatetimeFormatter.formatPublishedDate(signupDeadline, lang);
+    warning = true;
   } else if (full) {
     msg = t('signup.full');
+    warning = true;
   } else if (now > signupRelease && now < signupDeadline) {
     activeUrl = true;
   }
@@ -80,7 +83,7 @@ const EventSignUp = ({ t, i18n, url, full, canceled=false, cap=null, signupRelea
           </>
         }
         {msg &&
-          <div className="event-signup__msg">
+          <div className={`event-signup__msg event-signup__msg${warning ? "--warning" : "--info"}`}>
             <i className="event-details__icon material-symbols-sharp">
               info
             </i>

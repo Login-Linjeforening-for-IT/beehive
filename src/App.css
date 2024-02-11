@@ -156,6 +156,10 @@
   --c-alert-info-text: #dcf9ff;
   --c-alert-info-icon: #62c4d7;
 
+  --c-alert-warning-bg: #40300f;
+  --c-alert-warning-text: #fff8ea;
+  --c-alert-warning-icon: #ffa600;
+  
 
   /* filter */
   --c-filter-tag-bg: var(--c-grey-48);
@@ -223,9 +227,9 @@
   --c-alert-info-text: rgb(0, 23, 28);
   --c-alert-info-icon: rgb(18, 122, 177);
 
-  --c-warning-info-bg: #bceef7;
-  --c-warning-info-text: #052c65;
-  --c-warning-info-icon: rgb(18, 122, 177);
+  --c-alert-warning-bg: #f6cd7a;
+  --c-alert-warning-text: black;
+  --c-alert-warning-icon: black;
 
 
   /* filter */

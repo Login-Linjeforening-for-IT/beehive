@@ -28,6 +28,10 @@
     animation: L 1.5s infinite ease;
     -webkit-animation: L infinite 1.5s ease;
 }
+
+.light .spinner__l {
+    stroke: black;
+}
   
 @keyframes cornersDash {
     100% {

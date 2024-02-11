@@ -97,51 +97,35 @@ const EventPage = ({ t, i18n }) => {
       {event && 
         <div className="event-page page-container">
           <div className="event-details">
-            <div className="event-details__date">
+            <div className="event-datetime-display">
+              <div className="event-datetime-display__left">
               <DateTile
                 startDate={new Date(event.event.time_start)}
                 endDate={new Date(event.event.time_end)}
                 color={event.category.color}
               />
-              <div className="event-details__date-expression">
-                {DatetimeFormatter.formatEventStatusDate(
-                  new Date(event.event.time_start),
-                  new Date(event.event.time_end),
-                  lang
-                )}
+              </div>
+              <div className="event-datetime-display__right">
+                <div className="event-datetime-display__day">
+                  {DatetimeFormatter.formatEventStatusDate(
+                    new Date(event.event.time_start),
+                    new Date(event.event.time_end),
+                    lang
+                  )}
+                </div>
+                {event.event.time_type != "whole_day" &&
+                  <div className="event-datetime-display__time">
+                      <i className="event-datetime-display__time-icon material-symbols-sharp">
+                        schedule
+                      </i>
+                      {event.event.time_type == "tbd" ? "TBD" : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
+                      {event.event.time_type == "default" ? " - " + DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_end)) : ""}
+                  </div>
+                }
               </div>
             </div>
 
             <div className="event-details__list">
-              {event.event.time_type != "whole_day" && (
-                <>
-                  <div className="event-details__lable">
-                    <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
-                      schedule
-                    </i>{" "}
-                    {t("info.start")}:
-                  </div>
-                  <div className="event-details__info">
-                    {event.event.time_type == "tbd" ? "TBD" : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
-                  </div>
-
-                  {event.event.time_type === "defualt" && 
-                    <>
-                      <div className="event-details__lable">
-                        <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
-                          schedule
-                        </i>
-                        {t("info.end")}:
-                      </div>
-                      <div className="event-details__info">
-                        {DatetimeFormatter.formatTimeHHMM(
-                          new Date(event.event.time_end)
-                        )}
-                      </div>
-                    </>
-                  }
-                </>
-              )}
               {event.location && (
                 <>
                   <div className="event-details__lable">

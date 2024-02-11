@@ -38,17 +38,33 @@
     position: relative;
 }
 
-.event-details__date {
+
+.event-datetime-display {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.event-details__date-expression {
-    font-size: 1.5rem;
-    line-height: 1.3em;
+.event-datetime-display__right {
     margin: auto 0;
 }
+
+.event-datetime-display__day {
+    font-size: 1.25rem;
+    color: var(--c-font-discret);
+}
+
+.event-datetime-display__time {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.event-datetime-display__time-icon {
+    font-size: 1.8rem;
+    margin-top: -.3rem;
+    margin-right: .3rem;
+}
+
 
 .event-details__list {
     display: grid;
@@ -185,7 +201,7 @@
         transition: .1s;
     }
 
-    .event-details__date {
+    .event-datetime-display {
         margin-right: 1.3rem;
     }
 
