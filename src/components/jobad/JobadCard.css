@@ -19,7 +19,7 @@
     width: 100%;
 	object-fit: contain;
 	aspect-ratio: 3/2;
-	border-radius: .2rem;
+	border-radius: .3rem;
 }
 
 .jobad-card__name {
@@ -33,7 +33,6 @@
 	white-space: pre-line;
 	overflow-wrap: break-word;
 	-ms-word-break: break-word;
-	word-break: break-word;
 	-ms-hyphens: auto;
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;

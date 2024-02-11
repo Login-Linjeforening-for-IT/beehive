@@ -99,7 +99,7 @@
   height: 0;
   opacity: 0;
   padding-right: .8rem;
-  transition: opacity 1s, height 2s, padding .5s;
+  transition: opacity .5s, height 2s, padding .5s;
 }
 
 .mobile-nav--open .mobile-nav__item {

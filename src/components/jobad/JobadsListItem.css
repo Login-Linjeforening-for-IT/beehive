@@ -4,10 +4,10 @@
 	padding: .13rem;
 	border-radius: .4rem;
 	margin-bottom: 1rem;
-}
-
-.jobads-item:hover {
-	background-color: var(--c-bg-box);
+	background-color: var(--c-corner-decor);
+	max-width: 18.3rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .jobads-item__wrapper {
@@ -120,6 +120,11 @@
 }
 
 @media only screen and (min-width: 400px) {
+
+	.jobads-item {
+		max-width: 100%;
+		background-color: var(--c-bg-main);
+	}
 
 	.jobads-item--highlight {
 		margin-bottom: 1rem;

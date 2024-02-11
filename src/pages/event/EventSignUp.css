@@ -4,20 +4,46 @@
     border-top: .2rem solid var(--c-corner-decor);
 }
 
-.event-signup__list {
-    margin: 1rem 0;
-}
-
 .event-signup__header {
     margin-bottom: 1rem;
     font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.event-signup__list {
+    margin: 1rem 0;
 }
 
 .event-signup__msg {
     grid-column: 1 / span 2;
     display: grid;
     grid-template-columns: min-content auto;
-    max-width: 17.5rem;
+    border-radius: .2rem;
+    padding: .5em 1em .5em .8em;
+}
+
+.event-signup__msg--warning {
+    color: var(--c-alert-warning-text);
+}
+.event-signup__msg--warning i {
+    color: var(--c-alert-warning-icon);
+}
+.event-signup__msg--warning {
+    padding: .5em 1em .5em .8em;
+    margin: 1rem 0 -.5rem 0;
+    max-width: 100%;
+    background-color: var(--c-alert-warning-bg);
+}
+
+.event-signup__msg--info {
+    color: var(--c-alert-info-text);
+}
+.event-signup__msg--info i {
+    color: var(--c-alert-info-icon);
+}
+.event-signup__msg--info {
+    background-color: var(--c-alert-info-bg);
+    border-radius: .2rem;
 }
 
 .event-signup__btn-container {
@@ -25,8 +51,22 @@
 }
 
 @media only screen and (min-width: 400px) {
+    .event-signup__msg--warning {
+        max-width: fit-content;
+    }
+
+    .event-signup__msg--info {
+        max-width: 17rem;
+    }
+
     .event-signup__btn {
         width: fit-content;
         min-width: 10rem;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .event-signup__msg--warning {
+        margin-left: auto;
     }
 }
