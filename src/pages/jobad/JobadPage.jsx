@@ -150,7 +150,7 @@ const JobadPage = ({ t, i18n }) => {
               <div className="jobad-details__value">
                 {getJobTypeLabel(jobad.job.job_type, lang)}
               </div>
-              {jobad.cities && jobad.job.cities.length > 0 &&
+              {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
                   <div className="jobad-details__lable">
                     <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
