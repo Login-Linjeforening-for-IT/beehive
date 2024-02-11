@@ -1,5 +1,5 @@
 # Frontend
-Our frontend is made using ReactJS
+Our frontend is made using ReactJS :)
 
 TODO: Write more about React and a local development environment
 
