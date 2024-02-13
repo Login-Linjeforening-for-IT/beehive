@@ -34,4 +34,4 @@ const Contact = ({t}) => {
   )
 }
 
-export default withTranslation('Policy')(Contact);
+export default withTranslation('policy')(Contact);
