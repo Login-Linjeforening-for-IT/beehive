@@ -4,11 +4,15 @@
     "intro": "Is your company looking for sharp IT students? Check out everything we have to offer your company.",
     "bedpres": {
       "title": "Company presentation",
-      "body": "Login's PR committee organizes company presentations where your company gets the opportunity to present to the students what you work on, what services you offer, how you work, etc. With this the students become aware of what you offer, and your working environment. We offer arrangements for food service (pizza) during the presentation, but it is most common to stroll down to a restaurant in town for dining and mingling between students and company representatives."
+      "body": "Login's company committee organizes weekly company presentations where your company will have the opportunity to showcase to students what you work with, the services you offer, how you operate, and more. This way, students become aware of what you offer as an employer, as well as your work environment. We offer catering options either during or after the presentation. We have received positive feedback from students when there is mingling with food and the company representatives after the presentation!",
+      "footer1": "Are you interested in such a presentation? Please contact us at ",  
+      "footer2": " to discuss the details or if you have any questions about the event!"
     },
     "cyberdays":{
       "title": "The Cyberdays",
-      "body": "The cyber days are our career day! It is organized once per semester and is a great arena for recruiting and promoting yourself to our students. Here you will have the opportunity to have a chat with students, market yourself, and not least advertise summer jobs to eager students! The company gets a stand and decides for itself what you want to carry out during the career day itself. Here we also arrange for speed interviews if desired. In the evening, arrangements are made for mingling with students at Huset with a beer and some food."
+      "body": "Cyberdagene are our career days! They are held once per semester and provide an excellent platform for recruiting and promoting your company to our students. Here, you'll have the opportunity to chat with students, market yourselves, and most importantly, advertise both part-time and summer job opportunities to eager students! Your company will have a stand, and you can decide what activities you'd like to arrange during the career day. We also facilitate speed interviews if desired. In the evening, there's an opportunity for mingling with students at Huset with a beer and some food.",
+      "footer1": "Could this be something your company is interested in participating in? Please email us at ", 
+      "footer2": " to join our mailing lists for more information and an invitation to participate!"
     },
     "ctf": {
       "title": "CTF",
