@@ -196,7 +196,7 @@ const JobadPage = ({ t, i18n }) => {
               <picture>
                 <img
                   alt={jobad.job.banner_image}
-                  src={jobad.job.banner_image}
+                  src={config.url.CDN_URL + "/img/ads/" + jobad.job.banner_image}
                   onError={hideBannerImg}
                 />
               </picture>
