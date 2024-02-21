@@ -51,10 +51,14 @@ const EventListItem = ({ i18n, event, highlight=false}) => {
           <div className="events-item__middle">
             <div className="events-item__name">{tr(event.name_en, event.name_no)}</div>
             <ul className="events-item__details">
-              <li className="events-item__detail">
-                <i className="events-item__icon material-symbols-sharp">schedule</i>
-                {DatetimeFormatter.formatEventStartDate(new Date(event.time_start), lang)}
-              </li>
+              {(event.time_type.toLowerCase() != "tbd" && event.time_type.toLowerCase() != "whole_day") &&
+                <li className="events-item__detail">
+                  <i className="events-item__icon material-symbols-sharp">
+                    schedule
+                  </i>
+                  {DatetimeFormatter.formatEventStartDate(new Date(event.time_start), lang)}
+                </li>
+              }
               {event.location_name_no && (
                 <li className="events-item__detail">
                   <i className="events-item__icon material-symbols-sharp">
