@@ -30,7 +30,7 @@ const getDefaultBanner = (category, color) => {
 };
 
 
-const EventCard= ({ t, i18n, event, disableTags=false}) => {
+const EventCard= ({i18n, event, disableTags=false}) => {
 
   const lang = i18n.language == "en" ? "en" : "no";
   const useEng = lang === 'en';
@@ -67,10 +67,14 @@ const EventCard= ({ t, i18n, event, disableTags=false}) => {
         <div className="event-card__info">
           <div className="event-card__name">{tr(event.name_en, event.name_no)}</div>
           <ul className="event-card__details">
-            <li className="event-card__detail">
-              <i className="event-card__icon material-symbols-sharp">schedule</i>
-              {DatetimeFormatter.formatEventStartDate(new Date(event.time_start), lang)}
-            </li>
+            {(event.time_type.toLowerCase() != "tbd" && event.time_type.toLowerCase() != "whole_day") &&
+              <li className="event-card__detail">
+                <i className="event-card__icon material-symbols-sharp">
+                  schedule
+                </i>
+                {DatetimeFormatter.formatEventStartDate(new Date(event.time_start), lang)}
+              </li>
+            }
             {event.location_name_no && (
               <li className="event-card__detail">
                 <i className="event-card__icon material-symbols-sharp">
