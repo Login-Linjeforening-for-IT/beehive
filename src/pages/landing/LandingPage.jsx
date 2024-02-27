@@ -90,26 +90,33 @@ const EventsPreview = ({t}) => {
 	}, []);
 
   return (
-    <div className='dynamic-preview'>
-      <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
-      { loading && 'Loading...' }
-      { events &&
-        <ul className='dynamic-preview__list'>
-          {events.map((e) => (
-            <li key={e.id}  className='dynamic-preview__list-item'>
-              <EventCard event={e} />
-            </li>
-          ))}
-          {(events.length > 2) &&
-            <li className='dynamic-preview__view-more'>
-              <Link to='/events' className='dynamic-preview__view-more-btn standard-button standard-button--primary standard-button--arrow-hover'>
-                {t('landing.eventsPreview.see-all')}
-              </Link>
-            </li>
-          }
-        </ul>
+    <>
+      { loading && 
+        <div className='dynamic-preview'>
+          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
+          Loading...
+        </div>
       }
-    </div>
+      { events && events.length > 0 &&
+        <div className='dynamic-preview'>
+          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
+            <ul className='dynamic-preview__list'>
+              {events.map((e) => (
+                <li key={e.id}  className='dynamic-preview__list-item'>
+                  <EventCard event={e} />
+                </li>
+              ))}
+              {(events.length > 2) &&
+                <li className='dynamic-preview__view-more'>
+                  <Link to='/events' className='dynamic-preview__view-more-btn standard-button standard-button--primary standard-button--arrow-hover'>
+                    {t('landing.eventsPreview.see-all')}
+                  </Link>
+                </li>
+              }
+            </ul>
+        </div>
+      }
+    </>
   )
 }
 
@@ -134,29 +141,36 @@ const JobadsPreview = ({t}) => {
 	}, []);
 
   return (
-    <div className='dynamic-preview'>
-      <h2 className='heading-2 dynamic-preview__heading'>{t('landing.jobadsPreview.title')}</h2>
-      { loading && 'Loading...' }
-      { jobads &&
-        <ul className='dynamic-preview__list'>
-          {jobads.map((j) => (
-            <li key={j.id}  className='dynamic-preview__list-item'>
-              <JobadCard jobad={j}/>
-            </li>
-          ))}
-          <li className='dynamic-preview__view-more'>
-            <Link to='/career' className='dynamic-preview__view-more-btn standard-button standard-button--primary standard-button--arrow-hover'>
-              {t('landing.jobadsPreview.see-all')}
-            </Link>
-          </li>
-        </ul>
+    <>
+      { loading && 
+        <div className='dynamic-preview'>
+          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
+          Loading...
+        </div>
       }
-    </div>
+      {jobads && jobads.length > 0 &&
+        <div className='dynamic-preview'>
+          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.jobadsPreview.title')}</h2>
+            <ul className='dynamic-preview__list'>
+              {jobads.map((j) => (
+                <li key={j.id}  className='dynamic-preview__list-item'>
+                  <JobadCard jobad={j}/>
+                </li>
+              ))}
+              <li className='dynamic-preview__view-more'>
+                <Link to='/career' className='dynamic-preview__view-more-btn standard-button standard-button--primary standard-button--arrow-hover'>
+                  {t('landing.jobadsPreview.see-all')}
+                </Link>
+              </li>
+            </ul>
+        </div>
+      }
+    </>
   )
 }
 
   
-const LandingPage = ({t,i18n}) => {
+const LandingPage = ({t}) => {
 
   return (
       <div className='LandingPage'>

@@ -11,6 +11,7 @@ import DefaultSocialBanner from "../svg/defaultbanners/DefaultSocialBanner";
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 import * as Translator from '../../utils/GetTranslation'
 import { config } from "../../Constants";
+import { isNew } from '../../utils/DatetimeFormatter';
 import "./EventListItem.css";
 
 
@@ -35,6 +36,16 @@ const EventListItem = ({ i18n, event, highlight=false}) => {
   const lang = i18n.language == "en" ? "en" : "no";
   const useEng = lang === 'en';
   const tr = Translator.getTranslation(useEng);
+
+  const useTags = (publishTime, highlight, canceled) => {
+    if (highlight) return true;
+    if (isNew(publishTime)) return true;
+    if (canceled) return true;
+    return false;
+  }
+  
+  console.log(event.time_publish, event.highlight, event.canceled);
+  
 
   const [showImage, setShowImage] = useState(true);
   const hideImg = () => setShowImage(false);
@@ -68,13 +79,15 @@ const EventListItem = ({ i18n, event, highlight=false}) => {
                 </li>
               )}
             </ul>
-            <div className="events-item__tags">
-              <Tags
-                highlight={highlight}
-                timePublish={new Date(event.time_publish)}
-                canceled={event.canceled}
-              />
-            </div>
+            {useTags(event.time_publish, highlight, event.canceled) &&
+              <div className="events-item__tags">
+                <Tags
+                  highlight={highlight}
+                  timePublish={new Date(event.time_publish)}
+                  canceled={event.canceled}
+                />
+              </div>
+            }
           </div>
           <picture className="events-item__picture">
             {showImage ? (

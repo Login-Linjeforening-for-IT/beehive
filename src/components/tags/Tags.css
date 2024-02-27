@@ -2,53 +2,63 @@
 
 .tag {
   font-size: .75rem;
-  border-radius: 2em;
+  border-radius: 10em;
   display: block;
-  width: fit-content;
-  height: fit-content;
-  padding: .25em .9em .15em .9em;
+  width: fit__container;
+  height: fit__container;
   font-weight: 500;
-  border: .1em solid;
-  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.tag__container {
+  padding: .2em .9em .2em .9em;
+  border-radius: 10em;
 }
   
 .tag--highlight {
-  border-color: var(--c-highlight-border);
-  color: var(--c-highlight-text);
-  background-color: var(--c-highlight-bg);
+  background: var(--c-bg-highlight-gradient);
+  padding: .1em;
 }
-.tag--highlight i {
-  font-size: 1.3em;
-  margin-left: -.3em;
-  margin-top: -.2em;
-  padding-right: .2em;
-  color: var(--c-highlight-text);
+.tag__container--highlight {
+  background-color: var(--c-bg-body);
 }
-  
-.tag--canceled {
-  border-color: var(--c-error-border);
-  background-color: var(--c-error-bg);
-  color: var(--c-error-text);
-}
-.tag--canceled i {
-  font-size: 1.2em;
-  color: var(--c-error-text);
-  margin-top: -.18em;
-  margin-left: -.1em;
-  padding-right: .2em;
+.tag__name--highlight {
+  background: var(--c-bg-highlight-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.light .tag--highlight {
+  background: var(--c-highlight-bg);
+}
+.light .tag__container--highlight {
+  background: var(--c-highlight-bg);
+}
+.light .tag__name--highlight {
+  background: none;
+  color: white;
+  -webkit-background-clip: inherit;
+  -webkit-text-fill-color: white;
+}
+
+.tag--canceled {
+  color: var(--c-error-text);
+}
+.tag__container--canceled {
+  background-color: var(--c-error-bg);
+  border: .1em solid var(--c-error-border);
+}
+
+.tag__name--canceled {
+  color: var(--c-error-text); 
+}
 .tag--new {
   background-color: var(--c-new-bg);
-  border-color: var(--c-new-border);
-  color: var(--c-new-text);
-  padding-left: .9em;
-  padding-right: .9em;
 }
-.tag--new i {
-  font-size: 1em;
-  margin-top: -.18em;
-  margin-left: -.3em;
+.tag__container--new {
+  border: .1em solid var(--c-new-border);
+}
+.tag__name--new {
   color: var(--c-new-text);
 }
 

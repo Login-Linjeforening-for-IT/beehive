@@ -6,7 +6,6 @@
 }
 
 .filter-groups__reset {
-    min-width: 12rem;
     width: 100%;
 }
 
@@ -48,7 +47,7 @@
     display: block;
     position: relative;
     cursor: pointer;
-    line-height: 1.9rem;
+    line-height: 2rem;
 }
 
 .filter__item--check {
@@ -142,7 +141,6 @@
 @media only screen and (min-width: 400px) {
 
     .filter-groups__reset {
-        min-width: 12rem;
         width: fit-content;
         margin-right: 0;
         margin-left: auto;

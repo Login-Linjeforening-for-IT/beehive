@@ -37,10 +37,6 @@
 	display: flex;
 	gap: .5rem;
 	flex-wrap: wrap;
-}
-
-/* BEM exeption, dont worry its fine */
-.events-item__tags .tag {
 	margin-top: .8rem;
 }
 

@@ -6,6 +6,7 @@ import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.s
 import * as DatetimeFormatter from '../../utils/DatetimeFormatter'
 import * as Translator from '../../utils/GetTranslation'
 import { config } from "../../Constants";
+import { isNew } from '../../utils/DatetimeFormatter';
 import Tags from '../tags/Tags';
 
 const jobTypeTranslations = {
@@ -30,14 +31,6 @@ const getJobTypeLabel = (job_type, lang="no") => {
   return lang === "en" ? labelEn : labelNo;
 };
 
-
-const isNew = (publishedDate) => {
-
-  let difLim = 7 * 24 * 60 * 60 * 1000 // one week
-  let dateNow = new Date()
-
-  return (dateNow - new Date(publishedDate)) < difLim;
-}
 
 const formatCities = (cities) => {
 
@@ -112,12 +105,9 @@ const JobadsListItem = ({ i18n, t, jobad }) => {
                 <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
                 {tr(jobad.organization_name_en, jobad.organization_name_no)}
               </li>
-              {(jobad.title_no || jobad.job_type) && 
+              {jobad.job_type && 
                 <li className='jobads-item__detail'>
-                  <i className='jobads-item__icon material-symbols-sharp'>badge</i>
-                  {jobad.position_title_no && 
-                    tr(jobad.position_title_en, jobad.position_title_no) + ", "
-                  }
+                  <i className='jobads-item__icon material-symbols-sharp'>work_history</i>
                   {getJobTypeLabel(jobad.job_type, useEng ? 'en' : 'no')}
                 </li>
               }
