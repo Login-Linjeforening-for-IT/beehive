@@ -18,6 +18,7 @@ const EventSignUp = ({ t, i18n, url, full, canceled=false, cap=null, signupRelea
   if (canceled) {
     msg = t('signup.canceled');
     showBtn = false;
+    warning = true;
   } else if (url === '') {
     reqSignup = false;
     showBtn = false;

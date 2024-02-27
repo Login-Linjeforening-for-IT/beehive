@@ -7,6 +7,16 @@ export function isTimeElapsed(dateTime, limit) {
 }
 
 
+// returns true if less than 7 days has passed
+export function isNew(dateTime) {
+
+  let difLim = 7 * 24 * 60 * 60 * 1000; // one week
+  let dateNow = new Date();
+
+  return (dateNow - new Date(dateTime)) < difLim;
+}
+
+
 // returns int
 // if x days until, return: x
 // if x days since, return: -x

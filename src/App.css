@@ -65,7 +65,7 @@
   --c-blue-dark: rgb(29, 110, 154);
   --c-red:      rgb(198, 0, 0);
   --c-dark-red: rgb(128, 0, 0);
-  --c-darker-red: rgb(40, 0, 0);
+  --c-darker-red: rgb(25, 0, 0);
   
   --c-black:    rgb(0, 0, 0);
   --c-grey-16:  rgb(16, 16, 16);
@@ -233,7 +233,7 @@
 
 
   /* filter */
-  --c-filter-tag-text: var(--c-grey-53);
+  --c-filter-tag-text: var(--c-black);
   --c-filter-tag-bg: var(--c-grey-200);
   --c-filter-tag-bg-hover: var(--c-grey-180);
 
@@ -406,7 +406,7 @@ a {
 /* buttons */
 
 .standard-button {
-  padding: .5em 1.5em;
+  padding: .6em 1.8em;
   display: block;
   border-radius: .2rem;
   text-align: center;
