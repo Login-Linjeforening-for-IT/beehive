@@ -1,9 +1,9 @@
 .event-card {
-	padding: 1rem .5rem;
+	padding: .5rem;
 	cursor: pointer;
 	transition: .2s;
 	border-radius: .3rem;
-	max-width: 18.3rem;
+	max-width: 18rem;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -75,7 +75,6 @@
 	vertical-align: top;
 }
 
-
 .event-card__tags {
 	margin-top: auto;
 	display: flex;
@@ -84,11 +83,23 @@
 }
 
 
+@media only screen and (min-width: 360px) {
+
+	.event-card {
+		padding: 1rem;
+		max-width: 19.5rem;
+	}
+
+	.event-card__top {
+		gap: 1rem;
+	}
+
+}
+
 @media only screen and (min-width: 400px) {
 
 	.event-card {
-		max-width: 20.8rem;
-		padding: 1rem;
+		max-width: 20.5rem;
 	}
 
 	.event-card__top {
