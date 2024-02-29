@@ -93,23 +93,35 @@ const EventsPreview = ({t}) => {
     <>
       { loading && 
         <div className='dynamic-preview'>
-          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+            <Link to='/events' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
           Loading...
         </div>
       }
       { events && events.length > 0 &&
         <div className='dynamic-preview'>
-          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
-            <ul className='dynamic-preview__list'>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+            <Link to='/events' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
+            <ul className='dynamic-preview-list'>
               {events.map((e) => (
-                <li key={e.id}  className='dynamic-preview__list-item'>
+                <li key={e.id}  className='dynamic-preview-list__item'>
                   <EventCard event={e} />
                 </li>
               ))}
               {(events.length > 2) &&
-                <li className='dynamic-preview__view-more'>
-                  <Link to='/events' className='dynamic-preview__view-more-btn standard-button standard-button--primary standard-button--arrow-hover'>
-                    {t('landing.eventsPreview.see-all')}
+                <li className='dynamic-preview-list__item dynamic-preview-end-card'>
+                  <Link to='/events' className='dynamic-preview-end-card__btn'>
+                    <span className='dynamic-preview-end-card__text'>
+                      {t('landing.eventsPreview.see-all')}
+                    </span>
                   </Link>
                 </li>
               }
@@ -144,24 +156,38 @@ const JobadsPreview = ({t}) => {
     <>
       { loading && 
         <div className='dynamic-preview'>
-          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.eventsPreview.title')}</h2>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+            <Link to='/career' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
           Loading...
         </div>
       }
-      {jobads && jobads.length > 0 &&
+      { jobads && jobads.length > 0 &&
         <div className='dynamic-preview'>
-          <h2 className='heading-2 dynamic-preview__heading'>{t('landing.jobadsPreview.title')}</h2>
-            <ul className='dynamic-preview__list'>
-              {jobads.map((j) => (
-                <li key={j.id}  className='dynamic-preview__list-item'>
-                  <JobadCard jobad={j}/>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+            <Link to='/career' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
+            <ul className='dynamic-preview-list'>
+              {jobads.map((e) => (
+                <li key={e.id}  className='dynamic-preview-list__item'>
+                  <JobadCard jobad={e} />
                 </li>
               ))}
-              <li className='dynamic-preview__view-more'>
-                <Link to='/career' className='dynamic-preview__view-more-btn standard-button standard-button--primary standard-button--arrow-hover'>
-                  {t('landing.jobadsPreview.see-all')}
-                </Link>
-              </li>
+              {(jobads.length > 2) &&
+                <li className='dynamic-preview-list__item dynamic-preview-end-card'>
+                  <Link to='/career' className='dynamic-preview-end-card__btn'>
+                    <span className='dynamic-preview-end-card__text'>
+                      {t('landing.eventsPreview.see-all')}
+                    </span>
+                  </Link>
+                </li>
+              }
             </ul>
         </div>
       }
