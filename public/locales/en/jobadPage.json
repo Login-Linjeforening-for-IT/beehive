@@ -5,6 +5,7 @@
         "type" : "Type",
         "location" : "Location",
         "locations" : "Locations",
+        "skills" : "Skills",
         "apply-btn" : "Apply here"
     },
     "published" : "PUBLISHED"

@@ -1,17 +1,17 @@
-.Spinner {
+.spinner {
     width: 100%;
     height: 100%;
     z-index: 999;
 }
 
-.Spinner svg {
+.spinner__svg {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
   
-.Spinner .Corners {
+.spinner__corners {
     fill: none;
     stroke-width: 7;
     stroke: #fd8738;
@@ -20,13 +20,17 @@
     -webkit-animation: cornersDash infinite 1.5s ease;
 }
   
-.Spinner .L {
+.spinner__l {
     fill: none;
     stroke: white;
     stroke-width: 4;
     stroke-dasharray: 50;
     animation: L 1.5s infinite ease;
     -webkit-animation: L infinite 1.5s ease;
+}
+
+.light .spinner__l {
+    stroke: black;
 }
   
 @keyframes cornersDash {

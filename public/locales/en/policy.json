@@ -1,0 +1,53 @@
+{
+  "policy" : {
+    "title":"Privacy Policy",
+    "intro": "Login - Linjeforeningen for IT",
+    "paragraphs": [
+        {
+            "subtitle": "About our Privacy Policy",
+            "description": "This Privacy Policy governs the Login mobile application (\"App\"), developed and maintained by Login - Linjeforeningen for IT, a registered non-profit organization dedicated to serving the student community at NTNU Gjøvik in Norway. This document delineates the principles, practices, and procedures governing the collection, usage, and disclosure of user information within the App."
+        },
+        {
+            "subtitle": "Introduction",
+            "description": "At Login - Linjeforeningen for IT, safeguarding user privacy is paramount, and we are steadfast in preserving the confidentiality and security of any information provided or generated during the utilization of our App. This Privacy Policy delineates our policies and protocols regarding data collection, utilization, and sharing, along with outlining your rights and choices concerning your information."
+        },
+        {
+            "subtitle": "Information Collection",
+            "description": "The Login App abstains from collecting any personally identifiable information or sensitive data from its users. We neither request nor mandate users to furnish any personal details such as names, email addresses, or contact information to access or employ the features and functionalities of the App."
+        },
+        {
+            "subtitle": "Utilization of Information",
+            "description": "Given our non-collection stance, there exists no information for utilization. Users can be assured that their privacy remains inviolate while utilizing the Login App, as we abstain from engaging in any form of data analysis, tracking, or profiling."
+        },
+        {
+            "subtitle": "Information Security",
+            "description": "Although we do not collect user data, we recognize the significance of maintaining robust security measures to safeguard the App and its users. We have instituted industry-standard security protocols and advanced technologies to fortify the integrity and confidentiality of the App's infrastructure and thwart unauthorized access or breaches."
+        },
+        {
+            "subtitle": "Non-Disclosure of Information",
+            "description": "In adherence to our non-data collection policy, we abstain from sharing any user information with third parties. User privacy stands as our paramount concern, and we eschew any form of data sharing, selling, or trading with external entities."
+        },
+        {
+            "subtitle": "",
+            "description": "Transparency and Communication We remain committed to transparency and open communication with our users regarding our privacy practices. Despite the absence of data collection, we provide clear and accessible information about our Privacy Policy and invite users to reach out to us with any questions, concerns, or feedback regarding their privacy rights and the operation of the App."
+        },
+        {
+            "subtitle": "Policy Updates",
+            "description": "We retain the right to update, modify, or amend this Privacy Policy at any time without prior notice. Any alterations to this Policy will be effective immediately upon posting on the App. We encourage users to periodically review this Privacy Policy to stay abreast of how we collect, utilize, and safeguard their information."
+        },
+        {
+            "subtitle": "Contact Information",
+            "description": "For any inquiries, comments, or concerns about this Privacy Policy or our data practices, please contact us using the information further down on the page. We are dedicated to promptly addressing any inquiries or issues and ensuring that your privacy rights are duly respected and safeguarded."
+        },
+        {
+            "subtitle": "",
+            "description": "By downloading, installing, or using the Login App, you indicate your acceptance of this Privacy Policy. If you disagree with any aspect of this Policy, we kindly request refraining from using the App. We appreciate your trust in us and remain steadfast in upholding the highest standards of privacy and data protection for our users."
+        }
+    ]
+  },
+  "contact": {
+    "title": "Contact Info",
+    "address": "Address",
+    "email": "Email"
+  }
+}

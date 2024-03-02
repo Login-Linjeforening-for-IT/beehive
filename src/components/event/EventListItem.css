@@ -1,0 +1,151 @@
+.events-item {
+	padding: .13rem;
+	cursor: pointer;
+	transition: .2s;
+	border-radius: .4rem;
+	list-style-type: none;
+	margin-bottom: .2rem;
+}
+
+.events-item:hover .events-item__wrapper {
+	background-color: var(--c-bg-box);
+}
+
+.events-item--highlight {
+	background: var(--c-bg-highlight-gradient);
+	transition: .2s;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.events-item--highlight:hover {
+	background: var(--c-bg-highlight-gradient-hover);
+}
+
+.events-item__wrapper {
+	display: grid;
+	grid-template-columns: min-content auto min-content;
+	width: 100%;
+	padding: .5rem;
+	z-index: 50;
+	border-radius: .3rem;
+	background-color: var(--c-bg-body);
+
+}
+
+.events-item__tags {
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+	margin-top: .8rem;
+}
+
+.events-item__middle {
+	min-width: 10rem;
+	margin: auto 0;
+	padding: 0 0 0 .75rem;
+
+	/* cleaner word-breaking */
+	word-break: break-word;
+	white-space: pre-line;
+	overflow-wrap: break-word;
+	-ms-word-break: break-word;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+.events-item__name {
+	font-weight: 400;
+	margin: 0;
+	font-size: 1.2rem;
+	line-height: 1.4em;
+}
+
+.events-item__details {
+	list-style: none;
+	list-style-type: none;
+	margin-top: .2rem;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: .5rem;
+	row-gap: .1rem;
+}
+
+.events-item__detail {
+	display: inline-block;
+	color: var(--c-font-regular);
+	font-size: .9rem;
+}
+
+.events-item__icon {
+	color: var(--c-font-regular);
+	padding-right: .3rem;
+	line-height: inherit;
+	font-size: 1.3em;
+	vertical-align: top;
+}
+
+.events-item__picture {
+	display: none;
+}
+
+.events-item__img, .events-item__picture svg {
+	display: block;
+	max-height: 5rem;
+    height: 100%;
+	width: 12.5rem;
+    object-fit: cover;
+	border-radius: .2rem;
+}
+
+@media only screen and (min-width: 600px) {
+	
+	.events-item__wrapper {
+		padding: 1rem;
+	}
+
+	.events-item__middle {
+		padding: 0 1rem;
+	}
+
+	.events-item__details {
+		margin-top: .2rem;
+		column-gap: 1rem;
+		row-gap: .2rem;
+	}
+
+	.events-item__picture {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+
+	.events-item__middle {
+		padding: 0 1rem;
+	}
+
+	.events-item__name {
+		font-size: 1.5rem;
+	}
+
+	.events-item__details {
+		margin-top: .2rem;
+		column-gap: 1.2rem;
+		row-gap: .5rem;
+	}
+
+	.events-item__detail {
+		font-size: .95rem;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+
+	.events-item--highlight {
+		margin-bottom: 1rem;
+	}
+}

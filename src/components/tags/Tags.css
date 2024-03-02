@@ -1,0 +1,68 @@
+/* tags */
+
+.tag {
+  font-size: .75rem;
+  border-radius: 10em;
+  display: block;
+  width: fit__container;
+  height: fit__container;
+  font-weight: 500;
+}
+
+.tag__container {
+  padding: .2em .9em .2em .9em;
+  border-radius: 10em;
+}
+  
+.tag--highlight {
+  background: var(--c-bg-highlight-gradient);
+  padding: .1em;
+}
+.tag__container--highlight {
+  background-color: var(--c-bg-body);
+}
+.tag__name--highlight {
+  background: var(--c-bg-highlight-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light .tag--highlight {
+  background: var(--c-highlight-bg);
+}
+.light .tag__container--highlight {
+  background: var(--c-highlight-bg);
+}
+.light .tag__name--highlight {
+  background: none;
+  color: white;
+  -webkit-background-clip: inherit;
+  -webkit-text-fill-color: white;
+}
+
+.tag--canceled {
+  color: var(--c-error-text);
+}
+.tag__container--canceled {
+  background-color: var(--c-error-bg);
+  border: .1em solid var(--c-error-border);
+}
+
+.tag__name--canceled {
+  color: var(--c-error-text); 
+}
+.tag--new {
+  background-color: var(--c-new-bg);
+}
+.tag__container--new {
+  border: .1em solid var(--c-new-border);
+}
+.tag__name--new {
+  color: var(--c-new-text);
+}
+
+@media only screen and (min-width: 800px) {
+  .tag {
+    font-size: .8rem;
+  }
+}

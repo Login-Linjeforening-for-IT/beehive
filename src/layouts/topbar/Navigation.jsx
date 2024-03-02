@@ -10,9 +10,9 @@ const Navigation = ({t}) => {
         <NavLink to='events'>
           <li className='main-nav__item standard-link--corner-hover'>{t('nav.events')}</li>
         </NavLink>
-        {/* <NavLink to='career'>
+        <NavLink to='career'>
           <li className='main-nav__item standard-link--corner-hover'>{t('nav.jobad')}</li>
-        </NavLink> */}
+        </NavLink>
         <NavLink to='verv'>
           <li className='main-nav__item standard-link--corner-hover'>{t('nav.verv')}</li>
         </NavLink>
