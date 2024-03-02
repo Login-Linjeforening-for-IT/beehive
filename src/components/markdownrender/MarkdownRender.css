@@ -1,0 +1,130 @@
+.markdown-render__h1,
+.markdown-render__h2,
+.markdown-render__h3,
+.markdown-render__h4,
+.markdown-render__h5,
+.markdown-render__h6 {
+    color: var(--c-font-title);
+    margin: 1.5em 0 .5em 0;
+    line-height: 1.2em;
+}
+
+.markdown-render__h2 {
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.markdown-render__h3 {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.markdown-render__h4 {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.markdown-render__section {
+    margin: 1rem 0;
+    max-width: 40rem;
+    color: var(--c-font-regular);
+}
+
+.markdown-render__strong {
+    color: var(--c-font-main);
+    font-weight: 600;
+}
+
+.markdown-render__ol {
+    margin: 1rem 1rem 1rem 1.5rem;
+}
+
+.markdown-render__ul{
+    margin: 1rem;
+    list-style: none;
+}
+
+.markdown-render__li {
+    color: var(--c-font-regular);
+}
+
+.markdown-render__li:before {
+    content: '\2022';
+    color: var(--c-link);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -.5em;
+}
+
+
+.markdown-render__a {
+    color: var(--c-link);
+}
+
+.markdown-render__a:hover {
+    text-decoration: underline;
+}
+
+
+/* table */
+.markdown-render__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.markdown-render__th, .markdown-render__td {
+    border: .1rem solid var(--c-corner-decor);
+    padding: .5rem 1rem;
+}
+
+
+/* code block */
+.markdown-render__main pre code {
+    font-family: monospace;
+    background-color: var(--c-bg-box);
+    padding: 1rem;
+    border-radius: .3rem;
+}
+
+
+/* embeded link components */
+.markdown-render__card {
+    width: fit-content;
+    border-radius: .3rem;
+    margin: 1rem auto;
+    border: .15rem solid var(--c-corner-decor);
+}
+
+
+@media only screen and (min-width: 400px) {
+
+    .markdown-render__h2 {
+        font-size: 1.7rem;
+    }  
+
+    .markdown-render__h3 {
+        font-size: 1.4rem;
+    }
+
+    .markdown-render__h4 {
+        font-size: 1.1rem;
+    }
+}
+
+
+@media only screen and (min-width: 800px) {
+
+    .markdown-render__h2 {
+        font-size: 2rem;
+    }
+  
+    .markdown-render__h3 {
+        font-size: 1.7rem;
+    }
+    
+    .markdown-render__h4 {
+        font-size: 1.4rem;
+    }
+}

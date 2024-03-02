@@ -142,7 +142,7 @@ const CommitteeTabs = ({t}) => {
       </TabContent>
       <TabContent id='bedkom' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          <i className='logfont-pr'></i> {t('committeeSection.bedkom.title')}
+          <i className='logfont-bedkom'></i> {t('committeeSection.bedkom.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>
@@ -196,7 +196,7 @@ const CommitteeTabs = ({t}) => {
       </TabContent>
       <TabContent id='pr' activeTab={activeTab}>
         <h3 className='committees__heading heading-3'>
-          {t('committeeSection.pr.title')}
+          <i className='logfont-pr'></i> {t('committeeSection.pr.title')}
         </h3>
         <div className='committees__info'>
           <div className='committees__text'>

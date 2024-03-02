@@ -15,9 +15,9 @@ const MobileNavigation = ({t, open, setIsOpen}) => {
       <NavLink onClick={close} to='events'>
         <li className='mobile-nav__item'>{t('nav.events')}</li>
       </NavLink>
-      {/* <NavLink onClick={close} to='career'>
+      <NavLink onClick={close} to='career'>
         <li className='mobile-nav__item'>{t('nav.jobad')}</li>
-      </NavLink> */}
+      </NavLink>
       <NavLink onClick={close} to='verv'>
         <li className='mobile-nav__item'>{t('nav.verv')}</li>
       </NavLink>

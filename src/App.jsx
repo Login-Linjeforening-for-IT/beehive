@@ -10,6 +10,7 @@ import Footer from "./layouts/footer/Footer";
 import About from "./pages/about/About";
 import Events from "./pages/eventlist/Events";
 import Companies from "./pages/business/CompaniesPage";
+import Policy from "./pages/policy/Policy";
 import EventPage from "./pages/event/EventPage";
 import Jobads from "./pages/jobadlist/Jobads";
 import JobadPage from "./pages/jobad/JobadPage";
@@ -40,9 +41,10 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/events" element={<Events />} />
                 <Route path="/events/:id" element={<EventPage />} />
-                {/* <Route path="/career" element={<Jobads />} />
-                <Route path="/career/:id" element={<JobadPage />} /> */}
+                <Route path="/career" element={<Jobads />} />
+                <Route path="/career/:id" element={<JobadPage />} />
                 <Route path="/companies" element={<Companies />} />
+                <Route path="/policy" element={<Policy />} />
                 <Route path="/verv" element={<Verv />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/rekruttering" element={<Verv />} />

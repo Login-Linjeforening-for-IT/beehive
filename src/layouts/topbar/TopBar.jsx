@@ -8,7 +8,6 @@ import ProfileSVG from '../../components/svg/profilesvg'
 
 import './TopBar.css'
 import LangToggle from "../../components/langtoggle/LangToggle";
-import {ThemeProvider} from "../../context/ThemeContext";
 
 const TopBar = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +17,7 @@ const TopBar = () => {
     <div className={`topbar ${isOpen ? 'topbar--open' : ''}`}>
         <Link to='/' onClick={isOpen ? toggle : ''} >
             <picture className='topbar__logo'>
-            <LoginLogoSmall />
+                <LoginLogoSmall />
             </picture>
         </Link>
         <Navigation/>

@@ -8,6 +8,7 @@
   },
   "footer": {
     "sponsor": "Hovedsamarbeidspartner",
-    "copy": "Opphavsrett &copy; 2023 Login - Linjeforeningen for IT, NO 811 940 372"
+    "copy1": "Opphavsrett &copy; ",
+    "copy2": " Login - Linjeforeningen for IT, NO 811 940 372"
   }
 }

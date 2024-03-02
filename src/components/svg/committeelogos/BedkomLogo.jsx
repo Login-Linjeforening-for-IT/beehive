@@ -22,8 +22,9 @@ const bedkomLogo = () => {
         <path className='bedkom-logo__l5 committee-logo--stroke-color' d='m 67 69 l 7 6' strokeWidth='3' />
         <circle className='bedkom-logo__c5 committee-logo--stroke-color committee-logo--fill-bg-color' cx='78' cy='78' r='6' strokeWidth='3' />
         <circle className='bedkom-logo__c6 committee-logo--stroke-color committee-logo--fill-bg-color' cx='55' cy='60' r='15' strokeWidth='3' />
-        <circle className='committee-logo--stroke-color' cx='55' cy='58' r='5' fill='none' strokeWidth='3'/>
-        <path className='committee-logo--stroke-color' d='M47 72 C47 61 63 61 63 72' fill='none' strokeWidth='3'/>
+
+        <path className='committee-logo--stroke-color committee-logo--fill-color' d='M55 62C57.7614 62 60 59.7614 60 57C60 54.2386 57.7614 52 55 52C52.2386 52 50 54.2386 50 57C50 59.7614 52.2386 62 55 62Z' />
+        <path className='committee-logo--stroke-color committee-logo--fill-color' d='M46.069 70.5C47.4792 64.5 62.5207 64.5 63.931 70.5C65.3412 76.5 44.6588 76.5 46.069 70.5Z' />
       </svg>
     )
   }

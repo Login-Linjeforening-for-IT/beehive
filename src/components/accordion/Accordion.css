@@ -8,7 +8,7 @@
 
 .accordion__nav-item {
     font-size: 1.5rem;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: .5rem;
     transition: .2s;
     cursor: pointer;
 }
@@ -46,7 +46,7 @@
 .accordion__content-item {
     font-size: 1rem;
     list-style: none;
-    padding: .5rem 1rem .5rem 3.5rem;
+    padding: .5rem 1rem .5rem 3.3rem;
 }
 
 .accordion__content-item:last-child {
@@ -57,6 +57,14 @@
 @media only screen and (min-width: 800px) {
     .accordion {
         margin: 0;
+    }
+
+    .accordion__nav-item {
+        padding: 1rem;
+    }
+
+    .accordion__content-item {
+        padding: .5rem 1rem .5rem 3.8rem;
     }
 }
 

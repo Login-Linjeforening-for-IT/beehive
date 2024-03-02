@@ -1,11 +1,16 @@
+import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import './LandingPage.css'
 import DecoratedPicture from '../../components/picture/DecoratedPicture'
 import LoginLogo from '../../components/svg/brandlogos/LoginLogo';
-import {Link} from 'react-router-dom'
 import { config } from '../../Constants'
 import {withTranslation} from "react-i18next";
 import {useContext} from "react";
 import ThemeContext from "../../context/ThemeContext";
+import EventCard from '../../components/event/EventCard';
+import JobadCard from '../../components/jobad/JobadCard';
+import { getEvents, getJobs } from '../../utils/api';
+
 
 const WelcomeBanner = ({t}) => {
   return (
@@ -63,12 +68,141 @@ const SmallInfo = ({t}) => {
   )
 }
 
+
+const EventsPreview = ({t}) => {
+
+  const [ events, setEvents ] = useState(null);
+	const [ loading, setLoading ] = useState(true);
+	const [ error, setError ] = useState(null);
+
+  useEffect(() => {
+		(async () => {
+			
+			const [ eventsData, err ] = await getEvents(null, 3, 0, true);
+			if (err) {
+				setEvents(err);
+				return;
+			}
+		
+			setLoading(false);
+			setEvents(eventsData);
+		})();
+	}, []);
+
+  return (
+    <>
+      { loading && 
+        <div className='dynamic-preview'>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+            <Link to='/events' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
+          Loading...
+        </div>
+      }
+      { events && events.length > 0 &&
+        <div className='dynamic-preview'>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+            <Link to='/events' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
+            <ul className='dynamic-preview-list'>
+              {events.map((e) => (
+                <li key={e.id}  className='dynamic-preview-list__item'>
+                  <EventCard event={e} />
+                </li>
+              ))}
+              {(events.length > 2) &&
+                <li className='dynamic-preview-list__item dynamic-preview-end-card'>
+                  <Link to='/events' className='dynamic-preview-end-card__btn'>
+                    <span className='dynamic-preview-end-card__text'>
+                      {t('landing.eventsPreview.see-all')}
+                    </span>
+                  </Link>
+                </li>
+              }
+            </ul>
+        </div>
+      }
+    </>
+  )
+}
+
+const JobadsPreview = ({t}) => {
+
+  const [ jobads, setJobads ] = useState(null);
+	const [ loading, setLoading ] = useState(true);
+	const [ error, setError ] = useState(null);
+
+  useEffect(() => {
+		(async () => {
+			
+			const [ jobadsData, err ] = await getJobs(null, null, null, null, 3, 0);
+			if (err) {
+				setJobads(err);
+				return;
+			}
+		
+			setLoading(false);
+			setJobads(jobadsData);
+		})();
+	}, []);
+
+  return (
+    <>
+      { loading && 
+        <div className='dynamic-preview'>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+            <Link to='/career' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
+          Loading...
+        </div>
+      }
+      { jobads && jobads.length > 0 &&
+        <div className='dynamic-preview'>
+          <div className='dynamic-preview-heading'>
+            <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+            <Link to='/career' className='dynamic-preview-heading__link'>
+              {t('landing.eventsPreview.see-all')}
+            </Link>
+          </div>
+            <ul className='dynamic-preview-list'>
+              {jobads.map((e) => (
+                <li key={e.id}  className='dynamic-preview-list__item'>
+                  <JobadCard jobad={e} />
+                </li>
+              ))}
+              {(jobads.length > 2) &&
+                <li className='dynamic-preview-list__item dynamic-preview-end-card'>
+                  <Link to='/career' className='dynamic-preview-end-card__btn'>
+                    <span className='dynamic-preview-end-card__text'>
+                      {t('landing.eventsPreview.see-all')}
+                    </span>
+                  </Link>
+                </li>
+              }
+            </ul>
+        </div>
+      }
+    </>
+  )
+}
+
   
-const LandingPage = ({t,i18n}) => {
+const LandingPage = ({t}) => {
 
   return (
       <div className='LandingPage'>
         <WelcomeBanner t={t}/>
+        <EventsPreview t={t}/>
+        <JobadsPreview t={t}/>
         <SmallInfo t={t}/>
       </div>
   );
