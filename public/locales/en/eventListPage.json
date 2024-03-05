@@ -2,6 +2,9 @@
   "title": "Events",
   "noEvents": "No upcoming events",
   "load-more": "Load more",
+  "this-week": "This week",
+  "next-week": "Next week",
+  "later": "Later",
   "filter": {
     "title": "filter",
     "searchHint": "Search...",

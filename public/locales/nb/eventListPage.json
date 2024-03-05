@@ -2,6 +2,9 @@
   "title": "Arrangementer",
   "noEvents": "Ingen kommene arrangementer",
   "load-more": "Last inn flere",
+  "this-week": "Denne uken",
+  "next-week": "Neste uke",
+  "later": "Senere",
   "filter": {
     "title": "filter",
     "searchHint": "Søk...",
