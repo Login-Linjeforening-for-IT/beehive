@@ -58,11 +58,16 @@
 }
 
 
+/* section previewing events and job ads */
 
 .dynamic-preview {
-    max-width: 73rem;
+    max-width: 75rem;
     margin: auto;
     padding: 1rem 0;
+}
+
+.dynamic-preview-seperator {
+    display: none;
 }
 
 .dynamic-preview-heading__title {
@@ -136,7 +141,7 @@
 }
 
 
-@media only screen and (min-width: 730px) { /* not the usal 800px break point, becuase of the size of the cards */
+@media only screen and (min-width: 730px) { /* not the usal 800px break point, because of the size of the cards */
 
     .dynamic-preview {
         width: fit-content;
@@ -145,11 +150,13 @@
 
     .dynamic-preview-heading__title {
         font-size: 1.8rem;
+        padding-left: 0;
     }
 
     .dynamic-preview-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        padding: 0;
     }
 
     .dynamic-preview-list__item .jobad-card {
@@ -162,17 +169,29 @@
 
 }
 
-@media only screen and (min-width: 1060px) { /* not the usal 800px break point, becuase of the size of the cards */
+@media only screen and (min-width: 1060px) { /* not the usal 800px break point, because of the size of the cards */
 
     .dynamic-preview {
         width: 100%;
+        padding: 1rem
+    }
+
+    .dynamic-preview-seperator {
+        display: block;
+        border: 0;
+        height: .15rem;
+        background-color: var(--c-corner-decor); 
+        margin: auto;
+        max-width: 70rem;
     }
 
     .dynamic-preview-heading {
         display: flex;
         justify-content: space-between;
-        margin: 0 1.5rem;
-        align-items: end;
+        align-items: center;
+        padding: 0 1rem .5rem 1rem;
+        max-width: 70rem;
+        margin: auto;
     }
 
     .dynamic-preview-heading__title {
@@ -181,7 +200,7 @@
 
     .dynamic-preview-heading__link {
         display: block;
-        padding: .5em 1.8em .5em 1em;
+        padding: .5em 1.5em .5em 1em;
         position: relative;
         font-size: 1.3rem;
         font-weight: 500;
@@ -199,7 +218,7 @@
         width: .6em;
         height: .6em;
         top: .95em;
-        right: .9em;
+        right: .5em;
         border-right: .18em solid transparent;
         border-bottom: .18em solid transparent;
         -webkit-transform: rotate(-45deg);
@@ -210,7 +229,7 @@
         border-color: var(--c-link);
     }
     .dynamic-preview-heading__link:hover:after {
-        right: .7em;
+        right: .4em;
     }
 
     .dynamic-preview-list {

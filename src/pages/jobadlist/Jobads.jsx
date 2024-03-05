@@ -171,16 +171,18 @@ const Jobads = ({ t }) => {
           />
         </div>
         <div className="jobads__section--right">
-          <ul className="jobads__list">
-            {jobads.length ? jobads.map((e, idx) => (
-              <li key={idx}>
-                <JobadsListItem jobad={e} />
-              </li>
-            )) :
-              <p>No matches...</p>
-            }
-          </ul>
-          {showLoadMore &&
+          {!loading &&
+            <ul className="jobads__list">
+              {jobads.length ? jobads.map((e, idx) => (
+                <li key={idx}>
+                  <JobadsListItem jobad={e} />
+                </li>
+              )) :
+                <p>No matches...</p>
+              }
+            </ul>
+          }
+          {!loading && showLoadMore &&
             <a className='jobads__load-more-btn standard-button standard-button--primary' onClick={loadItems}>{t('load-more')}</a>
           }
         </div>

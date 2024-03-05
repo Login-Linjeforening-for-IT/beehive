@@ -43,9 +43,6 @@ const EventListItem = ({ i18n, event, highlight=false}) => {
     if (canceled) return true;
     return false;
   }
-  
-  console.log(event.time_publish, event.highlight, event.canceled);
-  
 
   const [showImage, setShowImage] = useState(true);
   const hideImg = () => setShowImage(false);
@@ -90,7 +87,7 @@ const EventListItem = ({ i18n, event, highlight=false}) => {
             }
           </div>
           <picture className="events-item__picture">
-            {showImage ? (
+            {(event.image_small && showImage) ? (
               <img
                 className="events-item__img"
                 alt={event.image_small}

@@ -4,7 +4,7 @@
 	transition: .2s;
 	border-radius: .4rem;
 	list-style-type: none;
-	margin-bottom: .2rem;
+	margin: .2rem 0;
 }
 
 .events-item:hover .events-item__wrapper {
@@ -15,7 +15,7 @@
 	background: var(--c-bg-highlight-gradient);
 	transition: .2s;
 	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin: 1rem 0;
 }
 
 .events-item--highlight:hover {
@@ -37,7 +37,7 @@
 	display: flex;
 	gap: .5rem;
 	flex-wrap: wrap;
-	margin-top: .8rem;
+	margin-top: .5rem;
 }
 
 .events-item__middle {

@@ -92,7 +92,7 @@ const EventsPreview = ({t}) => {
   return (
     <>
       { loading && 
-        <div className='dynamic-preview'>
+        <section className='dynamic-preview'>
           <div className='dynamic-preview-heading'>
             <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
             <Link to='/events' className='dynamic-preview-heading__link'>
@@ -100,33 +100,36 @@ const EventsPreview = ({t}) => {
             </Link>
           </div>
           Loading...
-        </div>
+        </section>
       }
       { events && events.length > 0 &&
-        <div className='dynamic-preview'>
-          <div className='dynamic-preview-heading'>
-            <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
-            <Link to='/events' className='dynamic-preview-heading__link'>
-              {t('landing.eventsPreview.see-all')}
-            </Link>
-          </div>
-            <ul className='dynamic-preview-list'>
-              {events.map((e) => (
-                <li key={e.id}  className='dynamic-preview-list__item'>
-                  <EventCard event={e} />
-                </li>
-              ))}
-              {(events.length > 2) &&
-                <li className='dynamic-preview-list__item dynamic-preview-end-card'>
-                  <Link to='/events' className='dynamic-preview-end-card__btn'>
-                    <span className='dynamic-preview-end-card__text'>
-                      {t('landing.eventsPreview.see-all')}
-                    </span>
-                  </Link>
-                </li>
-              }
-            </ul>
-        </div>
+        <>
+          <section className='dynamic-preview'>
+            <div className='dynamic-preview-heading'>
+              <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+              <Link to='/events' className='dynamic-preview-heading__link'>
+                {t('landing.eventsPreview.see-all')}
+              </Link>
+            </div>
+              <ul className='dynamic-preview-list'>
+                {events.map((e) => (
+                  <li key={e.id}  className='dynamic-preview-list__item'>
+                    <EventCard event={e} />
+                  </li>
+                ))}
+                {(events.length > 2) &&
+                  <li className='dynamic-preview-list__item dynamic-preview-end-card'>
+                    <Link to='/events' className='dynamic-preview-end-card__btn'>
+                      <span className='dynamic-preview-end-card__text'>
+                        {t('landing.eventsPreview.see-all')}
+                      </span>
+                    </Link>
+                  </li>
+                }
+              </ul>
+          </section>
+          <hr className='dynamic-preview-seperator' />
+        </>
       }
     </>
   )
@@ -155,41 +158,47 @@ const JobadsPreview = ({t}) => {
   return (
     <>
       { loading && 
-        <div className='dynamic-preview'>
-          <div className='dynamic-preview-heading'>
-            <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
-            <Link to='/career' className='dynamic-preview-heading__link'>
-              {t('landing.eventsPreview.see-all')}
-            </Link>
-          </div>
-          Loading...
-        </div>
+        <>
+          <section className='dynamic-preview'>
+            <div className='dynamic-preview-heading'>
+              <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+              <Link to='/career' className='dynamic-preview-heading__link'>
+                {t('landing.eventsPreview.see-all')}
+              </Link>
+            </div>
+            Loading...
+          </section>
+          <hr className='dynamic-preview-seperator' />
+        </>
       }
       { jobads && jobads.length > 0 &&
-        <div className='dynamic-preview'>
-          <div className='dynamic-preview-heading'>
-            <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
-            <Link to='/career' className='dynamic-preview-heading__link'>
-              {t('landing.eventsPreview.see-all')}
-            </Link>
-          </div>
-            <ul className='dynamic-preview-list'>
-              {jobads.map((e) => (
-                <li key={e.id}  className='dynamic-preview-list__item'>
-                  <JobadCard jobad={e} />
-                </li>
-              ))}
-              {(jobads.length > 2) &&
-                <li className='dynamic-preview-list__item dynamic-preview-end-card'>
-                  <Link to='/career' className='dynamic-preview-end-card__btn'>
-                    <span className='dynamic-preview-end-card__text'>
-                      {t('landing.eventsPreview.see-all')}
-                    </span>
-                  </Link>
-                </li>
-              }
-            </ul>
-        </div>
+        <>
+          <section className='dynamic-preview'>
+            <div className='dynamic-preview-heading'>
+              <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+              <Link to='/career' className='dynamic-preview-heading__link'>
+                {t('landing.eventsPreview.see-all')}
+              </Link>
+            </div>
+              <ul className='dynamic-preview-list'>
+                {jobads.map((e) => (
+                  <li key={e.id}  className='dynamic-preview-list__item'>
+                    <JobadCard jobad={e} />
+                  </li>
+                ))}
+                {(jobads.length > 2) &&
+                  <li className='dynamic-preview-list__item dynamic-preview-end-card'>
+                    <Link to='/career' className='dynamic-preview-end-card__btn'>
+                      <span className='dynamic-preview-end-card__text'>
+                        {t('landing.eventsPreview.see-all')}
+                      </span>
+                    </Link>
+                  </li>
+                }
+              </ul>
+          </section>
+          <hr className='dynamic-preview-seperator' />
+        </>
       }
     </>
   )
