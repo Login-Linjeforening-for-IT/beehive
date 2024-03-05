@@ -7,6 +7,7 @@
 
 .filter-groups__reset {
     width: 100%;
+    margin-top: 1rem;
 }
 
 .filter-groups__reset i {
@@ -17,10 +18,9 @@
 
 .filter__title {
     font-size: .9rem;
-    letter-spacing: .2em;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--c-font-regular);
+    letter-spacing: .15em;
+    font-weight: 500;
+    color: var(--c-font-discret);
 }
 
 .filter__items {
