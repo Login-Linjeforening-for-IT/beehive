@@ -15,11 +15,6 @@
     color: var(--c-font-main);
 }
 
-.logchamp__discord {
-    color: rgb(5, 186, 0);
-}
-
 .logchamp p:last-child {
     margin-top: 1rem;
-    font-size: .9rem; /* some idiot's discord tag was too long */
 }
