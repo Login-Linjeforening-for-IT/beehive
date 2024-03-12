@@ -33,7 +33,7 @@ const ThemeToggle = () => {
     }
 
     return (
-        <div className='theme-toggle' onClick={e => switchTheme(e)}>
+        <button className='theme-toggle' onClick={e => switchTheme(e)}>
             <svg className='theme-toggle__svg' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
                 <mask id='theme-toggle__clip-path'>
                     <rect x="0" y="0" width="100" height="100" fill="white" />
@@ -50,7 +50,7 @@ const ThemeToggle = () => {
                 <rect className='theme-toggle__sun-ray' x='13' y='16.2426' width='6' height='14' transform='rotate(-45 13 16.2426)'/>
                 <path className='theme-toggle__sun-ray' d='M47 0H53V14H47V0Z'/>
             </svg>
-        </div>
+        </button>
     )
 }
 

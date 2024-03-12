@@ -7,6 +7,8 @@
     width: 4.3rem;
     text-align: center;
     border-radius: .3rem;
+    background: none;
+    border: none;
 }
 
 .lang-toggle:hover {
@@ -29,6 +31,9 @@
     }
 }
 
-.topbar--open .lang-toggle, .topbar--open .lang-toggle__icon {
-    color: var(--c-white);
+@media only screen and (max-width: 800px) {
+    .topbar--open .lang-toggle,
+    .topbar--open .lang-toggle__icon {
+        color: var(--c-white);
+    }
 }
