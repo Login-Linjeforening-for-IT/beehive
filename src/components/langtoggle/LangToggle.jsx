@@ -25,7 +25,10 @@ const LangToggle = ({i18n}) => {
   }
 
   return(
-    <div value={i18n.language} onClick={handleClick} className='lang-toggle'><i className={`lang-toggle__icon material-symbols-sharp ${jump ? 'lang-toggle__icon--jump' : ''}`}>language</i> {buttonText}</div>
+    <button value={i18n.language} onClick={handleClick} className='lang-toggle'>
+      <i className={`lang-toggle__icon material-symbols-sharp ${jump ? 'lang-toggle__icon--jump' : ''}`}>language</i>
+      {' ' + buttonText}
+    </button>
   )
 }
 
