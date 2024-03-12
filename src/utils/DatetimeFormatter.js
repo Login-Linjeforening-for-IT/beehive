@@ -201,16 +201,12 @@ export function formatEventStatusDate(startDate, endDate, lang='no') {
 
 
 // retur exampel: "Mon, 12:00"
-// if same day: "12:00"
 // if more than a year dif: "2020, Mon, 12:00"
 export function formatEventStartDate(dateTime, lang='en') {
   const now = new Date();
   const hours = dateTime.getHours();
   const minutes = dateTime.getMinutes();
   const timeStr = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-  const offsetDays = getOffsetDays(new Date(dateTime));
-
-  if(offsetDays === 0) return timeStr;
 
   const daysOfWeek = {
     en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],

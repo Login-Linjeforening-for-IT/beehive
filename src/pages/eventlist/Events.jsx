@@ -41,11 +41,15 @@ async function getCategoryFilters() {
 function groupEvents(eventsArray) {
 	// Get the current date
 	const currentDate = new Date();
-  
-	// Calculate the start of the current week (Sunday)
+
+	// Calculate the start of the current week (Monday)
 	const startOfWeek = new Date(currentDate);
-	startOfWeek.setDate(currentDate.getDate() - currentDate.getDay());
-  
+	startOfWeek.setDate(currentDate.getDate() - currentDate.getDay() + 1);
+
+	startOfWeek.setHours(0);
+	startOfWeek.setMinutes(0);
+	startOfWeek.setSeconds(0);
+
 	// Calculate the start of the next week
 	const startOfNextWeek = new Date(startOfWeek);
 	startOfNextWeek.setDate(startOfWeek.getDate() + 7);
@@ -53,12 +57,12 @@ function groupEvents(eventsArray) {
 	// Calculate the start of the week after next week
 	const startOfWeekAfterNextWeek = new Date(startOfWeek);
 	startOfWeekAfterNextWeek.setDate(startOfWeek.getDate() + 14);
-  
+
 	// group the dates
 	const currentWeekEvents = [];
 	const nextWeekEvents = [];
 	const futureEvents = [];
-  
+
 	eventsArray.forEach(event => {
 		const eventDate = new Date(event.time_start);
 
@@ -70,13 +74,13 @@ function groupEvents(eventsArray) {
 			futureEvents.push(event);
 	  	}
 	});
-  
+
 	return {
 		currentWeekEvents,
 		nextWeekEvents,
 		futureEvents
 	};
-  }
+}
 
 const Events = ({t}) => {
 

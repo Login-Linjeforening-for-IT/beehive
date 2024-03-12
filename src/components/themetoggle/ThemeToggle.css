@@ -2,6 +2,8 @@
     display: block;
     cursor: pointer;
     border-radius: .3rem;
+    background: none;
+    border: none;
 }
 
 .theme-toggle:hover {
