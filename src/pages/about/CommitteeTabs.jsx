@@ -9,16 +9,18 @@ import SatkomLogo from '../../components/svg/committeelogos/SatkomLogo'
 import PrLogo from '../../components/svg/committeelogos/PrLogo'
 import LogChamp from '../../components/logchamp/LogChamp'
 import {config} from '../../Constants';
-
+import board from '../../assets/boardmembers/boardmembers.json';
 import {useState} from 'react'
 import {withTranslation} from 'react-i18next'
-
 import '../../components/tabs/Tabs.css'
 import './CommitteeTabs.css'
 
 
-const CommitteeTabs = ({t}) => {
+const CommitteeTabs = ({t, i18n}) => {
+
   const [activeTab, setActiveTab] = useState('styret')
+
+  const useEng = i18n.language === "en";
 
   return (
     <div className='tabs committees'>
@@ -39,69 +41,16 @@ const CommitteeTabs = ({t}) => {
             </h3>
             <p className='p--highlighted'>{t('committeeSection.board.body')}</p>
           </div>
-          <LogChamp 
-            img={config.url.CDN_URL + '/img/portraits/portrett_leder.jpg'}
-            name='Tormod Mork Müller'
-            stilling={t('committeeSection.board.leader')}
-            discord='backsiide'
-            discordlink='https://discordapp.com/users/210124409816612876'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_nestleder.jpg'}
-            name='Kristina Kataki'
-            stilling={t('committeeSection.board.deputyChairman')}
-            discord='kataki7254'
-            discordlink='https://discordapp.com/users/877108421772582962'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_sekretær.jpg'}
-            name='Aleksander Aaboen'
-            stilling={t('committeeSection.board.secretary')}
-            discord='aleksanderaa'
-            discordlink='https://discordapp.com/users/610784035777544202'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_eventkom-leder.jpg'}
-            name='Sander Tøkje Hauge'
-            stilling={t('committeeSection.board.eventkom')}
-            discord='sandiss'
-            discordlink='https://discordapp.com/users/171972901501796352'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_bedkom-leder.jpg'}
-            name='Ida Haavik Førland'
-            stilling={t('committeeSection.board.bedkom')}
-            discord='idaforland'
-            discordlink='https://discordapp.com/users/470279697465606159'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_tekkom-leder.jpg'}
-            name='Eirik Hanasand'
-            stilling={t('committeeSection.board.tekkom')}
-            discord='eirikhanasand'
-            discordlink='https://discordapp.com/users/376827396764073997'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_ctfkom-leder.jpg'}
-            name='Eskil Refsgaard'
-            stilling={t('committeeSection.board.ctfkom')}
-            discord='eskilrefsgaard'
-            discordlink='https://discordapp.com/users/522483274933731331'
-          />
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_økonomi.jpg'}
-            name='Trygve Sollund'
-            stilling={t('committeeSection.board.satkom')}
-            discord='spikeupine'
-            discordlink='https://discordapp.com/users/209395476288634881'
-          />
-           <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'}
-            name='Bjørn Kristian Strand'
-            stilling={t('committeeSection.board.pr')}
-            discord='bk_suup'
-            discordlink='https://discordapp.com/users/353992260507140097'
-          />
+          {Object.keys(board).map((key) => (
+            <LogChamp
+              key={key}
+              img={config.url.CDN_URL + '/img/portraits/' + board[key].img}
+              name={board[key].name}
+              stilling={useEng ? board[key].title_en : board[key].title_no}
+              discord={board[key].dctag}
+              discordlink={board[key].dclink}
+            />
+          ))}
         </div>
       </TabContent>
       <TabContent id='event' activeTab={activeTab}>
@@ -113,12 +62,12 @@ const CommitteeTabs = ({t}) => {
             <p className='p--highlighted'>{t('committeeSection.eventkom.intro')}</p>
             <p className='p--regular' dangerouslySetInnerHTML={{__html: t('committeeSection.eventkom.body')}} />
           </div>
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_eventkom-leder.jpg'}
-            name='Sander Tøkje Hauge'
-            stilling={t('committeeSection.board.eventkom')}
-            discord='sandiss'
-            discordlink='https://discordapp.com/users/171972901501796352'
+          <LogChamp 
+            img={config.url.CDN_URL + '/img/portraits/' +  board.eventkomLeader.img}
+            name={board.eventkomLeader.name}
+            stilling={useEng ? board.eventkomLeader.title_en : board.eventkomLeader.title_no}
+            discord={board.eventkomLeader.dctag}
+            discordlink={board.eventkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -131,12 +80,12 @@ const CommitteeTabs = ({t}) => {
             <p className='p--highlighted'>{t('committeeSection.tekkom.intro')}</p>
             <p className='p--regular'>{t('committeeSection.tekkom.body')}</p>
           </div>
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_tekkom-leder.jpg'}
-            name='Eirik Hanasand'
-            stilling={t('committeeSection.board.tekkom')}
-            discord='eirikhanasand'
-            discordlink='https://discordapp.com/users/376827396764073997'
+          <LogChamp 
+            img={config.url.CDN_URL + '/img/portraits/' +  board.tekkomLeader.img}
+            name={board.tekkomLeader.name}
+            stilling={useEng ? board.tekkomLeader.title_en : board.tekkomLeader.title_no}
+            discord={board.tekkomLeader.dctag}
+            discordlink={board.tekkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -149,12 +98,12 @@ const CommitteeTabs = ({t}) => {
             <p className='p--highlighted'>{t('committeeSection.bedkom.intro')}</p>
             <p className='p--regular'>{t('committeeSection.bedkom.body')}</p>
           </div>
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_bedkom-leder.jpg'}
-            name='Ida Haavik Førland'
-            stilling={t('committeeSection.board.bedkom')}
-            discord='idaforland'
-            discordlink='https://discordapp.com/users/470279697465606159'
+          <LogChamp 
+            img={config.url.CDN_URL + '/img/portraits/' +  board.bedkomLeader.img}
+            name={board.bedkomLeader.name}
+            stilling={useEng ? board.bedkomLeader.title_en : board.bedkomLeader.title_no}
+            discord={board.bedkomLeader.dctag}
+            discordlink={board.bedkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -167,12 +116,12 @@ const CommitteeTabs = ({t}) => {
             <p className='p--highlighted'>{t('committeeSection.ctfkom.intro')}</p>
             <p className='p--regular' dangerouslySetInnerHTML={{__html: t('committeeSection.ctfkom.body')}}/>
           </div>
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_ctfkom-leder.jpg'}
-            name='Eskil Refsgaard'
-            stilling={t('committeeSection.board.ctfkom')}
-            discord='eskilrefsgaard'
-            discordlink='https://discordapp.com/users/522483274933731331'
+          <LogChamp 
+            img={config.url.CDN_URL + '/img/portraits/' +  board.ctfkomLeader.img}
+            name={board.ctfkomLeader.name}
+            stilling={useEng ? board.ctfkomLeader.title_en : board.ctfkomLeader.title_no}
+            discord={board.ctfkomLeader.dctag}
+            discordlink={board.ctfkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -185,12 +134,12 @@ const CommitteeTabs = ({t}) => {
             <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t('committeeSection.satkom.intro')}} />
             <p className='p--regular'>{t('committeeSection.satkom.body')}</p>
           </div>
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_økonomi.jpg'}
-            name='Trygve Sollund'
-            stilling={t('committeeSection.board.satkom')}
-            discord='spikeupine'
-            discordlink='https://discordapp.com/users/209395476288634881'
+          <LogChamp 
+            img={config.url.CDN_URL + '/img/portraits/' +  board.satkomLeader.img}
+            name={board.satkomLeader.name}
+            stilling={useEng ? board.satkomLeader.title_en : board.satkomLeader.title_no}
+            discord={board.satkomLeader.dctag}
+            discordlink={board.satkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -203,12 +152,12 @@ const CommitteeTabs = ({t}) => {
             <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t('committeeSection.pr.intro')}} />
             <p className='p--regular'>{t('committeeSection.pr.body')}</p>
           </div>
-          <LogChamp
-            img={config.url.CDN_URL + '/img/portraits/portrett_pr-leder.jpg'}
-            name='Bjørn Kristian Strand'
-            stilling={t('committeeSection.board.pr')}
-            discord='bk_suup'
-            discordlink='https://discordapp.com/users/353992260507140097'
+          <LogChamp 
+            img={config.url.CDN_URL + '/img/portraits/' +  board.prLeader.img}
+            name={board.prLeader.name}
+            stilling={useEng ? board.prLeader.title_en : board.prLeader.title_no}
+            discord={board.prLeader.dctag}
+            discordlink={board.prLeader.dclink}
           />
         </div>
       </TabContent>
