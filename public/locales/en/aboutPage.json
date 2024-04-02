@@ -29,16 +29,7 @@
     "intro": "The association is made up of a main board and a number of committees.",
     "board": {
       "title": "Board",
-      "body": "The highest level of the association is the board. During the annual meeting, the chairman, deputy chairman and secretary are voted in, and these sit together with the leaders from the various committees on the board. Together, these are responsible for running the association, managing the finances and ensuring that everyone performs the tasks they are supposed to.",
-      "leader": "Leader",
-      "deputyChairman": "Deputy chairman",
-      "secretary": "Secretary",
-      "eventkom": "EventKom leader",
-      "bedkom": "Bedkom leader",
-      "tekkom": "TekKom leader",
-      "ctfkom": "CTF leader",
-      "satkom": "SATkom leader",
-      "pr": "PR leader"
+      "body": "The highest level of the association is the board. During the annual meeting, the chairman, deputy chairman and secretary are voted in, and these sit together with the leaders from the various committees on the board. Together, these are responsible for running the association, managing the finances and ensuring that everyone performs the tasks they are supposed to."      
     },
     "eventkom": {
       "title": "EventKom",
