@@ -92,15 +92,18 @@ const EventsPreview = ({t}) => {
   return (
     <>
       { loading && 
-        <section className='dynamic-preview'>
-          <div className='dynamic-preview-heading'>
-            <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
-            <Link to='/events' className='dynamic-preview-heading__link'>
-              {t('landing.eventsPreview.see-all')}
-            </Link>
-          </div>
-          Loading...
-        </section>
+        <>
+          <section className='dynamic-preview'>
+            <div className='dynamic-preview-heading'>
+              <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+              <Link to='/events' className='dynamic-preview-heading__link'>
+                {t('landing.eventsPreview.see-all')}
+              </Link>
+            </div>
+            Loading...
+          </section>
+          <hr className='dynamic-preview-seperator' />
+        </>
       }
       { events && events.length > 0 &&
         <>

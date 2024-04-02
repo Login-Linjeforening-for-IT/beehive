@@ -18,7 +18,7 @@ const CompaniesPage = ({t}) => {
         </section>
         <section>
             <div>
-                <h2 className='heading-2'><i className='companies-page__header-icon logfont-pr'></i> {t('companies.cyberdays.title')}</h2>
+                <h2 className='heading-2'><i className='companies-page__header-icon logfont-bedkom'></i> {t('companies.cyberdays.title')}</h2>
                 <p className='p--regular'>{t('companies.cyberdays.body')}</p>
                 <p className='p--regular'>{t('companies.cyberdays.footer1')}<a className='standard-link standard-link--underscore-hover' href='mailto:cyberdagene@login.no'>cyberdagene@login.no</a>{t('companies.cyberdays.footer2')}</p>
             </div>
