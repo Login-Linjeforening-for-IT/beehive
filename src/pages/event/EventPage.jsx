@@ -255,7 +255,7 @@ const EventPage = ({ t, i18n }) => {
           </div>
           <div className="event-description">
             <Article
-              title={(event.event.canceled ? '❌(' + t('canceled') + ') ' : '') + tr(event.event.name_no, event.event.name_no)}
+              title={(event.event.canceled ? '❌(' + t('canceled') + ') ' : '') + tr(event.event.name_en, event.event.name_no)}
               publishTime={new Date(event.event.time_publish)}
               updateTime={new Date(event.event.updated_at)}
               informational={tr(event.event.informational_en, event.event.informational_no)}
