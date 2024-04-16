@@ -4,6 +4,8 @@ import { withTranslation } from "react-i18next";
 import './Footer.css';
 import { config } from "../../Constants";
 
+var version = process.env.REACT_APP_FRONTEND_VERSION;
+
 const Footer = ({ t }) => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
@@ -25,6 +27,7 @@ const Footer = ({ t }) => {
       </div>
       <SocialLinks />
       <p className='footer__p' dangerouslySetInnerHTML={{ __html: ` ${t('footer.copy1')} ${currentYear} ${t('footer.copy2')}` }} />
+      {version!=="undefined" ? <p className='footer__p'>{version}</p> : null}
     </div>
   );
 }
