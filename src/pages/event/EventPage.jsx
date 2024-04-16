@@ -269,11 +269,11 @@ const EventPage = ({ t, i18n }) => {
                       <i className="material-symbols-sharp">gavel</i> {tr(event.rule.name_en, event.rule.name_no)}
                     </>
                   }
-                  content={
-                    <div className="rules__content">
-                      <MarkdownRender MDstr={tr(event.rule.description_en, event.rule.description_no)} />
-                    </div>
-                  } />
+                >
+                  <div className="rules__content">
+                    <MarkdownRender MDstr={tr(event.rule.description_en, event.rule.description_no)} />
+                  </div>
+                </DropDownBox>
               </div>
             }
           </div>

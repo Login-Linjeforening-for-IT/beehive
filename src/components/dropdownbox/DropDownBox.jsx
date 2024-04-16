@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './DropDownBox.css';
 
-const DropDownBox = ({ title, content }) => {
+const DropDownBox = ({ title, children }) => {
     const [isOpen, setOpen] = useState(false);
 
     const handleClick = () => {
@@ -20,7 +20,7 @@ const DropDownBox = ({ title, content }) => {
                 </i>
             </div>
             <div className={`drop-down-box__content ${isOpen ? 'drop-down-box__content--open' : ''}`}>
-                {content}
+                {children}
             </div>
         </div>
     )
