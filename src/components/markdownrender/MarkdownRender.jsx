@@ -30,7 +30,7 @@ const CustomLink = ({ href, children }) => {
 
 function ErrorMessage({ err, title }) {
   if (!err.error) {
-    return JSON.stringify(err);
+    return "Unknown error";
   }
 
   return (
