@@ -27,6 +27,11 @@ const getJob = async (jobID) => {
     return await _apiFetch(path);
 }
 
+const getJobRow = async (jobID) => {
+    const path = `/jobs/${jobID}/row`;
+    return await _apiFetch(path);
+}
+
 const getJobs = async (skills = null, cities = null, organizations = null, jobtypes = null, limit = 20, offset = 0) => {
     const queryParts = { limit, offset };
     skills && (queryParts.skills = _arrayToQueryString(skills));
@@ -41,6 +46,11 @@ const getJobs = async (skills = null, cities = null, organizations = null, jobty
 
 const getEvent = async (eventID) => {
     const path = `/events/${eventID}`;
+    return await _apiFetch(path);
+}
+
+const getEventRow = async (eventID) => {
+    const path = `/events/${eventID}/row`;
     return await _apiFetch(path);
 }
 
@@ -81,11 +91,13 @@ const getJobOrganizationFilters = async () => {
 
 export {
     getEvent,
+    getEventRow,
     getEvents,
 
     getEventCategoryFilters,
 
     getJob,
+    getJobRow,
     getJobs,
 
     getJobJobtypeFilters,

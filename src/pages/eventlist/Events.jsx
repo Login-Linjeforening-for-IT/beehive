@@ -165,12 +165,11 @@ const Events = ({t}) => {
 				<div className="events__section--left">
 					<DropDownBox 
 						title={<><i className='material-symbols-sharp'>filter_alt</i> Filter</>} 
-						content={ 
-							<div className='events__filter-container'>
-								{filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "no filter data"}
-							</div>
-						}
-					/>
+					>
+						<div className='events__filter-container'>
+							{filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "no filter data"}
+						</div>
+					</DropDownBox>
 				</div>
 				<div className='events__section--right'>
 					{!loading &&
