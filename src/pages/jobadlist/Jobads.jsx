@@ -162,13 +162,12 @@ const Jobads = ({ t }) => {
         {loading && <Spinner w="50" h="50" />}
         <div className="jobads__section--left">
           <DropDownBox 
-            title={<><i className='material-symbols-sharp'>filter_alt</i> Filter</>} 
-            content={ 
-              <div className='jobads__filter-container'>
-                {filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "no filter data"}
-              </div>
-            }
-          />
+            title={<><i className='material-symbols-sharp'>filter_alt</i> Filter</>}
+          >
+            <div className='jobads__filter-container'>
+              {filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "no filter data"}
+            </div>
+          </DropDownBox>
         </div>
         <div className="jobads__section--right">
           {!loading &&

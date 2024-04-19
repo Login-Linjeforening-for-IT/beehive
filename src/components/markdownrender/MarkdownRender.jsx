@@ -4,7 +4,8 @@ import remarkGfm from 'remark-gfm';
 import "./MarkdownRender.css";
 import EventCard from '../event/EventCard';
 import JobadCard from "../jobad/JobadCard";
-import { getEvent, getJob } from "../../utils/api"
+import DropDownBox from "../dropdownbox/DropDownBox";
+import { getEventRow, getJobRow } from "../../utils/api"
 
 
 const CustomLink = ({ href, children }) => {
@@ -27,32 +28,54 @@ const CustomLink = ({ href, children }) => {
   )
 }
 
+function ErrorMessage({ err, title }) {
+  if (!err.error) {
+    return "Unknown error";
+  }
+
+  return (
+    <DropDownBox title={title}>
+      {err.status && <p>Status: {err.status}</p>}
+      {err.error && <p>Error: {err.error}</p>}
+    </DropDownBox>
+  );
+}
+
 
 function EventEmbed(id) {
 
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ response, err ] = await getEvent(id);
+        const [response, err] = await getEventRow(id);
+        if (err) {
+          setError(err);
+          return;
+        } else {
+          setError(null);
+        }
 
-        // fix the event object to contain the same values u get when fetching multiple events
-        response.event.category_color = response?.category?.color
-        response.event.location_name_no = response?.location?.name_no
-        response.event.location_name_en = response?.location?.name_en
-
-        setEvent(response.event);
+        setEvent(response);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching event data:', error);
+        console.error('Error Fetching Event Data:', error);
         setLoading(false);
+        setError(error);
       }
     };
 
     fetchData();
   }, [id]);
+
+  if (error) {
+    return (
+      <ErrorMessage err={error} title={"Error Fetching Event #" + id} />
+    )
+  }
 
   return (
     <div className="markdown-render__card">
@@ -71,27 +94,36 @@ function JobadEmbed(id) {
 
   const [jobad, setJobad] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ response, err ] = await getJob(id);
+        const [ response, err ] = await getJobRow(id);
+        if (err) {
+          setError(err);
+          return;
+        } else {
+          setError(null);
+        }
 
-        // fix the job object to contain the same values u get when fetching multiple jobs
-        response.job.organization_name_no = response.organization.name_no;
-        response.job.organization_name_en = response.organization.name_en;
-        response.job.organization_logo = response.organization.logo;
-
-        setJobad(response.job);
+        setJobad(response);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching job ad data:', error);
         setLoading(false);
+        setError(error);
       }
     };
 
     fetchData();
   }, [id]);
+
+  if (error) {
+    return (
+      <ErrorMessage err={error} title={"Error Fetching Job Ad #" + id} />
+    )
+  }
 
   return (
     <div className="markdown-render__card">
@@ -131,7 +163,7 @@ const components = {
 const MarkdownRender = ({MDstr}) => {
   return (
     <Markdown components={components} remarkPlugins={[remarkGfm]}>
-      {MDstr.replace(/\\n/g, '  \n')}
+      {MDstr.replace(/\\n/g, '\n')}
     </Markdown>
   );
 };
