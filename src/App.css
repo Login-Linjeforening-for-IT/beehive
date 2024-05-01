@@ -130,6 +130,12 @@
   --c-on-box-dim: var(--c-grey-69);
 
 
+  /* footer */
+  --c-font-footer-main: var(--c-grey-220);
+  --c-font-footer-discret: var(--c-grey-130);
+  --c-bg-footer-tag: var(--c-grey-33);
+
+
   /* decoration */
   --c-corner-decor: var(--c-grey-48);
 
@@ -209,6 +215,12 @@
   --c-font-discret: var(--c-grey-69);
   --c-link: var(--c-primary-dark);
   --c-on-box-dim: var(--c-grey-180);
+
+
+  /* footer */
+  --c-font-footer-text: var(--c-grey-240);
+  --c-font-footer-discret: var(--c-grey-180);
+  --c-bg-footer-tag: var(--c-grey-48);
 
 
   /* signal colors */
