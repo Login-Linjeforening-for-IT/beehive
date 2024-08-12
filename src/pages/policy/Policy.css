@@ -1,42 +1,11 @@
 .policy-page {
-    max-width: 40rem;
+    max-width: 50rem;
     margin: auto;
-    display: grid;
-    place-content: center;
-}
-
-.policy-page__grid-container {
-    padding: 0 1rem;
-    row-gap: 1rem;
-}
-
-.policy-page__intro {
-    margin: 1rem;
-}
-
-.policy-section__header {
-    display: flex;
-    align-items: center;
-}
-
-.policy-section__header-icon {
-    font-size: 1.2em;
-    line-height: inherit;
-    vertical-align: top;
-    margin-right: .3em;
+    padding-bottom: 3rem;
 }
 
 @media only screen and (min-width: 800px) {
-
-    .policy-page__intro {
-        margin-top: 2rem;
-    }
-}
-
-
-@media only screen and (min-width: 1000px) {
-
     .policy-page {
-        max-width: 75rem;
+        padding-bottom: 5rem;
     }
 }
