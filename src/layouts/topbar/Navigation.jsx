@@ -42,13 +42,21 @@ const Navigation = ({t}) => {
           <div className='main-nav-dropdown__wrapper'>
             <ul className="main-nav-dropdown__items">
               <NavLink to='about' ref={navItemRefs.current[0]} onClick={handleClick}>
-                <li className='main-nav-dropdown__item standard-link--corner-hover'>{t('nav.general')}</li>
+                <li className='main-nav-dropdown__item standard-link--corner-hover'>
+                  <i className="logfont-login test"></i>
+                  {t('nav.general')}
+                </li>
               </NavLink>
               <NavLink to='verv' ref={navItemRefs.current[1]} onClick={handleClick}>
-                <li className='main-nav-dropdown__item standard-link--corner-hover'>{t('nav.verv')}</li>
+                <li className='main-nav-dropdown__item standard-link--corner-hover'>
+                  <i className="material-symbols-sharp test">favorite</i>
+                  {t('nav.verv')}
+                </li>
               </NavLink>
               <a title='Wiki' href='https://wiki.login.no' target='_blank' rel='noreferrer' ref={navItemRefs.current[2]} onClick={handleClick}>
                 <li className='main-nav-dropdown__item standard-link--corner-hover'>
+                  <i className="material-symbols-sharp test">import_contacts</i>
+                  {/* <i className="material-symbols-sharp test">book</i> */}
                   Wiki<i className="material-symbols-sharp wiki__arrow">arrow_outward</i>
                 </li>
               </a>

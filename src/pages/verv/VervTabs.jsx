@@ -9,12 +9,10 @@ import PrLogo from '../../components/svg/committeelogos/PrLogo'
 import LogChamp from '../../components/logchamp/LogChamp'
 import {config} from '../../Constants';
 import board from '../../assets/boardmembers/boardmembers.json';
-
 import {useState} from 'react'
 import {withTranslation} from 'react-i18next'
-
 import '../../components/tabs/Tabs.css'
-import './VervTabs.css'
+import '../about/CommitteeTabs.css'
 
 
 const VervTabs = ({t, i18n}) => {
@@ -23,7 +21,7 @@ const VervTabs = ({t, i18n}) => {
   const useEng = i18n.language === "en";
 
   return (
-    <div className='tabs committees'>
+    <div className='tabs committees page-section--without-gaps'>
       <ul className='tabs__nav'>
         <TabNavItem title={<EventkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<TekkomLogo/>} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>

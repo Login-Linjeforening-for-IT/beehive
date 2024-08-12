@@ -3,20 +3,16 @@
   max-width: 75rem;
   width: 100%;
   margin: auto;
-  padding: 1rem;
+  padding: .5rem;
   height: var(--h-topbar);
   transition: 0.5s;
 }
-
-.topbar__logo {
-  height: 3rem;
-}
-
 
 /* logo component from components -> svg */
 .logo-small {
   display: block;
   height: 3rem;
+  padding: .2rem;
 }
 
 .logo-small__letter {
@@ -48,8 +44,12 @@
 
 .mobile-nav {
   position: fixed;
-  top: 5rem;
+  top: 6rem;
   width: calc(100% - 2rem);
+  max-width: 35rem;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
 }
 
 .topbar__hamburger {
@@ -204,10 +204,15 @@
 
   .topbar {
     justify-content: space-between;
+    padding: 1rem;
   }
 
   .topbar--open {
     height: var(--h-topbar);
+  }
+
+  .logo-small {
+    padding: 0;
   }
 
   .mobile-nav {
@@ -273,7 +278,7 @@
   .main-nav-dropdown__wrapper {
     position: absolute;
     padding-top: .5rem;
-    margin-left: -1rem;
+    margin-left: -.5rem;
     transform: translateY(-1rem);
     opacity: 0;
     pointer-events: none;
@@ -303,12 +308,23 @@
     cursor: pointer;
     line-height: 1rem;
     font-size: 1rem;
-    padding: .7rem;
+    padding: .6rem .7rem .6rem .2rem;
     font-weight: 500;
   }
   
   .active .main-nav-dropdown__item {
     color: var(--c-link);
+  }
+
+  .test {
+    padding-right: .7rem;
+  }
+
+  .test.logfont-login {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    vertical-align: middle;
+    margin-left: .1rem;
   }
 
 

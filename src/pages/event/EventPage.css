@@ -17,6 +17,7 @@
 
 .event-banner {
     grid-area: ban;
+    background-color: rgba(128, 128, 128, 0.15);
 }
 
 .event-description {
@@ -31,7 +32,6 @@
 /* event details */
 
 .event-details {
-    width: 100%;
     padding: 2rem 1rem;
     background-color: var(--c-bg-box);
     overflow: hidden; /* keeps map close to details on grid, not sure why tho... */
@@ -77,7 +77,7 @@
     display: inline-flex;
 }
 
-/* lable icon */
+/* lable icons */
 .event-details__icon {
     line-height: 1.5rem;
     width: 2rem;
@@ -112,11 +112,7 @@
 
 /* event banner */
 
-.event-banner picture {
-    display: block;
-}
-
-.event-banner picture img, .event-banner .default-banner {
+.event-banner__image, .event-banner .default-banner {
     display: block;
     aspect-ratio: 10 / 4;
     object-fit: cover;
@@ -148,9 +144,9 @@
 /* Map */
 
 .event-map {
-    margin: 2rem auto 0 auto;
-    width: 100%;
-    padding: 1rem 3rem;
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    max-width: 40rem;
 }
 
 
@@ -178,9 +174,11 @@
             'det des'
             'map des'
             '.   des';
-        column-gap: 7%;
-        padding: 3rem 1rem 0 1rem;
+        column-gap: 6%;
+        padding: 3rem 2rem 0 2rem;
         row-gap: 2rem;
+        max-width: calc(var(--w-page) + 4rem);
+        margin: auto;
     }
 
     .event-details {
@@ -247,7 +245,7 @@
         width: 100%;
     }
 
-    .event-banner img {
+    .event-banner, .event-banner__image {
         border-radius: .3rem;
     }
 

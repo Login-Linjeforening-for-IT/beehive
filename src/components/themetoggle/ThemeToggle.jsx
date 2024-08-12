@@ -37,9 +37,9 @@ const ThemeToggle = () => {
             <svg className='theme-toggle__svg' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
                 <mask id='theme-toggle__clip-path'>
                     <rect x="0" y="0" width="100" height="100" fill="white" />
-                    <circle className='theme-toggle__mask-circle' cx='66' cy='42' r='18' fill='black' />
+                    <circle className='theme-toggle__mask-circle' cx='68' cy='40' r='18' fill='black' />
                 </mask>
-                <circle className='theme-toggle__sun-moon' mask='url(#theme-toggle__clip-path' cx='50' cy='50' r='25'/>
+                <circle className='theme-toggle__sun-moon' mask='url(#theme-toggle__clip-path' cx='50' cy='50' r='23'/>
 
                 <rect className='theme-toggle__sun-ray' x='86' y='47' width='14' height='6'/>
                 <rect className='theme-toggle__sun-ray' y='47' width='14' height='6'/>

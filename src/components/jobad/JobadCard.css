@@ -1,13 +1,14 @@
 .jobad-card {
 	cursor: pointer;
 	transition: .2s;
-	max-width: 16rem;
 	width: 100%;
+	max-width: 25rem;
     height: 100%;
 	padding: 1rem;
 	border-radius: .3rem;
     display: flex;
     flex-direction: column;
+	margin: auto;
 }
 
 .jobad-card:hover {
@@ -16,7 +17,7 @@
 
 .jobad-card__img {
 	display: block;
-    width: 100%;
+	width: 100%;
 	object-fit: cover;
 	aspect-ratio: 3/2;
 	border-radius: .3rem;
@@ -73,17 +74,15 @@
 
 
 @media only screen and (min-width: 400px) {
-
-	.jobad-card {
-		max-width: 20.5rem;
-	}
-
     .jobad-card__name {
         font-size: 1.3rem;
     }
 }
 
 @media only screen and (min-width: 800px) {
+	.jobad-card {
+		padding: 5%;
+	}
 
     .jobad-card__name {
         font-size: 1.4rem;

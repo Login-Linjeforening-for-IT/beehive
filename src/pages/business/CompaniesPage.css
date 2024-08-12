@@ -1,50 +1,17 @@
-.companies-page {
-    max-width: 40rem;
-    margin: auto;
-}
-
-.companies-page__grid-container {
+.companies-info {
     display: grid;
-    justify-content: space-between;
     grid-template-columns: 1fr;
-    padding: 0 1rem;
     row-gap: 1rem;
+    max-width: 45rem;
+    margin-bottom: 3rem;
 }
-
-.companies-page__intro {
-    margin: 1rem;
-}
-
-.companies-section__header {
-    display: flex;
-    align-items: center;
-}
-
-.companies-section__header-icon {
-    font-size: 1.2em;
-    line-height: inherit;
-    vertical-align: top;
-    margin-right: .3em;
-}
-
-@media only screen and (min-width: 800px) {
-
-    .companies-page__intro {
-        margin-top: 2rem;
-    }
-}
-
 
 @media only screen and (min-width: 1000px) {
-
-    .companies-page {
-        max-width: 75rem;
-    }
-
-    .companies-page__grid-container {
+    .companies-info {
         grid-template-columns: 1fr 1fr;
         column-gap: 4rem;
         row-gap: 2rem;
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
+        max-width: none;
     }
 }

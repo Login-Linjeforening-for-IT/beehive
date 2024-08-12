@@ -40,7 +40,7 @@
 }
 
 .markdown-render__ul{
-    margin: 1rem;
+    margin: 1rem 0 1rem 1.5rem;
     list-style: none;
 }
 
@@ -54,7 +54,7 @@
     font-weight: bold;
     display: inline-block;
     width: 1em;
-    margin-left: -.5em;
+    margin-left: -1em;
 }
 
 
@@ -91,9 +91,10 @@
 
 /* embeded link components */
 .markdown-render__card {
-    width: fit-content;
+    width: 100%;
+    max-width: 25rem;
     border-radius: .3rem;
-    margin: 1rem auto;
+    margin: 1rem 0;
     border: .15rem solid var(--c-corner-decor);
 }
 

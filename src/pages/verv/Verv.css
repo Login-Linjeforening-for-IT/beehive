@@ -1,60 +1,33 @@
 
-.verv-section {
-    margin-bottom: 3rem; /* creates nice spacing between content */
+.verv-page__section {
+    margin-bottom: 2rem;
 }
 
-
-/* gave headers and paragrapfs margins on the sides instead of giving it to 
-   the 'verv-section' class because the 'tabs-section' is an exception */
-.verv-section__heading {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.verv-section__p {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.verv-apply {
+    margin-top: 2rem;
 }
 
 
 /* intro section */
-
 .verv-intro__p {
     max-width: 50rem;
+    margin-top: 0;
 }
-
-.verv-intro__grid-container {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5%;
-}
-
-
-/* BEM exception becasue its a picture component */
-.verv-intro__grid-container picture {
-    max-width: 33rem;
-    width: 100%;
-    margin: 3rem 1rem 1rem 1rem;
-}
-
 
 /* apply section */
-
-.verv-apply__action {    
+.verv-apply__button {    
     font-size: 1rem;
-    margin: 2rem 1rem 1rem 1rem;
+    margin-top: 2rem;
 }
 
 @media only screen and (min-width: 400px) {
-
     .verv-apply {
         max-width: 50rem;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .verv-apply__action {    
+    .verv-apply__button{    
         width: fit-content;
         font-size: 1.3rem;
         margin: 2rem auto 0 auto;
@@ -62,22 +35,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-
-    .verv-section {
-        margin-bottom: 8rem;
-    }
-
-    .verv-intro__p {
-        max-width: 50rem;
-        margin-top: 2rem;
-    }
-
-    .verv-intro__grid-container {
-        flex-wrap: nowrap;
-        padding: 1rem;
-    }
-
-    .verv-intro__grid-container picture {
-        margin: 0;
+    .verv-page__section {
+        margin-bottom: 5rem;
     }
 }

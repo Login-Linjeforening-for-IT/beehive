@@ -1,13 +1,11 @@
-.tabs {
-    width: 100%;
-}
 
 .tabs__nav {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     gap: .7rem;
-    padding: .7rem;
+    padding: .7rem 1rem;
+    max-width: calc(var(--w-page) + 4rem);
+    margin: auto;
 }
 
 .tabs__nav-item {
@@ -16,8 +14,8 @@
     overflow: hidden;
     background-color: var(--c-bg-box);
     transition: .2s;
-    width: 100%;
     box-shadow: var(--shadow-box);
+    width: 100%;
 }
 
 .tabs__nav-item:hover {
@@ -49,16 +47,18 @@
     background-color: var(--c-bg-box);
     padding: 1rem;
     box-shadow: var(--shadow-box);
+    border-radius: .3rem;
 }
 
+@media only screen and (min-width: 800px) {
+    .tabs__nav {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
 
 @media only screen and (min-width: 1200px) {
-
-    .tabs__nav {
-        padding: .7rem 0;
-    }
-
     .tabs__content {
-        border-radius: .3rem;
+        margin: 0 2rem;
     }
 }

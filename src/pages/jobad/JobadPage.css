@@ -170,7 +170,9 @@
     .jobad-page {
         grid-template-columns: 20rem auto;
         column-gap: 5%;
-        padding: 3rem 1rem 0 1rem;
+        padding: 3rem 2rem 0 2rem;
+        max-width: calc(var(--w-page) + 4rem);
+        margin: auto;
     }
 
     .jobad-page--banner {
@@ -244,9 +246,7 @@
     }
 
     .jobad-description {
-        padding: 0;
-        padding-right: 2.5rem;
-        padding-bottom: 1rem;
+        padding: 0 2.5rem 1rem 0;
     }
 
     .jobad-description:after {

@@ -1,13 +1,20 @@
-/* only used flex in order to use gap */
 .filter-groups {
     row-gap: 2rem;
     display: flex;
     flex-direction: column;
+    container-type: inline-size;
+    container-name: filter-groups;
 }
 
 .filter-groups__reset {
     width: 100%;
-    margin-top: 1rem;
+    font-size: 1rem;
+    background: none;
+    border: .15rem solid var(--c-btn-bg-discret);
+}
+
+.filter-groups__reset:hover {
+    background-color: var(--c-btn-bg-discret);
 }
 
 .filter-groups__reset i {
@@ -92,7 +99,7 @@
     left: 0;
     width: 1.4rem;
     height: 1.4rem;
-    border: .15rem solid #6d6d6d;
+    border: .13rem solid #6d6d6d;
     border-radius: .1rem;
 }
 
@@ -137,17 +144,22 @@
     left: .55rem;
 }
 
+.filter__item--check .filter__item-count {
+    color: var(--c-font-discret);
+}
+
 
 @media only screen and (min-width: 400px) {
-
     .filter-groups__reset {
         width: fit-content;
-        margin-right: 0;
-        margin-left: auto;
-    }    
-    
+    }
+}
+
+
+@container filter-groups (width > 400px) {
     .filter__items--check {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: max-content max-content;
         column-gap: 1.5rem;
     }
 
@@ -157,18 +169,15 @@
 
 }
 
-@media only screen and (min-width: 1000px) {
-
+@container filter-groups (width > 600px) {
     .filter-groups__reset {
-        margin-left: 0;
-        margin-right: auto;
-    }
-
+        width: fit-content;
+        margin-right: 0;
+    }    
+    
     .filter__items--check {
-        flex-direction: column;
-        gap: 0;
+        grid-template-columns: max-content max-content max-content;
     }
-
 }
 
 

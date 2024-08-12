@@ -1,25 +1,13 @@
 
 .about-section {
-    margin-bottom: 3rem; /* creates nice spacing between content */
-}
-
-
-/* gave headers and paragrapfs margins instead of giving it to 
-   the 'about-section' class because the 'tabs-section' is an exception */
-.about-section__heading {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.about-section__p {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-bottom: 2rem;
 }
 
 
 /* intro section */
 
 .about-intro__p {
+    margin-top: 0;
     max-width: 50rem;
 }
 
@@ -43,7 +31,7 @@
 }
 
 
-/* public docs dection */
+/* public docs section */
 
 .about-public-docs__list {
     margin: 0 1rem;
@@ -53,17 +41,16 @@
 @media only screen and (min-width: 800px) {
 
     .about-section {
-        margin-bottom: 8rem;
+        margin-bottom: 5rem;
     }
 
     .about-intro__p {
         max-width: 50rem;
-        margin-top: 2rem;
     }
 
     .about-intro__grid-container {
         flex-wrap: nowrap;
-        padding: 1rem;
+        padding: 1rem 0;
     }
 
     .about-intro__grid-container picture {

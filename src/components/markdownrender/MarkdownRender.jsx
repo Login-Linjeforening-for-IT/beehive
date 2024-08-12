@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import "./MarkdownRender.css";
-import EventCard from '../event/EventCard';
+import EventItem from '../event/EventItem';
+import EventCardSkeleton from '../event/EventCardSkeleton';
 import JobadCard from "../jobad/JobadCard";
+import JobadCardSkeleton from "../jobad/JobadCardSkeleton";
 import DropDownBox from "../dropdownbox/DropDownBox";
 import { getEventRow, getJobRow } from "../../utils/api"
 
@@ -80,9 +82,9 @@ function EventEmbed(id) {
   return (
     <div className="markdown-render__card">
       {loading ? (
-        <p>Loading...</p>
+        <EventCardSkeleton />
       ) : event ? (
-        <EventCard event={event} disableTags={true} />
+        <EventItem event={event} variant='card' highlight={false} />
       ) : (
         <p>Event not found</p>
       )}
@@ -128,7 +130,7 @@ function JobadEmbed(id) {
   return (
     <div className="markdown-render__card">
       {loading ? (
-        <p>Loading...</p>
+        <JobadCardSkeleton/>
       ) : jobad ? (
         <JobadCard jobad={jobad} disableTags={true} />
       ) : (

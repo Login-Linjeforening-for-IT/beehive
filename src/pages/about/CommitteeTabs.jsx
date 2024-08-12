@@ -19,11 +19,10 @@ import './CommitteeTabs.css'
 const CommitteeTabs = ({t, i18n}) => {
 
   const [activeTab, setActiveTab] = useState('styret')
-
   const useEng = i18n.language === "en";
 
   return (
-    <div className='tabs committees'>
+    <div className='about-section tabs committees page-section--without-gaps'>
       <ul className='tabs__nav'>
         <TabNavItem title={<StyretLogo/>} id='styret' activeTab={activeTab} setActiveTab={setActiveTab}/>
         <TabNavItem title={<EventkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>

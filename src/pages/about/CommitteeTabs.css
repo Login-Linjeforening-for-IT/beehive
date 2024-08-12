@@ -1,25 +1,14 @@
-.committees {
-    /* aligns with other sections without 
-    using margin og padding */
-    max-width: calc(var(--w-page) - 2rem);
-    margin: auto;
-}
-
+/* some BEM exeptions to customize the tabs compontent style because it uses SVGs instead of text */
 .committees .tabs__nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
 }
 
-.committees .tabs__nav-item {
-    width: 100%;
-}
-
 .committees .tabs__nav-title {
     padding: 0;
 }
 
-/* breaking BEM rules because the svg is a component */
 .committees .tabs__nav-title svg {
     display: block;
     width: 100%;
@@ -27,7 +16,7 @@
 }
 
 .committees .tabs__content {
-    padding: 1rem 1rem 2rem 1rem;
+    padding: .1rem 1rem 2rem 1rem;
 }
 
 .committees__info {
@@ -55,8 +44,6 @@
 .board-members__intro {
     grid-column: 1 / -1;
 }
-
-
 
 
 
@@ -107,6 +94,13 @@
 }
 
 
+@media only screen and (min-width: 432px) { 
+    .board-members {
+        grid-template-columns: repeat(auto-fit, 11rem);
+        gap: 1rem;
+    }
+}
+
 @media only screen and (min-width: 500px) { 
 
     .committees .tabs__nav {
@@ -120,16 +114,9 @@
     }
 }
 
-@media only screen and (min-width: 420px) { 
-    .board-members {
-        grid-template-columns: repeat(auto-fit, 11rem);
-        gap: 1rem;
-    }
-}
-
 @media only screen and (min-width: 600px) { 
-    .board-members {
-        gap: 2.5rem;
+    .committees .tabs__content {
+        padding: 2rem 2rem 2rem 3rem;
     }
 }
 

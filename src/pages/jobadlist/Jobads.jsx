@@ -155,37 +155,51 @@ const Jobads = ({ t }) => {
     loadItems();
   }, []);
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const toggleFilter = () => {
+      setIsFilterOpen(prevState => !prevState);
+  };
+
   return (
     <div className="page-container">
-      <h1 className="heading-1 heading-1--top-left-corner">{t("title")}</h1>
-      <div className="jobads">
-        {loading && <Spinner w="50" h="50" />}
-        <div className="jobads__section--left">
-          <DropDownBox 
-            title={<><i className='material-symbols-sharp'>filter_alt</i> Filter</>}
+      <h1 className="page-section--normal heading-1 heading-1--top-left-corner">{t("title")}</h1>
+      {loading && <Spinner w="50" h="50" />}
+      {!loading &&
+        <div className="page-section--normal">
+          <button
+            className={`events-top-bar__button events-top-bar__filter-toggle ${isFilterOpen ? 'events-top-bar__filter-toggle--active' : ''}`}
+            onClick={() => toggleFilter()}
           >
-            <div className='jobads__filter-container'>
-              {filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "no filter data"}
+            Filter
+            <i className='material-symbols-sharp events-top-bar__icon'>
+              filter_list
+            </i>
+          </button>
+          <div className="jobads">
+            <div className="jobads__section--left">
+              <div className={`jobads__filter-container ${isFilterOpen ? 'jobads__filter-container--open' : ''}`}>
+                {filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "no filter data"}
+              </div>
             </div>
-          </DropDownBox>
-        </div>
-        <div className="jobads__section--right">
-          {!loading &&
-            <ul className="jobads__list">
-              {jobads.length ? jobads.map((e, idx) => (
-                <li key={idx}>
-                  <JobadsListItem jobad={e} />
-                </li>
-              )) :
-                <p>No matches...</p>
+            <div className="jobads__section--right">
+              
+                <ul className="jobads__list">
+                  {jobads.length ? jobads.map((e, idx) => (
+                    <li key={idx}>
+                      <JobadsListItem jobad={e} />
+                    </li>
+                  )) :
+                    <p>No matches...</p>
+                  }
+                </ul>
+              {!loading && showLoadMore &&
+                <a className='jobads__load-more-btn standard-button standard-button--primary' onClick={loadItems}>{t('load-more')}</a>
               }
-            </ul>
-          }
-          {!loading && showLoadMore &&
-            <a className='jobads__load-more-btn standard-button standard-button--primary' onClick={loadItems}>{t('load-more')}</a>
-          }
+            </div>
+          </div>
         </div>
-      </div>
+      }
     </div>
   );
 };

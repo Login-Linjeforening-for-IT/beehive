@@ -1,14 +1,19 @@
-.jobads {
-  padding: 0 1rem;
+.jobads__filter-container {
+  padding: 1rem 1.5rem;
+  display: none;
+  background-color: var(--c-bg-box);
+  margin-top: .5rem;
+  border-radius: .3rem;
+  box-shadow: var(--shadow-box);
 }
 
-.jobads__filter-container {
-  padding: 1rem;
+.jobads__filter-container--open {
+  display: block;
 }
 
 .jobads__list {
   list-style: none;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
 .jobads__load-more-btn {
@@ -31,7 +36,7 @@
     grid-template-columns: 20rem auto;
     grid-template-areas: 'left right';
     gap: 3vw;
-    padding: 2rem 1rem;
+    padding: 2rem 0;
   }
 
   .jobads__section--left {
@@ -44,7 +49,11 @@
 
   .jobads__filter-container {
     padding: 0;
+    margin: 0;
     position: relative;
+    display: block;
+    background: none;
+    box-shadow: none;
   }
 
   .jobads__filter-container:after {

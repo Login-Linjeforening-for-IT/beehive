@@ -4,11 +4,11 @@ import { withTranslation } from "react-i18next";
 import { config } from "../../Constants";
 import Spinner from "../../components/spinner/Spinner";
 import Article from '../../components/article/Article';
+import RenderSmoothImage from '../../components/picture/RenderSmoothImage/RenderSmoothImage'
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 import * as Translator from "../../utils/GetTranslation";
 import { getJob } from '../../utils/api';
 import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
-
 import "./JobadPage.css";
 
 const jobTypeTranslations = {
@@ -51,12 +51,11 @@ const JobadPage = ({ t, i18n }) => {
   const tr = Translator.getTranslation(useEng);
   
   const [useFallbackImg, setUseFallbackImg] = useState(false);
-  const handleImgError = () => setUseFallbackImg(true);
 
-  const [showBannerImg, setShowBannerImg] = useState(true);
+  const [showBannerImg, setShowBannerImg] = useState(false);
   const hideBannerImg = () => setShowBannerImg(false);
 
-  const [jobad, setEvent] = useState(null);
+  const [jobad, setJobad] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -64,7 +63,8 @@ const JobadPage = ({ t, i18n }) => {
       try {
         const [ response, err ] = await getJob(id);
 
-        setEvent(response);
+        setJobad(response);
+        if (response.job.banner_image ? setShowBannerImg(true) : setShowBannerImg(false));
         setLoading(false);
       } catch (error) {
         console.error('Error fetching job ad data:', error);
@@ -80,18 +80,18 @@ const JobadPage = ({ t, i18n }) => {
       {loading && <Spinner w="50" h="50" />}
       {jobad && (
         <div
-          className={`jobad-page page-container ${
+          className={`jobad-page ${
             showBannerImg ? "jobad-page--banner" : "jobad-page--noBanner"
           }`}
         >
           <div className="jobad-details">
             <div className="jobad-details__company">
               <picture>
-                <img className='jobad-details__company-logo'
-                  alt={jobad.organization_logo}
+                <RenderSmoothImage
                   src={useFallbackImg ? fallbackImg : config.url.CDN_URL + '/img/organizations/' + jobad.organization.logo}
-                  onError={handleImgError}
-                  loading="lazy"
+                  alt={jobad.organization.logo}
+                  className='jobad-details__company-logo'
+                  onError={() => setUseFallbackImg(true)}
                 />
               </picture>
               <div className="jobad-details__company-name">
@@ -194,9 +194,9 @@ const JobadPage = ({ t, i18n }) => {
           {showBannerImg && (
             <div className="jobad-banner">
               <picture>
-                <img
-                  alt={jobad.job.banner_image}
+                <RenderSmoothImage
                   src={config.url.CDN_URL + "/img/ads/" + jobad.job.banner_image}
+                  alt={jobad.job.banner_image}
                   onError={hideBannerImg}
                 />
               </picture>

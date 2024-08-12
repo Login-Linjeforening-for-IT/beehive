@@ -65,7 +65,10 @@ const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, reset
             {type == "check" &&
                 <div className="filter__checkbox"></div>
             }
-            <div className={`filter__item-name filter__item-name--${type}`}>{filter.label[lang]}{ showCount && ' (' + filter.count + ')' }</div>
+            <div className={`filter__item-name filter__item-name--${type}`}>
+                {filter.label[lang]}
+                <span className="filter__item-count">{ showCount && ' (' + filter.count + ')' }</span>
+            </div>
         </label>
     );
 });
@@ -124,11 +127,11 @@ const FilterGroup = ({ t, filters, onApply }) => {
                     }
                 })
             }
-            <div
-                className="filter-groups__reset standard-button standard-button--discret"
+            <button
+                className="filter-groups__reset standard-button"
                 onClick={onReset}>
                 {t('reset')} <i className='material-symbols-sharp'>replay</i>
-            </div>
+            </button>
         </div>
     );
 }

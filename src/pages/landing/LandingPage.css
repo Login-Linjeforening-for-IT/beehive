@@ -61,8 +61,6 @@
 /* section previewing events and job ads */
 
 .dynamic-preview {
-    max-width: 75rem;
-    margin: auto;
     padding: 1rem 0;
 }
 
@@ -81,30 +79,34 @@
 }
 
 .dynamic-preview-list {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     list-style-type: none;
     overflow: auto;
-    gap: 1rem;
     padding: 0 1rem 1rem 1rem;
+    scroll-snap-type: x mandatory;
 }
 
 .dynamic-preview-list__item {
-    border: .15rem solid var(--c-corner-decor);
-    border-radius: .3rem;
+    scroll-snap-align: center;
+    width: 80vw;
+    max-width: 22rem;
+    min-width: 18rem;
 }
 
-/* BEM exeption, this was just easier */
-.dynamic-preview-list__item .jobad-card {
-    width: 16rem;
+.dynamic-preview-end-card {
+    width: fit-content;
+    min-width: 14rem;
 }
 
 .dynamic-preview-end-card__btn {
-    width: 12rem;
+    width: 100%;
     height: 100%;
     border-radius: .3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .dynamic-preview-end-card__btn:hover {
@@ -112,39 +114,48 @@
 }
 
 .dynamic-preview-end-card__text {
-    position: relative;
-    padding-left: 1em;
-    padding-right: 2em;
     font-size: 1.3rem;
     font-weight: 500;
+    padding-top: 1rem;
 }
 
-/* TODO: create global resuable class for this side arrow */
-.dynamic-preview-end-card__text:after {
-    content: '';
-    position: absolute;
-    width: .6em;
-    height: .6em;
-    top: .4em;
-    right: 1em;
-    border-right: .18em solid transparent;
-    border-bottom: .18em solid transparent;
+.dynamic-preview-end-card__arrow-container {
+    width: 5.2rem;
+    height: 5.2rem;
+    background-color: var(--c-bg-box);
+    border-radius: 100%;
+    box-shadow: var(--shadow-box);
+}
+.dynamic-preview-end-card__arrow {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: 1.8rem;
+    margin-left: 1.4rem;
+    border-right: .35rem solid var(--c-primary);
+    border-bottom: .35rem solid var(--c-primary);
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     z-index: 5;
     transition: .2s;
-    border-color: var(--c-primary);
 }
-.dynamic-preview-end-card__btn:hover .dynamic-preview-end-card__text:after {
-    right: .8em;
+.dynamic-preview-end-card__btn:hover .dynamic-preview-end-card__arrow-container {
+    box-shadow: none;
+}
+.dynamic-preview-end-card__btn:hover .dynamic-preview-end-card__arrow {
+    margin-left: 1.7rem;
 }
 
+@media only screen and (min-width: 400px) {
+    .dynamic-preview-list {
+        gap: 1rem;
+    }
+}
 
-@media only screen and (min-width: 730px) { /* not the usal 800px break point, because of the size of the cards */
+@media only screen and (min-width: 800px) {
 
     .dynamic-preview {
-        width: fit-content;
+        padding: 2rem;
         margin: 0 auto;
     }
 
@@ -154,26 +165,19 @@
     }
 
     .dynamic-preview-list {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        padding: 0;
+        grid-auto-flow: inherit;
+        padding: 1rem 4vw 0 4vw;
+        gap: 4vw;
     }
 
-    .dynamic-preview-list__item .jobad-card {
-        width: fit-content; /* spesific width defined in JobadCard */
-    }
-
-    .dynamic-preview-end-card__btn {
-        width: 100%; /* becomes equal size to the cards */
-    }
-
-}
-
-@media only screen and (min-width: 1060px) { /* not the usal 800px break point, because of the size of the cards */
-
-    .dynamic-preview {
+    .dynamic-preview-list__item {
         width: 100%;
-        padding: 1rem
+        max-width: 28rem;
+    }
+
+    .dynamic-preview-end-card {
+        width: 100%; /* becomes equal size to the cards */
     }
 
     .dynamic-preview-seperator {
@@ -181,8 +185,17 @@
         border: 0;
         height: .15rem;
         background-color: var(--c-corner-decor); 
-        margin: auto;
-        max-width: 70rem;
+        margin: 0 2rem;
+    }
+
+}
+
+@media only screen and (min-width: 1000px) { /* not the usual 800px break point, because of the size of the cards */
+
+    .dynamic-preview {
+        width: 100%;
+        max-width: var(--w-page);
+        padding: 1rem;
     }
 
     .dynamic-preview-heading {
@@ -190,7 +203,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 1rem .5rem 1rem;
-        max-width: 70rem;
         margin: auto;
     }
 
@@ -234,17 +246,30 @@
 
     .dynamic-preview-list {
         grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        padding: 0;
     }
 
     .dynamic-preview-list__item {
-        border: none;
         margin: 0 auto;
+    }
+
+    .dynamic-preview-list__item--loading {
+        height: 14rem;
+        max-width: 20.5rem;
+        border: .15rem solid var(--c-corner-decor);
+        background-color: var(--c-bg-box);
+        width: 100%;
     }
 
     .dynamic-preview-end-card {
         display: none; /* "see all" link is in the header on big screens */
     }
-    
+
+    .dynamic-preview-seperator {
+        margin: 0 auto;
+        max-width: calc(var(--w-page) - 2rem);
+    }
 }
 
 
