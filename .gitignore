@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+vendor/mazemap/mazemap.min.*
 .pnp.js
 
 # testing
