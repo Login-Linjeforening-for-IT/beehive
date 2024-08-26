@@ -2,6 +2,9 @@
 # Use a Node 16 base image
 FROM node:19-alpine as build
 
+# Install curl
+RUN apk add --no-cache curl
+
 ARG API_URL=API_URL_PLACEHOLDER
 ARG IMAGE_VERSION
 
