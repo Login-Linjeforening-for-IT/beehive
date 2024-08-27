@@ -18,16 +18,14 @@ import Verv from "./pages/verv/Verv";
 import NotFoundPage from "./pages/notfoundpage/NotFoundPage";
 import Scroll from "./utils/Scroll";
 import * as ConsoleOutput from "./utils/ConsoleOutput";
-import ThemeContext from "./context/ThemeContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import Profile from "./pages/profile/Profile";
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme"));
-
   ConsoleOutput.LogoConsoleOutput()
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeProvider>
       <div className="App">
         <BrowserRouter>
           <header>
@@ -58,7 +56,7 @@ function App() {
           </footer>
         </BrowserRouter>
       </div>
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 
