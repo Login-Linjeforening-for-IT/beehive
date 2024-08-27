@@ -27,6 +27,10 @@
     fill: var(--c-moon);
 }
 
+.light .topbar--open .theme-toggle__svg {
+    fill: var(--c-sun);
+}
+
 .dark .theme-toggle__svg {
     fill: var(--c-sun);
 }
