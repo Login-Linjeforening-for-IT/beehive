@@ -64,18 +64,58 @@
     padding: 1rem 0;
 }
 
-.dynamic-preview-seperator {
-    display: none;
+.dynamic-preview-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
 }
 
 .dynamic-preview-heading__title {
-    padding: .5rem 1rem;
+    padding: .5rem 0;
     font-weight: 400;
     font-size: 1.5rem;
 }
 
 .dynamic-preview-heading__link {
-    display: none; /* "see all" btn is on the end card on mobile */
+    display: block;
+    padding: .5em 1.5em .5em 1em;
+    position: relative;
+    font-size: 1.3rem;
+    line-height: 1.4em;
+    height: 2.4em;
+    font-weight: 500;
+}
+
+.dynamic-preview-heading__link:hover .dynamic-preview-heading__link-text {
+    color: var(--c-link);
+}
+
+/* hide the text on small screens (arrow still visible) */
+.dynamic-preview-heading__link-text {
+    display: none; 
+}
+
+/* TODO: create global resuable class for this side arrow */
+.dynamic-preview-heading__link:after {
+    content: '';
+    position: absolute;
+    width: .6em;
+    height: .6em;
+    top: .85em;
+    right: .5em;
+    border-right: .18em solid var(--c-link);
+    border-bottom: .18em solid var(--c-link);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    z-index: 5;
+    transition: .2s;
+}
+
+
+.dynamic-preview-seperator {
+    display: none;
 }
 
 .dynamic-preview-list {
@@ -142,8 +182,12 @@
 .dynamic-preview-end-card__btn:hover .dynamic-preview-end-card__arrow-container {
     box-shadow: none;
 }
-.dynamic-preview-end-card__btn:hover .dynamic-preview-end-card__arrow {
-    margin-left: 1.7rem;
+
+
+@media only screen and (min-width: 350px) {
+    .dynamic-preview-heading__link-text {
+        display: block;
+    }
 }
 
 @media only screen and (min-width: 400px) {
@@ -199,49 +243,12 @@
     }
 
     .dynamic-preview-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 0 1rem .5rem 1rem;
         margin: auto;
     }
 
     .dynamic-preview-heading__title {
         font-size: 2rem;
-    }
-
-    .dynamic-preview-heading__link {
-        display: block;
-        padding: .5em 1.5em .5em 1em;
-        position: relative;
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
-
-    .dynamic-preview-heading__link:hover {
-        color: var(--c-link);
-    }
-    
-
-    /* TODO: create global resuable class for this side arrow */
-    .dynamic-preview-heading__link:after {
-        content: '';
-        position: absolute;
-        width: .6em;
-        height: .6em;
-        top: .95em;
-        right: .5em;
-        border-right: .18em solid transparent;
-        border-bottom: .18em solid transparent;
-        -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-        z-index: 5;
-        transition: .2s;
-        border-color: var(--c-link);
-    }
-    .dynamic-preview-heading__link:hover:after {
-        right: .4em;
     }
 
     .dynamic-preview-list {

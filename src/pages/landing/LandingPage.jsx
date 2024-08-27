@@ -138,7 +138,7 @@ const EventsPreview = ({ t }) => {
             <div className='dynamic-preview-heading'>
               <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
               <Link to='/events' className='dynamic-preview-heading__link'>
-                {t('landing.eventsPreview.see-all')}
+                <span className='dynamic-preview-heading__link-text'>{t('landing.eventsPreview.see-all')}</span>
               </Link>
             </div>
             <ul className='dynamic-preview-list'>
@@ -185,7 +185,7 @@ const JobadsPreview = ({ t }) => {
             <div className='dynamic-preview-heading'>
               <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
               <Link to='/career' className='dynamic-preview-heading__link'>
-                {t('landing.eventsPreview.see-all')}
+                <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
               </Link>
             </div>
             <ul className='dynamic-preview-list'>
@@ -210,7 +210,7 @@ const JobadsPreview = ({ t }) => {
             <div className='dynamic-preview-heading'>
               <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
               <Link to='/career' className='dynamic-preview-heading__link'>
-                {t('landing.eventsPreview.see-all')}
+                <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
               </Link>
             </div>
               <ul className='dynamic-preview-list'>
