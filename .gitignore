@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 vendor/mazemap/mazemap.min.*
+mazemap.min.css
+mazemap.min.js
 .pnp.js
 
 # testing
