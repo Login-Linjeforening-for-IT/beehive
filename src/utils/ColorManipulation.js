@@ -96,10 +96,8 @@ export function createGradient(color, opacity = 1) {
   }
 
   let rgb = hexToRgb(color);
-  let lighterRgb = adjustBrightnessRGB(rgb, 0.5); // 40% lighter
-  let darkerRgb = adjustBrightnessRGB(rgb, -0.3); // 20% darker
-  let lighterHex = rgbToHex(lighterRgb.r, lighterRgb.g, lighterRgb.b);
-  let darkerHex = rgbToHex(darkerRgb.r, darkerRgb.g, darkerRgb.b);
+  let lighterRgb = adjustBrightnessRGB(rgb, 0.5); // 50% lighter
+  let darkerRgb = adjustBrightnessRGB(rgb, -0.3); // 30% darker
 
   return `linear-gradient(120deg, rgba(${lighterRgb.r}, ${lighterRgb.g}, ${lighterRgb.b}, ${opacity}), rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity}), rgba(${darkerRgb.r}, ${darkerRgb.g}, ${darkerRgb.b}, ${opacity}))`;
 }

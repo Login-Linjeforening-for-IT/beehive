@@ -173,14 +173,10 @@
   padding-bottom: .6rem;
 }
 
-
-
-
 /* higlight active navlink */
 .active .mobile-nav__item, .active .mobile-nav-dropdown__item {
   color: var(--c-primary);
 }
-
 
 .topbar__toggle {
   height: 3rem;
@@ -255,12 +251,6 @@
 
   /* dropdown menu */
 
-  .main-nav-dropdown__toggle {    
-    /* disable button style */
-    border: none;
-    background: none;
-  }
-
   .main-nav-dropdown__toggle-arrow {
     margin-left: .2rem;
     font-size: 1.6em;
@@ -270,15 +260,14 @@
   /* Arrow animation */
   .main-nav-dropdown:hover .main-nav-dropdown__toggle-arrow,
   .main-nav-dropdown:focus-within .main-nav-dropdown__toggle-arrow {
-    /* transform: rotate(180deg); should not change direction on hover, because it's not clickable */
     transition: transform 0.3s ease;
     color: var(--c-link);
   }
   
   .main-nav-dropdown__wrapper {
     position: absolute;
-    padding-top: .5rem;
-    margin-left: -.5rem;
+    padding-top: .5rem;       
+    margin-left: -1rem;
     transform: translateY(-1rem);
     opacity: 0;
     pointer-events: none;
@@ -294,7 +283,7 @@
   }
 
   .main-nav-dropdown__items {
-    padding: .75rem 1rem 1rem 1rem;
+    padding: .75rem 1.5rem 1rem 1.5rem;
     border-radius: .4rem;
     color: var(--c-font-main);
     box-shadow: var(--topbar-dropdown-shadow);
@@ -316,11 +305,11 @@
     color: var(--c-link);
   }
 
-  .test {
+  .main-nav-dropdown__leading-icon {
     padding-right: .7rem;
   }
 
-  .test.logfont-login {
+  .main-nav-dropdown__leading-icon.logfont-login {
     font-size: 1.3rem;
     line-height: 1.5rem;
     vertical-align: middle;

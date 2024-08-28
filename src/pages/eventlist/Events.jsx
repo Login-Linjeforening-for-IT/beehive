@@ -21,18 +21,22 @@ const getLabelKeyWithLang = (key) => {
 }
 
 async function getCategoryFilters() {
-  const [ categoryFilterData, err ] = await getEventCategoryFilters();
-  if (err) {
-    console.error(err);
-    return;
-  }
+	try {
+		const [categoryFilterData, err] = await getEventCategoryFilters();
+		if (err) {
+			throw new Error(err);
+		}
 
-  const title = {
-    en: 'Categories',
-    no: 'Kategorier'
-  };
+		const title = {
+			en: 'Categories',
+			no: 'Kategorier'
+		};
 
-  return prepFilter(categoryFilterData, 'categories', title, 'id', getLabelKeyWithLang('name'), 'count', 'check', true)
+		return prepFilter(categoryFilterData, 'categories', title, 'id', getLabelKeyWithLang('name'), 'count', 'check', true);
+	} catch (error) {
+		console.error('Error fetching category filters:', error);
+		return null;
+	}
 }
 
 
@@ -94,7 +98,9 @@ const Events = ({ t }) => {
 	const limit = 20;
 	const offset = useRef(0);
 	const [ showLoadMore, setShowLoadMore ] = useState(false);
-	const [ eventsView, setEventsView ] = useState('list-view');
+	const [ eventsView, setEventsView ] = useState(() => {
+		return localStorage.getItem('events-view') || 'list-view';
+	});
 	const [ isFilterOpen, setIsFilterOpen ] = useState(false);
 
     const toggleFilter = () => {
@@ -102,42 +108,41 @@ const Events = ({ t }) => {
     };
 
     useEffect(() => {
-        localStorage.setItem('events-view', eventsView);
-    }, [eventsView]);
+		localStorage.setItem('events-view', eventsView);
+	}, [eventsView]);
 
 	const ap = debounce(async (v) => {
 		filters.current = v;
-
-		const [ response, err ] = await getEvents(v.categories, limit, 0);
-		if (err) {
-			console.error(err);
-			setEvents(err);
-			return;
+	
+		try {
+			const [ response, err ] = await getEvents(v.categories, limit, 0);
+			if (err) {
+				throw new Error(err);
+			}
+	
+			setShowLoadMore(response.length === limit);
+			offset.current = limit;
+			setEvents(response);
+			setGroupedEvents(groupEvents(response));
+		} catch (error) {
+			console.error('Error fetching filtered events:', error);
+			setError('Failed to load events based on filters.');
+		} finally {
+			setLoading(false);
 		}
-
-		setShowLoadMore(response.length === limit)
-		offset.current = limit;
-		setEvents(response);
-		setGroupedEvents(groupEvents(response));
-
-  	}, 50);
+	}, 50);
 
 	const loadItems = async () => {
 		try {
 			const [response, err] = await getEvents(filters.current.categories, limit, offset.current);
 			if (err) {
-				console.error(err);
-				setEvents(err);
-				return;
+				throw new Error(err);
 			}
 		
 			offset.current = events.length + response.length;
 			setEvents((prevItems) => [...prevItems, ...response]);
 
-			// Categorize response
 			const categorizedResponse = groupEvents(response);
-
-			// Set groupedEvents
 			setGroupedEvents((prevOrder) => ({
 				currentWeekEvents: [...prevOrder.currentWeekEvents, ...categorizedResponse.currentWeekEvents],
 				nextWeekEvents: [...prevOrder.nextWeekEvents, ...categorizedResponse.nextWeekEvents],
@@ -145,25 +150,29 @@ const Events = ({ t }) => {
 			}));
 
 			setShowLoadMore(response.length === limit);
-			setLoading(false);
-
 		} catch (error) {
-			console.error('Error fetching data:', error);
+			console.error('Error loading events:', error);
+			setError('Failed to load events.');
+		} finally {
+			setLoading(false);
 		}
 	};
 
 	useEffect(() => {
 		(async () => {
-			const d = {};
-			const categoryFilters = await getCategoryFilters();
-			if (categoryFilters) d['categories'] = categoryFilters;
-
-			setFilterData(d);
-		})()
-
-		loadItems();
+			try {
+				const d = {};
+				const categoryFilters = await getCategoryFilters();
+				if (categoryFilters) d['categories'] = categoryFilters;
+				setFilterData(d);
+				await loadItems();
+			} catch (error) {
+				setError('Failed to initialize event data.');
+			} finally {
+				setLoading(false);
+			}
+		})();
 	}, []);
-
 
 	return (
 		<div className='page-container'>
@@ -171,7 +180,8 @@ const Events = ({ t }) => {
 				<h1 className='heading-1 heading-1--top-left-corner'>{t('title')}</h1>
 			</div>
 			{ loading && <Spinner w='50' h='50' /> }
-			{ !loading &&
+			{ !loading && error && <p className='page-section--normal'>{error}</p>}
+			{ !loading && !error && 
 				<>
 				<div className='events-top-bar page-section--normal'>
 					<button
@@ -254,7 +264,12 @@ const Events = ({ t }) => {
 								</ul>
 							
 							{!loading && showLoadMore && events.length > 0 &&
-								<button className='jobads__load-more-btn standard-button standard-button--primary' onClick={loadItems}>{t('load-more')}</button>
+								<button 
+									className='jobads__load-more-btn standard-button standard-button--primary'
+									onClick={loadItems}
+								>
+									{t('load-more')}
+								</button>
 							}
 						</div>
 					</div>

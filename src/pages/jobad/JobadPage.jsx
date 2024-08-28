@@ -4,11 +4,11 @@ import { withTranslation } from "react-i18next";
 import { config } from "../../Constants";
 import Spinner from "../../components/spinner/Spinner";
 import Article from '../../components/article/Article';
-import RenderSmoothImage from '../../components/picture/RenderSmoothImage/RenderSmoothImage'
+import RenderSmoothImage from '../../components/picture/RenderSmoothImage/RenderSmoothImage';
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 import * as Translator from "../../utils/GetTranslation";
 import { getJob } from '../../utils/api';
-import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
+import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg';
 import "./JobadPage.css";
 
 const jobTypeTranslations = {
@@ -26,8 +26,7 @@ const jobTypeTranslations = {
   }
 }
 
-const getJobTypeLabel = (job_type, lang="no") => {
-
+const getJobTypeLabel = (job_type, lang = "no") => {
   const labelNo = jobTypeTranslations['no'][job_type] || job_type;
   let labelEn = jobTypeTranslations['en'][job_type] || labelNo;
 
@@ -42,32 +41,31 @@ function deadlineWarning(deadline) {
   return diff < oneDay && diff > 0;
 }
 
-
 const JobadPage = ({ t, i18n }) => {
-
   const { id } = useParams();
   const useEng = i18n.language === "en";
   const lang = useEng ? 'en' : 'no';
   const tr = Translator.getTranslation(useEng);
-  
-  const [useFallbackImg, setUseFallbackImg] = useState(false);
 
+  const [useFallbackImg, setUseFallbackImg] = useState(false);
   const [showBannerImg, setShowBannerImg] = useState(false);
   const hideBannerImg = () => setShowBannerImg(false);
-
   const [jobad, setJobad] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ response, err ] = await getJob(id);
+        const [response, err] = await getJob(id);
+        if (err) throw new Error(err);
 
         setJobad(response);
-        if (response.job.banner_image ? setShowBannerImg(true) : setShowBannerImg(false));
-        setLoading(false);
+        setShowBannerImg(!!response.job.banner_image);
       } catch (error) {
         console.error('Error fetching job ad data:', error);
+        setError('Failed to load job ad data.');
+      } finally {
         setLoading(false);
       }
     };
@@ -78,7 +76,8 @@ const JobadPage = ({ t, i18n }) => {
   return (
     <>
       {loading && <Spinner w="50" h="50" />}
-      {jobad && (
+      {error && <div className="page-container"><p className="page-section--normal">{error}</p></div>}
+      {!loading && !error && jobad && (
         <div
           className={`jobad-page ${
             showBannerImg ? "jobad-page--banner" : "jobad-page--noBanner"
@@ -95,7 +94,7 @@ const JobadPage = ({ t, i18n }) => {
                 />
               </picture>
               <div className="jobad-details__company-name">
-                {jobad.organization.link_homepage ?
+                {jobad.organization.link_homepage ? (
                   <a
                     className="jobad-details__company-name-link standard-link--underscore-hover"
                     href={jobad.organization.link_homepage}
@@ -105,9 +104,9 @@ const JobadPage = ({ t, i18n }) => {
                     {tr(jobad.organization.name_en, jobad.organization.name_no) + " "}
                     <i className="material-symbols-sharp">arrow_outward</i>
                   </a>
-                  :
+                ) : (
                   tr(jobad.organization.name_en, jobad.organization.name_no)
-                }
+                )}
               </div>
             </div>
             <div className="jobad-details__list">
