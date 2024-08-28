@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { withTranslation, useTranslation } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import './JobadsListItem.css'
 import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
 import * as DatetimeFormatter from '../../utils/DatetimeFormatter'
@@ -8,6 +8,7 @@ import * as Translator from '../../utils/GetTranslation'
 import { config } from "../../Constants";
 import { isNew } from '../../utils/DatetimeFormatter';
 import Tags from '../tags/Tags';
+import RenderSmoothImage from '../picture/RenderSmoothImage/RenderSmoothImage';
 
 const jobTypeTranslations = {
   no: {
@@ -55,7 +56,7 @@ const formatCities = (cities) => {
 }
 
 
-const JobadsListItem = ({ i18n, t, jobad }) => {
+const JobadsListItem = ({ i18n, jobad }) => {
 
   const useEng = i18n.language === 'en';
   const tr = Translator.getTranslation(useEng);
@@ -66,8 +67,6 @@ const JobadsListItem = ({ i18n, t, jobad }) => {
 		setUseFallbackImg(false);
 	}, [jobad.organization_logo]);
   
-  const handleImgError = () => setUseFallbackImg(true);
-
   const useTags = (publishTime, highlight) => {
     if (highlight) return true;
     if (isNew(publishTime)) return true;
@@ -87,12 +86,20 @@ const JobadsListItem = ({ i18n, t, jobad }) => {
             </div>
           }
           <picture className='jobads-item__picture'>
-            <img className='jobads-item__img'
-              alt={jobad.organization_logo}
-              src={useFallbackImg ? fallbackImg : config.url.CDN_URL + '/img/organizations/' + jobad.organization_logo}
-              onError={handleImgError}
-              loading="lazy"
-            />
+            {(jobad.organization_logo && !useFallbackImg) ? (
+              <RenderSmoothImage
+                className="jobads-item__img"
+                alt={jobad.organization_logo}
+                src={config.url.CDN_URL + '/img/organizations/' + jobad.organization_logo}
+                onError={() => setUseFallbackImg(true)}
+                transition={false}
+              />
+            ) : (
+              <img className='jobads-item__img'
+                alt={jobad.organization_logo}
+                src={fallbackImg}
+              />
+            )}
           </picture>
           <div className='jobads-item__info'>
             <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>

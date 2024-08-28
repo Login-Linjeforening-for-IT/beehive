@@ -1,9 +1,20 @@
 import VervTabs from './VervTabs'
 import {withTranslation} from 'react-i18next';
 import './Verv.css'
-import ImageCarousel from './ImageCarousel';
+import ImageCarousel from '../../components/imagecarousel/ImageCarousel'
 
 const Verv = ({t}) => {
+
+  const slides = [];
+
+  for (let i = 1; i <= 15; i++) {
+    slides.push({
+      imgSrc: `https://cdn.login.no/img/imagecarousel/${i}.jpg`,
+      title: t(`imageCarousel.${i}.title`),
+      description: t(`imageCarousel.${i}.description`)
+    });
+  }
+
   return (
     <div className='verv-page page-container'>
       <div className='page-section--normal'>
@@ -14,7 +25,7 @@ const Verv = ({t}) => {
         <p className='verv-intro__p p--regular' dangerouslySetInnerHTML={{__html: t('intro2')}}/>
       </section>
       <section className='verv-page__section page-section--full-width'>
-       <ImageCarousel/>
+       <ImageCarousel slides={slides}/>
       </section>
       <section className='verv-committees page-section--normal'>
         <h2 className='heading-2'>{t('committeeSection.title')}</h2>

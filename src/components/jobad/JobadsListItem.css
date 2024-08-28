@@ -22,9 +22,7 @@
 		'pic' 
 		'info';
 
-
 	/* cleaner word-breaking */
-	word-break: break-word;
 	white-space: pre-line;
 	overflow-wrap: break-word;
 	-ms-word-break: break-word;

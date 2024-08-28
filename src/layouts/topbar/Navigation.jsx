@@ -1,6 +1,6 @@
-import React, { useCallback, useRef, useState } from 'react';
-import {NavLink} from 'react-router-dom'
-import {withTranslation} from "react-i18next";
+import React, { useCallback, useRef } from 'react';
+import { NavLink } from 'react-router-dom'
+import { withTranslation } from "react-i18next";
 
 const Navigation = ({t}) => {
 
@@ -30,11 +30,7 @@ const Navigation = ({t}) => {
         <li className='main-nav__item standard-link--corner-hover'>{t('nav.companies')}</li>
       </NavLink>
       <div className='main-nav-dropdown'>
-
-        {/* button wrapping the dropdown is ugly as hell, but it improves accsessebility. 
-            The button can be focused and using css the children can be displayed, meaning 
-            you can navigate trough the dropdown using tab, while also having the dropdown show on hover */}
-        <button className='main-nav-dropdown__toggle'>
+        <div className='main-nav-dropdown__toggle' tabIndex={0}>
           <div className='main-nav__item'>
             {t('nav.about')}
             <i className="material-symbols-sharp main-nav-dropdown__toggle-arrow">expand_more</i>
@@ -43,26 +39,26 @@ const Navigation = ({t}) => {
             <ul className="main-nav-dropdown__items">
               <NavLink to='about' ref={navItemRefs.current[0]} onClick={handleClick}>
                 <li className='main-nav-dropdown__item standard-link--corner-hover'>
-                  <i className="logfont-login test"></i>
+                  <i className="logfont-login main-nav-dropdown__leading-icon"></i>
                   {t('nav.general')}
                 </li>
               </NavLink>
               <NavLink to='verv' ref={navItemRefs.current[1]} onClick={handleClick}>
                 <li className='main-nav-dropdown__item standard-link--corner-hover'>
-                  <i className="material-symbols-sharp test">favorite</i>
+                  <i className="material-symbols-sharp main-nav-dropdown__leading-icon">favorite</i>
                   {t('nav.verv')}
                 </li>
               </NavLink>
               <a title='Wiki' href='https://wiki.login.no' target='_blank' rel='noreferrer' ref={navItemRefs.current[2]} onClick={handleClick}>
                 <li className='main-nav-dropdown__item standard-link--corner-hover'>
-                  <i className="material-symbols-sharp test">import_contacts</i>
-                  {/* <i className="material-symbols-sharp test">book</i> */}
+                  <i className="material-symbols-sharp main-nav-dropdown__leading-icon">import_contacts</i>
+                  {/* <i className="material-symbols-sharp main-nav-dropdown__leading-icon">book</i> */}
                   Wiki<i className="material-symbols-sharp wiki__arrow">arrow_outward</i>
                 </li>
               </a>
             </ul>
           </div>
-        </button>
+        </div>
       </div>
     </nav>
   )

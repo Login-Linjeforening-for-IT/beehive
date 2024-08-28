@@ -1,25 +1,8 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { withTranslation } from 'react-i18next';
 import "./ImageCarousel.css";
-import RenderSmoothImage from "../../components/picture/RenderSmoothImage/RenderSmoothImage";
+import RenderSmoothImage from "../picture/RenderSmoothImage/RenderSmoothImage";
 
-const images = [
-    "https://cdn.login.no/img/imagecarousel/1.jpg",
-    "https://cdn.login.no/img/imagecarousel/2.jpg",
-    "https://cdn.login.no/img/imagecarousel/3.jpg",
-    "https://cdn.login.no/img/imagecarousel/4.jpg",
-    "https://cdn.login.no/img/imagecarousel/5.jpg",
-    "https://cdn.login.no/img/imagecarousel/6.jpg",
-    "https://cdn.login.no/img/imagecarousel/7.jpg",
-    "https://cdn.login.no/img/imagecarousel/8.jpg",
-    "https://cdn.login.no/img/imagecarousel/9.jpg",
-    "https://cdn.login.no/img/imagecarousel/10.jpg",
-    "https://cdn.login.no/img/imagecarousel/11.jpg",
-    "https://cdn.login.no/img/imagecarousel/12.jpg",
-    "https://cdn.login.no/img/imagecarousel/13.jpg",
-    "https://cdn.login.no/img/imagecarousel/14.jpg",
-    "https://cdn.login.no/img/imagecarousel/15.jpg"
-];
 
 const NavigationButton = ({ side, onClick, onFocus }) => (
     <button
@@ -59,7 +42,8 @@ const DotIndicator = ({ index, isActive }) => (
     </div>
 );
 
-const ImageCarousel = ({ t }) => {
+const ImageCarousel = ({ slides }) => {
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
@@ -86,14 +70,14 @@ const ImageCarousel = ({ t }) => {
         if (isTransitioning) return; // prevent new transition if there is an ongoing transition
         const transitionDuration = isAutoCarousel ? 1600 : 500; // automatic transitions are slower
         setIsTransitioning(true);
-        setActiveIndex(prevIndex => (prevIndex + 1) % images.length);
+        setActiveIndex(prevIndex => (prevIndex + 1) % slides.length);
         setTimeout(() => setIsTransitioning(false), transitionDuration); // let transition complete before allowing navigation
     };
 
     const prev = () => {
         if (isTransitioning) return;
         setIsTransitioning(true);
-        setActiveIndex(prevIndex => (prevIndex - 1 + images.length) % images.length);
+        setActiveIndex(prevIndex => (prevIndex - 1 + slides.length) % slides.length);
         setTimeout(() => setIsTransitioning(false), 500); // let transition complete before allowing navigation
     };
 
@@ -111,9 +95,9 @@ const ImageCarousel = ({ t }) => {
 
     const getClassName = index => {
         if (index === activeIndex) return "image-carousel__slide--active";
-        if (index === (activeIndex - 1 + images.length) % images.length) return "image-carousel__slide--prev";
-        if (index === (activeIndex + 1) % images.length) return "image-carousel__slide--next";
-        if (index === (activeIndex + 2) % images.length) return "image-carousel__slide--new-next";
+        if (index === (activeIndex - 1 + slides.length) % slides.length) return "image-carousel__slide--prev";
+        if (index === (activeIndex + 1) % slides.length) return "image-carousel__slide--next";
+        if (index === (activeIndex + 2) % slides.length) return "image-carousel__slide--new-next";
         return "image-carousel__slide--hide";
     };
 
@@ -129,14 +113,14 @@ const ImageCarousel = ({ t }) => {
                     side="left"
                     onClick={() => prev()}
                 />
-				{images.map((image, index) => (
+				{slides.map((slides, index) => (
 					<SlideItem
 						key={index}
-						image={image}
+						image={slides.imgSrc}
 						index={index}
 						className={getClassName(index)}
-						title={t(`imageCarousel.${index + 1}.title`)}
-						description={t(`imageCarousel.${index + 1}.description`)}
+						title={slides.title}
+						description={slides.description}
 					/>
 				))}
 				<NavigationButton
@@ -145,7 +129,7 @@ const ImageCarousel = ({ t }) => {
                 />
             </div>
             <div className="image-carousel__dots">
-                {images.map((_, index) => (
+                {slides.map((_, index) => (
                     <DotIndicator
                         key={index}
                         index={index}

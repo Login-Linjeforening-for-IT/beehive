@@ -92,67 +92,62 @@ const EventsPreview = ({ t }) => {
 	const [ error, setError ] = useState(null);
 
   useEffect(() => {
-		(async () => {
-			
-			const [ eventsData, err ] = await getEvents(null, 3, 0, true);
-			if (err) {
-				setEvents(err);
-				return;
-			}
-		
-			setLoading(false);
-			setEvents(eventsData);
-		})();
+    (async () => {
+      try {
+        const [eventsData, err] = await getEvents(null, 3, 0, true);
+        if (err) {
+          setError(err);
+          console.error(err);
+        } else {
+          setEvents(eventsData);
+        }
+      } catch (error) {
+        setError('Unexpected error occurred');
+        console.error('Unexpected error:', error);
+      } finally {
+        setLoading(false);
+      }
+    })();
 	}, []);
 
   return (
     <>
-      { loading && 
-        <>
-          <section className='dynamic-preview'>
-            <div className='dynamic-preview-heading'>
-              <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
-              <Link to='/events' className='dynamic-preview-heading__link'>
-                {t('landing.eventsPreview.see-all')}
-              </Link>
-            </div>
-            <ul className='dynamic-preview-list'>
-              <li className='dynamic-preview-list__item'>
-                <EventCardSkeleton/>
+      <section className='dynamic-preview'>
+        <div className='dynamic-preview-heading'>
+          <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
+          <Link to='/career' className='dynamic-preview-heading__link'>
+            <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
+          </Link>
+        </div>
+        { loading && 
+          <ul className='dynamic-preview-list'>
+            <li className='dynamic-preview-list__item'>
+              <EventCardSkeleton/>
+            </li>
+            <li className='dynamic-preview-list__item'>
+              <EventCardSkeleton/>
+            </li>
+            <li className='dynamic-preview-list__item'>
+              <EventCardSkeleton/>
+            </li>
+            <EndCard t={t} path='/career'/>
+          </ul>
+        }
+        { events && events.length > 0 &&
+          <ul className='dynamic-preview-list'>
+            {events.map((e) => (
+              <li key={e.id}  className='dynamic-preview-list__item'>
+                <EventListItem event={e} variant="card" highlight={false} />
               </li>
-              <li className='dynamic-preview-list__item'>
-                <EventCardSkeleton/>
-              </li>
-              <li className='dynamic-preview-list__item'>
-                <EventCardSkeleton/>
-              </li>
-              <EndCard t={t} path='/events'/>
-            </ul>
-          </section>
-          <hr className='dynamic-preview-seperator' />
-        </>
-      }
-      { events && events.length > 0 &&
-        <>
-          <section className='dynamic-preview'>
-            <div className='dynamic-preview-heading'>
-              <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
-              <Link to='/events' className='dynamic-preview-heading__link'>
-                <span className='dynamic-preview-heading__link-text'>{t('landing.eventsPreview.see-all')}</span>
-              </Link>
-            </div>
-            <ul className='dynamic-preview-list'>
-              {events.map((e) => (
-                <li key={e.id}  className='dynamic-preview-list__item'>
-                  <EventListItem event={e} variant="card" highlight={false}/>
-                </li>
-              ))}
-              {(events.length > 2) && <EndCard t={t} path='/events' />}
-            </ul>
-          </section>
-          <hr className='dynamic-preview-seperator' />
-        </>
-      }
+            ))}
+            {(events.length > 2) && <EndCard t={t} path='/events'/> }
+          </ul>
+        }
+        { error && 
+          <p>Error fetching events: {error.message || error}</p>
+        }
+      </section>
+      <hr className='dynamic-preview-seperator' />
     </>
   )
 }
@@ -165,66 +160,61 @@ const JobadsPreview = ({ t }) => {
 
   useEffect(() => {
 		(async () => {
-			
-			const [ jobadsData, err ] = await getJobs(null, null, null, null, 3, 0);
-			if (err) {
-				setJobads(err);
-				return;
-			}
-      
-			setLoading(false);
-			setJobads(jobadsData);
+			try {
+        const [ jobadsData, err ] = await getJobs(null, null, null, null, 3, 0);
+        if (err) {
+          setError(err);
+          console.error(err);
+        } else {
+          setJobads(jobadsData);
+        }
+      } catch (error) {
+        setError('Unexpected error occurred');
+        console.error('Unexpected error:', error);
+      } finally {
+        setLoading(false);
+      }
 		})();
 	}, []);
 
   return (
     <>
-      { loading && 
-        <>
-          <section className='dynamic-preview'>
-            <div className='dynamic-preview-heading'>
-              <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
-              <Link to='/career' className='dynamic-preview-heading__link'>
-                <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
-              </Link>
-            </div>
-            <ul className='dynamic-preview-list'>
-              <li className='dynamic-preview-list__item'>
-                <JobadCardSkeleton/>
+      <section className='dynamic-preview'>
+        <div className='dynamic-preview-heading'>
+          <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
+          <Link to='/career' className='dynamic-preview-heading__link'>
+            <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
+          </Link>
+        </div>
+        { loading && 
+          <ul className='dynamic-preview-list'>
+            <li className='dynamic-preview-list__item'>
+              <JobadCardSkeleton/>
+            </li>
+            <li className='dynamic-preview-list__item'>
+              <JobadCardSkeleton/>
+            </li>
+            <li className='dynamic-preview-list__item'>
+              <JobadCardSkeleton/>
+            </li>
+            <EndCard t={t} path='/career'/>
+          </ul>
+        }
+        { jobads && jobads.length > 0 &&
+          <ul className='dynamic-preview-list'>
+            {jobads.map((e) => (
+              <li key={e.id}  className='dynamic-preview-list__item'>
+                <JobadCard jobad={e} />
               </li>
-              <li className='dynamic-preview-list__item'>
-                <JobadCardSkeleton/>
-              </li>
-              <li className='dynamic-preview-list__item'>
-                <JobadCardSkeleton/>
-              </li>
-              <EndCard t={t} path='/career'/>
-            </ul>
-          </section>
-          <hr className='dynamic-preview-seperator' />
-        </>
-      }
-      { jobads && jobads.length > 0 &&
-        <>
-          <section className='dynamic-preview'>
-            <div className='dynamic-preview-heading'>
-              <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
-              <Link to='/career' className='dynamic-preview-heading__link'>
-                <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
-              </Link>
-            </div>
-              <ul className='dynamic-preview-list'>
-                {jobads.map((e) => (
-                  <li key={e.id}  className='dynamic-preview-list__item'>
-                    <JobadCard jobad={e} />
-                  </li>
-                ))}
-                {(jobads.length > 2) && <EndCard t={t} path='/career'/> }
-              </ul>
-          </section>
-          <hr className='dynamic-preview-seperator' />
-        </>
-      }
+            ))}
+            {(jobads.length > 2) && <EndCard t={t} path='/career'/> }
+          </ul>
+        }
+        { error && 
+          <p>Error fetching job ads: {error.message || error}</p>
+        }
+      </section>
+      <hr className='dynamic-preview-seperator' />
     </>
   )
 }
