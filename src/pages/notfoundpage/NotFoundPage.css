@@ -1,5 +1,5 @@
 .not-found {
-    padding: 1rem;
+    padding: 4rem 1rem;
     max-width: 40rem;
     margin: auto;
 }
@@ -22,14 +22,6 @@
     display: block;
     width: 100%;
     margin-top: 1rem;
-}
-
-.not-found__link {
-    margin-top: 1rem;
-    padding: .5rem .8rem .5rem 0;
-    font-size: 1.3rem;
-    width: fit-content;
-    display: block;
 }
 
 @media only screen and (min-width: 800px) {

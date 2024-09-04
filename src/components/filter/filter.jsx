@@ -1,5 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import { withTranslation } from "react-i18next";
+import Button from "../button/Button";
+import CheckBox from "../checkbox/Checkbox"
+import CheckTag from "../checktag/Checktag"
 import './filter.css';
 
 const getFilterGroupItemOnSelectWithin = (onSelect, filterGroupItemID) => {
@@ -40,9 +43,7 @@ const Filter = withTranslation()(({ i18n, label, filter, showCount, onSelect, ty
 })
 
 const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, resetTrigger, type }) => {
-
     const lang = i18n.language === "en" ? "en" : "no";
-
     const [ checked, setChecked ] = useState(false);
 
     useEffect(() => {
@@ -54,26 +55,28 @@ const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, reset
         onSelect(!checked);
     }
 
-    return (
-        <label className={`filter__item filter__item--${type}`} htmlFor={filter.label[lang]}>
-            <input className={`filter__input filter__input--${type}`}
-                id={filter.label[lang]}
-                type='checkbox'
+    if(type == 'tag') {
+        return (
+            <CheckTag
                 onChange={e => select(e.target.checked)}
+                id={filter.label[lang]}
+                label={filter.label[lang]}
                 checked={checked}
+                count={showCount ? filter.count : false}
             />
-            {type == "check" &&
-                <div className="filter__checkbox"></div>
-            }
-            <div className={`filter__item-name filter__item-name--${type}`}>
-                {filter.label[lang]}
-                <span className="filter__item-count">{ showCount && ' (' + filter.count + ')' }</span>
-            </div>
-        </label>
-    );
+        )
+    }
+    return (
+        <CheckBox
+            onChange={e => select(e.target.checked)}
+            id={filter.label[lang]}
+            label={filter.label[lang]}
+            checked={checked}
+        />
+    )
 });
 
-const FilterGroup = ({ t, filters, onApply }) => {
+const FilterGroup = ({ t, filters, onApply, close = false }) => {
     const selectedFilters = useRef({});
     const [ resetTrigger, setResetTrigger ] = useState(false);
 
@@ -127,11 +130,27 @@ const FilterGroup = ({ t, filters, onApply }) => {
                     }
                 })
             }
-            <button
-                className="filter-groups__reset standard-button"
-                onClick={onReset}>
-                {t('reset')} <i className='material-symbols-sharp'>replay</i>
-            </button>
+            <div className="filter-groups__buttons">
+                <Button
+                    variant="secondary-outlined"
+                    trailingIcon={<i className='material-symbols-sharp'>replay</i>}
+                    onClick={onReset}
+                    size="medium"
+                    className="filter-groups__reset"
+                >
+                    {t('reset')}
+                </Button>
+                {close &&
+                    <Button
+                        variant="secondary-outlined"
+                        leadingIcon={<i className='material-symbols-sharp'>keyboard_arrow_up</i>}
+                        onClick={close}
+                        size="medium"
+                        className="filter-groups__close"
+                    >
+                    </Button>
+                }
+            </div>
         </div>
     );
 }

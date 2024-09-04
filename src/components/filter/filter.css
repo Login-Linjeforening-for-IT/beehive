@@ -4,41 +4,35 @@
     flex-direction: column;
     container-type: inline-size;
     container-name: filter-groups;
+    min-height: 5rem; /* to make it less dumb lookin when loading */
+}
+
+.filter-groups__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .filter-groups__reset {
     width: 100%;
-    font-size: 1rem;
-    background: none;
-    border: .15rem solid var(--c-btn-bg-discret);
-}
-
-.filter-groups__reset:hover {
-    background-color: var(--c-btn-bg-discret);
-}
-
-.filter-groups__reset i {
-    font-size: 1.2rem;
-    line-height: inherit;
-    vertical-align: top;
 }
 
 .filter__title {
     font-size: .9rem;
     letter-spacing: .15em;
     font-weight: 500;
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
 }
 
 .filter__items {
     display: flex;
-    grid-template-columns: auto;
     flex-wrap: wrap;
 }
 
 .filter__items--check {
     flex-direction: column;
-    margin: .5rem 0 0 0;
+    margin: 1rem 0 0 0;
+    row-gap: .5rem;
 }
 
 .filter__items--tag {
@@ -46,106 +40,6 @@
     gap: .7rem;
     row-gap: .7rem;
     margin: .7rem 0 0 0;
-}
-
-.filter__item {
-    display: block;
-    width: fit-content;
-    display: block;
-    position: relative;
-    cursor: pointer;
-    line-height: 2rem;
-}
-
-.filter__item--check {
-    width: 100%;
-    padding-left: 2.1rem;
-    transition: color .2s ease-in;
-}
-
-.filter__input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.filter__input--check:hover ~ .filter__checkbox {
-    background-color: rgba(148, 148, 148, 0.2);/*fix color later*/
-}
-
-.filter__input--check:checked ~ .filter__checkbox {
-    background-color: var(--c-primary);
-    border-color: var(--c-primary);
-}
-
-.filter__input--tag:checked ~ .filter__item-name--tag {
-    background-color: var(--c-primary);
-    padding-left: 1.6rem;
-    padding-right: .6rem;
-    color: var(--c-white);
-}
-
-.filter__input--tag:checked ~ .filter__item-name--tag:before {
-    display: block;
-}
-
-.filter__checkbox {
-    transition: all .1s ease-in;
-    box-sizing: border-box;
-    position: absolute;
-    top: .25rem;
-    left: 0;
-    width: 1.4rem;
-    height: 1.4rem;
-    border: .13rem solid #6d6d6d;
-    border-radius: .1rem;
-}
-
-.filter__checkbox:after, .filter__item-name--tag:before {
-    content: '';
-    position: absolute;
-    display: none;
-    width: .37rem;
-    height: .7rem;
-    border: solid white;
-    border-width: 0 .15rem .15rem 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    z-index: 5;
-    transition: .3s;
-}
-
-.filter__checkbox:after {
-    top: .06rem;
-    left: .3rem;
-}
-
-.filter__input--check:checked ~ .filter__checkbox:after {
-    display: block;
-}
-
-.filter__item-name--tag {
-    background-color: var(--c-filter-tag-bg);
-    color: var(--c-filter-tag-text);
-    padding: .4em .9em;
-    border-radius: .2em;
-    line-height: 1.3em;
-}
-
-.filter__item-name--tag:hover {
-    background-color: var(--c-filter-tag-bg-hover);
-}
-
-.filter__item-name--tag:before {
-    top: .55rem;
-    left: .55rem;
-}
-
-.filter__item--check .filter__item-count {
-    color: var(--c-font-discret);
 }
 
 
@@ -162,21 +56,17 @@
         grid-template-columns: max-content max-content;
         column-gap: 1.5rem;
     }
-
-    .filter__item--check {
-        width: fit-content;
-    }
-
 }
 
-@container filter-groups (width > 600px) {
-    .filter-groups__reset {
-        width: fit-content;
-        margin-right: 0;
-    }    
-    
+@container filter-groups (width > 600px) {   
     .filter__items--check {
         grid-template-columns: max-content max-content max-content;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .filter-groups__close {
+        display: none;
     }
 }
 
@@ -209,7 +99,7 @@
 }
 
 .filter__search-input:focus  {
-    border-color: var(--c-link);
+    border-color: var(--color-link-primary);
     outline: none;
 }
 
@@ -223,5 +113,5 @@
 }
 
 .filter__search-bar:focus-within .filter__search-icon {
-    color: var(--c-link);
+    color: var(--color-link-primary);
 }*/

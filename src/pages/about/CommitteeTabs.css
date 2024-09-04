@@ -54,11 +54,11 @@
 
 /* fill color to match background of tab */
 .committee-logo--fill-bg-color {
-    fill: var(--c-bg-box);
+    fill: var(--color-bg-surface);
 }
 
 .committee-logo--fill-color {
-    fill: var(--c-on-box-dim);
+    fill: var(--color-text-disabled);
     transition: .2s;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .committee-logo--stroke-color {
-    stroke: var(--c-on-box-dim);
+    stroke: var(--color-text-disabled);
     transition: .2s;
 }
 
@@ -82,15 +82,15 @@
 }
 
 .tabs__nav-item:hover .committee-logo--stroke-color, .tabs__nav-title--active .committee-logo--stroke-color {
-    stroke: var(--c-font-main);
+    stroke: var(--color-text-primary);
 }
 
 .tabs__nav-item:hover .committee-logo--fill-color, .tabs__nav-title--active .committee-logo--fill-color {
-    fill: var(--c-font-main);
+    fill: var(--color-text-primary);
 }
 
 .tabs__nav-title--active .committee-logo--fill-bg-color {
-    fill: var(--c-bg-box); 
+    fill: var(--color-bg-surface);
 }
 
 

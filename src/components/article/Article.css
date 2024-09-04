@@ -20,30 +20,16 @@
 
 .article__meta-date {
     font-size: .9rem;
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
 }
 
-
 .article__informational {
-    display: flex;
-    padding: 1rem;
-    border-radius: .3rem;
-    background-color: var(--c-alert-info-bg);
     margin: 1rem 0;
     max-width: 40rem;
 }
 
-.article__informational-icon {
-    padding-right: 1rem;
-    display: block;
-    font-size: 2.5rem;
-    color: var(--c-alert-info-icon);
-}
-
-.article__informational-msg {
-    margin: auto 0;
-    font-size: 1.1rem;
-    color: var(--c-alert-info-text);
+.article__informational-alert {
+    font-size: 1.2rem;
 }
 
 

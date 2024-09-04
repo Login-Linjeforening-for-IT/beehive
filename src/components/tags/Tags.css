@@ -10,55 +10,61 @@
 }
 
 .tag__container {
-  padding: .2em .9em .2em .9em;
+  padding: .2em .9em;
   border-radius: 10em;
 }
-  
+
+
+/* Variants */
+
 .tag--highlight {
-  background: var(--c-bg-highlight-gradient);
+  background: var(--color-tag-highlight-bg);
   padding: .1em;
 }
-.tag__container--highlight {
-  background-color: var(--c-bg-body);
+.tag--highlight .tag__container {
+  background-color: var(--color-bg-body);
 }
-.tag__name--highlight {
-  background: var(--c-bg-highlight-gradient);
+.tag--highlight .tag__name {
+  background: var(--color-tag-highlight-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* some exeptions for light mode (no gradient bg) */
 .light .tag--highlight {
-  background: var(--c-highlight-bg);
+  background: var(---color-tag-highlight-bg);
+  padding: 0;
+  border: .1em solid var(--color-tag-highlight-boder);
 }
-.light .tag__container--highlight {
-  background: var(--c-highlight-bg);
+.light .tag--highlight .tag__container {
+  background: var(--color-tag-highlight-bg);
 }
-.light .tag__name--highlight {
+.light .tag--highlight .tag__name {
   background: none;
-  color: white;
+  color: var(--color-tag-highlight-text);
   -webkit-background-clip: inherit;
-  -webkit-text-fill-color: white;
+  -webkit-text-fill-color: var(--color-tag-highlight-text);
 }
 
-.tag--canceled {
+.tag--danger {
   color: var(--c-error-text);
 }
-.tag__container--canceled {
-  background-color: var(--c-error-bg);
-  border: .1em solid var(--c-error-border);
+.tag--danger .tag__container {
+  background-color: var(--color-tag-danger-bg);
+  border: .1em solid var(--color-tag-danger-border);
+}
+.tag--danger .tag__name {
+  color: var(--color-tag-danger-text); 
 }
 
-.tag__name--canceled {
-  color: var(--c-error-text); 
+.tag--info {
+  background-color: var(--color-tag-info-bg);
 }
-.tag--new {
-  background-color: var(--c-new-bg);
+.tag--info .tag__container {
+  border: .1em solid var(--color-tag-info-border);
 }
-.tag__container--new {
-  border: .1em solid var(--c-new-border);
-}
-.tag__name--new {
-  color: var(--c-new-text);
+.tag--info .tag__name {
+  color: var(--color-tag-info-text);
 }
 
 @media only screen and (min-width: 800px) {

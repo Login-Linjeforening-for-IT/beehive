@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { withTranslation } from "react-i18next";
+
 import { config } from "../../Constants";
+
 import Spinner from "../../components/spinner/Spinner";
 import Article from '../../components/article/Article';
-import RenderSmoothImage from '../../components/picture/RenderSmoothImage/RenderSmoothImage';
+import RenderSmoothImage from '../../components/images/rendersmoothimage/RenderSmoothImage';
+import Button from '../../components/button/Button';
+import Alert from "../../components/alert/Alert";
+
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 import * as Translator from "../../utils/GetTranslation";
 import { getJob } from '../../utils/api';
+
 import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg';
 import "./JobadPage.css";
+
 
 const jobTypeTranslations = {
   no: {
@@ -76,7 +83,11 @@ const JobadPage = ({ t, i18n }) => {
   return (
     <>
       {loading && <Spinner w="50" h="50" />}
-      {error && <div className="page-container"><p className="page-section--normal">{error}</p></div>}
+      {!loading && error && 
+        <div className="page-container">
+          <Alert variant='danger' icon='sentiment_dissatisfied' className="page-section--normal">{error}</Alert>
+        </div>
+      }
       {!loading && !error && jobad && (
         <div
           className={`jobad-page ${
@@ -85,18 +96,18 @@ const JobadPage = ({ t, i18n }) => {
         >
           <div className="jobad-details">
             <div className="jobad-details__company">
-              <picture>
+              <picture className="jobad-details__company-logo">
                 <RenderSmoothImage
                   src={useFallbackImg ? fallbackImg : config.url.CDN_URL + '/img/organizations/' + jobad.organization.logo}
                   alt={jobad.organization.logo}
-                  className='jobad-details__company-logo'
+                  className='jobad-details__image'
                   onError={() => setUseFallbackImg(true)}
                 />
               </picture>
               <div className="jobad-details__company-name">
                 {jobad.organization.link_homepage ? (
                   <a
-                    className="jobad-details__company-name-link standard-link--underscore-hover"
+                    className="jobad-details__company-name-link link--underscore-hover"
                     href={jobad.organization.link_homepage}
                     target="_blank"
                     rel="noreferrer"
@@ -180,26 +191,24 @@ const JobadPage = ({ t, i18n }) => {
               }
             </div>
             {jobad.job.application_url && (
-              <a
+              <Button
+                trailingIcon={<i className="material-symbols-sharp">arrow_outward</i>}
                 href={jobad.job.application_url}
-                target="_blank"
-                className="jobad-details__apply-btn standard-button standard-button--primary"
+                className="jobad-details__apply-btn"
               >
-                {t("details.apply-btn")}{" "}
-                <i className="material-symbols-sharp">arrow_outward</i>
-              </a>
+                {t("details.apply-btn")}
+              </Button>
             )}
           </div>
           {showBannerImg && (
-            <div className="jobad-banner">
-              <picture>
-                <RenderSmoothImage
-                  src={config.url.CDN_URL + "/img/ads/" + jobad.job.banner_image}
-                  alt={jobad.job.banner_image}
-                  onError={hideBannerImg}
-                />
-              </picture>
-            </div>
+            <picture className="jobad-banner">
+              <RenderSmoothImage
+                src={config.url.CDN_URL + "/img/ads/" + jobad.job.banner_image}
+                alt={jobad.job.banner_image}
+                onError={hideBannerImg}
+                className={"jobad-banner__image"}
+              />
+            </picture>
           )}
           <div className="jobad-description">
             <Article

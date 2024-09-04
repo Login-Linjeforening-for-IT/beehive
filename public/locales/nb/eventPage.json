@@ -7,25 +7,13 @@
     "organizer": "Arrangør",
     "links": "Lenker",
     "stream": "Stream",
-    "capacity": "Kapasitet",
-    "form": {
-        "button": "Meld meg på",
-        "full": "Dette arrangementet er fullt!",
-        "send": "Send",
-        "sent": "Du er påmeldt.",
-        "cancel": "Meld meg av.",
-        "name": "Navn",
-        "degree": "Studieretning",
-        "study_year": "Studieår",
-        "mail": "Mail",
-        "preferences": "Preferanser",
-        "allergies": "Allergier"
-    }
-  }, 
+    "capacity": "Plasser"
+  },
   "signup": {
     "title": "Påmelding",
     "action": "Meld meg på",
-    "open": "Åpner",
+    "opens": "Åpner",
+    "hasOpened": "Åpnet",
     "closes": "Stenger",
     "closed": "Stengte",
     "none": "Dette arrangementet krever ingen påmelding",

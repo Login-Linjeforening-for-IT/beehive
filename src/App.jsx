@@ -1,7 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./App.css";
+import "./styles/colors.css";
+import "./styles/themes.css";
+import "./styles/fontImport.css";
+import "./styles/globals.css";
 import "./assets/fonts/logfont/style.css";
 
 import TopBar from "./layouts/topbar/TopBar";
@@ -28,11 +31,11 @@ function App() {
     <ThemeProvider>
       <div className="App">
         <BrowserRouter>
-          <header>
+          <header className="main-header">
             <TopBar />
           </header>
 
-          <main>
+          <main className="main-content">
             <Scroll>
               <Routes>
                 <Route path="/" element={<LandingPage />} />
@@ -51,7 +54,7 @@ function App() {
             </Scroll>
           </main>
 
-          <footer>
+          <footer className="main-footer">
             <Footer />
           </footer>
         </BrowserRouter>

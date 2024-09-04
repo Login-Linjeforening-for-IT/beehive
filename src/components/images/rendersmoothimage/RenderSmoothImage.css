@@ -1,0 +1,11 @@
+.smooth-image--transition {
+    transition: opacity .5s;
+}
+
+.smooth-image--visible {
+    opacity: 1;
+}
+
+.smooth-image--hidden {
+    opacity: 0;
+}

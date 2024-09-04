@@ -1,7 +1,7 @@
 .theme-toggle {
     display: block;
     cursor: pointer;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
     background: none;
     border: none;
 }
@@ -20,7 +20,7 @@
     NOTE: the ".light" class below is used for the theme 
     toggle animation.
     Dont use this class for color changes, use root varibles
-    for color managment. See app.css
+    for color managment. See colors.css
 */
 
 .light .theme-toggle__svg {

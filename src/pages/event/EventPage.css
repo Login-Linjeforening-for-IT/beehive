@@ -17,7 +17,6 @@
 
 .event-banner {
     grid-area: ban;
-    background-color: rgba(128, 128, 128, 0.15);
 }
 
 .event-description {
@@ -33,7 +32,7 @@
 
 .event-details {
     padding: 2rem 1rem;
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     overflow: hidden; /* keeps map close to details on grid, not sure why tho... */
     position: relative;
 }
@@ -51,7 +50,7 @@
 
 .event-datetime-display__day {
     font-size: 1.25rem;
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
 }
 
 .event-datetime-display__time {
@@ -70,11 +69,17 @@
     display: grid;
     grid-template-columns: min-content auto;
     gap: 1rem;
+    margin: 1rem 0 2rem 0;
 }
 
 .event-details__lable {
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
     display: inline-flex;
+}
+
+.event-details__info {
+    font-weight: 500;
+    color: var(--color-text-secondary);
 }
 
 /* lable icons */
@@ -86,7 +91,7 @@
 }
 
 .event-details__icon--lable-color {
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
 }
 
 
@@ -112,7 +117,11 @@
 
 /* event banner */
 
-.event-banner__image, .event-banner .default-banner {
+.event-banner {
+    background-color: rgba(100,100,100,.3);
+}
+
+.event-banner__image {
     display: block;
     aspect-ratio: 10 / 4;
     object-fit: cover;
@@ -192,7 +201,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -203,50 +212,9 @@
         margin-right: 1.3rem;
     }
 
-    .event-signup {
-        position: relative;
-    }
-
-    .event-signup:after {
-        content: '';
-        width: 2rem;
-        height: 2rem;
-        position: absolute;
-        border-width: .7rem;
-        border-color: var(--c-corner-decor);
-        bottom: 0;
-        transition: .1s;
-    }
-
-    .event-signup--bottom-right-corner {
-        padding-bottom: 3rem;
-    }
-
-    .event-signup--bottom-left-corner:after {
-        border-style: none none solid solid;
-        left: 0;
-    }
-
-    .event-signup--bottom-right-corner:after {
-        border-style: none solid solid none;
-        right: 0;
-    }
-
-    .event-signup__btn-container {
-        display: flex;
-        justify-content: end;
-    }
-
-    .event-signup__btn {
-        min-width: 12rem;
-    }
-
-    .event-signup__msg {
-        width: 100%;
-    }
 
     .event-banner, .event-banner__image {
-        border-radius: .3rem;
+        border-radius: var(--border-radius);
     }
 
     .event-description {
@@ -261,7 +229,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -274,7 +242,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: none solid solid none;
         bottom: 0;
         right: 0;

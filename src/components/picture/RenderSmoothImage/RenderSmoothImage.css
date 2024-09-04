@@ -1,5 +1,0 @@
-.smooth-image--transition {
-    transition: opacity 1s; 
-}
-.smooth-image--visible {opacity: 1}
-.smooth-image--hidden {opacity: 0}

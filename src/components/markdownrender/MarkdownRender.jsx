@@ -7,6 +7,7 @@ import EventCardSkeleton from '../event/EventCardSkeleton';
 import JobadCard from "../jobad/JobadCard";
 import JobadCardSkeleton from "../jobad/JobadCardSkeleton";
 import DropDownBox from "../dropdownbox/DropDownBox";
+import Alert from "../alert/Alert";
 import { getEventRow, getJobRow } from "../../utils/api"
 
 
@@ -22,9 +23,11 @@ const CustomLink = ({ href, children }) => {
 
   return (
     <a
-      className='standard-link standard-link--underscore-hover'
-      href={href} target='_blank'
-      rel='noopener noreferrer'>
+      className='link link--primary link--underscore-hover'
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
       {children}
     </a>
   )
@@ -36,10 +39,12 @@ function ErrorMessage({ err, title }) {
   }
 
   return (
-    <DropDownBox title={title}>
+    <Alert variant='danger' icon='error'>
+      {title}
+      <br/>
       {err.status && <p>Status: {err.status}</p>}
       {err.error && <p>Error: {err.error}</p>}
-    </DropDownBox>
+    </Alert>
   );
 }
 

@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { withTranslation } from 'react-i18next'
-import './JobadsListItem.css'
-import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
-import * as DatetimeFormatter from '../../utils/DatetimeFormatter'
-import * as Translator from '../../utils/GetTranslation'
+import { withTranslation } from 'react-i18next';
+
+import './JobadsListItem.css';
+import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg';
+
+import * as DatetimeFormatter from '../../utils/DatetimeFormatter';
+import * as Translator from '../../utils/GetTranslation';
 import { config } from "../../Constants";
-import { isNew } from '../../utils/DatetimeFormatter';
+
 import Tags from '../tags/Tags';
-import RenderSmoothImage from '../picture/RenderSmoothImage/RenderSmoothImage';
+import RenderSmoothImage from '../images/rendersmoothimage/RenderSmoothImage';
+
 
 const jobTypeTranslations = {
   no: {
@@ -69,7 +72,7 @@ const JobadsListItem = ({ i18n, jobad }) => {
   
   const useTags = (publishTime, highlight) => {
     if (highlight) return true;
-    if (isNew(publishTime)) return true;
+    if (DatetimeFormatter.isNew(publishTime)) return true;
     return false;
   }
 

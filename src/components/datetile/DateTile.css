@@ -3,7 +3,7 @@
 	display: flex;
 	width: fit-content;
 	justify-content: center;
-	border-radius: .3rem;
+	border-radius: var(--border-radius);
 }
 
 .date-tile--wide {

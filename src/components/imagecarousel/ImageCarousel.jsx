@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { withTranslation } from 'react-i18next';
 import "./ImageCarousel.css";
-import RenderSmoothImage from "../picture/RenderSmoothImage/RenderSmoothImage";
+import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage";
 
 
 const NavigationButton = ({ side, onClick, onFocus }) => (

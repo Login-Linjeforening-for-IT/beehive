@@ -1,15 +1,19 @@
-import React, { useCallback, useRef } from 'react';
-import { NavLink } from 'react-router-dom'
+import React, { useCallback, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 
-const Navigation = ({t}) => {
 
-  const navItemRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+const Navigation = ({ t }) => {
+  const navItemRefs = useRef([
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+  ]);
 
-  // each dropdown item will unfocus (blur) whenever it is clicked. 
+  // each dropdown item will unfocus (blur) whenever it is clicked.
   // this prevents it from staying visble after removing the mouse.
-  // this allows for showing the dropdown on focus and hover without 
-  // being focused anfter clicking it which improves accsessebility.
+  // this allows for showing the dropdown on focus and hover without
+  // being focused anfter clicking it. Accessibility smooth as hell
   const handleClick = useCallback(() => {
     navItemRefs.current.forEach((ref) => {
       if (ref.current) {
@@ -19,41 +23,66 @@ const Navigation = ({t}) => {
   }, [navItemRefs]);
 
   return (
-    <nav className='main-nav'>
-      <NavLink to='events'>
-        <li className='main-nav__item standard-link--corner-hover'>{t('nav.events')}</li>
+    <nav className="main-nav">
+      <NavLink to="events">
+        <li className="main-nav__item link--corner-hover">{t("nav.events")}</li>
       </NavLink>
-      <NavLink to='career'>
-        <li className='main-nav__item standard-link--corner-hover'>{t('nav.jobad')}</li>
+      <NavLink to="career">
+        <li className="main-nav__item link--corner-hover">{t("nav.jobad")}</li>
       </NavLink>
-      <NavLink to='companies'>
-        <li className='main-nav__item standard-link--corner-hover'>{t('nav.companies')}</li>
+      <NavLink to="companies">
+        <li className="main-nav__item link--corner-hover">
+          {t("nav.companies")}
+        </li>
       </NavLink>
-      <div className='main-nav-dropdown'>
-        <div className='main-nav-dropdown__toggle' tabIndex={0}>
-          <div className='main-nav__item'>
-            {t('nav.about')}
-            <i className="material-symbols-sharp main-nav-dropdown__toggle-arrow">expand_more</i>
+      <div className="main-nav-dropdown">
+        <div className="main-nav-dropdown__toggle" tabIndex={0}>
+          <div className="main-nav__item">
+            {t("nav.about")}
+            <i className="material-symbols-sharp main-nav-dropdown__toggle-arrow">
+              expand_more
+            </i>
           </div>
-          <div className='main-nav-dropdown__wrapper'>
+          <div className="main-nav-dropdown__wrapper">
             <ul className="main-nav-dropdown__items">
-              <NavLink to='about' ref={navItemRefs.current[0]} onClick={handleClick}>
-                <li className='main-nav-dropdown__item standard-link--corner-hover'>
+              <NavLink
+                to="about"
+                ref={navItemRefs.current[0]}
+                onClick={handleClick}
+              >
+                <li className="main-nav-dropdown__item link--corner-hover">
                   <i className="logfont-login main-nav-dropdown__leading-icon"></i>
-                  {t('nav.general')}
+                  {t("nav.general")}
                 </li>
               </NavLink>
-              <NavLink to='verv' ref={navItemRefs.current[1]} onClick={handleClick}>
-                <li className='main-nav-dropdown__item standard-link--corner-hover'>
-                  <i className="material-symbols-sharp main-nav-dropdown__leading-icon">favorite</i>
-                  {t('nav.verv')}
+              <NavLink
+                to="verv"
+                ref={navItemRefs.current[1]}
+                onClick={handleClick}
+              >
+                <li className="main-nav-dropdown__item link--corner-hover">
+                  <i className="material-symbols-sharp main-nav-dropdown__leading-icon">
+                    favorite
+                  </i>
+                  {t("nav.verv")}
                 </li>
               </NavLink>
-              <a title='Wiki' href='https://wiki.login.no' target='_blank' rel='noreferrer' ref={navItemRefs.current[2]} onClick={handleClick}>
-                <li className='main-nav-dropdown__item standard-link--corner-hover'>
-                  <i className="material-symbols-sharp main-nav-dropdown__leading-icon">import_contacts</i>
-                  {/* <i className="material-symbols-sharp main-nav-dropdown__leading-icon">book</i> */}
-                  Wiki<i className="material-symbols-sharp wiki__arrow">arrow_outward</i>
+              <a
+                title="Wiki"
+                href="https://wiki.login.no"
+                target="_blank"
+                rel="noreferrer"
+                ref={navItemRefs.current[2]}
+                onClick={handleClick}
+              >
+                <li className="main-nav-dropdown__item link--corner-hover">
+                  <i className="material-symbols-sharp main-nav-dropdown__leading-icon">
+                    import_contacts
+                  </i>
+                  Wiki
+                  <i className="material-symbols-sharp wiki__arrow">
+                    arrow_outward
+                  </i>
                 </li>
               </a>
             </ul>
@@ -61,7 +90,7 @@ const Navigation = ({t}) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default withTranslation('layout')(Navigation);
+export default withTranslation("layout")(Navigation);

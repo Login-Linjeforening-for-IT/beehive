@@ -1,7 +1,7 @@
 import * as ColorManipulation from "../../../utils/ColorManipulation.js";
 import './defualt-banner.css';
 
-const DefaultCtfBanner = ({ color }) => {
+const DefaultCtfBanner = ({ color, transition = true, className = '' }) => {
 
     let gradient, fillColor;
 
@@ -14,7 +14,7 @@ const DefaultCtfBanner = ({ color }) => {
     }
 
     return (
-        <div className='default-banner' style={{background: gradient}}>
+        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{background: gradient}}>
             <svg className='default-banner__svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M209.755 64H251.845L260.245 106H218.155L209.755 64ZM215.245 68.5L221.845 101.5H254.755L248.155 68.5H215.245Z" fill={fillColor}/>
                 <path fillRule="evenodd" clipRule="evenodd" d="M245.755 101.5L247.794 111.691L248.155 113.5H250H287.5H290.245L289.706 110.809L282.206 73.3087L281.845 71.5H280H249.114L250.034 76H278.155L284.755 109H251.845L250.345 101.5H245.755Z" fill={fillColor}/>

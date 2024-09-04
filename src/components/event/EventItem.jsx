@@ -1,33 +1,36 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { withTranslation } from "react-i18next";
+
 import DateTile from "../datetile/DateTile";
 import Tags from "../tags/Tags";
+import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage";
 import DefaultEventBanner from "../svg/defaultbanners/DefaultEventBanner";
 import DefaultCtfBanner from "../svg/defaultbanners/DefaultCtfBanner";
 import DefaultTekkomBanner from "../svg/defaultbanners/DefaultTekkomBanner";
 import DefaultBedpresBanner from "../svg/defaultbanners/DefaultBedpresBanner";
 import DefaultSocialBanner from "../svg/defaultbanners/DefaultSocialBanner";
-import RenderSmoothImage from "../picture/RenderSmoothImage/RenderSmoothImage";
+
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
-import * as Translator from '../../utils/GetTranslation'
+import { getTranslation } from "../../utils/GetTranslation";
+import { isNew } from "../../utils/DatetimeFormatter";
 import { config } from "../../Constants";
-import { isNew } from '../../utils/DatetimeFormatter';
+
 import "./EventItem.css";
 
 
 const getDefaultBanner = (category, color) => {
   switch (category) {
     case "Sosialt":
-      return <DefaultSocialBanner color={color} />;
+      return <DefaultSocialBanner color={color} className="event-item__img" />;
     case "TekKom":
-      return <DefaultTekkomBanner color={color} />;
+      return <DefaultTekkomBanner color={color} className="event-item__img" />;
     case "CTF":
-      return <DefaultCtfBanner color={color} />;
+      return <DefaultCtfBanner color={color} className="event-item__img" />;
     case "Bedpres":
-      return <DefaultBedpresBanner color={color} />;
+      return <DefaultBedpresBanner color={color} className="event-item__img" />;
     default:
-      return <DefaultEventBanner color={color} />;
+      return <DefaultEventBanner color={color} className="event-item__img" />;
   }
 };
 
@@ -37,13 +40,14 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
   const [showImage, setShowImage] = useState(true);
   const lang = i18n.language == "en" ? "en" : "no";
   const useEng = lang === 'en';
-  const tr = Translator.getTranslation(useEng);
+  const tr = getTranslation(useEng);
 
-  const useTags = (publishTime, highlight, canceled) => {
+  const useTags = (publishTime, highlight, canceled, full) => { console.log(full);
     if (disableTags) return false;
     if (highlight) return true;
     if (isNew(publishTime)) return true;
     if (canceled) return true;
+    if (full) return true;
     return false;
   }
 
@@ -70,17 +74,18 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
                   useDayText={event.category_name_no === "Fadderuka" ? true : false}
                 />
               </div>
-              {(event.image_small && showImage) ? (
-                <RenderSmoothImage
-                  className="event-item__img"
-                  alt={event.image_small}
-                  src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
-                  onError={() => setShowImage(false)}
-                  transition={false}
-                />
-              ) : (
-                getDefaultBanner(event.category_name_no, event.category_color)
-              )}
+              <picture className="event-item__picture">
+                {(event.image_small && showImage) ? (
+                  <RenderSmoothImage
+                    className="event-item__img"
+                    alt={event.image_small}
+                    src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
+                    onError={() => setShowImage(false)}
+                  />
+                ) : (
+                  getDefaultBanner(event.category_name_no, event.category_color)
+                )}
+              </picture>
             </>
           )}
           <div className="event-item__info">
@@ -107,15 +112,16 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
                 </li>
               )}
             </ul>
-            {useTags(event.time_publish, event.highlight, event.canceled) &&
-            <div className="event-item__tags">
-              <Tags
-                highlight={event.highlight}
-                timePublish={new Date(event.time_publish)}
-                canceled={event.canceled}
-              />
-            </div>
-          }
+            {useTags(event.time_publish, event.highlight, event.canceled, event.full) &&
+              <div className="event-item__tags">
+                <Tags
+                  highlight={event.highlight}
+                  timePublish={new Date(event.time_publish)}
+                  canceled={event.canceled}
+                  full={event.full}
+                />
+              </div>
+            }
           </div>
           {variant === 'list-item' &&
             <picture className="event-item__picture">
@@ -137,16 +143,4 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
   );
 };
 
-
 export default withTranslation("eventListPage")(EventListItem);
-
-
-
-// highlight
-//
-// disable tags
-//
-// varient
-//
-// 
-//

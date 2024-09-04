@@ -1,8 +1,8 @@
 .accordion {
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     overflow: hidden;
-    border-radius: .3rem;
-    box-shadow: var(--shadow-box);
+    border-radius: var(--border-radius);
+    box-shadow: var(--container-shadow);
 }
 
 .accordion__nav-item {
@@ -21,7 +21,7 @@
     line-height: 2.25rem;
     transition: .3s;
     margin: 0 .4rem 0 -.2rem;
-    color: var(--c-link); /* the --c-link var has darker shade on lightmode for better contrast */
+    color: var(--color-primary); /* the --c-link var has darker shade on lightmode for better contrast */
 }
 
 .accordion__nav-item--active .accordion__icon--left {
