@@ -8,24 +8,12 @@
     "links": "Links",
     "stream": "Stream",
     "capacity": "Capasity",
-    "form": {
-        "button": "Join event",
-        "full": "This event is full!",
-        "send": "Send",
-        "sent": "You have signed up for this event.",
-        "cancel": "Cancel signup",
-        "name": "Name",
-        "degree": "Degree",
-        "study_year": "Study year",
-        "mail": "Mail",
-        "preferences": "Preferences",
-        "allergies": "Allergies"
-    }
   }, 
   "signup": {
     "title": "Sign up",
     "action": "Sign me up",
-    "open": "Opens",
+    "opens": "Opens",
+    "hasOpened": "Opened",
     "closes": "Closes",
     "closed": "Closed",
     "none": "This event requires no sign up",

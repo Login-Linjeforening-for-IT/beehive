@@ -3,10 +3,9 @@
     padding: .5rem;
     line-height: 2rem;
     font-size: 1rem;
-    color: var(--c-font-main);
     width: 4.3rem;
     text-align: center;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
     background: none;
     border: none;
 }
@@ -34,6 +33,6 @@
 @media only screen and (max-width: 800px) {
     .topbar--open .lang-toggle,
     .topbar--open .lang-toggle__icon {
-        color: var(--c-white);
+        color: var(--color-white);
     }
 }

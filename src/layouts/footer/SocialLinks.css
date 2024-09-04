@@ -2,7 +2,7 @@
   display: grid;
   justify-content: space-between;
   width: 100%;
-  margin: 4rem auto;
+  margin: 5rem auto 3rem;
   grid-template-columns: auto auto auto;
   gap: 3rem;
   max-width: 13rem;
@@ -21,7 +21,7 @@
   transition: .2s;
   text-align: center;
   display: block;
-  color: var(--c-white);
+  color: var(--color-text-footer);
 }
 
 
@@ -74,6 +74,6 @@
 @media only screen and (min-width: 800px) {
   .footer-social-links {
     margin: 0;
+    width: 20rem;
   }
 }
-

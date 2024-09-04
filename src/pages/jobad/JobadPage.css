@@ -37,7 +37,7 @@
 .jobad-details {
     width: 100%;
     padding: 2rem 1rem;
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     position: relative;
 }
 
@@ -47,7 +47,7 @@
     margin-bottom: 2rem;
 }
 
-.jobad-details__company-logo {
+.jobad-details__image {
     display: block;
     width: 7.5rem;
     border-radius: .2rem;
@@ -80,7 +80,7 @@
 }
 
 .jobad-details__lable {
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
     display: inline-flex;
 }
 
@@ -100,7 +100,7 @@
 }
 
 .jobad-details__icon--lable-color {
-    color: var(--c-font-discret);
+    color: var(--color-text-tertiary);
 }
 
 .jobad-details__info {
@@ -116,23 +116,18 @@
 	hyphens: auto;
 }
 
-.jobad-details__apply-btn {
-    margin-top: 3rem;
-}
-
-
 /* jobad banner */
-/* TODO fix bem */
-.jobad-banner picture {
-    display: block;
+.jobad-banner {
+    background-color: rgba(100,100,100,.3);
 }
 
-.jobad-banner picture img {
+.jobad-banner__image {
     display: block;
     aspect-ratio: 10 / 4;
     object-fit: cover;
     width: 100%;
 }
+
 
 /* description */
 
@@ -151,7 +146,7 @@
         gap: 2rem;
     }
 
-    .jobad-details__company-logo {
+    .jobad-details__image {
         width: 10rem;
     }
 
@@ -199,7 +194,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -212,7 +207,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: none none solid solid;
         bottom: 0;
         left: 0;
@@ -227,7 +222,7 @@
         margin-top: 1rem;
     }
 
-    .jobad-details__company-logo {
+    .jobad-details__image {
         width: 12rem;
     }
 
@@ -238,11 +233,11 @@
     }
 
     .jobad-banner {
-        padding-bottom: 2rem;
+        margin-bottom: 2rem;
     }
 
     .jobad-banner img {
-        border-radius: .3rem;
+        border-radius: var(--border-radius);
     }
 
     .jobad-description {
@@ -255,7 +250,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -268,7 +263,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--c-corner-decor);
+        border-color: var(--color-border-default);
         border-style: none solid solid none;
         bottom: 0;
         right: 0;

@@ -3,7 +3,7 @@
 import * as ColorManipulation from "../../../utils/ColorManipulation.js";
 import './defualt-banner.css';
 
-const DefaultEventBanner = ({ color }) => {
+const DefaultEventBanner = ({ color, transition = true, className = '' }) => {
 
     let gradient, fillColor;
 
@@ -16,7 +16,7 @@ const DefaultEventBanner = ({ color }) => {
     }
 
     return (
-        <div className='default-banner' style={{background: gradient}}>
+        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{background: gradient}}>
             <svg className='default-banner__svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="500" height="200"/>
                 <g clipPath="url(#clip0_328_310)">

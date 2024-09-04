@@ -1,13 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { withTranslation } from "react-i18next";
+
 import Spinner from "../../components/spinner/Spinner";
 import JobadsListItem from "../../components/jobad/JobadsListItem";
+import Button from "../../components/button/Button";
+import FilterGroup from "../../components/filter/filter";
+import Alert from "../../components/alert/Alert.jsx";
+
+import { debounce } from "../../utils/debounce.js";
+import prepFilter from "../../components/filter/prepFilter.js";
+import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "../../utils/api";
+
 import "./Jobads.css";
 
-import { debounce } from '../../utils/debounce.js';
-import FilterGroup from '../../components/filter/filter';
-import prepFilter from "../../components/filter/prepFilter.js"
-import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from '../../utils/api';
 
 const jobTypeTranslations = {
   no: {
@@ -173,22 +178,23 @@ const Jobads = ({ t }) => {
     <div className="page-container">
       <h1 className="page-section--normal heading-1 heading-1--top-left-corner">{t("title")}</h1>
       {loading && <Spinner w="50" h="50" />}
-      {!loading && error && <p className="page-section--normal">{error}</p>}
+      {!loading && error && <Alert variant='danger' className="page-section--normal page-section--alert">{error}</Alert>}
       {!loading && !error &&
         <div className="page-section--normal">
-          <button
-            className={`events-top-bar__button events-top-bar__filter-toggle ${isFilterOpen ? 'events-top-bar__filter-toggle--active' : ''}`}
-            onClick={toggleFilter}
-          >
-            Filter
-            <i className='material-symbols-sharp events-top-bar__icon'>
-              filter_list
-            </i>
-          </button>
+          <Button
+						variant="secondary-outlined"
+						trailingIcon={<i className='material-symbols-sharp'>filter_list</i>}
+						onClick={toggleFilter}
+						size="medium"
+            className={`jobads__filter-toggle ${isFilterOpen ? 'active' : ''}`}
+					>
+						Filter
+					</Button>
+
           <div className="jobads">
             <div className="jobads__section--left">
               <div className={`jobads__filter-container ${isFilterOpen ? 'jobads__filter-container--open' : ''}`}>
-                {filterData ? <FilterGroup filters={filterData} onApply={ap}/> : "No filter data available"}
+                {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : "No filter data available"}
               </div>
             </div>
             <div className="jobads__section--right">
@@ -198,13 +204,20 @@ const Jobads = ({ t }) => {
                     <JobadsListItem jobad={e} />
                   </li>
                 )) :
-                  <p>No matches...</p>
+                  <p>{t('noResults')}</p>
                 }
               </ul>
               {showLoadMore && jobads.length > 0 && (
-                <a className='jobads__load-more-btn standard-button standard-button--primary' onClick={loadItems}>
-                  {t('load-more')}
-                </a>
+                <div className='jobads__load-more'>
+                  <Button 
+                    onClick={loadItems}
+                    variant='secondary'
+                    className='jobads__load-more-btn'
+                    trailingIcon={<i className='material-symbols-sharp'>arrow_downward</i>}
+                  >
+                    {t('load-more')}
+                  </Button>
+                </div>
               )}
             </div>
           </div>

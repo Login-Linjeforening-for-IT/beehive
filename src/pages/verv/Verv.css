@@ -10,14 +10,13 @@
 
 /* intro section */
 .verv-intro__p {
-    max-width: 50rem;
     margin-top: 0;
 }
 
 /* apply section */
 .verv-apply__button {    
-    font-size: 1rem;
     margin-top: 2rem;
+    width: 100%;
 }
 
 @media only screen and (min-width: 400px) {
@@ -28,9 +27,10 @@
     }
 
     .verv-apply__button{    
-        width: fit-content;
         font-size: 1.3rem;
         margin: 2rem auto 0 auto;
+        display: block;
+        width: fit-content;
     }
 }
 

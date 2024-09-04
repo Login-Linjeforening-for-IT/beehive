@@ -24,17 +24,10 @@
 }
 
 /* BEM exception becasue its a picture component */
-.about-intro__grid-container picture {
+.about-intro__picture {
     max-width: 33rem;
     width: 100%;
-    margin: 3rem 1rem 1rem 1rem;
-}
-
-
-/* public docs section */
-
-.about-public-docs__list {
-    margin: 0 1rem;
+    margin: 3rem 0 1rem 0;
 }
 
 

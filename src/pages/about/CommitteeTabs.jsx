@@ -1,19 +1,24 @@
-import TabNavItem from '../../components/tabs/TabNavItem'
-import TabContent from '../../components/tabs/TabContent'
-import EventkomLogo from '../../components/svg/committeelogos/EventkomLogo'
-import BedkomLogo from '../../components/svg/committeelogos/BedkomLogo'
-import TekkomLogo from '../../components/svg/committeelogos/TekkomLogo'
-import CtfkomLogo from '../../components/svg/committeelogos/CtfkomLogo'
-import StyretLogo from '../../components/svg/committeelogos/StyretLogo'
-import SatkomLogo from '../../components/svg/committeelogos/SatkomLogo'
-import PrLogo from '../../components/svg/committeelogos/PrLogo'
-import LogChamp from '../../components/logchamp/LogChamp'
-import {config} from '../../Constants';
+import { useState } from 'react';
+import { withTranslation } from 'react-i18next';
+
+import { config } from '../../Constants';
 import board from '../../assets/boardmembers/boardmembers.json';
-import {useState} from 'react'
-import {withTranslation} from 'react-i18next'
-import '../../components/tabs/Tabs.css'
-import './CommitteeTabs.css'
+
+import TabNavItem from '../../components/tabs/TabNavItem';
+import TabContent from '../../components/tabs/TabContent';
+import LogChamp from '../../components/logchamp/LogChamp';
+
+import EventkomLogo from '../../components/svg/committeelogos/EventkomLogo';
+import BedkomLogo from '../../components/svg/committeelogos/BedkomLogo';
+import TekkomLogo from '../../components/svg/committeelogos/TekkomLogo';
+import CtfkomLogo from '../../components/svg/committeelogos/CtfkomLogo';
+import StyretLogo from '../../components/svg/committeelogos/StyretLogo';
+import SatkomLogo from '../../components/svg/committeelogos/SatkomLogo';
+import PrLogo from '../../components/svg/committeelogos/PrLogo';
+
+import '../../components/tabs/Tabs.css';
+import './CommitteeTabs.css';
+
 
 
 const CommitteeTabs = ({t, i18n}) => {

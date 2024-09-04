@@ -1,6 +1,9 @@
-import * as TimeFormatter from "../../utils/DatetimeFormatter";
 import { withTranslation } from "react-i18next";
+import * as TimeFormatter from "../../utils/DatetimeFormatter";
+
 import MarkdownRender from "../markdownrender/MarkdownRender";
+import Alert from "../alert/Alert";
+
 import "./Article.css";
 
 
@@ -26,12 +29,18 @@ const Article = ({ i18n, title, publishTime, updateTime, informational, introduc
       </div>
       {informational && (
         <div className="article__informational">
-          <i className="article__informational-icon material-symbols-sharp">
+          {/* <i className="article__informational-icon material-symbols-sharp">
             info
           </i>
           <div className="article__informational-msg" >
             {informational}
-          </div>
+          </div> */}
+          <Alert
+            icon='info'
+            className='article__informational-alert'
+          >
+            {informational}
+          </Alert>
         </div>
       )}
       {introduction && 

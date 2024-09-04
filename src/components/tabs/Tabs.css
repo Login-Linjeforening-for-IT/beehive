@@ -10,11 +10,11 @@
 
 .tabs__nav-item {
     list-style: none;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     transition: .2s;
-    box-shadow: var(--shadow-box);
+    box-shadow: var(--container-shadow);
     width: 100%;
 }
 
@@ -31,7 +31,7 @@
     transition: .2s;
     color: var(--c-on-box-dim);
     padding: .5rem;
-    border-bottom: .3rem solid var(--c-bg-box);
+    border-bottom: .3rem solid var(--color-bg-surface);
 }
 
 .tabs__nav-item:hover .tabs__nav-title {
@@ -40,14 +40,14 @@
 
 .tabs__nav-title--active {
     color: var(--c-font-main);
-    border-color: var(--c-primary);
+    border-color: var(--color-primary);
 }
 
 .tabs__content {
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     padding: 1rem;
-    box-shadow: var(--shadow-box);
-    border-radius: .3rem;
+    box-shadow: var(--container-shadow);
+    border-radius: var(--border-radius);
 }
 
 @media only screen and (min-width: 800px) {

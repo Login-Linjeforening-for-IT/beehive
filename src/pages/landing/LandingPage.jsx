@@ -1,95 +1,123 @@
-import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
-import './LandingPage.css'
-import DecoratedPicture from '../../components/picture/DecoratedPicture'
-import LoginLogo from '../../components/svg/brandlogos/LoginLogo';
-import { config } from '../../Constants'
-import {withTranslation} from "react-i18next";
-import {useContext} from "react";
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { withTranslation } from "react-i18next";
+
+import { config } from "../../Constants";
 import ThemeContext from "../../context/ThemeContext";
+import { getEvents, getJobs } from "../../utils/api";
+
+import DecoratedPicture from "../../components/images/decoratedpicture/DecoratedPicture";
+import Alert from "../../components/alert/Alert";
 import EventCardSkeleton from "../../components/event/EventCardSkeleton";
-import JobadCard from '../../components/jobad/JobadCard';
-import JobadCardSkeleton from "../../components/jobad/JobadCardSkeleton";
-import { getEvents, getJobs } from '../../utils/api';
 import EventListItem from "../../components/event/EventItem";
+import JobadCard from "../../components/jobad/JobadCard";
+import JobadCardSkeleton from "../../components/jobad/JobadCardSkeleton";
+import HeroSection from "./HeroSection";
 
+import "./LandingPage.css";
 
-const WelcomeBanner = ({ t }) => {
-  return (
-    <div className='welcome'>
-      <div className='welcome__container'>
-        <picture className='welcome__pic'>
-          <LoginLogo />
-        </picture>
-        <p className='welcome__text'>{t('landing.welcome')}<br/><span className='welcome__text--gradient'>login.no</span></p>
-      </div>
-    </div>
-  )
-}
 
 const SmallInfo = ({ t }) => {
-  const value = useContext(ThemeContext)
+  const value = useContext(ThemeContext);
 
   const getSponsorPath = () => {
-    if(value.theme === 'light') {
-      return '/img/company/mnemonic-logo_dark-nopayoff-2021.svg';
+    if (value.theme === "light") {
+      return "/img/company/mnemonic-logo_dark-nopayoff-2021.svg";
     } else {
-      return '/img/company/mnemonic-logo_light-nopayoff-2021.svg';
+      return "/img/company/mnemonic-logo_light-nopayoff-2021.svg";
     }
-  }
+  };
 
   return (
     <>
-      <div className='landing-info'>
-        <div className='landing-info__text'>
-          <h2 className='heading-2'>{t('landing.whoAreWe.title')}</h2>
-          <p className='p--regular'>{t('landing.whoAreWe.body')}</p>
-          <Link className='landing-info__link standard-link standard-link--corner-hover' to='/about'>{t('landing.readMore')}</Link>
+      <div className="landing-info">
+        <div className="landing-info__text">
+          <h2 className="heading-2">{t("whoAreWe.title")}</h2>
+          <p className="p--regular">{t("whoAreWe.body")}</p>
+          <Link
+            className="landing-info__link link link--primary link--corner-hover"
+            to="/about"
+          >
+            {t("readMore")}
+          </Link>
         </div>
-        <DecoratedPicture imgurl={config.url.CDN_URL + '/img/styret.jpg'} variant={1} cornerSize={350} w={1420} h={947} />
+        <DecoratedPicture
+          imgurl={config.url.CDN_URL + "/img/styret.jpg"}
+          variant={4}
+          cornerSize={40}
+          w={150}
+          h={100}
+          cover={true}
+          className="landing-info__picture"
+        />
       </div>
 
-      <div className='landing-info'>
-        <div className='landing-info__text'>
-          <h2 className='heading-2'>{t('landing.companiesInfo.title')}</h2>
-          <p className='p--regular'>{t('landing.companiesInfo.body')}</p>
-          <Link className='landing-info__link standard-link standard-link--corner-hover' to='/companies'>{t('landing.readMore')}</Link>
+      <div className="landing-info">
+        <div className="landing-info__text">
+          <h2 className="heading-2">{t("companiesInfo.title")}</h2>
+          <p className="p--regular">{t("companiesInfo.body")}</p>
+          <Link
+            className="landing-info__link link link--primary link--corner-hover"
+            to="/companies"
+          >
+            {t("readMore")}
+          </Link>
         </div>
-        <DecoratedPicture imgurl={config.url.CDN_URL + '/img/cyberdagen_preben.jpg'} variant={3} cornerSize={350} w={1420} h={947} />
+        <DecoratedPicture
+          imgurl={config.url.CDN_URL + "/img/cyberdagen_preben.jpg"}
+          variant={2}
+          cornerSize={40}
+          w={150}
+          h={100}
+          cover={true}
+          className="landing-info__picture"
+        />
       </div>
 
-      <div className='landing-info'>
-        <div className='landing-info__text'>
-          <h2 className='heading-2'>{t('landing.sponsor.title')}</h2>
-          <p className='p--regular'>{t('landing.sponsor.body')}</p>
-          <a className='landing-info__link standard-link standard-link--corner-hover' href='https://www.mnemonic.io/' target='_blank'>{t('landing.readMore')}</a>
+      <div className="landing-info">
+        <div className="landing-info__text">
+          <h2 className="heading-2">{t("sponsor.title")}</h2>
+          <p className="p--regular">{t("sponsor.body")}</p>
+          <a
+            className="landing-info__link link link--primary link--corner-hover"
+            href="https://www.mnemonic.io/"
+            target="_blank"
+          >
+            {t("readMore")}
+          </a>
         </div>
-        <DecoratedPicture imgurl={config.url.CDN_URL + getSponsorPath()} variant={0} cornerSize={0} w={400} h={130} />
+        <DecoratedPicture
+          imgurl={config.url.CDN_URL + getSponsorPath()}
+          variant={0}
+          cornerSize={0}
+          w={100}
+          h={30}
+          className="landing-info__picture"
+        />
       </div>
     </>
-  )
-}
+  );
+};
 
 const EndCard = ({ t, path }) => {
   return (
-    <li className='dynamic-preview-list__item dynamic-preview-end-card'>
-      <Link to={path} className='dynamic-preview-end-card__btn'>
-        <div className='dynamic-preview-end-card__arrow-container'>
+    <li className="dynamic-preview-list__item dynamic-preview-end-card">
+      <Link to={path} className="dynamic-preview-end-card__btn">
+        <div className="dynamic-preview-end-card__arrow-container">
           <div className="dynamic-preview-end-card__arrow"></div>
         </div>
-        <div className='dynamic-preview-end-card__text'>
-          {t('landing.eventsPreview.see-all')}
+        <div className="dynamic-preview-end-card__text">
+          {t("eventsPreview.see-all")}
         </div>
       </Link>
     </li>
-  )
-}
+  );
+};
 
 const EventsPreview = ({ t }) => {
-
-  const [ events, setEvents ] = useState(null);
-	const [ loading, setLoading ] = useState(true);
-	const [ error, setError ] = useState(null);
+  const [events, setEvents] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -102,66 +130,71 @@ const EventsPreview = ({ t }) => {
           setEvents(eventsData);
         }
       } catch (error) {
-        setError('Unexpected error occurred');
-        console.error('Unexpected error:', error);
+        setError("Unexpected error occurred");
+        console.error("Unexpected error:", error);
       } finally {
         setLoading(false);
       }
     })();
-	}, []);
+  }, []);
 
   return (
     <>
-      <section className='dynamic-preview'>
-        <div className='dynamic-preview-heading'>
-          <h2 className='dynamic-preview-heading__title'>{t('landing.eventsPreview.title')}</h2>
-          <Link to='/career' className='dynamic-preview-heading__link'>
-            <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
+      <section className="dynamic-preview">
+        <div className="dynamic-preview-heading">
+          <h2 className="dynamic-preview-heading__title">
+            {t("eventsPreview.title")}
+          </h2>
+          <Link to="/events" className="dynamic-preview-heading__link">
+            <span className="dynamic-preview-heading__link-text">
+              {t("jobadsPreview.see-all")}
+            </span>
           </Link>
         </div>
-        { loading && 
-          <ul className='dynamic-preview-list'>
-            <li className='dynamic-preview-list__item'>
-              <EventCardSkeleton/>
+        {loading && (
+          <ul className="dynamic-preview-list">
+            <li className="dynamic-preview-list__item">
+              <EventCardSkeleton />
             </li>
-            <li className='dynamic-preview-list__item'>
-              <EventCardSkeleton/>
+            <li className="dynamic-preview-list__item">
+              <EventCardSkeleton />
             </li>
-            <li className='dynamic-preview-list__item'>
-              <EventCardSkeleton/>
+            <li className="dynamic-preview-list__item">
+              <EventCardSkeleton />
             </li>
-            <EndCard t={t} path='/career'/>
+            <EndCard t={t} path="/career" />
           </ul>
-        }
-        { events && events.length > 0 &&
-          <ul className='dynamic-preview-list'>
+        )}
+        {!loading && events && events.length > 0 && (
+          <ul className="dynamic-preview-list">
             {events.map((e) => (
-              <li key={e.id}  className='dynamic-preview-list__item'>
+              <li key={e.id} className="dynamic-preview-list__item">
                 <EventListItem event={e} variant="card" highlight={false} />
               </li>
             ))}
-            {(events.length > 2) && <EndCard t={t} path='/events'/> }
+            {events.length > 2 && <EndCard t={t} path="/events" />}
           </ul>
-        }
-        { error && 
-          <p>Error fetching events: {error.message || error}</p>
-        }
+        )}
+        {error && !loading && (
+          <Alert icon="sentiment_dissatisfied" variant="danger">
+            Error fetching events: {error.message || error}
+          </Alert>
+        )}
       </section>
-      <hr className='dynamic-preview-seperator' />
+      <hr className="dynamic-preview-seperator" />
     </>
-  )
-}
+  );
+};
 
 const JobadsPreview = ({ t }) => {
-
-  const [ jobads, setJobads ] = useState(null);
-	const [ loading, setLoading ] = useState(true);
-	const [ error, setError ] = useState(null);
+  const [jobads, setJobads] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-		(async () => {
-			try {
-        const [ jobadsData, err ] = await getJobs(null, null, null, null, 3, 0);
+    (async () => {
+      try {
+        const [jobadsData, err] = await getJobs(null, null, null, null, 3, 0);
         if (err) {
           setError(err);
           console.error(err);
@@ -169,67 +202,71 @@ const JobadsPreview = ({ t }) => {
           setJobads(jobadsData);
         }
       } catch (error) {
-        setError('Unexpected error occurred');
-        console.error('Unexpected error:', error);
+        setError("Unexpected error occurred");
+        console.error("Unexpected error:", error);
       } finally {
         setLoading(false);
       }
-		})();
-	}, []);
+    })();
+  }, []);
 
   return (
     <>
-      <section className='dynamic-preview'>
-        <div className='dynamic-preview-heading'>
-          <h2 className='dynamic-preview-heading__title'>{t('landing.jobadsPreview.title')}</h2>
-          <Link to='/career' className='dynamic-preview-heading__link'>
-            <span className='dynamic-preview-heading__link-text'>{t('landing.jobadsPreview.see-all')}</span>
+      <section className="dynamic-preview">
+        <div className="dynamic-preview-heading">
+          <h2 className="dynamic-preview-heading__title">
+            {t("jobadsPreview.title")}
+          </h2>
+          <Link to="/career" className="dynamic-preview-heading__link">
+            <span className="dynamic-preview-heading__link-text">
+              {t("jobadsPreview.see-all")}
+            </span>
           </Link>
         </div>
-        { loading && 
-          <ul className='dynamic-preview-list'>
-            <li className='dynamic-preview-list__item'>
-              <JobadCardSkeleton/>
+        {loading && (
+          <ul className="dynamic-preview-list">
+            <li className="dynamic-preview-list__item">
+              <JobadCardSkeleton />
             </li>
-            <li className='dynamic-preview-list__item'>
-              <JobadCardSkeleton/>
+            <li className="dynamic-preview-list__item">
+              <JobadCardSkeleton />
             </li>
-            <li className='dynamic-preview-list__item'>
-              <JobadCardSkeleton/>
+            <li className="dynamic-preview-list__item">
+              <JobadCardSkeleton />
             </li>
-            <EndCard t={t} path='/career'/>
+            <EndCard t={t} path="/career" />
           </ul>
-        }
-        { jobads && jobads.length > 0 &&
-          <ul className='dynamic-preview-list'>
+        )}
+        {!loading && jobads && jobads.length > 0 && (
+          <ul className="dynamic-preview-list">
             {jobads.map((e) => (
-              <li key={e.id}  className='dynamic-preview-list__item'>
+              <li key={e.id} className="dynamic-preview-list__item">
                 <JobadCard jobad={e} />
               </li>
             ))}
-            {(jobads.length > 2) && <EndCard t={t} path='/career'/> }
+            {jobads.length > 2 && <EndCard t={t} path="/career" />}
           </ul>
-        }
-        { error && 
-          <p>Error fetching job ads: {error.message || error}</p>
-        }
+        )}
+        {error && !loading && (
+          <Alert icon="sentiment_dissatisfied" variant="danger">
+            Error fetching events: {error.message || error}
+          </Alert>
+        )}
       </section>
-      <hr className='dynamic-preview-seperator' />
+      <hr className="dynamic-preview-seperator" />
     </>
-  )
-}
-
-  
-const LandingPage = ({ t }) => {
-
-  return (
-      <div>
-        <WelcomeBanner t={t}/>
-        <EventsPreview t={t}/>
-        <JobadsPreview t={t}/>
-        <SmallInfo t={t}/>
-      </div>
   );
-}
+};
 
-export default withTranslation('landingPage')(LandingPage);
+const LandingPage = ({ t }) => {
+  return (
+    <div>
+      <HeroSection />
+      <EventsPreview t={t} />
+      <JobadsPreview t={t} />
+      <SmallInfo t={t} />
+    </div>
+  );
+};
+
+export default withTranslation("landingPage")(LandingPage);

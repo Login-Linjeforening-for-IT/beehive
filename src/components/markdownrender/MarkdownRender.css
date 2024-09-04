@@ -27,7 +27,7 @@
 .markdown-render__section {
     margin: 1rem 0;
     max-width: 40rem;
-    color: var(--c-font-regular);
+    color: var(--color-text-secondary);
 }
 
 .markdown-render__strong {
@@ -45,12 +45,12 @@
 }
 
 .markdown-render__li {
-    color: var(--c-font-regular);
+    color: var(--color-text-secondary);
 }
 
 .markdown-render__li:before {
     content: '\2022';
-    color: var(--c-link);
+    color: var(--color-link-primary);
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -59,7 +59,7 @@
 
 
 .markdown-render__a {
-    color: var(--c-link);
+    color: var(--color-link-primary);
 }
 
 .markdown-render__a:hover {
@@ -75,7 +75,7 @@
 }
 
 .markdown-render__th, .markdown-render__td {
-    border: .1rem solid var(--c-corner-decor);
+    border: .1rem solid var(--color-border-default);
     padding: .5rem 1rem;
 }
 
@@ -83,9 +83,9 @@
 /* code block */
 .markdown-render__main pre code {
     font-family: monospace;
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     padding: 1rem;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
 }
 
 
@@ -93,9 +93,9 @@
 .markdown-render__card {
     width: 100%;
     max-width: 25rem;
-    border-radius: .3rem;
+    border: .15rem solid var(--color-border-default);
+    border-radius: var(--border-radius-large);
     margin: 1rem 0;
-    border: .15rem solid var(--c-corner-decor);
 }
 
 

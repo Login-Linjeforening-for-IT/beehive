@@ -1,67 +1,7 @@
-.welcome {
-    width: 100%;
-    background: var(--c-bg-welcome);
-}
-
-.welcome__container {
-    padding: 4rem 2rem;
-    max-width: 40rem;
-    margin: auto;
-}
-
-.welcome__text {
-    display: block;
-    width: 100%;
-    text-align: right;
-    font-size: 1.5rem;
-    line-height: 2.2rem;
-    color: var(--c-font-main);
-    font-weight: 400;
-    margin-top: 4rem;
-}
-
-.welcome__text--gradient {
-    background: linear-gradient(90deg, #f100ff, #00fff6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    font-size: 3.5rem;
-    line-height: 1em;
-}
-
-/* logo component from components/svg */
-.landing-logo {
-    display: block;
-    width: 100%;
-    max-width: 40rem;
-    margin: auto;
-}
-
-.landing-logo__letter {
-    fill: var(--c-font-main);
-    transition: 1s .1s;
-}
-
-.landing-logo__corner {
-    fill: none;
-    stroke: var(--c-primary);
-    stroke-miterlimit: 10;
-    stroke-width: 3.5px;
-}
-
-.welcome__pic {
-    display: block;
-    max-width: 50rem;
-    width: 100%;
-    margin: auto;
-}
-
-
 /* section previewing events and job ads */
 
 .dynamic-preview {
-    padding: 1rem 0;
+    padding: 2rem 0;
 }
 
 .dynamic-preview-heading {
@@ -81,14 +21,13 @@
     display: block;
     padding: .5em 1.5em .5em 1em;
     position: relative;
-    font-size: 1.3rem;
     line-height: 1.4em;
     height: 2.4em;
     font-weight: 500;
 }
 
 .dynamic-preview-heading__link:hover .dynamic-preview-heading__link-text {
-    color: var(--c-link);
+    color: var(--color-link-primary);
 }
 
 /* hide the text on small screens (arrow still visible) */
@@ -104,8 +43,8 @@
     height: .6em;
     top: .85em;
     right: .5em;
-    border-right: .18em solid var(--c-link);
-    border-bottom: .18em solid var(--c-link);
+    border-right: .18em solid var(--color-link-primary);
+    border-bottom: .18em solid var(--color-link-primary);
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
@@ -142,7 +81,7 @@
 .dynamic-preview-end-card__btn {
     width: 100%;
     height: 100%;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,7 +89,7 @@
 }
 
 .dynamic-preview-end-card__btn:hover {
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
 }
 
 .dynamic-preview-end-card__text {
@@ -162,17 +101,17 @@
 .dynamic-preview-end-card__arrow-container {
     width: 5.2rem;
     height: 5.2rem;
-    background-color: var(--c-bg-box);
+    background-color: var(--color-bg-surface);
     border-radius: 100%;
-    box-shadow: var(--shadow-box);
+    box-shadow: var(--container-shadow);
 }
 .dynamic-preview-end-card__arrow {
     width: 1.8rem;
     height: 1.8rem;
     margin-top: 1.8rem;
     margin-left: 1.4rem;
-    border-right: .35rem solid var(--c-primary);
-    border-bottom: .35rem solid var(--c-primary);
+    border-right: .35rem solid var(--color-primary);
+    border-bottom: .35rem solid var(--color-primary);
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
@@ -199,13 +138,22 @@
 @media only screen and (min-width: 800px) {
 
     .dynamic-preview {
-        padding: 2rem;
+        padding: 2rem 1rem;
         margin: 0 auto;
+    }
+
+    .dynamic-preview-heading {
+        padding: 0 3rem;
     }
 
     .dynamic-preview-heading__title {
         font-size: 1.8rem;
         padding-left: 0;
+    }
+
+    .dynamic-preview-heading__link {
+        font-size: 1.2rem;
+        line-height: 1.4em;
     }
 
     .dynamic-preview-list {
@@ -221,25 +169,24 @@
     }
 
     .dynamic-preview-end-card {
-        width: 100%; /* becomes equal size to the cards */
+        width: 100%;
     }
 
     .dynamic-preview-seperator {
         display: block;
         border: 0;
         height: .15rem;
-        background-color: var(--c-corner-decor); 
+        background-color: var(--color-border-default); 
         margin: 0 2rem;
     }
 
 }
 
-@media only screen and (min-width: 1000px) { /* not the usual 800px break point, because of the size of the cards */
+@media only screen and (min-width: 1000px) {
 
     .dynamic-preview {
         width: 100%;
         max-width: var(--w-page);
-        padding: 1rem;
     }
 
     .dynamic-preview-heading {
@@ -264,8 +211,8 @@
     .dynamic-preview-list__item--loading {
         height: 14rem;
         max-width: 20.5rem;
-        border: .15rem solid var(--c-corner-decor);
-        background-color: var(--c-bg-box);
+        border: .15rem solid var(--color-border-default);
+        background-color: var(--color-bg-surface);
         width: 100%;
     }
 
@@ -274,11 +221,13 @@
     }
 
     .dynamic-preview-seperator {
-        margin: 0 auto;
+        margin: 2rem auto;
         max-width: calc(var(--w-page) - 2rem);
     }
 }
 
+
+/* landing page infomation section */
 
 .landing-info {
     max-width: 75rem;
@@ -309,7 +258,7 @@
     display: block;
 }
 
-.landing-info picture {
+.landing-info__picture {
     grid-area: b;
     width: 100%;
     margin: auto;
@@ -318,28 +267,8 @@
 
 
 @media only screen and (min-width: 800px) {
-    .welcome__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        max-width: 75rem;
-        padding: 5rem 3rem 6rem;
-        gap: 4rem;
-    }
-
-    .welcome__text {
-        font-size: 1.8rem;
-        margin: auto;
-        width: fit-content;
-        text-align: left;
-    }
-
-    .welcome__text--gradient {
-        font-size: 4.4rem;
-    }
-
     .landing-info {
-        padding: 4rem 2rem;
+        padding: 8rem 2rem 0;
         grid-template-columns: repeat(7, 1fr);
         gap: 4rem; 
     }
@@ -354,53 +283,19 @@
             'b b b b a a a';
     }
 
-    .landing-info picture {
-        margin-bottom: auto;
+    .landing-info__picture {
         max-width: 40rem;
     }
 }
 
 @media only screen and (min-width: 1000px) {
-
-    .welcome__container {
-        padding: 9rem 3rem 11rem;
-        gap: 5rem;
-    }
-
-    .welcome__text {
-        font-size: 2.1rem;
-    }
-
-    .welcome__text--gradient {
-        font-size: 5rem;
-        line-height: 5.6rem;
-    }
-
     .landing-info {
         gap: 5rem; 
     }
 }
 
-
 @media only screen and (min-width: 1200px) {
-
-    .welcome__container {
-        padding: 10rem 3rem 11rem;
-        gap: 7rem;
-    }
-
-    .welcome__text {
-        font-size: 2.4rem;
-        line-height: 3rem;
-    }
-
-    .welcome__text--gradient {
-        font-size: 5.6rem;
-        line-height: 6rem;
-    }
-
     .landing-info {
         gap: 6rem; 
     }
 }
-  

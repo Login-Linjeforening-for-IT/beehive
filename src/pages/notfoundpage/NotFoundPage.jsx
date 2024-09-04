@@ -1,9 +1,9 @@
-import {
-  Link,
-  useNavigate,
-} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {withTranslation} from 'react-i18next';
 import { config } from '../../Constants';
+
+import Button from '../../components/button/Button';
+
 import './NotFoundPage.css';
 
 const NotFoundPage = ({t}) => {
@@ -20,8 +20,10 @@ const NotFoundPage = ({t}) => {
         <h1>{t('header-1')}</h1>
         <p className='not-found__p p--regular'>
           {t('msg')}
-          <Link className='not-found__link standard-link standard-link--corner-hover' onClick={() => navigate(-1)}>{t('help')}</Link>
         </p>
+        <Button onClick={() => navigate(-1)} leadingIcon={<i className='material-symbols-sharp'>west</i>}>
+          {t('help')}
+        </Button>
       </div>
     </div>
 	)

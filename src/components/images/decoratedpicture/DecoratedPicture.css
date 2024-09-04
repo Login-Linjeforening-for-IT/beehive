@@ -1,0 +1,41 @@
+.decor-pic {
+  position: relative;
+  width: 100%;
+}
+
+.decor-pic__svg--1 {
+  border-radius: 0 .3rem .3rem .3rem;
+}
+
+.decor-pic__svg--2 {
+  border-radius: .3rem 0 .3rem .3rem;
+}
+
+.decor-pic__svg--3 {
+  border-radius: .3rem .3rem 0 .3rem;
+}
+
+.decor-pic__svg--4 {
+  border-radius: .3rem .3rem .3rem 0;
+}
+
+.decor-pic__rect {
+  fill: var(--color-primary);
+}
+
+.decor-pic__img-placeholder {
+  fill: rgba(100,100,100,.3);
+}
+
+.decor-pic__img {
+  transition: opacity .5s;
+  object-fit: cover;
+}
+
+.decor-pic__img--hidden {
+  opacity: 0;
+}
+
+.decor-pic__img--visible {
+  opacity: 1;
+}

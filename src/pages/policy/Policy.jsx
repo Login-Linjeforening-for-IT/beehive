@@ -1,6 +1,7 @@
-import './Policy.css';
-import Contact from '../../components/contact/Contact'
 import {withTranslation} from "react-i18next";
+import Contact from "../../components/contact/Contact";
+import "./Policy.css";
+
 
 const Policy = ({t}) => {
   return (

@@ -1,6 +1,6 @@
-import './Contact.css'
-import MazeMapEmbed from '../mazemap/MazeMapEmbed';
 import {withTranslation} from "react-i18next";
+import MazeMapEmbed from '../mazemap/MazeMapEmbed';
+import './Contact.css';
 
 const Contact = ({t}) => {
   return(
@@ -24,7 +24,7 @@ const Contact = ({t}) => {
           <h4 className='heading-4'>{t('contact.email')}:</h4>
           <p className='p--regular'>
             <a
-              className='standard-link standard-link--underscore-hover'
+              className='link link--primary link--underscore-hover'
               href='mailto:kontakt@login.no'
             >
               kontakt@login.no
