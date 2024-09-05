@@ -8,7 +8,6 @@
   transition: 0.5s;
 }
 
-/* logo component from components -> svg */
 .topbar__logo {
   display: block;
   height: 3rem;
@@ -21,6 +20,7 @@
   justify-content: end;
 }
 
+/* not currently in use */
 .topbar_profile {
     margin-top: 0.9rem;
     margin-left: 0.7rem;
@@ -73,12 +73,12 @@
 }
 
 .topbar__hamburger--open .topbar__burger-bun--top {
-  transform: rotate(-45deg) translate(-.3rem, .3rem);
+  transform: rotate(-45deg) translate(-.25rem, .3rem);
   background: var(--color-white);
 }
 
 .topbar__hamburger--open .topbar__burger-bun--bottom {
-  transform: rotate(45deg) translate(-.3rem, -.3rem);
+  transform: rotate(45deg) translate(-.25rem, -.3rem);
   background: var(--color-white);
 }
 
