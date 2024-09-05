@@ -48,7 +48,7 @@
     --color-blue-700: #1976d2;
     --color-blue-800: #0c4870;
     --color-blue-900: #013444;
-    --color-blue-900: #1b3239;
+    --color-blue-900: #05313d;
 
     /* Red Scale */
     --color-red-100: #ffcdd2;
@@ -81,7 +81,7 @@
     --color-yellow-600: #e9b824;
     --color-yellow-700: #b79120;
     --color-yellow-800: #927419;
-    --color-yellow-900: #5c4b19;
+    --color-yellow-900: #3c300e;
 
     /* Theme toggle button */
     --c-moon: var(--color-grey-800);

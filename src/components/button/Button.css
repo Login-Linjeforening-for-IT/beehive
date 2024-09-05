@@ -88,9 +88,9 @@
   background-color: var(--color-btn-secondary-outlined);
 }
 
-.button--ghost:hover .button__text,
-.button--ghost:hover .button__icon i {
-  color: var(--color-btn-secondary-text);
+.button--ghost.active .button__text,
+.button--ghost.active .button__icon i {
+  color: var(--color-btn-primary-outlined);
 }
 
 .button--danger {

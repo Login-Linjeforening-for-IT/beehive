@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import "./MarkdownRender.css";
+
 import EventItem from '../event/EventItem';
 import EventCardSkeleton from '../event/EventCardSkeleton';
 import JobadCard from "../jobad/JobadCard";
 import JobadCardSkeleton from "../jobad/JobadCardSkeleton";
-import DropDownBox from "../dropdownbox/DropDownBox";
 import Alert from "../alert/Alert";
-import { getEventRow, getJobRow } from "../../utils/api"
+
+import { getEventRow, getJobRow } from "../../utils/api";
+
+import "./MarkdownRender.css";
 
 
 const CustomLink = ({ href, children }) => {

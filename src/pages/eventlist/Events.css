@@ -55,7 +55,7 @@
 
 .event-list-separator__text {
   background-color: var(--c-bg-body);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-discreet);
   font-weight: 500;
   font-size: .9rem;
   letter-spacing: .15em;
@@ -113,7 +113,6 @@
 }
 
 @media only screen and (min-width: 800px) {
-
   .events {
     padding: 0 2rem;
   }
@@ -132,6 +131,10 @@
 
   .events-topbar__filter-toggle {
     display: none;
+  }
+
+  .events-top-bar__view-toggle {
+    margin-right: 1.5rem;
   }
 
   .events {
@@ -182,20 +185,6 @@
     top: 0;
     right: 0;
     transition: .1s;
-  }
-
-  /* disable any drop-down-box effects */
-  .events .drop-down-box {
-    box-shadow: none;
-  }
-  .events .drop-down-box__toggle {
-    display: none;
-  }
-  .events .drop-down-box__content {
-    background-color: rgb(0,0,0,0);
-    height: auto;
-    max-height: 100rem;
-    border-radius: 0;
   }
 
   .events__list {

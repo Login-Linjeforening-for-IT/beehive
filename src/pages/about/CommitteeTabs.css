@@ -82,11 +82,11 @@
 }
 
 .tabs__nav-item:hover .committee-logo--stroke-color, .tabs__nav-title--active .committee-logo--stroke-color {
-    stroke: var(--color-text-primary);
+    stroke: var(--color-text-main);
 }
 
 .tabs__nav-item:hover .committee-logo--fill-color, .tabs__nav-title--active .committee-logo--fill-color {
-    fill: var(--color-text-primary);
+    fill: var(--color-text-main);
 }
 
 .tabs__nav-title--active .committee-logo--fill-bg-color {

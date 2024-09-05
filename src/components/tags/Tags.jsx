@@ -12,12 +12,14 @@ const Tags = ({
   timePublish = 0,
   canceled = false,
   full = false,
+  ongoing = false
 }) => {
   return (
     <>
-      {highlight && <Tag variant="highlight">{t("highlight")}</Tag>}
-      {isNew(timePublish) && <Tag variant="info">{t("new")}</Tag>}
       {canceled && <Tag variant="danger">{t("canceled")}</Tag>}
+      {ongoing && !canceled && <Tag variant="success">{t("ongoing")}</Tag>}
+      {highlight && !canceled && <Tag variant="highlight">{t("highlight")}</Tag>}
+      {isNew(timePublish) && <Tag variant="info">{t("new")}</Tag>}
       {full && <Tag variant="danger">{t("full")}</Tag>}
     </>
   );

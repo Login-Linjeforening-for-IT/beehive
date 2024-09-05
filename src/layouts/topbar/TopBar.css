@@ -56,7 +56,7 @@
 }
 
 .topbar__burger-bun {
-  background: var(--color-text-primary);
+  background: var(--color-text-main);
   height: .2rem;
   position: absolute;
   width: 2rem;

@@ -9,7 +9,7 @@
 
     @keyframes caret {
         0% {
-            stroke: var(--color-text-primary);
+            stroke: var(--color-text-main);
         }
         55% {
             animation-timing-function: steps(3);
@@ -17,10 +17,10 @@
         }
         80% {
             d: path('m85 25 l0 50');
-            stroke: var(--color-text-primary);
+            stroke: var(--color-text-main);
         }
         100% {
-            stroke: var(--color-text-primary);
+            stroke: var(--color-text-main);
         }
     }
 

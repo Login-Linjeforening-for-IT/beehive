@@ -16,7 +16,7 @@
     --color-bg-surface: var(--color-grey-850);
     --color-bg-surface-raised: var(--color-grey-800);
     --color-bg-surface-sunken: var(--color-grey-950);
-    --color-bg-overlay: rgba(0, 0, 0, 0.8);
+    --color-bg-overlay: rgba(0, 0, 0, 0.4);
 
     /* Top Bar */
     --color-bg-topbar: rgba(30, 30, 30, 0.6);
@@ -27,20 +27,21 @@
     --color-bg-footer: var(--color-grey-950);
     --color-text-footer: var(--color-grey-200);
     --color-text-footer-discret: var(--color-grey-600);
-  
+
 
     /* Text Colors */
-    --color-text-primary: var(--color-white);
-    --color-text-secondary: var(--color-grey-300);
-    --color-text-tertiary: var(--color-grey-500);
+    --color-text-main: var(--color-white);
+    --color-text-regular: var(--color-grey-300);
+    --color-text-discreet: var(--color-grey-500);
     --color-text-disabled: var(--color-grey-700);
+    --color-text-primary: var(--color-primary-500);
     --color-text-on-primary: var(--color-white);
   
 
     /* Border Colors */
     --color-border-default: var(--color-grey-800);
     --color-border-light: var(--color-grey-700);
-    --color-border-strong: var(--color-grey-950);
+    --color-border-strong: var(--color-grey-900);
   
 
     /* Buttons */
@@ -105,7 +106,11 @@
 
     --color-tag-danger-text: var(--color-red-500);
     --color-tag-danger-border: var(--color-red-500);
-    --color-tag-danger-bg: color-mix(in srgb, var(--color-red-700) 15%, transparent);;
+    --color-tag-danger-bg: color-mix(in srgb, var(--color-red-700) 15%, transparent);
+
+    --color-tag-success-text: var(--color-green-400);
+    --color-tag-success-border: var(--color-green-400);
+    --color-tag-success-bg: color-mix(in srgb, var(--color-green-700) 15%, transparent);
 
 
     /* Gradients */
@@ -121,6 +126,7 @@
     --container-shadow: none;
     --topbar-dropdown-shadow: 0 0.1rem 0.5rem rgba(3,3,3,0.5);
 }
+
   
 /* Light Theme */
 .light {
@@ -156,13 +162,14 @@
   
 
     /* Text Colors */
-    --color-text-primary: var(--color-black);
-    --color-text-secondary: var(--color-grey-850);
-    --color-text-tertiary: var(--color-grey-800);
+    --color-text-main: var(--color-black);
+    --color-text-regular: var(--color-grey-850);
+    --color-text-discreet: var(--color-grey-800);
     --color-text-disabled: var(--color-grey-400);
+    --color-text-primary: var(--color-primary-700);
     --color-text-on-primary: var(--color-white);
-  
 
+    
     /* Border Colors */
     --color-border-default: var(--color-grey-500);
     --color-border-light: var(--color-grey-300);
@@ -211,9 +218,9 @@
     --color-alert-success-text: var(--color-green-900);
     --color-alert-success-icon: var(--color-green-500);
   
-    --color-alert-warning-bg: var(--color-yellow-300);
+    --color-alert-warning-bg: var(--color-yellow-400);
     --color-alert-warning-text: var(--color-black);
-    --color-alert-warning-icon: var(--color-yellow-700);
+    --color-alert-warning-icon: var(--color-yellow-900);
   
     --color-alert-danger-bg: var(--color-red-100);
     --color-alert-danger-text: var(--color-red-900);
@@ -233,6 +240,10 @@
     --color-tag-danger-border: var(--color-red-900);
     --color-tag-danger-bg: var(--color-red-200);
 
+    --color-tag-success-text: var(--color-green-900);
+    --color-tag-success-border: var(--color-green-100);
+    --color-tag-success-bg: var(--color-green-100);
+
 
     /* Gradients */
     --gradient-highlight: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
@@ -246,4 +257,122 @@
     /* Shadow */
     --container-shadow: 0 .1rem .5rem .1rem rgba(200,200,200, 0.3);
     --topbar-dropdown-shadow: 0 0.1rem 0.5rem rgba(0,0,0,0.1);
+}
+
+
+/* You may be wondering, "a syntwave theme? How do I get this theme?".
+   Sorry but you'll have to figure that one out on your own.
+   If you can't, well then maybe this theme isn't for you */
+.synthwave {
+    color-scheme: dark;
+
+    /* Semantic Colors */
+    --color-primary: #dc00dc; /* Neon pink */
+    --color-primary-light: #ff77ff; /* Light neon pink */
+    --color-primary-dark: #c700c7; /* Dark neon pink */
+    
+    --color-secondary: #00ffff; /* Neon cyan */
+    --color-secondary-light: #66ffff; /* Light neon cyan */
+    --color-secondary-dark: #00b3b3; /* Dark neon cyan */
+
+    /* Background Colors */
+    --color-bg-body: #1a1a2e; /* Deep navy */
+    --color-bg-surface: #21233c; /* Dark blue surface */
+    --color-bg-surface-raised: #2b2d47; /* Slightly lighter for raised surfaces */
+    --color-bg-surface-sunken: #14142b; /* Darker blue for sunken elements */
+    --color-bg-overlay: rgba(0, 0, 48, 0.5); /* Deep blue overlay */
+
+    /* Top Bar */
+    --color-bg-topbar: rgba(25, 25, 55, 0.7); /* Slightly brighter */
+    --color-bg-topbar-fallback: rgba(20, 20, 50, 0.99);
+    --color-bg-topbar-open: rgba(15, 15, 35, .8);
+    
+    /* Footer */
+    --color-bg-footer: #0d0d2b; /* Very dark blue */
+    --color-text-footer: #ddfffe; /* Light grey text */
+    --color-text-footer-discret: #527d74; /* Dim grey text */
+
+    /* Text Colors */
+    --color-text-main: #f5f5f5;
+    --color-text-regular: #cccccc; /* Light grey */
+    --color-text-discreet: #527d74; /* Dim grey */
+    --color-text-disabled: #555555; /* Darker grey */
+    --color-text-primary: #ff00ff; /* Neon pink */
+    --color-text-on-primary: #ffffff; /* White on neon backgrounds */
+
+    /* Border Colors */
+    --color-border-default: #1a4c60; /* Dark blue border */
+    --color-border-light: #37375a; /* Light blue-grey border */
+    --color-border-strong: #14142b; /* Strong dark border */
+
+    /* Buttons */
+    --color-btn-primary-bg: #ff00ff; /* Neon pink background */
+    --color-btn-primary-bg-active: #ff1493; /* Active deep pink */
+    --color-btn-primary-text: #ffffff; /* White text on buttons */
+    
+    --color-btn-secondary-bg: #00a3a3; /* Neon cyan */
+    --color-btn-secondary-bg-active: #00b3b3; /* Dark cyan */
+    --color-btn-secondary-text: #000000; /* Black text on cyan buttons */
+
+    --color-btn-primary-outlined: #ff00ff; /* Neon pink outline */
+    --color-btn-secondary-outlined: #00c2b8a1; /* Cyan outline */
+    
+    --color-btn-danger-bg: #ff0000; /* Bright red-orange for danger */
+    --color-btn-danger-text: #ffffff; /* White text */
+
+    --color-btn-disabled-bg: #444444; /* Dark grey for disabled */
+    --color-btn-disabled-text: #777777; /* Light grey text */
+
+    /* Form Element Colors */
+    --color-checkbox-outline: #13614f; /* Grey outline for checkboxes */
+    --color-checkbox-bg-hover: #2b2d47; /* Dark background on hover */
+
+    --color-checktag-bg: #37375a; /* Blue-grey background */
+    --color-checktag-text: #f5f5f5; /* Light text */
+
+    /* Links */
+    --color-link-primary: #ff00ff; /* Neon pink links */
+    --color-link-secondary: #00ffff; /* Cyan links */
+
+    /* Alert Colors */
+    --color-alert-info-bg: #4a4ad9; /* Deep blue for info */
+    --color-alert-info-text: #e6e6ff; /* Light blue text */
+    --color-alert-info-icon: #64cbff; /* Bright blue icon */
+  
+    --color-alert-success-bg: #004d00; /* Dark green */
+    --color-alert-success-text: #b3ffb3; /* Light green text */
+    --color-alert-success-icon: #00cc66; /* Green icon */
+  
+    --color-alert-warning-bg: #4d3300; /* Brownish background */
+    --color-alert-warning-text: #ffe680; /* Yellow text */
+    --color-alert-warning-icon: #ffaa00; /* Bright yellow-orange icon */
+  
+    --color-alert-danger-bg: #660000; /* Dark red */
+    --color-alert-danger-text: #ffcccc; /* Light red text */
+    --color-alert-danger-icon: #ff6666; /* Red icon */
+
+    /* Tag Colors */
+    --color-tag-info-text: #66ccff; /* Light blue text */
+    --color-tag-info-bg: none;
+    --color-tag-info-border: #66ccff; /* Blue border */
+
+    --color-tag-highlight-text: linear-gradient(to right, #ff00ff, #00ffff); /* Neon pink */
+    --color-tag-highlight-bg: linear-gradient(to right, #ff00ff, #00ffff);
+    --color-tag-highlight-border: linear-gradient(to right, #ff00ff, #00ffff);
+
+    --color-tag-danger-text: #ff4500; /* Bright red-orange */
+    --color-tag-danger-border: #ff4500;
+    --color-tag-danger-bg: rgba(255, 69, 0, 0.2); /* Transparent orange */
+
+    /* Gradients */
+    --gradient-highlight: linear-gradient(to right, #ff00ff, #00ffff); /* Neon pink to cyan */
+    --gradient-highlight-hover: linear-gradient(to right, #ff00ff 0%, #00ffff 50%, #ff00ff 100%);
+
+    /* Hero Section */
+    --gradient-hero-section-bg: linear-gradient(160deg, #1a1a2e 30%, #0c0c0c); /* Dark synthwave gradient */
+    --gradient-hero-section-text: linear-gradient(135deg, #ff00ff 50%, #00ffff); /* Neon pink to cyan */
+
+    /* Shadows */
+    --container-shadow: 0 5px 30px rgba(255, 0, 255, 0.1); /* Pink glow */
+    --topbar-dropdown-shadow: 0 0.1rem 0.5rem rgba(0, 0, 50, 0.7); /* Dark blue shadow */
 }

@@ -176,7 +176,11 @@ const EventsPreview = ({ t }) => {
           </ul>
         )}
         {error && !loading && (
-          <Alert icon="sentiment_dissatisfied" variant="danger">
+          <Alert
+            icon="sentiment_dissatisfied"
+            variant="danger"
+            className="page-section--alert"
+          >
             Error fetching events: {error.message || error}
           </Alert>
         )}
@@ -248,7 +252,11 @@ const JobadsPreview = ({ t }) => {
           </ul>
         )}
         {error && !loading && (
-          <Alert icon="sentiment_dissatisfied" variant="danger">
+          <Alert
+            icon="sentiment_dissatisfied"
+            variant="danger"
+            className="page-section--alert"
+          >
             Error fetching events: {error.message || error}
           </Alert>
         )}

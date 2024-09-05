@@ -1,4 +1,5 @@
 {
     "title" : "Job Listings",
-    "load-more" : "Load more"
+    "load-more" : "Load more",
+    "noResults" : "No results..."
 }

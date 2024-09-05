@@ -1,5 +1,6 @@
-import './LogChamp.css'
-import DecoratedPicture from '../images/decoratedpicture/DecoratedPicture'
+import DecoratedPicture from '../images/decoratedpicture/DecoratedPicture';
+import './LogChamp.css';
+
 
 const LogChamp = ({name, stilling, img, discord, discordlink}) => {
 

@@ -42,14 +42,18 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
   const useEng = lang === 'en';
   const tr = getTranslation(useEng);
 
-  const useTags = (publishTime, highlight, canceled, full) => { console.log(full);
+  const useTags = (publishTime, highlight, canceled, full, ongoing) => {
     if (disableTags) return false;
     if (highlight) return true;
     if (isNew(publishTime)) return true;
     if (canceled) return true;
     if (full) return true;
+    if (ongoing) return true;
     return false;
   }
+
+  const startDate = new Date(event.startDate);
+  const endDate = new Date(event.endDate);
 
   return (
     <Link to={'/events/' + event.id}>
@@ -112,13 +116,25 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
                 </li>
               )}
             </ul>
-            {useTags(event.time_publish, event.highlight, event.canceled, event.full) &&
+            {/* {useTags(event.time_publish, event.highlight, event.canceled, event.full, DatetimeFormatter.isOngoing(startDate, endDate)) &&
               <div className="event-item__tags">
                 <Tags
                   highlight={event.highlight}
                   timePublish={new Date(event.time_publish)}
                   canceled={event.canceled}
                   full={event.full}
+                  ongoing={DatetimeFormatter.isOngoing(startDate, endDate)}
+                />
+              </div>
+            } */}
+            {useTags(event.time_publish, event.highlight, event.canceled, event.full, true) &&
+              <div className="event-item__tags">
+                <Tags
+                  highlight={event.highlight}
+                  timePublish={new Date(event.time_publish)}
+                  canceled={event.canceled}
+                  full={event.full}
+                  ongoing={true}
                 />
               </div>
             }

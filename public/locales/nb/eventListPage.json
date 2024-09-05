@@ -1,7 +1,8 @@
 {
   "title": "Arrangementer",
-  "noEvents": "Ingen kommene arrangementer",
+  "noEvents": "Ingen kommende arrangementer",
   "load-more": "Last inn flere",
+  "noResults" : "Ingen treff...",
   "this-week": "Denne uken",
   "next-week": "Neste uke",
   "later": "Senere",

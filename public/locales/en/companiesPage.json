@@ -1,30 +1,28 @@
 {
-  "companies" : {
-    "title":"For companies",
-    "intro": "Is your company looking for sharp IT students? Check out everything we have to offer your company.",
-    "bedpres": {
-      "title": "Company presentation",
-      "body": "Login's company committee organizes weekly company presentations where your company will have the opportunity to showcase to students what you work with, the services you offer, how you operate, and more. This way, students become aware of what you offer as an employer, as well as your work environment. We offer catering options either during or after the presentation. We have received positive feedback from students when there is mingling with food and the company representatives after the presentation!",
-      "footer1": "Are you interested in such a presentation? Please contact us at ",  
-      "footer2": " to discuss the details or if you have any questions about the event!"
-    },
-    "cyberdays":{
-      "title": "The Cyberdays",
-      "body": "Cyberdagene are our career days! They are held once per semester and provide an excellent platform for recruiting and promoting your company to our students. Here, you'll have the opportunity to chat with students, market yourselves, and most importantly, advertise both part-time and summer job opportunities to eager students! Your company will have a stand, and you can decide what activities you'd like to arrange during the career day. We also facilitate speed interviews if desired. In the evening, there's an opportunity for mingling with students at Huset with a beer and some food.",
-      "footer1": "Could this be something your company is interested in participating in? Please email us at ", 
-      "footer2": " to join our mailing lists for more information and an invitation to participate!"
-    },
-    "ctf": {
-      "title": "CTF",
-      "body": "Capture the Flag is a perfect arena for both getting to know and developing the students' info-sec skills. Here you as a company can challenge our students to solve tasks together! We encourage you to have a self-made CTF that the students can play with. After the CTF itself, it is customary to take all the participants down to a restaurant for dining and mingling with the company representatives."
-    },
-    "workshop": {
-      "title": "Workshop & Subject Presentation",
-      "body": "Login also organizes workshops and subject presentations. Workshops involve the company getting some time where they can present themselves, followed by students working on various projects they have at the same time as company representatives mingle and give tips to students. With a professional presentation, the company will again be able to briefly introduce itself before a professionally focused presentation of the company is held. Here it can be the dissemination of technologies or principles that your company works with."
-    },
-    "profiling": {
-      "title": "Ads & Profiling",
-      "body": "The PR committee also offers the sharing of job advertisements, job advertisements and other types of profiling on our active social channels (Discord, Instagram, Facebook, Login.no). If the company has arranged a bedpres, workshop/fagpres or CTF with us in the current semester, profiling will be included (at no extra cost)."
-    }
+  "title":"For companies",
+  "intro": "Is your company looking for sharp IT students? Check out everything we have to offer your company.",
+  "bedpres": {
+    "title": "Company presentation",
+    "body": "Login's company committee organizes weekly company presentations where your company will have the opportunity to showcase to students what you work with, the services you offer, how you operate, and more. This way, students become aware of what you offer as an employer, as well as your work environment. We offer catering options either during or after the presentation. We have received positive feedback from students when there is mingling with food and the company representatives after the presentation!",
+    "footer1": "Are you interested in such a presentation? Please contact us at ",  
+    "footer2": " to discuss the details or if you have any questions about the event!"
+  },
+  "cyberdays":{
+    "title": "The Cyberdays",
+    "body": "Cyberdagene are our career days! They are held once per semester and provide an excellent platform for recruiting and promoting your company to our students. Here, you'll have the opportunity to chat with students, market yourselves, and most importantly, advertise both part-time and summer job opportunities to eager students! Your company will have a stand, and you can decide what activities you'd like to arrange during the career day. We also facilitate speed interviews if desired. In the evening, there's an opportunity for mingling with students at Huset with a beer and some food.",
+    "footer1": "Could this be something your company is interested in participating in? Please email us at ", 
+    "footer2": " to join our mailing lists for more information and an invitation to participate!"
+  },
+  "ctf": {
+    "title": "CTF",
+    "body": "Capture the Flag is a perfect arena for both getting to know and developing the students' info-sec skills. Here you as a company can challenge our students to solve tasks together! We encourage you to have a self-made CTF that the students can play with. After the CTF itself, it is customary to take all the participants down to a restaurant for dining and mingling with the company representatives."
+  },
+  "workshop": {
+    "title": "Workshop & Subject Presentation",
+    "body": "Login also organizes workshops and subject presentations. Workshops involve the company getting some time where they can present themselves, followed by students working on various projects they have at the same time as company representatives mingle and give tips to students. With a professional presentation, the company will again be able to briefly introduce itself before a professionally focused presentation of the company is held. Here it can be the dissemination of technologies or principles that your company works with."
+  },
+  "profiling": {
+    "title": "Ads & Profiling",
+    "body": "The PR committee also offers the sharing of job advertisements, job advertisements and other types of profiling on our active social channels (Discord, Instagram, Facebook, Login.no). If the company has arranged a bedpres, workshop/fagpres or CTF with us in the current semester, profiling will be included (at no extra cost)."
   }
 }
