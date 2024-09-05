@@ -19,8 +19,12 @@
     height: 100%;
 }
 
+.logo-small__corner {
+    fill: var(--color-primary);
+}
+
 .logo-small__letter,
 .landing-logo__letter {
-    fill: var(--color-text-primary);
+    fill: var(--color-text-main);
     transition: 1s;
 }

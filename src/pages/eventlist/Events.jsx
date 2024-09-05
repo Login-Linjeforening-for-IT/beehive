@@ -224,7 +224,7 @@ const Events = ({ t }) => {
         <Alert
           variant="danger"
           icon="sentiment_dissatisfied"
-          className="page-section--normal"
+          className="page-section--normal page-section--alert"
         >
           {error}
         </Alert>
@@ -265,8 +265,9 @@ const Events = ({ t }) => {
                 inactiveVariant="secondary-outlined"
                 onOptionChange={handleOptionChange}
                 activeOptionIndex={viewToggleIndex}
-                variant="ghost"
-                size="large"
+                groupVariant="ghost"
+                buttonVariant="ghost"
+                size="medium"
               />
             </div>
           </div>
@@ -318,7 +319,8 @@ const Events = ({ t }) => {
                           </li>
                         ))}
                       </>
-                    )}
+                    )
+                  }
 
                   {groupedEvents.nextWeekEvents &&
                     groupedEvents.nextWeekEvents.length > 0 && (
@@ -343,7 +345,8 @@ const Events = ({ t }) => {
                           </li>
                         ))}
                       </>
-                    )}
+                    )
+                  }
 
                   {groupedEvents.futureEvents &&
                     groupedEvents.futureEvents.length > 0 && (
@@ -372,7 +375,8 @@ const Events = ({ t }) => {
                           </li>
                         ))}
                       </>
-                    )}
+                    )
+                  }
                 </ul>
 
                 {!loading && showLoadMore && events.length > 0 && (

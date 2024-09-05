@@ -55,13 +55,13 @@
 }
 
 .jobad-card__detail {
-	color: var(--color-text-secondary);
+	color: var(--color-text-regular);
 	line-height: 1.4em;
 	font-size: .9rem;
 }
 
 .jobad-card__icon {
-	color: var(--color-text-secondary);
+	color: var(--color-text-regular);
 	padding-right: .3rem;
 	line-height: inherit;
 	font-size: 1.3em;

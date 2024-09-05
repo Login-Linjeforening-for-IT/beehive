@@ -16,6 +16,15 @@ export function isNew(dateTime) {
   return (dateNow - new Date(dateTime)) < difLim;
 }
 
+// returns true if now is after start and before end
+export function isOngoing(startDate, endDate) {
+  const now = new Date();
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  return now >= start && now <= end;
+}
+
 
 // returns int
 // if x days until, return: x

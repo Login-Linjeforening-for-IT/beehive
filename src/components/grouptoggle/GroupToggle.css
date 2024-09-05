@@ -16,27 +16,26 @@
 .group-toggle .group-toggle__button {
   border: none;
   border-right: .13rem solid var(--color-btn-secondary-outlined);
-}
-
-.group-toggle--outlined .group-toggle__button {
   border-radius: 0;
 }
 
-.group-toggle--ghost .group-toggle__button:first-child {
+.group-toggle--ghost .group-toggle__button--first {
   border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
-.group-toggle--ghost .group-toggle__button:last-child {
+.group-toggle--ghost .group-toggle__button--last {
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  border-right: none;
 }
 
-.group-toggle__button:last-child {
+.group-toggle  .group-toggle__button--last {
   border-right: none;
 }
 
 .group-toggle__button.active {
   pointer-events: none;
 }
+
 
 /* Size-specific styles */
 .group-toggle--small .group-toggle__button.button--icon-only {

@@ -182,7 +182,7 @@
   border-radius: 1rem;
   transition: width 1.5s linear 1.5s, opacity 0.5s ease;
   opacity: 0;
-  background: var(--color-text-secondary);
+  background: var(--color-text-regular);
 }
 
 .image-carousel__dot-container--active .image-carousel__dot {

@@ -132,6 +132,12 @@ const EventPage = ({ t, i18n }) => {
                 />
                 <div className="event-datetime-display__right">
                   <div className="event-datetime-display__day">
+                    {DatetimeFormatter.isOngoing(
+                      new Date(event.event.time_start),
+                      new Date(event.event.time_end)
+                    ) && 
+                      <span className="event-datetime-display__live-dot"></span>
+                    }
                     {DatetimeFormatter.formatEventStatusDate(
                       new Date(event.event.time_start),
                       new Date(event.event.time_end),

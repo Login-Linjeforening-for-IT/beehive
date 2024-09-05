@@ -67,6 +67,16 @@
   color: var(--color-tag-info-text);
 }
 
+.tag--success {
+  background-color: var(--color-tag-success-bg);
+}
+.tag--success .tag__container {
+  border: .1em solid var(--color-tag-success-border);
+}
+.tag--success .tag__name {
+  color: var(--color-tag-success-text);
+}
+
 @media only screen and (min-width: 800px) {
   .tag {
     font-size: .8rem;

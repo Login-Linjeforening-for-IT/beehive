@@ -13,12 +13,6 @@
     --border-radius: .3rem;
     --border-radius-large: .4rem;
 
-    /* font-size */
-    --font-size-base: 1rem;
-    --font-size-small: 0.875rem;
-    --font-size-large: 1.125rem;
-    --font-size-xl: 1.3rem;
-
     /* headings */
     --font-size-heading-xxl: 3.5rem;
     --font-size-heading-xl: 2.5rem;
@@ -42,7 +36,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-primary);
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
     transition: .2s;
 }
 
@@ -126,7 +120,7 @@ body {
 }
 
 .page-section--alert {
-    margin: 5rem auto;
+    margin: 4rem auto;
     max-width: 40rem;
 }
 
@@ -151,7 +145,7 @@ body {
     font-size: var(--font-size-heading-lg);
     line-height: 1.2em;
     padding: 0.3em 0;
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
 }
 
 .heading-2 {
@@ -160,21 +154,21 @@ body {
     font-weight: 400;
     font-size: var(--font-size-heading-md);
     line-height: 1.2em;
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
 }
 
 .heading-3 {
     margin: 1em 0;
     font-weight: 400;
     font-size: var(--font-size-heading-sm);
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
 }
 
 .heading-4 {
     font-weight: 600;
     margin: 1em 0 0.5em 0;
     font-size: var(--font-size-heading-xs);
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
 }
 
 .heading-2--icon {
@@ -304,12 +298,12 @@ a {
 .p--regular {
     padding-bottom: 1.2rem;
     line-height: 1.8em;
-    color: var(--color-text-secondary);
+    color: var(--color-text-regular);
     max-width: 50rem;
 }
   
 .p--regular i {
-    color: var(--color-text-secondary);
+    color: var(--color-text-regular);
 }
 
 .p--highlighted {
@@ -320,14 +314,14 @@ a {
     font-family: var(--font-secondary);
     font-weight: 600;
     font-size: 1.2rem;
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
     padding-left: 1rem;
     border-left: .3rem solid var(--color-primary);
     max-width: 50rem;
 }
 
 .p--highlighted i {
-    color: var(--color-text-primary);
+    color: var(--color-text-main);
 }
 
 @media only screen and (min-width: 800px) {
@@ -375,7 +369,7 @@ a {
 }
 
 .list li {
-    color: var(--color-text-secondary);
+    color: var(--color-text-regular);
 }
 
 .list li:before {
@@ -394,7 +388,7 @@ a {
 /* --------------------------------------- */
 
 abbr {
-    text-decoration-color: var(--color-link-primary);
+    text-decoration-color: var(--color-text-main);
 }
 
 .word-break {

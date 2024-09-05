@@ -67,71 +67,58 @@ const ButtonShowcase = () => {
         <Button disabled variant="secondary">Disabled Secondary</Button>
       </div>
 
+      <h2 className="button-showcase__title">Group Toggles</h2>
       <div className="button-showcase__section">
         <GroupToggle
           options={[
-            { leadingIcon: renderIcon('grid_view') },
-            { leadingIcon: renderIcon('filter_list') },
-            { leadingIcon: <i className="logfont-satkom-filled"></i> }
+            { leadingIcon: renderIcon('grid_view'), text:"leading icon" },
+            { trailingIcon: renderIcon('filter_list'), text:"trailing icon" },
+            { leadingIcon: <i className="logfont-login"></i>, text:"logfont icon" }
           ]}
           activeOptionIndex={activeOptionIndex}
           onOptionChange={handleOptionChange}
           size="small"
-          activeVariant="primary-outlined"
-          inactiveVariant="ghost"
         />
-        <p>Active Option Index: {activeOptionIndex}</p>
       </div>
       <div className="button-showcase__section">
-        <Button
-          variant='secondary-outlined'
-          trailingIcon={<i className='material-symbols-sharp'>replay</i>}
-        >
-          Filter
-        </Button>
         <GroupToggle
           options={[
-            { leadingIcon: renderIcon('grid_view') },
-            { leadingIcon: renderIcon('filter_list') }
+            { text:"Ghost" },
+            { text:"Ghost" }
           ]}
           activeOptionIndex={activeOptionIndex}
           onOptionChange={handleOptionChange}
           size="medium"
-          activeVariant="primary-outlined"
-          inactiveVariant="secondary-outlined"
+          buttonVariant="secondary-outlined"
+          groupVariant="ghost"
         />
-        <p>Active Option Index: {activeOptionIndex}</p>
       </div>
       <div className="button-showcase__section">
         <GroupToggle
           options={[
-            { leadingIcon: renderIcon('grid_view') },
-            { leadingIcon: renderIcon('filter_list') },
-            { leadingIcon: <i className="logfont-satkom-filled"></i> }
+            { leadingIcon: renderIcon('grid_view'), text:"large" },
+            { leadingIcon: renderIcon('filter_list') }
           ]}
           activeOptionIndex={activeOptionIndex}
           onOptionChange={handleOptionChange}
           size="large"
-          activeVariant="primary-outlined"
-          inactiveVariant="ghost"
+          buttonVariant="ghost"
+          groupVariant="ghost"
         />
-        <p>Active Option Index: {activeOptionIndex}</p>
       </div>
       <div className="button-showcase__section">
         <GroupToggle
           options={[
-            { leadingIcon: renderIcon('grid_view') },
+            { leadingIcon: renderIcon('grid_view'), text:"xl" },
             { leadingIcon: renderIcon('filter_list') },
             { leadingIcon: <i className="logfont-satkom-filled"></i> }
           ]}
           activeOptionIndex={activeOptionIndex}
           onOptionChange={handleOptionChange}
           size="xl"
-          activeVariant="primary"
-          inactiveVariant="secondary"
         />
-        <p>Active Option Index: {activeOptionIndex}</p>
       </div>
+      <p>Active Option Index: {activeOptionIndex}</p>
     </div>
   );
 };

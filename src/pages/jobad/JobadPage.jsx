@@ -85,7 +85,13 @@ const JobadPage = ({ t, i18n }) => {
       {loading && <Spinner w="50" h="50" />}
       {!loading && error && 
         <div className="page-container">
-          <Alert variant='danger' icon='sentiment_dissatisfied' className="page-section--normal">{error}</Alert>
+          <Alert
+            variant='danger'
+            icon='sentiment_dissatisfied'
+            className="page-section--normal page-section--alert"
+          >
+            {error}
+          </Alert>
         </div>
       }
       {!loading && !error && jobad && (

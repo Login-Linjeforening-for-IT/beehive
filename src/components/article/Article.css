@@ -20,7 +20,7 @@
 
 .article__meta-date {
     font-size: .9rem;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-discreet);
 }
 
 .article__informational {
@@ -29,7 +29,7 @@
 }
 
 .article__informational-alert {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 

@@ -8,9 +8,8 @@ const GroupToggle = ({
   defaultActiveOptionIndex = 0,
   onOptionChange, 
   size = 'medium',
-  variant = 'outlined',
-  activeVariant = 'primary', 
-  inactiveVariant = 'ghost',
+  groupVariant = 'outlined',
+  buttonVariant = 'ghost',
   className = '',
   ariaLabel = 'Toggle group'
 }) => {
@@ -28,7 +27,7 @@ const GroupToggle = ({
 
   return (
     <div 
-      className={`group-toggle group-toggle--${variant} group-toggle--${size} ${className}`}
+      className={`group-toggle group-toggle--${groupVariant} group-toggle--${size} ${className}`}
       role="group"
       aria-label={ariaLabel}
     >
@@ -39,7 +38,7 @@ const GroupToggle = ({
         return (
           <Button
             key={index}
-            variant={isActive ? activeVariant : inactiveVariant}
+            variant={buttonVariant}
             size={size}
             onClick={() => handleOptionChange(index)}
             className={`group-toggle__button ${

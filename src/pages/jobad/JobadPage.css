@@ -80,7 +80,7 @@
 }
 
 .jobad-details__lable {
-    color: var(--color-text-tertiary);
+    color: var(--color-text-discreet);
     display: inline-flex;
 }
 
@@ -100,7 +100,7 @@
 }
 
 .jobad-details__icon--lable-color {
-    color: var(--color-text-tertiary);
+    color: var(--color-text-discreet);
 }
 
 .jobad-details__info {
