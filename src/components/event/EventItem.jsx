@@ -116,7 +116,7 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
                 </li>
               )}
             </ul>
-            {/* {useTags(event.time_publish, event.highlight, event.canceled, event.full, DatetimeFormatter.isOngoing(startDate, endDate)) &&
+            {useTags(event.time_publish, event.highlight, event.canceled, event.full, DatetimeFormatter.isOngoing(startDate, endDate)) &&
               <div className="event-item__tags">
                 <Tags
                   highlight={event.highlight}
@@ -124,17 +124,6 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
                   canceled={event.canceled}
                   full={event.full}
                   ongoing={DatetimeFormatter.isOngoing(startDate, endDate)}
-                />
-              </div>
-            } */}
-            {useTags(event.time_publish, event.highlight, event.canceled, event.full, true) &&
-              <div className="event-item__tags">
-                <Tags
-                  highlight={event.highlight}
-                  timePublish={new Date(event.time_publish)}
-                  canceled={event.canceled}
-                  full={event.full}
-                  ongoing={true}
                 />
               </div>
             }

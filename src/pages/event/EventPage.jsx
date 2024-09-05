@@ -136,7 +136,7 @@ const EventPage = ({ t, i18n }) => {
                       new Date(event.event.time_start),
                       new Date(event.event.time_end)
                     ) && 
-                      <span className="event-datetime-display__live-dot"></span>
+                      <span class="event-datetime-display__live-dot"></span>
                     }
                     {DatetimeFormatter.formatEventStatusDate(
                       new Date(event.event.time_start),
