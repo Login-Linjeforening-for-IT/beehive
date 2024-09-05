@@ -13,9 +13,10 @@
   
 .spinner__corners {
     fill: none;
-    stroke-width: 7;
-    stroke: #fd8738;
+    stroke-width: 8;
+    stroke: var(--color-primary);
     stroke-dasharray: 25;
+    stroke-dashoffset: 50;
     animation: dash infinite 1.5s ease;
     -webkit-animation: cornersDash infinite 1.5s ease;
 }
@@ -23,10 +24,10 @@
 .spinner__l {
     fill: none;
     stroke: white;
-    stroke-width: 4;
+    stroke-width: 5;
     stroke-dasharray: 50;
     animation: L 1.5s infinite ease;
-    -webkit-animation: L infinite 1.5s ease;
+    -webkit-animation: L-dash infinite 1.5s ease;
 }
 
 .light .spinner__l {
@@ -35,11 +36,11 @@
   
 @keyframes cornersDash {
     100% {
-        stroke-dashoffset: -50;
+        stroke-dashoffset: 0;
     }
 }
 
-@keyframes L {
+@keyframes L-dash {
     100% {
         stroke-dashoffset: 100;
     }
