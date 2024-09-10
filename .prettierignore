@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+public
+*.min.js
+*.md
+*.json
+*.yml
+*.mjs
+.gitignore
+.prettierignore
