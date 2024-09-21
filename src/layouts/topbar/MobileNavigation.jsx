@@ -55,6 +55,13 @@ const MobileNavigation = ({ t, open, setIsOpen }) => {
           >
             <li className="mobile-nav-dropdown__item">{t("nav.verv")}</li>
           </NavLink>
+          <NavLink
+            onClick={close}
+            to="fond"
+            tabIndex={open && isDropdownOpen ? 0 : -1}
+          >
+            <li className="mobile-nav-dropdown__item">{t("nav.fondet")}</li>
+          </NavLink>
           <a
             title="Wiki"
             href="https://wiki.login.no"

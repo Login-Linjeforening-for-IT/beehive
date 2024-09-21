@@ -1,0 +1,1424 @@
+{
+    "previous": null,
+    "next": "https://www.shareville.no/api/v1/profiles/378286/stream?page=2",
+    "results": [
+        {
+            "id": 116531609,
+            "object": {
+                "id": 62719955,
+                "instrument": {
+                    "id": 20873,
+                    "instrument_id": "16105722",
+                    "name": "NORDIC MINING",
+                    "slug": "nordic-mining",
+                    "currency": "NOK",
+                    "instrument_group_type": "EQ"
+                },
+                "price": "0.783",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-03-11T14:53:11.424635Z",
+            "first": {
+                "id": 62189523,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 116531609,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-03-11T14:53:11.435555Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 52457949,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/116531609"
+        },
+        {
+            "id": 116259093,
+            "object": {
+                "id": 62444983,
+                "instrument": {
+                    "id": 743939,
+                    "instrument_id": "18142188",
+                    "name": "Nordnet Global Indeks 125",
+                    "slug": "nordnet-global-index-125-nok-acc",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "119.622",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-02-29T09:46:36.388982Z",
+            "first": {
+                "id": 61914908,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 116259093,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-02-29T09:46:36.400500Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 52182528,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/116259093"
+        },
+        {
+            "id": 116144040,
+            "object": {
+                "id": 62327689,
+                "instrument": {
+                    "id": 743939,
+                    "instrument_id": "18142188",
+                    "name": "Nordnet Global Indeks 125",
+                    "slug": "nordnet-global-index-125-nok-acc",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "116.294",
+                "side": 2,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-02-23T09:52:57.800340Z",
+            "first": {
+                "id": 61798269,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 116144040,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-02-23T09:52:57.814086Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 52064991,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 9,
+            "frontend_uri": "/streams/116144040"
+        },
+        {
+            "id": 116115586,
+            "object": {
+                "id": 62298938,
+                "instrument": {
+                    "id": 20873,
+                    "instrument_id": "16105722",
+                    "name": "NORDIC MINING",
+                    "slug": "nordic-mining",
+                    "currency": "NOK",
+                    "instrument_group_type": "EQ"
+                },
+                "price": "0.739",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-02-22T10:36:30.584575Z",
+            "first": {
+                "id": 61769575,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 116115586,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-02-22T10:36:30.596160Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 52036153,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/116115586"
+        },
+        {
+            "id": 116083894,
+            "object": {
+                "id": 62266898,
+                "instrument": {
+                    "id": 383033,
+                    "instrument_id": "17334522",
+                    "name": "Nordnet Europa Indeks",
+                    "slug": "nordnet-indeksfond-europa-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "159.146",
+                "side": 2,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-02-21T09:48:02.196233Z",
+            "first": {
+                "id": 61737669,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 116083894,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-02-21T09:48:02.209442Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 52003997,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 9,
+            "frontend_uri": "/streams/116083894"
+        },
+        {
+            "id": 116042472,
+            "object": {
+                "id": 62225126,
+                "instrument": {
+                    "id": 20873,
+                    "instrument_id": "16105722",
+                    "name": "NORDIC MINING",
+                    "slug": "nordic-mining",
+                    "currency": "NOK",
+                    "instrument_group_type": "EQ"
+                },
+                "price": "0.759",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-02-20T08:29:55.698922Z",
+            "first": {
+                "id": 61695969,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 116042472,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-02-20T08:29:55.712491Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 51961920,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/116042472"
+        },
+        {
+            "id": 115526338,
+            "object": {
+                "id": 61704759,
+                "instrument": {
+                    "id": 743939,
+                    "instrument_id": "18142188",
+                    "name": "Nordnet Global Indeks 125",
+                    "slug": "nordnet-global-index-125-nok-acc",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "113.674",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-01-27T09:35:16.494971Z",
+            "first": {
+                "id": 61174734,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 115526338,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-01-27T09:35:16.508778Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 51436428,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/115526338"
+        },
+        {
+            "id": 115429254,
+            "object": {
+                "id": 61606811,
+                "instrument": {
+                    "id": 20873,
+                    "instrument_id": "16105722",
+                    "name": "NORDIC MINING",
+                    "slug": "nordic-mining",
+                    "currency": "NOK",
+                    "instrument_group_type": "EQ"
+                },
+                "price": "0.748",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-01-23T10:07:49.674859Z",
+            "first": {
+                "id": 61076822,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 115429254,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-01-23T10:07:49.686277Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 51337034,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/115429254"
+        },
+        {
+            "id": 115160575,
+            "object": {
+                "id": 61335415,
+                "instrument": {
+                    "id": 20873,
+                    "instrument_id": "16105722",
+                    "name": "NORDIC MINING",
+                    "slug": "nordic-mining",
+                    "currency": "NOK",
+                    "instrument_group_type": "EQ"
+                },
+                "price": "0.796",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2024-01-09T08:51:49.873094Z",
+            "first": {
+                "id": 60804964,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 115160575,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2024-01-09T08:51:49.884379Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 51111333,
+                    "profile": {
+                        "id": 425382,
+                        "slug": "rago63",
+                        "name": "Rago63",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 0
+                    }
+                },
+                {
+                    "id": 51060419,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/115160575"
+        },
+        {
+            "id": 114325136,
+            "object": {
+                "id": 60492170,
+                "instrument": {
+                    "id": 620712,
+                    "instrument_id": "17816237",
+                    "name": "Nordnet One Offensiv NOK",
+                    "slug": "nordnet-offensiv-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "123.560",
+                "side": 2,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-25T09:32:30.638509Z",
+            "first": {
+                "id": 59957760,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114325136,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-25T09:32:30.651366Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 50199846,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 9,
+            "frontend_uri": "/streams/114325136"
+        },
+        {
+            "id": 114198156,
+            "object": {
+                "id": 60363946,
+                "instrument": {
+                    "id": 480164,
+                    "instrument_id": "17496210",
+                    "name": "Nordnet Teknologi Indeks",
+                    "slug": "nordnet-index-fund-technology-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "157.495",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-17T09:51:15.089401Z",
+            "first": {
+                "id": 59828587,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114198156,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-17T09:51:15.103700Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 50067921,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/114198156"
+        },
+        {
+            "id": 114169725,
+            "object": {
+                "id": 60335334,
+                "instrument": {
+                    "id": 673541,
+                    "instrument_id": "16802428",
+                    "name": "DNB Teknologi A",
+                    "slug": "dnb-teknologi-a",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "3698.146",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-16T09:42:40.063083Z",
+            "first": {
+                "id": 59799857,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114169725,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-16T09:42:40.076677Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 50038788,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/114169725"
+        },
+        {
+            "id": 114169724,
+            "object": {
+                "id": 60335333,
+                "instrument": {
+                    "id": 620712,
+                    "instrument_id": "17816237",
+                    "name": "Nordnet One Offensiv NOK",
+                    "slug": "nordnet-offensiv-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "122.740",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-16T09:42:39.903082Z",
+            "first": {
+                "id": 59799856,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114169724,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-16T09:42:39.919519Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 50038787,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/114169724"
+        },
+        {
+            "id": 114169723,
+            "object": {
+                "id": 60335332,
+                "instrument": {
+                    "id": 174355,
+                    "instrument_id": "16801605",
+                    "name": "Nordnet Norge Indeks",
+                    "slug": "nordnet-indeksfond-norge",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "207.620",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-16T09:42:39.727424Z",
+            "first": {
+                "id": 59799855,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114169723,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-16T09:42:39.741256Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 50038786,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/114169723"
+        },
+        {
+            "id": 114143094,
+            "object": {
+                "id": 60308502,
+                "instrument": {
+                    "id": 589870,
+                    "instrument_id": "17776961",
+                    "name": "DNB Miljøinvest A",
+                    "slug": "dnb-miljinvest-a-1",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "1390.580",
+                "side": 2,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-15T09:40:28.836499Z",
+            "first": {
+                "id": 59772891,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114143094,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-15T09:40:28.849329Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 50011565,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 9,
+            "frontend_uri": "/streams/114143094"
+        },
+        {
+            "id": 114051897,
+            "object": {
+                "id": 60216367,
+                "instrument": {
+                    "id": 20873,
+                    "instrument_id": "16105722",
+                    "name": "NORDIC MINING",
+                    "slug": "nordic-mining",
+                    "currency": "NOK",
+                    "instrument_group_type": "EQ"
+                },
+                "price": "0.698",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-09T15:03:38.747992Z",
+            "first": {
+                "id": 59680257,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 114051897,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-09T15:03:38.759949Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 49917090,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/114051897"
+        },
+        {
+            "id": 113908314,
+            "object": {
+                "id": 60071622,
+                "instrument": {
+                    "id": 480164,
+                    "instrument_id": "17496210",
+                    "name": "Nordnet Teknologi Indeks",
+                    "slug": "nordnet-index-fund-technology-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "149.386",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-03T10:04:55.765188Z",
+            "first": {
+                "id": 59535365,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 113908314,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-03T10:04:55.781825Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 49770208,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/113908314"
+        },
+        {
+            "id": 113908313,
+            "object": {
+                "id": 60071621,
+                "instrument": {
+                    "id": 383978,
+                    "instrument_id": "17334521",
+                    "name": "Nordnet Global Indeks",
+                    "slug": "nordnet-indeksfond-global-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "150.379",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-03T10:04:55.578359Z",
+            "first": {
+                "id": 59535364,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 113908313,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-03T10:04:55.593103Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 49770207,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/113908313"
+        },
+        {
+            "id": 113869283,
+            "object": {
+                "id": 60032278,
+                "instrument": {
+                    "id": 673541,
+                    "instrument_id": "16802428",
+                    "name": "DNB Teknologi A",
+                    "slug": "dnb-teknologi-a",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "3456.005",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-02T09:51:01.078904Z",
+            "first": {
+                "id": 59496030,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 113869283,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-02T09:51:01.091748Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 49730496,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/113869283"
+        },
+        {
+            "id": 113869282,
+            "object": {
+                "id": 60032277,
+                "instrument": {
+                    "id": 383033,
+                    "instrument_id": "17334522",
+                    "name": "Nordnet Europa Indeks",
+                    "slug": "nordnet-indeksfond-europa-nok",
+                    "currency": "NOK",
+                    "instrument_group_type": "FND"
+                },
+                "price": "145.037",
+                "side": 1,
+                "transaction_tag": 0
+            },
+            "created_at": "2023-11-02T09:51:00.920814Z",
+            "first": {
+                "id": 59496029,
+                "profile": {
+                    "id": 378286,
+                    "slug": "haphazardlynerdy",
+                    "name": "HaphazardlyNerdy",
+                    "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                    "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                    "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                    "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                    "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                    "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                    "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                    "country": "NO",
+                    "follower_count": 1,
+                    "rating": 1
+                },
+                "group": 113869282,
+                "comment": "",
+                "likes": [],
+                "images": [],
+                "created_at": "2023-11-02T09:51:00.932695Z",
+                "embeds": null,
+                "formatted": false,
+                "language": null,
+                "tagged_users": [],
+                "extra_data": null,
+                "status": 1
+            },
+            "reply_count": 0,
+            "subscriptions": [
+                {
+                    "id": 49730495,
+                    "profile": {
+                        "id": 378286,
+                        "slug": "haphazardlynerdy",
+                        "name": "HaphazardlyNerdy",
+                        "thumb_small": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_60x60.jpg",
+                        "thumb_medium": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_120x120.jpg",
+                        "thumb_large": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_240x240.jpg",
+                        "thumb_1x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_48x48.jpg",
+                        "thumb_2x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_96x96.jpg",
+                        "thumb_3x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_144x144.jpg",
+                        "thumb_4x": "https://d2cgrbot63v1c2.cloudfront.net/img/avatars/cat_192x192.jpg",
+                        "country": "NO",
+                        "follower_count": 1,
+                        "rating": 1
+                    }
+                }
+            ],
+            "kind": 8,
+            "frontend_uri": "/streams/113869282"
+        }
+    ]
+}

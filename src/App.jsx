@@ -18,6 +18,7 @@ import EventPage from "./pages/event/EventPage";
 import Jobads from "./pages/jobadlist/Jobads";
 import JobadPage from "./pages/jobad/JobadPage";
 import Verv from "./pages/verv/Verv";
+import Fund from "./pages/fund/Fund";
 import NotFoundPage from "./pages/notfoundpage/NotFoundPage";
 import Scroll from "./utils/Scroll";
 import * as ConsoleOutput from "./utils/ConsoleOutput";
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/career" element={<Jobads />} />
                 <Route path="/career/:id" element={<JobadPage />} />
                 <Route path="/companies" element={<Companies />} />
+                <Route path="/fond" element={<Fund />} />
                 <Route path="/policy" element={<Policy />} />
                 <Route path="/verv" element={<Verv />} />
                 <Route path="/profile" element={<Profile />} />
