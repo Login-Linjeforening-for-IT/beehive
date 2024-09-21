@@ -67,12 +67,24 @@ const Navigation = ({ t }) => {
                   {t("nav.verv")}
                 </li>
               </NavLink>
+              <NavLink
+                to="fond"
+                ref={navItemRefs.current[2]}
+                onClick={handleClick}
+              >
+                <li className="main-nav-dropdown__item link--corner-hover">
+                  <i class="fund-section__header-icon material-symbols-sharp main-nav-dropdown__leading-icon">
+                    corporate_fare
+                  </i>
+                  {t("nav.fondet")}
+                </li>
+              </NavLink>
               <a
                 title="Wiki"
                 href="https://wiki.login.no"
                 target="_blank"
                 rel="noreferrer"
-                ref={navItemRefs.current[2]}
+                ref={navItemRefs.current[3]}
                 onClick={handleClick}
               >
                 <li className="main-nav-dropdown__item link--corner-hover">

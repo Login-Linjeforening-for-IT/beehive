@@ -1,0 +1,134 @@
+.fund-page__intro {
+    margin-top: 2rem;
+}
+
+.fund-section {
+    margin-bottom: 5rem;
+}
+
+.fund-section--highlighted {
+    background-color: var(--c-moon);
+}
+
+.fund-section__header {
+    display: flex;
+    align-items: center;
+}
+
+.fund-section__header-icon {
+    font-size: 1.2em;
+    line-height: inherit;
+    vertical-align: top;
+    margin-right: .3em;
+}
+
+.fund-section__container--highlighted {
+    padding: 1rem;
+}
+
+
+.fund-section__container--grid {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    justify-content: space-between;
+}
+
+.fund-link {
+    color: #fd8738;
+    font-weight: bold;
+}
+
+.fund-section__container--grid-item {
+    flex: 1 1 20rem;
+    box-sizing: border-box;
+}
+
+
+/* the fund board */
+
+.fund-board__intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.fund-board__intro-picture {
+    box-sizing: border-box;
+    flex: 1 1 20rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.fund-board__intro-text {
+    box-sizing: border-box;
+    flex: 1 1 20rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.fund-board__members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+}
+
+/*  Graph stuff
+
+.fund__graph_box {
+    width: 100%;
+    margin: auto;
+    height: 350px;
+}
+
+.fund__graph_box_yield {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.fund__graph_box_positions {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.fund__graph_box_buttons {
+    margin: auto;
+    width: 95%;
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-content: space-between;
+    border: #666666 1px solid;
+}
+
+.fund__graph_button {
+    margin: auto;
+}
+
+.fund__latest_purchases {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+
+.fund__positions {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+.fund__performance {
+    grid-column: 1 / -1;
+    grid-row: 3;
+}
+
+.fund__horLine {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+} */
