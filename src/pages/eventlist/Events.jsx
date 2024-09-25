@@ -296,11 +296,6 @@ const Events = ({ t }) => {
                     eventsView === "grid-view" ? "--grid-view" : "--list-view"
                   }`}
                 >
-                  <div className="event-list-separator event-list-separator--first">
-                          <p className="event-list-separator__text">
-                            {t("next-week")}
-                          </p>
-                        </div>
                   {groupedEvents.currentWeekEvents &&
                     groupedEvents.currentWeekEvents.length > 0 && (
                       <>

@@ -85,7 +85,7 @@
 }
 
 .jobad-details__icon--warning {
-    color: var(--color-alert-warning-icon);
+    color: var(--color-text-primary);
     margin-left: .5rem;
     padding-right: 0 !important; /* not great solution, but i dont care */
     width: fit-content !important;
