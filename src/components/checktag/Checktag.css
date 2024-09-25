@@ -31,7 +31,7 @@
 }
 
 .checktag__input:checked + .checktag__name {
-    background-color: var(--color-btn-primary-bg-active);
+    background-color: var(--color-btn-primary-bg);
     padding-left: 1.6rem;
     padding-right: .6rem;
     color: var(--color-text-on-primary);
