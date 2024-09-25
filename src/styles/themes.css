@@ -49,8 +49,8 @@
     --color-btn-primary-bg-active: var(--color-primary-700);
     --color-btn-primary-text: var(--color-text-on-primary);
     
-    --color-btn-secondary-bg: var(--color-grey-700);
-    --color-btn-secondary-bg-active: var(--color-grey-800);
+    --color-btn-secondary-bg: var(--color-grey-800);
+    --color-btn-secondary-bg-active: var(--color-grey-850);
     --color-btn-secondary-text: var(--color-white);
 
     --color-btn-primary-outlined: var(--color-primary-500);

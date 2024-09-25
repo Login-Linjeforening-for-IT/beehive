@@ -7,12 +7,8 @@
 .logchamp__title {
     margin-top: 1rem;
     font-size: 1.2rem;
-    color: var(--color-primary);
+    color: var(--color-text-primary);
     font-weight: 500;
-}
-
-.logchamp__name {
-    color: var(--c-font-main);
 }
 
 .logchamp__discord {

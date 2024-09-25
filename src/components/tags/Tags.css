@@ -46,9 +46,6 @@
   -webkit-text-fill-color: var(--color-tag-highlight-text);
 }
 
-.tag--danger {
-  color: var(--c-error-text);
-}
 .tag--danger .tag__container {
   background-color: var(--color-tag-danger-bg);
   border: .1em solid var(--color-tag-danger-border);

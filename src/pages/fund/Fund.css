@@ -1,48 +1,14 @@
-.fund-page__intro {
-    margin-top: 2rem;
-}
-
 .fund-section {
     margin-bottom: 5rem;
 }
 
+.fund-intro {
+    margin-bottom: 2rem;
+}
+
 .fund-section--highlighted {
-    background-color: var(--c-moon);
-}
-
-.fund-section__header {
-    display: flex;
-    align-items: center;
-}
-
-.fund-section__header-icon {
-    font-size: 1.2em;
-    line-height: inherit;
-    vertical-align: top;
-    margin-right: .3em;
-}
-
-.fund-section__container--highlighted {
+    background-color: var(--color-bg-surface);
     padding: 1rem;
-}
-
-
-.fund-section__container--grid {
-    display: flex;
-    flex-wrap: wrap;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
-    justify-content: space-between;
-}
-
-.fund-link {
-    color: #fd8738;
-    font-weight: bold;
-}
-
-.fund-section__container--grid-item {
-    flex: 1 1 20rem;
-    box-sizing: border-box;
 }
 
 
@@ -51,8 +17,9 @@
 .fund-board__intro {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 3rem;
+    margin-bottom: 4rem;
 }
 
 .fund-board__intro-picture {
@@ -60,22 +27,50 @@
     flex: 1 1 20rem;
     margin-top: auto;
     margin-bottom: auto;
+    max-width: 33rem;
 }
 
 .fund-board__intro-text {
     box-sizing: border-box;
     flex: 1 1 20rem;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
 
 .fund-board__members {
     display: flex;
     flex-wrap: wrap;
-    gap: 3rem;
-    justify-content: space-around;
-    padding-bottom: 2rem;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem 0;
 }
+
+
+@media (min-width: 800px) {
+    .fund-section--highlighted {
+        padding: 1rem 2rem 2rem 2rem;
+    }
+
+    .fund-section__container--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 4rem;
+    }
+
+    .fund-board__members {
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .fund-section--highlighted {
+        border-radius: var(--border-radius-large);
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem 3rem 2rem 3rem;
+    }
+}
+
+
 
 /*  Graph stuff
 

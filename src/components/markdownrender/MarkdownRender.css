@@ -4,7 +4,7 @@
 .markdown-render__h4,
 .markdown-render__h5,
 .markdown-render__h6 {
-    color: var(--c-font-title);
+    color: var(--color-text-main);
     margin: 1.5em 0 .5em 0;
     line-height: 1.2em;
 }
@@ -31,7 +31,7 @@
 }
 
 .markdown-render__strong {
-    color: var(--c-font-main);
+    color: var(--color-text-main);
     font-weight: 600;
 }
 

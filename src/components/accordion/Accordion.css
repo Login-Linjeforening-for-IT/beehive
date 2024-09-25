@@ -13,7 +13,7 @@
 }
 
 .accordion__nav-item:hover {
-    background-color: var(--c-bg-box-hover);
+    background-color: var(--color-bg-surface-raised);
 }
 
 .accordion__icon--left {

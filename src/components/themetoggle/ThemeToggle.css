@@ -24,15 +24,15 @@
 */
 
 .light .theme-toggle__svg {
-    fill: var(--c-moon);
+    fill: var(--color-moon);
 }
 
 .light .topbar--open .theme-toggle__svg {
-    fill: var(--c-sun);
+    fill: var(--color-sun);
 }
 
 .dark .theme-toggle__svg {
-    fill: var(--c-sun);
+    fill: var(--color-sun);
 }
 
 .theme-toggle__sun-ray {
