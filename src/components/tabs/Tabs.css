@@ -29,17 +29,17 @@
     display: block;
     margin: auto;
     transition: .2s;
-    color: var(--c-on-box-dim);
+    color: var(--color-text-discreet);
     padding: .5rem;
     border-bottom: .3rem solid var(--color-bg-surface);
 }
 
 .tabs__nav-item:hover .tabs__nav-title {
-    color: var(--c-font-main);
+    color: var(--color-text-main);
 }
 
 .tabs__nav-title--active {
-    color: var(--c-font-main);
+    color: var(--color-text-main);
     border-color: var(--color-primary);
 }
 

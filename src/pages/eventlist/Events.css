@@ -49,12 +49,12 @@
   margin: 1.2rem 0 .2rem 0;
 }
 
-.event-list-seperator--first {
+.event-list-separator.event-list-separator--first {
   margin-top: .2rem;
 }
 
 .event-list-separator__text {
-  background-color: var(--c-bg-body);
+  background-color: var(--color-bg-body);
   color: var(--color-text-discreet);
   font-weight: 500;
   font-size: .9rem;

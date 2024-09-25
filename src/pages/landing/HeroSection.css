@@ -1,6 +1,5 @@
 .hero-section {
     width: 100%;
-    background: var(--c-bg-hero-section);
     margin-top: calc(var(--h-topbar) * -1); /* counter the margin from main */
     background: var(--gradient-hero-section-bg);
     height: 35rem;

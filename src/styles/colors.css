@@ -84,6 +84,6 @@
     --color-yellow-900: #3c300e;
 
     /* Theme toggle button */
-    --c-moon: var(--color-grey-800);
-    --c-sun: white;
+    --color-moon: var(--color-grey-800);
+    --color-sun: white;
 }

@@ -28,8 +28,9 @@
     }
 }
 
+
 /* ----------------------------------- */
-/* -------------- Layout ------------- */
+/* -------------- Global ------------- */
 /* ----------------------------------- */
 * {
     margin: 0;
@@ -42,10 +43,6 @@
 
 body {
     background-color: var(--color-bg-body);
-}
-
-.material-symbols-sharp {
-    vertical-align: middle;
 }
 
 
@@ -96,6 +93,7 @@ body {
 
 /*
   five column system, where second and forth colum function as a margin to the edges.
+  use .page-container as page wrapper and one of three classes for sections.
   3 utility classes for width:
    - normal (center)
    - full-width
@@ -140,16 +138,16 @@ body {
 
 .heading-1 {
     margin: 1rem 0;
+    padding: 0.3em 0;
     z-index: 2;
     font-weight: 600;
     font-size: var(--font-size-heading-lg);
     line-height: 1.2em;
-    padding: 0.3em 0;
     color: var(--color-text-main);
 }
 
 .heading-2 {
-    margin: 1em 0 0.5em 0;
+    padding: 1em 0 0.5em 0;
     z-index: 2;
     font-weight: 400;
     font-size: var(--font-size-heading-md);
@@ -158,15 +156,15 @@ body {
 }
 
 .heading-3 {
-    margin: 1em 0;
+    padding: 1em 0 0.5rem 0;
     font-weight: 400;
     font-size: var(--font-size-heading-sm);
     color: var(--color-text-main);
 }
 
 .heading-4 {
+    padding: 1em 0 0.5em 0;
     font-weight: 600;
-    margin: 1em 0 0.5em 0;
     font-size: var(--font-size-heading-xs);
     color: var(--color-text-main);
 }
@@ -386,6 +384,10 @@ a {
 /* --------------------------------------- */
 /* - Other utility classes and standards - */
 /* --------------------------------------- */
+
+.material-symbols-sharp {
+    vertical-align: middle;
+}
 
 abbr {
     text-decoration-color: var(--color-text-main);
