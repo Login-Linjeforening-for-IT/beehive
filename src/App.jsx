@@ -41,15 +41,27 @@ function App() {
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/om" element={<About />} />
+                <Route path="/omoss" element={<About />} />
                 <Route path="/events" element={<Events />} />
                 <Route path="/events/:id" element={<EventPage />} />
+                <Route path="/arrangementer" element={<Events />} />
+                <Route path="/arrangementer/:id" element={<EventPage />} />
+                <Route path="/arrangement/:id" element={<EventPage />} />
                 <Route path="/career" element={<Jobads />} />
                 <Route path="/career/:id" element={<JobadPage />} />
+                <Route path="/karriere" element={<Jobads />} />
+                <Route path="/karriere/:id" element={<JobadPage />} />
                 <Route path="/companies" element={<Companies />} />
+                <Route path="/bedrift" element={<Companies />} />
+                <Route path="/bedrifter" element={<Companies />} />
+                <Route path="/fund" element={<Fund />} />
                 <Route path="/fond" element={<Fund />} />
+                <Route path="/fondet" element={<Fund />} />
                 <Route path="/policy" element={<Policy />} />
                 <Route path="/verv" element={<Verv />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/recruitment" element={<Verv />} />
                 <Route path="/rekruttering" element={<Verv />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
