@@ -1,6 +1,6 @@
 import './Logo.css';
 
-const LoginLogoSmall = () => {
+export default function LoginLogoSmall() {
     return (
         <svg className='logo-small' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path className='logo-small__corner' d='M0 0H6.6667V28.3333H0V0Z' fill='#F08640'/>
@@ -16,5 +16,3 @@ const LoginLogoSmall = () => {
         </svg>
    )
 }
-
-export default LoginLogoSmall

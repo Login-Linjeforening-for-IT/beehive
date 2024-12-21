@@ -1,6 +1,6 @@
 import "./EventCardSkeleton.css";
 
-const EventCardSkeleton = () => {
+export default function EventCardSkeleton() {
     return (
         <div className="event-card-skeleton">
             <div className="event-card-skeleton__image skeleton"></div>
@@ -9,5 +9,3 @@ const EventCardSkeleton = () => {
         </div>
     );
 };
-
-export default EventCardSkeleton;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from '../button/Button';
 import './GroupToggle.css';
 
-const GroupToggle = ({ 
+function GroupToggle({ 
   options, 
   activeOptionIndex: controlledActiveOptionIndex, 
   defaultActiveOptionIndex = 0,
@@ -12,11 +12,11 @@ const GroupToggle = ({
   buttonVariant = 'ghost',
   className = '',
   ariaLabel = 'Toggle group'
-}) => {
+}) {
   const [internalActiveOptionIndex, setInternalActiveOptionIndex] = useState(defaultActiveOptionIndex);
   const activeOptionIndex = controlledActiveOptionIndex !== undefined ? controlledActiveOptionIndex : internalActiveOptionIndex;
 
-  const handleOptionChange = (index) => {
+  function handleOptionChange(index) {
     if (controlledActiveOptionIndex === undefined) {
       setInternalActiveOptionIndex(index);
     }

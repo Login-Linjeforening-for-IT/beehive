@@ -1,63 +1,27 @@
 {
-  "name": "frontend",
-  "version": "2.6.3",
+  "name": "beehive",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:check": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prettier:check": "prettier . --check",
-    "prettier:fix": "prettier . --write",
-    "postinstall": "sh ./vendor/mazemap/install.sh",
-    "prepare": "husky install"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.4",
-    "i18next": "^23.14.0",
-    "i18next-browser-languagedetector": "^8.0.0",
-    "i18next-http-backend": "^2.6.1",
-    "mazemap": "file:vendor/mazemap",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-i18next": "^15.0.1",
-    "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.26.1",
-    "react-scripts": "^5.0.1",
-    "remark-gfm": "^4.0.0",
-    "web-vitals": "^4.2.3",
-    "recharts": "^2.12.2"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "eslint": "^9.9.1",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.1",
-    "globals": "^15.9.0",
-    "husky": "^9.1.5",
-    "lint-staged": "^15.2.10",
-    "prettier": "3.3.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ],
-    "staging": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ]
-  },
-  "lint-staged": {
-    "*": ["eslint --cache --fix", "prettier --write"]
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.2",
+    "@eslint/eslintrc": "^3"
   }
 }

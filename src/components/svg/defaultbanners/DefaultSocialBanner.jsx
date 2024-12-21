@@ -1,7 +1,7 @@
 import * as ColorManipulation from "../../../utils/ColorManipulation.js";
 import './defualt-banner.css';
 
-const DefaultSocialBanner = ({ color, transition = true, className = '' }) => {
+export default DefaultSocialBanner({ color, transition = true, className = '' }) {
 
     let gradient, fillColor;
 
@@ -32,8 +32,3 @@ const DefaultSocialBanner = ({ color, transition = true, className = '' }) => {
         </div>
     )
 }
-
-
-
-
-export default DefaultSocialBanner

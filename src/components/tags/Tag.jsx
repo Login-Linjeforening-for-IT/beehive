@@ -1,6 +1,6 @@
 import './Tags.css';
 
-const Tag = ({ children, variant='info' }) => {
+export default function Tag({ children, variant='info' }) {
   
   return (
     <div className={`tag tag--${variant}`}>
@@ -11,6 +11,4 @@ const Tag = ({ children, variant='info' }) => {
         </div>
     </div>
   )
-};
-
-export default Tag;
+}

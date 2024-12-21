@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 
 import './LangToggle.css'
 
-const LangToggle = ({i18n}) => {
+function LangToggle({i18n}) {
   const [buttonText, setButtonText] = useState('')
   const [jump, setJump] = useState(false);
   

@@ -1,6 +1,6 @@
-const TabNavItem = ({ id, title, activeTab, setActiveTab }) => {
+export default function TabNavItem({ id, title, activeTab, setActiveTab }) {
  
-    const handleClick = () => {
+    function handleClick() {
         setActiveTab(id)
     }
  
@@ -10,5 +10,3 @@ const TabNavItem = ({ id, title, activeTab, setActiveTab }) => {
         </li>
     )
 }
-
-export default TabNavItem

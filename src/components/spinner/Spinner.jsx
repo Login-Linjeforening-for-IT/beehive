@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Spinner.css';
 
-const Spinner = ({w, h}) => {
+export default function Spinner({w, h}) {
 	const [displaySpinner, setDisplaySpinner] = useState(false);
 
     useEffect(() => {
@@ -26,5 +26,3 @@ const Spinner = ({w, h}) => {
         </div>
     )
 }
-
-export default Spinner

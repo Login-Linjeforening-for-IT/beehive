@@ -1,6 +1,6 @@
 
 
-const prepFilter = (data, id, label, idKey='id', getLabel, countKey='count', type, showCount=false) => {
+export default function prepFilter(data, id, label, idKey='id', getLabel, countKey='count', type, showCount=false) {
     const filters = {};
   
     for (let value of Object.values(data)) {
@@ -19,5 +19,3 @@ const prepFilter = (data, id, label, idKey='id', getLabel, countKey='count', typ
         showCount: showCount
     };
 }
-
-export default prepFilter

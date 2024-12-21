@@ -6,14 +6,14 @@ import Tag from "./Tag";
 import "./Tags.css";
 
 
-const Tags = ({
+function Tags({
   t,
   highlight = false,
   timePublish = 0,
   canceled = false,
   full = false,
   ongoing = false
-}) => {
+}) {
   return (
     <>
       {canceled && <Tag variant="danger">{t("canceled")}</Tag>}

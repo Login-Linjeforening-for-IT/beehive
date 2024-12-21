@@ -5,13 +5,13 @@ import CheckBox from "../checkbox/Checkbox"
 import CheckTag from "../checktag/Checktag"
 import './filter.css';
 
-const getFilterGroupItemOnSelectWithin = (onSelect, filterGroupItemID) => {
+function getFilterGroupItemOnSelectWithin(onSelect, filterGroupItemID) {
     return (filterID, isSelected) => {
         onSelect(filterGroupItemID, filterID, isSelected);
     }
 }
 
-const getFilterItemOnSelect = (onSelect, filterID) => {
+function getFilterItemOnSelect(onSelect, filterID) {
     return (isSelected) => {
         onSelect(filterID, isSelected);
     }
@@ -50,7 +50,7 @@ const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, reset
         setChecked(false);
     }, [resetTrigger]);
 
-    const select = () => {
+    function select() {
         setChecked(!checked);
         onSelect(!checked);
     }
@@ -76,17 +76,17 @@ const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, reset
     )
 });
 
-const FilterGroup = ({ t, filters, onApply, close = false }) => {
+function FilterGroup({ t, filters, onApply, close = false }) {
     const selectedFilters = useRef({});
     const [ resetTrigger, setResetTrigger ] = useState(false);
 
-    const onReset = () => {
+    function onReset() {
         selectedFilters.current = {};
         setResetTrigger(!resetTrigger);
         apply();
     }
 
-    const apply = () => {
+    function apply() {
         const f = {};
 
         Object.entries(selectedFilters.current).forEach(([filterGroupItemID, filterGroupItem]) => {
@@ -97,7 +97,7 @@ const FilterGroup = ({ t, filters, onApply, close = false }) => {
         onApply(f);
     }
 
-    const onSelect = (filterGroupItemID, filterID, isSelected) => {
+    function onSelect(filterGroupItemID, filterID, isSelected) {
         if (filterGroupItemID in selectedFilters.current) {
             if (!isSelected) {
                 selectedFilters.current[filterGroupItemID].delete(filterID);

@@ -4,7 +4,7 @@ import 'mazemap/mazemap.min.css';
 
 /* credz to the guys over at Abakus, this mazemap-implementation is inspired by their solution */
 
-const MazeMapEmbed = ({ poi, ...props }) => {
+export default function MazeMapEmbed({ poi, ...props }) {
 
 	const defualtHeight = 320;
 	const [hasMounted, setHasMounted] = useState(false);
@@ -89,11 +89,11 @@ const MazeMapEmbed = ({ poi, ...props }) => {
 		);
 	}
 
-	const zoomIn = () => {
+	function zoomIn() {
 		map?.zoomIn();
 	}
 
-	const zoomOut = () => {
+	function zoomOut() {
 		map?.zoomOut();
 	}
 
@@ -128,5 +128,3 @@ const MazeMapEmbed = ({ poi, ...props }) => {
     </>
 	);
 };
-
-export default MazeMapEmbed;

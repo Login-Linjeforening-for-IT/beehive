@@ -2,7 +2,7 @@ import {withTranslation} from "react-i18next";
 import MazeMapEmbed from '../mazemap/MazeMapEmbed';
 import './Contact.css';
 
-const Contact = ({t}) => {
+function Contact({t}) {
   return(
     <div className='contact-card'>
       <h2 className='heading-2 heading-2--icon'>

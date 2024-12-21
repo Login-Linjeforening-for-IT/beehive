@@ -13,7 +13,7 @@ import RenderSmoothImage from '../images/rendersmoothimage/RenderSmoothImage';
 import './JobadCard.css'
 
 
-const JobadCard = ({ i18n, jobad, disableTags=false }) => {
+function JobadCard({ i18n, jobad, disableTags=false }) {
 
   const useEng = i18n.language === 'en';
   const tr = Translator.getTranslation(useEng);

@@ -28,7 +28,7 @@ const jobTypeTranslations = {
   }
 }
 
-const getJobTypeLabel = (job_type, lang="no") => {
+function getJobTypeLabel(job_type, lang="no") {
   const labelNo = jobTypeTranslations['no'][job_type] || job_type;
   let labelEn = jobTypeTranslations['en'][job_type] || labelNo;
 
@@ -36,7 +36,7 @@ const getJobTypeLabel = (job_type, lang="no") => {
 };
 
 
-const formatCities = (cities) => {
+function formatCities(cities) {
 
   const charLim = 30 // limit of characters
   let counter = 0
@@ -59,7 +59,7 @@ const formatCities = (cities) => {
 }
 
 
-const JobadsListItem = ({ i18n, jobad }) => {
+function JobadsListItem({ i18n, jobad }) {
 
   const useEng = i18n.language === 'en';
   const tr = Translator.getTranslation(useEng);
@@ -70,7 +70,7 @@ const JobadsListItem = ({ i18n, jobad }) => {
 		setUseFallbackImg(false);
 	}, [jobad.organization_logo]);
   
-  const useTags = (publishTime, highlight) => {
+  function useTags(publishTime, highlight) {
     if (highlight) return true;
     if (DatetimeFormatter.isNew(publishTime)) return true;
     return false;

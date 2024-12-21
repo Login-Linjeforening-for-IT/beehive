@@ -19,7 +19,7 @@ import { config } from "../../Constants";
 import "./EventItem.css";
 
 
-const getDefaultBanner = (category, color) => {
+function getDefaultBanner(category, color) {
   switch (category) {
     case "Sosialt":
       return <DefaultSocialBanner color={color} className="event-item__img" />;
@@ -35,14 +35,14 @@ const getDefaultBanner = (category, color) => {
 };
 
 
-const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant='list-item' }) => {
+function EventListItem({ i18n, event, highlight=true, disableTags=false, variant='list-item' }) {
 
   const [showImage, setShowImage] = useState(true);
   const lang = i18n.language == "en" ? "en" : "no";
   const useEng = lang === 'en';
   const tr = getTranslation(useEng);
 
-  const useTags = (publishTime, highlight, canceled, full, ongoing) => {
+  function useTags(publishTime, highlight, canceled, full, ongoing) {
     if (disableTags) return false;
     if (highlight) return true;
     if (isNew(publishTime)) return true;

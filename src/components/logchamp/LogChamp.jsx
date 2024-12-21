@@ -2,7 +2,7 @@ import DecoratedPicture from '../images/decoratedpicture/DecoratedPicture';
 import './LogChamp.css';
 
 
-const LogChamp = ({name, stilling, img, discord, discordlink}) => {
+export default function LogChamp({name, stilling, img, discord, discordlink}) {
 
   return (
     <div className='logchamp'>
@@ -26,5 +26,3 @@ const LogChamp = ({name, stilling, img, discord, discordlink}) => {
     </div>
   )
 }
-
-export default LogChamp

@@ -4,45 +4,51 @@ import "./ImageCarousel.css";
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage";
 
 
-const NavigationButton = ({ side, onClick, onFocus }) => (
-    <button
-        className={`image-carousel__nav-item image-carousel__nav-item--${side}`}
-        onClick={onClick}
-        onFocus={onFocus}
-        aria-label={side === 'left' ? 'previous' : 'next'}
-    ></button>
-);
+function NavigationButton({ side, onClick, onFocus }) {
+    return (
+        <button
+            className={`image-carousel__nav-item image-carousel__nav-item--${side}`}
+            onClick={onClick}
+            onFocus={onFocus}
+            aria-label={side === 'left' ? 'previous' : 'next'}
+        ></button>
+    );
+}
 
-const SlideItem = ({ image, index, className, title, description, onFocus }) => (
-	<div
-		key={index}
-		className={`image-carousel__slide ${className}`}
-		onFocus={onFocus}
-	>
-		<div className="image-carousel__image-overlay">
-			<div className="image-carousel__image-overlay-info">
-				<h2 className="image-carousel__image-overlay-title">{title}</h2>
-				<p className="image-carousel__image-overlay-description">{description}</p>
-			</div>
-		</div>
-        <RenderSmoothImage 
-		    src={image}
-            alt={title}
-            className='image-carousel__image'
-        />
-	</div>
-);
+function SlideItem({ image, index, className, title, description, onFocus }) {
+    return (
+        <div
+            key={index}
+            className={`image-carousel__slide ${className}`}
+            onFocus={onFocus}
+        >
+            <div className="image-carousel__image-overlay">
+                <div className="image-carousel__image-overlay-info">
+                    <h2 className="image-carousel__image-overlay-title">{title}</h2>
+                    <p className="image-carousel__image-overlay-description">{description}</p>
+                </div>
+            </div>
+            <RenderSmoothImage 
+                src={image}
+                alt={title}
+                className='image-carousel__image'
+            />
+        </div>
+    );
+}
 
-const DotIndicator = ({ index, isActive }) => (
-    <div
-        key={index}
-        className={`image-carousel__dot-container ${isActive ? "image-carousel__dot-container--active" : ""}`}
-    >
-        <div className='image-carousel__dot'></div>
-    </div>
-);
+function DotIndicator({ index, isActive }) {
+    return (
+        <div
+            key={index}
+            className={`image-carousel__dot-container ${isActive ? "image-carousel__dot-container--active" : ""}`}
+        >
+            <div className='image-carousel__dot'></div>
+        </div>
+    )
+}
 
-const ImageCarousel = ({ slides }) => {
+function ImageCarousel({ slides }) {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -59,7 +65,7 @@ const ImageCarousel = ({ slides }) => {
         };
     }, [isPaused]);
 
-    const startCarousel = () => {
+    function startCarousel() {
         clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
             next(true);
@@ -67,26 +73,33 @@ const ImageCarousel = ({ slides }) => {
     };
 
     const next = (isAutoCarousel = false) => {
-        if (isTransitioning) return; // prevent new transition if there is an ongoing transition
-        const transitionDuration = isAutoCarousel ? 1600 : 500; // automatic transitions are slower
+        // prevent new transition if there is an ongoing transition
+        if (isTransitioning) return;
+        
+        // automatic transitions are slower
+        const transitionDuration = isAutoCarousel ? 1600 : 500;
         setIsTransitioning(true);
         setActiveIndex(prevIndex => (prevIndex + 1) % slides.length);
-        setTimeout(() => setIsTransitioning(false), transitionDuration); // let transition complete before allowing navigation
+        
+        // let transition complete before allowing navigation
+        setTimeout(() => setIsTransitioning(false), transitionDuration);
     };
 
-    const prev = () => {
+    function prev() {
         if (isTransitioning) return;
         setIsTransitioning(true);
         setActiveIndex(prevIndex => (prevIndex - 1 + slides.length) % slides.length);
-        setTimeout(() => setIsTransitioning(false), 500); // let transition complete before allowing navigation
+        
+        // let transition complete before allowing navigation
+        setTimeout(() => setIsTransitioning(false), 500);
     };
 
-    const pause = () => {
+    function pause() {
         setIsPaused(true);
         clearInterval(intervalRef.current);
     };
 
-    const resume = () => {
+    function resume() {
         // delay before starting new auto carousel in case there is an ongoing transition
         setTimeout(() => {
             setIsPaused(false);

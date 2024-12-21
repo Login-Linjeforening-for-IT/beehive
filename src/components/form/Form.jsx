@@ -7,12 +7,12 @@ import InputFields from "./InputFields";
 import { useState } from "react";
 import './Form.css'
 
-const Form = ({ t, user, event}) => {
+function Form({ t, user, event}) {
     const [joinState, setJoinState] = useState(null)
     const [data, setData] = useState({})
 
-    const Join = () => {
-        const handleClick = () => {
+    function Join() {
+        function handleClick() {
             if (user.autoSubmit == true) {
                 // handle database send call here
                 setJoinState("sent")
@@ -30,8 +30,8 @@ const Form = ({ t, user, event}) => {
         }
     }
 
-    const Send = () => {
-        const handleSend = () => {
+    function Send() {
+        function handleSend() {
             // handle database send call here
             setJoinState("sent")
             setData({})
@@ -42,8 +42,8 @@ const Form = ({ t, user, event}) => {
         } else return null
     }
 
-    const Confirmation = () => {
-        const handleCancel = () => {
+    function Confirmation() {
+        function handleCancel() {
             // handle database cancel call here
             setJoinState(null)
         }

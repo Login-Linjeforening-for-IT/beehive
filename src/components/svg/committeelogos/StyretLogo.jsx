@@ -1,6 +1,6 @@
 import './StyretLogoAnimation.css';
 
-const StyretLogo = () => {
+export default function StyretLogo() {
     return (
       <svg className='styret-logo committee-logo' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>            
         <path d='M7 75 H0 V100 H7 V75 Z' className='committee-logo--corner'/>
@@ -24,6 +24,4 @@ const StyretLogo = () => {
         </g>
       </svg>
     )
-  }
-
-export default StyretLogo
+}

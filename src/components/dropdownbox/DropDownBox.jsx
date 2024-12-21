@@ -1,10 +1,10 @@
 import { useState } from "react";
 import './DropDownBox.css';
 
-const DropDownBox = ({ title, children }) => {
+export default function DropDownBox({ title, children }) {
     const [isOpen, setOpen] = useState(false);
 
-    const handleClick = () => {
+    function handleClick() {
         setOpen(!isOpen);
     };
  
@@ -25,5 +25,3 @@ const DropDownBox = ({ title, children }) => {
         </div>
     )
 }
-
-export default DropDownBox;

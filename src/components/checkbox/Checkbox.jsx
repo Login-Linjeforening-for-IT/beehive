@@ -1,6 +1,6 @@
 import './Checkbox.css';
 
-const Checkbox = ({ id, label, count=false, checked, onChange }) => {
+export default Checkbox({ id, label, count=false, checked, onChange }) {
   return (
     <label className="checkbox">
       <input
@@ -20,5 +20,3 @@ const Checkbox = ({ id, label, count=false, checked, onChange }) => {
     </label>
   );
 };
-
-export default Checkbox;

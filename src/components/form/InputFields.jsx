@@ -5,8 +5,8 @@
 import {withTranslation} from "react-i18next";
 import './InputFields.css'
 
-const InputField = ({t, text, data, setData}) => {
-    const handleChange = (e) => {
+function InputField({t, text, data, setData}) {
+    function handleChange(e) {
         setData({...data, [text]: e.target.value})
     }
 
@@ -18,7 +18,7 @@ const InputField = ({t, text, data, setData}) => {
     )
 }
 
-const InputFields = ({t, data, setData, joinState}) => {
+function InputFields({t, data, setData, joinState}) {
     if (joinState == "manual") {
         return(
             <div>

@@ -1,6 +1,6 @@
 import './Button.css';
 
-const Button = ({
+export default function Button({
   children,
   variant = 'primary',
   size = 'medium',
@@ -13,7 +13,7 @@ const Button = ({
   onClick,
   href,
   ...props
-}) => {
+}) {
   const baseClassName = `button button--${variant} button--${size} ${active ? 'active' : ''} ${className}`;
   const iconOnly = (leadingIcon || trailingIcon) && !children;
 
@@ -59,5 +59,3 @@ const Button = ({
     </button>
   );
 };
-
-export default Button;

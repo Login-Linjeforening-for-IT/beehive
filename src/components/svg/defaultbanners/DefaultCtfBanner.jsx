@@ -1,7 +1,7 @@
 import * as ColorManipulation from "../../../utils/ColorManipulation.js";
 import './defualt-banner.css';
 
-const DefaultCtfBanner = ({ color, transition = true, className = '' }) => {
+function DefaultCtfBanner = ({ color, transition = true, className = '' }) {
 
     let gradient, fillColor;
 

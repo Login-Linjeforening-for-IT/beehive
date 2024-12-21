@@ -13,7 +13,7 @@ import { getEventRow, getJobRow } from "../../utils/api";
 import "./MarkdownRender.css";
 
 
-const CustomLink = ({ href, children }) => {
+function CustomLink({ href, children }) {
   if (typeof children === 'string') {
     if (children === ':event') {
       return EventEmbed(href)
@@ -58,7 +58,7 @@ function EventEmbed(id) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       try {
         const [response, err] = await getEventRow(id);
         if (err) {
@@ -106,7 +106,7 @@ function JobadEmbed(id) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       try {
         const [ response, err ] = await getJobRow(id);
         if (err) {
@@ -169,12 +169,10 @@ const components = {
     a: CustomLink
 }
 
-const MarkdownRender = ({MDstr}) => {
-  return (
-    <Markdown components={components} remarkPlugins={[remarkGfm]}>
-      {MDstr.replace(/\\n/g, '\n')}
-    </Markdown>
-  );
+export function MarkdownRender({MDstr}) {
+    return (
+      <Markdown components={components} remarkPlugins={[remarkGfm]}>
+        {MDstr.replace(/\\n/g, '\n')}
+      </Markdown>
+    );
 };
-
-export default MarkdownRender;

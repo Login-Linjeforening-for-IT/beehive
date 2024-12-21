@@ -1,6 +1,6 @@
 import './Checktag.css';
 
-const Checktag = ({ id, label, checked, onChange }) => {
+export default function Checktag({ id, label, checked, onChange }) {
   return (
     <label className="checktag">
       <input
@@ -16,5 +16,3 @@ const Checktag = ({ id, label, checked, onChange }) => {
     </label>
   );
 };
-
-export default Checktag;

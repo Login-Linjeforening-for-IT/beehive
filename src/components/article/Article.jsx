@@ -7,7 +7,7 @@ import Alert from "../alert/Alert";
 import "./Article.css";
 
 
-const Article = ({ i18n, title, publishTime, updateTime, informational, introduction, description }) => {
+function Article({ i18n, title, publishTime, updateTime, informational, introduction, description }) {
 
   const useEng = i18n.language === "en";
   const lang = useEng ? "en" : "no";

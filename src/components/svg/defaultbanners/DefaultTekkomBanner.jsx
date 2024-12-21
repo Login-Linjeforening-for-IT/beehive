@@ -1,7 +1,7 @@
 import * as ColorManipulation from "../../../utils/ColorManipulation.js";
 import './defualt-banner.css';
 
-const DefaultTekkomBanner = ({ color, transition = true, className = '' }) => {
+export default function DefaultTekkomBanner({ color, transition = true, className = '' }) {
 
     let gradient, fillColor;
 
@@ -23,5 +23,3 @@ const DefaultTekkomBanner = ({ color, transition = true, className = '' }) => {
         </div>
     )
 }
-
-export default DefaultTekkomBanner

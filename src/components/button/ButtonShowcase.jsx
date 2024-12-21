@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../button/Button';
 import GroupToggle from '../grouptoggle/GroupToggle';
 
-const ButtonShowcase = () => {
+function ButtonShowcase() {
   const variants = ['primary', 'secondary', 'primary-outlined', 'secondary-outlined', 'ghost', 'danger'];
   const sizes = ['small', 'medium', 'large', 'xl'];
   const iconPlacements = ['none', 'leading', 'trailing', 'leading-empty']; // Added 'leading-empty' for empty text with leading icon.
@@ -11,7 +11,7 @@ const ButtonShowcase = () => {
 
   const [activeOptionIndex, setActiveOptionIndex] = useState(0);
 
-  const handleOptionChange = (index) => {
+  function handleOptionChange(index) {
     setActiveOptionIndex(index);
   };
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './DecoratedPicture.css';
 
-const DecoratedPicture = ({ imgurl, variant, w, h, cornerSize, cover = false, className = '' }) => {
+function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, className = '' }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const maskID = `mask-${variant}-${w}-${h}`;
 
@@ -11,7 +11,7 @@ const DecoratedPicture = ({ imgurl, variant, w, h, cornerSize, cover = false, cl
     img.onload = () => setIsLoaded(true);
   }, [imgurl]);
 
-  const renderDecorations = () => {
+  function renderDecorations() {
     switch (variant) {
       case 1:
         return (

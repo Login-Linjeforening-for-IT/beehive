@@ -12,7 +12,7 @@ const ThemeContext = createContext({
     switchTheme: () => {},
 });
 
-export const ThemeProvider = ({ children }) => {
+export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(storedTheme);
 
     useEffect(() => {
@@ -31,6 +31,6 @@ export const ThemeProvider = ({ children }) => {
             {children}
         </ThemeContext.Provider>
     );
-};
+}
 
-export default ThemeContext;
+export default ThemeContext

@@ -1,6 +1,6 @@
 import "./JobadCardSkeleton.css";
 
-const JobadCardSkeleton = () => {
+export default function JobadCardSkeleton() {
     return (
         <div className='jobad-card-skeleton'>
             <div className='jobad-card-skeleton__image skeleton'></div>
@@ -9,5 +9,3 @@ const JobadCardSkeleton = () => {
         </div>
     );
 };
-
-export default JobadCardSkeleton;

@@ -9,7 +9,7 @@ import LoginLogoSmall from '../../components/svg/brandlogos/LoginLogoSmall'
 import './TopBar.css'
 import LangToggle from "../../components/langtoggle/LangToggle";
 
-const TopBar = () => {
+export default function TopBar() {
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
   
@@ -41,5 +41,3 @@ const TopBar = () => {
         </div>
     )
 }
-
-export default TopBar

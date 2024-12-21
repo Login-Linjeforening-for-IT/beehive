@@ -3,14 +3,14 @@ import * as ColorManipulation from "../../utils/ColorManipulation.js";
 
 import "./DateTile.css";
 
-const DateTile = ({
+function DateTile({
   i18n,
   startDate,
   endDate,
   color,
   varient = "regular",
   useDayText = false,
-}) => {
+}) {
 
   const sTime = new Date(startDate);
   const eTime = new Date(endDate);

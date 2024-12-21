@@ -1,6 +1,6 @@
 import './Logo.css';
 
-const LoginLogo = () => {
+export default function LoginLogo() {
     return (
 
         <svg className='landing-logo' viewBox='0 0 147.02299 59.20511'>
@@ -37,5 +37,3 @@ const LoginLogo = () => {
 
     )
 }
-
-export default LoginLogo

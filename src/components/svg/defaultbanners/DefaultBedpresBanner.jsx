@@ -1,7 +1,7 @@
 import * as ColorManipulation from "../../../utils/ColorManipulation.js";
 import './defualt-banner.css';
 
-const DefaultBedpresBanner = ({ color, transition = true, className = '' }) => {
+export default function DefaultBedpresBanner({ color, transition = true, className = '' }) {
 
     let gradient, fillColor;
 
@@ -35,5 +35,3 @@ const DefaultBedpresBanner = ({ color, transition = true, className = '' }) => {
         </div>
     )
 }
-
-export default DefaultBedpresBanner

@@ -8,7 +8,7 @@ const baseUrl = 'http://www.shareville.no/api/v1'
 const profileNumber = "378286"
 const portfolioNumber = "465391"
 
-const apiFetch = async (path) => {
+async function apiFetch(path) {
     try {
         const response = await fetch(baseUrl + path, {
             method: 'GET',
@@ -58,7 +58,7 @@ function purchaseObjects() {
     return localpurchaseObjects
 }
 
-const LatestPurchasesTable = () => {
+function LatestPurchasesTable() {
     return (
         <table className='graphTable__table'>
             <tr>
@@ -79,7 +79,7 @@ const LatestPurchasesTable = () => {
     )
 }
 
-const PositionsPie = () => {
+function PositionsPie() {
     let positions = apiFetch('/portfolios/' + portfolioNumber + '/positions')
     const data = positions.map((position) => ({
         name: position.instrument.name,
@@ -109,7 +109,7 @@ const PositionsPie = () => {
     );
 }
 
-const FundValueGraph = () => {
+function FundValueGraph() {
     const data = performance.m6.map((performanceEntry) => ({
         date: performanceEntry.date,
         value: ((performanceEntry.value)-100).toFixed(1),

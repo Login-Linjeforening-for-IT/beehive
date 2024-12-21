@@ -1,6 +1,6 @@
 import './Alert.css';
 
-const Alert = ({ children, variant = 'info', icon = 'info', className = '' }) => {
+export default function Alert({ children, variant = 'info', icon = 'info', className = '' }) {
     return (
         <div className={`alert alert--${variant} ${className}`}>
             <i className="alert__icon material-symbols-sharp">{icon}</i>
@@ -8,5 +8,3 @@ const Alert = ({ children, variant = 'info', icon = 'info', className = '' }) =>
         </div>
     );
 };
-
-export default Alert;

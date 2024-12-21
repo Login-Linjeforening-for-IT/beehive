@@ -1,8 +1,8 @@
 import './Accordion.css'
 
-const AccordionItem = ({ id, title, activeAccordionItem, setActiveAccordionItem }) => {
+export default function AccordionItem({ id, title, activeAccordionItem, setActiveAccordionItem }) {
  
-    const handleClick = () => {
+    function handleClick() {
         if(activeAccordionItem === id)
             setActiveAccordionItem('none')
         else {
@@ -16,5 +16,3 @@ const AccordionItem = ({ id, title, activeAccordionItem, setActiveAccordionItem 
         </li>
     )
 }
-
-export default AccordionItem

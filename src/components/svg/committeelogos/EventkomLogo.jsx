@@ -1,6 +1,6 @@
 import './EventkomLogoAnimation.css';
 
-const EventkomLogo = () => {
+export default function EventkomLogo() {
     return (
         <svg className='eventkom-logo committee-logo' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
             <path d='M7 75 H0 V100 H7 V75 Z' className='committee-logo--corner'/>
@@ -26,5 +26,3 @@ const EventkomLogo = () => {
         </svg>
     )
 }
-
-export default EventkomLogo

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 
 
-const Navigation = ({ t }) => {
+function Navigation({ t }) {
   const navItemRefs = useRef([
     React.createRef(),
     React.createRef(),
