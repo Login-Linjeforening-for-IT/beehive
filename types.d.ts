@@ -204,3 +204,9 @@ type DetailedAdResponse = {
     job: DetailedAd
     organization: Organization
 } | undefined
+
+type ColorTransitionClassNameProps = {
+    color: string
+    transition: boolean
+    className: string
+}

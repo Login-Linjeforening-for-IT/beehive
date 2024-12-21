@@ -21,7 +21,7 @@ export function isValidHex(hex: string) {
  * @returns The hex color string.
  */
 export function rgbToHex(r: number, g: number, b: number) {
-    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
 }
 
 /**
@@ -53,10 +53,10 @@ export function hexToRgb(hex: string): RGB {
  * @returns The RGBA color string.
  */
 export function hexToRgba(hex: string, alpha: number) {
-  if (!isValidHex(hex)) return null
+    if (!isValidHex(hex)) return null
 
-  const { r, g, b } = hexToRgb(hex)
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+    const { r, g, b } = hexToRgb(hex)
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
 /**
@@ -66,9 +66,9 @@ export function hexToRgba(hex: string, alpha: number) {
  * @returns The adjusted RGB color.
  */
 export function adjustBrightnessRGB(rgb: RGB, percent: number) {
-    let r = Math.min(255, Math.max(0, Math.round(rgb.r + (rgb.r * percent))))
-    let g = Math.min(255, Math.max(0, Math.round(rgb.g + (rgb.g * percent))))
-    let b = Math.min(255, Math.max(0, Math.round(rgb.b + (rgb.b * percent))))
+    const r = Math.min(255, Math.max(0, Math.round(rgb.r + (rgb.r * percent))))
+    const g = Math.min(255, Math.max(0, Math.round(rgb.g + (rgb.g * percent))))
+    const b = Math.min(255, Math.max(0, Math.round(rgb.b + (rgb.b * percent))))
     return { r, g, b }
 }
 
@@ -80,12 +80,12 @@ export function adjustBrightnessRGB(rgb: RGB, percent: number) {
  */
 export function adjustBrightnessHex(hex: string, percent: number) {
     if (!isValidHex(hex)) {
-      console.error("Invalid hex color input")
-      return null
+        console.error("Invalid hex color input")
+        return null
     }
 
-    let rgb = hexToRgb(hex)
-    let adjustedRgb = adjustBrightnessRGB(rgb, percent)
+    const rgb = hexToRgb(hex)
+    const adjustedRgb = adjustBrightnessRGB(rgb, percent)
     return rgbToHex(adjustedRgb.r, adjustedRgb.g, adjustedRgb.b)
 }
 
@@ -96,20 +96,20 @@ export function adjustBrightnessHex(hex: string, percent: number) {
  * @returns The CSS linear gradient string.
  */
 export function createGradient(color: string, opacity = 1) {
-  if (!isValidHex(color)) {
-    console.error("Invalid color input")
+    if (!isValidHex(color)) {
+        console.error("Invalid color input")
     
-    // Default gradient with transparency
-    return "linear-gradient(120deg,, rgba(204,204,204,0.8), rgba(170,170,170,0.8), rgba(136,136,136,0.8))"
-  }
+        // Default gradient with transparency
+        return "linear-gradient(120deg,, rgba(204,204,204,0.8), rgba(170,170,170,0.8), rgba(136,136,136,0.8))"
+    }
 
-  let rgb = hexToRgb(color)
+    const rgb = hexToRgb(color)
 
-  // 50% lighter
-  let lighterRgb = adjustBrightnessRGB(rgb, 0.5)
+    // 50% lighter
+    const lighterRgb = adjustBrightnessRGB(rgb, 0.5)
 
-  // 30% darker
-  let darkerRgb = adjustBrightnessRGB(rgb, -0.3)
+    // 30% darker
+    const darkerRgb = adjustBrightnessRGB(rgb, -0.3)
 
-  return `linear-gradient(120deg, rgba(${lighterRgb.r}, ${lighterRgb.g}, ${lighterRgb.b}, ${opacity}), rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity}), rgba(${darkerRgb.r}, ${darkerRgb.g}, ${darkerRgb.b}, ${opacity}))`
+    return `linear-gradient(120deg, rgba(${lighterRgb.r}, ${lighterRgb.g}, ${lighterRgb.b}, ${opacity}), rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity}), rgba(${darkerRgb.r}, ${darkerRgb.g}, ${darkerRgb.b}, ${opacity}))`
 }
