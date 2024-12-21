@@ -1,4 +1,5 @@
 import { useState } from "react";
+// @ts-ignore
 import { withTranslation } from "react-i18next";
 
 import TabNavItem from "../../components/tabs/TabNavItem";
@@ -13,12 +14,13 @@ import SatkomLogo from "../../components/svg/committeelogos/SatkomLogo";
 import PrLogo from "../../components/svg/committeelogos/PrLogo";
 
 import { config } from "../../Constants";
+// @ts-ignore
 import board from "../../assets/boardmembers/boardmembers.json";
 
 import "../../components/tabs/Tabs.css";
 import "../about/CommitteeTabs.css";
 
-
+// @ts-ignore
 function VervTabs({ t, i18n }) {
   const [activeTab, setActiveTab] = useState("event");
   const useEng = i18n.language === "en";
@@ -85,13 +87,13 @@ function VervTabs({ t, i18n }) {
               config.url.CDN_URL + "/img/portraits/" + board.eventkomLeader.img
             }
             name={board.eventkomLeader.name}
-            stilling={
+            position={
               useEng
                 ? board.eventkomLeader.title_en
                 : board.eventkomLeader.title_no
             }
             discord={board.eventkomLeader.dctag}
-            discordlink={board.eventkomLeader.dclink}
+            discordLink={board.eventkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -112,11 +114,11 @@ function VervTabs({ t, i18n }) {
               config.url.CDN_URL + "/img/portraits/" + board.tekkomLeader.img
             }
             name={board.tekkomLeader.name}
-            stilling={
+            position={
               useEng ? board.tekkomLeader.title_en : board.tekkomLeader.title_no
             }
             discord={board.tekkomLeader.dctag}
-            discordlink={board.tekkomLeader.dclink}
+            discordLink={board.tekkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -137,11 +139,11 @@ function VervTabs({ t, i18n }) {
               config.url.CDN_URL + "/img/portraits/" + board.bedkomLeader.img
             }
             name={board.bedkomLeader.name}
-            stilling={
+            position={
               useEng ? board.bedkomLeader.title_en : board.bedkomLeader.title_no
             }
             discord={board.bedkomLeader.dctag}
-            discordlink={board.bedkomLeader.dclink}
+            discordLink={board.bedkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -167,11 +169,11 @@ function VervTabs({ t, i18n }) {
               config.url.CDN_URL + "/img/portraits/" + board.ctfkomLeader.img
             }
             name={board.ctfkomLeader.name}
-            stilling={
+            position={
               useEng ? board.ctfkomLeader.title_en : board.ctfkomLeader.title_no
             }
             discord={board.ctfkomLeader.dctag}
-            discordlink={board.ctfkomLeader.dclink}
+            discordLink={board.ctfkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -195,11 +197,11 @@ function VervTabs({ t, i18n }) {
               config.url.CDN_URL + "/img/portraits/" + board.satkomLeader.img
             }
             name={board.satkomLeader.name}
-            stilling={
+            position={
               useEng ? board.satkomLeader.title_en : board.satkomLeader.title_no
             }
             discord={board.satkomLeader.dctag}
-            discordlink={board.satkomLeader.dclink}
+            discordLink={board.satkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -220,11 +222,11 @@ function VervTabs({ t, i18n }) {
           <LogChamp
             img={config.url.CDN_URL + "/img/portraits/" + board.prLeader.img}
             name={board.prLeader.name}
-            stilling={
+            position={
               useEng ? board.prLeader.title_en : board.prLeader.title_no
             }
             discord={board.prLeader.dctag}
-            discordlink={board.prLeader.dclink}
+            discordLink={board.prLeader.dclink}
           />
         </div>
       </TabContent>
