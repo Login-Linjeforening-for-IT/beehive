@@ -1,13 +1,14 @@
+'use client'
+
 import config from "@config"
-import LogChamp from "@components/logchamp/LogChamp"
+import LogChamp from "@components/shared/logchamp/LogChamp"
 import placholder from "@assets/img/placeholders/portrett_placeholder.svg"
-import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPicture"
+import DecoratedPicture from "@components/shared/images/decoratedpicture/DecoratedPicture"
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
 import board_en from '@text/board/no.json'
 import board_no from '@text/board/en.json'
 import getCookie from "@utils/getCookie"
-
 import "./page.css"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'

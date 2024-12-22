@@ -1,10 +1,12 @@
-import * as DatetimeFormatter from "@utils/DatetimeFormatter"
-import Button from "@components/button/Button"
-import Alert from "@components/alert/Alert"
+'use client'
+
+import Button from "@components/shared/button/Button"
+import Alert from "@components/shared/alert/Alert"
 import "./EventSignUp.css"
 import getCookie from "@utils/getCookie"
 import no from "@text/eventPage/no.json"
 import en from "@text/eventPage/en.json"
+import { formatDeadlineDate, formatPublishedDate } from "@utils/DatetimeFormatter"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 const text = lang === 'en' ? en : no
@@ -43,7 +45,7 @@ export default function EventSignUp({
         msg =
       text.signup.closed +
       ": " +
-      DatetimeFormatter.formatPublishedDate(signupDeadline, lang)
+      formatPublishedDate(signupDeadline, lang)
         warning = true
         msgIcon = "disabled_by_default"
     } else if (full) {
@@ -89,8 +91,8 @@ export default function EventSignUp({
                             </div>
                             <div className="event-details__info">
                                 {now < signupRelease
-                                    ? DatetimeFormatter.formatDeadlineDate(signupRelease, lang)
-                                    : DatetimeFormatter.formatPublishedDate(signupRelease, lang)}
+                                    ? formatDeadlineDate(signupRelease, lang)
+                                    : formatPublishedDate(signupRelease, lang)}
                             </div>
                         </>
                     )}
@@ -103,7 +105,7 @@ export default function EventSignUp({
                                 {text.signup.closes}:
                             </div>
                             <div className="event-details__info">
-                                {DatetimeFormatter.formatDeadlineDate(signupDeadline, lang)}
+                                {formatDeadlineDate(signupDeadline, lang)}
                             </div>
                         </>
                     )}

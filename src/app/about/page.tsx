@@ -1,8 +1,10 @@
+'use client'
+
 import config from "@config"
 import CommitteeTabs from "./CommitteeTabs"
 import StudyProgramsAcordion from "./StudyProgramsAccordion"
-import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPicture"
-import Contact from "@components/contact/Contact"
+import DecoratedPicture from "@components/shared/images/decoratedpicture/DecoratedPicture"
+import Contact from "@components/shared/contact/Contact"
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
 import getCookie from "@utils/getCookie"

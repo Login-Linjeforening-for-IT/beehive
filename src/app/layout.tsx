@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import type { Metadata } from "next"
-import TopBar from "@components/topbar/TopBar"
-import Footer from "@components/footer/Footer"
+import TopBar from "@components/shared/topbar/TopBar"
+import Footer from "@components/shared/footer/Footer"
 import "./globals.css"
 
 export const metadata: Metadata = {

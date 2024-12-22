@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react"
 import "./JobadsListItem.css"
-import fallbackImg from "@assets/img/placeholders/jobad.svg"
 import config from "@config"
 import Tags from "@components/tags/Tags"
-import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
+import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
 import Link from "next/link"
 import getCookie from "@utils/getCookie"
 import { isNew } from "@utils/DatetimeFormatter"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
+import Image from "next/image"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
@@ -93,14 +93,14 @@ export default function JobadsListItem({ jobad }: any) {
                             <RenderSmoothImage
                                 className="jobads-item__img"
                                 alt={jobad.organization_logo}
-                                src={config.url.CDN_URL + "/img/organizations/" + jobad.organization_logo}
+                                src={`${config.url.CDN_URL}/img/organizations/${jobad.organization_logo}`}
                                 onError={() => setUseFallbackImg(true)}
                                 transition={false}
                             />
                         ) : (
-                            <img className='jobads-item__img'
+                            <Image className='jobads-item__img'
                                 alt={jobad.organization_logo}
-                                src={fallbackImg}
+                                src="@assets/img/placeholders/jobad.svg"
                             />
                         )}
                     </picture>

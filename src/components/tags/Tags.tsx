@@ -1,3 +1,5 @@
+'use client'
+
 import { isNew } from "@utils/DatetimeFormatter"
 import Tag from "./Tag"
 import no from '@text/tags/no.json'

@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react"
 import config from "@config"
-import fallbackImg from "@assets/img/placeholders/jobad.svg"
 import Tags from "@components/tags/Tags"
-import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
+import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
 import "./JobadCard.css"
 import Link from "next/link"
 import getCookie from "@utils/getCookie"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
+import Image from "next/image"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
@@ -33,9 +33,9 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                             transition={false}
                         />
                     ) : (
-                        <img className='jobad-card__img'
+                        <Image className='jobad-card__img'
                             alt={jobad.organization_logo}
-                            src={fallbackImg}
+                            src="@assets/img/placeholders/jobad.svg"
                         />
                     )}
                 </picture>

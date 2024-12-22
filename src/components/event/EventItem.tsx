@@ -1,7 +1,9 @@
+'use client'
+
 import { useState } from "react"
-import DateTile from "@components/datetile/DateTile"
+import DateTile from "@components/shared/datetile/DateTile"
 import Tags from "@components/tags/Tags"
-import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
+import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
 import DefaultEventBanner from "@svg/defaultbanners/DefaultEventBanner"
 import DefaultCtfBanner from "@svg/defaultbanners/DefaultCtfBanner"
 import DefaultTekkomBanner from "@svg/defaultbanners/DefaultTekkomBanner"

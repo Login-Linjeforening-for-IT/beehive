@@ -1,7 +1,9 @@
+'use client'
+
 import { useState } from "react";
 import TabNavItem from "@components/tabs/TabNavItem";
 import TabContent from "@components/tabs/TabContent";
-import LogChamp from "@components/logchamp/LogChamp";
+import LogChamp from "@components/shared/logchamp/LogChamp";
 import EventkomLogo from "@components/svg/committeelogos/EventkomLogo";
 import BedkomLogo from "@components/svg/committeelogos/BedkomLogo";
 import TekkomLogo from "@components/svg/committeelogos/TekkomLogo";
