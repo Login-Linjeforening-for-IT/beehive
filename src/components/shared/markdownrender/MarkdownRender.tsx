@@ -114,7 +114,7 @@ function EventEmbed(id: number) {
                 setLoading(false)
                 setError(error)
             }
-        };
+        }
 
         fetchData()
     }, [id])
@@ -162,7 +162,7 @@ function JobadEmbed(id: number) {
                 setLoading(false)
                 setError(JSON.stringify(error))
             }
-        };
+        }
 
         fetchData()
     }, [id])

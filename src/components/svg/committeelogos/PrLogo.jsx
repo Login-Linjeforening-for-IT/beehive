@@ -1,4 +1,4 @@
-import './PrLogoAnimation.css';
+import './PrLogoAnimation.css'
 
 export default function PrLogo() {
     return (

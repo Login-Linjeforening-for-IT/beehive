@@ -1,4 +1,4 @@
-import './TekkomLogoAnimation.css';
+import './TekkomLogoAnimation.css'
 
 export default function TekkomLogo() {
     return (

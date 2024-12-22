@@ -35,8 +35,7 @@ function getJobTypeLabel(job_type: any, lang = "no") {
     const labelEn = jobTypeTranslations["en"][job_type] || labelNo
 
     return lang === "en" ? labelEn : labelNo
-};
-
+}
 
 function formatCities(cities: any[]) {
 

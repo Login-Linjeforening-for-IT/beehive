@@ -27,4 +27,4 @@ export default function Tags({
             {full && <Tag variant="danger">{text.full}</Tag>}
         </>
     )
-};
+}

@@ -1,4 +1,4 @@
-import './CtfkomLogoAnimation.css';
+import './CtfkomLogoAnimation.css'
 
 export default function CtfkomLogo() {
     return (

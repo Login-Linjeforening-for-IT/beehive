@@ -1,4 +1,4 @@
-import './BedkomLogoAnimation.css';
+import './BedkomLogoAnimation.css'
 
 export default function bedkomLogo() {
     return (

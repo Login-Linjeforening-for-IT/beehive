@@ -16,9 +16,9 @@ export default function LangToggle() {
 
     function handleClick() {
         if (lang === 'no') {
-            document.cookie = `lang=en; path=/`;
+            document.cookie = `lang=en; path=/`
         } else {
-            document.cookie = `lang=no; path=/`;
+            document.cookie = `lang=no; path=/`
         }
 
         setJump(true)

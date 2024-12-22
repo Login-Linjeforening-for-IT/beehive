@@ -1,10 +1,10 @@
 import "./Checktag.css"
 
 type ChecktagProps = {
-  id: string
-  label: string
-  checked: any
-  onChange: any
+    id: string
+    label: string
+    checked: any
+    onChange: any
 }
 
 export default function Checktag({ id, label, checked, onChange }: ChecktagProps) {
@@ -22,4 +22,4 @@ export default function Checktag({ id, label, checked, onChange }: ChecktagProps
             </div>
         </label>
     )
-};
+}

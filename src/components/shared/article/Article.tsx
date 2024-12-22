@@ -61,4 +61,4 @@ export default function Article({ title, publishTime, updateTime, informational,
             </article>
         </div>
     )
-};
+}

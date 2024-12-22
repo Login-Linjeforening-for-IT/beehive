@@ -1,6 +1,5 @@
 // @ts-nocheck
 import React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import "./styles/colors.css"
 import "./styles/themes.css"

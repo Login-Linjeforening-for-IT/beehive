@@ -8,4 +8,4 @@ export default function EventCardSkeleton() {
             <div className="event-card-skeleton__details skeleton"></div>
         </div>
     )
-};
+}

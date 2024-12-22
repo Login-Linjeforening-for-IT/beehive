@@ -2,7 +2,7 @@
 
 import "./MazeMapEmbed.css"
 import { useEffect, useState } from "react"
-import "mazemap/mazemap.min.css"
+import "@/vendor/mazemap/mazemap.min.css"
 
 /* credz to the guys over at Abakus, this mazemap-implementation is inspired by their solution */
 
@@ -18,7 +18,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     //initialize map only once, poi will probably not change
     useEffect(() => {
-        import("mazemap" as any).then((mazemap) => setMazemap(mazemap))
+        import("@/vendor/mazemap/mazemap.min").then((mazemap) => setMazemap(mazemap))
         if (!Mazemap || !hasMounted) return
 
         // @ts-ignore
@@ -133,4 +133,4 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
             </div>
         </>
     )
-};
+}

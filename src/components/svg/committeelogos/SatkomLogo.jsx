@@ -1,4 +1,4 @@
-import './SatkomLogoAnimation.css';
+import './SatkomLogoAnimation.css'
 
 export default function SatkomLogo() {
     return (

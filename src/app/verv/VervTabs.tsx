@@ -1,29 +1,29 @@
 'use client'
 
-import { useState } from "react";
-import TabNavItem from "@components/tabs/TabNavItem";
-import TabContent from "@components/tabs/TabContent";
-import LogChamp from "@components/shared/logchamp/LogChamp";
-import EventkomLogo from "@components/svg/committeelogos/EventkomLogo";
-import BedkomLogo from "@components/svg/committeelogos/BedkomLogo";
-import TekkomLogo from "@components/svg/committeelogos/TekkomLogo";
-import CtfkomLogo from "@components/svg/committeelogos/CtfkomLogo";
-import SatkomLogo from "@components/svg/committeelogos/SatkomLogo";
-import PrLogo from "@components/svg/committeelogos/PrLogo";
-import config from "@config";
-import "@components/tabs/Tabs.css";
-import "@components/about/CommitteeTabs.css";
-import getCookie from "@utils/getCookie";
+import { useState } from "react"
+import TabNavItem from "@components/tabs/TabNavItem"
+import TabContent from "@components/tabs/TabContent"
+import LogChamp from "@components/shared/logchamp/LogChamp"
+import EventkomLogo from "@components/svg/committeelogos/EventkomLogo"
+import BedkomLogo from "@components/svg/committeelogos/BedkomLogo"
+import TekkomLogo from "@components/svg/committeelogos/TekkomLogo"
+import CtfkomLogo from "@components/svg/committeelogos/CtfkomLogo"
+import SatkomLogo from "@components/svg/committeelogos/SatkomLogo"
+import PrLogo from "@components/svg/committeelogos/PrLogo"
+import config from "@config"
+import "@components/tabs/Tabs.css"
+import "@components/about/CommitteeTabs.css"
+import getCookie from "@utils/getCookie"
 import en from "@text/verv/en.json"
 import no from "@text/verv/no.json"
-import board_no from "@text/board/no.json";
-import board_en from "@text/board/en.json";
+import board_no from "@text/board/no.json"
+import board_en from "@text/board/en.json"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
 
 export default function VervTabs() {
-  const [activeTab, setActiveTab] = useState("event");
+  const [activeTab, setActiveTab] = useState("event")
 
   return (
     <div className="tabs committees page-section--without-gaps">
@@ -207,5 +207,5 @@ export default function VervTabs() {
         </div>
       </TabContent>
     </div>
-  );
-};
+  )
+}

@@ -28,7 +28,7 @@ function getLabelKeyWithLang(key: string) {
             en: vEn,
         }
     }
-};
+}
 
 async function getCategoryFilters() {
     try {
@@ -126,7 +126,7 @@ export default function Events() {
 
     function toggleFilter() {
         setIsFilterOpen((prevState) => !prevState)
-    };
+    }
 
     useEffect(() => {
         localStorage.setItem("events-view", eventsView)
@@ -138,7 +138,7 @@ export default function Events() {
     function handleOptionChange(index: number) {
         setViewToggleIndex(index)
         setEventsView(index == 0 ? "grid-view" : "list-view")
-    };
+    }
 
     const ap = debounce(async (v: any) => {
         filters.current = v
@@ -198,7 +198,7 @@ export default function Events() {
         } finally {
             setLoading(false)
         }
-    };
+    }
 
     useEffect(() => {
         (async () => {
@@ -404,4 +404,4 @@ export default function Events() {
             )}
         </div>
     )
-};
+}

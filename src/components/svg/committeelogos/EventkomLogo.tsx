@@ -1,4 +1,4 @@
-import './EventkomLogoAnimation.css';
+import './EventkomLogoAnimation.css'
 
 export default function EventkomLogo() {
     return (

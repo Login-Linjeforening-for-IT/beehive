@@ -76,7 +76,7 @@ export default function Jobads() {
         } finally {
             setLoading(false)
         }
-    };
+    }
 
     useEffect(() => {
         (async () => {
@@ -110,7 +110,7 @@ export default function Jobads() {
 
     function toggleFilter() {
         setIsFilterOpen(prevState => !prevState)
-    };
+    }
 
     return (
         <div className="page-container">
@@ -166,7 +166,7 @@ export default function Jobads() {
             }
         </div>
     )
-};
+}
 
 function getLabelKey(key: string) {
     return (v: any) => {
@@ -186,7 +186,7 @@ function getJobTypeLabel(v: any) {
         no: labelNo,
         en: labelEn,
     }
-};
+}
 
 async function getJobTypeFilters() {
     try {

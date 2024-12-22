@@ -51,7 +51,7 @@ const nextConfig: NextConfig = {
                 source: '/rekruttering',
                 destination: '/recruitment'
             },
-        ];
+        ]
     },
 }
 

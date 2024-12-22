@@ -9,13 +9,13 @@ export default function ButtonShowcase() {
 
     function renderIcon(iconName: string) {
         return <i className="material-symbols-sharp">{iconName}</i>
-    };
+    }
 
     const [activeOptionIndex, setActiveOptionIndex] = useState(0)
 
     function handleOptionChange(index: number) {
         setActiveOptionIndex(index)
-    };
+    }
 
     return (
         <div className="button-showcase">
@@ -130,4 +130,4 @@ export default function ButtonShowcase() {
             <p>Active Option Index: {activeOptionIndex}</p>
         </div>
     )
-};
+}

@@ -1,12 +1,13 @@
 import "./Checkbox.css"
 
 type CheckboxProps = { 
-  id: string
-  label: string
-  count: boolean, 
-  checked: any
-  onChange: any
+    id: string
+    label: string
+    count: boolean, 
+    checked: any
+    onChange: any
 }
+
 export default function Checkbox({ id, label, count = false, checked, onChange }: CheckboxProps) {
     return (
         <label className="checkbox">
@@ -26,4 +27,4 @@ export default function Checkbox({ id, label, count = false, checked, onChange }
             </div>
         </label>
     )
-};
+}

@@ -1,13 +1,12 @@
 import { useState } from "react"
 import "./DropDownBox.css"
 
-{/* @ts-ignore */}
-export default function DropDownBox({ title, children }) {
+export default function DropDownBox({ title, children }: any) {
     const [isOpen, setOpen] = useState(false)
 
     function handleClick() {
         setOpen(!isOpen)
-    };
+    }
  
     return (
         <div className={`drop-down-box ${isOpen ? "drop-down-box--open" : ""}`}>

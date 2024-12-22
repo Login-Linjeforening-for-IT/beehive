@@ -1,14 +1,12 @@
 'use client'
 
 import { useState, useEffect, useMemo } from "react"
-// @ts-ignore
-import { useParams } from "react-router-dom"
 import config from "@config"
 import Spinner from "@components/shared/spinner/spinner"
 import DateTile from "@components/shared/datetile/DateTile"
 import DropDownBox from "@components/shared/dropdownbox/DropDownBox"
 import MazeMapEmbed from "@components/shared/mazemap/MazeMapEmbed"
-import EventSignUp from "./EventSignUp"
+import EventSignUp from "../EventSignUp"
 import Alert from "@components/shared/alert/Alert"
 import Article from "@components/shared/article/Article"
 import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
@@ -76,9 +74,8 @@ function link(href: string, name: string) {
     )
 }
 
-export default function EventPage() {
-    const { id } = useParams()
-
+export default function EventPage({ params }: { params: { id: number } }) {
+    const id = params.id
     const [useFallbackBanner, setUseFallbackBanner] = useState(false)
     const [event, setEvent] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -98,7 +95,7 @@ export default function EventPage() {
             } finally {
                 setLoading(false)
             }
-        };
+        }
 
         fetchData()
     }, [id])
@@ -306,4 +303,4 @@ export default function EventPage() {
             </div>
         </>
     )
-};
+}

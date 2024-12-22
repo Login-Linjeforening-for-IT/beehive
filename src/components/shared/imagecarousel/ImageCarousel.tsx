@@ -70,7 +70,7 @@ export default function ImageCarousel({ slides }: any) {
         intervalRef.current = setInterval(() => {
             next(true)
         }, 3000)
-    };
+    }
 
     const next = (isAutoCarousel = false) => {
         // prevent new transition if there is an ongoing transition
@@ -92,19 +92,19 @@ export default function ImageCarousel({ slides }: any) {
         
         // let transition complete before allowing navigation
         setTimeout(() => setIsTransitioning(false), 500)
-    };
+    }
 
     function pause() {
         setIsPaused(true)
         clearInterval(intervalRef.current)
-    };
+    }
 
     function resume() {
         // delay before starting new auto carousel in case there is an ongoing transition
         setTimeout(() => {
             setIsPaused(false)
         }, 500)
-    };
+    }
 
     function getClassName(index: number) {
         if (index === activeIndex) return "image-carousel__slide--active"
@@ -112,7 +112,7 @@ export default function ImageCarousel({ slides }: any) {
         if (index === (activeIndex + 1) % slides.length) return "image-carousel__slide--next"
         if (index === (activeIndex + 2) % slides.length) return "image-carousel__slide--new-next"
         return "image-carousel__slide--hide"
-    };
+    }
 
     return (
         <div className={`image-carousel ${isPaused ? "image-carousel--paused" : ""}`}>
@@ -152,4 +152,4 @@ export default function ImageCarousel({ slides }: any) {
             </div>
         </div>
     )
-};
+}

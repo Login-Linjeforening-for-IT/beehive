@@ -23,7 +23,7 @@ function GroupToggle({
         if (onOptionChange) {
             onOptionChange(index)
         }
-    };
+    }
 
     return (
         <div 
@@ -57,6 +57,6 @@ function GroupToggle({
             })}
         </div>
     )
-};
+}
 
 export default GroupToggle

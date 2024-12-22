@@ -8,4 +8,4 @@ export default function JobadCardSkeleton() {
             <div className='jobad-card-skeleton__details skeleton'></div>
         </div>
     )
-};
+}

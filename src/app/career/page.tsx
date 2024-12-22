@@ -1,8 +1,6 @@
 'use client'
 
 import { useState, useEffect } from "react"
-// @ts-ignore
-import { useParams } from "react-router-dom"
 import config from "@config"
 import Spinner from "@components/shared/spinner/spinner"
 import Article from "@components/shared/article/Article"
@@ -42,7 +40,7 @@ function getJobTypeLabel(job_type: any, lang = "no") {
     const labelEn = jobTypeTranslations["en"][job_type] || labelNo
 
     return lang === "en" ? labelEn : labelNo
-};
+}
 
 function deadlineWarning(deadline: Date) {
     const now = new Date()
@@ -52,8 +50,8 @@ function deadlineWarning(deadline: Date) {
     return diff < oneDay && diff > 0
 }
 
-export default function JobadPage() {
-    const { id } = useParams()
+export default function JobadPage({ params }: { params: { id: number } }) {
+    const id = params.id
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const [showBannerImg, setShowBannerImg] = useState(false)
     const hideBannerImg = () => setShowBannerImg(false)
@@ -75,7 +73,7 @@ export default function JobadPage() {
             } finally {
                 setLoading(false)
             }
-        };
+        }
 
         fetchData()
     }, [id])
@@ -251,4 +249,4 @@ export default function JobadPage() {
             )}
         </>
     )
-};
+}

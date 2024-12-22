@@ -1,4 +1,4 @@
-import './StyretLogoAnimation.css';
+import './StyretLogoAnimation.css'
 
 export default function StyretLogo() {
     return (

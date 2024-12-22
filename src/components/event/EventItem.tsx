@@ -132,7 +132,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
             </div>
         </Link>
     )
-};
+}
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
@@ -152,4 +152,4 @@ function getDefaultBanner(category: string, color: string) {
         {/* @ts-ignore */}
         return <DefaultEventBanner color={color} className="event-item__img" />
     }
-};
+}

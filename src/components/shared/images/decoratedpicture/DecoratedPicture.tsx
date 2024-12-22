@@ -138,7 +138,7 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
         default:
             return null
         }
-    };
+    }
 
     return (
         <picture className={`decor-pic ${className}`}>
@@ -167,6 +167,6 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
             </svg>
         </picture>
     )
-};
+}
 
 export default DecoratedPicture

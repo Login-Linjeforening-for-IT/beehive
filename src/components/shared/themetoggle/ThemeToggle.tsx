@@ -4,7 +4,7 @@ import { useContext } from "react"
 import ThemeContext from "@context/ThemeContext"
 import "./ThemeToggle.css"
 
-function ThemeToggle() {
+export default function ThemeToggle() {
     const { switchTheme } = useContext(ThemeContext)
 
     return (
@@ -78,6 +78,4 @@ function ThemeToggle() {
             </svg>
         </button>
     )
-};
-
-export default ThemeToggle
+}

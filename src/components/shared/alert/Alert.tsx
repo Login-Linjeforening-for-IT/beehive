@@ -14,4 +14,4 @@ export default function Alert({ children, variant = "info", icon = "info", class
             <div className="alert__content">{children}</div>
         </div>
     )
-};
+}
