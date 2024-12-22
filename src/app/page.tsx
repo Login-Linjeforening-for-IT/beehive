@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect, useContext } from "react"
 // @ts-ignore
 import { Link } from "react-router-dom"

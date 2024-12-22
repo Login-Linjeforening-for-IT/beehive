@@ -1,6 +1,6 @@
 
 
-import * as ColorManipulation from "../../../utils/ColorManipulation.js"
+import * as ColorManipulation from "../../../utils/ColorManipulation.ts"
 import "./defualt-banner.css"
 
 export default function DefaultEventBanner({ color, transition = true, className = "" }: ColorTransitionClassNameProps) {

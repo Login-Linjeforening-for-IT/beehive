@@ -1,3 +1,5 @@
+'use client'
+
 // @ts-ignore
 import {withTranslation} from "react-i18next"
 import {useEffect, useState} from "react"

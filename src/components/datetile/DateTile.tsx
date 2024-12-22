@@ -1,6 +1,6 @@
 {/* @ts-ignore */}
 import { withTranslation } from "react-i18next"
-import * as ColorManipulation from "../../utils/ColorManipulation.js"
+import * as ColorManipulation from "../../utils/ColorManipulation.ts"
 
 import "./DateTile.css"
 
