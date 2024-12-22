@@ -1,101 +1,282 @@
-import Image from "next/image"
+import { useState, useEffect, useContext } from "react"
+// @ts-ignore
+import { Link } from "react-router-dom"
+// @ts-ignore
+import { withTranslation } from "react-i18next"
 
-export default function Home() {
+import { config } from "../Constants"
+import ThemeContext from "../context/ThemeContext"
+import { getEvents, getJobs } from "../utils/api"
+
+import DecoratedPicture from "../components/images/decoratedpicture/DecoratedPicture"
+import Alert from "../components/alert/Alert"
+import EventCardSkeleton from "../components/event/EventCardSkeleton"
+import EventListItem from "../components/event/EventItem"
+import JobadCard from "../components/jobad/JobadCard"
+import JobadCardSkeleton from "../components/jobad/JobadCardSkeleton"
+import HeroSection from "../components/herosection/HeroSection"
+
+import "./page.css"
+
+
+function SmallInfo({ t }: any) {
+    const value = useContext(ThemeContext)
+
+    function getSponsorPath() {
+        if (value.theme === "light") {
+            return "/img/company/mnemonic-logo_dark-nopayoff-2021.svg"
+        } else {
+            return "/img/company/mnemonic-logo_light-nopayoff-2021.svg"
+        }
+    };
+
     return (
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-            <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-                <Image
-                    className="dark:invert"
-                    src="/next.svg"
-                    alt="Next.js logo"
-                    width={180}
-                    height={38}
-                    priority
+        <>
+            <div className="landing-info">
+                <div className="landing-info__text">
+                    <h2 className="heading-2">{t("whoAreWe.title")}</h2>
+                    <p className="p--regular">{t("whoAreWe.body")}</p>
+                    <Link
+                        className="landing-info__link link link--primary link--corner-hover"
+                        to="/about"
+                    >
+                        {t("readMore")}
+                    </Link>
+                </div>
+                <DecoratedPicture
+                    imgurl={config.url.CDN_URL + "/img/styret.jpg"}
+                    variant={4}
+                    cornerSize={40}
+                    w={150}
+                    h={100}
+                    cover={true}
+                    className="landing-info__picture"
                 />
-                <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-                    <li className="mb-2">
-                        Get started by editing{" "}
-                        <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-                            src/app/page.tsx
-                        </code>
-                        .
-                    </li>
-                    <li>Save and see your changes instantly.</li>
-                </ol>
+            </div>
 
-                <div className="flex gap-4 items-center flex-col sm:flex-row">
-                    <a
-                        className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-                        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                        target="_blank"
-                        rel="noopener noreferrer"
+            <div className="landing-info">
+                <div className="landing-info__text">
+                    <h2 className="heading-2">{t("companiesInfo.title")}</h2>
+                    <p className="p--regular">{t("companiesInfo.body")}</p>
+                    <Link
+                        className="landing-info__link link link--primary link--corner-hover"
+                        to="/companies"
                     >
-                        <Image
-                            className="dark:invert"
-                            src="/vercel.svg"
-                            alt="Vercel logomark"
-                            width={20}
-                            height={20}
-                        />
-                        Deploy now
-                    </a>
+                        {t("readMore")}
+                    </Link>
+                </div>
+                <DecoratedPicture
+                    imgurl={config.url.CDN_URL + "/img/cyberdagen_preben.jpg"}
+                    variant={2}
+                    cornerSize={40}
+                    w={150}
+                    h={100}
+                    cover={true}
+                    className="landing-info__picture"
+                />
+            </div>
+
+            <div className="landing-info">
+                <div className="landing-info__text">
+                    <h2 className="heading-2">{t("sponsor.title")}</h2>
+                    <p className="p--regular">{t("sponsor.body")}</p>
                     <a
-                        className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-                        href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                        className="landing-info__link link link--primary link--corner-hover"
+                        href="https://www.mnemonic.io/"
                         target="_blank"
-                        rel="noopener noreferrer"
                     >
-                        Read our docs
+                        {t("readMore")}
                     </a>
                 </div>
-            </main>
-            <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-                <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        aria-hidden
-                        src="/file.svg"
-                        alt="File icon"
-                        width={16}
-                        height={16}
-                    />
-                    Learn
-                </a>
-                <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        aria-hidden
-                        src="/window.svg"
-                        alt="Window icon"
-                        width={16}
-                        height={16}
-                    />
-                    Examples
-                </a>
-                <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        aria-hidden
-                        src="/globe.svg"
-                        alt="Globe icon"
-                        width={16}
-                        height={16}
-                    />
-                    Go to nextjs.org →
-                </a>
-            </footer>
-        </div>
+                <DecoratedPicture
+                    imgurl={config.url.CDN_URL + getSponsorPath()}
+                    variant={0}
+                    cornerSize={0}
+                    w={100}
+                    h={30}
+                    className="landing-info__picture"
+                />
+            </div>
+        </>
     )
-}
+};
+
+function EndCard({ t, path }: any) {
+    return (
+        <li className="dynamic-preview-list__item dynamic-preview-end-card">
+            <Link to={path} className="dynamic-preview-end-card__btn">
+                <div className="dynamic-preview-end-card__arrow-container">
+                    <div className="dynamic-preview-end-card__arrow"></div>
+                </div>
+                <div className="dynamic-preview-end-card__text">
+                    {t("eventsPreview.see-all")}
+                </div>
+            </Link>
+        </li>
+    )
+};
+
+function EventsPreview({ t }: any) {
+    const [events, setEvents] = useState<any[] | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<any | null>(null)
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const [eventsData, err] = await getEvents(null, 3, 0, true)
+                if (err) {
+                    setError(err)
+                    console.error(err)
+                } else {
+                    setEvents(eventsData)
+                }
+            } catch (error) {
+                setError("Unexpected error occurred")
+                console.error("Unexpected error:", error)
+            } finally {
+                setLoading(false)
+            }
+        })()
+    }, [])
+
+    return (
+        <>
+            <section className="dynamic-preview">
+                <div className="dynamic-preview-heading">
+                    <h2 className="dynamic-preview-heading__title">
+                        {t("eventsPreview.title")}
+                    </h2>
+                    <Link to="/events" className="dynamic-preview-heading__link">
+                        <span className="dynamic-preview-heading__link-text">
+                            {t("jobadsPreview.see-all")}
+                        </span>
+                    </Link>
+                </div>
+                {loading && (
+                    <ul className="dynamic-preview-list">
+                        <li className="dynamic-preview-list__item">
+                            <EventCardSkeleton />
+                        </li>
+                        <li className="dynamic-preview-list__item">
+                            <EventCardSkeleton />
+                        </li>
+                        <li className="dynamic-preview-list__item">
+                            <EventCardSkeleton />
+                        </li>
+                        <EndCard t={t} path="/career" />
+                    </ul>
+                )}
+                {!loading && events && events.length > 0 && (
+                    <ul className="dynamic-preview-list">
+                        {events.map((e: any) => (
+                            <li key={e.id} className="dynamic-preview-list__item">
+                                <EventListItem event={e} variant="card" highlight={false} />
+                            </li>
+                        ))}
+                        {events.length > 2 && <EndCard t={t} path="/events" />}
+                    </ul>
+                )}
+                {error && !loading && (
+                    <Alert
+                        icon="sentiment_dissatisfied"
+                        variant="danger"
+                        className="page-section--alert"
+                    >
+                        Error fetching events: {error.message || error}
+                    </Alert>
+                )}
+            </section>
+            <hr className="dynamic-preview-seperator" />
+        </>
+    )
+};
+
+function JobadsPreview({ t }: any) {
+    const [jobads, setJobads] = useState<any[] | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<any | null>(null)
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const [jobadsData, err] = await getJobs(null, null, null, null, 3, 0)
+                if (err) {
+                    setError(err)
+                    console.error(err)
+                } else {
+                    setJobads(jobadsData)
+                }
+            } catch (error) {
+                setError("Unexpected error occurred")
+                console.error("Unexpected error:", error)
+            } finally {
+                setLoading(false)
+            }
+        })()
+    }, [])
+
+    return (
+        <>
+            <section className="dynamic-preview">
+                <div className="dynamic-preview-heading">
+                    <h2 className="dynamic-preview-heading__title">
+                        {t("jobadsPreview.title")}
+                    </h2>
+                    <Link to="/career" className="dynamic-preview-heading__link">
+                        <span className="dynamic-preview-heading__link-text">
+                            {t("jobadsPreview.see-all")}
+                        </span>
+                    </Link>
+                </div>
+                {loading && (
+                    <ul className="dynamic-preview-list">
+                        <li className="dynamic-preview-list__item">
+                            <JobadCardSkeleton />
+                        </li>
+                        <li className="dynamic-preview-list__item">
+                            <JobadCardSkeleton />
+                        </li>
+                        <li className="dynamic-preview-list__item">
+                            <JobadCardSkeleton />
+                        </li>
+                        <EndCard t={t} path="/career" />
+                    </ul>
+                )}
+                {!loading && jobads && jobads.length > 0 && (
+                    <ul className="dynamic-preview-list">
+                        {jobads.map((e) => (
+                            <li key={e.id} className="dynamic-preview-list__item">
+                                <JobadCard jobad={e} />
+                            </li>
+                        ))}
+                        {jobads.length > 2 && <EndCard t={t} path="/career" />}
+                    </ul>
+                )}
+                {error && !loading && (
+                    <Alert
+                        icon="sentiment_dissatisfied"
+                        variant="danger"
+                        className="page-section--alert"
+                    >
+                        Error fetching events: {error.message || error}
+                    </Alert>
+                )}
+            </section>
+            <hr className="dynamic-preview-seperator" />
+        </>
+    )
+};
+
+function Home({ t }: any) {
+    return (
+        <>
+            <HeroSection />
+            <EventsPreview t={t} />
+            <JobadsPreview t={t} />
+            <SmallInfo t={t} />
+        </>
+    )
+};
+
+export default withTranslation("landingPage")(Home)

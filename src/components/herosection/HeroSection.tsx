@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom"
 // @ts-ignore
 import { withTranslation } from "react-i18next"
 
-import LoginLogo from "../../components/svg/brandlogos/LoginLogo"
-import Button from "../../components/button/Button"
+import LoginLogo from "../svg/brandlogos/LoginLogo"
+import Button from "../button/Button"
 
 import "./HeroSection.css"
 

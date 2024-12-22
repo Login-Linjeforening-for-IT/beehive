@@ -1,6 +1,6 @@
 # BUILD
-# Use a Node 16 base image
-FROM node:19-alpine as build
+# Use a Node 20 base image
+FROM node:20-alpine as build
 
 # Install curl
 RUN apk add --no-cache curl
