@@ -9,7 +9,7 @@ import Alert from "../../components/alert/Alert.jsx"
 import prepFilter from "../../components/filter/prepFilter.js"
 import { getEventCategoryFilters, getEvents } from "../../utils/api.js"
 {/* @ts-ignore */}
-import { debounce } from "../../utils/debounce.js"
+import { debounce } from "@/utils/debounce.ts"
 
 import "./Events.css"
 

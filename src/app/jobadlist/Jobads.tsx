@@ -6,7 +6,7 @@ import Button from "../../components/button/Button.jsx"
 import FilterGroup from "../../components/filter/filter"
 import Alert from "../../components/alert/Alert.jsx"
 // @ts-ignore
-import { debounce } from "../../utils/debounce.js"
+import { debounce } from "@/utils/debounce.ts"
 import prepFilter from "../../components/filter/prepFilter.js"
 import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "../../utils/api"
 import "./Jobads.css"

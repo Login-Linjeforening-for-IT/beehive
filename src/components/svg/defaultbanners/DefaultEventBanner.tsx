@@ -1,6 +1,6 @@
 
 
-import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation.js"
+import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation.ts"
 import "./defualt-banner.css"
 
 export default function DefaultEventBanner({ color, transition = true, className = "" }: ColorTransitionClassNameProps) {
