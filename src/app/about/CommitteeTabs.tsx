@@ -29,7 +29,7 @@ export default function CommitteeTabs() {
     const useEng = lang === "en"
 
     return (
-        <div className='about-section tabs committees page-section--without-gaps'>
+        <div className='mb-[2rem] tabs committees page-section--without-gaps'>
             <ul className='tabs__nav'>
                 <TabNavItem title={<StyretLogo/>} id='styret' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<EventkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>

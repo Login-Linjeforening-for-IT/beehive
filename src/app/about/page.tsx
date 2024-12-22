@@ -21,7 +21,7 @@ export default function About() {
             </h1>
             <section className="page-section--normal about-section about-intro">
                 <p
-                    className="about-intro__p p--highlighted"
+                    className="mt-0 max-w-[50rem] p--highlighted"
                     dangerouslySetInnerHTML={{ __html: text.intro }}
                 />
                 <div className="about-intro__grid-container">
