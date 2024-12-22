@@ -1,23 +1,19 @@
 import { useState, useEffect } from "react"
-import { config } from "../../Constants"
+import { config } from "@constants"
 
 import fallbackImg from "assets/img/placeholders/jobad-logo__placeholder.svg"
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-import * as Translator from "../../utils/GetTranslation"
+import * as DatetimeFormatter from "@utils/DatetimeFormatter"
 
 import Tags from "../tags/Tags"
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
 
 import "./JobadCard.css"
 import Link from "next/link"
+import getCookie from "@utils/getCookie"
 
-const lang =
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function JobadCard({ jobad, disableTags=false }: any) {
-
-    const useEng = lang === "en"
-    // @ts-ignore
-    const tr = Translator.getTranslation(useEng)
 
     const [useFallbackImg, setUseFallbackImg] = useState(false)
 
@@ -44,11 +40,11 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                         />
                     )}
                 </picture>
-                <div className='jobad-card__name'>{tr(jobad.title_en, jobad.title_no)}</div>
+                <div className='jobad-card__name'>{lang ? jobad.title_en : jobad.title_no}</div>
                 <ul className='jobad-card__details'>
                     <li className='jobad-card__detail'>
                         <i className='jobad-card__icon material-symbols-sharp'>hourglass_bottom</i>
-                        {DatetimeFormatter.formatDeadlineDate(new Date(jobad.application_deadline), useEng ? "en" : "no")}
+                        {DatetimeFormatter.formatDeadlineDate(new Date(jobad.application_deadline), lang ? "en" : "no")}
                     </li>
                 </ul>
                 {!disableTags &&

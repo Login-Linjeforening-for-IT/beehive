@@ -2,6 +2,9 @@ import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
 import Button from "../../components/button/Button"
 import Alert from "../../components/alert/Alert"
 import "./EventSignUp.css"
+import getCookie from "../../utils/getCookie"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function EventSignUp({
     url,
@@ -12,8 +15,6 @@ export default function EventSignUp({
     signupDeadline,
 }: any) {
     const now = new Date()
-    const lang = lang == "en" ? "en" : "no"
-
     let msg = ""
     let reqSignup = true
     let ready = true

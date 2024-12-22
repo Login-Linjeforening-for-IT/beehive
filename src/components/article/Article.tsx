@@ -4,6 +4,7 @@ import MarkdownRender from "../markdownrender/MarkdownRender"
 import Alert from "../alert/Alert"
 
 import "./Article.css"
+import getCookie from "../../utils/getCookie"
 
 type ArticleProps = { 
   title: string
@@ -14,7 +15,7 @@ type ArticleProps = {
   description: string
 }
 
-const lang =
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
     return (

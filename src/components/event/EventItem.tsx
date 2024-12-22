@@ -15,6 +15,7 @@ import { config } from "../../Constants"
 
 import "./EventItem.css"
 import Link from "next/link"
+import getCookie from "../../utils/getCookie"
 
 type EventListItemProps = { 
   event: any
@@ -23,7 +24,7 @@ type EventListItemProps = {
   variant: string 
 }
 
-const lang =
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function EventListItem({ event, highlight=true, disableTags=false, variant="list-item" }: EventListItemProps) {
     const [showImage, setShowImage] = useState(true)

@@ -7,11 +7,12 @@ const prod = {
 
 const dev = {
     url: {
-        API_URL: "https://testapi.login.no/api", // ntnu network necessary, use vpn
+        // ntnu network necessary, use vpn
+        API_URL: "https://testapi.login.no/api",
         CDN_URL: "https://cdn.login.no"
     }
 }
 
-//prod.url.API_URL = process.env.REACT_APP_API_URL
+// prod.url.API_URL = process.env.REACT_APP_API_URL
 
 export const config = process.env.NODE_ENV === "development" ? dev : prod

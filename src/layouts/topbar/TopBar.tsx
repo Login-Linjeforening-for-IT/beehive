@@ -3,12 +3,12 @@
 import { useState } from "react"
 import Navigation from "./Navigation"
 import MobileNavigation from "./MobileNavigation"
-import ThemeToggle from "../../components/themetoggle/ThemeToggle"
-import LoginLogoSmall from "../../components/svg/brandlogos/LoginLogoSmall"
-// import ProfileSVG from '../../components/svg/profilesvg'
+import ThemeToggle from "@components/themetoggle/ThemeToggle"
+import LoginLogoSmall from "@components/svg/brandlogos/LoginLogoSmall"
+// import ProfileSVG from '@components/svg/profilesvg'
 
 import "./TopBar.css"
-import LangToggle from "../../components/langtoggle/LangToggle"
+import LangToggle from "@components/langtoggle/LangToggle"
 import Link from "next/link"
 
 export default function TopBar() {

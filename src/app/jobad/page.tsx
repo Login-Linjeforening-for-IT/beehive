@@ -11,13 +11,13 @@ import Button from "../../components/button/Button"
 import Alert from "../../components/alert/Alert"
 
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-import * as Translator from "../../utils/GetTranslation"
 import { getJob } from "../../utils/api"
 
 import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
 import "./page.css"
+import getCookie from "../../utils/getCookie"
 
-const lang =
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 const jobTypeTranslations = {
     no: {

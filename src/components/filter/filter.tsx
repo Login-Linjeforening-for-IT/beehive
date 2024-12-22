@@ -3,8 +3,9 @@ import Button from "../button/Button"
 import CheckBox from "../checkbox/Checkbox"
 import CheckTag from "../checktag/Checktag"
 import "./filter.css"
+import getCookie from "../../utils/getCookie"
 
-const lang = 
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function FilterGroup({ filters, onApply, close = false }) {
     const selectedFilters = useRef({})

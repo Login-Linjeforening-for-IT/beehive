@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react"
 import "./JobadsListItem.css"
-import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-import * as Translator from "../../utils/GetTranslation"
-import { config } from "../../Constants"
+import fallbackImg from "@assets/img/placeholders/jobad-logo__placeholder.svg"
+import * as DatetimeFormatter from "@utils/DatetimeFormatter"
+import * as Translator from "@utils/GetTranslation"
+import { config } from "@constants"
 import Tags from "../tags/Tags"
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
 import Link from "next/link"
+import getCookie from "@utils/getCookie"
 
-const lang = 
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+
 const jobTypeTranslations = {
     no: {
         summer: "Sommerjobb",

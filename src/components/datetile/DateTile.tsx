@@ -1,7 +1,8 @@
+import getCookie from "../../utils/getCookie"
 import "./DateTile.css"
 import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation.js"
 
-const lang =
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function DateTile({
     startDate,
