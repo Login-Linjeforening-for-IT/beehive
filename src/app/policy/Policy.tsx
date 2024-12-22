@@ -1,64 +1,61 @@
-{/* @ts-ignore */}
-import {withTranslation} from "react-i18next"
 import Contact from "../../components/contact/Contact"
 import "./page.css"
 
-
-function Policy({t}: any) {
+export default function Policy() {
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
                 <div className='policy-page'>
-                    <h1 className='heading-1 heading-1--top-left-corner'>{t("policy.title")}</h1>
+                    <h1 className='heading-1 heading-1--top-left-corner'>{text.policy.title}</h1>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.about")}</span>
+                            <span>{text.policy.about}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.aboutDescription")}</p>
+                        <p className='p--regular'>{text.policy.aboutDescription}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.intro")}</span>
+                            <span>{text.policy.intro}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.introDescription")}</p>
+                        <p className='p--regular'>{text.policy.introDescription}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.collection")}</span>
+                            <span>{text.policy.collection}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.collectionDescription")}</p>
+                        <p className='p--regular'>{text.policy.collectionDescription}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.utalization")}</span>
+                            <span>{text.policy.utalization}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.utalizationDescription")}</p>
+                        <p className='p--regular'>{text.policy.utalizationDescription}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.security")}</span>
+                            <span>{text.policy.security}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.securityDescription")}</p>
+                        <p className='p--regular'>{text.policy.securityDescription}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.nondis")}</span>
+                            <span>{text.policy.nondis}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.nondisDescription")}</p>
-                        <p className='p--regular'>{t("policy.transparency")}</p>
+                        <p className='p--regular'>{text.policy.nondisDescription}</p>
+                        <p className='p--regular'>{text.policy.transparency}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.updates")}</span>
+                            <span>{text.policy.updates}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.updatesDescription")}</p>
+                        <p className='p--regular'>{text.policy.updatesDescription}</p>
                     </section>
                     <section>
                         <h2 className='heading-2'>
-                            <span>{t("policy.contact")}</span>
+                            <span>{text.policy.contact}</span>
                         </h2>
-                        <p className='p--regular'>{t("policy.contactDescription")}</p>
-                        <p className='p--regular'>{t("policy.download")}</p>
+                        <p className='p--regular'>{text.policy.contactDescription}</p>
+                        <p className='p--regular'>{text.policy.download}</p>
                     </section>
                 </div>
                 <Contact/>
@@ -66,5 +63,3 @@ function Policy({t}: any) {
         </div>
     )
 }
-
-export default withTranslation("policy")(Policy)

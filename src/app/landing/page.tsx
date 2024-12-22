@@ -1,17 +1,18 @@
-'use client'
 import { useState, useEffect, useContext } from "react"
-import { config } from "../Constants"
-import ThemeContext from "../context/ThemeContext"
-import { getEvents, getJobs } from "../utils/api"
-import DecoratedPicture from "../components/images/decoratedpicture/DecoratedPicture"
-import Alert from "../components/alert/Alert"
-import EventCardSkeleton from "../components/event/EventCardSkeleton"
-import EventListItem from "../components/event/EventItem"
-import JobadCard from "../components/jobad/JobadCard"
-import JobadCardSkeleton from "../components/jobad/JobadCardSkeleton"
-import HeroSection from "../components/herosection/HeroSection"
-import Link from "next/link"
+import { config } from "../../Constants"
+import ThemeContext from "../../context/ThemeContext"
+import { getEvents, getJobs } from "../../utils/api"
+import DecoratedPicture from "../../components/images/decoratedpicture/DecoratedPicture"
+import Alert from "../../components/alert/Alert"
+import EventCardSkeleton from "../../components/event/EventCardSkeleton"
+import EventListItem from "../../components/event/EventItem"
+import JobadCard from "../../components/jobad/JobadCard"
+import JobadCardSkeleton from "../../components/jobad/JobadCardSkeleton"
+import HeroSection from "./HeroSection"
+
 import "./page.css"
+import Link from "next/link"
+
 
 function SmallInfo() {
     const value = useContext(ThemeContext)
@@ -95,7 +96,7 @@ function SmallInfo() {
     )
 };
 
-function EndCard({ path }: {path: string}) {
+function EndCard({ path }: { path: string }) {
     return (
         <li className="dynamic-preview-list__item dynamic-preview-end-card">
             <Link href={path} className="dynamic-preview-end-card__btn">
@@ -262,13 +263,13 @@ function JobadsPreview() {
     )
 };
 
-export default function Home() {
+export default function LandingPage() {
     return (
-        <>
+        <div>
             <HeroSection />
             <EventsPreview />
             <JobadsPreview />
             <SmallInfo />
-        </>
+        </div>
     )
 };

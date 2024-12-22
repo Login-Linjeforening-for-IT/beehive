@@ -1,9 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 
-function MobileNavigation({ t, open, setIsOpen }: any) {
+export default function MobileNavigation({ open, setIsOpen }: any) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
 
@@ -15,13 +13,13 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
     return (
         <nav className={`mobile-nav${open ? " mobile-nav--open" : ""}`}>
             <Link onClick={close} href="/events" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav__item">{t("nav.events")}</li>
+                <li className="mobile-nav__item">{text.nav.events}</li>
             </Link>
             <Link onClick={close} href="/career" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav__item">{t("nav.jobad")}</li>
+                <li className="mobile-nav__item">{text.nav.jobad}</li>
             </Link>
             <Link onClick={close} href="/companies" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav__item">{t("nav.companies")}</li>
+                <li className="mobile-nav__item">{text.nav.companies}</li>
             </Link>
             <div
                 className={`mobile-nav-dropdown${
@@ -34,7 +32,7 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
                     tabIndex={open ? 0 : -1}
                 >
                     <li className="mobile-nav__item">
-                        {t("nav.about")}
+                        {text.nav.about}
                         <i className="material-symbols-sharp mobile-nav-dropdown__toggle-arrow">
                             expand_more
                         </i>
@@ -46,21 +44,21 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
                         href="/about"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown__item">{t("nav.general")}</li>
+                        <li className="mobile-nav-dropdown__item">{text.nav.general}</li>
                     </Link>
                     <Link
                         onClick={close}
                         href="/verv"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown__item">{t("nav.verv")}</li>
+                        <li className="mobile-nav-dropdown__item">{text.nav.verv}</li>
                     </Link>
                     <Link
                         onClick={close}
                         href="/fond"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown__item">{t("nav.fondet")}</li>
+                        <li className="mobile-nav-dropdown__item">{text.nav.fondet}</li>
                     </Link>
                     <a
                         title="Wiki"
@@ -81,5 +79,3 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
         </nav>
     )
 }
-
-export default withTranslation("layout")(MobileNavigation)

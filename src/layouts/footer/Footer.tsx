@@ -1,14 +1,10 @@
-// @ts-nocheck
-import React, { withTranslation } from "react-i18next"
 import { config } from "../../Constants"
 import SocialLinks from "./SocialLinks"
-
 import "./Footer.css"
-
 
 const version = process.env.REACT_APP_FRONTEND_VERSION
 
-function Footer({ t }: any) {
+export default function Footer() {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
 
@@ -37,25 +33,25 @@ function Footer({ t }: any) {
                             />
                         </picture>
                     </a>
-                    <p className="footer-content__logo-text">{t("footer.sponsor")}</p>
+                    <p className="footer-content__logo-text">{text.footer.sponsor}</p>
                 </div>
             </div>
             <div className="footer-content__contact">
                 <div className="footer-content__contact-section">
                     <h4 className="footer-content__contact-header">
-                        {t("footer.contactInfo.address.header")}
+                        {text.footer.contactInfo.address.header}
                     </h4>
                     <p className="footer-content__contact-text">
-                        {t("footer.contactInfo.address.info1")}
+                        {text.footer.contactInfo.address.info1}
                         <br />
-                        {t("footer.contactInfo.address.info2")}
+                        {text.footer.contactInfo.address.info2}
                         <br />
-                        {t("footer.contactInfo.address.info3")}
+                        {text.footer.contactInfo.address.info3}
                     </p>
                 </div>
                 <div className="footer-content__contact-section">
                     <h4 className="footer-content__contact-header">
-                        {t("footer.contactInfo.address.header")}
+                        {text.footer.contactInfo.address.header}
                     </h4>
                     <p className="footer-content__contact-text">
                         <a
@@ -74,7 +70,7 @@ function Footer({ t }: any) {
                 <p
                     className="footer-content__bottom-text"
                     dangerouslySetInnerHTML={{
-                        __html: ` ${t("footer.copy1")} ${currentYear} ${t("footer.copy2")}`,
+                        __html: ` ${text.footer.copy1} ${currentYear} ${text.footer.copy2}`,
                     }}
                 />
                 {typeof version !== "undefined" ? (
@@ -93,5 +89,3 @@ function Footer({ t }: any) {
         </div>
     )
 };
-
-export default withTranslation("layout")(Footer)

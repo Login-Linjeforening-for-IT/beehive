@@ -1,10 +1,8 @@
 import React, { useCallback, useRef } from "react"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 import Link from "next/link"
 
 
-function Navigation({ t }: any) {
+export default function Navigation() {
     const navItemRefs = useRef([
         React.createRef(),
         React.createRef(),
@@ -27,20 +25,20 @@ function Navigation({ t }: any) {
     return (
         <nav className="main-nav">
             <Link href="/events">
-                <li className="main-nav__item link--corner-hover">{t("nav.events")}</li>
+                <li className="main-nav__item link--corner-hover">{text.nav.events}</li>
             </Link>
             <Link href="/career">
-                <li className="main-nav__item link--corner-hover">{t("nav.jobad")}</li>
+                <li className="main-nav__item link--corner-hover">{text.nav.jobad}</li>
             </Link>
             <Link href="/companies">
                 <li className="main-nav__item link--corner-hover">
-                    {t("nav.companies")}
+                    {text.nav.companies}
                 </li>
             </Link>
             <div className="main-nav-dropdown">
                 <div className="main-nav-dropdown__toggle" tabIndex={0}>
                     <div className="main-nav__item">
-                        {t("nav.about")}
+                        {text.nav.about}
                         <i className="material-symbols-sharp main-nav-dropdown__toggle-arrow">
                             expand_more
                         </i>
@@ -54,7 +52,7 @@ function Navigation({ t }: any) {
                             >
                                 <li className="main-nav-dropdown__item link--corner-hover">
                                     <i className="logfont-login main-nav-dropdown__leading-icon"></i>
-                                    {t("nav.general")}
+                                    {text.nav.general}
                                 </li>
                             </Link>
                             <Link
@@ -66,7 +64,7 @@ function Navigation({ t }: any) {
                                     <i className="material-symbols-sharp main-nav-dropdown__leading-icon">
                                         favorite
                                     </i>
-                                    {t("nav.verv")}
+                                    {text.nav.verv}
                                 </li>
                             </Link>
                             <Link
@@ -78,7 +76,7 @@ function Navigation({ t }: any) {
                                     <i className="fund-section__header-icon material-symbols-sharp main-nav-dropdown__leading-icon">
                                         corporate_fare
                                     </i>
-                                    {t("nav.fondet")}
+                                    {text.nav.fondet}
                                 </li>
                             </Link>
                             <a
@@ -107,5 +105,3 @@ function Navigation({ t }: any) {
         </nav>
     )
 };
-
-export default withTranslation("layout")(Navigation)

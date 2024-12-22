@@ -1,5 +1,3 @@
-{/* @ts-ignore */}
-import { withTranslation } from "react-i18next"
 import { config } from "../../Constants"
 import LogChamp from "../../components/logchamp/LogChamp"
 {/* @ts-ignore */}
@@ -9,27 +7,27 @@ import DecoratedPicture from "../../components/images/decoratedpicture/Decorated
 
 import "./page.css"
 
-function Fund({t, i18n}: any) {
+export default function Fund() {
 
-    const useEng = i18n.language === "en"
+    const useEng = lang === "en"
 
     return (
         <div className='page-container'>
             <div className="page-section--normal">
-                <h1 className='heading-1 heading-1--top-left-corner'>{t("title")}</h1>
+                <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
             <section className='page-section--normal fund-intro'>
-                <p className='p--highlighted'>{t("intro")}</p>
+                <p className='p--highlighted'>{text.intro}</p>
             </section>
             <section className='page-section--without-gaps fund-section fund-section--highlighted'>
-                <h2 className='heading-2'>{t("support.title")}</h2>
-                <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t("support.intro")}}/>
-                <h3 className='heading-4'>{t("support.heading1")}</h3>
-                <p className='p--regular'>{t("support.body1")}</p>
-                <h3 className='heading-4'>{t("support.heading2")}</h3>
-                <p className='p--regular'>{t("support.body2")}</p>
-                <h3 className='heading-4'>{t("support.heading3")}</h3>
-                <p className='p--regular' dangerouslySetInnerHTML={{__html: t("support.body3")}}/>
+                <h2 className='heading-2'>{text.support.title}</h2>
+                <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.support.intro}}/>
+                <h3 className='heading-4'>{text.support.heading1}</h3>
+                <p className='p--regular'>{text.support.body1}</p>
+                <h3 className='heading-4'>{text.support.heading2}</h3>
+                <p className='p--regular'>{text.support.body2}</p>
+                <h3 className='heading-4'>{text.support.heading3}</h3>
+                <p className='p--regular' dangerouslySetInnerHTML={{__html: text.support.body3}}/>
             </section>
             <section className='page-section--normal fund-section'>
                 <div className='fund-section__container fund-section__container--grid'>
@@ -37,17 +35,17 @@ function Fund({t, i18n}: any) {
                     <div class='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>show_chart</i>
-                            <span>{t("purpose.title")}</span>
+                            <span>{text.purpose.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: t("purpose.body")}}/>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
                     </div>
                     {/* @ts-ignore */}
                     <div class='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>groups</i>
-                            <span>{t("meeting.title")}</span>
+                            <span>{text.meeting.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: t("meeting.body")}}/>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
                     </div>
                 </div>
                 <div className='fund-section__container fund-section__container--grid'>
@@ -55,17 +53,17 @@ function Fund({t, i18n}: any) {
                     <div class='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>diversity_1</i>
-                            <span>{t("application.title")}</span>
+                            <span>{text.application.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: t("application.body")}}/>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
                     </div>
                     {/* @ts-ignore */}
                     <div class='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>monitoring</i>
-                            <span>{t("yield.title")}</span>
+                            <span>{text.yield.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: t("yield.body")}}/>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
                     </div>
                 </div>
             </section>
@@ -73,13 +71,13 @@ function Fund({t, i18n}: any) {
                 <div className='fund-section__container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
                         <i className='heading-2__icon material-symbols-sharp'>corporate_fare</i>
-                        <span>{t("board.title")}</span>
+                        <span>{text.board.title}</span>
                     </h2>
                     <div className='fund-board__intro'>
                         {/* @ts-ignore */}
                         <div class='fund-board__intro-text'>
-                            <p className='p--highlighted'>{t("board.intro")}</p>
-                            <p className='p--regular' dangerouslySetInnerHTML={{__html: t("board.body")}}/>
+                            <p className='p--highlighted'>{text.board.intro}</p>
+                            <p className='p--regular' dangerouslySetInnerHTML={{__html: text.board.body}}/>
                         </div>
                         <div className='fund-board__intro-picture'>
                             <DecoratedPicture
@@ -92,14 +90,14 @@ function Fund({t, i18n}: any) {
                             />
                         </div>
                     </div>
-                    <h3 className='heading-3'>{t("board.composition.title")}</h3>
+                    <h3 className='heading-3'>{text.board.composition.title}</h3>
                     <div className='fund-board__members'>
                         {Object.keys(board).map(key => (
                             <div>
                                 <LogChamp
                                     key={key}
                                     img={board[key].img == "" ? placholder : config.url.CDN_URL + "/img/fondet/" + board[key].img}
-                                    name={board[key].name == "" ? t("board.composition.placeholder") : board[key].name}
+                                    name={board[key].name == "" ? text.board.composition.placeholder : board[key].name}
                                     position={useEng ? board[key].title_en : board[key].title_no}
                                     discord={board[key].dctag}
                                     discordLink={board[key].dclink}
@@ -112,6 +110,3 @@ function Fund({t, i18n}: any) {
         </div>
     )
 }
-
-
-export default withTranslation("fundPage")(Fund)

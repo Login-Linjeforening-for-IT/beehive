@@ -1,5 +1,3 @@
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 import * as TimeFormatter from "../../utils/DatetimeFormatter"
 // @ts-ignore
 import MarkdownRender from "../markdownrender/MarkdownRender"
@@ -8,7 +6,6 @@ import Alert from "../alert/Alert"
 import "./Article.css"
 
 type ArticleProps = { 
-  i18n: any
   title: string
   publishTime: Date
   updateTime: Date
@@ -17,11 +14,9 @@ type ArticleProps = {
   description: string
 }
 
-function Article({ i18n, title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
+const lang =
 
-    const useEng = i18n.language === "en"
-    const lang = useEng ? "en" : "no"
-
+export default function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
     return (
         <div className="article">
             <h1 className="article__header">{title}</h1>
@@ -66,5 +61,3 @@ function Article({ i18n, title, publishTime, updateTime, informational, introduc
         </div>
     )
 };
-
-export default withTranslation()(Article)

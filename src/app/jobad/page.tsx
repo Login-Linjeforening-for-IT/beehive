@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react"
 // @ts-ignore
 import { useParams } from "react-router-dom"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
-
 import { config } from "../../Constants"
 
 // @ts-ignore
@@ -20,6 +17,7 @@ import { getJob } from "../../utils/api"
 import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
 import "./page.css"
 
+const lang =
 
 const jobTypeTranslations = {
     no: {
@@ -53,13 +51,8 @@ function deadlineWarning(deadline: Date) {
     return diff < oneDay && diff > 0
 }
 
-function JobadPage({ t, i18n }: any) {
+export default function JobadPage() {
     const { id } = useParams()
-    const useEng = i18n.language === "en"
-    const lang = useEng ? "en" : "no"
-    // @ts-ignore
-    const tr = Translator.getTranslation(useEng)
-
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const [showBannerImg, setShowBannerImg] = useState(false)
     const hideBannerImg = () => setShowBannerImg(false)
@@ -88,7 +81,7 @@ function JobadPage({ t, i18n }: any) {
 
     return (
         <>
-            {loading && <Spinner w="50" h="50" />}
+            {loading && <Spinner width={50} height={50} />}
             {!loading && error && 
         <div className="page-container">
             <Alert
@@ -111,7 +104,7 @@ function JobadPage({ t, i18n }: any) {
                             <picture className="jobad-details__company-logo">
                                 <RenderSmoothImage
                                     // @ts-ignore
-                                    src={useFallbackImg ? fallbackImg : config.url.CDN_URL + "/img/organizations/" + jobad.organization.logo}
+                                    src={useFallbackImg ? fallbackImg : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
                                     // @ts-ignore
                                     alt={jobad.organization.logo}
                                     className='jobad-details__image'
@@ -143,7 +136,7 @@ function JobadPage({ t, i18n }: any) {
                                 <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
                                     hourglass_bottom
                                 </i>
-                                {t("details.deadline")}:
+                                {text.details.deadline}:
                             </div>
                             <div className="jobad-details__value">
                                 {DatetimeFormatter.formatDeadlineDate(
@@ -165,7 +158,7 @@ function JobadPage({ t, i18n }: any) {
                         <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
                             badge
                         </i>
-                        {t("details.position")}:
+                        {text.details.position}:
                     </div>
                     <div className="jobad-details__value">
                         {/* @ts-ignore */}
@@ -177,7 +170,7 @@ function JobadPage({ t, i18n }: any) {
                                 <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
                                     work_history
                                 </i>
-                                {t("details.type")}:
+                                {text.details.type}:
                             </div>
                             <div className="jobad-details__value">
                                 {/* @ts-ignore */}
@@ -192,8 +185,8 @@ function JobadPage({ t, i18n }: any) {
                         </i>
                         {/* @ts-ignore */}
                         {jobad.job.cities.length > 1
-                            ? t("details.locations")
-                            : t("details.location")}
+                            ? text.details.locations
+                            : text.details.location}
                         :
                     </div>
                     <div className="jobad-details__value">
@@ -209,7 +202,7 @@ function JobadPage({ t, i18n }: any) {
                         <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
                             build
                         </i>
-                        {t("details.skills")}:
+                        {text.details.skills}:
                     </div>
                     <div className="jobad-details__value">
                         {/* @ts-ignore */}
@@ -227,7 +220,7 @@ function JobadPage({ t, i18n }: any) {
                                 href={jobad.job.application_url}
                                 className="jobad-details__apply-btn"
                             >
-                                {t("details.apply-btn")}
+                                {text.details.applyButton}
                             </Button>
                         )}
                     </div>
@@ -245,17 +238,12 @@ function JobadPage({ t, i18n }: any) {
                     )}
                     <div className="jobad-description">
                         <Article
-                            // @ts-ignore
-                            title={tr(jobad.job.title_en, jobad.job.title_no)}
-                            // @ts-ignore
+                            title={lang ? jobad.job.title_en : jobad.job.title_no}
                             publishTime={new Date(jobad.job.time_publish)}
-                            // @ts-ignore
                             updateTime={new Date(jobad.job.updated_at)}
                             informational={false}
-                            // @ts-ignore
-                            introduction={tr(jobad.job.description_short_en, jobad.job.description_short_no)}
-                            // @ts-ignore
-                            description={tr(jobad.job.description_long_en, jobad.job.description_long_no)}
+                            introduction={lang ? jobad.job.description_short_en : jobad.job.description_short_no}
+                            description={lang ? jobad.job.description_long_en : jobad.job.description_long_no}
                         />
                     </div>
                 </div>
@@ -263,5 +251,3 @@ function JobadPage({ t, i18n }: any) {
         </>
     )
 };
-
-export default withTranslation("jobadPage")(JobadPage)

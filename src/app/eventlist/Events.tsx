@@ -1,7 +1,4 @@
 import { useState, useEffect, useRef } from "react"
-{/* @ts-ignore */}
-import { withTranslation } from "react-i18next"
-
 import EventListItem from "../../components/event/EventItem.jsx"
 {/* @ts-ignore */}
 import Spinner from "../../components/spinner/Spinner.jsx"
@@ -9,9 +6,7 @@ import FilterGroup from "../../components/filter/filter.jsx"
 import Button from "../../components/button/Button.jsx"
 import GroupToggle from "../../components/grouptoggle/GroupToggle.jsx"
 import Alert from "../../components/alert/Alert.jsx"
-
 import prepFilter from "../../components/filter/prepFilter.js"
-
 import { getEventCategoryFilters, getEvents } from "../../utils/api.js"
 {/* @ts-ignore */}
 import { debounce } from "../../utils/debounce.js"
@@ -106,7 +101,7 @@ function groupEvents(eventsArray: any[]) {
     }
 }
 
-function Events({ t }: any) {
+export default function Events() {
     const [events, setEvents] = useState<any[]>([])
     const [filterData, setFilterData] = useState({})
     const [showLoadMore, setShowLoadMore] = useState(false)
@@ -220,7 +215,7 @@ function Events({ t }: any) {
     return (
         <div className="page-container">
             <div className="page-section--normal">
-                <h1 className="heading-1 heading-1--top-left-corner">{t("title")}</h1>
+                <h1 className="heading-1 heading-1--top-left-corner">{text.title}</h1>
             </div>
             {loading && <Spinner width={50} height={50} />}
             {!loading && error && (
@@ -305,7 +300,7 @@ function Events({ t }: any) {
                                         <>
                                             <div className="event-list-separator event-list-seperator--first">
                                                 <p className="event-list-separator__text">
-                                                    {t("this-week")}
+                                                    {text.thisWeek}
                                                 </p>
                                             </div>
                                             {groupedEvents.currentWeekEvents.map((e, idx) => (
@@ -331,7 +326,7 @@ function Events({ t }: any) {
                                         <>
                                             <div className="event-list-separator">
                                                 <p className="event-list-separator__text">
-                                                    {t("next-week")}
+                                                    {text.nextWeek}
                                                 </p>
                                             </div>
                                             {groupedEvents.nextWeekEvents.map((e, idx) => (
@@ -360,7 +355,7 @@ function Events({ t }: any) {
                           0 && (
                                                 <div className="event-list-separator">
                                                     <p className="event-list-separator__text">
-                                                        {t("later")}
+                                                        {text.later}
                                                     </p>
                                                 </div>
                                             )}
@@ -394,7 +389,7 @@ function Events({ t }: any) {
                                                 <i className="material-symbols-sharp">arrow_downward</i>
                                             }
                                         >
-                                            {t("load-more")}
+                                            {text.loadMore}
                                         </Button>
                                     </div>
                                 )}
@@ -406,5 +401,3 @@ function Events({ t }: any) {
         </div>
     )
 };
-
-export default withTranslation("eventListPage")(Events)

@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react"
-// @ts-ignore
-import { Link } from "react-router-dom"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 import { config } from "../../Constants"
 
 import fallbackImg from "assets/img/placeholders/jobad-logo__placeholder.svg"
@@ -13,11 +9,13 @@ import Tags from "../tags/Tags"
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
 
 import "./JobadCard.css"
+import Link from "next/link"
 
+const lang =
 
-function JobadCard({ i18n, jobad, disableTags=false }: any) {
+export default function JobadCard({ jobad, disableTags=false }: any) {
 
-    const useEng = i18n.language === "en"
+    const useEng = lang === "en"
     // @ts-ignore
     const tr = Translator.getTranslation(useEng)
 
@@ -28,7 +26,7 @@ function JobadCard({ i18n, jobad, disableTags=false }: any) {
     }, [jobad.organization_logo])
 
     return (
-        <Link to={"/career/" + jobad.id}>
+        <Link href={`/career/${jobad.id}`}>
             <div className='jobad-card'>
                 <picture className='jobad-card__picture'>
                     {(jobad.organization_logo && !useFallbackImg) ? (
@@ -65,5 +63,3 @@ function JobadCard({ i18n, jobad, disableTags=false }: any) {
         </Link>
     )
 }
-
-export default withTranslation("jobadListPage")(JobadCard)

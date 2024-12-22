@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react"
-// @ts-ignore
-import { Link } from "react-router-dom"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
-
 import "./JobadsListItem.css"
 import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
-
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
 import * as Translator from "../../utils/GetTranslation"
 import { config } from "../../Constants"
-
 import Tags from "../tags/Tags"
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
+import Link from "next/link"
 
-
+const lang = 
 const jobTypeTranslations = {
     no: {
         summer: "Sommerjobb",
@@ -62,10 +56,7 @@ function formatCities(cities: any[]) {
     return (arr.join(", "))
 }
 
-
-function JobadsListItem({ i18n, jobad }: any) {
-
-    const useEng = i18n.language === "en"
+export default function JobadsListItem({ jobad }: any) {
     // @ts-ignore
     const tr = Translator.getTranslation(useEng)
 
@@ -82,7 +73,7 @@ function JobadsListItem({ i18n, jobad }: any) {
     }
 
     return (
-        <Link to={"/career/" + jobad.id}>
+        <Link href={`/career/${jobad.id}`}>
             <div className={jobad.highlight ? "jobads-item jobads-item--highlight" : "jobads-item" }>
                 <div className={useTags(jobad.time_publish, jobad.highlight) ? "jobads-item__wrapper jobads-item__wrapper--with-tags" : "jobads-item__wrapper" }>
                     {useTags(jobad.time_publish, jobad.highlight) && 
@@ -139,5 +130,3 @@ function JobadsListItem({ i18n, jobad }: any) {
         </Link>
     )
 }
-
-export default withTranslation("jobadListPage")(JobadsListItem)

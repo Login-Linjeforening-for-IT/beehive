@@ -1,24 +1,20 @@
-// @ts-ignore
-import {withTranslation} from "react-i18next"
-import {useEffect, useState} from "react"
-
+import { useEffect, useState } from "react"
 import "./LangToggle.css"
 
-// @ts-ignore
-function LangToggle({i18n}) {
+export default function LangToggle() {
     const [buttonText, setButtonText] = useState("")
     const [jump, setJump] = useState(false)
   
     useEffect( () => {
-        i18n.language === "no" || i18n.language === "nb" ? setButtonText("en") : setButtonText("no")
-    }, [i18n.language])
+        lang === "no" ? setButtonText("en") : setButtonText("no")
+    }, [lang])
 
     function handleClick(event: any) {
-        if (i18n.language === "no" || i18n.language === "nb") {
-            i18n.changeLanguage(event.target.value = "en")
+        if (lang === "no") {
+            setCookie("lang", event.target.value = "en")
             setButtonText("en")
         } else {
-            i18n.changeLanguage(event.target.value = "nb")
+            setCookie("lang", event.target.value = "nb")
             setButtonText("no")
         }
 
@@ -27,11 +23,9 @@ function LangToggle({i18n}) {
     }
 
     return(
-        <button value={i18n.language} onClick={handleClick} className='lang-toggle'>
+        <button value={lang} onClick={handleClick} className='lang-toggle'>
             <i className={`lang-toggle__icon material-symbols-sharp ${jump ? "lang-toggle__icon--jump" : ""}`}>language</i>
             {" " + buttonText}
         </button>
     )
 }
-
-export default withTranslation()(LangToggle)

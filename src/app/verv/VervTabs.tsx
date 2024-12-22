@@ -1,29 +1,22 @@
 import { useState } from "react";
-// @ts-ignore
-import { withTranslation } from "react-i18next";
-
 import TabNavItem from "../../components/tabs/TabNavItem";
 import TabContent from "../../components/tabs/TabContent";
 import LogChamp from "../../components/logchamp/LogChamp";
-
 import EventkomLogo from "../../components/svg/committeelogos/EventkomLogo";
 import BedkomLogo from "../../components/svg/committeelogos/BedkomLogo";
 import TekkomLogo from "../../components/svg/committeelogos/TekkomLogo";
 import CtfkomLogo from "../../components/svg/committeelogos/CtfkomLogo";
 import SatkomLogo from "../../components/svg/committeelogos/SatkomLogo";
 import PrLogo from "../../components/svg/committeelogos/PrLogo";
-
 import { config } from "../../Constants";
 // @ts-ignore
 import board from "../../assets/boardmembers/boardmembers.json";
-
 import "../../components/tabs/Tabs.css";
 import "../about/CommitteeTabs.css";
 
-// @ts-ignore
-function VervTabs({ t, i18n }) {
+export default function VervTabs() {
   const [activeTab, setActiveTab] = useState("event");
-  const useEng = i18n.language === "en";
+  const useEng = lang === "en";
 
   return (
     <div className="tabs committees page-section--without-gaps">
@@ -68,17 +61,17 @@ function VervTabs({ t, i18n }) {
       <TabContent id="event" activeTab={activeTab}>
         <h3 className="committees__heading heading-3">
           <i className="logfont-eventkom"></i>{" "}
-          {t("committeeSection.eventkom.title")}
+          {text.committeeSection.eventkom.title}
         </h3>
         <div className="committees__info">
           <div className="committees__text">
             <p className="p--highlighted">
-              {t("committeeSection.eventkom.intro")}
+              {text.committeeSection.eventkom.intro}
             </p>
             <p
               className="p--regular"
               dangerouslySetInnerHTML={{
-                __html: t("committeeSection.eventkom.body"),
+                __html: text.committeeSection.eventkom.body,
               }}
             />
           </div>
@@ -100,19 +93,17 @@ function VervTabs({ t, i18n }) {
       <TabContent id="tek" activeTab={activeTab}>
         <h3 className="committees__heading heading-3">
           <i className="logfont-tekkom"></i>{" "}
-          {t("committeeSection.tekkom.title")}
+          {text.committeeSection.tekkom.title}
         </h3>
         <div className="committees__info">
           <div className="committees__text">
             <p className="p--highlighted">
-              {t("committeeSection.tekkom.intro")}
+              {text.committeeSection.tekkom.intro}
             </p>
-            <p className="p--regular">{t("committeeSection.tekkom.body")}</p>
+            <p className="p--regular">{text.committeeSection.tekkom.body}</p>
           </div>
           <LogChamp
-            img={
-              config.url.CDN_URL + "/img/portraits/" + board.tekkomLeader.img
-            }
+            img={`${config.url.CDN_URL}/img/portraits/${board.tekkomLeader.img}`}
             name={board.tekkomLeader.name}
             position={
               useEng ? board.tekkomLeader.title_en : board.tekkomLeader.title_no
@@ -125,19 +116,17 @@ function VervTabs({ t, i18n }) {
       <TabContent id="bedkom" activeTab={activeTab}>
         <h3 className="committees__heading heading-3">
           <i className="logfont-bedkom"></i>{" "}
-          {t("committeeSection.bedkom.title")}
+          {text.committeeSection.bedkom.title}
         </h3>
         <div className="committees__info">
           <div className="committees__text">
             <p className="p--highlighted">
-              {t("committeeSection.bedkom.intro")}
+              {text.committeeSection.bedkom.intro}
             </p>
-            <p className="p--regular">{t("committeeSection.bedkom.body")}</p>
+            <p className="p--regular">{text.committeeSection.bedkom.body}</p>
           </div>
           <LogChamp
-            img={
-              config.url.CDN_URL + "/img/portraits/" + board.bedkomLeader.img
-            }
+            img={`${config.url.CDN_URL}/img/portraits/${board.bedkomLeader.img}`}
             name={board.bedkomLeader.name}
             position={
               useEng ? board.bedkomLeader.title_en : board.bedkomLeader.title_no
@@ -150,17 +139,17 @@ function VervTabs({ t, i18n }) {
       <TabContent id="ctf" activeTab={activeTab}>
         <h3 className="committees__heading heading-3">
           <i className="logfont-ctfkom"></i>{" "}
-          {t("committeeSection.ctfkom.title")}
+          {text.committeeSection.ctfkom.title}
         </h3>
         <div className="committees__info">
           <div className="committees__text">
             <p className="p--highlighted">
-              {t("committeeSection.ctfkom.intro")}
+              {text.committeeSection.ctfkom.intro}
             </p>
             <p
               className="p--regular"
               dangerouslySetInnerHTML={{
-                __html: t("committeeSection.ctfkom.body"),
+                __html: text.committeeSection.ctfkom.body,
               }}
             />
           </div>
@@ -180,22 +169,20 @@ function VervTabs({ t, i18n }) {
       <TabContent id="sat" activeTab={activeTab}>
         <h3 className="committees__heading heading-3">
           <i className="logfont-satkom-filled"></i>{" "}
-          {t("committeeSection.satkom.title")}
+          {text.committeeSection.satkom.title}
         </h3>
         <div className="committees__info">
           <div className="committees__text">
             <p
               className="p--highlighted"
               dangerouslySetInnerHTML={{
-                __html: t("committeeSection.satkom.intro"),
+                __html: text.committeeSection.satkom.intro,
               }}
             />
-            <p className="p--regular">{t("committeeSection.satkom.body")}</p>
+            <p className="p--regular">{text.committeeSection.satkom.body}</p>
           </div>
           <LogChamp
-            img={
-              config.url.CDN_URL + "/img/portraits/" + board.satkomLeader.img
-            }
+            img={`${config.url.CDN_URL}/img/portraits/${board.satkomLeader.img}`}
             name={board.satkomLeader.name}
             position={
               useEng ? board.satkomLeader.title_en : board.satkomLeader.title_no
@@ -207,20 +194,20 @@ function VervTabs({ t, i18n }) {
       </TabContent>
       <TabContent id="pr" activeTab={activeTab}>
         <h3 className="committees__heading heading-3">
-          <i className="logfont-pr"></i> {t("committeeSection.pr.title")}
+          <i className="logfont-pr"></i> {text.committeeSection.pr.title}
         </h3>
         <div className="committees__info">
           <div className="committees__text">
             <p
               className="p--highlighted"
               dangerouslySetInnerHTML={{
-                __html: t("committeeSection.pr.intro"),
+                __html: text.committeeSection.pr.intro,
               }}
             />
-            <p className="p--regular">{t("committeeSection.pr.body")}</p>
+            <p className="p--regular">{text.committeeSection.pr.body}</p>
           </div>
           <LogChamp
-            img={config.url.CDN_URL + "/img/portraits/" + board.prLeader.img}
+            img={`${config.url.CDN_URL}/img/portraits/${board.prLeader.img}`}
             name={board.prLeader.name}
             position={
               useEng ? board.prLeader.title_en : board.prLeader.title_no
@@ -233,5 +220,3 @@ function VervTabs({ t, i18n }) {
     </div>
   );
 };
-
-export default withTranslation("vervPage")(VervTabs);
