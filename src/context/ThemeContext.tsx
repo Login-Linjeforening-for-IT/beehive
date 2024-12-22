@@ -7,7 +7,7 @@ const COLOR_THEMES = {
     DARK: "dark",
 }
 
-const storedTheme = localStorage.getItem("theme") || COLOR_THEMES.DARK
+const storedTheme = COLOR_THEMES.DARK
 
 const ThemeContext = createContext({
     theme: storedTheme,

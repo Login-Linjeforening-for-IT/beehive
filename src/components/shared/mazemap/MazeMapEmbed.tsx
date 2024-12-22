@@ -4,8 +4,6 @@ import "./MazeMapEmbed.css"
 import { useEffect, useState } from "react"
 import "@/vendor/mazemap/mazemap.min.css"
 
-/* credz to the guys over at Abakus, this mazemap-implementation is inspired by their solution */
-
 export default function MazeMapEmbed({ poi, ...props }: any) {
 
     const defualtHeight = 320
@@ -18,7 +16,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     //initialize map only once, poi will probably not change
     useEffect(() => {
-        import("@/vendor/mazemap/mazemap.min.mjs").then((mazemap) => setMazemap(mazemap))
+        import("@/vendor/mazemap/mazemap.min.js").then((mazemap) => setMazemap(mazemap))
         if (!Mazemap || !hasMounted) return
 
         // @ts-ignore
@@ -40,7 +38,6 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
             dragPan: true,
             touchZoomRotate: false,
             touchPitch: false,
-            //this is a horrible feature
             pitchWithRotate: false,
         })
 

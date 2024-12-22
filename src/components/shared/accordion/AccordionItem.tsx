@@ -1,7 +1,7 @@
 import "./Accordion.css"
 
 type AccordionItemProps = { 
-    id: number
+    id: string
     title: string
     activeAccordionItem: any
     setActiveAccordionItem: any

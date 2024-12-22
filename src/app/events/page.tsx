@@ -106,6 +106,10 @@ function groupEvents(eventsArray: any[]) {
 }
 
 export default function Events() {
+    if (typeof localStorage === "undefined") {
+        return null
+    }
+    
     const [events, setEvents] = useState<any[]>([])
     const [filterData, setFilterData] = useState({})
     const [showLoadMore, setShowLoadMore] = useState(false)

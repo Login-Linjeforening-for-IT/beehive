@@ -1,5 +1,5 @@
 type AccordionContentProps = {
-    id: number
+    id: string
     activeAccordionItem: any
     children: any
 }

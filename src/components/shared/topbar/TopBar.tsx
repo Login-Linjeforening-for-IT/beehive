@@ -8,16 +8,13 @@ import LoginLogoSmall from "@components/svg/brandlogos/LoginLogoSmall"
 // import ProfileSVG from '@components/svg/profilesvg'
 import LangToggle from "@components/shared/langtoggle/LangToggle"
 import Link from "next/link"
-import no from '@text/layout/no.json'
-import en from '@text/layout/en.json'
-import getCookie from "@utils/getCookie"
-
 import "./TopBar.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 export default function TopBar() {
+    if (typeof localStorage === "undefined") {
+        return null
+    }
+
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
   
