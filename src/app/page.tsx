@@ -12,7 +12,15 @@ import JobadCard from "@components/jobad/JobadCard"
 import JobadCardSkeleton from "@components/jobad/JobadCardSkeleton"
 import HeroSection from "@components/herosection/HeroSection"
 import Link from "next/link"
+
+import no from '@text/landing/no.json'
+import en from '@text/landing/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./page.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function Home() {
     return (

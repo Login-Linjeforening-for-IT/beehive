@@ -1,6 +1,13 @@
 import { isNew } from "../../utils/DatetimeFormatter"
 import Tag from "./Tag"
+import no from '@text/tags/no.json'
+import en from '@text/tags/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./Tags.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function Tags({
     highlight = false,

@@ -11,6 +11,14 @@ import prepFilter from "../../components/filter/prepFilter.js"
 import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "../../utils/api"
 import "./Jobads.css"
 
+import no from '@text/jobadList/no.json'
+import en from '@text/jobadList/en.json'
+import getCookie from "@utils/getCookie"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
+
+
 const jobTypeTranslations = {
     no: {
         summer: "Sommerjobb",

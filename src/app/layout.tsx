@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import type { Metadata } from "next"
-import TopBar from "@app/layouts/topbar/TopBar"
-import Footer from "@app/layouts/footer/Footer"
+import TopBar from "@/layouts/topbar/TopBar"
+import Footer from "@/layouts/footer/Footer"
 import "./globals.css"
 
 

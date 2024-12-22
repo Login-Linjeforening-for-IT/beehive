@@ -1,7 +1,15 @@
 import ImageCarousel from "../../components/imagecarousel/ImageCarousel"
 import Button from "../../components/button/Button"
 import VervTabs from "./VervTabs"
+import no from '@text/verv/no.json'
+import en from '@text/verv/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./page.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
+
 
 export default function Verv() {
     const slides = []

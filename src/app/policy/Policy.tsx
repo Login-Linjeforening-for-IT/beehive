@@ -1,5 +1,11 @@
 import Contact from "../../components/contact/Contact"
+import no from '@text/policy/no.json'
+import en from '@text/policy/en.json'
+import getCookie from "@utils/getCookie"
 import "./page.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function Policy() {
     return (

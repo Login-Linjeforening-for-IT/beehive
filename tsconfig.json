@@ -24,7 +24,7 @@
         "@svg/*": ["./src/components/svg/*"],
         "@config": ["./src/constants.ts"],
         "@img/*": ["./public/img/*"],
-        "@pages/*": ["./src/pages/*"],
+        "@app/*": ["./src/app/*"],
         "@text/*": ["./public/text/*"],
         "@themes/*": ["./src/themes/*"],
         "@utils/*": ["./src/utils/*"],

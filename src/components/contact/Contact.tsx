@@ -1,5 +1,12 @@
 import MazeMapEmbed from "../mazemap/MazeMapEmbed"
+import no from '@text/contact/no.json'
+import en from '@text/contact/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./Contact.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function Contact() {
     return(

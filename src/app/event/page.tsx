@@ -23,9 +23,14 @@ import DefaultSocialBanner from "@components/svg/defaultbanners/DefaultSocialBan
 import * as DatetimeFormatter from "@utils/DatetimeFormatter"
 import { getEvent } from "@utils/api"
 
+import no from '@text/eventPage/no.json'
+import en from '@text/eventPage/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./EventPage.css"
 
-const lang
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {

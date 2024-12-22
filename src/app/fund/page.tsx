@@ -5,7 +5,14 @@ import board from "../../assets/boardmembers/fundBoardMembers.json"
 import placholder from "../../assets/img/placeholders/portrett_placeholder.svg"
 import DecoratedPicture from "../../components/images/decoratedpicture/DecoratedPicture"
 
+import no from '@text/fund/no.json'
+import en from '@text/fund/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./page.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function Fund() {
 

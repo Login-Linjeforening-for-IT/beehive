@@ -15,9 +15,14 @@ import { getJob } from "../../utils/api"
 
 import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
 import "./page.css"
-import getCookie from "../../utils/getCookie"
+
+import no from '@text/jobadPage/no.json'
+import en from '@text/jobadPage/en.json'
+import getCookie from "@utils/getCookie"
+
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 const jobTypeTranslations = {
     no: {

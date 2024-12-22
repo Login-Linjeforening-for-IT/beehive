@@ -1,8 +1,14 @@
 //
 // This page is a work in progress ( not is use )
 //
+import no from '@text/profile/no.json'
+import en from '@text/profile/en.json'
+import getCookie from "@utils/getCookie"
 
 import "./page.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function Profile({t}: any) {
     return (

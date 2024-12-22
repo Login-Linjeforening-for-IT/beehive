@@ -5,7 +5,7 @@ import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPictu
 import Contact from "@components/contact/Contact"
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
-import getCookie from "@/utils/getCookie"
+import getCookie from "@utils/getCookie"
 import "./page.css"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'

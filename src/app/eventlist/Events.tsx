@@ -11,8 +11,14 @@ import { getEventCategoryFilters, getEvents } from "../../utils/api.js"
 {/* @ts-ignore */}
 import { debounce } from "@/utils/debounce.ts"
 
+import no from '@text/eventlist/no.json'
+import en from '@text/eventlist/en.json'
+import getCookie from "@utils/getCookie"
+
 import "./Events.css"
 
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 function getLabelKeyWithLang(key: string) {
     return (v: any) => {

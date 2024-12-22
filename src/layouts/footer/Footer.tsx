@@ -1,6 +1,12 @@
 import { config } from "../../Constants"
 import SocialLinks from "./SocialLinks"
+import no from '@text/layout/no.json'
+import en from '@text/layout/en.json'
+import getCookie from "@utils/getCookie"
 import "./Footer.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 const version = process.env.REACT_APP_FRONTEND_VERSION
 
