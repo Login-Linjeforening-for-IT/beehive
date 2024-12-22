@@ -1,4 +1,4 @@
-import { isNew } from "../../utils/DatetimeFormatter"
+import { isNew } from "@utils/DatetimeFormatter"
 import Tag from "./Tag"
 import no from '@text/tags/no.json'
 import en from '@text/tags/en.json'

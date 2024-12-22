@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Button from "./Button"
-import GroupToggle from "../grouptoggle/GroupToggle"
+import GroupToggle from "@components/grouptoggle/GroupToggle"
 
 export default function ButtonShowcase() {
     const variants = ["primary", "secondary", "primary-outlined", "secondary-outlined", "ghost", "danger"]

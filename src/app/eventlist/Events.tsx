@@ -1,20 +1,18 @@
-import { useState, useEffect, useRef } from "react"
-import EventListItem from "../../components/event/EventItem.jsx"
-{/* @ts-ignore */}
-import Spinner from "../../components/spinner/Spinner.jsx"
-import FilterGroup from "../../components/filter/filter.jsx"
-import Button from "../../components/button/Button.jsx"
-import GroupToggle from "../../components/grouptoggle/GroupToggle.jsx"
-import Alert from "../../components/alert/Alert.jsx"
-import prepFilter from "../../components/filter/prepFilter.js"
-import { getEventCategoryFilters, getEvents } from "../../utils/api.js"
-{/* @ts-ignore */}
-import { debounce } from "@/utils/debounce.ts"
+'use client'
 
+import { useState, useEffect, useRef } from "react"
+import EventListItem from "@components/event/EventItem"
+import Spinner from "@components/spinner/spinner"
+import FilterGroup from "@components/filter/filter"
+import Button from "@components/button/Button"
+import GroupToggle from "@components/grouptoggle/GroupToggle"
+import Alert from "@components/alert/Alert"
+import prepFilter from "@components/filter/prepFilter"
+import { getEventCategoryFilters, getEvents } from "@utils/api"
+import debounce from "@/utils/debounce"
 import no from '@text/eventlist/no.json'
 import en from '@text/eventlist/en.json'
 import getCookie from "@utils/getCookie"
-
 import "./Events.css"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'

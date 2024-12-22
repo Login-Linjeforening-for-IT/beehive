@@ -1,3 +1,5 @@
+'use client'
+
 import "./MazeMapEmbed.css"
 import { useEffect, useState } from "react"
 import "mazemap/mazemap.min.css"

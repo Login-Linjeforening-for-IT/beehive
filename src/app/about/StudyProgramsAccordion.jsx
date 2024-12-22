@@ -1,5 +1,5 @@
-import AccordionItem from '../../components/accordion/AccordionItem'
-import AccordionContent from '../../components/accordion/AccordionContent'
+import AccordionItem from '@components/accordion/AccordionItem'
+import AccordionContent from '@components/accordion/AccordionContent'
 import { useState } from 'react'
 
 export default function StudyProgramsAccordion() {

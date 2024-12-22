@@ -1,16 +1,27 @@
+'use client'
+
 import { useState, useEffect } from "react"
 import "./DecoratedPicture.css"
 
-// @ts-ignore
-function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, className = "" }) {
+type DecoratedPictureProps = {
+    imgUrl: string
+    variant: any
+    width: number
+    height: number
+    cornerSize: number
+    cover?: boolean
+    className?: string
+}
+
+function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = "" }: DecoratedPictureProps) {
     const [isLoaded, setIsLoaded] = useState(false)
-    const maskID = `mask-${variant}-${w}-${h}`
+    const maskID = `mask-${variant}-${width}-${height}`
 
     useEffect(() => {
         const img = new Image()
-        img.src = imgurl
+        img.src = imgUrl
         img.onload = () => setIsLoaded(true)
-    }, [imgurl])
+    }, [imgUrl])
 
     function renderDecorations() {
         switch (variant) {
@@ -21,7 +32,7 @@ function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, cl
                         <polygon
                             points={`0,${cornerSize} ${cornerSize / 3},${cornerSize} ${
                                 cornerSize / 3
-                            },${cornerSize / 3} ${cornerSize},${cornerSize / 3} ${cornerSize},0 ${w},0 ${w},${h} 0,${h}`}
+                            },${cornerSize / 3} ${cornerSize},${cornerSize / 3} ${cornerSize},0 ${width},0 ${width},${height} 0,${height}`}
                         />
                     </clipPath>
                     <rect
@@ -45,23 +56,23 @@ function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, cl
                 <>
                     <clipPath id={maskID}>
                         <polygon
-                            points={`0,0 ${w - cornerSize},0 ${w - cornerSize},${
+                            points={`0,0 ${width - cornerSize},0 ${width - cornerSize},${
                                 cornerSize / 3
-                            } ${w - cornerSize / 3},${cornerSize / 3} ${
-                                w - cornerSize / 3
-                            },${cornerSize} ${w},${cornerSize} ${w},${h} 0,${h}`}
+                            } ${width - cornerSize / 3},${cornerSize / 3} ${
+                                width - cornerSize / 3
+                            },${cornerSize} ${width},${cornerSize} ${width},${height} 0,${height}`}
                         />
                     </clipPath>
                     <rect
                         className="decor-pic__rect"
-                        x={w - cornerSize + (cornerSize / 3) * 0.5}
+                        x={width - cornerSize + (cornerSize / 3) * 0.5}
                         y="0"
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
                         className="decor-pic__rect"
-                        x={w - (cornerSize / 3) * 0.5}
+                        x={width - (cornerSize / 3) * 0.5}
                         y="0"
                         width={(cornerSize / 3) * 0.5}
                         height={cornerSize - (cornerSize / 3) * 0.5}
@@ -73,24 +84,24 @@ function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, cl
                 <>
                     <clipPath id={maskID}>
                         <polygon
-                            points={`0,0 ${w},0 ${w},${h - cornerSize} ${
-                                w - cornerSize / 3
-                            },${h - cornerSize} ${w - cornerSize / 3},${
-                                h - cornerSize / 3
-                            } ${w - cornerSize},${h - cornerSize / 3} ${w - cornerSize},${h} 0,${h}`}
+                            points={`0,0 ${width},0 ${width},${height - cornerSize} ${
+                                width - cornerSize / 3
+                            },${height - cornerSize} ${width - cornerSize / 3},${
+                                height - cornerSize / 3
+                            } ${width - cornerSize},${height - cornerSize / 3} ${width - cornerSize},${height} 0,${height}`}
                         />
                     </clipPath>
                     <rect
                         className="decor-pic__rect"
-                        x={w - cornerSize + (cornerSize / 3) * 0.5}
-                        y={h - (cornerSize / 3) * 0.5}
+                        x={width - cornerSize + (cornerSize / 3) * 0.5}
+                        y={height - (cornerSize / 3) * 0.5}
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
                         className="decor-pic__rect"
-                        x={w - (cornerSize / 3) * 0.5}
-                        y={h - cornerSize + (cornerSize / 3) * 0.5}
+                        x={width - (cornerSize / 3) * 0.5}
+                        y={height - cornerSize + (cornerSize / 3) * 0.5}
                         width={(cornerSize / 3) * 0.5}
                         height={cornerSize - (cornerSize / 3) * 0.5}
                     />
@@ -101,24 +112,24 @@ function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, cl
                 <>
                     <clipPath id={maskID}>
                         <polygon
-                            points={`0,0 ${w},0 ${w},${h} ${cornerSize},${h} ${cornerSize},${
-                                h - cornerSize / 3
-                            } ${cornerSize / 3},${h - cornerSize / 3} ${
+                            points={`0,0 ${width},0 ${width},${height} ${cornerSize},${height} ${cornerSize},${
+                                height - cornerSize / 3
+                            } ${cornerSize / 3},${height - cornerSize / 3} ${
                                 cornerSize / 3
-                            },${h - cornerSize} 0,${h - cornerSize}`}
+                            },${height - cornerSize} 0,${height - cornerSize}`}
                         />
                     </clipPath>
                     <rect
                         className="decor-pic__rect"
                         x="0"
-                        y={h - (cornerSize / 3) * 0.5}
+                        y={height - (cornerSize / 3) * 0.5}
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
                         className="decor-pic__rect"
                         x="0"
-                        y={h - cornerSize + (cornerSize / 3) * 0.5}
+                        y={height - cornerSize + (cornerSize / 3) * 0.5}
                         width={(cornerSize / 3) * 0.5}
                         height={cornerSize - (cornerSize / 3) * 0.5}
                     />
@@ -133,24 +144,24 @@ function DecoratedPicture({ imgurl, variant, w, h, cornerSize, cover = false, cl
         <picture className={`decor-pic ${className}`}>
             <svg
                 className={`decor-pic__svg decor-pic__svg--${variant}`}
-                viewBox={`0,0 ${w},${h}`}
+                viewBox={`0,0 ${width},${height}`}
                 xmlns="http://www.w3.org/2000/svg"
             >
                 {renderDecorations()}
                 {!isLoaded && (
                     <rect
-                        width={w}
-                        height={h}
+                        width={width}
+                        height={height}
                         clipPath={`url(#${maskID})`}
                         className="decor-pic__img-placeholder"
                     />
                 )}
                 <image
-                    width={cover ? "100%" : w}
-                    height={cover ? "100%" : h}
+                    width={cover ? "100%" : width}
+                    height={cover ? "100%" : height}
                     clipPath={`url(#${maskID})`}
                     className={`decor-pic__img decor-pic__img--${isLoaded ? "visible" : "hidden"}`}
-                    href={imgurl}
+                    href={imgUrl}
                     {...(cover ? { preserveAspectRatio: "xMidYMid slice" } : {})}
                 />
             </svg>

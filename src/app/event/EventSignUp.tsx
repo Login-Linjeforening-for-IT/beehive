@@ -1,10 +1,13 @@
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-import Button from "../../components/button/Button"
-import Alert from "../../components/alert/Alert"
+import * as DatetimeFormatter from "@utils/DatetimeFormatter"
+import Button from "@components/button/Button"
+import Alert from "@components/alert/Alert"
 import "./EventSignUp.css"
-import getCookie from "../../utils/getCookie"
+import getCookie from "@utils/getCookie"
+import no from "@text/eventPage/no.json"
+import en from "@text/eventPage/en.json"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
 export default function EventSignUp({
     url,

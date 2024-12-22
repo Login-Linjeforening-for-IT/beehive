@@ -6,7 +6,7 @@
         "location" : "Location",
         "locations" : "Locations",
         "skills" : "Skills",
-        "apply-btn" : "Apply here"
+        "applyButton" : "Apply here"
     },
     "published" : "PUBLISHED"
 }

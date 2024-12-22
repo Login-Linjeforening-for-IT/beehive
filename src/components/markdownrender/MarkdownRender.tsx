@@ -1,17 +1,14 @@
+'use client'
+
 import { useState, useEffect } from "react"
-// @ts-ignore
 import Markdown from "react-markdown"
-// @ts-ignore
 import remarkGfm from "remark-gfm"
-
-import EventItem from "../event/EventItem"
-import EventCardSkeleton from "../event/EventCardSkeleton"
-import JobadCard from "../jobad/JobadCard"
-import JobadCardSkeleton from "../jobad/JobadCardSkeleton"
-import Alert from "../alert/Alert"
-
-import { getEventRow, getJobRow } from "../../utils/api"
-
+import EventItem from "@components/event/EventItem"
+import EventCardSkeleton from "@components/event/EventCardSkeleton"
+import JobadCard from "@components/jobad/JobadCard"
+import JobadCardSkeleton from "@components/jobad/JobadCardSkeleton"
+import Alert from "@components/alert/Alert"
+import { getEventRow, getJobRow } from "@utils/api"
 import "./MarkdownRender.css"
 
 type CustomLinkProps = {
@@ -22,6 +19,36 @@ type CustomLinkProps = {
 type ErrorMessageProps = {
   err: any
   title: string
+}
+
+const components = {
+    // The md string should not contain a main header (#), the h1 header is  
+    // rendered by the parent component. If by mistake it cointains 
+    // a "# main header" this returns h2 instead.
+    h1: ({children}: any) => <h2 className='markdown-render__h2'>{children}</h2>,
+    h2: ({children}: any) => <h2 className='markdown-render__h2'>{children}</h2>,
+    h3: ({children}: any) => <h3 className='markdown-render__h3'>{children}</h3>,
+    h4: ({children}: any) => <h4 className='markdown-render__h4'>{children}</h4>,
+    h5: ({children}: any) => <h5 className='markdown-render__h5'>{children}</h5>,
+    h6: ({children}: any) => <h6 className='markdown-render__h6'>{children}</h6>,
+    p:  ({children}: any) => <section className='markdown-render__section'>{children}</section>,
+    em: ({children}: any) => <em className='markdown-render__em'>{children}</em>,
+    strong: ({children}: any) => <strong className='markdown-render__strong'>{children}</strong>,
+    table: ({children}: any) => <table className='markdown-render__table'>{children}</table>,
+    th: ({children}: any) => <th className='markdown-render__th'>{children}</th>,
+    td: ({children}: any) => <td className='markdown-render__td'>{children}</td>,
+    ul: ({children}: any) => <ul className='markdown-render__ul'>{children}</ul>,
+    ol: ({children}: any) => <ol className='markdown-render__ol'>{children}</ol>,
+    li: ({children}: any) => <li className='markdown-render__li'>{children}</li>,
+    a: CustomLink
+}
+
+export default function MarkdownRender({MDstr}: {MDstr: string}) {
+    return (
+        <Markdown components={components} remarkPlugins={[remarkGfm]}>
+            {MDstr.replace(/\\n/g, "\n")}
+        </Markdown>
+    )
 }
 
 function CustomLink({ href, children }: CustomLinkProps) {
@@ -158,33 +185,3 @@ function JobadEmbed(id: number) {
         </div>
     )
 }
-
-const components = {
-    // The md string should not contain a main header (#), the h1 header is  
-    // rendered by the parent component. If by mistake it cointains 
-    // a "# main header" this returns h2 instead.
-    h1: ({children}: any) => <h2 className='markdown-render__h2'>{children}</h2>,
-    h2: ({children}: any) => <h2 className='markdown-render__h2'>{children}</h2>,
-    h3: ({children}: any) => <h3 className='markdown-render__h3'>{children}</h3>,
-    h4: ({children}: any) => <h4 className='markdown-render__h4'>{children}</h4>,
-    h5: ({children}: any) => <h5 className='markdown-render__h5'>{children}</h5>,
-    h6: ({children}: any) => <h6 className='markdown-render__h6'>{children}</h6>,
-    p:  ({children}: any) => <section className='markdown-render__section'>{children}</section>,
-    em: ({children}: any) => <em className='markdown-render__em'>{children}</em>,
-    strong: ({children}: any) => <strong className='markdown-render__strong'>{children}</strong>,
-    table: ({children}: any) => <table className='markdown-render__table'>{children}</table>,
-    th: ({children}: any) => <th className='markdown-render__th'>{children}</th>,
-    td: ({children}: any) => <td className='markdown-render__td'>{children}</td>,
-    ul: ({children}: any) => <ul className='markdown-render__ul'>{children}</ul>,
-    ol: ({children}: any) => <ol className='markdown-render__ol'>{children}</ol>,
-    li: ({children}: any) => <li className='markdown-render__li'>{children}</li>,
-    a: CustomLink
-}
-
-export function MarkdownRender({MDstr}: {MDstr: string}) {
-    return (
-        <Markdown components={components} remarkPlugins={[remarkGfm]}>
-            {MDstr.replace(/\\n/g, "\n")}
-        </Markdown>
-    )
-};

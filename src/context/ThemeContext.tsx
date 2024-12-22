@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useState, useEffect } from "react"
 
 const COLOR_THEMES = {

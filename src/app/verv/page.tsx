@@ -1,5 +1,5 @@
-import ImageCarousel from "../../components/imagecarousel/ImageCarousel"
-import Button from "../../components/button/Button"
+import ImageCarousel from "@components/imagecarousel/ImageCarousel"
+import Button from "@components/button/Button"
 import VervTabs from "./VervTabs"
 import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
@@ -17,8 +17,8 @@ export default function Verv() {
     for (let i = 1; i <= 15; i++) {
         slides.push({
             imgSrc: `https://cdn.login.no/img/imagecarousel/${i}.jpg`,
-            title: text.imageCarousel.[i].title,
-            description: text.imageCarousel.[i].description,
+            title: text.imageCarousel[String(i) as keyof typeof text.imageCarousel].title,
+            description: text.imageCarousel[String(i) as keyof typeof text.imageCarousel].description,
         })
     }
 

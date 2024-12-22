@@ -1,15 +1,14 @@
+'use client'
+
 import { useState, useEffect } from "react"
-import { config } from "@constants"
-
-import fallbackImg from "assets/img/placeholders/jobad-logo__placeholder.svg"
-import * as DatetimeFormatter from "@utils/DatetimeFormatter"
-
-import Tags from "../tags/Tags"
-import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
-
+import config from "@config"
+import fallbackImg from "@assets/img/placeholders/jobad.svg"
+import Tags from "@components/tags/Tags"
+import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
 import "./JobadCard.css"
 import Link from "next/link"
 import getCookie from "@utils/getCookie"
+import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
@@ -44,7 +43,7 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                 <ul className='jobad-card__details'>
                     <li className='jobad-card__detail'>
                         <i className='jobad-card__icon material-symbols-sharp'>hourglass_bottom</i>
-                        {DatetimeFormatter.formatDeadlineDate(new Date(jobad.application_deadline), lang ? "en" : "no")}
+                        {formatDeadlineDate(new Date(jobad.application_deadline), lang ? "en" : "no")}
                     </li>
                 </ul>
                 {!disableTags &&

@@ -1,5 +1,5 @@
-import { config } from "../../Constants"
-import CommitteeTabs from "./CommitteeTabs.js"
+import config from "@config"
+import CommitteeTabs from "./CommitteeTabs"
 import StudyProgramsAcordion from "./StudyProgramsAccordion"
 import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPicture"
 import Contact from "@components/contact/Contact"
@@ -25,11 +25,11 @@ export default function About() {
                 <div className="about-intro__grid-container">
                     <StudyProgramsAcordion />
                     <DecoratedPicture
-                        imgurl={config.url.CDN_URL + "/img/styret2.jpg"}
+                        imgUrl={`${config.url.CDN_URL}/img/styret2.jpg`}
                         variant={3}
                         cornerSize={90}
-                        w={300}
-                        h={200}
+                        width={300}
+                        height={200}
                         cover={true}
                         className="about-intro__picture"
                     />

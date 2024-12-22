@@ -1,7 +1,8 @@
+'use client'
+
 import { useState, useEffect, useRef } from "react"
 import "./ImageCarousel.css"
-import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
-
+import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
 
 function NavigationButton({ side, onClick, onFocus }: any) {
     return (

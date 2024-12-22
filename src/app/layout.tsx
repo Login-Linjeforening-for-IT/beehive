@@ -1,16 +1,15 @@
 import { ReactNode } from "react"
 import type { Metadata } from "next"
-import TopBar from "@/layouts/topbar/TopBar"
-import Footer from "@/layouts/footer/Footer"
+import TopBar from "@components/topbar/TopBar"
+import Footer from "@components/footer/Footer"
 import "./globals.css"
-
 
 export const metadata: Metadata = {
     title: "Login",
     description: " Login - Linjeforeningen for IT",
 }
 
-export default function RootLayout({children}: {children: ReactNode}): JSX.Element {
+export default function RootLayout({children}: {children: ReactNode}) {
     return (
         <html lang="en" className='w-[100vw]'>
             <body className='w-full'>

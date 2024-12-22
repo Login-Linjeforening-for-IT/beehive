@@ -1,18 +1,17 @@
-import { config } from "../../Constants"
-import LogChamp from "../../components/logchamp/LogChamp"
-{/* @ts-ignore */}
-import board from "../../assets/boardmembers/fundBoardMembers.json"
-import placholder from "../../assets/img/placeholders/portrett_placeholder.svg"
-import DecoratedPicture from "../../components/images/decoratedpicture/DecoratedPicture"
-
+import config from "@config"
+import LogChamp from "@components/logchamp/LogChamp"
+import placholder from "@assets/img/placeholders/portrett_placeholder.svg"
+import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPicture"
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
+import board_en from '@text/board/no.json'
+import board_no from '@text/board/en.json'
 import getCookie from "@utils/getCookie"
 
 import "./page.css"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
+const text: any = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
 
 export default function Fund() {
 
@@ -88,26 +87,26 @@ export default function Fund() {
                         </div>
                         <div className='fund-board__intro-picture'>
                             <DecoratedPicture
-                                imgurl={config.url.CDN_URL + "/img/fondet/gruppebilde.jpg"}
+                                imgUrl={config.url.CDN_URL + "/img/fondet/gruppebilde.jpg"}
                                 variant={4}
                                 cornerSize={90}
-                                w={300}
-                                h={220}
+                                width={300}
+                                height={220}
                                 cover={true}
                             />
                         </div>
                     </div>
                     <h3 className='heading-3'>{text.board.composition.title}</h3>
                     <div className='fund-board__members'>
-                        {Object.keys(board).map(key => (
+                        {Object.keys(text).map(key => (
                             <div>
                                 <LogChamp
                                     key={key}
-                                    img={board[key].img == "" ? placholder : config.url.CDN_URL + "/img/fondet/" + board[key].img}
-                                    name={board[key].name == "" ? text.board.composition.placeholder : board[key].name}
-                                    position={useEng ? board[key].title_en : board[key].title_no}
-                                    discord={board[key].dctag}
-                                    discordLink={board[key].dclink}
+                                    img={text[key].img == "" ? placholder : `${config.url.CDN_URL}/img/fondet/${text[key].img}`}
+                                    name={text[key].name == "" ? text.board.composition.placeholder : text[key].name}
+                                    position={text[key].title}
+                                    discord={text[key].dctag}
+                                    discordLink={text[key].dclink}
                                 />
                             </div>
                         ))}

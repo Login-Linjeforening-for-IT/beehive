@@ -1,4 +1,4 @@
-import Contact from "../../components/contact/Contact"
+import Contact from "@components/contact/Contact"
 import no from '@text/policy/no.json'
 import en from '@text/policy/en.json'
 import getCookie from "@utils/getCookie"

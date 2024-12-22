@@ -1,24 +1,21 @@
+'use client'
+
 import { useState, useEffect } from "react"
 // @ts-ignore
 import { useParams } from "react-router-dom"
-import { config } from "../../Constants"
-
-// @ts-ignore
-import Spinner from "../../components/spinner/Spinner"
-import Article from "../../components/article/Article"
-import RenderSmoothImage from "../../components/images/rendersmoothimage/RenderSmoothImage"
-import Button from "../../components/button/Button"
-import Alert from "../../components/alert/Alert"
-
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-import { getJob } from "../../utils/api"
-
-import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
-import "./page.css"
-
+import config from "@config"
+import Spinner from "@components/spinner/spinner"
+import Article from "@components/article/Article"
+import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
+import Button from "@components/button/Button"
+import Alert from "@components/alert/Alert"
+import { getJob } from "@utils/api"
+import fallbackImg from "@assets/img/placeholders/jobad.svg"
 import no from '@text/jobadPage/no.json'
 import en from '@text/jobadPage/en.json'
 import getCookie from "@utils/getCookie"
+import "./page.css"
+import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
@@ -61,7 +58,7 @@ export default function JobadPage() {
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const [showBannerImg, setShowBannerImg] = useState(false)
     const hideBannerImg = () => setShowBannerImg(false)
-    const [jobad, setJobad] = useState(null)
+    const [jobad, setJobad] = useState<any | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
@@ -144,7 +141,7 @@ export default function JobadPage() {
                                 {text.details.deadline}:
                             </div>
                             <div className="jobad-details__value">
-                                {DatetimeFormatter.formatDeadlineDate(
+                                {formatDeadlineDate(
                                     // @ts-ignore
                                     new Date(jobad.job.application_deadline),
                                     lang

@@ -1,34 +1,30 @@
 import { useState } from "react"
-import DateTile from "../datetile/DateTile"
-import Tags from "../tags/Tags"
-import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
-import DefaultEventBanner from "../svg/defaultbanners/DefaultEventBanner"
-import DefaultCtfBanner from "../svg/defaultbanners/DefaultCtfBanner"
-import DefaultTekkomBanner from "../svg/defaultbanners/DefaultTekkomBanner"
-import DefaultBedpresBanner from "../svg/defaultbanners/DefaultBedpresBanner"
-import DefaultSocialBanner from "../svg/defaultbanners/DefaultSocialBanner"
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-// @ts-ignore
-import getTranslation from "../../utils/GetTranslation"
-import { isNew } from "../../utils/DatetimeFormatter"
-import { config } from "../../Constants"
-
-import "./EventItem.css"
+import DateTile from "@components/datetile/DateTile"
+import Tags from "@components/tags/Tags"
+import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
+import DefaultEventBanner from "@svg/defaultbanners/DefaultEventBanner"
+import DefaultCtfBanner from "@svg/defaultbanners/DefaultCtfBanner"
+import DefaultTekkomBanner from "@svg/defaultbanners/DefaultTekkomBanner"
+import DefaultBedpresBanner from "@svg/defaultbanners/DefaultBedpresBanner"
+import DefaultSocialBanner from "@svg/defaultbanners/DefaultSocialBanner"
+import { isNew } from "@utils/DatetimeFormatter"
+import config from "@config"
 import Link from "next/link"
-import getCookie from "../../utils/getCookie"
+import getCookie from "@utils/getCookie"
+import "./EventItem.css"
+import { formatEventStartDate, isOngoing } from "@utils/DatetimeFormatter"
 
 type EventListItemProps = { 
   event: any
   highlight: boolean
-  disableTags: boolean
+  disableTags?: boolean
   variant: string 
 }
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
-export default function EventListItem({ event, highlight=true, disableTags=false, variant="list-item" }: EventListItemProps) {
+export default function EventListItem({ event, highlight = true, disableTags = false, variant="list-item" }: EventListItemProps) {
     const [showImage, setShowImage] = useState(true)
-    const tr = getTranslation(useEng)
 
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
         if (disableTags) return false
@@ -81,7 +77,7 @@ export default function EventListItem({ event, highlight=true, disableTags=false
                         </>
                     )}
                     <div className="event-item__info">
-                        <div className="event-item__name">{tr(event.name_en, event.name_no)}</div>
+                        <div className="event-item__name">{lang ? event.name_en : event.name_no}</div>
                         <ul className="event-item__details">
                             {(event.time_type.toLowerCase() != "whole_day") &&
                 <li className="event-item__detail">
@@ -89,7 +85,7 @@ export default function EventListItem({ event, highlight=true, disableTags=false
                         schedule
                     </i>
                     {event.time_type.toLowerCase() != "tbd" ? 
-                        DatetimeFormatter.formatEventStartDate(new Date(event.time_start), lang)
+                        formatEventStartDate(new Date(event.time_start), lang)
                         :
                         "TBD"
                     }
@@ -100,18 +96,18 @@ export default function EventListItem({ event, highlight=true, disableTags=false
                                     <i className="event-item__icon material-symbols-sharp">
                                         location_on
                                     </i>
-                                    {tr(event.location_name_en, event.location_name_no)}
+                                    {lang ? event.location_name_en : event.location_name_no}
                                 </li>
                             )}
                         </ul>
-                        {useTags(event.time_publish, event.highlight, event.canceled, event.full, DatetimeFormatter.isOngoing(startDate, endDate)) &&
+                        {useTags(event.time_publish, event.highlight, event.canceled, event.full, isOngoing(startDate, endDate)) &&
               <div className="event-item__tags">
                   <Tags
                       highlight={event.highlight}
                       timePublish={new Date(event.time_publish)}
                       canceled={event.canceled}
                       full={event.full}
-                      ongoing={DatetimeFormatter.isOngoing(startDate, endDate)}
+                      ongoing={isOngoing(startDate, endDate)}
                   />
               </div>
                         }

@@ -1,6 +1,6 @@
-import getCookie from "../../utils/getCookie"
+import getCookie from "@utils/getCookie"
 import "./DateTile.css"
-import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation.ts"
+import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 

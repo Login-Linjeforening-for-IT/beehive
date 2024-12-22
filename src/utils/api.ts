@@ -1,4 +1,4 @@
-import { config } from "../Constants"
+import config from "@config"
 
 const baseUrl = config.url.API_URL
 

@@ -1,17 +1,15 @@
-import * as TimeFormatter from "../../utils/DatetimeFormatter"
-// @ts-ignore
-import MarkdownRender from "../markdownrender/MarkdownRender"
-import Alert from "../alert/Alert"
-
+import MarkdownRender from "@components/markdownrender/MarkdownRender"
+import Alert from "@components/alert/Alert"
+import getCookie from "@utils/getCookie"
 import "./Article.css"
-import getCookie from "../../utils/getCookie"
+import { formatPublishedDate } from "@utils/DatetimeFormatter"
 
 type ArticleProps = { 
   title: string
   publishTime: Date
   updateTime: Date
-  informational: string
-  introduction: string
+  informational: boolean
+  introduction?: string
   description: string
 }
 
@@ -23,13 +21,13 @@ export default function Article({ title, publishTime, updateTime, informational,
             <h1 className="article__header">{title}</h1>
             <div className="article__meta-display">
                 <span className="article__meta-date">
-                    {useEng ? "PUBLISHED: " : "PUBLISERT: "}
-                    {TimeFormatter.formatPublishedDate(publishTime, lang)}
+                    {lang === "en" ? "PUBLISHED: " : "PUBLISERT: "}
+                    {formatPublishedDate(publishTime, lang)}
                 </span>
                 {publishTime < updateTime &&
           <span className="article__meta-date">
-              {useEng ? "UPDATED: " : "OPPDATERT: "}
-              {TimeFormatter.formatPublishedDate(updateTime, lang)}
+              {lang === "en" ? "UPDATED: " : "OPPDATERT: "}
+              {formatPublishedDate(updateTime, lang)}
           </span>
                 }
             </div>

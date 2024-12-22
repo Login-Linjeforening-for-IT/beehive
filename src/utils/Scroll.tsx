@@ -1,4 +1,6 @@
-import {useEffect} from "react"
+'use client'
+
+import { useEffect } from "react"
 {/* @ts-ignore */}
 import { useLocation } from "react-router"
 

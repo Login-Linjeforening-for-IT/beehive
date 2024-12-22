@@ -6,7 +6,7 @@
         "location" : "Sted",
         "locations" : "Steder",
         "skills" : "Ferdigheter",
-        "apply-btn" : "Søk her"
+        "applyButton" : "Søk her"
     },
     "published" : "PUBLISERT"
 }

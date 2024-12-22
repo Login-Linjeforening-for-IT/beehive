@@ -1,16 +1,18 @@
+'use client'
+
 import { useRef, useState, useEffect } from "react"
-import Button from "../button/Button"
-import CheckBox from "../checkbox/Checkbox"
-import CheckTag from "../checktag/Checktag"
-import "./filter.css"
+import Button from "@components/button/Button"
+import CheckBox from "@components/checkbox/Checkbox"
+import CheckTag from "@components/checktag/Checktag"
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
 import getCookie from "@utils/getCookie"
+import "./filter.css"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 const text = lang === 'en' ? en : no
 
-export default function FilterGroup({ filters, onApply, close = false }) {
+export default function FilterGroup({ filters, onApply, close = false }: any) {
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
 

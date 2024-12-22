@@ -1,4 +1,4 @@
-import MazeMapEmbed from "../mazemap/MazeMapEmbed"
+import MazeMapEmbed from "@components/mazemap/MazeMapEmbed"
 import no from '@text/contact/no.json'
 import en from '@text/contact/en.json'
 import getCookie from "@utils/getCookie"

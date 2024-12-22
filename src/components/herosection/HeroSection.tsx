@@ -1,9 +1,14 @@
-import LoginLogo from "../svg/brandlogos/LoginLogo"
-import Button from "../button/Button"
-
+import LoginLogo from "@components/svg/brandlogos/LoginLogo"
+import Button from "@components/button/Button"
+import getCookie from "@utils/getCookie"
+import no from "@text/landing/no.json"
+import en from "@text/landing/en.json"
 import "./HeroSection.css"
-export default function LandingPage() {
 
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
+
+export default function LandingPage() {
     return (
         <div className="hero-section">
             <div className="hero-section__container">

@@ -1,4 +1,4 @@
-import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation.ts"
+import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation"
 import "./defualt-banner.css"
 
 export default function DefaultBedpresBanner({ color, transition = true, className = "" }: ColorTransitionClassNameProps) {

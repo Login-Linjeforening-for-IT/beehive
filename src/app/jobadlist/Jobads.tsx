@@ -1,14 +1,14 @@
+'use client'
+
 import { useState, useEffect, useRef } from "react"
-// @ts-ignore
-import Spinner from "../../components/spinner/Spinner"
-import JobadsListItem from "../../components/jobad/JobadsListItem"
-import Button from "../../components/button/Button.jsx"
-import FilterGroup from "../../components/filter/filter"
-import Alert from "../../components/alert/Alert.jsx"
-// @ts-ignore
-import { debounce } from "@/utils/debounce.ts"
-import prepFilter from "../../components/filter/prepFilter.js"
-import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "../../utils/api"
+import Spinner from "@components/spinner/spinner"
+import JobadsListItem from "@components/jobad/JobadsListItem"
+import Button from "@components/button/Button.jsx"
+import FilterGroup from "@components/filter/filter"
+import Alert from "@components/alert/Alert.jsx"
+import debounce from "@/utils/debounce"
+import prepFilter from "@components/filter/prepFilter"
+import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "@utils/api"
 import "./Jobads.css"
 
 import no from '@text/jobadList/no.json'

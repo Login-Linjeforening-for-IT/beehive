@@ -15,4 +15,6 @@ const dev = {
 
 // prod.url.API_URL = process.env.REACT_APP_API_URL
 
-export const config = process.env.NODE_ENV === "development" ? dev : prod
+const config = process.env.NODE_ENV === "development" ? dev : prod
+
+export default config

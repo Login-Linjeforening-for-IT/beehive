@@ -1,4 +1,4 @@
-import { config } from "../../Constants"
+import config from "@config"
 import SocialLinks from "./SocialLinks"
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'

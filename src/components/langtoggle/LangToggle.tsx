@@ -1,11 +1,10 @@
 'use client'
 
-// @ts-ignore
-import {withTranslation} from "react-i18next"
-import {useEffect, useState} from "react"
-
 import { useEffect, useState } from "react"
+import getCookie from "@utils/getCookie"
 import "./LangToggle.css"
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
 export default function LangToggle() {
     const [buttonText, setButtonText] = useState("")

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useContext } from "react"
-import { config } from "@constants"
+import config from "@config"
 import ThemeContext, { ThemeProvider } from "@context/ThemeContext"
 import { getEvents, getJobs } from "@utils/api"
 import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPicture"
@@ -58,11 +58,11 @@ function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgurl={config.url.CDN_URL + "/img/styret.jpg"}
+                    imgUrl={config.url.CDN_URL + "/img/styret.jpg"}
                     variant={4}
                     cornerSize={40}
-                    w={150}
-                    h={100}
+                    width={150}
+                    height={100}
                     cover={true}
                     className="landing-info__picture"
                 />
@@ -80,11 +80,11 @@ function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgurl={config.url.CDN_URL + "/img/cyberdagen_preben.jpg"}
+                    imgUrl={config.url.CDN_URL + "/img/cyberdagen_preben.jpg"}
                     variant={2}
                     cornerSize={40}
-                    w={150}
-                    h={100}
+                    width={150}
+                    height={100}
                     cover={true}
                     className="landing-info__picture"
                 />
@@ -103,11 +103,11 @@ function SmallInfo() {
                     </a>
                 </div>
                 <DecoratedPicture
-                    imgurl={config.url.CDN_URL + getSponsorPath()}
+                    imgUrl={config.url.CDN_URL + getSponsorPath()}
                     variant={0}
                     cornerSize={0}
-                    w={100}
-                    h={30}
+                    width={100}
+                    height={30}
                     className="landing-info__picture"
                 />
             </div>
@@ -178,7 +178,7 @@ function EventsPreview() {
                         <li className="dynamic-preview-list__item">
                             <EventCardSkeleton />
                         </li>
-                        <EndCard t={t} path="/career" />
+                        <EndCard path="/career" />
                     </ul>
                 )}
                 {!loading && events && events.length > 0 && (
@@ -188,7 +188,7 @@ function EventsPreview() {
                                 <EventListItem event={e} variant="card" highlight={false} />
                             </li>
                         ))}
-                        {events.length > 2 && <EndCard t={t} path="/events" />}
+                        {events.length > 2 && <EndCard path="/events" />}
                     </ul>
                 )}
                 {error && !loading && (
@@ -254,7 +254,7 @@ function JobadsPreview() {
                         <li className="dynamic-preview-list__item">
                             <JobadCardSkeleton />
                         </li>
-                        <EndCard t={t} path="/career" />
+                        <EndCard path="/career" />
                     </ul>
                 )}
                 {!loading && jobads && jobads.length > 0 && (
@@ -264,7 +264,7 @@ function JobadsPreview() {
                                 <JobadCard jobad={e} />
                             </li>
                         ))}
-                        {jobads.length > 2 && <EndCard t={t} path="/career" />}
+                        {jobads.length > 2 && <EndCard path="/career" />}
                     </ul>
                 )}
                 {error && !loading && (

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { config } from "@constants"
+import config from "@config"
 // @ts-ignore
 import board from "@assets/boardmembers/boardmembers.json"
 import TabNavItem from "@components/tabs/TabNavItem"

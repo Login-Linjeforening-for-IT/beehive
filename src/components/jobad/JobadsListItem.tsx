@@ -1,13 +1,15 @@
+'use client'
+
 import { useState, useEffect } from "react"
 import "./JobadsListItem.css"
-import fallbackImg from "@assets/img/placeholders/jobad-logo__placeholder.svg"
-import * as DatetimeFormatter from "@utils/DatetimeFormatter"
-import * as Translator from "@utils/GetTranslation"
-import { config } from "@constants"
-import Tags from "../tags/Tags"
-import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
+import fallbackImg from "@assets/img/placeholders/jobad.svg"
+import config from "@config"
+import Tags from "@components/tags/Tags"
+import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
 import Link from "next/link"
 import getCookie from "@utils/getCookie"
+import { isNew } from "@utils/DatetimeFormatter"
+import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
@@ -70,7 +72,7 @@ export default function JobadsListItem({ jobad }: any) {
   
     function useTags(publishTime: any, highlight: any) {
         if (highlight) return true
-        if (DatetimeFormatter.isNew(publishTime)) return true
+        if (isNew(publishTime)) return true
         return false
     }
 
@@ -107,23 +109,23 @@ export default function JobadsListItem({ jobad }: any) {
                         <ul className='jobads-item__details'>
                             <li className='jobads-item__detail'>
                                 <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
-                                {DatetimeFormatter.formatDeadlineDate(new Date(jobad.application_deadline), useEng ? "en" : "no")}
+                                {formatDeadlineDate(new Date(jobad.application_deadline), lang)}
                             </li>
                             <li className='jobads-item__detail'>
                                 <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
                                 {tr(jobad.organization_name_en, jobad.organization_name_no)}
                             </li>
                             {jobad.job_type && 
-                <li className='jobads-item__detail'>
-                    <i className='jobads-item__icon material-symbols-sharp'>work_history</i>
-                    {getJobTypeLabel(jobad.job_type, useEng ? "en" : "no")}
-                </li>
+                                <li className='jobads-item__detail'>
+                                    <i className='jobads-item__icon material-symbols-sharp'>work_history</i>
+                                    {getJobTypeLabel(jobad.job_type, lang)}
+                                </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
-                <li className='jobads-item__detail'>
-                    <i className='jobads-item__icon material-symbols-sharp'>location_on</i>
-                    {formatCities(jobad.cities)}
-                </li>
+                                <li className='jobads-item__detail'>
+                                    <i className='jobads-item__icon material-symbols-sharp'>location_on</i>
+                                    {formatCities(jobad.cities)}
+                                </li>
                             }
                         </ul>
                     </div>

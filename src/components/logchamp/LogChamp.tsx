@@ -1,4 +1,4 @@
-import DecoratedPicture from "../images/decoratedpicture/DecoratedPicture"
+import DecoratedPicture from "@components/images/decoratedpicture/DecoratedPicture"
 import "./LogChamp.css"
 
 type LogChampProps = {
@@ -13,11 +13,11 @@ export default function LogChamp({name, position, img, discord, discordLink}: Lo
     return (
         <div className='logchamp'>
             <DecoratedPicture
-                imgurl={img}
+                imgUrl={img}
                 variant={Math.ceil(Math.random() * 4)}
                 cornerSize={36}
-                w={100}
-                h={100}
+                width={100}
+                height={100}
             />
             <div className='logchamp__info'>
                 <p className='logchamp__title'>{position}</p>

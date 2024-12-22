@@ -1,9 +1,10 @@
+'use client'
+
 import { useState, useEffect, useMemo } from "react"
 // @ts-ignore
 import { useParams } from "react-router-dom"
-import { config } from "../../Constants"
-// @ts-ignore
-import Spinner from "@components/spinner/Spinner"
+import config from "@config"
+import Spinner from "@components/spinner/spinner"
 import DateTile from "@components/datetile/DateTile"
 import DropDownBox from "@components/dropdownbox/DropDownBox"
 import MazeMapEmbed from "@components/mazemap/MazeMapEmbed"
@@ -11,16 +12,12 @@ import EventSignUp from "./EventSignUp"
 import Alert from "@components/alert/Alert"
 import Article from "@components/article/Article"
 import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
-// @ts-ignore
 import MarkdownRender from "@components/markdownrender/MarkdownRender"
-
 import DefaultEventBanner from "@components/svg/defaultbanners/DefaultEventBanner"
 import DefaultCtfBanner from "@components/svg/defaultbanners/DefaultCtfBanner"
 import DefaultTekkomBanner from "@components/svg/defaultbanners/DefaultTekkomBanner"
 import DefaultBedpresBanner from "@components/svg/defaultbanners/DefaultBedpresBanner"
 import DefaultSocialBanner from "@components/svg/defaultbanners/DefaultSocialBanner"
-
-import * as DatetimeFormatter from "@utils/DatetimeFormatter"
 import { getEvent } from "@utils/api"
 
 import no from '@text/eventPage/no.json'
@@ -28,6 +25,7 @@ import en from '@text/eventPage/en.json'
 import getCookie from "@utils/getCookie"
 
 import "./EventPage.css"
+import { formatEventStatusDate, isOngoing } from "@utils/DatetimeFormatter"
 
 const lang = getCookie('lang') as 'no' | 'en' || 'no'
 const text = lang === 'en' ? en : no
@@ -145,7 +143,7 @@ export default function EventPage() {
                       />
                       <div className="event-datetime-display__right">
                           <div className="event-datetime-display__day">
-                              {DatetimeFormatter.isOngoing(
+                              {isOngoing(
                                   // @ts-ignore
                                   new Date(event.event.time_start),
                                   // @ts-ignore
@@ -154,7 +152,7 @@ export default function EventPage() {
                               // @ts-ignore
                       <span class="event-datetime-display__live-dot"></span>
                               }
-                              {DatetimeFormatter.formatEventStatusDate(
+                              {formatEventStatusDate(
                                   // @ts-ignore
                                   new Date(event.event.time_start),
                                   // @ts-ignore

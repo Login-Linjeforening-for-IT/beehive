@@ -1,22 +1,27 @@
 import { useState } from "react";
-import TabNavItem from "../../components/tabs/TabNavItem";
-import TabContent from "../../components/tabs/TabContent";
-import LogChamp from "../../components/logchamp/LogChamp";
-import EventkomLogo from "../../components/svg/committeelogos/EventkomLogo";
-import BedkomLogo from "../../components/svg/committeelogos/BedkomLogo";
-import TekkomLogo from "../../components/svg/committeelogos/TekkomLogo";
-import CtfkomLogo from "../../components/svg/committeelogos/CtfkomLogo";
-import SatkomLogo from "../../components/svg/committeelogos/SatkomLogo";
-import PrLogo from "../../components/svg/committeelogos/PrLogo";
-import { config } from "../../Constants";
-// @ts-ignore
-import board from "../../assets/boardmembers/boardmembers.json";
-import "../../components/tabs/Tabs.css";
-import "../about/CommitteeTabs.css";
+import TabNavItem from "@components/tabs/TabNavItem";
+import TabContent from "@components/tabs/TabContent";
+import LogChamp from "@components/logchamp/LogChamp";
+import EventkomLogo from "@components/svg/committeelogos/EventkomLogo";
+import BedkomLogo from "@components/svg/committeelogos/BedkomLogo";
+import TekkomLogo from "@components/svg/committeelogos/TekkomLogo";
+import CtfkomLogo from "@components/svg/committeelogos/CtfkomLogo";
+import SatkomLogo from "@components/svg/committeelogos/SatkomLogo";
+import PrLogo from "@components/svg/committeelogos/PrLogo";
+import config from "@config";
+import "@components/tabs/Tabs.css";
+import "@components/about/CommitteeTabs.css";
+import getCookie from "@utils/getCookie";
+import en from "@text/verv/en.json"
+import no from "@text/verv/no.json"
+import board_no from "@text/board/no.json";
+import board_en from "@text/board/en.json";
+
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
 
 export default function VervTabs() {
   const [activeTab, setActiveTab] = useState("event");
-  const useEng = lang === "en";
 
   return (
     <div className="tabs committees page-section--without-gaps">
@@ -76,17 +81,11 @@ export default function VervTabs() {
             />
           </div>
           <LogChamp
-            img={
-              config.url.CDN_URL + "/img/portraits/" + board.eventkomLeader.img
-            }
-            name={board.eventkomLeader.name}
-            position={
-              useEng
-                ? board.eventkomLeader.title_en
-                : board.eventkomLeader.title_no
-            }
-            discord={board.eventkomLeader.dctag}
-            discordLink={board.eventkomLeader.dclink}
+            img={`${config.url.CDN_URL}/img/portraits/${text.evntkomLeader.img}`}
+            name={text.evntkomLeader.name}
+            position={text.evntkomLeader.title}
+            discord={text.evntkomLeader.dctag}
+            discordLink={text.evntkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -103,13 +102,11 @@ export default function VervTabs() {
             <p className="p--regular">{text.committeeSection.tekkom.body}</p>
           </div>
           <LogChamp
-            img={`${config.url.CDN_URL}/img/portraits/${board.tekkomLeader.img}`}
-            name={board.tekkomLeader.name}
-            position={
-              useEng ? board.tekkomLeader.title_en : board.tekkomLeader.title_no
-            }
-            discord={board.tekkomLeader.dctag}
-            discordLink={board.tekkomLeader.dclink}
+            img={`${config.url.CDN_URL}/img/portraits/${text.tekkomLeader.img}`}
+            name={text.tekkomLeader.name}
+            position={text.tekkomLeader.title}
+            discord={text.tekkomLeader.dctag}
+            discordLink={text.tekkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -126,13 +123,11 @@ export default function VervTabs() {
             <p className="p--regular">{text.committeeSection.bedkom.body}</p>
           </div>
           <LogChamp
-            img={`${config.url.CDN_URL}/img/portraits/${board.bedkomLeader.img}`}
-            name={board.bedkomLeader.name}
-            position={
-              useEng ? board.bedkomLeader.title_en : board.bedkomLeader.title_no
-            }
-            discord={board.bedkomLeader.dctag}
-            discordLink={board.bedkomLeader.dclink}
+            img={`${config.url.CDN_URL}/img/portraits/${text.bedkomLeader.img}`}
+            name={text.bedkomLeader.name}
+            position={text.bedkomLeader.title}
+            discord={text.bedkomLeader.dctag}
+            discordLink={text.bedkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -154,15 +149,11 @@ export default function VervTabs() {
             />
           </div>
           <LogChamp
-            img={
-              config.url.CDN_URL + "/img/portraits/" + board.ctfkomLeader.img
-            }
-            name={board.ctfkomLeader.name}
-            position={
-              useEng ? board.ctfkomLeader.title_en : board.ctfkomLeader.title_no
-            }
-            discord={board.ctfkomLeader.dctag}
-            discordLink={board.ctfkomLeader.dclink}
+            img={`${config.url.CDN_URL}/img/portraits/${text.ctfkomLeader.img}`}
+            name={text.ctfkomLeader.name}
+            position={text.ctfkomLeader.title}
+            discord={text.ctfkomLeader.dctag}
+            discordLink={text.ctfkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -182,13 +173,11 @@ export default function VervTabs() {
             <p className="p--regular">{text.committeeSection.satkom.body}</p>
           </div>
           <LogChamp
-            img={`${config.url.CDN_URL}/img/portraits/${board.satkomLeader.img}`}
-            name={board.satkomLeader.name}
-            position={
-              useEng ? board.satkomLeader.title_en : board.satkomLeader.title_no
-            }
-            discord={board.satkomLeader.dctag}
-            discordLink={board.satkomLeader.dclink}
+            img={`${config.url.CDN_URL}/img/portraits/${text.satkomLeader.img}`}
+            name={text.satkomLeader.name}
+            position={text.satkomLeader.title}
+            discord={text.satkomLeader.dctag}
+            discordLink={text.satkomLeader.dclink}
           />
         </div>
       </TabContent>
@@ -207,13 +196,11 @@ export default function VervTabs() {
             <p className="p--regular">{text.committeeSection.pr.body}</p>
           </div>
           <LogChamp
-            img={`${config.url.CDN_URL}/img/portraits/${board.prLeader.img}`}
-            name={board.prLeader.name}
-            position={
-              useEng ? board.prLeader.title_en : board.prLeader.title_no
-            }
-            discord={board.prLeader.dctag}
-            discordLink={board.prLeader.dclink}
+            img={`${config.url.CDN_URL}/img/portraits/${text.prLeader.img}`}
+            name={text.prLeader.name}
+            position={text.prLeader.title}
+            discord={text.prLeader.dctag}
+            discordLink={text.prLeader.dclink}
           />
         </div>
       </TabContent>
