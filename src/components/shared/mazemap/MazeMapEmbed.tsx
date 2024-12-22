@@ -18,7 +18,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     //initialize map only once, poi will probably not change
     useEffect(() => {
-        import("@/vendor/mazemap/mazemap.min").then((mazemap) => setMazemap(mazemap))
+        import("@/vendor/mazemap/mazemap.min.mjs").then((mazemap) => setMazemap(mazemap))
         if (!Mazemap || !hasMounted) return
 
         // @ts-ignore
