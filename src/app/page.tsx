@@ -1,6 +1,5 @@
+'use client'
 import { useState, useEffect, useContext } from "react"
-// @ts-ignore
-import { Link } from "react-router-dom"
 // @ts-ignore
 import { withTranslation } from "react-i18next"
 
@@ -17,6 +16,7 @@ import JobadCardSkeleton from "../components/jobad/JobadCardSkeleton"
 import HeroSection from "../components/herosection/HeroSection"
 
 import "./page.css"
+import Link from "next/link"
 
 
 function SmallInfo({ t }: any) {
@@ -38,7 +38,7 @@ function SmallInfo({ t }: any) {
                     <p className="p--regular">{t("whoAreWe.body")}</p>
                     <Link
                         className="landing-info__link link link--primary link--corner-hover"
-                        to="/about"
+                        href="/about"
                     >
                         {t("readMore")}
                     </Link>
@@ -60,7 +60,7 @@ function SmallInfo({ t }: any) {
                     <p className="p--regular">{t("companiesInfo.body")}</p>
                     <Link
                         className="landing-info__link link link--primary link--corner-hover"
-                        to="/companies"
+                        href="/companies"
                     >
                         {t("readMore")}
                     </Link>
@@ -104,7 +104,7 @@ function SmallInfo({ t }: any) {
 function EndCard({ t, path }: any) {
     return (
         <li className="dynamic-preview-list__item dynamic-preview-end-card">
-            <Link to={path} className="dynamic-preview-end-card__btn">
+            <Link href={path} className="dynamic-preview-end-card__btn">
                 <div className="dynamic-preview-end-card__arrow-container">
                     <div className="dynamic-preview-end-card__arrow"></div>
                 </div>
@@ -147,7 +147,7 @@ function EventsPreview({ t }: any) {
                     <h2 className="dynamic-preview-heading__title">
                         {t("eventsPreview.title")}
                     </h2>
-                    <Link to="/events" className="dynamic-preview-heading__link">
+                    <Link href="/events" className="dynamic-preview-heading__link">
                         <span className="dynamic-preview-heading__link-text">
                             {t("jobadsPreview.see-all")}
                         </span>
@@ -223,7 +223,7 @@ function JobadsPreview({ t }: any) {
                     <h2 className="dynamic-preview-heading__title">
                         {t("jobadsPreview.title")}
                     </h2>
-                    <Link to="/career" className="dynamic-preview-heading__link">
+                    <Link href="/career" className="dynamic-preview-heading__link">
                         <span className="dynamic-preview-heading__link-text">
                             {t("jobadsPreview.see-all")}
                         </span>

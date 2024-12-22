@@ -1,5 +1,5 @@
+// @ts-nocheck
 import React from "react"
-// @ts-ignore
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import "./styles/colors.css"

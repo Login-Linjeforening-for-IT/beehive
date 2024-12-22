@@ -1,6 +1,5 @@
+import Link from "next/link"
 import { useState } from "react"
-// @ts-ignore
-import { NavLink } from "react-router-dom"
 // @ts-ignore
 import { withTranslation } from "react-i18next"
 
@@ -15,15 +14,15 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
 
     return (
         <nav className={`mobile-nav${open ? " mobile-nav--open" : ""}`}>
-            <NavLink onClick={close} to="events" tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href="/events" tabIndex={open ? 0 : -1}>
                 <li className="mobile-nav__item">{t("nav.events")}</li>
-            </NavLink>
-            <NavLink onClick={close} to="career" tabIndex={open ? 0 : -1}>
+            </Link>
+            <Link onClick={close} href="/career" tabIndex={open ? 0 : -1}>
                 <li className="mobile-nav__item">{t("nav.jobad")}</li>
-            </NavLink>
-            <NavLink onClick={close} to="companies" tabIndex={open ? 0 : -1}>
+            </Link>
+            <Link onClick={close} href="/companies" tabIndex={open ? 0 : -1}>
                 <li className="mobile-nav__item">{t("nav.companies")}</li>
-            </NavLink>
+            </Link>
             <div
                 className={`mobile-nav-dropdown${
                     isDropdownOpen ? " mobile-nav-dropdown--open" : ""
@@ -42,27 +41,27 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
                     </li>
                 </button>
                 <div className="mobile-nav-dropdown__items">
-                    <NavLink
+                    <Link
                         onClick={close}
-                        to="about"
+                        href="/about"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className="mobile-nav-dropdown__item">{t("nav.general")}</li>
-                    </NavLink>
-                    <NavLink
+                    </Link>
+                    <Link
                         onClick={close}
-                        to="verv"
+                        href="/verv"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className="mobile-nav-dropdown__item">{t("nav.verv")}</li>
-                    </NavLink>
-                    <NavLink
+                    </Link>
+                    <Link
                         onClick={close}
-                        to="fond"
+                        href="/fond"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className="mobile-nav-dropdown__item">{t("nav.fondet")}</li>
-                    </NavLink>
+                    </Link>
                     <a
                         title="Wiki"
                         href="https://wiki.login.no"

@@ -15,7 +15,7 @@ import DefaultSocialBanner from "../svg/defaultbanners/DefaultSocialBanner"
 
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
 // @ts-ignore
-import { getTranslation } from "../../utils/GetTranslation"
+import getTranslation from "../../utils/GetTranslation"
 import { isNew } from "../../utils/DatetimeFormatter"
 import { config } from "../../Constants"
 

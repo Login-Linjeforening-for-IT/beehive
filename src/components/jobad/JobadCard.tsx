@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { withTranslation } from "react-i18next"
 import { config } from "../../Constants"
 
-import fallbackImg from "../../assets/img/placeholders/jobad-logo__placeholder.svg"
+import fallbackImg from "assets/img/placeholders/jobad-logo__placeholder.svg"
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
 import * as Translator from "../../utils/GetTranslation"
 

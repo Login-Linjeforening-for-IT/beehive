@@ -1,6 +1,6 @@
 
 
-import * as ColorManipulation from "../../../utils/ColorManipulation.js"
+import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation.js"
 import "./defualt-banner.css"
 
 export default function DefaultEventBanner({ color, transition = true, className = "" }: ColorTransitionClassNameProps) {
@@ -8,9 +8,9 @@ export default function DefaultEventBanner({ color, transition = true, className
     let gradient = color
     let fillColor = "white"
 
-    if (ColorManipulation.isValidHex(color)) {
-        gradient = ColorManipulation.createGradient(color)
-        fillColor = ColorManipulation.adjustBrightnessHex(color, -0.3) || "white"
+    if (isValidHex(color)) {
+        gradient = createGradient(color)
+        fillColor = adjustBrightnessHex(color, -0.3) || "white"
     }
 
     return (

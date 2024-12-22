@@ -167,7 +167,7 @@
   padding-bottom: .6rem;
 }
 
-/* higlight active navlink */
+/* higlight active link */
 .active .mobile-nav__item, .active .mobile-nav-dropdown__item {
   color: var(--color-primary);
 }

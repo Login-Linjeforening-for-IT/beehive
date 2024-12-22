@@ -1,8 +1,8 @@
 {/* @ts-ignore */}
 import { withTranslation } from "react-i18next"
-import * as ColorManipulation from "../../utils/ColorManipulation.js"
 
 import "./DateTile.css"
+import { createGradient, hexToRgba, isValidHex } from "@/utils/ColorManipulation.js"
 
 function DateTile({
     i18n,
@@ -62,11 +62,11 @@ function DateTile({
 
     let background
 
-    if (ColorManipulation.isValidHex(color)) {
+    if (isValidHex(color)) {
         if (varient === "regular") {
-            background = ColorManipulation.createGradient(color, 1)
+            background = createGradient(color, 1)
         } else {
-            background = ColorManipulation.hexToRgba(color, 0.75)
+            background = hexToRgba(color, 0.75)
         }
     } else {
         background = color
