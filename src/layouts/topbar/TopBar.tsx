@@ -1,16 +1,15 @@
 'use client'
 
 import { useState } from "react"
-// @ts-ignore
-import { Link } from "react-router-dom"
 import Navigation from "./Navigation"
 import MobileNavigation from "./MobileNavigation"
-import ThemeToggle from "../../components/themetoggle/ThemeToggle"
-import LoginLogoSmall from "../../components/svg/brandlogos/LoginLogoSmall"
-// import ProfileSVG from '../../components/svg/profilesvg'
+import ThemeToggle from "@components/themetoggle/ThemeToggle"
+import LoginLogoSmall from "@components/svg/brandlogos/LoginLogoSmall"
+// import ProfileSVG from '@components/svg/profilesvg'
 
 import "./TopBar.css"
-import LangToggle from "../../components/langtoggle/LangToggle"
+import LangToggle from "@components/langtoggle/LangToggle"
+import Link from "next/link"
 
 export default function TopBar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -19,7 +18,7 @@ export default function TopBar() {
     return (
         <div className={`topbar ${isOpen ? "topbar--open" : ""}`}>
             <div className='topbar__logo'>
-                <Link to='/' onClick={isOpen ? toggle : ""} >
+                <Link href='/' onClick={isOpen ? toggle : () => {}} >
                     <LoginLogoSmall />
                 </Link>
             </div>
@@ -29,11 +28,11 @@ export default function TopBar() {
                 <LangToggle/>
                 {/* TODO */}
                 {/* <div className='topbar_profile'>
-                    <NavLink to='profile'>
+                    <Link href='/profile'>
                         <picture>
                             <ProfileSVG />
                         </picture>
-                    </NavLink>
+                    </Link>
                 </div> */}
             </nav>
             <button className={`topbar__hamburger ${isOpen ? "topbar__hamburger--open" : ""}`} onClick={toggle}>

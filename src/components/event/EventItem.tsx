@@ -1,9 +1,4 @@
 import { useState } from "react"
-{/* @ts-ignore */}
-import { Link } from "react-router-dom"
-{/* @ts-ignore */}
-import { withTranslation } from "react-i18next"
-
 import DateTile from "../datetile/DateTile"
 import Tags from "../tags/Tags"
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
@@ -12,49 +7,27 @@ import DefaultCtfBanner from "../svg/defaultbanners/DefaultCtfBanner"
 import DefaultTekkomBanner from "../svg/defaultbanners/DefaultTekkomBanner"
 import DefaultBedpresBanner from "../svg/defaultbanners/DefaultBedpresBanner"
 import DefaultSocialBanner from "../svg/defaultbanners/DefaultSocialBanner"
-
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
 // @ts-ignore
-import { getTranslation } from "../../utils/GetTranslation"
+import getTranslation from "../../utils/GetTranslation"
 import { isNew } from "../../utils/DatetimeFormatter"
 import { config } from "../../Constants"
 
 import "./EventItem.css"
+import Link from "next/link"
+import getCookie from "../../utils/getCookie"
 
 type EventListItemProps = { 
-  i18n: any
   event: any
   highlight: boolean
   disableTags: boolean
   variant: string 
 }
 
-function getDefaultBanner(category: string, color: string) {
-    switch (category) {
-    case "Sosialt":
-        {/* @ts-ignore */}
-        return <DefaultSocialBanner color={color} className="event-item__img" />
-    case "TekKom":
-        {/* @ts-ignore */}
-        return <DefaultTekkomBanner color={color} className="event-item__img" />
-    case "CTF":
-        {/* @ts-ignore */}
-        return <DefaultCtfBanner color={color} className="event-item__img" />
-    case "Bedpres":
-        {/* @ts-ignore */}
-        return <DefaultBedpresBanner color={color} className="event-item__img" />
-    default:
-        {/* @ts-ignore */}
-        return <DefaultEventBanner color={color} className="event-item__img" />
-    }
-};
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
-
-function EventListItem({ i18n, event, highlight=true, disableTags=false, variant="list-item" }: EventListItemProps) {
-
+export default function EventListItem({ event, highlight=true, disableTags=false, variant="list-item" }: EventListItemProps) {
     const [showImage, setShowImage] = useState(true)
-    const lang = i18n.language == "en" ? "en" : "no"
-    const useEng = lang === "en"
     const tr = getTranslation(useEng)
 
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
@@ -71,7 +44,7 @@ function EventListItem({ i18n, event, highlight=true, disableTags=false, variant
     const endDate = new Date(event.endDate)
 
     return (
-        <Link to={"/events/" + event.id}>
+        <Link href={`/events/${event.id}`}>
             <div className={`event-item ${highlight ? "event-item--highlight" : ""} ${variant === "card" ? "event-item--card" : "event-item--list-item"}`}>
                 <div className="event-item__wrapper">
                     {variant === "list-item" ? (
@@ -163,4 +136,22 @@ function EventListItem({ i18n, event, highlight=true, disableTags=false, variant
     )
 };
 
-export default withTranslation("eventListPage")(EventListItem)
+function getDefaultBanner(category: string, color: string) {
+    switch (category) {
+    case "Sosialt":
+        {/* @ts-ignore */}
+        return <DefaultSocialBanner color={color} className="event-item__img" />
+    case "TekKom":
+        {/* @ts-ignore */}
+        return <DefaultTekkomBanner color={color} className="event-item__img" />
+    case "CTF":
+        {/* @ts-ignore */}
+        return <DefaultCtfBanner color={color} className="event-item__img" />
+    case "Bedpres":
+        {/* @ts-ignore */}
+        return <DefaultBedpresBanner color={color} className="event-item__img" />
+    default:
+        {/* @ts-ignore */}
+        return <DefaultEventBanner color={color} className="event-item__img" />
+    }
+};

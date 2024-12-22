@@ -1,4 +1,19 @@
+import Link from "next/link"
 import "./Button.css"
+
+type ButtonProps = {
+    children: any
+    variant: string
+    size: string
+    leadingIcon: any
+    trailingIcon: any
+    disabled: boolean
+    className: string
+    active: boolean
+    target: string
+    onClick: any
+    href: string
+}
 
 export default function Button({
     children,
@@ -13,7 +28,7 @@ export default function Button({
     onClick,
     href,
     ...props
-}) {
+}: ButtonProps) {
     const baseClassName = `button button--${variant} button--${size} ${active ? "active" : ""} ${className}`
     const iconOnly = (leadingIcon || trailingIcon) && !children
 
@@ -33,29 +48,16 @@ export default function Button({
         </>
     )
 
-    if (href) {
-        return (
-            <a
-                href={href}
-                className={`${baseClassName} ${disabled ? "button--disabled" : ""} ${iconOnly ? "button--icon-only" : ""}`}
-                target={target}
-                rel={target === "_blank" ? "noopener noreferrer" : undefined}
-                onClick={onClick}
-                {...props}
-            >
-                {content}
-            </a>
-        )
-    }
-
     return (
-        <button
+        <Link
+            href={href}
             className={`${baseClassName} ${disabled ? "button--disabled" : ""} ${iconOnly ? "button--icon-only" : ""}`}
-            disabled={disabled}
+            target={target}
+            rel={target === "_blank" ? "noopener noreferrer" : undefined}
             onClick={onClick}
             {...props}
         >
             {content}
-        </button>
+        </Link>
     )
 };

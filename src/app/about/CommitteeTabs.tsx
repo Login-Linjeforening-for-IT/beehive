@@ -1,32 +1,30 @@
 import { useState } from "react"
+import { config } from "@constants"
 // @ts-ignore
-import { withTranslation } from "react-i18next"
+import board from "@assets/boardmembers/boardmembers.json"
+import TabNavItem from "@components/tabs/TabNavItem"
+import TabContent from "@components/tabs/TabContent"
+import LogChamp from "@components/logchamp/LogChamp"
+import EventkomLogo from "@components/svg/committeelogos/EventkomLogo"
+import BedkomLogo from "@components/svg/committeelogos/BedkomLogo"
+import TekkomLogo from "@components/svg/committeelogos/TekkomLogo"
+import CtfkomLogo from "@components/svg/committeelogos/CtfkomLogo"
+import StyretLogo from "@components/svg/committeelogos/StyretLogo"
+import SatkomLogo from "@components/svg/committeelogos/SatkomLogo"
+import PrLogo from "@components/svg/committeelogos/PrLogo"
+import no from '@text/about/no.json'
+import en from '@text/about/en.json'
+import "@components/tabs/Tabs.css"
+import "@app/about/CommitteeTabs.css"
+import getCookie from "@utils/getCookie"
 
-import { config } from "../../Constants"
-// @ts-ignore
-import board from "../../assets/boardmembers/boardmembers.json"
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+const text = lang === 'en' ? en : no
 
-import TabNavItem from "../../components/tabs/TabNavItem"
-import TabContent from "../../components/tabs/TabContent"
-import LogChamp from "../../components/logchamp/LogChamp"
-
-import EventkomLogo from "../../components/svg/committeelogos/EventkomLogo"
-import BedkomLogo from "../../components/svg/committeelogos/BedkomLogo"
-import TekkomLogo from "../../components/svg/committeelogos/TekkomLogo"
-import CtfkomLogo from "../../components/svg/committeelogos/CtfkomLogo"
-import StyretLogo from "../../components/svg/committeelogos/StyretLogo"
-import SatkomLogo from "../../components/svg/committeelogos/SatkomLogo"
-import PrLogo from "../../components/svg/committeelogos/PrLogo"
-
-import "../../components/tabs/Tabs.css"
-import "./CommitteeTabs.css"
-
-
-
-function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
+export default function CommitteeTabs() {
 
     const [activeTab, setActiveTab] = useState("styret")
-    const useEng = i18n.language === "en"
+    const useEng = lang === "en"
 
     return (
         <div className='about-section tabs committees page-section--without-gaps'>
@@ -43,16 +41,16 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
                 <div className='board-members'>
                     <div className='board-members__intro'>
                         <h3 className='committees__heading heading-3'>
-                            <i className='logfont-styret-filled'></i> {t("committeeSection.board.title")}
+                            <i className='logfont-styret-filled'></i> {text.committeeSection.board.title}
                         </h3>
-                        <p className='p--highlighted'>{t("committeeSection.board.body")}</p>
+                        <p className='p--highlighted'>{text.committeeSection.board.body}</p>
                     </div>
                     {Object.keys(board).map((key) => (
                         <LogChamp
                             key={key}
-                            img={config.url.CDN_URL + "/img/portraits/" + board[key].img}
+                            img={`${config.url.CDN_URL}/img/portraits/${board[key].img}`}
                             name={board[key].name}
-                            position={useEng ? board[key].title_en : board[key].title_no}
+                            position={lang == "en" ? board[key].title_en : board[key].title_no}
                             discord={board[key].dctag}
                             discordLink={board[key].dclink}
                         />
@@ -61,12 +59,12 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
             </TabContent>
             <TabContent id='event' activeTab={activeTab}>
                 <h3 className='committees__heading heading-3'>
-                    <i className='logfont-eventkom'></i> {t("committeeSection.eventkom.title")}
+                    <i className='logfont-eventkom'></i> {text.committeeSection.eventkom.title}
                 </h3>
                 <div className='committees__info'>
                     <div className='committees__text'>
-                        <p className='p--highlighted'>{t("committeeSection.eventkom.intro")}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: t("committeeSection.eventkom.body")}} />
+                        <p className='p--highlighted'>{text.committeeSection.eventkom.intro}</p>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.eventkom.body}} />
                     </div>
                     <LogChamp 
                         img={config.url.CDN_URL + "/img/portraits/" +  board.eventkomLeader.img}
@@ -79,15 +77,15 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
             </TabContent>
             <TabContent id='tek' activeTab={activeTab}>
                 <h3 className='committees__heading heading-3'>
-                    <i className='logfont-tekkom'></i> {t("committeeSection.tekkom.title")}
+                    <i className='logfont-tekkom'></i> {text.committeeSection.tekkom.title}
                 </h3>
                 <div className='committees__info'>
                     <div className='committees__text'>
-                        <p className='p--highlighted'>{t("committeeSection.tekkom.intro")}</p>
-                        <p className='p--regular'>{t("committeeSection.tekkom.body")}</p>
+                        <p className='p--highlighted'>{text.committeeSection.tekkom.intro}</p>
+                        <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
                     <LogChamp 
-                        img={config.url.CDN_URL + "/img/portraits/" +  board.tekkomLeader.img}
+                        img={`${config.url.CDN_URL}/img/portraits/${board.tekkomLeader.img}`}
                         name={board.tekkomLeader.name}
                         position={useEng ? board.tekkomLeader.title_en : board.tekkomLeader.title_no}
                         discord={board.tekkomLeader.dctag}
@@ -97,12 +95,12 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
             </TabContent>
             <TabContent id='bedkom' activeTab={activeTab}>
                 <h3 className='committees__heading heading-3'>
-                    <i className='logfont-bedkom'></i> {t("committeeSection.bedkom.title")}
+                    <i className='logfont-bedkom'></i> {text.committeeSection.bedkom.title}
                 </h3>
                 <div className='committees__info'>
                     <div className='committees__text'>
-                        <p className='p--highlighted'>{t("committeeSection.bedkom.intro")}</p>
-                        <p className='p--regular'>{t("committeeSection.bedkom.body")}</p>
+                        <p className='p--highlighted'>{text.committeeSection.bedkom.intro}</p>
+                        <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp 
                         img={config.url.CDN_URL + "/img/portraits/" +  board.bedkomLeader.img}
@@ -115,12 +113,12 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
             </TabContent>
             <TabContent id='ctf' activeTab={activeTab}>
                 <h3 className='committees__heading heading-3'>
-                    <i className='logfont-ctfkom'></i> {t("committeeSection.ctfkom.title")}
+                    <i className='logfont-ctfkom'></i> {text.committeeSection.ctfkom.title}
                 </h3>
                 <div className='committees__info'>
                     <div className='committees__text'>
-                        <p className='p--highlighted'>{t("committeeSection.ctfkom.intro")}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: t("committeeSection.ctfkom.body")}}/>
+                        <p className='p--highlighted'>{text.committeeSection.ctfkom.intro}</p>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.ctfkom.body}}/>
                     </div>
                     <LogChamp 
                         img={config.url.CDN_URL + "/img/portraits/" +  board.ctfkomLeader.img}
@@ -133,12 +131,12 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
             </TabContent>
             <TabContent id='sat' activeTab={activeTab}>
                 <h3 className='committees__heading heading-3'>
-                    <i className='logfont-satkom-filled'></i> {t("committeeSection.satkom.title")}
+                    <i className='logfont-satkom-filled'></i> {text.committeeSection.satkom.title}
                 </h3>
                 <div className='committees__info'>
                     <div className='committees__text'>
-                        <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t("committeeSection.satkom.intro")}} />
-                        <p className='p--regular'>{t("committeeSection.satkom.body")}</p>
+                        <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.satkom.intro}} />
+                        <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp 
                         img={config.url.CDN_URL + "/img/portraits/" +  board.satkomLeader.img}
@@ -151,12 +149,12 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
             </TabContent>
             <TabContent id='pr' activeTab={activeTab}>
                 <h3 className='committees__heading heading-3'>
-                    <i className='logfont-pr'></i> {t("committeeSection.pr.title")}
+                    <i className='logfont-pr'></i> {text.committeeSection.pr.title}
                 </h3>
                 <div className='committees__info'>
                     <div className='committees__text'>
-                        <p className='p--highlighted' dangerouslySetInnerHTML={{__html: t("committeeSection.pr.intro")}} />
-                        <p className='p--regular'>{t("committeeSection.pr.body")}</p>
+                        <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.pr.intro}} />
+                        <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp 
                         img={config.url.CDN_URL + "/img/portraits/" +  board.prLeader.img}
@@ -170,6 +168,3 @@ function CommitteeTabs({t, i18n}: { t: any, i18n: any }) {
         </div>
     )
 }
-
-
-export default withTranslation("aboutPage")(CommitteeTabs)

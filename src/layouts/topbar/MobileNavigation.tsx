@@ -1,12 +1,9 @@
 'use client'
 
+import Link from "next/link"
 import { useState } from "react"
-// @ts-ignore
-import { NavLink } from "react-router-dom"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 
-function MobileNavigation({ t, open, setIsOpen }: any) {
+export default function MobileNavigation({ open, setIsOpen }: any) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
 
@@ -17,15 +14,15 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
 
     return (
         <nav className={`mobile-nav${open ? " mobile-nav--open" : ""}`}>
-            <NavLink onClick={close} to="events" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav__item">{t("nav.events")}</li>
-            </NavLink>
-            <NavLink onClick={close} to="career" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav__item">{t("nav.jobad")}</li>
-            </NavLink>
-            <NavLink onClick={close} to="companies" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav__item">{t("nav.companies")}</li>
-            </NavLink>
+            <Link onClick={close} href="/events" tabIndex={open ? 0 : -1}>
+                <li className="mobile-nav__item">{text.nav.events}</li>
+            </Link>
+            <Link onClick={close} href="/career" tabIndex={open ? 0 : -1}>
+                <li className="mobile-nav__item">{text.nav.jobad}</li>
+            </Link>
+            <Link onClick={close} href="/companies" tabIndex={open ? 0 : -1}>
+                <li className="mobile-nav__item">{text.nav.companies}</li>
+            </Link>
             <div
                 className={`mobile-nav-dropdown${
                     isDropdownOpen ? " mobile-nav-dropdown--open" : ""
@@ -37,34 +34,34 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
                     tabIndex={open ? 0 : -1}
                 >
                     <li className="mobile-nav__item">
-                        {t("nav.about")}
+                        {text.nav.about}
                         <i className="material-symbols-sharp mobile-nav-dropdown__toggle-arrow">
                             expand_more
                         </i>
                     </li>
                 </button>
                 <div className="mobile-nav-dropdown__items">
-                    <NavLink
+                    <Link
                         onClick={close}
-                        to="about"
+                        href="/about"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown__item">{t("nav.general")}</li>
-                    </NavLink>
-                    <NavLink
+                        <li className="mobile-nav-dropdown__item">{text.nav.general}</li>
+                    </Link>
+                    <Link
                         onClick={close}
-                        to="verv"
+                        href="/verv"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown__item">{t("nav.verv")}</li>
-                    </NavLink>
-                    <NavLink
+                        <li className="mobile-nav-dropdown__item">{text.nav.verv}</li>
+                    </Link>
+                    <Link
                         onClick={close}
-                        to="fond"
+                        href="/fond"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown__item">{t("nav.fondet")}</li>
-                    </NavLink>
+                        <li className="mobile-nav-dropdown__item">{text.nav.fondet}</li>
+                    </Link>
                     <a
                         title="Wiki"
                         href="https://wiki.login.no"
@@ -84,5 +81,3 @@ function MobileNavigation({ t, open, setIsOpen }: any) {
         </nav>
     )
 }
-
-export default withTranslation("layout")(MobileNavigation)

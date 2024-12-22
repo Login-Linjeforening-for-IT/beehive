@@ -1,17 +1,12 @@
-{/* @ts-ignore */}
-import { withTranslation } from "react-i18next"
-
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-
 import Button from "../../components/button/Button"
 import Alert from "../../components/alert/Alert"
-
 import "./EventSignUp.css"
+import getCookie from "../../utils/getCookie"
 
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
-function EventSignUp({
-    t,
-    i18n,
+export default function EventSignUp({
     url,
     full,
     canceled = false,
@@ -20,8 +15,6 @@ function EventSignUp({
     signupDeadline,
 }: any) {
     const now = new Date()
-    const lang = i18n.language == "en" ? "en" : "no"
-
     let msg = ""
     let reqSignup = true
     let ready = true
@@ -31,27 +24,27 @@ function EventSignUp({
     let msgIcon = "info"
 
     if (canceled) {
-        msg = t("signup.canceled")
+        msg = text.signup.canceled
         showBtn = false
         warning = true
         msgIcon = "disabled_by_default"
     } else if (url === "") {
         reqSignup = false
         showBtn = false
-        msg = t("signup.none")
+        msg = text.signup.none
     } else if (url === "TBD") {
         ready = false
         showBtn = false
-        msg = t("signup.not-ready")
+        msg = text.signup.notReady
     } else if (now > signupDeadline) {
         msg =
-      t("signup.closed") +
+      text.signup.closed +
       ": " +
       DatetimeFormatter.formatPublishedDate(signupDeadline, lang)
         warning = true
         msgIcon = "disabled_by_default"
     } else if (full) {
-        msg = t("signup.full")
+        msg = text.signup.full
         warning = true
         msgIcon = "sentiment_dissatisfied"
     } else if (now > signupRelease && now < signupDeadline) {
@@ -64,7 +57,7 @@ function EventSignUp({
                 showBtn ? "bottom-left-corner" : "bottom-right-corner"
             }`}
         >
-            <div className="event-signup__header">{t("signup.title")}:</div>
+            <div className="event-signup__header">{text.signup.title}:</div>
 
             {!canceled && ready && reqSignup && (
                 <div className="event-details__list">
@@ -75,7 +68,7 @@ function EventSignUp({
                                 <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
                                     confirmation_number
                                 </i>
-                                {t("info.capacity")}:
+                                {text.info.capacity}:
                             </div>
                             <div className="event-details__info">{cap}</div>
                         </>
@@ -87,8 +80,8 @@ function EventSignUp({
                                     exit_to_app
                                 </i>
                                 {now < signupRelease
-                                    ? t("signup.opens")
-                                    : t("signup.hasOpened")}
+                                    ? text.signup.opens
+                                    : text.signup.hasOpened}
                                 :
                             </div>
                             <div className="event-details__info">
@@ -104,7 +97,7 @@ function EventSignUp({
                                 <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">
                                     disabled_by_default
                                 </i>
-                                {t("signup.closes")}:
+                                {text.signup.closes}:
                             </div>
                             <div className="event-details__info">
                                 {DatetimeFormatter.formatDeadlineDate(signupDeadline, lang)}
@@ -134,15 +127,13 @@ function EventSignUp({
                         variant="primary"
                         disabled={active ? false : true}
                     >
-                        {t("signup.action")}
+                        {text.signup.action}
                     </Button>
                 </div>
             )}
         </div>
     )
 };
-
-export default withTranslation("eventPage")(EventSignUp)
 
 // Oversikt:
 

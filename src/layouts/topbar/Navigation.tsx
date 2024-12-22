@@ -1,11 +1,8 @@
 import React, { useCallback, useRef } from "react"
-// @ts-ignore
-import { NavLink } from "react-router-dom"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
+import Link from "next/link"
 
 
-function Navigation({ t }: any) {
+export default function Navigation() {
     const navItemRefs = useRef([
         React.createRef(),
         React.createRef(),
@@ -27,61 +24,61 @@ function Navigation({ t }: any) {
 
     return (
         <nav className="main-nav">
-            <NavLink to="events">
-                <li className="main-nav__item link--corner-hover">{t("nav.events")}</li>
-            </NavLink>
-            <NavLink to="career">
-                <li className="main-nav__item link--corner-hover">{t("nav.jobad")}</li>
-            </NavLink>
-            <NavLink to="companies">
+            <Link href="/events">
+                <li className="main-nav__item link--corner-hover">{text.nav.events}</li>
+            </Link>
+            <Link href="/career">
+                <li className="main-nav__item link--corner-hover">{text.nav.jobad}</li>
+            </Link>
+            <Link href="/companies">
                 <li className="main-nav__item link--corner-hover">
-                    {t("nav.companies")}
+                    {text.nav.companies}
                 </li>
-            </NavLink>
+            </Link>
             <div className="main-nav-dropdown">
                 <div className="main-nav-dropdown__toggle" tabIndex={0}>
                     <div className="main-nav__item">
-                        {t("nav.about")}
+                        {text.nav.about}
                         <i className="material-symbols-sharp main-nav-dropdown__toggle-arrow">
                             expand_more
                         </i>
                     </div>
                     <div className="main-nav-dropdown__wrapper">
                         <ul className="main-nav-dropdown__items">
-                            <NavLink
-                                to="about"
-                                ref={navItemRefs.current[0]}
+                            <Link
+                                href="/about"
+                                ref={navItemRefs.current[0] as any}
                                 onClick={handleClick}
                             >
                                 <li className="main-nav-dropdown__item link--corner-hover">
                                     <i className="logfont-login main-nav-dropdown__leading-icon"></i>
-                                    {t("nav.general")}
+                                    {text.nav.general}
                                 </li>
-                            </NavLink>
-                            <NavLink
-                                to="verv"
-                                ref={navItemRefs.current[1]}
+                            </Link>
+                            <Link
+                                href="verv"
+                                ref={navItemRefs.current[1] as any}
                                 onClick={handleClick}
                             >
                                 <li className="main-nav-dropdown__item link--corner-hover">
                                     <i className="material-symbols-sharp main-nav-dropdown__leading-icon">
                                         favorite
                                     </i>
-                                    {t("nav.verv")}
+                                    {text.nav.verv}
                                 </li>
-                            </NavLink>
-                            <NavLink
-                                to="fond"
-                                ref={navItemRefs.current[2]}
+                            </Link>
+                            <Link
+                                href="/fond"
+                                ref={navItemRefs.current[2] as any}
                                 onClick={handleClick}
                             >
                                 <li className="main-nav-dropdown__item link--corner-hover">
                                     <i className="fund-section__header-icon material-symbols-sharp main-nav-dropdown__leading-icon">
                                         corporate_fare
                                     </i>
-                                    {t("nav.fondet")}
+                                    {text.nav.fondet}
                                 </li>
-                            </NavLink>
+                            </Link>
                             <a
                                 title="Wiki"
                                 href="https://wiki.login.no"
@@ -108,5 +105,3 @@ function Navigation({ t }: any) {
         </nav>
     )
 };
-
-export default withTranslation("layout")(Navigation)

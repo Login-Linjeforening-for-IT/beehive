@@ -1,95 +1,13 @@
 import { useRef, useState, useEffect } from "react"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 import Button from "../button/Button"
 import CheckBox from "../checkbox/Checkbox"
 import CheckTag from "../checktag/Checktag"
 import "./filter.css"
+import getCookie from "../../utils/getCookie"
 
-// @ts-ignore
-function getFilterGroupItemOnSelectWithin(onSelect, filterGroupItemID) {
-    // @ts-ignore
-    return (filterID, isSelected) => {
-        onSelect(filterGroupItemID, filterID, isSelected)
-    }
-}
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
-// @ts-ignore
-function getFilterItemOnSelect(onSelect, filterID) {
-    // @ts-ignore
-    return (isSelected) => {
-        onSelect(filterID, isSelected)
-    }
-}
-
-// @ts-ignore
-const Filter = withTranslation()(({ i18n, label, filter, showCount, onSelect, type, resetTrigger }) => {
-
-    const lang = i18n.language === "en" ? "en" : "no"
-
-    return (
-        <div className="filter">
-            <div className="filter__title">{ label[lang] }</div>
-            <div className={`filter__items filter__items--${type}`}>
-                {/* @ts-ignore */}
-                {filter.sort((a, b) => b.count - a.count).map((filterItem) => {
-                    return (
-                        <FilterItem
-                            key={filterItem.id}
-                            filter={filterItem}
-                            type={type}
-                            showCount={showCount}
-                            onSelect={getFilterItemOnSelect(onSelect, filterItem.id)}
-                            resetTrigger={resetTrigger}
-                        />
-                    )
-                })}
-            </div>
-        </div>
-    )
-})
-
-// @ts-ignore
-const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, resetTrigger, type }) => {
-    const lang = i18n.language === "en" ? "en" : "no"
-    const [ checked, setChecked ] = useState(false)
-
-    useEffect(() => {
-        setChecked(false)
-    }, [resetTrigger])
-
-    function select() {
-        setChecked(!checked)
-        onSelect(!checked)
-    }
-
-    if(type == "tag") {
-        return (
-            <CheckTag
-            // @ts-ignore
-                onChange={e => select(e.target.checked)}
-                id={filter.label[lang]}
-                label={filter.label[lang]}
-                checked={checked}
-                // @ts-ignore
-                count={showCount ? filter.count : false}
-            />
-        )
-    }
-    return (
-        // @ts-ignore
-        <CheckBox
-        // @ts-ignore
-            onChange={e => select(e.target.checked)}
-            id={filter.label[lang]}
-            label={filter.label[lang]}
-            checked={checked}
-        />
-    )
-})
-
-// @ts-ignore
-function FilterGroup({ t, filters, onApply, close = false }) {
+export default function FilterGroup({ filters, onApply, close = false }) {
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
 
@@ -163,7 +81,7 @@ function FilterGroup({ t, filters, onApply, close = false }) {
                     size="medium"
                     className="filter-groups__reset"
                 >
-                    {t("reset")}
+                    {text.reset}
                 </Button>
                 {close &&
                 // @ts-ignore
@@ -181,4 +99,74 @@ function FilterGroup({ t, filters, onApply, close = false }) {
     )
 }
 
-export default withTranslation("filter")(FilterGroup)
+function getFilterGroupItemOnSelectWithin(onSelect: any, filterGroupItemID: any) {
+    return (filterID: any, isSelected: any) => {
+        onSelect(filterGroupItemID, filterID, isSelected)
+    }
+}
+
+function getFilterItemOnSelect(onSelect: any, filterID: any) {
+    return (isSelected: any) => {
+        onSelect(filterID, isSelected)
+    }
+}
+
+function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any) {
+    return (
+        <div className="filter">
+            <div className="filter__title">{ label[lang] }</div>
+            <div className={`filter__items filter__items--${type}`}>
+                {/* @ts-ignore */}
+                {filter.sort((a, b) => b.count - a.count).map((filterItem) => {
+                    return (
+                        <FilterItem
+                            key={filterItem.id}
+                            filter={filterItem}
+                            type={type}
+                            showCount={showCount}
+                            onSelect={getFilterItemOnSelect(onSelect, filterItem.id)}
+                            resetTrigger={resetTrigger}
+                        />
+                    )
+                })}
+            </div>
+        </div>
+    )
+}
+
+function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
+    const [ checked, setChecked ] = useState(false)
+
+    useEffect(() => {
+        setChecked(false)
+    }, [resetTrigger])
+
+    function select() {
+        setChecked(!checked)
+        onSelect(!checked)
+    }
+
+    if(type == "tag") {
+        return (
+            <CheckTag
+            // @ts-ignore
+                onChange={e => select(e.target.checked)}
+                id={filter.label[lang]}
+                label={filter.label[lang]}
+                checked={checked}
+                // @ts-ignore
+                count={showCount ? filter.count : false}
+            />
+        )
+    }
+    return (
+        // @ts-ignore
+        <CheckBox
+        // @ts-ignore
+            onChange={e => select(e.target.checked)}
+            id={filter.label[lang]}
+            label={filter.label[lang]}
+            checked={checked}
+        />
+    )
+}

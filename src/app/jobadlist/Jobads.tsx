@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from "react"
 // @ts-ignore
-import { withTranslation } from "react-i18next"
-// @ts-ignore
 import Spinner from "../../components/spinner/Spinner"
 import JobadsListItem from "../../components/jobad/JobadsListItem"
 import Button from "../../components/button/Button.jsx"
@@ -11,9 +9,7 @@ import Alert from "../../components/alert/Alert.jsx"
 import { debounce } from "../../utils/debounce.js"
 import prepFilter from "../../components/filter/prepFilter.js"
 import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "../../utils/api"
-
 import "./Jobads.css"
-
 
 const jobTypeTranslations = {
     no: {
@@ -30,79 +26,7 @@ const jobTypeTranslations = {
     }
 }
 
-function getLabelKey(key: string) {
-    return (v: any) => {
-        return {
-            "no": v[key],
-            "en": v[key],
-        }
-    }
-}
-
-function getJobTypeLabel(v: any) {
-    // @ts-ignore  
-    const labelNo = jobTypeTranslations["no"][v["job_type"]] || v["job_type"]
-    // @ts-ignore
-    const labelEn = jobTypeTranslations["en"][v["job_type"]] || labelNo
-    return {
-        no: labelNo,
-        en: labelEn,
-    }
-};
-
-async function getJobTypeFilters() {
-    try {
-        const [jobTypeFilterData, err] = await getJobJobtypeFilters()
-        if (err) throw new Error(err)
-
-        const label = {
-            en: "Type",
-            no: "Type"
-        }
-
-        return prepFilter(jobTypeFilterData, "jobtypes", label, "job_type", getJobTypeLabel, "count", "check")
-    } catch (error) {
-        console.error("Error fetching job type filters:", error)
-        return null
-    }
-}
-
-async function getCityFilters() {
-    try {
-        const [jobCityFilterData, err] = await getJobCityFilters()
-        if (err) throw new Error(err)
-
-        const label = {
-            en: "Cities",
-            no: "Byer"
-        }
-
-        return prepFilter(jobCityFilterData, "cities", label, "city", getLabelKey("city"), "count", "tag")
-    } catch (error) {
-        console.error("Error fetching city filters:", error)
-        return null
-    }
-}
-
-async function getSkillFilters() {
-    try {
-        const [jobSkillFilterData, err] = await getJobSkillFilters()
-        if (err) throw new Error(err)
-
-        const label = {
-            en: "Skills",
-            no: "Ferdigheter"
-        }
-
-        return prepFilter(jobSkillFilterData, "skills", label, "skill", getLabelKey("skill"), "count", "tag")
-    } catch (error) {
-        console.error("Error fetching skill filters:", error)
-        return null
-    }
-}
-
-function Jobads({ t }: any) {
-
+export default function Jobads() {
     const [ jobads, setJobads ] = useState<any[]>([])
     const [ filterData, setFilterData ] = useState({})
     const [ loading, setLoading ] = useState(true)
@@ -182,7 +106,7 @@ function Jobads({ t }: any) {
 
     return (
         <div className="page-container">
-            <h1 className="page-section--normal heading-1 heading-1--top-left-corner">{t("title")}</h1>
+            <h1 className="page-section--normal heading-1 heading-1--top-left-corner">{text.title}</h1>
             {loading && <Spinner width={50} height={50} />}
             {/* @ts-ignore */}
             {!loading && error && <Alert variant='danger' className="page-section--normal page-section--alert">{error}</Alert>}
@@ -212,7 +136,7 @@ function Jobads({ t }: any) {
                                 <JobadsListItem jobad={e} />
                             </li>
                         )) :
-                            <p>{t("noResults")}</p>
+                            <p>{text.noResults}</p>
                         }
                     </ul>
                     {showLoadMore && jobads.length > 0 && (
@@ -224,7 +148,7 @@ function Jobads({ t }: any) {
                                 className='jobads__load-more-btn'
                                 trailingIcon={<i className='material-symbols-sharp'>arrow_downward</i>}
                             >
-                                {t("load-more")}
+                                {text.loadMore}
                             </Button>
                         </div>
                     )}
@@ -236,4 +160,73 @@ function Jobads({ t }: any) {
     )
 };
 
-export default withTranslation("jobadListPage")(Jobads)
+function getLabelKey(key: string) {
+    return (v: any) => {
+        return {
+            "no": v[key],
+            "en": v[key],
+        }
+    }
+}
+
+function getJobTypeLabel(v: any) {
+    // @ts-ignore  
+    const labelNo = jobTypeTranslations["no"][v["job_type"]] || v["job_type"]
+    // @ts-ignore
+    const labelEn = jobTypeTranslations["en"][v["job_type"]] || labelNo
+    return {
+        no: labelNo,
+        en: labelEn,
+    }
+};
+
+async function getJobTypeFilters() {
+    try {
+        const [jobTypeFilterData, err] = await getJobJobtypeFilters()
+        if (err) throw new Error(err)
+
+        const label = {
+            en: "Type",
+            no: "Type"
+        }
+
+        return prepFilter(jobTypeFilterData, "jobtypes", label, "job_type", getJobTypeLabel, "count", "check")
+    } catch (error) {
+        console.error("Error fetching job type filters:", error)
+        return null
+    }
+}
+
+async function getCityFilters() {
+    try {
+        const [jobCityFilterData, err] = await getJobCityFilters()
+        if (err) throw new Error(err)
+
+        const label = {
+            en: "Cities",
+            no: "Byer"
+        }
+
+        return prepFilter(jobCityFilterData, "cities", label, "city", getLabelKey("city"), "count", "tag")
+    } catch (error) {
+        console.error("Error fetching city filters:", error)
+        return null
+    }
+}
+
+async function getSkillFilters() {
+    try {
+        const [jobSkillFilterData, err] = await getJobSkillFilters()
+        if (err) throw new Error(err)
+
+        const label = {
+            en: "Skills",
+            no: "Ferdigheter"
+        }
+
+        return prepFilter(jobSkillFilterData, "skills", label, "skill", getLabelKey("skill"), "count", "tag")
+    } catch (error) {
+        console.error("Error fetching skill filters:", error)
+        return null
+    }
+}

@@ -1,12 +1,9 @@
 import AccordionItem from '../../components/accordion/AccordionItem'
 import AccordionContent from '../../components/accordion/AccordionContent'
-import {useState} from 'react'
-import {withTranslation} from 'react-i18next'
+import { useState } from 'react'
 
-function StudyProgramsAccordion({t}) {
-
+export default function StudyProgramsAccordion() {
   const [activeAccordionItem, setActiveAccordionItem] = useState('bachelor')
-
 
   return(
     <ul className='accordion'>
@@ -31,5 +28,3 @@ function StudyProgramsAccordion({t}) {
     </ul>
   )
 }
-
-export default withTranslation('aboutPage')(StudyProgramsAccordion)

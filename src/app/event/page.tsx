@@ -1,34 +1,31 @@
 import { useState, useEffect, useMemo } from "react"
 // @ts-ignore
 import { useParams } from "react-router-dom"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
-
 import { config } from "../../Constants"
 // @ts-ignore
-import Spinner from "../../components/spinner/Spinner"
-import DateTile from "../../components/datetile/DateTile"
-import DropDownBox from "../../components/dropdownbox/DropDownBox"
-import MazeMapEmbed from "../../components/mazemap/MazeMapEmbed"
+import Spinner from "@components/spinner/Spinner"
+import DateTile from "@components/datetile/DateTile"
+import DropDownBox from "@components/dropdownbox/DropDownBox"
+import MazeMapEmbed from "@components/mazemap/MazeMapEmbed"
 import EventSignUp from "./EventSignUp"
-import Alert from "../../components/alert/Alert"
-import Article from "../../components/article/Article"
-import RenderSmoothImage from "../../components/images/rendersmoothimage/RenderSmoothImage"
+import Alert from "@components/alert/Alert"
+import Article from "@components/article/Article"
+import RenderSmoothImage from "@components/images/rendersmoothimage/RenderSmoothImage"
 // @ts-ignore
-import MarkdownRender from "../../components/markdownrender/MarkdownRender"
+import MarkdownRender from "@components/markdownrender/MarkdownRender"
 
-import DefaultEventBanner from "../../components/svg/defaultbanners/DefaultEventBanner"
-import DefaultCtfBanner from "../../components/svg/defaultbanners/DefaultCtfBanner"
-import DefaultTekkomBanner from "../../components/svg/defaultbanners/DefaultTekkomBanner"
-import DefaultBedpresBanner from "../../components/svg/defaultbanners/DefaultBedpresBanner"
-import DefaultSocialBanner from "../../components/svg/defaultbanners/DefaultSocialBanner"
+import DefaultEventBanner from "@components/svg/defaultbanners/DefaultEventBanner"
+import DefaultCtfBanner from "@components/svg/defaultbanners/DefaultCtfBanner"
+import DefaultTekkomBanner from "@components/svg/defaultbanners/DefaultTekkomBanner"
+import DefaultBedpresBanner from "@components/svg/defaultbanners/DefaultBedpresBanner"
+import DefaultSocialBanner from "@components/svg/defaultbanners/DefaultSocialBanner"
 
-import * as DatetimeFormatter from "../../utils/DatetimeFormatter"
-import * as Translator from "../../utils/GetTranslation"
-import { getEvent } from "../../utils/api"
+import * as DatetimeFormatter from "@utils/DatetimeFormatter"
+import { getEvent } from "@utils/api"
 
 import "./EventPage.css"
 
+const lang
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
@@ -76,12 +73,8 @@ function link(href: string, name: string) {
     )
 }
 
-function EventPage({ t, i18n }: any) {
+export default function EventPage() {
     const { id } = useParams()
-    const useEng = i18n.language === "en"
-    const lang = useEng ? "en" : "no"
-    // @ts-ignore
-    const tr = Translator.getTranslation(useEng)
 
     const [useFallbackBanner, setUseFallbackBanner] = useState(false)
     const [event, setEvent] = useState(null)
@@ -126,7 +119,7 @@ function EventPage({ t, i18n }: any) {
 
     return (
         <>
-            { loading && <Spinner w='50' h='50' /> }
+            { loading && <Spinner width={50} height={50} /> }
             {!loading && error && 
         <div className="page-container">
             <Alert variant='danger' icon='sentiment_dissatisfied' className="page-section--normal page-section--alert">{error}</Alert>
@@ -183,7 +176,7 @@ function EventPage({ t, i18n }: any) {
                           <>
                               <div className="event-details__lable">
                                   <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">location_on</i>
-                                  {t("info.location")}:
+                                  {text.info.location}:
                               </div>
                               <div className="event-details__info">
                                   {/* @ts-ignore */}
@@ -196,7 +189,7 @@ function EventPage({ t, i18n }: any) {
 
                       <div className="event-details__lable">
                           <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">category</i>
-                          {t("info.type")}:
+                          {text.info.type}:
                       </div>
                       <div className="event-details__info">
                           {/* @ts-ignore */}
@@ -210,7 +203,7 @@ function EventPage({ t, i18n }: any) {
                           <>
                               <div className="event-details__lable">
                                   <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">person</i>
-                                  {t("info.organizer")}:
+                                  {text.info.organizer}:
                               </div>
                               <div className="event-details__info">
                                   {/* @ts-ignore */}
@@ -224,7 +217,7 @@ function EventPage({ t, i18n }: any) {
                           <>
                               <div className="event-details__lable">
                                   <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">live_tv</i>
-                                  {t("info.stream")}:
+                                  {text.info.stream}:
                               </div>
                               <div className="event-details__info">
                                   {/* @ts-ignore */}
@@ -238,7 +231,7 @@ function EventPage({ t, i18n }: any) {
                           <>
                               <div className="event-details__lable">
                                   <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">link</i>
-                                  {t("info.links")}:
+                                  {text.info.links}:
                               </div>
                               <div className="event-details__info">
                                   {/* @ts-ignore */}
@@ -268,7 +261,7 @@ function EventPage({ t, i18n }: any) {
               <div className="event-description">
                   <Article
                       // @ts-ignore
-                      title={(event.event.canceled ? "❌(" + t("canceled") + ") " : "") + tr(event.event.name_en, event.event.name_no)}
+                      title={(event.event.canceled ? `❌ (${text.canceled})` : "") + tr(event.event.name_en, event.event.name_no)}
                       // @ts-ignore
                       publishTime={new Date(event.event.time_publish)}
                       // @ts-ignore
@@ -311,5 +304,3 @@ function EventPage({ t, i18n }: any) {
         </>
     )
 };
-
-export default withTranslation("eventPage")(EventPage)

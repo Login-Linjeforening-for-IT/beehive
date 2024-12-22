@@ -1,14 +1,8 @@
-// @ts-expect-error
-import { withTranslation } from "react-i18next"
 import { isNew } from "../../utils/DatetimeFormatter"
-
 import Tag from "./Tag"
-
 import "./Tags.css"
 
-
-function Tags({
-    t,
+export default function Tags({
     highlight = false,
     timePublish = 0,
     canceled = false,
@@ -17,13 +11,11 @@ function Tags({
 }: any) {
     return (
         <>
-            {canceled && <Tag variant="danger">{t("canceled")}</Tag>}
-            {ongoing && !canceled && <Tag variant="success">{t("ongoing")}</Tag>}
-            {highlight && !canceled && <Tag variant="highlight">{t("highlight")}</Tag>}
-            {isNew(timePublish) && <Tag variant="info">{t("new")}</Tag>}
-            {full && <Tag variant="danger">{t("full")}</Tag>}
+            {canceled && <Tag variant="danger">{text.canceled}</Tag>}
+            {ongoing && !canceled && <Tag variant="success">{text.ongoing}</Tag>}
+            {highlight && !canceled && <Tag variant="highlight">{text.highlight}</Tag>}
+            {isNew(timePublish) && <Tag variant="info">{text.new}</Tag>}
+            {full && <Tag variant="danger">{text.full}</Tag>}
         </>
     )
 };
-
-export default withTranslation("tags")(Tags)

@@ -1,11 +1,10 @@
-{/* @ts-ignore */}
-import { withTranslation } from "react-i18next"
-import * as ColorManipulation from "../../utils/ColorManipulation.ts"
-
+import getCookie from "../../utils/getCookie"
 import "./DateTile.css"
+import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation.js"
 
-function DateTile({
-    i18n,
+const lang = getCookie('lang') as 'no' | 'en' || 'no'
+
+export default function DateTile({
     startDate,
     endDate,
     color,
@@ -21,8 +20,6 @@ function DateTile({
 
     const sMonth = sTime.getMonth()
     const eMonth = eTime.getMonth()
-
-    const lang = i18n.language === "en" ? "en" : "no"
 
     const months = {
         en: [
@@ -62,11 +59,11 @@ function DateTile({
 
     let background
 
-    if (ColorManipulation.isValidHex(color)) {
+    if (isValidHex(color)) {
         if (varient === "regular") {
-            background = ColorManipulation.createGradient(color, 1)
+            background = createGradient(color, 1)
         } else {
-            background = ColorManipulation.hexToRgba(color, 0.75)
+            background = hexToRgba(color, 0.75)
         }
     } else {
         background = color
@@ -131,5 +128,3 @@ function DateTile({
         )
     }
 };
-
-export default withTranslation()(DateTile)

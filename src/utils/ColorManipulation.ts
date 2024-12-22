@@ -32,7 +32,10 @@ export function rgbToHex(r: number, g: number, b: number) {
 export function hexToRgb(hex: string): RGB {
     if (!isValidHex(hex)) return {r: 0, g: 0, b: 0}
 
-    let r = 0, g = 0, b = 0
+    let r = 0
+    let g = 0
+    let b = 0
+
     if (hex.length === 4) {
         r = parseInt(hex[1] + hex[1], 16)
         g = parseInt(hex[2] + hex[2], 16)

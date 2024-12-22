@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react"
-// @ts-ignore
-import { withTranslation } from "react-i18next"
 import "./ImageCarousel.css"
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage"
 
@@ -49,7 +47,7 @@ function DotIndicator({ index, isActive }: any) {
     )
 }
 
-function ImageCarousel({ slides }: any) {
+export default function ImageCarousel({ slides }: any) {
 
     const [activeIndex, setActiveIndex] = useState(0)
     const [isTransitioning, setIsTransitioning] = useState(false)
@@ -154,5 +152,3 @@ function ImageCarousel({ slides }: any) {
         </div>
     )
 };
-
-export default withTranslation("vervPage")(ImageCarousel)
