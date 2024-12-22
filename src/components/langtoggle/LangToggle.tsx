@@ -14,13 +14,11 @@ export default function LangToggle() {
         lang === "no" ? setButtonText("en") : setButtonText("no")
     }, [lang])
 
-    function handleClick(event: any) {
-        if (lang === "no") {
-            setCookie("lang", event.target.value = "en")
-            setButtonText("en")
+    function handleClick() {
+        if (lang === 'no') {
+            document.cookie = `lang=en; path=/`;
         } else {
-            setCookie("lang", event.target.value = "nb")
-            setButtonText("no")
+            document.cookie = `lang=no; path=/`;
         }
 
         setJump(true)
