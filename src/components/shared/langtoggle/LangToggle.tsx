@@ -1,25 +1,16 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import getCookie from "@utils/getCookie"
+import { useContext, useState } from "react"
 import "./LangToggle.css"
+import AppContext from "@context/context"
 
 export default function LangToggle() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang, switchLang } = useContext(AppContext)
     const [buttonText, setButtonText] = useState("")
     const [jump, setJump] = useState(false)
-  
-    useEffect( () => {
-        lang === "no" ? setButtonText("en") : setButtonText("no")
-    }, [lang])
 
     function handleClick() {
-        if (lang === 'no') {
-            document.cookie = `lang=en; path=/`
-        } else {
-            document.cookie = `lang=no; path=/`
-        }
-
+        switchLang()
         setJump(true)
         setTimeout(() => setJump(false), 400)
     }

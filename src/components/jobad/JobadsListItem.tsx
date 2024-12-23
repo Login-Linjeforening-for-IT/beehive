@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import "./JobadsListItem.css"
 import config from "@config"
 import Tags from "@components/tags/Tags"
@@ -9,7 +9,7 @@ import Link from "next/link"
 import { isNew } from "@utils/DatetimeFormatter"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 import Image from "next/image"
-import getCookie from "@utils/getCookie"
+import AppContext from "@context/context"
 
 const jobTypeTranslations = {
     no: {
@@ -59,7 +59,7 @@ function formatCities(cities: any[]) {
 
 export default function JobadsListItem({ jobad }: any) {
     const [useFallbackImg, setUseFallbackImg] = useState(false)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
 
     useEffect(() => {
         setUseFallbackImg(false)

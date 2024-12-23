@@ -1,21 +1,12 @@
-'use client'
+import { useEffect, useState } from "react"
 
-import { createContext, useState, useEffect } from "react"
-
-const COLOR_THEMES = {
+export const COLOR_THEMES = {
     LIGHT: "light",
     DARK: "dark",
 }
 
-const storedTheme = COLOR_THEMES.DARK
-
-const ThemeContext = createContext({
-    theme: storedTheme,
-    switchTheme: () => {},
-})
-
-export function ThemeProvider({ children }: any) {
-    const [theme, setTheme] = useState(storedTheme)
+export default function ThemeContext() {
+    const [theme, setTheme] = useState(COLOR_THEMES.DARK)
 
     useEffect(() => {
         document.body.classList.remove(...Object.values(COLOR_THEMES))
@@ -23,16 +14,11 @@ export function ThemeProvider({ children }: any) {
         localStorage.setItem("theme", theme)
     }, [theme])
 
-    const switchTheme = () => {
-        const newTheme = theme === COLOR_THEMES.DARK ? COLOR_THEMES.LIGHT : COLOR_THEMES.DARK
-        setTheme(newTheme)
+    function switchTheme() {
+        setTheme((prev) =>
+            prev === COLOR_THEMES.DARK ? COLOR_THEMES.LIGHT : COLOR_THEMES.DARK
+        )
     }
 
-    return (
-        <ThemeContext.Provider value={{ theme, switchTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    )
+    return { theme, switchTheme }
 }
-
-export default ThemeContext

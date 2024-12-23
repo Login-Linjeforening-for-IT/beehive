@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import config from "@config"
 import TabNavItem from "@components/tabs/TabNavItem"
 import TabContent from "@components/tabs/TabContent"
@@ -18,14 +18,14 @@ import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import "@components/tabs/Tabs.css"
 import "@app/about/CommitteeTabs.css"
-import getCookie from "@utils/getCookie"
+import AppContext from "@context/context"
 
 const no = {...text_no, ...board_no}
 const en = {...text_en, ...board_en}
 
 export default function CommitteeTabs() {
     const [activeTab, setActiveTab] = useState("styret")
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {
@@ -55,11 +55,11 @@ export default function CommitteeTabs() {
                     {Object.keys(text).map((key) => (
                         <LogChamp
                             key={key}
-                            img={`${config.url.CDN_URL}/img/portraits/${text[key].img}`}
-                            name={text[key].name}
-                            position={text[key].title}
-                            discord={text[key].dctag}
-                            discordLink={text[key].dclink}
+                            img={`${config.url.CDN_URL}/img/portraits/${(text as any)[key].img}`}
+                            name={(text as any)[key].name}
+                            position={(text as any)[key].title}
+                            discord={(text as any)[key].dctag}
+                            discordLink={(text as any)[key].dclink}
                         />
                     ))}
                 </div>

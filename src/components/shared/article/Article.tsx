@@ -2,9 +2,10 @@
 
 import MarkdownRender from "@components/shared/markdownrender/MarkdownRender"
 import Alert from "@components/shared/alert/Alert"
-import getCookie from "@utils/getCookie"
 import "./Article.css"
 import { formatPublishedDate } from "@utils/DatetimeFormatter"
+import { useContext } from "react"
+import AppContext from "@context/context"
 
 type ArticleProps = { 
   title: string
@@ -16,7 +17,7 @@ type ArticleProps = {
 }
 
 export default function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
 
     return (
         <div className="article">

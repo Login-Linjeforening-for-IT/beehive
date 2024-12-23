@@ -1,8 +1,9 @@
 'use client'
 
-import getCookie from "@utils/getCookie"
 import "./DateTile.css"
 import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation"
+import AppContext from "@context/context"
+import { useContext } from "react"
 
 export default function DateTile({
     startDate,
@@ -11,7 +12,7 @@ export default function DateTile({
     varient = "regular",
     useDayText = false,
 }: any) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const sTime = new Date(startDate)
     const eTime = new Date(endDate)
     const sDate = sTime.getDate()
@@ -77,7 +78,7 @@ export default function DateTile({
             >
                 <div className="date-tile__date">
                     <div className="date-tile__dayofweek">
-                        {daysOfWeek[lang][sTime.getDay()]}.
+                        {(daysOfWeek as any)[lang][sTime.getDay()]}.
                     </div>
                 </div>
             </div>
@@ -99,7 +100,7 @@ export default function DateTile({
                     >
                         {sDate === eDate ? sDate : sDate + "-" + eDate}
                     </div>
-                    <div className="date-tile__month">{months[lang][eMonth]}</div>
+                    <div className="date-tile__month">{(months as any)[lang][eMonth]}</div>
                 </div>
             </div>
         )
@@ -112,14 +113,14 @@ export default function DateTile({
                 <div className="date-tile__date">
                     <div className="date-tile__day date-tile__day--wide">{sDate}</div>
                     <div className="date-tile__month date-tile__month--wide">
-                        {months[lang][sMonth]}
+                        {(months as any)[lang][sMonth]}
                     </div>
                 </div>
                 <div className="date-tile__devider">-</div>
                 <div className="date-tile__date">
                     <div className="date-tile__day date-tile__day--wide">{eDate}</div>
                     <div className="date-tile__month date-tile__month--wide">
-                        {months[lang][eMonth]}
+                        {(months as any)[lang][eMonth]}
                     </div>
                 </div>
             </div>

@@ -2,15 +2,15 @@
 
 import LoginLogo from "@components/svg/brandlogos/LoginLogo"
 import Button from "@components/shared/button/Button"
-import getCookie from "@utils/getCookie"
 import no from "@text/landing/no.json"
 import en from "@text/landing/en.json"
 import "./HeroSection.css"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import AppContext from "@context/context"
 
 export default function LandingPage() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
-    const [text, setText] = useState(no)
+    const { lang } = useContext(AppContext)
+    const [text, setText] = useState(lang === 'en' ? en : no)
 
     useEffect(() => {
         const text = lang === 'en' ? en : no

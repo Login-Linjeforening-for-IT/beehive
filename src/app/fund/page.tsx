@@ -8,11 +8,12 @@ import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
 import board_en from '@text/board/no.json'
 import board_no from '@text/board/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
+import { useContext } from "react"
+import AppContext from "@context/context"
 
 export default function Fund() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text: any = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
 
     return (

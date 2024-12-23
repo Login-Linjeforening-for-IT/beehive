@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import config from "@config"
 import Tags from "@components/tags/Tags"
 import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
@@ -8,10 +8,10 @@ import "./JobadCard.css"
 import Link from "next/link"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 import Image from "next/image"
-import getCookie from "@utils/getCookie"
+import AppContext from "@context/context"
 
 export default function JobadCard({ jobad, disableTags=false }: any) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [useFallbackImg, setUseFallbackImg] = useState(false)
 
     useEffect(() => {

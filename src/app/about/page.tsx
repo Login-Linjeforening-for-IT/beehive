@@ -7,11 +7,12 @@ import DecoratedPicture from "@components/shared/images/decoratedpicture/Decorat
 import Contact from "@components/shared/contact/Contact"
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
+import { useContext } from "react"
+import AppContext from "@context/context"
 
 export default function About() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     return (

@@ -1,14 +1,14 @@
 import AccordionItem from '@components/shared/accordion/AccordionItem'
 import AccordionContent from '@components/shared/accordion/AccordionContent'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Link from 'next/link'
-import getCookie from '@utils/getCookie'
 import no from "@text/about/no.json"
 import en from "@text/about/en.json"
+import AppContext from '@context/context'
 
 export default function StudyProgramsAccordion() {
     const [activeAccordionItem, setActiveAccordionItem] = useState('bachelor')
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     return(

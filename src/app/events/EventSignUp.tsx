@@ -3,10 +3,11 @@
 import Button from "@components/shared/button/Button"
 import Alert from "@components/shared/alert/Alert"
 import "./EventSignUp.css"
-import getCookie from "@utils/getCookie"
 import no from "@text/eventPage/no.json"
 import en from "@text/eventPage/en.json"
 import { formatDeadlineDate, formatPublishedDate } from "@utils/DatetimeFormatter"
+import { useContext } from "react"
+import AppContext from "@context/context"
 
 export default function EventSignUp({
     url,
@@ -16,7 +17,7 @@ export default function EventSignUp({
     signupRelease,
     signupDeadline,
 }: any) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
     const now = new Date()
     let msg = ""

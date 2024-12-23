@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import config from "@config"
 import Spinner from "@components/shared/spinner/spinner"
 import Article from "@components/shared/article/Article"
@@ -10,9 +10,9 @@ import Alert from "@components/shared/alert/Alert"
 import { getJob } from "@utils/api"
 import no from '@text/jobadPage/no.json'
 import en from '@text/jobadPage/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
+import AppContext from "@context/context"
 
 const jobTypeTranslations = {
     no: {
@@ -54,7 +54,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
     const [jobad, setJobad] = useState<any | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     useEffect(() => {

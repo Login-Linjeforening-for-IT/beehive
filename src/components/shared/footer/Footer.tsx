@@ -4,17 +4,17 @@ import config from "@config"
 import SocialLinks from "./SocialLinks"
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
-import getCookie from "@utils/getCookie"
 import "./Footer.css"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import AppContext from "@context/context"
 
 const version = process.env.REACT_APP_FRONTEND_VERSION
 
 export default function Footer() {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {

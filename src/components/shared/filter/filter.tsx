@@ -1,18 +1,18 @@
 'use client'
 
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useContext } from "react"
 import Button from "@components/shared/button/Button"
 import CheckBox from "@components/shared/checkbox/Checkbox"
 import CheckTag from "@components/shared/checktag/Checktag"
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
-import getCookie from "@utils/getCookie"
 import "./filter.css"
+import AppContext from "@context/context"
 
 export default function FilterGroup({ filters, onApply, close = false }: any) {
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {
@@ -121,7 +121,7 @@ function getFilterItemOnSelect(onSelect: any, filterID: any) {
 }
 
 function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
 
     return (
         <div className="filter">
@@ -147,7 +147,7 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
 
 function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
     const [ checked, setChecked ] = useState(false)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
 
     useEffect(() => {
         setChecked(false)

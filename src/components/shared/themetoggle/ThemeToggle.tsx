@@ -1,11 +1,11 @@
 'use client'
 
 import { useContext } from "react"
-import ThemeContext from "@context/ThemeContext"
 import "./ThemeToggle.css"
+import AppContext from "@context/context"
 
 export default function ThemeToggle() {
-    const { switchTheme } = useContext(ThemeContext)
+    const { switchTheme } = useContext(AppContext)
 
     return (
         <button className="theme-toggle" onClick={switchTheme}>

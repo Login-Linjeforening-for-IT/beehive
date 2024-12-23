@@ -3,18 +3,13 @@
 import Contact from "@components/shared/contact/Contact"
 import no from '@text/policy/no.json'
 import en from '@text/policy/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
-import { useEffect, useState } from "react"
+import { useContext } from "react"
+import AppContext from "@context/context"
 
 export default function Policy() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
-    const [text, setText] = useState(no)
-
-    useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
+    const { lang } = useContext(AppContext)
+    const text = lang === 'en' ? en : no
 
     return (
         <div className='page-container'>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useContext } from "react"
 import EventListItem from "@components/event/EventItem"
 import Spinner from "@components/shared/spinner/spinner"
 import FilterGroup from "@components/shared/filter/filter"
@@ -12,8 +12,8 @@ import { getEventCategoryFilters, getEvents } from "@utils/api"
 import debounce from "@/utils/debounce"
 import no from '@text/eventlist/no.json'
 import en from '@text/eventlist/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
+import AppContext from "@context/context"
 
 function getLabelKeyWithLang(key: string) {
     return (v: any) => {
@@ -107,7 +107,7 @@ export default function Events() {
         return null
     }
     
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
     const [events, setEvents] = useState<any[]>([])
     const [filterData, setFilterData] = useState({})

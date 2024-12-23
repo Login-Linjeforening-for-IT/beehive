@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useContext } from "react"
 import Spinner from "@components/shared/spinner/spinner"
 import JobadsListItem from "@components/jobad/JobadsListItem"
 import Button from "@components/shared/button/Button"
@@ -11,8 +11,8 @@ import prepFilter from "@components/shared/filter/prepFilter"
 import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "@utils/api"
 import no from '@text/jobadList/no.json'
 import en from '@text/jobadList/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
+import AppContext from "@context/context"
 
 const jobTypeTranslations = {
     no: {
@@ -38,7 +38,7 @@ export default function Jobads() {
     const limit = 10
     const offset = useRef(0)
     const [ showLoadMore, setShowLoadMore ] = useState(false)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     const ap = debounce(async (v: any) => {

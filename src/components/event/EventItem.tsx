@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import DateTile from "@components/shared/datetile/DateTile"
 import Tags from "@components/tags/Tags"
 import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
@@ -12,9 +12,9 @@ import DefaultSocialBanner from "@svg/defaultbanners/DefaultSocialBanner"
 import { isNew } from "@utils/DatetimeFormatter"
 import config from "@config"
 import Link from "next/link"
-import getCookie from "@utils/getCookie"
 import "./EventItem.css"
 import { formatEventStartDate, isOngoing } from "@utils/DatetimeFormatter"
+import AppContext from "@context/context"
 
 type EventListItemProps = { 
   event: any
@@ -25,7 +25,7 @@ type EventListItemProps = {
 
 export default function EventListItem({ event, highlight = true, disableTags = false, variant="list-item" }: EventListItemProps) {
     const [showImage, setShowImage] = useState(true)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
 
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
         if (disableTags) return false

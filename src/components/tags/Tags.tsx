@@ -4,9 +4,9 @@ import { isNew } from "@utils/DatetimeFormatter"
 import Tag from "./Tag"
 import no from '@text/tags/no.json'
 import en from '@text/tags/en.json'
-import getCookie from "@utils/getCookie"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./Tags.css"
+import AppContext from "@context/context"
 
 export default function Tags({
     highlight = false,
@@ -15,7 +15,7 @@ export default function Tags({
     full = false,
     ongoing = false
 }: any) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {

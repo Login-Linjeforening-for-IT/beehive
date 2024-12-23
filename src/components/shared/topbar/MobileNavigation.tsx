@@ -1,13 +1,13 @@
 'use client'
 
-import getCookie from "@utils/getCookie"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import no from "@text/layout/no.json"
 import en from "@text/layout/en.json"
+import AppContext from "@context/context"
 
 export default function MobileNavigation({ open, setIsOpen }: any) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {

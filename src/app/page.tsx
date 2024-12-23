@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useContext } from "react"
 import config from "@config"
-import ThemeContext, { ThemeProvider } from "@context/ThemeContext"
 import { getEvents, getJobs } from "@utils/api"
 import DecoratedPicture from "@components/shared/images/decoratedpicture/DecoratedPicture"
 import Alert from "@components/shared/alert/Alert"
@@ -14,28 +13,26 @@ import HeroSection from "@components/shared/herosection/HeroSection"
 import Link from "next/link"
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
-import getCookie from "@utils/getCookie"
-
 import "./page.css"
+import AppContext, { Provider } from "@context/context"
 
 export default function Home() {
     return (
-        <ThemeProvider>
+        <Provider>
             <HeroSection />
             <EventsPreview />
             <JobadsPreview />
             <SmallInfo />
-        </ThemeProvider>
+        </Provider>
     )
 }
 
 function SmallInfo() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang, theme } = useContext(AppContext)
     const text = lang === 'en' ? en : no
-    const value = useContext(ThemeContext)
 
     function getSponsorPath() {
-        if (value.theme === "light") {
+        if (theme === "light") {
             return "/img/company/mnemonic-logo_dark-nopayoff-2021.svg"
         } else {
             return "/img/company/mnemonic-logo_light-nopayoff-2021.svg"
@@ -114,7 +111,7 @@ function SmallInfo() {
 }
 
 function EndCard({ path }: {path: string}) {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     return (
@@ -135,7 +132,7 @@ function EventsPreview() {
     const [events, setEvents] = useState<any[] | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<any | null>(null)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     useEffect(() => {
@@ -213,7 +210,7 @@ function JobadsPreview() {
     const [jobads, setJobads] = useState<any[] | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<any | null>(null)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     useEffect(() => {

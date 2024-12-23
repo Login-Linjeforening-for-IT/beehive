@@ -5,12 +5,12 @@ import Button from "@components/shared/button/Button"
 import VervTabs from "./VervTabs"
 import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
-import getCookie from "@utils/getCookie"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./page.css"
+import AppContext from "@context/context"
 
 export default function Verv() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect, useMemo, useContext } from "react"
 import config from "@config"
 import Spinner from "@components/shared/spinner/spinner"
 import DateTile from "@components/shared/datetile/DateTile"
@@ -17,13 +17,11 @@ import DefaultTekkomBanner from "@components/svg/defaultbanners/DefaultTekkomBan
 import DefaultBedpresBanner from "@components/svg/defaultbanners/DefaultBedpresBanner"
 import DefaultSocialBanner from "@components/svg/defaultbanners/DefaultSocialBanner"
 import { getEvent } from "@utils/api"
-
 import no from '@text/eventPage/no.json'
 import en from '@text/eventPage/en.json'
-import getCookie from "@utils/getCookie"
-
-import "./EventPage.css"
 import { formatEventStatusDate, isOngoing } from "@utils/DatetimeFormatter"
+import "./EventPage.css"
+import AppContext from "@context/context"
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
@@ -77,7 +75,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
     const [event, setEvent] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text: any = lang === 'en' ? en : no
 
     useEffect(() => {

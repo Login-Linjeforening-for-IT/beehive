@@ -3,11 +3,12 @@
 import Contact from "@components/shared/contact/Contact"
 import no from '@text/companies/no.json'
 import en from '@text/companies/en.json'
-import getCookie from "@utils/getCookie"
 import "./page.css"
+import { useContext } from "react"
+import AppContext from "@context/context"
 
 export default function CompaniesPage() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
     return (

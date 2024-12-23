@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from "react"
+import React, { useCallback, useContext, useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import getCookie from "@utils/getCookie"
 import no from "@text/layout/no.json"
 import en from "@text/layout/en.json"
+import AppContext from "@context/context"
 
 export default function Navigation() {
-    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
     useEffect(() => {
