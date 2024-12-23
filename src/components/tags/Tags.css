@@ -4,12 +4,12 @@
   font-size: .75rem;
   border-radius: 10em;
   display: block;
-  width: fit__container;
-  height: fit__container;
+  width: fit_container;
+  height: fit_container;
   font-weight: 500;
 }
 
-.tag__container {
+.tag_container {
   padding: .2em .9em;
   border-radius: 10em;
 }
@@ -21,10 +21,10 @@
   background: var(--color-tag-highlight-bg);
   padding: .1em;
 }
-.tag--highlight .tag__container {
+.tag--highlight .tag_container {
   background-color: var(--color-bg-body);
 }
-.tag--highlight .tag__name {
+.tag--highlight .tag_name {
   background: var(--color-tag-highlight-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -36,41 +36,41 @@
   padding: 0;
   border: .1em solid var(--color-tag-highlight-boder);
 }
-.light .tag--highlight .tag__container {
+.light .tag--highlight .tag_container {
   background: var(--color-tag-highlight-bg);
 }
-.light .tag--highlight .tag__name {
+.light .tag--highlight .tag_name {
   background: none;
   color: var(--color-tag-highlight-text);
   -webkit-background-clip: inherit;
   -webkit-text-fill-color: var(--color-tag-highlight-text);
 }
 
-.tag--danger .tag__container {
+.tag--danger .tag_container {
   background-color: var(--color-tag-danger-bg);
   border: .1em solid var(--color-tag-danger-border);
 }
-.tag--danger .tag__name {
+.tag--danger .tag_name {
   color: var(--color-tag-danger-text); 
 }
 
 .tag--info {
   background-color: var(--color-tag-info-bg);
 }
-.tag--info .tag__container {
+.tag--info .tag_container {
   border: .1em solid var(--color-tag-info-border);
 }
-.tag--info .tag__name {
+.tag--info .tag_name {
   color: var(--color-tag-info-text);
 }
 
 .tag--success {
   background-color: var(--color-tag-success-bg);
 }
-.tag--success .tag__container {
+.tag--success .tag_container {
   border: .1em solid var(--color-tag-success-border);
 }
-.tag--success .tag__name {
+.tag--success .tag_name {
   color: var(--color-tag-success-text);
 }
 

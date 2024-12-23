@@ -27,19 +27,19 @@ function getDefaultBanner(category: string, color: string) {
     switch (category) {
     case "Sosialt":
         // @ts-ignore
-        return <DefaultSocialBanner color={color} className="event-banner__image" />
+        return <DefaultSocialBanner color={color} className="event-banner_image" />
     case "TekKom":
         // @ts-ignore
-        return <DefaultTekkomBanner color={color} className="event-banner__image" />
+        return <DefaultTekkomBanner color={color} className="event-banner_image" />
     case "CTF":
         // @ts-ignore
-        return <DefaultCtfBanner color={color} className="event-banner__image" />
+        return <DefaultCtfBanner color={color} className="event-banner_image" />
     case "Bedpres":
         // @ts-ignore
-        return <DefaultBedpresBanner color={color} className="event-banner__image" />
+        return <DefaultBedpresBanner color={color} className="event-banner_image" />
     default:
         // @ts-ignore
-        return <DefaultEventBanner color={color} className="event-banner__image" />
+        return <DefaultEventBanner color={color} className="event-banner_image" />
     }
 }
 
@@ -108,7 +108,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
                 src={`${config.url.CDN_URL}/img/events/banner/${event?.event?.image_banner}`}
                 // @ts-ignore
                 alt={event?.eventname}
-                className="event-banner__image"
+                className="event-banner_image"
                 onError={() => setUseFallbackBanner(true)}
             />
         )
@@ -135,8 +135,8 @@ export default function EventPage({ params }: { params: { id: number } }) {
                           // @ts-ignore
                           color={event.category.color}
                       />
-                      <div className="event-datetime-display__right">
-                          <div className="event-datetime-display__day">
+                      <div className="event-datetime-display_right">
+                          <div className="event-datetime-display_day">
                               {isOngoing(
                                   // @ts-ignore
                                   new Date(event.event.time_start),
@@ -144,7 +144,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
                                   new Date(event.event.time_end)
                               ) && 
                               // @ts-ignore
-                      <span class="event-datetime-display__live-dot"></span>
+                      <span class="event-datetime-display_live-dot"></span>
                               }
                               {formatEventStatusDate(
                                   // @ts-ignore
@@ -156,8 +156,8 @@ export default function EventPage({ params }: { params: { id: number } }) {
                           </div>
                           {/* @ts-ignore */}
                           {event.event.time_type !== "whole_day" &&
-                    <div className="event-datetime-display__time">
-                        <i className="event-datetime-display__time-icon material-symbols-sharp">schedule</i>
+                    <div className="event-datetime-display_time">
+                        <i className="event-datetime-display_time-icon material-symbols-sharp">schedule</i>
                         {/* @ts-ignore */}
                         {event.event.time_type === "tbd" ? "TBD" : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}
@@ -167,15 +167,15 @@ export default function EventPage({ params }: { params: { id: number } }) {
                       </div>
                   </div>
 
-                  <div className="event-details__list">
+                  <div className="event-details_list">
                       {/* @ts-ignore */}
                       {event.location && (
                           <>
-                              <div className="event-details__lable">
-                                  <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">location_on</i>
+                              <div className="event-details_lable">
+                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">location_on</i>
                                   {text.info.location}:
                               </div>
-                              <div className="event-details__info">
+                              <div className="event-details_info">
                                   {/* @ts-ignore */}
                                   {tr(event.location.name_en, event.location.name_no)}
                                   {/* @ts-ignore */}
@@ -184,13 +184,13 @@ export default function EventPage({ params }: { params: { id: number } }) {
                           </>
                       )}
 
-                      <div className="event-details__lable">
-                          <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">category</i>
+                      <div className="event-details_lable">
+                          <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">category</i>
                           {text.info.type}:
                       </div>
-                      <div className="event-details__info">
+                      <div className="event-details_info">
                           {/* @ts-ignore */}
-                          <span className="event-details__category-dot" style={{background: event.category.color}}></span>
+                          <span className="event-details_category-dot" style={{background: event.category.color}}></span>
                           {/* @ts-ignore */}
                           {tr(event.category.name_en, event.category.name_no)}
                       </div>
@@ -198,11 +198,11 @@ export default function EventPage({ params }: { params: { id: number } }) {
                       {/* @ts-ignore */}
                       {event.organizations?.length > 0 && (
                           <>
-                              <div className="event-details__lable">
-                                  <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">person</i>
+                              <div className="event-details_lable">
+                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">person</i>
                                   {text.info.organizer}:
                               </div>
-                              <div className="event-details__info">
+                              <div className="event-details_info">
                                   {/* @ts-ignore */}
                                   {renderOrganizations(event.organizations)}
                               </div>
@@ -212,11 +212,11 @@ export default function EventPage({ params }: { params: { id: number } }) {
                       {/* @ts-ignore */}
                       {event.event.link_stream && (
                           <>
-                              <div className="event-details__lable">
-                                  <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">live_tv</i>
+                              <div className="event-details_lable">
+                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">live_tv</i>
                                   {text.info.stream}:
                               </div>
-                              <div className="event-details__info">
+                              <div className="event-details_info">
                                   {/* @ts-ignore */}
                                   {link(event.event.link_stream, getURLAddress(event.event.link_stream))}
                               </div>
@@ -226,11 +226,11 @@ export default function EventPage({ params }: { params: { id: number } }) {
                       {/* @ts-ignore */}
                       {(event.event.link_discord || event.event.link_facebook) && (
                           <>
-                              <div className="event-details__lable">
-                                  <i className="event-details__icon event-details__icon--lable-color material-symbols-sharp">link</i>
+                              <div className="event-details_lable">
+                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">link</i>
                                   {text.info.links}:
                               </div>
-                              <div className="event-details__info">
+                              <div className="event-details_info">
                                   {/* @ts-ignore */}
                                   {event.event.link_discord && <>{link(event.event.link_discord, "Discord")}<br/></>}
                                   {/* @ts-ignore */}
@@ -279,7 +279,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
                                   </>
                               }
                           >
-                              <div className="rules__content">
+                              <div className="rules_content">
                                   {/* @ts-ignore */}
                                   <MarkdownRender MDstr={tr(event.rule.description_en, event.rule.description_no)} />
                               </div>

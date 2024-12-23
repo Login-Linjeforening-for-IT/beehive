@@ -19,11 +19,11 @@ export default function Contact() {
     return(
         <div className='contact-card'>
             <h2 className='heading-2 heading-2--icon'>
-                <i className='heading-2__icon material-symbols-sharp'>travel_explore</i>
+                <i className='heading-2_icon material-symbols-sharp'>travel_explore</i>
                 <span>{text.contact.title}</span>
             </h2>
-            <div className='contact-card__info'>
-                <div className='contact-card__text'>
+            <div className='contact-card_info'>
+                <div className='contact-card_text'>
                     <h4 className='heading-4'>{text.contact.address}:</h4>
                     <p className='p--regular'>
                         Login - Linjeforeningen for IT
@@ -44,7 +44,7 @@ export default function Contact() {
                         </a>
                     </p>
                 </div>
-                <div className='contact-card__map'>
+                <div className='contact-card_map'>
                     <MazeMapEmbed 
                         poi={229153}
                     />

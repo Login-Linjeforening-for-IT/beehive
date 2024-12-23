@@ -44,18 +44,18 @@
     margin-bottom: 2rem;
 }
 
-.event-datetime-display__right {
+.event-datetime-display_right {
     margin: auto 0;
 }
 
-.event-datetime-display__day {
+.event-datetime-display_day {
     font-size: 1.25rem;
     color: var(--color-text-discreet);
     display: flex;
     align-items: center;
 }
 
-.event-datetime-display__live-dot {
+.event-datetime-display_live-dot {
     width: .8rem;
     height: .8rem;
     background-color: var(--color-green-500);
@@ -65,12 +65,12 @@
     animation: event-ongoing-pulse 1.5s infinite;
 }
 
-.event-datetime-display__time {
+.event-datetime-display_time {
     font-size: 1.6rem;
     font-weight: 500;
 }
 
-.event-datetime-display__time-icon {
+.event-datetime-display_time-icon {
     font-size: 1.8rem;
     margin-top: -.3rem;
     margin-right: .3rem;
@@ -92,37 +92,37 @@
 }
 
 
-.event-details__list {
+.event-details_list {
     display: grid;
     grid-template-columns: min-content auto;
     gap: 1rem;
     margin: 1rem 0 2rem 0;
 }
 
-.event-details__lable {
+.event-details_lable {
     color: var(--color-text-discreet);
     display: inline-flex;
 }
 
-.event-details__info {
+.event-details_info {
     font-weight: 500;
     color: var(--color-text-regular);
 }
 
 /* lable icons */
-.event-details__icon {
+.event-details_icon {
     line-height: 1.5rem;
     width: 2rem;
     text-align: center;
     padding-right: .5rem;
 }
 
-.event-details__icon--lable-color {
+.event-details_icon--lable-color {
     color: var(--color-text-discreet);
 }
 
 
-.event-details__category-dot {
+.event-details_category-dot {
     width: 1rem;
     height: 1rem;
     border-radius: 100%;
@@ -132,7 +132,7 @@
 }
 
 
-.event-details__info {
+.event-details_info {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -148,7 +148,7 @@
     background-color: rgba(100,100,100,.3);
 }
 
-.event-banner__image {
+.event-banner_image {
     display: block;
     aspect-ratio: 10 / 4;
     object-fit: cover;
@@ -168,11 +168,11 @@
     margin-top: 4rem;
 }
 
-.rules__content {
+.rules_content {
     padding: .5rem 1rem 1rem 1rem;
 }
 
-.rules__title {
+.rules_title {
     font-size: 1.2rem;
 }
 
@@ -240,7 +240,7 @@
     }
 
 
-    .event-banner, .event-banner__image {
+    .event-banner, .event-banner_image {
         border-radius: var(--border-radius);
     }
 
@@ -280,7 +280,7 @@
         margin-top: 4rem;
     }
 
-    .rules__content {
+    .rules_content {
         padding: .5rem 1.5rem 1rem 1.5rem;
     }
 

@@ -6,7 +6,7 @@
 
 /* logos */
 
-.footer-content__logos-conteiner {
+.footer-content_logos-conteiner {
   display: grid;
   gap: 4rem;
   max-width: 15rem;
@@ -14,14 +14,14 @@
   margin: 0 auto;
 }
 
-.footer-content__logo-text {
+.footer-content_logo-text {
   text-align: center;
   color: var(--color-text-footer-discret);
   padding-top: 2rem;
 }
 
-.footer-content__logo-image,
-.footer-content__logo-picture {
+.footer-content_logo-image,
+.footer-content_logo-picture {
   display: block;
   width: 100%;
 }
@@ -29,7 +29,7 @@
 
 /* contact info */
 
-.footer-content__contact {
+.footer-content_contact {
   display: grid;
   width: 100%;
   max-width: 15rem;
@@ -37,7 +37,7 @@
   gap: 2rem;
 }
 
-.footer-content__contact-header {
+.footer-content_contact-header {
   color: var(--color-text-footer-discret);
   font-weight: 500;
   font-size: .9rem;
@@ -45,15 +45,15 @@
   padding-bottom: .8rem;
 }
 
-.footer-content__contact-text,
-.footer-content__contact-link {
+.footer-content_contact-text,
+.footer-content_contact-link {
   color: var(--color-text-footer);
 }
 
 
 /* bottom info */
 
-.footer-content__bottom {
+.footer-content_bottom {
   display: grid;
   grid-template-columns: auto min-content;
   gap: 2rem;
@@ -61,12 +61,12 @@
   align-items: end;
 }
 
-.footer-content__bottom-text {
+.footer-content_bottom-text {
   color: var(--color-text-footer-discret);
   font-size: .8rem;
 }
 
-.footer-content__version-tag {
+.footer-content_version-tag {
   background-color: rgba(200,200,200,.1);
   padding: .4rem .6rem;
   border-radius: var(--border-radius);
@@ -77,12 +77,12 @@
 
 
 @media only screen and (min-width: 400px) {
-  .footer-content__contact {
+  .footer-content_contact {
     grid-template-columns: 1fr 1fr;
     max-width: 22rem;
   }
 
-  .footer-content__contact-section {
+  .footer-content_contact-section {
     justify-self: center;
   }
 }
@@ -102,18 +102,18 @@
       "bottom bottom";
   }
 
-  .footer-content__social-links {
+  .footer-content_social-links {
     grid-area: icons;
     justify-self: end;
   }
 
-  .footer-content__logos-conteiner {
+  .footer-content_logos-conteiner {
     grid-area: logos;
     max-width: 18rem;
     gap: 5rem;
   }
 
-  .footer-content__contact {
+  .footer-content_contact {
     grid-area: contact;
     grid-template-columns: 1fr 1fr;
     max-width: 34rem;
@@ -122,11 +122,11 @@
     gap: 0;
   }
   
-  .footer-content__contact-section {
+  .footer-content_contact-section {
     justify-self: end;
   }
 
-  .footer-content__bottom {
+  .footer-content_bottom {
     grid-area: bottom;
   }
 }

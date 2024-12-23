@@ -6,7 +6,7 @@ type AccordionContentProps = {
 
 export default function AccordionContent({id, activeAccordionItem, children}: AccordionContentProps) {
     return (
-        <div className={`accordion__content ${activeAccordionItem  === id ? "accordion__content--open" : ""}`}>
+        <div className={`accordion_content ${activeAccordionItem  === id ? "accordion_content--open" : ""}`}>
             { children }
         </div>
     )

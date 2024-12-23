@@ -19,18 +19,18 @@ export default function LandingPage() {
 
     return (
         <div className="hero-section">
-            <div className="hero-section__container">
-                <div className="hero-section__top">
-                    <picture className="hero-section__logo">
+            <div className="hero-section_container">
+                <div className="hero-section_top">
+                    <picture className="hero-section_logo">
                         <LoginLogo />
                     </picture>
-                    <div className="hero-section__content">
-                        <span className="hero-section__top-text">
+                    <div className="hero-section_content">
+                        <span className="hero-section_top-text">
                             {text.heroSection.welcome}
                         </span>
                         <br />
-                        <span className="hero-section__gradient-text">login.no</span>
-                        <div className="hero-section__buttons">
+                        <span className="hero-section_gradient-text">login.no</span>
+                        <div className="hero-section_buttons">
                             {/* @ts-ignore */}
                             <Button
                                 href="/events"

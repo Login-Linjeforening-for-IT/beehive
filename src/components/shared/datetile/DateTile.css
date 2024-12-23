@@ -10,31 +10,31 @@
 	padding-top: .7rem;
 }
 
-.date-tile__date {
+.date-tile_date {
 	width: fit-content;
 }
 
-.date-tile__devider {
+.date-tile_devider {
 	font-size: bold;
 	font-size: 1.5rem;
 	line-height: 2.2rem;
 	color: white;
 }
 
-.date-tile__day {
+.date-tile_day {
 	text-align: center;
 	width: max-content;
 	margin: auto;
 	color: white;
 }
 
-.date-tile__month {
+.date-tile_month {
 	text-align: center;
 	transform: translateY(-.1rem);
 	color: white;
 }
 
-.date-tile__dayofweek {
+.date-tile_dayofweek {
 	color: white;
 }
 
@@ -47,28 +47,28 @@
 	height: 4.7rem;
 }
 
-.date-tile--regular .date-tile__day {
+.date-tile--regular .date-tile_day {
 	font-size: 1.9rem;
 	line-height: 2.3rem;
 }
 
-.date-tile--regular .date-tile__month {
+.date-tile--regular .date-tile_month {
 	font-size: 1.1rem;
 	line-height: 1.4rem;
 	transform: translateY(-.1rem);
 }
 
-.date-tile--regular .date-tile__day--wide {
+.date-tile--regular .date-tile_day--wide {
 	font-size: 1.5rem;
 	line-height: 2rem;
 }
 
-.date-tile--regular .date-tile__month--wide {
+.date-tile--regular .date-tile_month--wide {
 	font-size: 1rem;
 	line-height: 1.3rem;
 }
 
-.date-tile--regular .date-tile__dayofweek {
+.date-tile--regular .date-tile_dayofweek {
 	font-size: 1.3rem;
 	line-height: 3.7rem;
 }
@@ -84,31 +84,31 @@
 	-webkit-backdrop-filter: blur(6px);
 }
 
-.date-tile--overlay .date-tile__day {
+.date-tile--overlay .date-tile_day {
 	font-size: 1.6rem;
 	line-height: 1.8rem;
 	text-align: center;
 }
 
-.date-tile--overlay .date-tile__devider {
+.date-tile--overlay .date-tile_devider {
 	line-height: 1.8rem;
 }
 
-.date-tile--overlay .date-tile__day--wide {
+.date-tile--overlay .date-tile_day--wide {
 	font-size: 1.4rem;
 }
 
-.date-tile--overlay .date-tile__month {
+.date-tile--overlay .date-tile_month {
 	font-size: 1.1rem;
 	line-height: 1.3rem;
 	transform: translateY(-.1rem);
 }
 
-.date-tile--overlay .date-tile__month--wide {
+.date-tile--overlay .date-tile_month--wide {
 	font-size: 1rem;
 }
 
-.date-tile--overlay .date-tile__dayofweek {
+.date-tile--overlay .date-tile_dayofweek {
 	font-size: 1.2rem;
 	line-height: 3rem;
 }
@@ -121,12 +121,12 @@
 		height: 5rem;
 	}
 
-	.date-tile--regular .date-tile__day {
+	.date-tile--regular .date-tile_day {
 		font-size: 2.2rem;
 		line-height: 2.5rem;
 	}
 	
-	.date-tile--regular .date-tile__month {
+	.date-tile--regular .date-tile_month {
 		font-size: 1.3rem;
 		line-height: 1.5rem;
 	}
@@ -135,17 +135,17 @@
 		padding-top: .8rem;
 	}
 	
-	.date-tile--regular .date-tile__day--wide {
+	.date-tile--regular .date-tile_day--wide {
 		font-size: 1.5rem;
 		line-height: 2rem;
 	}
 	
-	.date-tile--regular .date-tile__month--wide {
+	.date-tile--regular .date-tile_month--wide {
 		font-size: 1rem;
 		line-height: 1.3rem;
 	}
 
-	.date-tile--regular .date-tile__dayofweek {
+	.date-tile--regular .date-tile_dayofweek {
 		font-size: 1.5rem;
 		line-height: 4rem;
 	}

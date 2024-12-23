@@ -11,13 +11,13 @@ export default function Checktag({ id, label, checked, onChange }: ChecktagProps
     return (
         <label className="checktag">
             <input
-                className='checktag__input'
+                className='checktag_input'
                 type="checkbox"
                 id={id}
                 checked={checked}
                 onChange={onChange}
             />
-            <div className="checktag__name">
+            <div className="checktag_name">
                 {label}
             </div>
         </label>

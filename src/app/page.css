@@ -11,13 +11,13 @@
     padding: 0 1rem;
 }
 
-.dynamic-preview-heading__title {
+.dynamic-preview-heading_title {
     padding: .5rem 0;
     font-weight: 400;
     font-size: 1.5rem;
 }
 
-.dynamic-preview-heading__link {
+.dynamic-preview-heading_link {
     display: block;
     padding: .5em 1.5em .5em 1em;
     position: relative;
@@ -26,17 +26,17 @@
     font-weight: 500;
 }
 
-.dynamic-preview-heading__link:hover .dynamic-preview-heading__link-text {
+.dynamic-preview-heading_link:hover .dynamic-preview-heading_link-text {
     color: var(--color-link-primary);
 }
 
 /* hide the text on small screens (arrow still visible) */
-.dynamic-preview-heading__link-text {
+.dynamic-preview-heading_link-text {
     display: none; 
 }
 
 /* TODO: create global resuable class for this side arrow */
-.dynamic-preview-heading__link:after {
+.dynamic-preview-heading_link:after {
     content: '';
     position: absolute;
     width: .6em;
@@ -66,7 +66,7 @@
     scroll-snap-type: x mandatory;
 }
 
-.dynamic-preview-list__item {
+.dynamic-preview-list_item {
     scroll-snap-align: center;
     width: 80vw;
     max-width: 22rem;
@@ -78,7 +78,7 @@
     min-width: 14rem;
 }
 
-.dynamic-preview-end-card__btn {
+.dynamic-preview-end-card_btn {
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius);
@@ -88,24 +88,24 @@
     flex-direction: column;
 }
 
-.dynamic-preview-end-card__btn:hover {
+.dynamic-preview-end-card_btn:hover {
     background-color: var(--color-bg-surface);
 }
 
-.dynamic-preview-end-card__text {
+.dynamic-preview-end-card_text {
     font-size: 1.3rem;
     font-weight: 500;
     padding-top: 1rem;
 }
 
-.dynamic-preview-end-card__arrow-container {
+.dynamic-preview-end-card_arrow-container {
     width: 5.2rem;
     height: 5.2rem;
     background-color: var(--color-bg-surface);
     border-radius: 100%;
     box-shadow: var(--container-shadow);
 }
-.dynamic-preview-end-card__arrow {
+.dynamic-preview-end-card_arrow {
     width: 1.8rem;
     height: 1.8rem;
     margin-top: 1.8rem;
@@ -118,13 +118,13 @@
     z-index: 5;
     transition: .2s;
 }
-.dynamic-preview-end-card__btn:hover .dynamic-preview-end-card__arrow-container {
+.dynamic-preview-end-card_btn:hover .dynamic-preview-end-card_arrow-container {
     box-shadow: none;
 }
 
 
 @media only screen and (min-width: 350px) {
-    .dynamic-preview-heading__link-text {
+    .dynamic-preview-heading_link-text {
         display: block;
     }
 }
@@ -146,12 +146,12 @@
         padding: 0 3rem;
     }
 
-    .dynamic-preview-heading__title {
+    .dynamic-preview-heading_title {
         font-size: 1.8rem;
         padding-left: 0;
     }
 
-    .dynamic-preview-heading__link {
+    .dynamic-preview-heading_link {
         font-size: 1.2rem;
         line-height: 1.4em;
     }
@@ -163,7 +163,7 @@
         gap: 4vw;
     }
 
-    .dynamic-preview-list__item {
+    .dynamic-preview-list_item {
         width: 100%;
         max-width: 28rem;
     }
@@ -194,7 +194,7 @@
         margin: auto;
     }
 
-    .dynamic-preview-heading__title {
+    .dynamic-preview-heading_title {
         font-size: 2rem;
     }
 
@@ -204,11 +204,11 @@
         padding: 0;
     }
 
-    .dynamic-preview-list__item {
+    .dynamic-preview-list_item {
         margin: 0 auto;
     }
 
-    .dynamic-preview-list__item--loading {
+    .dynamic-preview-list_item--loading {
         height: 14rem;
         max-width: 20.5rem;
         border: .15rem solid var(--color-border-default);
@@ -242,7 +242,7 @@
         'a';
 }
 
-.landing-info__text {
+.landing-info_text {
     grid-area: a;
     max-width: 31rem;
     width: 100%;
@@ -250,7 +250,7 @@
     padding: 1rem 0;
 }
 
-.landing-info__link {
+.landing-info_link {
     margin-top: 1rem;
     padding: .7rem 1rem .7rem 0;
     font-size: 1.3rem;
@@ -258,7 +258,7 @@
     display: block;
 }
 
-.landing-info__picture {
+.landing-info_picture {
     grid-area: b;
     width: 100%;
     margin: auto;
@@ -283,7 +283,7 @@
             'b b b b a a a';
     }
 
-    .landing-info__picture {
+    .landing-info_picture {
         max-width: 40rem;
     }
 }

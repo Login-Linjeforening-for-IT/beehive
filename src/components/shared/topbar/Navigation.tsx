@@ -35,33 +35,33 @@ export default function Navigation() {
     return (
         <nav className="main-nav">
             <Link href="/events">
-                <li className="main-nav__item link--corner-hover">{text.nav.events}</li>
+                <li className="main-nav_item link--corner-hover">{text.nav.events}</li>
             </Link>
             <Link href="/career">
-                <li className="main-nav__item link--corner-hover">{text.nav.jobad}</li>
+                <li className="main-nav_item link--corner-hover">{text.nav.jobad}</li>
             </Link>
             <Link href="/companies">
-                <li className="main-nav__item link--corner-hover">
+                <li className="main-nav_item link--corner-hover">
                     {text.nav.companies}
                 </li>
             </Link>
             <div className="main-nav-dropdown">
-                <div className="main-nav-dropdown__toggle" tabIndex={0}>
-                    <div className="main-nav__item">
+                <div className="main-nav-dropdown_toggle" tabIndex={0}>
+                    <div className="main-nav_item">
                         {text.nav.about}
-                        <i className="material-symbols-sharp main-nav-dropdown__toggle-arrow">
+                        <i className="material-symbols-sharp main-nav-dropdown_toggle-arrow">
                             expand_more
                         </i>
                     </div>
-                    <div className="main-nav-dropdown__wrapper">
-                        <ul className="main-nav-dropdown__items">
+                    <div className="main-nav-dropdown_wrapper">
+                        <ul className="main-nav-dropdown_items">
                             <Link
                                 href="/about"
                                 ref={navItemRefs.current[0] as any}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown__item link--corner-hover">
-                                    <i className="logfont-login main-nav-dropdown__leading-icon"></i>
+                                <li className="main-nav-dropdown_item link--corner-hover">
+                                    <i className="logfont-login main-nav-dropdown_leading-icon"></i>
                                     {text.nav.general}
                                 </li>
                             </Link>
@@ -70,8 +70,8 @@ export default function Navigation() {
                                 ref={navItemRefs.current[1] as any}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown__item link--corner-hover">
-                                    <i className="material-symbols-sharp main-nav-dropdown__leading-icon">
+                                <li className="main-nav-dropdown_item link--corner-hover">
+                                    <i className="material-symbols-sharp main-nav-dropdown_leading-icon">
                                         favorite
                                     </i>
                                     {text.nav.verv}
@@ -82,8 +82,8 @@ export default function Navigation() {
                                 ref={navItemRefs.current[2] as any}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown__item link--corner-hover">
-                                    <i className="fund-section__header-icon material-symbols-sharp main-nav-dropdown__leading-icon">
+                                <li className="main-nav-dropdown_item link--corner-hover">
+                                    <i className="fund-section_header-icon material-symbols-sharp main-nav-dropdown_leading-icon">
                                         corporate_fare
                                     </i>
                                     {text.nav.fondet}
@@ -98,12 +98,12 @@ export default function Navigation() {
                                 ref={navItemRefs.current[3]}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown__item link--corner-hover">
-                                    <i className="material-symbols-sharp main-nav-dropdown__leading-icon">
+                                <li className="main-nav-dropdown_item link--corner-hover">
+                                    <i className="material-symbols-sharp main-nav-dropdown_leading-icon">
                                         import_contacts
                                     </i>
                                     Wiki
-                                    <i className="material-symbols-sharp wiki__arrow">
+                                    <i className="material-symbols-sharp wiki_arrow">
                                         arrow_outward
                                     </i>
                                 </li>

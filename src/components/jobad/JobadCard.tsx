@@ -21,31 +21,31 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
     return (
         <Link href={`/career/${jobad.id}`}>
             <div className='jobad-card'>
-                <picture className='jobad-card__picture'>
+                <picture className='jobad-card_picture'>
                     {(jobad.organization_logo && !useFallbackImg) ? (
                         <RenderSmoothImage
-                            className="jobad-card__img"
+                            className="jobad-card_img"
                             alt={jobad.organization_logo}
                             src={config.url.CDN_URL + "/img/organizations/" + jobad.organization_logo}
                             onError={() => setUseFallbackImg(true)}
                             transition={false}
                         />
                     ) : (
-                        <Image className='jobad-card__img'
+                        <Image className='jobad-card_img'
                             alt={jobad.organization_logo}
                             src="@assets/img/placeholders/jobad.svg"
                         />
                     )}
                 </picture>
-                <div className='jobad-card__name'>{lang ? jobad.title_en : jobad.title_no}</div>
-                <ul className='jobad-card__details'>
-                    <li className='jobad-card__detail'>
-                        <i className='jobad-card__icon material-symbols-sharp'>hourglass_bottom</i>
+                <div className='jobad-card_name'>{lang ? jobad.title_en : jobad.title_no}</div>
+                <ul className='jobad-card_details'>
+                    <li className='jobad-card_detail'>
+                        <i className='jobad-card_icon material-symbols-sharp'>hourglass_bottom</i>
                         {formatDeadlineDate(new Date(jobad.application_deadline), lang ? "en" : "no")}
                     </li>
                 </ul>
                 {!disableTags &&
-          <div className="jobad-card__tags">
+          <div className="jobad-card_tags">
               <Tags
                   highlight={jobad.highlight}
                   timePublish={new Date(jobad.time_publish)}

@@ -21,31 +21,31 @@ export default function Article({ title, publishTime, updateTime, informational,
 
     return (
         <div className="article">
-            <h1 className="article__header">{title}</h1>
-            <div className="article__meta-display">
-                <span className="article__meta-date">
+            <h1 className="article_header">{title}</h1>
+            <div className="article_meta-display">
+                <span className="article_meta-date">
                     {lang === "en" ? "PUBLISHED: " : "PUBLISERT: "}
                     {formatPublishedDate(publishTime, lang)}
                 </span>
                 {publishTime < updateTime &&
-          <span className="article__meta-date">
+          <span className="article_meta-date">
               {lang === "en" ? "UPDATED: " : "OPPDATERT: "}
               {formatPublishedDate(updateTime, lang)}
           </span>
                 }
             </div>
             {informational && (
-                <div className="article__informational">
-                    {/* <i className="article__informational-icon material-symbols-sharp">
+                <div className="article_informational">
+                    {/* <i className="article_informational-icon material-symbols-sharp">
             info
           </i>
-          <div className="article__informational-msg" >
+          <div className="article_informational-msg" >
             {informational}
           </div> */}
                     {/* @ts-ignore */}
                     <Alert
                         icon='info'
-                        className='article__informational-alert'
+                        className='article_informational-alert'
                     >
                         {informational}
                     </Alert>
@@ -53,11 +53,11 @@ export default function Article({ title, publishTime, updateTime, informational,
             )}
             {introduction && 
         <article
-            className="article__intro p--highlighted"
+            className="article_intro p--highlighted"
             dangerouslySetInnerHTML={{ __html: introduction }}
         />
             }
-            <article className="article__main">
+            <article className="article_main">
                 <MarkdownRender MDstr={description}/>
             </article>
         </div>

@@ -20,7 +20,7 @@ export default function StudyProgramsAccordion() {
                 setActiveAccordionItem={setActiveAccordionItem} 
             />
             <AccordionContent id='bachelor' activeAccordionItem={activeAccordionItem}>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.bachelor.computerEngineer}
                     <Link 
                       href='https://www.ntnu.no/studier/bidata' 
@@ -29,7 +29,7 @@ export default function StudyProgramsAccordion() {
                         <i className='material-symbols-sharp'>arrow_outward</i>
                     </Link>
                 </li>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.bachelor.digsec}
                     <Link 
                         href='https://www.ntnu.no/studier/bdigsec'
@@ -38,7 +38,7 @@ export default function StudyProgramsAccordion() {
                         <i className='material-symbols-sharp'>arrow_outward</i>
                     </Link>
                 </li>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.bachelor.prog}
                     <Link 
                         href='https://www.ntnu.no/studier/bprog'
@@ -55,7 +55,7 @@ export default function StudyProgramsAccordion() {
                 setActiveAccordionItem={setActiveAccordionItem}
             />
             <AccordionContent id='master' activeAccordionItem={activeAccordionItem}>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.master.infosec}
                     <Link 
                         href='https://www.ntnu.no/studier/mis'
@@ -64,14 +64,14 @@ export default function StudyProgramsAccordion() {
                         <i className='material-symbols-sharp'>arrow_outward</i>
                     </Link>
                 </li>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.master.applied}
                     <Link 
                         href='https://www.ntnu.edu/studies/macs'
                         target='_blank'><i className='material-symbols-sharp'>arrow_outward</i>
                     </Link>
                 </li>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                   {text.master.colorimg}
                   <Link 
                       href='https://www.ntnu.no/studier/mscosi'
@@ -88,7 +88,7 @@ export default function StudyProgramsAccordion() {
                 setActiveAccordionItem={setActiveAccordionItem}
             />
             <AccordionContent id='phd' activeAccordionItem={activeAccordionItem}>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.phd.infosec}
                     <Link 
                         href='https://www.ntnu.no/studier/phisct'
@@ -97,13 +97,13 @@ export default function StudyProgramsAccordion() {
                         <i className='material-symbols-sharp'>arrow_outward</i>
                     </Link>
                 </li>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.phd.data}
                     <Link 
                         href='https://www.ntnu.no/studier/phcos'
                         target='_blank'><i className='material-symbols-sharp'>arrow_outward</i>
                     </Link></li>
-                <li className='accordion__content-item'>
+                <li className='accordion_content-item'>
                     {text.phd.tele}
                     <Link 
                         href='https://www.ntnu.no/studier/phet'

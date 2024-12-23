@@ -19,11 +19,11 @@ export default function LogChamp({name, position, img, discord, discordLink}: Lo
                 width={100}
                 height={100}
             />
-            <div className='logchamp__info'>
-                <p className='logchamp__title'>{position}</p>
-                <p className='logchamp__name'>{name}</p>
+            <div className='logchamp_info'>
+                <p className='logchamp_title'>{position}</p>
+                <p className='logchamp_name'>{name}</p>
                 {discord &&
-          <p className='logchamp__discord'>
+          <p className='logchamp_discord'>
               <i className='logfont-discord'> </i>
               <a href={discordLink} target='_blank'>{discord}</a>
           </p>

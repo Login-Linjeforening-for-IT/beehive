@@ -47,7 +47,7 @@ function formatCities(cities: any[]) {
         if (counter >= characterLimit) {
             return (
                 <>
-                    {arr.join(", ")}, <span className='jobads-item__detail-overflow-number'>+{cities.length - i}</span>
+                    {arr.join(", ")}, <span className='jobads-item_detail-overflow-number'>+{cities.length - i}</span>
                 </>
             )
         }
@@ -74,51 +74,51 @@ export default function JobadsListItem({ jobad }: any) {
     return (
         <Link href={`/career/${jobad.id}`}>
             <div className={jobad.highlight ? "jobads-item jobads-item--highlight" : "jobads-item" }>
-                <div className={useTags(jobad.time_publish, jobad.highlight) ? "jobads-item__wrapper jobads-item__wrapper--with-tags" : "jobads-item__wrapper" }>
+                <div className={useTags(jobad.time_publish, jobad.highlight) ? "jobads-item_wrapper jobads-item_wrapper--with-tags" : "jobads-item_wrapper" }>
                     {useTags(jobad.time_publish, jobad.highlight) && 
-            <div className="jobads-item__tags">
+            <div className="jobads-item_tags">
                 <Tags
                     highlight={jobad.highlight}
                     timePublish={new Date(jobad.time_publish)}
                 />
             </div>
                     }
-                    <picture className='jobads-item__picture'>
+                    <picture className='jobads-item_picture'>
                         {(jobad.organization_logo && !useFallbackImg) ? (
                             <RenderSmoothImage
-                                className="jobads-item__img"
+                                className="jobads-item_img"
                                 alt={jobad.organization_logo}
                                 src={`${config.url.CDN_URL}/img/organizations/${jobad.organization_logo}`}
                                 onError={() => setUseFallbackImg(true)}
                                 transition={false}
                             />
                         ) : (
-                            <Image className='jobads-item__img'
+                            <Image className='jobads-item_img'
                                 alt={jobad.organization_logo}
                                 src="@assets/img/placeholders/jobad.svg"
                             />
                         )}
                     </picture>
-                    <div className='jobads-item__info'>
-                        <div className='jobads-item__name'>{lang === "en" ? jobad.title_en : jobad.title_no}</div>
-                        <ul className='jobads-item__details'>
-                            <li className='jobads-item__detail'>
-                                <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
+                    <div className='jobads-item_info'>
+                        <div className='jobads-item_name'>{lang === "en" ? jobad.title_en : jobad.title_no}</div>
+                        <ul className='jobads-item_details'>
+                            <li className='jobads-item_detail'>
+                                <i className='jobads-item_icon material-symbols-sharp'>hourglass_bottom</i>
                                 {formatDeadlineDate(new Date(jobad.application_deadline), lang)}
                             </li>
-                            <li className='jobads-item__detail'>
-                                <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
+                            <li className='jobads-item_detail'>
+                                <i className='jobads-item_icon material-symbols-sharp'>apartment</i>
                                 {lang === "en" ? jobad.organization_name_en : jobad.organization_name_no}
                             </li>
                             {jobad.job_type && 
-                                <li className='jobads-item__detail'>
-                                    <i className='jobads-item__icon material-symbols-sharp'>work_history</i>
+                                <li className='jobads-item_detail'>
+                                    <i className='jobads-item_icon material-symbols-sharp'>work_history</i>
                                     {getJobTypeLabel(jobad.job_type, lang)}
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
-                                <li className='jobads-item__detail'>
-                                    <i className='jobads-item__icon material-symbols-sharp'>location_on</i>
+                                <li className='jobads-item_detail'>
+                                    <i className='jobads-item_icon material-symbols-sharp'>location_on</i>
                                     {formatCities(jobad.cities)}
                                 </li>
                             }

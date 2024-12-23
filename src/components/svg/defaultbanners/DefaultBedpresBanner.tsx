@@ -13,7 +13,7 @@ export default function DefaultBedpresBanner({ color, transition = true, classNa
 
     return (
         <div className={`default-banner ${transition ? "default-banner--transition" : ""} ${className}`} style={{background: gradient}}>
-            <svg className='default-banner__svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='default-banner_svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill={fillColor} fillRule="evenodd" clipRule="evenodd" d="M220.342 134.071L235.342 125.071L237.658 128.93L222.658 137.93L220.342 134.071Z" />
                 <path fill={fillColor} fillRule="evenodd" clipRule="evenodd" d="M210.673 84.5801L237.673 101.08L235.327 104.92L208.327 88.4198L210.673 84.5801Z" />
                 <path fill={fillColor} fillRule="evenodd" clipRule="evenodd" d="M240.135 60.2886L250.635 91.7886L246.365 93.2116L235.865 61.7116L240.135 60.2886Z" />

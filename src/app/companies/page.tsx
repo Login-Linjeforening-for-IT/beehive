@@ -23,7 +23,7 @@ export default function CompaniesPage() {
                 <div className="companies-info">
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2__icon material-symbols-sharp">
+                            <i className="heading-2_icon material-symbols-sharp">
                                 flowsheet
                             </i>
                             <span>{text.bedpres.title}</span>
@@ -42,7 +42,7 @@ export default function CompaniesPage() {
                     </section>
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2__icon logfont-bedkom"></i>
+                            <i className="heading-2_icon logfont-bedkom"></i>
                             {text.cyberdays.title}
                         </h2>
                         <p className="p--regular">{text.cyberdays.body}</p>
@@ -59,21 +59,21 @@ export default function CompaniesPage() {
                     </section>
                     <section>
                         <h2 className="heading-2">
-                            <i className="heading-2__icon logfont-ctfkom"></i>
+                            <i className="heading-2_icon logfont-ctfkom"></i>
                             {text.ctf.title}
                         </h2>
                         <p className="p--regular">{text.ctf.body}</p>
                     </section>
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2__icon material-symbols-sharp">campaign</i>
+                            <i className="heading-2_icon material-symbols-sharp">campaign</i>
                             <span>{text.profiling.title}</span>
                         </h2>
                         <p className="p--regular">{text.profiling.body}</p>
                     </section>
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2__icon material-symbols-sharp">build</i>
+                            <i className="heading-2_icon material-symbols-sharp">build</i>
                             <span>{text.workshop.title}</span>
                         </h2>
                         <p className="p--regular">{text.workshop.body}</p>

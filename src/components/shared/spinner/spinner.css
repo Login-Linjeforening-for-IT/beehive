@@ -4,14 +4,14 @@
     z-index: 999;
 }
 
-.spinner__svg {
+.spinner_svg {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
   
-.spinner__corners {
+.spinner_corners {
     fill: none;
     stroke-width: 8;
     stroke: var(--color-primary);
@@ -21,7 +21,7 @@
     -webkit-animation: cornersDash infinite 1.5s ease;
 }
   
-.spinner__l {
+.spinner_l {
     fill: none;
     stroke: white;
     stroke-width: 5;
@@ -30,7 +30,7 @@
     -webkit-animation: L-dash infinite 1.5s ease;
 }
 
-.light .spinner__l {
+.light .spinner_l {
     stroke: black;
 }
   

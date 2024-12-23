@@ -8,14 +8,14 @@
   max-width: 13rem;
 }
 
-.footer-social-links__link {
+.footer-social-links_link {
   display: block;
   width: 2rem;
   height: 2rem;
   margin: auto;
 }
 
-.footer-social-links__icon {
+.footer-social-links_icon {
   line-height: 2rem;
   font-size: 2rem;
   transition: .2s;
@@ -27,34 +27,34 @@
 
 /* custome hover colors */
 
-.footer-social-links__icon--discord:hover {
+.footer-social-links_icon--discord:hover {
   color: #6571fd;
 }
 
-.footer-social-links__icon--facebook:hover {
+.footer-social-links_icon--facebook:hover {
   color: #2c87ff;
 }
 
 /* extra fancy gradient for instagram */
-.footer-social-links__icon--instagram {
+.footer-social-links_icon--instagram {
   background: radial-gradient(circle at 30% 107%, #fff695 0%, #fff695 5%, #ff5445 45%,#ff37c0 60%,#3d6dff 90%);
   background-clip: text;
   -webkit-background-clip: text; 
 }
 
-.footer-social-links__icon--instagram:hover {
+.footer-social-links_icon--instagram:hover {
   -webkit-text-fill-color: transparent;
 }
 
-.footer-social-links__icon--linkedin:hover {
+.footer-social-links_icon--linkedin:hover {
   color: #1a7bdd;
 }
 
-.footer-social-links__icon--gitlab:hover {
+.footer-social-links_icon--gitlab:hover {
   color: #f6492e;
 }
 
-.footer-social-links__icon--wikijs:hover {
+.footer-social-links_icon--wikijs:hover {
   color: rgb(5, 186, 243);
 }
 
@@ -66,7 +66,7 @@
     gap: 0;
   }
 
-  .footer-social-links__icon {
+  .footer-social-links_icon {
     font-size: 1.5rem;
   }
 }

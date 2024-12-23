@@ -7,7 +7,7 @@ import RenderSmoothImage from "@components/shared/images/rendersmoothimage/Rende
 function NavigationButton({ side, onClick, onFocus }: any) {
     return (
         <button
-            className={`image-carousel__nav-item image-carousel__nav-item--${side}`}
+            className={`image-carousel_nav-item image-carousel_nav-item--${side}`}
             onClick={onClick}
             onFocus={onFocus}
             aria-label={side === "left" ? "previous" : "next"}
@@ -19,19 +19,19 @@ function SlideItem({ image, index, className, title, description, onFocus }: any
     return (
         <div
             key={index}
-            className={`image-carousel__slide ${className}`}
+            className={`image-carousel_slide ${className}`}
             onFocus={onFocus}
         >
-            <div className="image-carousel__image-overlay">
-                <div className="image-carousel__image-overlay-info">
-                    <h2 className="image-carousel__image-overlay-title">{title}</h2>
-                    <p className="image-carousel__image-overlay-description">{description}</p>
+            <div className="image-carousel_image-overlay">
+                <div className="image-carousel_image-overlay-info">
+                    <h2 className="image-carousel_image-overlay-title">{title}</h2>
+                    <p className="image-carousel_image-overlay-description">{description}</p>
                 </div>
             </div>
             <RenderSmoothImage 
                 src={image}
                 alt={title}
-                className='image-carousel__image'
+                className='image-carousel_image'
             />
         </div>
     )
@@ -41,9 +41,9 @@ function DotIndicator({ index, isActive }: any) {
     return (
         <div
             key={index}
-            className={`image-carousel__dot-container ${isActive ? "image-carousel__dot-container--active" : ""}`}
+            className={`image-carousel_dot-container ${isActive ? "image-carousel_dot-container--active" : ""}`}
         >
-            <div className='image-carousel__dot'></div>
+            <div className='image-carousel_dot'></div>
         </div>
     )
 }
@@ -107,17 +107,17 @@ export default function ImageCarousel({ slides }: any) {
     }
 
     function getClassName(index: number) {
-        if (index === activeIndex) return "image-carousel__slide--active"
-        if (index === (activeIndex - 1 + slides.length) % slides.length) return "image-carousel__slide--prev"
-        if (index === (activeIndex + 1) % slides.length) return "image-carousel__slide--next"
-        if (index === (activeIndex + 2) % slides.length) return "image-carousel__slide--new-next"
-        return "image-carousel__slide--hide"
+        if (index === activeIndex) return "image-carousel_slide--active"
+        if (index === (activeIndex - 1 + slides.length) % slides.length) return "image-carousel_slide--prev"
+        if (index === (activeIndex + 1) % slides.length) return "image-carousel_slide--next"
+        if (index === (activeIndex + 2) % slides.length) return "image-carousel_slide--new-next"
+        return "image-carousel_slide--hide"
     }
 
     return (
         <div className={`image-carousel ${isPaused ? "image-carousel--paused" : ""}`}>
             <div
-                className="image-carousel__slides-container"
+                className="image-carousel_slides-container"
                 onMouseEnter={pause}
                 onMouseLeave={resume}
                 aria-live="polite"
@@ -141,7 +141,7 @@ export default function ImageCarousel({ slides }: any) {
                     onClick={() => next()}
                 />
             </div>
-            <div className="image-carousel__dots">
+            <div className="image-carousel_dots">
                 {slides.map((_: any, index: number) => (
                     <DotIndicator
                         key={index}

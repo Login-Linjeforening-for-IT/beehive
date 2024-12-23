@@ -31,7 +31,7 @@ export default function VervTabs() {
 
     return (
         <div className="tabs committees page-section--without-gaps">
-            <ul className="tabs__nav">
+            <ul className="tabs_nav">
               <TabNavItem
                 title={<EventkomLogo />}
                 id="event"
@@ -70,12 +70,12 @@ export default function VervTabs() {
               />
             </ul>
             <TabContent id="event" activeTab={activeTab}>
-              <h3 className="committees__heading heading-3">
+              <h3 className="committees_heading heading-3">
                 <i className="logfont-eventkom"></i>{" "}
                 {text.committeeSection.eventkom.title}
               </h3>
-              <div className="committees__info">
-                <div className="committees__text">
+              <div className="committees_info">
+                <div className="committees_text">
                   <p className="p--highlighted">
                     {text.committeeSection.eventkom.intro}
                   </p>
@@ -96,12 +96,12 @@ export default function VervTabs() {
               </div>
             </TabContent>
             <TabContent id="tek" activeTab={activeTab}>
-              <h3 className="committees__heading heading-3">
+              <h3 className="committees_heading heading-3">
                 <i className="logfont-tekkom"></i>{" "}
                 {text.committeeSection.tekkom.title}
               </h3>
-              <div className="committees__info">
-                <div className="committees__text">
+              <div className="committees_info">
+                <div className="committees_text">
                   <p className="p--highlighted">
                     {text.committeeSection.tekkom.intro}
                   </p>
@@ -117,12 +117,12 @@ export default function VervTabs() {
               </div>
             </TabContent>
             <TabContent id="bedkom" activeTab={activeTab}>
-                <h3 className="committees__heading heading-3">
+                <h3 className="committees_heading heading-3">
                     <i className="logfont-bedkom"></i>{" "}
                     {text.committeeSection.bedkom.title}
                 </h3>
-                <div className="committees__info">
-                    <div className="committees__text">
+                <div className="committees_info">
+                    <div className="committees_text">
                         <p className="p--highlighted">
                             {text.committeeSection.bedkom.intro}
                         </p>
@@ -138,12 +138,12 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id="ctf" activeTab={activeTab}>
-                <h3 className="committees__heading heading-3">
+                <h3 className="committees_heading heading-3">
                     <i className="logfont-ctfkom"></i>{" "}
                     {text.committeeSection.ctfkom.title}
                 </h3>
-                <div className="committees__info">
-                    <div className="committees__text">
+                <div className="committees_info">
+                    <div className="committees_text">
                       <p className="p--highlighted">
                           {text.committeeSection.ctfkom.intro}
                       </p>
@@ -164,12 +164,12 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id="sat" activeTab={activeTab}>
-                <h3 className="committees__heading heading-3">
+                <h3 className="committees_heading heading-3">
                     <i className="logfont-satkom-filled"></i>{" "}
                     {text.committeeSection.satkom.title}
                 </h3>
-                <div className="committees__info">
-                    <div className="committees__text">
+                <div className="committees_info">
+                    <div className="committees_text">
                       <p
                           className="p--highlighted"
                           dangerouslySetInnerHTML={{
@@ -188,11 +188,11 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id="pr" activeTab={activeTab}>
-                <h3 className="committees__heading heading-3">
+                <h3 className="committees_heading heading-3">
                     <i className="logfont-pr"></i> {text.committeeSection.pr.title}
                 </h3>
-                <div className="committees__info">
-                    <div className="committees__text">
+                <div className="committees_info">
+                    <div className="committees_text">
                         <p
                             className="p--highlighted"
                             dangerouslySetInnerHTML={{

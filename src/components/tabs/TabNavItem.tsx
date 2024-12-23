@@ -5,8 +5,8 @@ export default function TabNavItem({ id, title, activeTab, setActiveTab }: any) 
     }
  
     return (
-        <li onClick={handleClick} className={`tabs__nav-item ${activeTab === id ? "tabs__nav-item--active" : ""}`}>
-            <div className={`tabs__nav-title ${activeTab === id ? "tabs__nav-title--active" : ""}`}>{ title }</div>
+        <li onClick={handleClick} className={`tabs_nav-item ${activeTab === id ? "tabs_nav-item--active" : ""}`}>
+            <div className={`tabs_nav-title ${activeTab === id ? "tabs_nav-title--active" : ""}`}>{ title }</div>
         </li>
     )
 }

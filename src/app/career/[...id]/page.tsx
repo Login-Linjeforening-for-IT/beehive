@@ -123,19 +123,19 @@ export default function Jobads() {
                 trailingIcon={<i className='material-symbols-sharp'>filter_list</i>}
                 onClick={toggleFilter}
                 size="medium"
-                className={`jobads__filter-toggle ${isFilterOpen ? "active" : ""}`}
+                className={`jobads_filter-toggle ${isFilterOpen ? "active" : ""}`}
             >
                 Filter
             </Button>
 
             <div className="jobads">
-                <div className="jobads__section--left">
-                    <div className={`jobads__filter-container ${isFilterOpen ? "jobads__filter-container--open" : ""}`}>
+                <div className="jobads_section--left">
+                    <div className={`jobads_filter-container ${isFilterOpen ? "jobads_filter-container--open" : ""}`}>
                         {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : "No filter data available"}
                     </div>
                 </div>
-                <div className="jobads__section--right">
-                    <ul className="jobads__list">
+                <div className="jobads_section--right">
+                    <ul className="jobads_list">
                         {jobads.length ? jobads.map((e, idx) => (
                             <li key={idx}>
                                 <JobadsListItem jobad={e} />
@@ -145,12 +145,12 @@ export default function Jobads() {
                         }
                     </ul>
                     {showLoadMore && jobads.length > 0 && (
-                        <div className='jobads__load-more'>
+                        <div className='jobads_load-more'>
                             {/* @ts-ignore */}
                             <Button 
                                 onClick={loadItems}
                                 variant='secondary'
-                                className='jobads__load-more-btn'
+                                className='jobads_load-more-btn'
                                 trailingIcon={<i className='material-symbols-sharp'>arrow_downward</i>}
                             >
                                 {text.loadMore}

@@ -97,22 +97,22 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                     }`}
                 >
                     <div className="jobad-details">
-                        <div className="jobad-details__company">
-                            <picture className="jobad-details__company-logo">
+                        <div className="jobad-details_company">
+                            <picture className="jobad-details_company-logo">
                                 <RenderSmoothImage
                                     // @ts-ignore
                                     src={useFallbackImg ? "@assets/img/placeholders/jobad.svg" : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
                                     // @ts-ignore
                                     alt={jobad.organization.logo}
-                                    className='jobad-details__image'
+                                    className='jobad-details_image'
                                     onError={() => setUseFallbackImg(true)}
                                 />
                             </picture>
-                            <div className="jobad-details__company-name">
+                            <div className="jobad-details_company-name">
                                 {/* @ts-ignore */}
                                 {jobad.organization.link_homepage ? (
                                     <a
-                                        className="jobad-details__company-name-link link--underscore-hover"
+                                        className="jobad-details_company-name-link link--underscore-hover"
                                         // @ts-ignore
                                         href={jobad.organization.link_homepage}
                                         target="_blank"
@@ -128,14 +128,14 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                                 )}
                             </div>
                         </div>
-                        <div className="jobad-details__list">
-                            <div className="jobad-details__lable">
-                                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                        <div className="jobad-details_list">
+                            <div className="jobad-details_lable">
+                                <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
                                     hourglass_bottom
                                 </i>
                                 {text.details.deadline}:
                             </div>
-                            <div className="jobad-details__value">
+                            <div className="jobad-details_value">
                                 {formatDeadlineDate(
                                     // @ts-ignore
                                     new Date(jobad.job.application_deadline),
@@ -143,7 +143,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                                 )}
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.job.application_deadline)) && (
-                                    <i className="material-symbols-sharp jobad-details__icon jobad-details__icon--warning">
+                                    <i className="material-symbols-sharp jobad-details_icon jobad-details_icon--warning">
                                         acute
                                     </i>
                                 )}
@@ -151,33 +151,33 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                             {/* @ts-ignore */}
                             {jobad.job.position_title_no && 
                 <>
-                    <div className="jobad-details__lable">
-                        <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                    <div className="jobad-details_lable">
+                        <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
                             badge
                         </i>
                         {text.details.position}:
                     </div>
-                    <div className="jobad-details__value">
+                    <div className="jobad-details_value">
                         {/* @ts-ignore */}
                         {tr(jobad.job.position_title_en, jobad.job.position_title_no)}
                     </div>
                 </>
                             }
-                            <div className="jobad-details__lable">
-                                <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                            <div className="jobad-details_lable">
+                                <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
                                     work_history
                                 </i>
                                 {text.details.type}:
                             </div>
-                            <div className="jobad-details__value">
+                            <div className="jobad-details_value">
                                 {/* @ts-ignore */}
                                 {getJobTypeLabel(jobad.job.job_type, lang)}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
-                    <div className="jobad-details__lable">
-                        <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                    <div className="jobad-details_lable">
+                        <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
                             location_on
                         </i>
                         {/* @ts-ignore */}
@@ -186,7 +186,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                             : text.details.location}
                         :
                     </div>
-                    <div className="jobad-details__value">
+                    <div className="jobad-details_value">
                         {/* @ts-ignore */}
                         {jobad.job.cities.join(", ")}
                     </div>
@@ -195,13 +195,13 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                             {/* @ts-ignore */}
                             {jobad.job.skills && jobad.job.skills.length > 0 &&
                 <>
-                    <div className="jobad-details__lable">
-                        <i className="jobad-details__icon jobad-details__icon--lable-color material-symbols-sharp">
+                    <div className="jobad-details_lable">
+                        <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
                             build
                         </i>
                         {text.details.skills}:
                     </div>
-                    <div className="jobad-details__value">
+                    <div className="jobad-details_value">
                         {/* @ts-ignore */}
                         {jobad.job.skills.join(", ")}
                     </div>
@@ -215,7 +215,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                                 trailingIcon={<i className="material-symbols-sharp">arrow_outward</i>}
                                 // @ts-ignore
                                 href={jobad.job.application_url}
-                                className="jobad-details__apply-btn"
+                                className="jobad-details_apply-btn"
                             >
                                 {text.details.applyButton}
                             </Button>
@@ -229,7 +229,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                                 // @ts-ignore
                                 alt={jobad.job.banner_image}
                                 onError={hideBannerImg}
-                                className={"jobad-banner__image"}
+                                className={"jobad-banner_image"}
                             />
                         </picture>
                     )}

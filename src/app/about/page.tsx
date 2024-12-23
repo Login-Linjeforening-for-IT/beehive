@@ -25,7 +25,7 @@ export default function About() {
                     className="mt-0 max-w-[50rem] p--highlighted"
                     dangerouslySetInnerHTML={{ __html: text.intro }}
                 />
-                <div className="about-intro__grid-container">
+                <div className="about-intro_grid-container">
                     <StudyProgramsAcordion />
                     <DecoratedPicture
                         imgUrl={`${config.url.CDN_URL}/img/styret2.jpg`}
@@ -34,7 +34,7 @@ export default function About() {
                         width={300}
                         height={200}
                         cover={true}
-                        className="about-intro__picture"
+                        className="about-intro_picture"
                     />
                 </div>
             </section>

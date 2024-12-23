@@ -112,19 +112,19 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                         href={"https://use.mazemap.com/#v=1&sharepoitype=poi&campusid=1&sharepoi=" + poi}
                         rel="noreferrer noopener"
                         target="_blank"
-                        className='mazemap__link mazemap__overlay-item'
+                        className='mazemap_link mazemap_overlay-item'
                     >
-                        <i className='mazemap__link-icon material-symbols-sharp'>arrow_outward</i>
+                        <i className='mazemap_link-icon material-symbols-sharp'>arrow_outward</i>
                     </a>
                     {room &&
-					<div className='mazemap__location-name mazemap__overlay-item'>
-					    <i className='mazemap__location-name-icon material-symbols-sharp'>location_on</i>
+					<div className='mazemap_location-name mazemap_overlay-item'>
+					    <i className='mazemap_location-name-icon material-symbols-sharp'>location_on</i>
 					    {room}
 					</div>
                     }
-                    <div className='mazemap__controls mazemap__overlay-item'>
-                        <button onClick={zoomIn} className='mazemap__zoom-btn mazemap__zoom-btn--top material-symbols-sharp'>add</button>
-                        <button onClick={zoomOut} className='mazemap__zoom-btn mazemap__zoom-btn--bottom material-symbols-sharp'>remove</button>
+                    <div className='mazemap_controls mazemap_overlay-item'>
+                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top material-symbols-sharp'>add</button>
+                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom material-symbols-sharp'>remove</button>
                     </div>
                 </div>
             </div>

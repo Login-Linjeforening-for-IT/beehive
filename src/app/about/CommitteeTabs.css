@@ -1,36 +1,36 @@
 /* some BEM exeptions to customize the tabs compontent style because it uses SVGs instead of text */
-.committees .tabs__nav {
+.committees .tabs_nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
 }
 
-.committees .tabs__nav-title {
+.committees .tabs_nav-title {
     padding: 0;
 }
 
-.committees .tabs__nav-title svg {
+.committees .tabs_nav-title svg {
     display: block;
     width: 100%;
     max-width: 4rem;
 }
 
-.committees .tabs__content {
+.committees .tabs_content {
     padding: .1rem 1rem 2rem 1rem;
 }
 
-.committees__info {
+.committees_info {
     display: grid;
     grid-gap: 3rem;
     align-items: start;
     grid-template-columns: auto;
 }
 
-.committees__heading {
+.committees_heading {
     margin-bottom: 0;
 }
 
-.committees__text {
+.committees_text {
     grid-column: 1 / -2;
     max-width: 45rem;
 }
@@ -41,7 +41,7 @@
     justify-content: space-around;
 }
 
-.board-members__intro {
+.board-members_intro {
     grid-column: 1 / -1;
 }
 
@@ -73,23 +73,23 @@
     transition: .2s;
 }
 
-.tabs__nav-item:hover .committee-logo--corner {
+.tabs_nav-item:hover .committee-logo--corner {
     fill: none; /* change this if you want to show corners on hover */
 }
 
-.tabs__nav-item__title--active .committee-logo--corner {
+.tabs_nav-item_title--active .committee-logo--corner {
     fill: none; /* change this if you want to show corners when active */
 }
 
-.tabs__nav-item:hover .committee-logo--stroke-color, .tabs__nav-title--active .committee-logo--stroke-color {
+.tabs_nav-item:hover .committee-logo--stroke-color, .tabs_nav-title--active .committee-logo--stroke-color {
     stroke: var(--color-text-main);
 }
 
-.tabs__nav-item:hover .committee-logo--fill-color, .tabs__nav-title--active .committee-logo--fill-color {
+.tabs_nav-item:hover .committee-logo--fill-color, .tabs_nav-title--active .committee-logo--fill-color {
     fill: var(--color-text-main);
 }
 
-.tabs__nav-title--active .committee-logo--fill-bg-color {
+.tabs_nav-title--active .committee-logo--fill-bg-color {
     fill: var(--color-bg-surface);
 }
 
@@ -103,30 +103,30 @@
 
 @media only screen and (min-width: 500px) { 
 
-    .committees .tabs__nav {
+    .committees .tabs_nav {
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-between;
     }
 
-    .committees .tabs__nav-title svg {
+    .committees .tabs_nav-title svg {
         max-width: 6rem;
     }
 }
 
 @media only screen and (min-width: 600px) { 
-    .committees .tabs__content {
+    .committees .tabs_content {
         padding: 2rem 2rem 2rem 3rem;
     }
 }
 
 @media only screen and (min-width: 800px) {
 
-    .committees .tabs__content {
+    .committees .tabs_content {
         padding: 2rem 3rem 3rem 3rem;
     }
 
-    .committees__info {
+    .committees_info {
         grid-template-columns: auto 11rem;
     }
 
@@ -137,7 +137,7 @@
 }
 
 @media only screen and (min-width: 1200px) {
-    .committees .tabs__content {
+    .committees .tabs_content {
         padding: 2rem 5rem 3rem 5rem;
     }
 }

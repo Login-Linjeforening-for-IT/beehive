@@ -5,18 +5,18 @@
     box-shadow: var(--container-shadow);
 }
 
-.accordion__nav-item {
+.accordion_nav-item {
     font-size: 1.3rem;
     padding: .5rem;
     transition: .2s;
     cursor: pointer;
 }
 
-.accordion__nav-item:hover {
+.accordion_nav-item:hover {
     background-color: var(--color-bg-surface-raised);
 }
 
-.accordion__icon--left {
+.accordion_icon--left {
     font-size: 2.5rem;
     line-height: 2.25rem;
     transition: .3s;
@@ -24,41 +24,41 @@
     color: var(--color-text-primary);
 }
 
-.accordion__nav-item--active .accordion__icon--left {
+.accordion_nav-item--active .accordion_icon--left {
     transform: rotate(90deg);
 }
 
-.accordion__content {
+.accordion_content {
     max-height: 0;
     overflow: hidden;
     /* A simple "all .3s" does not work and I dont know why */
     transition: all .5s cubic-bezier(0,1,0,1);
 }
 
-.accordion__content--open {
+.accordion_content--open {
     height: auto;
     max-height: 100rem;
     transition: all .5s cubic-bezier(1,0,1,0);
 }
 
-.accordion__content-item {
+.accordion_content-item {
     font-size: 1rem;
     list-style: none;
     padding: .5rem 1rem .5rem 3.3rem;
 }
 
-.accordion__content-item:last-child {
+.accordion_content-item:last-child {
     padding-bottom: 1rem;
 }
 
 
 @media only screen and (min-width: 800px) {
-    .accordion__nav-item {
+    .accordion_nav-item {
         padding: 1rem;
         font-size: 1.5rem;
     }
 
-    .accordion__content-item {
+    .accordion_content-item {
         padding: .5rem 1rem .5rem 3.8rem;
     }
 }

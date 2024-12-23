@@ -3,7 +3,7 @@ import './PrLogoAnimation.css'
 export default function PrLogo() {
     return (
         <svg className='pr-logo committee-logo' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
-            <g className='pr-logo__shutter'>
+            <g className='pr-logo_shutter'>
                 <line x1='64.4047' y1='103.988' x2='147.335' y2='-39.2546' className='committee-logo--stroke-color' strokeWidth='9'/>
                 <line x1='119.415' y1='75.8123' x2='202.128' y2='219.181' className='committee-logo--stroke-color' strokeWidth='9'/>
                 <line x1='115.517' y1='136.354' x2='-49.9998' y2='136.354' className='committee-logo--stroke-color' strokeWidth='9'/>
@@ -15,7 +15,7 @@ export default function PrLogo() {
             <path fillRule='evenodd' clipRule='evenodd' d='M210 -10H-10V210H210V-10ZM100 130C113.807 130 125 118.807 125 105C125 91.1929 113.807 80 100 80C86.1929 80 75 91.1929 75 105C75 118.807 86.1929 130 100 130Z' className='committee-logo--fill-bg-color'/>
             <ellipse cx='100' cy='105' rx='30' ry='30' className='committee-logo--stroke-color' strokeWidth='6'/>
             <path d='M140 68H171V151H29V68H60H62.1098L63.3012 66.2587L75.1098 49H124.89L136.699 66.2587L137.89 68H140Z' className='committee-logo--stroke-color' strokeWidth='8'/>
-            <rect className='pr-logo__button committee-logo--fill-color' x='35' y='50' width='17' height='8'/>
+            <rect className='pr-logo_button committee-logo--fill-color' x='35' y='50' width='17' height='8'/>
             <rect x='144' y='81' width='14' height='14' className='committee-logo--stroke-color' strokeWidth='4'/>
 
             <path d='M14 150H0V200H14V150Z' className='committee-logo--corner'/>

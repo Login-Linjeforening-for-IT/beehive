@@ -1,5 +1,5 @@
 
-.verv-page__section {
+.verv-page_section {
     margin-bottom: 2rem;
 }
 
@@ -9,12 +9,12 @@
 
 
 /* intro section */
-.verv-intro__p {
+.verv-intro_p {
     margin-top: 0;
 }
 
 /* apply section */
-.verv-apply__button {    
+.verv-apply_button {    
     margin-top: 2rem;
     width: 100%;
 }
@@ -26,7 +26,7 @@
         margin-right: auto;
     }
 
-    .verv-apply__button{    
+    .verv-apply_button{    
         font-size: 1.3rem;
         margin: 2rem auto 0 auto;
         display: block;
@@ -35,7 +35,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .verv-page__section {
+    .verv-page_section {
         margin-bottom: 5rem;
     }
 }

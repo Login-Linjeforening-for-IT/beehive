@@ -1,5 +1,5 @@
 
-.tabs__nav {
+.tabs_nav {
     display: flex;
     justify-content: space-between;
     gap: .7rem;
@@ -8,7 +8,7 @@
     margin: auto;
 }
 
-.tabs__nav-item {
+.tabs_nav-item {
     list-style: none;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -18,11 +18,11 @@
     width: 100%;
 }
 
-.tabs__nav-item:hover {
+.tabs_nav-item:hover {
     cursor: pointer;
 }
 
-.tabs__nav-title {
+.tabs_nav-title {
     padding-bottom: .3rem;
     width: fit-content;
     height: 100%;
@@ -34,16 +34,16 @@
     border-bottom: .3rem solid var(--color-bg-surface);
 }
 
-.tabs__nav-item:hover .tabs__nav-title {
+.tabs_nav-item:hover .tabs_nav-title {
     color: var(--color-text-main);
 }
 
-.tabs__nav-title--active {
+.tabs_nav-title--active {
     color: var(--color-text-main);
     border-color: var(--color-primary);
 }
 
-.tabs__content {
+.tabs_content {
     background-color: var(--color-bg-surface);
     padding: 1rem;
     box-shadow: var(--container-shadow);
@@ -51,14 +51,14 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .tabs__nav {
+    .tabs_nav {
         padding-left: 2rem;
         padding-right: 2rem;
     }
 }
 
 @media only screen and (min-width: 1200px) {
-    .tabs__content {
+    .tabs_content {
         margin: 0 2rem;
     }
 }

@@ -4,21 +4,21 @@
     margin: auto;
 }
 
-.not-found__pic {
+.not-found_pic {
     display: block;
     max-width: 40rem;
     width: 100%;
     margin: auto;
 }
 
-.not-found__img {
+.not-found_img {
     display: block;
     width: 100%;
     max-width: 40rem;
     margin: auto;
 }
 
-.not-found__text {
+.not-found_text {
     display: block;
     width: 100%;
     margin-top: 1rem;
@@ -33,7 +33,7 @@
         gap: 2rem;
     }
 
-    .not-found__text {
+    .not-found_text {
         margin: auto;
         width: fit-content;
         text-align: left;

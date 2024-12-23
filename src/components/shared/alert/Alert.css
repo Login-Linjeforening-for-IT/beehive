@@ -7,11 +7,11 @@
     align-items: start;
 }
 
-.alert__content {
+.alert_content {
     align-self: center;
 }
 
-.alert__icon {
+.alert_icon {
     font-size: 2em;
     margin-right: .3em;
 }
@@ -23,11 +23,11 @@
     color: var(--color-alert-info-text);
 }
 
-.alert--info .alert__content {
+.alert--info .alert_content {
     color: var(--color-alert-info-text);
 }
 
-.alert--info .alert__icon {
+.alert--info .alert_icon {
     color: var(--color-alert-info-icon);
 }
 
@@ -38,11 +38,11 @@
     color: var(--color-alert-warning-text);
 }
 
-.alert--warning .alert__content {
+.alert--warning .alert_content {
     color: var(--color-alert-warning-text);
 }
 
-.alert--warning .alert__icon {
+.alert--warning .alert_icon {
     color: var(--color-alert-warning-icon);
 }
 
@@ -52,6 +52,6 @@
     color: var(--color-alert-danger-text);
 }
 
-.alert--danger .alert__icon {
+.alert--danger .alert_icon {
     color: var(--color-alert-danger-icon);
 }

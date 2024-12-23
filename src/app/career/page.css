@@ -41,13 +41,13 @@
     position: relative;
 }
 
-.jobad-details__company {
+.jobad-details_company {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.jobad-details__image {
+.jobad-details_image {
     display: block;
     width: 7.5rem;
     border-radius: .2rem;
@@ -55,7 +55,7 @@
     object-fit: contain;
 }
 
-.jobad-details__company-name {
+.jobad-details_company-name {
     font-size: 1.5rem;
     margin: auto 0;
     line-height: 1.4em;
@@ -72,19 +72,19 @@
 	hyphens: auto;
 }
 
-.jobad-details__list {
+.jobad-details_list {
     display: grid;
     grid-template-columns: min-content auto;
     gap: 1rem;
     margin-bottom: 3rem;
 }
 
-.jobad-details__lable {
+.jobad-details_lable {
     color: var(--color-text-discreet);
     display: inline-flex;
 }
 
-.jobad-details__icon--warning {
+.jobad-details_icon--warning {
     color: var(--color-text-primary);
     margin-left: .5rem;
     padding-right: 0 !important; /* not great solution, but i dont care */
@@ -92,18 +92,18 @@
 }
 
 /* lable icon */
-.jobad-details__icon {
+.jobad-details_icon {
     line-height: 1.5rem;
     width: 2rem;
     text-align: center;
     padding-right: .5rem;
 }
 
-.jobad-details__icon--lable-color {
+.jobad-details_icon--lable-color {
     color: var(--color-text-discreet);
 }
 
-.jobad-details__info {
+.jobad-details_info {
     /* cleaner word-breaking */
     word-break: break-word;
 	white-space: pre-line;
@@ -121,7 +121,7 @@
     background-color: rgba(100,100,100,.3);
 }
 
-.jobad-banner__image {
+.jobad-banner_image {
     display: block;
     aspect-ratio: 10 / 4;
     object-fit: cover;
@@ -142,15 +142,15 @@
         padding: 2rem;
     }
 
-    .jobad-details__company {
+    .jobad-details_company {
         gap: 2rem;
     }
 
-    .jobad-details__image {
+    .jobad-details_image {
         width: 10rem;
     }
 
-    .jobad-details__apply-btn {
+    .jobad-details_apply-btn {
         width: fit-content;
         min-width: 10rem;
     }
@@ -214,19 +214,19 @@
         transition: .1s;
     }
 
-    .jobad-details__company {
+    .jobad-details_company {
         display: block;
     }
 
-    .jobad-details__company-name {
+    .jobad-details_company-name {
         margin-top: 1rem;
     }
 
-    .jobad-details__image {
+    .jobad-details_image {
         width: 12rem;
     }
 
-    .jobad-details__apply-btn {
+    .jobad-details_apply-btn {
         min-width: 12rem;
         float: right;
         margin-top: 0;

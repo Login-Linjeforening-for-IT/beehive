@@ -245,13 +245,13 @@ export default function Events() {
                             }
                             onClick={toggleFilter}
                             size="medium"
-                            className={`events-topbar__filter-toggle ${
+                            className={`events-topbar_filter-toggle ${
                                 isFilterOpen ? "active" : ""
                             }`}
                         >
                             Filter
                         </Button>
-                        <div className="button-group events-top-bar__view-toggle">
+                        <div className="button-group events-top-bar_view-toggle">
                             <GroupToggle
                                 options={[
                                     {
@@ -279,10 +279,10 @@ export default function Events() {
                     </div>
                     <div className="page-section--without-gaps">
                         <div className="events">
-                            <div className="events__section--left">
+                            <div className="events_section--left">
                                 <div
-                                    className={`events__filter-container ${
-                                        isFilterOpen ? "events__filter-container--open" : ""
+                                    className={`events_filter-container ${
+                                        isFilterOpen ? "events_filter-container--open" : ""
                                     }`}
                                 >
                                     {filterData ? (
@@ -296,9 +296,9 @@ export default function Events() {
                                     )}
                                 </div>
                             </div>
-                            <div className="events__section--right">
+                            <div className="events_section--right">
                                 <ul
-                                    className={`events__list events__list${
+                                    className={`events_list events_list${
                                         eventsView === "grid-view" ? "--grid-view" : "--list-view"
                                     }`}
                                 >
@@ -306,7 +306,7 @@ export default function Events() {
                     groupedEvents.currentWeekEvents.length > 0 && (
                                         <>
                                             <div className="event-list-separator event-list-seperator--first">
-                                                <p className="event-list-separator__text">
+                                                <p className="event-list-separator_text">
                                                     {text.thisWeek}
                                                 </p>
                                             </div>
@@ -332,7 +332,7 @@ export default function Events() {
                     groupedEvents.nextWeekEvents.length > 0 && (
                                         <>
                                             <div className="event-list-separator">
-                                                <p className="event-list-separator__text">
+                                                <p className="event-list-separator_text">
                                                     {text.nextWeek}
                                                 </p>
                                             </div>
@@ -361,7 +361,7 @@ export default function Events() {
                           groupedEvents.nextWeekEvents.length >
                           0 && (
                                                 <div className="event-list-separator">
-                                                    <p className="event-list-separator__text">
+                                                    <p className="event-list-separator_text">
                                                         {text.later}
                                                     </p>
                                                 </div>
@@ -386,12 +386,12 @@ export default function Events() {
                                 </ul>
 
                                 {!loading && showLoadMore && events.length > 0 && (
-                                    <div className="events__load-more">
+                                    <div className="events_load-more">
                                         {/* @ts-ignore */}
                                         <Button
                                             onClick={loadItems}
                                             variant="secondary"
-                                            className="events__load-more-btn"
+                                            className="events_load-more-btn"
                                             trailingIcon={
                                                 <i className="material-symbols-sharp">arrow_downward</i>
                                             }

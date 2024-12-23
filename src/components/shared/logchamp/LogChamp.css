@@ -4,13 +4,13 @@
     margin: 1rem auto;
 }
 
-.logchamp__title {
+.logchamp_title {
     margin-top: 1rem;
     font-size: 1.2rem;
     color: var(--color-text-primary);
     font-weight: 500;
 }
 
-.logchamp__discord {
+.logchamp_discord {
     margin-top: 1rem;
 }

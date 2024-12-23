@@ -42,33 +42,33 @@ function SmallInfo() {
     return (
         <>
             <div className="landing-info">
-                <div className="landing-info__text">
+                <div className="landing-info_text">
                     <h2 className="heading-2">{text.whoAreWe.title}</h2>
                     <p className="p--regular">{text.whoAreWe.body}</p>
                     <Link
-                        className="landing-info__link link link--primary link--corner-hover"
+                        className="landing-info_link link link--primary link--corner-hover"
                         href="/about"
                     >
                         {text.readMore}
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={config.url.CDN_URL + "/img/styret.jpg"}
+                    imgUrl={`${config.url.CDN_URL}/img/styret.jpg`}
                     variant={4}
                     cornerSize={40}
                     width={150}
                     height={100}
                     cover={true}
-                    className="landing-info__picture"
+                    className="landing-info_picture"
                 />
             </div>
 
             <div className="landing-info">
-                <div className="landing-info__text">
+                <div className="landing-info_text">
                     <h2 className="heading-2">{text.companiesInfo.title}</h2>
                     <p className="p--regular">{text.companiesInfo.body}</p>
                     <Link
-                        className="landing-info__link link link--primary link--corner-hover"
+                        className="landing-info_link link link--primary link--corner-hover"
                         href="/companies"
                     >
                         {text.readMore}
@@ -81,16 +81,16 @@ function SmallInfo() {
                     width={150}
                     height={100}
                     cover={true}
-                    className="landing-info__picture"
+                    className="landing-info_picture"
                 />
             </div>
 
             <div className="landing-info">
-                <div className="landing-info__text">
+                <div className="landing-info_text">
                     <h2 className="heading-2">{text.sponsor.title}</h2>
                     <p className="p--regular">{text.sponsor.body}</p>
                     <a
-                        className="landing-info__link link link--primary link--corner-hover"
+                        className="landing-info_link link link--primary link--corner-hover"
                         href="https://www.mnemonic.io/"
                         target="_blank"
                     >
@@ -103,7 +103,7 @@ function SmallInfo() {
                     cornerSize={0}
                     width={100}
                     height={30}
-                    className="landing-info__picture"
+                    className="landing-info_picture"
                 />
             </div>
         </>
@@ -115,12 +115,12 @@ function EndCard({ path }: {path: string}) {
     const text = lang === 'en' ? en : no
 
     return (
-        <li className="dynamic-preview-list__item dynamic-preview-end-card">
-            <Link href={path} className="dynamic-preview-end-card__btn">
-                <div className="dynamic-preview-end-card__arrow-container">
-                    <div className="dynamic-preview-end-card__arrow"></div>
+        <li className="dynamic-preview-list_item dynamic-preview-end-card">
+            <Link href={path} className="dynamic-preview-end-card_btn">
+                <div className="dynamic-preview-end-card_arrow-container">
+                    <div className="dynamic-preview-end-card_arrow"></div>
                 </div>
-                <div className="dynamic-preview-end-card__text">
+                <div className="dynamic-preview-end-card_text">
                     {text.eventsPreview.seeAll}
                 </div>
             </Link>
@@ -158,24 +158,24 @@ function EventsPreview() {
         <>
             <section className="dynamic-preview">
                 <div className="dynamic-preview-heading">
-                    <h2 className="dynamic-preview-heading__title">
+                    <h2 className="dynamic-preview-heading_title">
                         {text.eventsPreview.title}
                     </h2>
-                    <Link href="/events" className="dynamic-preview-heading__link">
-                        <span className="dynamic-preview-heading__link-text">
+                    <Link href="/events" className="dynamic-preview-heading_link">
+                        <span className="dynamic-preview-heading_link-text">
                             {text.jobadsPreview.seeAll}
                         </span>
                     </Link>
                 </div>
                 {loading && (
                     <ul className="dynamic-preview-list">
-                        <li className="dynamic-preview-list__item">
+                        <li className="dynamic-preview-list_item">
                             <EventCardSkeleton />
                         </li>
-                        <li className="dynamic-preview-list__item">
+                        <li className="dynamic-preview-list_item">
                             <EventCardSkeleton />
                         </li>
-                        <li className="dynamic-preview-list__item">
+                        <li className="dynamic-preview-list_item">
                             <EventCardSkeleton />
                         </li>
                         <EndCard path="/career" />
@@ -184,7 +184,7 @@ function EventsPreview() {
                 {!loading && events && events.length > 0 && (
                     <ul className="dynamic-preview-list">
                         {events.map((e: any) => (
-                            <li key={e.id} className="dynamic-preview-list__item">
+                            <li key={e.id} className="dynamic-preview-list_item">
                                 <EventListItem event={e} variant="card" highlight={false} />
                             </li>
                         ))}
@@ -236,24 +236,24 @@ function JobadsPreview() {
         <>
             <section className="dynamic-preview">
                 <div className="dynamic-preview-heading">
-                    <h2 className="dynamic-preview-heading__title">
+                    <h2 className="dynamic-preview-heading_title">
                         {text.jobadsPreview.title}
                     </h2>
-                    <Link href="/career" className="dynamic-preview-heading__link">
-                        <span className="dynamic-preview-heading__link-text">
+                    <Link href="/career" className="dynamic-preview-heading_link">
+                        <span className="dynamic-preview-heading_link-text">
                             {text.jobadsPreview.seeAll}
                         </span>
                     </Link>
                 </div>
                 {loading && (
                     <ul className="dynamic-preview-list">
-                        <li className="dynamic-preview-list__item">
+                        <li className="dynamic-preview-list_item">
                             <JobadCardSkeleton />
                         </li>
-                        <li className="dynamic-preview-list__item">
+                        <li className="dynamic-preview-list_item">
                             <JobadCardSkeleton />
                         </li>
-                        <li className="dynamic-preview-list__item">
+                        <li className="dynamic-preview-list_item">
                             <JobadCardSkeleton />
                         </li>
                         <EndCard path="/career" />
@@ -262,7 +262,7 @@ function JobadsPreview() {
                 {!loading && jobads && jobads.length > 0 && (
                     <ul className="dynamic-preview-list">
                         {jobads.map((e) => (
-                            <li key={e.id} className="dynamic-preview-list__item">
+                            <li key={e.id} className="dynamic-preview-list_item">
                                 <JobadCard jobad={e} />
                             </li>
                         ))}

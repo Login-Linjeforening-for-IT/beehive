@@ -15,7 +15,7 @@ export default function DefaultEventBanner({ color, transition = true, className
 
     return (
         <div className={`default-banner ${transition ? "default-banner--transition" : ""} ${className}`} style={{background: gradient}}>
-            <svg className='default-banner__svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='default-banner_svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="500" height="200"/>
                 <g clipPath="url(#clip0_328_310)">
                     <path fill={fillColor} d="M200 50H206.667V78.3333H200V50Z"/>

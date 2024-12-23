@@ -35,37 +35,37 @@ export default function Fund() {
                 <p className='p--regular' dangerouslySetInnerHTML={{__html: text.support.body3}}/>
             </section>
             <section className='page-section--normal fund-section'>
-                <div className='fund-section__container fund-section__container--grid'>
+                <div className='fund-section_container fund-section_container--grid'>
                     {/* @ts-ignore */}
-                    <div class='fund-section__container--grid-item'>
+                    <div class='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2__icon material-symbols-sharp'>show_chart</i>
+                            <i className='heading-2_icon material-symbols-sharp'>show_chart</i>
                             <span>{text.purpose.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
                     </div>
                     {/* @ts-ignore */}
-                    <div class='fund-section__container--grid-item'>
+                    <div class='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2__icon material-symbols-sharp'>groups</i>
+                            <i className='heading-2_icon material-symbols-sharp'>groups</i>
                             <span>{text.meeting.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
                     </div>
                 </div>
-                <div className='fund-section__container fund-section__container--grid'>
+                <div className='fund-section_container fund-section_container--grid'>
                     {/* @ts-ignore */}
-                    <div class='fund-section__container--grid-item'>
+                    <div class='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2__icon material-symbols-sharp'>diversity_1</i>
+                            <i className='heading-2_icon material-symbols-sharp'>diversity_1</i>
                             <span>{text.application.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
                     </div>
                     {/* @ts-ignore */}
-                    <div class='fund-section__container--grid-item'>
+                    <div class='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2__icon material-symbols-sharp'>monitoring</i>
+                            <i className='heading-2_icon material-symbols-sharp'>monitoring</i>
                             <span>{text.yield.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
@@ -73,18 +73,18 @@ export default function Fund() {
                 </div>
             </section>
             <section className='page-section--without-gaps fund-section fund-section--highlighted'>
-                <div className='fund-section__container fund-board'>
+                <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
-                        <i className='heading-2__icon material-symbols-sharp'>corporate_fare</i>
+                        <i className='heading-2_icon material-symbols-sharp'>corporate_fare</i>
                         <span>{text.board.title}</span>
                     </h2>
-                    <div className='fund-board__intro'>
+                    <div className='fund-board_intro'>
                         {/* @ts-ignore */}
-                        <div class='fund-board__intro-text'>
+                        <div class='fund-board_intro-text'>
                             <p className='p--highlighted'>{text.board.intro}</p>
                             <p className='p--regular' dangerouslySetInnerHTML={{__html: text.board.body}}/>
                         </div>
-                        <div className='fund-board__intro-picture'>
+                        <div className='fund-board_intro-picture'>
                             <DecoratedPicture
                                 imgUrl={config.url.CDN_URL + "/img/fondet/gruppebilde.jpg"}
                                 variant={4}
@@ -96,7 +96,7 @@ export default function Fund() {
                         </div>
                     </div>
                     <h3 className='heading-3'>{text.board.composition.title}</h3>
-                    <div className='fund-board__members'>
+                    <div className='fund-board_members'>
                         {Object.keys(text).map(key => (
                             <div>
                                 <LogChamp

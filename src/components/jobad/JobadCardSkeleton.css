@@ -5,18 +5,18 @@
 	height: 100%;
 }
 
-.jobad-card-skeleton__image {
+.jobad-card-skeleton_image {
     width: 100%;
     aspect-ratio: 3 / 2;
 }
 
-.jobad-card-skeleton__name {
+.jobad-card-skeleton_name {
     width: 80%;
     height: 1.4rem;
     margin: 1rem 0;
 }
 
-.jobad-card-skeleton__details {
+.jobad-card-skeleton_details {
     width: 60%;
     height: 1.2rem;
 }

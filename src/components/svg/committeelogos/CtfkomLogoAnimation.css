@@ -1,13 +1,13 @@
 @media only screen and (min-width: 800px) {
-    .tabs__nav-title--active .ctfkom-logo__flag-piece-1 {
+    .tabs_nav-title--active .ctfkom-logo_flag-piece-1 {
         animation: flagpiece1 0.5s linear, flagpiece1 0.8s ease-out 0.5s;
     }
 
-    .tabs__nav-title--active .ctfkom-logo__flag-piece-2 {
+    .tabs_nav-title--active .ctfkom-logo_flag-piece-2 {
         animation: flagpiece2 0.5s linear, flagpiece2 0.8s ease-out 0.5s;
     }
 
-    .tabs__nav-title--active .ctfkom-logo__flag-piece-3 {
+    .tabs_nav-title--active .ctfkom-logo_flag-piece-3 {
         animation: flagpiece3 0.5s linear, flagpiece3 0.8s ease-out 0.5s;
     }
 

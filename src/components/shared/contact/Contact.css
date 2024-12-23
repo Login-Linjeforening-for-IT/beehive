@@ -1,8 +1,8 @@
-.contact-card__text {
+.contact-card_text {
     margin-bottom: 2rem;
 }
 
-.contact-card__map {
+.contact-card_map {
     padding: 2rem;
     max-width: 40rem;
     margin: auto;
@@ -11,17 +11,17 @@
 
 
 @media only screen and (min-width: 600px) {
-    .contact-card__info {
+    .contact-card_info {
         display: flex;
         gap: 2rem;
     }
 
-    .contact-card__text {
+    .contact-card_text {
         max-width: 16rem;
         width: 100%;
     }
 
-    .contact-card__map {
+    .contact-card_map {
         padding: 2rem 0;
     }
 }

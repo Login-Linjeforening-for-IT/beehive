@@ -18,8 +18,8 @@ export default function AccordionItem({ id, title, activeAccordionItem, setActiv
     }
  
     return (
-        <li onClick={handleClick} className={`accordion__nav-item ${activeAccordionItem === id ? "accordion__nav-item--active" : ""}`}>
-            <i className='material-symbols-sharp accordion__icon--left'>chevron_right</i>{ title }
+        <li onClick={handleClick} className={`accordion_nav-item ${activeAccordionItem === id ? "accordion_nav-item--active" : ""}`}>
+            <i className='material-symbols-sharp accordion_icon--left'>chevron_right</i>{ title }
         </li>
     )
 }

@@ -14,8 +14,8 @@ export default function TekkomLogo() {
             <path d='m35 35 l-15 15 l15 15' fill='none' className='committee-logo--stroke-color' strokeWidth='5' />
             <path d='m57 30 l-14 40' className='committee-logo--stroke-color' strokeWidth='5' />
             <path d='m65 35 l15 15 l-15 15' fill='none' className='committee-logo--stroke-color' strokeWidth='5' />
-            <path className='tekkom-logo__block committee-logo--fill-bg-color' d='m86 25 l0 0 l0 50 l0 0 z' stroke='none' />
-            <path className='tekkom-logo__caret' d='m85 25 l0 50' stroke='none' strokeWidth='3' />
+            <path className='tekkom-logo_block committee-logo--fill-bg-color' d='m86 25 l0 0 l0 50 l0 0 z' stroke='none' />
+            <path className='tekkom-logo_caret' d='m85 25 l0 50' stroke='none' strokeWidth='3' />
         </svg>
     )
 }

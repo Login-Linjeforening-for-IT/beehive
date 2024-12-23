@@ -30,8 +30,8 @@
   background-color: var(--color-btn-primary-bg-active);
 }
 
-.button--primary .button__text,
-.button--primary .button__icon i {
+.button--primary .button_text,
+.button--primary .button_icon i {
   color: var(--color-btn-primary-text);
 }
 
@@ -56,13 +56,13 @@
   background-color: var(--color-btn-primary-bg);
 }
 
-.button--primary-outlined .button__text,
-.button--primary-outlined .button__icon i {
+.button--primary-outlined .button_text,
+.button--primary-outlined .button_icon i {
   color: var(--color-btn-primary-outlined);
 }
 
-.button--primary-outlined:hover .button__text,
-.button--primary-outlined:hover .button__icon i {
+.button--primary-outlined:hover .button_text,
+.button--primary-outlined:hover .button_icon i {
   color: var(--color-btn-primary-text);
 }
 
@@ -75,8 +75,8 @@
   background-color: var(--color-btn-secondary-outlined);
 }
 
-.button--secondary-outlined.active .button__text,
-.button--secondary-outlined.active .button__icon i {
+.button--secondary-outlined.active .button_text,
+.button--secondary-outlined.active .button_icon i {
   color: var(--color-btn-primary-outlined);
 }
 
@@ -88,8 +88,8 @@
   background-color: var(--color-btn-secondary-outlined);
 }
 
-.button--ghost.active .button__text,
-.button--ghost.active .button__icon i {
+.button--ghost.active .button_text,
+.button--ghost.active .button_icon i {
   color: var(--color-btn-primary-outlined);
 }
 
@@ -105,8 +105,8 @@
   background-color: color-mix(in srgb, var(--color-btn-danger-bg) 90%, black 20%);
 }
 
-.button--danger .button__text,
-.button--danger .button__icon i {
+.button--danger .button_text,
+.button--danger .button_icon i {
   color: var(--color-btn-danger-text);
 }
 
@@ -162,37 +162,37 @@
 
   
 /* Icon styles */
-.button__icon {
+.button_icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.button--small .button__icon i {
+.button--small .button_icon i {
   line-height: 1.4rem;
   font-size: 1.4rem;
 }
 
-.button--medium .button__icon i {
+.button--medium .button_icon i {
   line-height: 1.5rem;
   font-size: 1.5rem;
 }
 
-.button--large .button__icon i {
+.button--large .button_icon i {
   line-height: 1.6rem;
   font-size: 1.6rem;
 }
 
-.button--xl .button__icon i {
+.button--xl .button_icon i {
   line-height: 1.6rem;
   font-size: 1.7rem;
 }
 
-.button__icon--leading {
+.button_icon--leading {
   margin-right: .5rem;
 }
 
-.button__icon--trailing {
+.button_icon--trailing {
   margin-left: .5rem;
 }
 
@@ -230,7 +230,7 @@
 }
 
 
-.button--icon-only .button__icon--leading {
+.button--icon-only .button_icon--leading {
   margin: 0;
 }
   
@@ -241,12 +241,12 @@
   margin: 0 auto;
 }
 
-.button-showcase__title {
+.button-showcase_title {
   margin-top: 30px;
   margin-bottom: 15px;
 }
 
-.button-showcase__section {
+.button-showcase_section {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

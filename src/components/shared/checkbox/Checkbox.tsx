@@ -12,17 +12,17 @@ export default function Checkbox({ id, label, count = false, checked, onChange }
     return (
         <label className="checkbox">
             <input
-                className='checkbox__input'
+                className='checkbox_input'
                 type="checkbox"
                 id={id}
                 checked={checked}
                 onChange={onChange}
             />
-            <span className="checkbox__box"></span>
-            <div className="checkbox__name">
+            <span className="checkbox_box"></span>
+            <div className="checkbox_name">
                 {label}
                 {count &&
-          <span className="checkbox__item-count"> ({count})</span>
+          <span className="checkbox_item-count"> ({count})</span>
                 }
             </div>
         </label>

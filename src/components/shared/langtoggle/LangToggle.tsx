@@ -17,7 +17,7 @@ export default function LangToggle() {
 
     return(
         <button value={lang} onClick={handleClick} className='lang-toggle'>
-            <i className={`lang-toggle__icon material-symbols-sharp ${jump ? "lang-toggle__icon--jump" : ""}`}>language</i>
+            <i className={`lang-toggle_icon material-symbols-sharp ${jump ? "lang-toggle_icon--jump" : ""}`}>language</i>
             {" " + buttonText}
         </button>
     )

@@ -8,7 +8,7 @@
 	margin-right: auto;
 }
 
-.jobads-item__wrapper {
+.jobads-item_wrapper {
 	display: inline-flex;
 	width: 100%;
 	padding: 1rem;
@@ -34,14 +34,14 @@
 	background-color: var(--color-bg-body);
 }
 
-.jobads-item__wrapper--with-tags {
+.jobads-item_wrapper--with-tags {
 	grid-template-areas:
 		'tags'
 		'pic' 
 		'info';
 }
 
-.jobads-item:hover .jobads-item__wrapper {
+.jobads-item:hover .jobads-item_wrapper {
 	background-color: var(--color-bg-surface);
 }
 
@@ -54,14 +54,14 @@
 	background: var(--gradient-highlight-hover);
 }
 
-.jobads-item__picture {
+.jobads-item_picture {
 	grid-area: pic;
 	align-self: baseline;
 	background-color: var(--color-border-default);
 	border-radius: var(--border-radius);
 }
 
-.jobads-item__img {
+.jobads-item_img {
 	display: block;
     width: 100%;
 	object-fit: cover;
@@ -70,24 +70,24 @@
 	border: .15rem solid var(--color-border-default);
 }
 
-.jobads-item__tags {
+.jobads-item_tags {
 	display: flex;
 	gap: .5rem;
 	grid-area: tags;
 	height: min-content;
 }
 
-.jobads-item__info {
+.jobads-item_info {
 	grid-area: info;
 }
 
-.jobads-item__name {
+.jobads-item_name {
 	font-size: 1.2rem;
 	display: inline-block;
 	line-height: 1.4em;
 }
 
-.jobads-item__details {
+.jobads-item_details {
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
@@ -96,13 +96,13 @@
 	margin-top: .5rem;
 }
 
-.jobads-item__detail {
+.jobads-item_detail {
 	color: var(--color-text-regular);
 	line-height: 1.4em;
 	font-size: .9rem;
 }
 
-.jobads-item__icon {
+.jobads-item_icon {
 	color: var(--color-text-regular);
 	padding-right: .3rem;
 	line-height: inherit;
@@ -110,7 +110,7 @@
 	vertical-align: top;
 }
 
-.jobads-item__detail-overflow-number {
+.jobads-item_detail-overflow-number {
 	background-color: var(--color-checktag-bg);
 	color: var(--color-checktag-text);
 	border-radius: 1em;
@@ -128,7 +128,7 @@
 		margin-bottom: 1rem;
 	}
 
-	.jobads-item__wrapper {
+	.jobads-item_wrapper {
 		column-gap: 1rem;
 		padding: .75rem;
 		max-width: 100%;
@@ -137,14 +137,14 @@
 			'pic info';
 	}
 
-	.jobads-item__wrapper--with-tags {
+	.jobads-item_wrapper--with-tags {
 		grid-template-rows: 1.6rem auto; /* 1.6 tag height, 'min-content' didnt work, idk why */
 		grid-template-areas: 
 			'tags tags'
 			'pic info';
 	}
 
-	.jobads-item__img {
+	.jobads-item_img {
 		height: 4.5rem;
 		width: fit-content;
 	}
@@ -152,27 +152,27 @@
 
 @media only screen and (min-width: 600px) {
 
-	.jobads-item__wrapper {
+	.jobads-item_wrapper {
 		padding: 1rem;
 	}
 
-	.jobads-item__img {
+	.jobads-item_img {
 		height: 7rem;
 	}
 
-	.jobads-item__details {
+	.jobads-item_details {
 		column-gap: 1.2rem;
 		row-gap: .2rem;
 	}
 
-	.jobads-item__name {
+	.jobads-item_name {
 		font-size: 1.3rem;
 	}
 }
 
 @media only screen and (min-width: 800px) {
 
-	.jobads-item__wrapper {
+	.jobads-item_wrapper {
 		padding: 1rem;
 		column-gap: 2rem;
 		row-gap: .5rem;
@@ -180,30 +180,30 @@
 			'pic info';
 	}
 
-	.jobads-item__wrapper--with-tags {
+	.jobads-item_wrapper--with-tags {
 		grid-template-areas: 
 			'pic tags'
 			'pic info';
 	}
 
-	.jobads-item__img {
+	.jobads-item_img {
 		height: 8rem;
 	}
 
-	.jobads-item__wrapper--with-tags .jobads-item__info {
+	.jobads-item_wrapper--with-tags .jobads-item_info {
 		align-self: start;
 	}
 
-	.jobads-item__name {
+	.jobads-item_name {
 		font-size: 1.5rem;
 	}
 
-	.jobads-item__details {
+	.jobads-item_details {
 		column-gap: 1.5rem;
 		row-gap: .5rem;
 	}
 
-	.jobads-item__detail {
+	.jobads-item_detail {
 		font-size: .95rem;
 	}
 }

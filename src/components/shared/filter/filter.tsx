@@ -81,14 +81,14 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                     }
                 })
             }
-            <div className="filter-groups__buttons">
+            <div className="filter-groups_buttons">
                 {/* @ts-ignore */}
                 <Button
                     variant="secondary-outlined"
                     trailingIcon={<i className='material-symbols-sharp'>replay</i>}
                     onClick={onReset}
                     size="medium"
-                    className="filter-groups__reset"
+                    className="filter-groups_reset"
                 >
                     {text.reset}
                 </Button>
@@ -99,7 +99,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                         leadingIcon={<i className='material-symbols-sharp'>keyboard_arrow_up</i>}
                         onClick={close}
                         size="medium"
-                        className="filter-groups__close"
+                        className="filter-groups_close"
                     >
                     </Button>
                 }
@@ -125,8 +125,8 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
 
     return (
         <div className="filter">
-            <div className="filter__title">{ label[lang] }</div>
-            <div className={`filter__items filter__items--${type}`}>
+            <div className="filter_title">{ label[lang] }</div>
+            <div className={`filter_items filter_items--${type}`}>
                 {/* @ts-ignore */}
                 {filter.sort((a, b) => b.count - a.count).map((filterItem) => {
                     return (

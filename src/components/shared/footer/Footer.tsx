@@ -24,39 +24,39 @@ export default function Footer() {
 
     return (
         <div className="footer-content">
-            <div className="footer-content__logos-conteiner">
-                <div className="footer-content__logo">
-                    <picture className="footer-content__logo-picture">
+            <div className="footer-content_logos-conteiner">
+                <div className="footer-content_logo">
+                    <picture className="footer-content_logo-picture">
                         <Image
                             src={`${config.url.CDN_URL}/img/logo/logo-tekst-white.svg`}
-                            className="footer-content__logo-image"
+                            className="footer-content_logo-image"
                             alt="Login - Linjeforeningen for IT"
                             width={0}
                             height={0}
                         />
                     </picture>
                 </div>
-                <div className="footer-content__logo">
+                <div className="footer-content_logo">
                     <a href="https://www.mnemonic.io/" target="_blank">
-                        <picture className="footer-content__logo-picture">
+                        <picture className="footer-content_logo-picture">
                             <Image
                                 src={`${config.url.CDN_URL}/img/company/mnemonic-logo_light-nopayoff-2021.svg`}
-                                className="footer-content__logo-image"
+                                className="footer-content_logo-image"
                                 alt="mnemonic"
                                 width={0}
                                 height={0}
                             />
                         </picture>
                     </a>
-                    <p className="footer-content__logo-text">{text.footer.sponsor}</p>
+                    <p className="footer-content_logo-text">{text.footer.sponsor}</p>
                 </div>
             </div>
-            <div className="footer-content__contact">
-                <div className="footer-content__contact-section">
-                    <h4 className="footer-content__contact-header">
+            <div className="footer-content_contact">
+                <div className="footer-content_contact-section">
+                    <h4 className="footer-content_contact-header">
                         {text.footer.contactInfo.address.header}
                     </h4>
-                    <p className="footer-content__contact-text">
+                    <p className="footer-content_contact-text">
                         {text.footer.contactInfo.address.info1}
                         <br />
                         {text.footer.contactInfo.address.info2}
@@ -64,13 +64,13 @@ export default function Footer() {
                         {text.footer.contactInfo.address.info3}
                     </p>
                 </div>
-                <div className="footer-content__contact-section">
-                    <h4 className="footer-content__contact-header">
+                <div className="footer-content_contact-section">
+                    <h4 className="footer-content_contact-header">
                         {text.footer.contactInfo.address.header}
                     </h4>
-                    <p className="footer-content__contact-text">
+                    <p className="footer-content_contact-text">
                         <a
-                            className="footer-content__contact-link link--underscore-hover"
+                            className="footer-content_contact-link link--underscore-hover"
                             href="mailto:kontakt@login.no"
                         >
                             kontakt@login.no
@@ -78,19 +78,19 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
-            <div className="footer-content__social-links">
+            <div className="footer-content_social-links">
                 <SocialLinks />
             </div>
-            <div className="footer-content__bottom">
+            <div className="footer-content_bottom">
                 <p
-                    className="footer-content__bottom-text"
+                    className="footer-content_bottom-text"
                     dangerouslySetInnerHTML={{
                         __html: ` ${text.footer.copy1} ${currentYear} ${text.footer.copy2}`,
                     }}
                 />
                 {typeof version !== "undefined" ? (
                     <a
-                        className="footer-content__version-tag"
+                        className="footer-content_version-tag"
                         target="_blank"
                         href={
                             "https://git.logntnu.no/tekkom/web/beehive/frontend/-/tags/" +

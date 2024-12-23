@@ -10,7 +10,7 @@
     margin: auto;
 }
 
-.mazemap__overlay-item {
+.mazemap_overlay-item {
     position: absolute;
     z-index: 5;
     backdrop-filter: blur(10px);
@@ -18,29 +18,29 @@
     background-color: rgba(40, 40, 40, 0.4);
 }
 
-.mazemap__link {
+.mazemap_link {
     padding: .5rem;
     top: .5rem;
     right: .5rem;
 }
 
-.mazemap__link:hover {
+.mazemap_link:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.mazemap__link-icon {
+.mazemap_link-icon {
     font-size: 1.5rem;
     color: white;
 }
 
-.mazemap__controls {
+.mazemap_controls {
     right: .5rem;
     bottom: 2rem;
     display: flex;
     flex-direction: column;
 }
 
-.mazemap__zoom-btn {
+.mazemap_zoom-btn {
     padding: .5rem;
     background: none;
     outline: none;
@@ -51,20 +51,20 @@
     cursor: pointer;
 }
 
-.mazemap__zoom-btn:hover {
+.mazemap_zoom-btn:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.mazemap__zoom-btn--top {
+.mazemap_zoom-btn--top {
     border-radius: .3rem .3rem 0 0;
     border-bottom: .05rem solid rgb(100, 100, 100);
 }
 
-.mazemap__zoom-btn--bottom {
+.mazemap_zoom-btn--bottom {
     border-radius: 0 0 .3rem .3rem;
 }
 
-.mazemap__location-name {
+.mazemap_location-name {
     left: .5rem;
     top: .5rem;
     padding: .5rem .9rem;
@@ -73,7 +73,7 @@
     font-size: 1rem;
 }
 
-.mazemap__location-name-icon {
+.mazemap_location-name-icon {
     margin-top: -.2rem;
     margin-right: .2rem;
     margin-left: -.4rem;
@@ -81,16 +81,16 @@
 }
 
 @media (min-width: 400px) {
-    .mazemap__link {
+    .mazemap_link {
         top: .8rem;
         right: .8rem;
     }
 
-    .mazemap__controls {
+    .mazemap_controls {
         right: .8rem;
     }
     
-    .mazemap__location-name {
+    .mazemap_location-name {
         left: .8rem;
         top: .8rem;
     }

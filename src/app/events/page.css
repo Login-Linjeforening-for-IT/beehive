@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.events-top-bar__view-toggle {
+.events-top-bar_view-toggle {
   justify-content: end;
 }
 
@@ -17,7 +17,7 @@
   padding: 0 .5rem;
 }
 
-.events__filter-container {
+.events_filter-container {
   padding: 1rem 1.5rem;
   display: none;
   background-color: var(--color-bg-surface);
@@ -26,16 +26,16 @@
   box-shadow: var(--container-shadow);
 }
 
-.events__filter-container--open {
+.events_filter-container--open {
   display: block;
 }
 
-.events__list {
+.events_list {
   list-style-type: none;
   padding-top: 1rem;
 }
 
-.events__list--grid-view {
+.events_list--grid-view {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -53,7 +53,7 @@
   margin-top: .2rem;
 }
 
-.event-list-separator__text {
+.event-list-separator_text {
   background-color: var(--color-bg-body);
   color: var(--color-text-discreet);
   font-weight: 500;
@@ -77,12 +77,12 @@
 }
 
 
-.events__load-more {
+.events_load-more {
   display: flex;
   justify-content: center;
 }
 
-.events__load-more-btn {
+.events_load-more-btn {
   margin: 2rem 0;
 }
 
@@ -97,17 +97,17 @@
     padding: 0 1rem;
   }
 
-  .events__filter-container {
+  .events_filter-container {
     margin: .5rem 0;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  .events__list--grid-view {
+  .events_list--grid-view {
     grid-template-columns: 1fr 1fr;
   }
 
-  .events__list--grid-view .event-list-separator {
+  .events_list--grid-view .event-list-separator {
     display: none;
   }
 }
@@ -117,7 +117,7 @@
     padding: 0 2rem;
   }
 
-  .events__list--grid-view {
+  .events_list--grid-view {
     gap: 2rem;
   }
 }
@@ -129,11 +129,11 @@
     justify-content: end;
   }
 
-  .events-topbar__filter-toggle {
+  .events-topbar_filter-toggle {
     display: none;
   }
 
-  .events-top-bar__view-toggle {
+  .events-top-bar_view-toggle {
     margin-right: 1.5rem;
   }
 
@@ -144,15 +144,15 @@
     gap: 3vw;
   }
 
-  .events__section--left {
+  .events_section--left {
     grid-area: left;
   }
   
-  .events__section--right {
+  .events_section--right {
     grid-area: right;
   }
 
-  .events__filter-container {
+  .events_filter-container {
     padding: 0;
     margin: 0;
     position: relative;
@@ -161,7 +161,7 @@
     box-shadow: none;
   }
 
-  .events__filter-container:after {
+  .events_filter-container:after {
     content: '';
     width: 2rem;
     height: 2rem;
@@ -174,7 +174,7 @@
     transition: .1s;
   }
 
-  .events__filter-container:before {
+  .events_filter-container:before {
     content: '';
     width: 2rem;
     height: 2rem;
@@ -187,7 +187,7 @@
     transition: .1s;
   }
 
-  .events__list {
+  .events_list {
     padding-top: 0;
   }
 }

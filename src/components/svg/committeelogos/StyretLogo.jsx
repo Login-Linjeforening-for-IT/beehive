@@ -11,7 +11,7 @@ export default function StyretLogo() {
         <path d='M100 93H 75V 100H 100 V93 Z' className='committee-logo--corner'/>
         <path d='M25 0 H0 V7 H25 V0 Z' className='committee-logo--corner'/>
         <path d='M7 0 H0 V25 H7 V0 Z' className='committee-logo--corner'/>
-        <g className='styret-logo__handlebars'>
+        <g className='styret-logo_handlebars'>
           <path d='M50 79V69' className='committee-logo--stroke-color' strokeWidth='4'/>
           <rect className='committee-logo--fill-color' x='43' y='61' width='14' height='8' />
           <path d='M43 65 H42 C40 65 38 63.7 37.3 61.7 L30.4 43.3 C30 41.3 28 40 25.8 40 H23' className='committee-logo--stroke-color' strokeWidth='4'/>

@@ -19,11 +19,11 @@ export default function ButtonShowcase() {
 
     return (
         <div className="button-showcase">
-            <h2 className="button-showcase__title">All Button Combinations by Size</h2>
+            <h2 className="button-showcase_title">All Button Combinations by Size</h2>
             {sizes.map((size) => (
-                <div key={size} className="button-showcase__size-section">
+                <div key={size} className="button-showcase_size-section">
                     <h3>{size.charAt(0).toUpperCase() + size.slice(1)} Buttons</h3>
-                    <div className="button-showcase__section">
+                    <div className="button-showcase_section">
                         {variants.map((variant) =>
                             iconPlacements.map((placement) => {
                                 let leadingIcon = null
@@ -60,24 +60,24 @@ export default function ButtonShowcase() {
             ))}
 
             {/* Other sections can remain as they were if needed */}
-            <h2 className="button-showcase__title">Link Buttons</h2>
-            <div className="button-showcase__section">
+            <h2 className="button-showcase_title">Link Buttons</h2>
+            <div className="button-showcase_section">
                 {/* @ts-ignore */}
                 <Button isLink href="https://example.com">Link Button</Button>
                 {/* @ts-ignore */}
                 <Button isLink href="https://example.com" variant="secondary">Secondary Link</Button>
             </div>
 
-            <h2 className="button-showcase__title">Disabled Buttons</h2>
-            <div className="button-showcase__section">
+            <h2 className="button-showcase_title">Disabled Buttons</h2>
+            <div className="button-showcase_section">
                 {/* @ts-ignore */}
                 <Button disabled>Disabled Button</Button>
                 {/* @ts-ignore */}
                 <Button disabled variant="secondary">Disabled Secondary</Button>
             </div>
 
-            <h2 className="button-showcase__title">Group Toggles</h2>
-            <div className="button-showcase__section">
+            <h2 className="button-showcase_title">Group Toggles</h2>
+            <div className="button-showcase_section">
                 <GroupToggle
                     options={[
                         { leadingIcon: renderIcon("grid_view"), text:"leading icon" },
@@ -89,7 +89,7 @@ export default function ButtonShowcase() {
                     size="small"
                 />
             </div>
-            <div className="button-showcase__section">
+            <div className="button-showcase_section">
                 <GroupToggle
                     options={[
                         { text:"Ghost" },
@@ -102,7 +102,7 @@ export default function ButtonShowcase() {
                     groupVariant="ghost"
                 />
             </div>
-            <div className="button-showcase__section">
+            <div className="button-showcase_section">
                 <GroupToggle
                     options={[
                         { leadingIcon: renderIcon("grid_view"), text:"large" },
@@ -115,7 +115,7 @@ export default function ButtonShowcase() {
                     groupVariant="ghost"
                 />
             </div>
-            <div className="button-showcase__section">
+            <div className="button-showcase_section">
                 <GroupToggle
                     options={[
                         { leadingIcon: renderIcon("grid_view"), text:"xl" },

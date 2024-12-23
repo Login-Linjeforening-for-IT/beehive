@@ -20,13 +20,13 @@ export default function TopBar() {
   
     return (
         <div className={`topbar ${isOpen ? "topbar--open" : ""}`}>
-            <div className='topbar__logo'>
+            <div className='topbar_logo'>
                 <Link href='/' onClick={isOpen ? toggle : () => {}} >
                     <LoginLogoSmall />
                 </Link>
             </div>
             <Navigation />
-            <nav className='topbar__toggle'>
+            <nav className='topbar_toggle'>
                 <ThemeToggle/>
                 <LangToggle/>
                 {/* TODO */}
@@ -38,9 +38,9 @@ export default function TopBar() {
                     </Link>
                 </div> */}
             </nav>
-            <button className={`topbar__hamburger ${isOpen ? "topbar__hamburger--open" : ""}`} onClick={toggle}>
-                <div className='topbar__burger-bun topbar__burger-bun--top'></div>
-                <div className='topbar__burger-bun topbar__burger-bun--bottom'></div>
+            <button className={`topbar_hamburger ${isOpen ? "topbar_hamburger--open" : ""}`} onClick={toggle}>
+                <div className='topbar_burger-bun topbar_burger-bun--top'></div>
+                <div className='topbar_burger-bun topbar_burger-bun--bottom'></div>
             </button>
             <MobileNavigation open={isOpen} setIsOpen={setIsOpen} />
         </div>

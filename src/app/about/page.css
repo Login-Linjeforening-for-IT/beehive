@@ -1,4 +1,4 @@
-.about-intro__grid-container {
+.about-intro_grid-container {
     display: flex;
     align-items: start;
     justify-content: center;
@@ -6,12 +6,12 @@
     gap: 5%;
 }
 
-.about-intro__grid-container .accordion {
+.about-intro_grid-container .accordion {
     width: 100%;
 }
 
 /* BEM exception becasue its a picture component */
-.about-intro__picture {
+.about-intro_picture {
     max-width: 33rem;
     width: 100%;
     margin: 3rem 0 1rem 0;
@@ -24,16 +24,16 @@
         margin-bottom: 5rem;
     }
 
-    .about-intro__p {
+    .about-intro_p {
         max-width: 50rem;
     }
 
-    .about-intro__grid-container {
+    .about-intro_grid-container {
         flex-wrap: nowrap;
         padding: 1rem 0;
     }
 
-    .about-intro__grid-container picture {
+    .about-intro_grid-container picture {
         margin: 0;
     }
 }

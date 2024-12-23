@@ -41,9 +41,9 @@ function GroupToggle({
                         variant={buttonVariant}
                         size={size}
                         onClick={() => handleOptionChange(index)}
-                        className={`group-toggle__button ${
-                            index === 0 ? "group-toggle__button--first" : 
-                                index === options.length - 1 ? "group-toggle__button--last" : ""
+                        className={`group-toggle_button ${
+                            index === 0 ? "group-toggle_button--first" : 
+                                index === options.length - 1 ? "group-toggle_button--last" : ""
                         }`}
                         leadingIcon={leadingIcon}
                         trailingIcon={trailingIcon}

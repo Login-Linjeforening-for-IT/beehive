@@ -43,7 +43,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
     return (
         <Link href={`/events/${event.id}`}>
             <div className={`event-item ${highlight ? "event-item--highlight" : ""} ${variant === "card" ? "event-item--card" : "event-item--list-item"}`}>
-                <div className="event-item__wrapper">
+                <div className="event-item_wrapper">
                     {variant === "list-item" ? (
                         <DateTile
                             startDate={new Date(event.time_start)}
@@ -53,7 +53,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                         />
                     ) : (
                         <>
-                            <div className="event-item__date-overlay">
+                            <div className="event-item_date-overlay">
                                 <DateTile
                                     startDate={new Date(event.time_start)}
                                     endDate={new Date(event.time_end)}
@@ -63,10 +63,10 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                                     useDayText={event.category_name_no === "Fadderuka" ? true : false}
                                 />
                             </div>
-                            <picture className="event-item__picture">
+                            <picture className="event-item_picture">
                                 {(event.image_small && showImage) ? (
                                     <RenderSmoothImage
-                                        className="event-item__img"
+                                        className="event-item_img"
                                         alt={event.image_small}
                                         src={config.url.CDN_URL + "/img/events/small/" + event.image_small}
                                         onError={() => setShowImage(false)}
@@ -77,12 +77,12 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                             </picture>
                         </>
                     )}
-                    <div className="event-item__info">
-                        <div className="event-item__name">{lang ? event.name_en : event.name_no}</div>
-                        <ul className="event-item__details">
+                    <div className="event-item_info">
+                        <div className="event-item_name">{lang ? event.name_en : event.name_no}</div>
+                        <ul className="event-item_details">
                             {(event.time_type.toLowerCase() != "whole_day") &&
-                <li className="event-item__detail">
-                    <i className="event-item__icon material-symbols-sharp">
+                <li className="event-item_detail">
+                    <i className="event-item_icon material-symbols-sharp">
                         schedule
                     </i>
                     {event.time_type.toLowerCase() != "tbd" ? 
@@ -93,8 +93,8 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                 </li>
                             }
                             {event.location_name_no && (
-                                <li className="event-item__detail">
-                                    <i className="event-item__icon material-symbols-sharp">
+                                <li className="event-item_detail">
+                                    <i className="event-item_icon material-symbols-sharp">
                                         location_on
                                     </i>
                                     {lang ? event.location_name_en : event.location_name_no}
@@ -102,7 +102,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                             )}
                         </ul>
                         {useTags(event.time_publish, event.highlight, event.canceled, event.full, isOngoing(startDate, endDate)) &&
-              <div className="event-item__tags">
+              <div className="event-item_tags">
                   <Tags
                       highlight={event.highlight}
                       timePublish={new Date(event.time_publish)}
@@ -114,10 +114,10 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                         }
                     </div>
                     {variant === "list-item" &&
-            <picture className="event-item__picture">
+            <picture className="event-item_picture">
                 {(event.image_small && showImage) ? (
                     <RenderSmoothImage
-                        className="event-item__img"
+                        className="event-item_img"
                         alt={event.image_small}
                         src={config.url.CDN_URL + "/img/events/small/" + event.image_small}
                         onError={() => setShowImage(false)}
@@ -137,18 +137,18 @@ function getDefaultBanner(category: string, color: string) {
     switch (category) {
     case "Sosialt":
         {/* @ts-ignore */}
-        return <DefaultSocialBanner color={color} className="event-item__img" />
+        return <DefaultSocialBanner color={color} className="event-item_img" />
     case "TekKom":
         {/* @ts-ignore */}
-        return <DefaultTekkomBanner color={color} className="event-item__img" />
+        return <DefaultTekkomBanner color={color} className="event-item_img" />
     case "CTF":
         {/* @ts-ignore */}
-        return <DefaultCtfBanner color={color} className="event-item__img" />
+        return <DefaultCtfBanner color={color} className="event-item_img" />
     case "Bedpres":
         {/* @ts-ignore */}
-        return <DefaultBedpresBanner color={color} className="event-item__img" />
+        return <DefaultBedpresBanner color={color} className="event-item_img" />
     default:
         {/* @ts-ignore */}
-        return <DefaultEventBanner color={color} className="event-item__img" />
+        return <DefaultEventBanner color={color} className="event-item_img" />
     }
 }

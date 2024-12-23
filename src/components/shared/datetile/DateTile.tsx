@@ -76,8 +76,8 @@ export default function DateTile({
                 }`}
                 style={{ background: background }}
             >
-                <div className="date-tile__date">
-                    <div className="date-tile__dayofweek">
+                <div className="date-tile_date">
+                    <div className="date-tile_dayofweek">
                         {(daysOfWeek as any)[lang][sTime.getDay()]}.
                     </div>
                 </div>
@@ -92,15 +92,15 @@ export default function DateTile({
                 }`}
                 style={{ background: background }}
             >
-                <div className="date-tile__date">
+                <div className="date-tile_date">
                     <div
-                        className={`date-tile__day ${
-                            sDate === eDate ? "" : "date-tile__day--wide"
+                        className={`date-tile_day ${
+                            sDate === eDate ? "" : "date-tile_day--wide"
                         }`}
                     >
                         {sDate === eDate ? sDate : sDate + "-" + eDate}
                     </div>
-                    <div className="date-tile__month">{(months as any)[lang][eMonth]}</div>
+                    <div className="date-tile_month">{(months as any)[lang][eMonth]}</div>
                 </div>
             </div>
         )
@@ -110,16 +110,16 @@ export default function DateTile({
                 className={`date-tile date-tile--wide date-tile--${varient}`}
                 style={{ background: background }}
             >
-                <div className="date-tile__date">
-                    <div className="date-tile__day date-tile__day--wide">{sDate}</div>
-                    <div className="date-tile__month date-tile__month--wide">
+                <div className="date-tile_date">
+                    <div className="date-tile_day date-tile_day--wide">{sDate}</div>
+                    <div className="date-tile_month date-tile_month--wide">
                         {(months as any)[lang][sMonth]}
                     </div>
                 </div>
-                <div className="date-tile__devider">-</div>
-                <div className="date-tile__date">
-                    <div className="date-tile__day date-tile__day--wide">{eDate}</div>
-                    <div className="date-tile__month date-tile__month--wide">
+                <div className="date-tile_devider">-</div>
+                <div className="date-tile_date">
+                    <div className="date-tile_day date-tile_day--wide">{eDate}</div>
+                    <div className="date-tile_month date-tile_month--wide">
                         {(months as any)[lang][eMonth]}
                     </div>
                 </div>

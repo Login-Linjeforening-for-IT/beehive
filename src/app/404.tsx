@@ -20,15 +20,15 @@ export default function NotFoundPage() {
 
     return (
         <div className='not-found'>
-            <picture className='not-found__pic'>
+            <picture className='not-found_pic'>
                 <Image 
                     src={`${config.url.CDN_URL}/img/pizza404.png`} 
-                    className='not-found__img' alt='Hangry 404'
+                    className='not-found_img' alt='Hangry 404'
                 />
             </picture>
-            <div className='not-found__text'>
+            <div className='not-found_text'>
                 <h1>{text.header1}</h1>
-                <p className='not-found__p p--regular'>
+                <p className='not-found_p p--regular'>
                     {text.msg}
                 </p>
                 <Button href="-1" leadingIcon={<i className='material-symbols-sharp'>west</i>}>

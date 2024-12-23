@@ -14,7 +14,7 @@
 
 /* the fund board */
 
-.fund-board__intro {
+.fund-board_intro {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,7 +22,7 @@
     margin-bottom: 4rem;
 }
 
-.fund-board__intro-picture {
+.fund-board_intro-picture {
     box-sizing: border-box;
     flex: 1 1 20rem;
     margin-top: auto;
@@ -30,13 +30,13 @@
     max-width: 33rem;
 }
 
-.fund-board__intro-text {
+.fund-board_intro-text {
     box-sizing: border-box;
     flex: 1 1 20rem;
     margin: auto;
 }
 
-.fund-board__members {
+.fund-board_members {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -50,13 +50,13 @@
         padding: 1rem 2rem 2rem 2rem;
     }
 
-    .fund-section__container--grid {
+    .fund-section_container--grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 4rem;
     }
 
-    .fund-board__members {
+    .fund-board_members {
         gap: 3rem;
     }
 }
