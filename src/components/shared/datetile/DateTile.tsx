@@ -4,8 +4,6 @@ import getCookie from "@utils/getCookie"
 import "./DateTile.css"
 import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-
 export default function DateTile({
     startDate,
     endDate,
@@ -13,13 +11,11 @@ export default function DateTile({
     varient = "regular",
     useDayText = false,
 }: any) {
-
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
     const sTime = new Date(startDate)
     const eTime = new Date(endDate)
-
     const sDate = sTime.getDate()
     const eDate = eTime.getDate()
-
     const sMonth = sTime.getMonth()
     const eMonth = eTime.getMonth()
 

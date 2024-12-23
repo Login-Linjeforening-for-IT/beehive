@@ -14,11 +14,6 @@ import en from '@text/jobadList/en.json'
 import getCookie from "@utils/getCookie"
 import "./page.css"
 
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
-
 const jobTypeTranslations = {
     no: {
         summer: "Sommerjobb",
@@ -43,6 +38,8 @@ export default function Jobads() {
     const limit = 10
     const offset = useRef(0)
     const [ showLoadMore, setShowLoadMore ] = useState(false)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
 
     const ap = debounce(async (v: any) => {
         filters.current = v

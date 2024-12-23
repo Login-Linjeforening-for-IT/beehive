@@ -15,9 +15,9 @@ type ArticleProps = {
   description: string
 }
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-
 export default function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+
     return (
         <div className="article">
             <h1 className="article__header">{title}</h1>

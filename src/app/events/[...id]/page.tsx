@@ -25,9 +25,6 @@ import getCookie from "@utils/getCookie"
 import "./EventPage.css"
 import { formatEventStatusDate, isOngoing } from "@utils/DatetimeFormatter"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
     case "Sosialt":
@@ -80,6 +77,8 @@ export default function EventPage({ params }: { params: { id: number } }) {
     const [event, setEvent] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text: any = lang === 'en' ? en : no
 
     useEffect(() => {
         async function fetchData() {

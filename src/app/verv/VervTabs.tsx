@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TabNavItem from "@components/tabs/TabNavItem"
 import TabContent from "@components/tabs/TabContent"
 import LogChamp from "@components/shared/logchamp/LogChamp"
@@ -19,11 +19,15 @@ import no from "@text/verv/no.json"
 import board_no from "@text/board/no.json"
 import board_en from "@text/board/en.json"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
-
 export default function VervTabs() {
   const [activeTab, setActiveTab] = useState("event")
+  const lang = getCookie('lang') as 'no' | 'en' || 'no'
+  const [text, setText] = useState({ ...no, ...board_no })
+
+  useEffect(() => {
+      const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
+      setText(text as any)
+  }, [lang])
 
   return (
     <div className="tabs committees page-section--without-gaps">

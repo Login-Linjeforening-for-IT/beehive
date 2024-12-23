@@ -4,13 +4,18 @@ import MazeMapEmbed from "@components/shared/mazemap/MazeMapEmbed"
 import no from '@text/contact/no.json'
 import en from '@text/contact/en.json'
 import getCookie from "@utils/getCookie"
-
 import "./Contact.css"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
+import { useEffect, useState } from "react"
 
 export default function Contact() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
+
     return(
         <div className='contact-card'>
             <h2 className='heading-2 heading-2--icon'>

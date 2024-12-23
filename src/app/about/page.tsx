@@ -10,10 +10,10 @@ import en from '@text/about/en.json'
 import getCookie from "@utils/getCookie"
 import "./page.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 export default function About() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
+
     return (
         <div className="page-container">
             <h1 className="page-section--normal heading-1 heading-1--top-left-corner">

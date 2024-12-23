@@ -15,9 +15,6 @@ import en from '@text/eventlist/en.json'
 import getCookie from "@utils/getCookie"
 import "./page.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 function getLabelKeyWithLang(key: string) {
     return (v: any) => {
         const vNo = v[key + "_no"]
@@ -110,6 +107,8 @@ export default function Events() {
         return null
     }
     
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
     const [events, setEvents] = useState<any[]>([])
     const [filterData, setFilterData] = useState({})
     const [showLoadMore, setShowLoadMore] = useState(false)

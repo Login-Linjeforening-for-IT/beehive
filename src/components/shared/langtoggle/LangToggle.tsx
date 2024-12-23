@@ -4,9 +4,8 @@ import { useEffect, useState } from "react"
 import getCookie from "@utils/getCookie"
 import "./LangToggle.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-
 export default function LangToggle() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
     const [buttonText, setButtonText] = useState("")
     const [jump, setJump] = useState(false)
   

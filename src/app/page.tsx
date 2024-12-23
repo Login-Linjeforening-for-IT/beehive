@@ -12,15 +12,11 @@ import JobadCard from "@components/jobad/JobadCard"
 import JobadCardSkeleton from "@components/jobad/JobadCardSkeleton"
 import HeroSection from "@components/shared/herosection/HeroSection"
 import Link from "next/link"
-
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import getCookie from "@utils/getCookie"
 
 import "./page.css"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
 
 export default function Home() {
     return (
@@ -34,6 +30,8 @@ export default function Home() {
 }
 
 function SmallInfo() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
     const value = useContext(ThemeContext)
 
     function getSponsorPath() {
@@ -116,6 +114,9 @@ function SmallInfo() {
 }
 
 function EndCard({ path }: {path: string}) {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
+
     return (
         <li className="dynamic-preview-list__item dynamic-preview-end-card">
             <Link href={path} className="dynamic-preview-end-card__btn">
@@ -134,6 +135,8 @@ function EventsPreview() {
     const [events, setEvents] = useState<any[] | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<any | null>(null)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
 
     useEffect(() => {
         (async () => {
@@ -210,6 +213,8 @@ function JobadsPreview() {
     const [jobads, setJobads] = useState<any[] | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<any | null>(null)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
 
     useEffect(() => {
         (async () => {

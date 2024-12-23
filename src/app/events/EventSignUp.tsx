@@ -8,9 +8,6 @@ import no from "@text/eventPage/no.json"
 import en from "@text/eventPage/en.json"
 import { formatDeadlineDate, formatPublishedDate } from "@utils/DatetimeFormatter"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 export default function EventSignUp({
     url,
     full,
@@ -19,6 +16,8 @@ export default function EventSignUp({
     signupRelease,
     signupDeadline,
 }: any) {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
     const now = new Date()
     let msg = ""
     let reqSignup = true

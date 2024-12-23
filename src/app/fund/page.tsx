@@ -11,12 +11,9 @@ import board_no from '@text/board/en.json'
 import getCookie from "@utils/getCookie"
 import "./page.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text: any = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
-
 export default function Fund() {
-
-    const useEng = lang === "en"
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text: any = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
 
     return (
         <div className='page-container'>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import config from "@config"
 import TabNavItem from "@components/tabs/TabNavItem"
 import TabContent from "@components/tabs/TabContent"
@@ -12,21 +12,26 @@ import CtfkomLogo from "@components/svg/committeelogos/CtfkomLogo"
 import StyretLogo from "@components/svg/committeelogos/StyretLogo"
 import SatkomLogo from "@components/svg/committeelogos/SatkomLogo"
 import PrLogo from "@components/svg/committeelogos/PrLogo"
-import no from '@text/about/no.json'
-import en from '@text/about/en.json'
+import text_no from '@text/about/no.json'
+import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import "@components/tabs/Tabs.css"
 import "@app/about/CommitteeTabs.css"
 import getCookie from "@utils/getCookie"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
+const no = {...text_no, ...board_no}
+const en = {...text_en, ...board_en}
 
 export default function CommitteeTabs() {
-
     const [activeTab, setActiveTab] = useState("styret")
-    const useEng = lang === "en"
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text as any)
+    }, [lang])
 
     return (
         <div className='mb-[2rem] tabs committees page-section--without-gaps'>

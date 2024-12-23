@@ -6,14 +6,12 @@ import Tags from "@components/tags/Tags"
 import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
 import "./JobadCard.css"
 import Link from "next/link"
-import getCookie from "@utils/getCookie"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 import Image from "next/image"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
+import getCookie from "@utils/getCookie"
 
 export default function JobadCard({ jobad, disableTags=false }: any) {
-
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
     const [useFallbackImg, setUseFallbackImg] = useState(false)
 
     useEffect(() => {

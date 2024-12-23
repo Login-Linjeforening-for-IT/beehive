@@ -1,6 +1,3 @@
-
-declare var lang: boolean
-
 type Coupon = {
     id: string
     user: string

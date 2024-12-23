@@ -23,10 +23,9 @@ type EventListItemProps = {
   variant: string 
 }
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-
 export default function EventListItem({ event, highlight = true, disableTags = false, variant="list-item" }: EventListItemProps) {
     const [showImage, setShowImage] = useState(true)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
         if (disableTags) return false

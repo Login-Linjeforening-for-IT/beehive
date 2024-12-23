@@ -7,15 +7,20 @@ import en from '@text/layout/en.json'
 import getCookie from "@utils/getCookie"
 import "./Footer.css"
 import Image from "next/image"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
+import { useEffect, useState } from "react"
 
 const version = process.env.REACT_APP_FRONTEND_VERSION
 
 export default function Footer() {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
 
     return (
         <div className="footer-content">
@@ -23,7 +28,7 @@ export default function Footer() {
                 <div className="footer-content__logo">
                     <picture className="footer-content__logo-picture">
                         <Image
-                            src={`${process.env.PUBLIC_URL}/img/logo/logo-tekst-white.svg`}
+                            src={`${config.url.CDN_URL}/img/logo/logo-tekst-white.svg`}
                             className="footer-content__logo-image"
                             alt="Login - Linjeforeningen for IT"
                             width={0}

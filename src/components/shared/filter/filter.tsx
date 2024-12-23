@@ -9,12 +9,16 @@ import en from '@text/filter/en.json'
 import getCookie from "@utils/getCookie"
 import "./filter.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 export default function FilterGroup({ filters, onApply, close = false }: any) {
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
 
     function onReset() {
         selectedFilters.current = {}
@@ -117,6 +121,8 @@ function getFilterItemOnSelect(onSelect: any, filterID: any) {
 }
 
 function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any) {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+
     return (
         <div className="filter">
             <div className="filter__title">{ label[lang] }</div>
@@ -141,6 +147,7 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
 
 function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
     const [ checked, setChecked ] = useState(false)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
     useEffect(() => {
         setChecked(false)

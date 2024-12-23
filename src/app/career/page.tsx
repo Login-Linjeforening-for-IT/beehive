@@ -14,10 +14,6 @@ import getCookie from "@utils/getCookie"
 import "./page.css"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 const jobTypeTranslations = {
     no: {
         summer: "Sommerjobb",
@@ -58,6 +54,8 @@ export default function JobadPage({ params }: { params: { id: number } }) {
     const [jobad, setJobad] = useState<any | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const text = lang === 'en' ? en : no
 
     useEffect(() => {
         async function fetchData() {

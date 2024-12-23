@@ -1,13 +1,18 @@
-import React, { useCallback, useRef } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import getCookie from "@utils/getCookie"
 import no from "@text/layout/no.json"
 import en from "@text/layout/en.json"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 export default function Navigation() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
+
     const navItemRefs = useRef([
         React.createRef(),
         React.createRef(),

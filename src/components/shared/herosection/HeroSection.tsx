@@ -6,11 +6,17 @@ import getCookie from "@utils/getCookie"
 import no from "@text/landing/no.json"
 import en from "@text/landing/en.json"
 import "./HeroSection.css"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
+import { useEffect, useState } from "react"
 
 export default function LandingPage() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
+
     return (
         <div className="hero-section">
             <div className="hero-section__container">

@@ -6,12 +6,10 @@ import config from "@config"
 import Tags from "@components/tags/Tags"
 import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
 import Link from "next/link"
-import getCookie from "@utils/getCookie"
 import { isNew } from "@utils/DatetimeFormatter"
 import { formatDeadlineDate } from "@utils/DatetimeFormatter"
 import Image from "next/image"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
+import getCookie from "@utils/getCookie"
 
 const jobTypeTranslations = {
     no: {
@@ -60,10 +58,8 @@ function formatCities(cities: any[]) {
 }
 
 export default function JobadsListItem({ jobad }: any) {
-    // @ts-ignore
-    const tr = Translator.getTranslation(useEng)
-
     const [useFallbackImg, setUseFallbackImg] = useState(false)
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
 
     useEffect(() => {
         setUseFallbackImg(false)
@@ -104,7 +100,7 @@ export default function JobadsListItem({ jobad }: any) {
                         )}
                     </picture>
                     <div className='jobads-item__info'>
-                        <div className='jobads-item__name'>{tr(jobad.title_en, jobad.title_no)}</div>
+                        <div className='jobads-item__name'>{lang === "en" ? jobad.title_en : jobad.title_no}</div>
                         <ul className='jobads-item__details'>
                             <li className='jobads-item__detail'>
                                 <i className='jobads-item__icon material-symbols-sharp'>hourglass_bottom</i>
@@ -112,7 +108,7 @@ export default function JobadsListItem({ jobad }: any) {
                             </li>
                             <li className='jobads-item__detail'>
                                 <i className='jobads-item__icon material-symbols-sharp'>apartment</i>
-                                {tr(jobad.organization_name_en, jobad.organization_name_no)}
+                                {lang === "en" ? jobad.organization_name_en : jobad.organization_name_no}
                             </li>
                             {jobad.job_type && 
                                 <li className='jobads-item__detail'>

@@ -5,11 +5,17 @@ import no from '@text/policy/no.json'
 import en from '@text/policy/en.json'
 import getCookie from "@utils/getCookie"
 import "./page.css"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
+import { useEffect, useState } from "react"
 
 export default function Policy() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
+
     return (
         <div className='page-container'>
             <div className='page-section--normal'>

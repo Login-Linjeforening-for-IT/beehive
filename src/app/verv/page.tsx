@@ -6,14 +6,18 @@ import VervTabs from "./VervTabs"
 import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
 import getCookie from "@utils/getCookie"
-
+import { useEffect, useState } from "react"
 import "./page.css"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
-
 export default function Verv() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text as any)
+    }, [lang])
+
     const slides = []
 
     for (let i = 1; i <= 15; i++) {

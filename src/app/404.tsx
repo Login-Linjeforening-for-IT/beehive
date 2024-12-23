@@ -7,11 +7,17 @@ import en from '@text/404/en.json'
 import getCookie from "@utils/getCookie"
 import Image from "next/image"
 import "./page.css"
-
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
+import { useEffect, useState } from "react"
 
 export default function NotFoundPage() {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
+
     return (
         <div className='not-found'>
             <picture className='not-found__pic'>

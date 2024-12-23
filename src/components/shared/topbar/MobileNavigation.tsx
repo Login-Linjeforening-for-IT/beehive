@@ -2,14 +2,19 @@
 
 import getCookie from "@utils/getCookie"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import no from "@text/layout/no.json"
 import en from "@text/layout/en.json"
 
-const lang = getCookie('lang') as 'no' | 'en' || 'no'
-const text = lang === 'en' ? en : no
-
 export default function MobileNavigation({ open, setIsOpen }: any) {
+    const lang = getCookie('lang') as 'no' | 'en' || 'no'
+    const [text, setText] = useState(no)
+
+    useEffect(() => {
+        const text = lang === 'en' ? en : no
+        setText(text)
+    }, [lang])
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
 
