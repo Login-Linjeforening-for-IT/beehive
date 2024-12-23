@@ -1,8 +1,6 @@
-version: '3'
-
 services:
-  react:
-    container_name: bh-react-dev
+  beehive:
+    container_name: beehive
     build:
       context: ./
       dockerfile: ./Dockerfile.dev
