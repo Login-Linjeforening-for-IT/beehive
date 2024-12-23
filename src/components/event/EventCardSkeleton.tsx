@@ -1,4 +1,4 @@
-import "./EventCardSkeleton.css"
+import './EventCardSkeleton.css'
 
 export default function EventCardSkeleton() {
     return (

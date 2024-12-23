@@ -1,6 +1,6 @@
-import { useState } from "react"
-import "./RenderSmoothImage.css"
-import Image from "next/image"
+import { useState } from 'react'
+import './RenderSmoothImage.css'
+import Image from 'next/image'
 
 export default function RenderSmoothImage({ src, alt, className, onError, transition }: any) {
     const [imageLoaded, setImageLoaded] = useState(false)
@@ -9,7 +9,7 @@ export default function RenderSmoothImage({ src, alt, className, onError, transi
         <Image
             src={src}
             alt={alt}
-            className={`smooth-image ${transition ? "smooth-image--transition" : ""} smooth-image--${imageLoaded ? "visible" : "hidden"} ${className}`}
+            className={`smooth-image ${transition ? 'smooth-image--transition' : ''} smooth-image--${imageLoaded ? 'visible' : 'hidden'} ${className}`}
             onLoad={() => setImageLoaded(true)}
             onError={onError}
         />

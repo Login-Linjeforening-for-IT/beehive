@@ -1,4 +1,4 @@
-import "./Accordion.css"
+import './Accordion.css'
 
 type AccordionItemProps = { 
     id: string
@@ -11,14 +11,14 @@ export default function AccordionItem({ id, title, activeAccordionItem, setActiv
  
     function handleClick() {
         if(activeAccordionItem === id)
-            setActiveAccordionItem("none")
+            setActiveAccordionItem('none')
         else {
             setActiveAccordionItem(id)
         }
     }
  
     return (
-        <li onClick={handleClick} className={`accordion_nav-item ${activeAccordionItem === id ? "accordion_nav-item--active" : ""}`}>
+        <li onClick={handleClick} className={`accordion_nav-item ${activeAccordionItem === id ? 'accordion_nav-item--active' : ''}`}>
             <i className='material-symbols-sharp accordion_icon--left'>chevron_right</i>{ title }
         </li>
     )

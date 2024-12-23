@@ -1,9 +1,9 @@
-import config from "@config"
+import config from '@config'
 
 export function getCDNLink(filename: string) {
-    if (filename !== "none") {
+    if (filename !== 'none') {
         return `${config.url.CDN_URL}/img/events/${filename}`
     }
 
-    return ""
+    return ''
 }

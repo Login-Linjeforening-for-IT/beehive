@@ -1,30 +1,30 @@
 'use client'
 
-import { useContext, useEffect, useState } from "react"
-import config from "@config"
-import TabNavItem from "@components/tabs/TabNavItem"
-import TabContent from "@components/tabs/TabContent"
-import LogChamp from "@components/shared/logchamp/LogChamp"
-import EventkomLogo from "@components/svg/committeelogos/EventkomLogo"
-import BedkomLogo from "@components/svg/committeelogos/BedkomLogo"
-import TekkomLogo from "@components/svg/committeelogos/TekkomLogo"
-import CtfkomLogo from "@components/svg/committeelogos/CtfkomLogo"
-import StyretLogo from "@components/svg/committeelogos/StyretLogo"
-import SatkomLogo from "@components/svg/committeelogos/SatkomLogo"
-import PrLogo from "@components/svg/committeelogos/PrLogo"
+import { useContext, useEffect, useState } from 'react'
+import config from '@config'
+import TabNavItem from '@components/shared/tabs/TabNavItem'
+import TabContent from '@components/shared/tabs/TabContent'
+import LogChamp from '@components/shared/logchamp/LogChamp'
+import EventkomLogo from '@components/svg/committeelogos/EventkomLogo'
+import BedkomLogo from '@components/svg/committeelogos/BedkomLogo'
+import TekkomLogo from '@components/svg/committeelogos/TekkomLogo'
+import CtfkomLogo from '@components/svg/committeelogos/CtfkomLogo'
+import StyretLogo from '@components/svg/committeelogos/StyretLogo'
+import SatkomLogo from '@components/svg/committeelogos/SatkomLogo'
+import PrLogo from '@components/svg/committeelogos/PrLogo'
 import text_no from '@text/about/no.json'
 import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
-import "@components/tabs/Tabs.css"
-import "@app/about/CommitteeTabs.css"
-import AppContext from "@context/context"
+import '@components/shared/tabs/tabs.css'
+import '@app/about/CommitteeTabs.css'
+import AppContext from '@context/context'
 
 const no = {...text_no, ...board_no}
 const en = {...text_en, ...board_en}
 
 export default function CommitteeTabs() {
-    const [activeTab, setActiveTab] = useState("styret")
+    const [activeTab, setActiveTab] = useState('styret')
     const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
@@ -74,7 +74,7 @@ export default function CommitteeTabs() {
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.eventkom.body}} />
                     </div>
                     <LogChamp 
-                        img={config.url.CDN_URL + "/img/portraits/" +  text.evntkomLeader.img}
+                        img={config.url.CDN_URL + '/img/portraits/' +  text.evntkomLeader.img}
                         name={text.evntkomLeader.name}
                         position={text.evntkomLeader.title}
                         discord={text.evntkomLeader.dctag}
@@ -110,7 +110,7 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp 
-                        img={config.url.CDN_URL + "/img/portraits/" +  text.bedkomLeader.img}
+                        img={config.url.CDN_URL + '/img/portraits/' +  text.bedkomLeader.img}
                         name={text.bedkomLeader.name}
                         position={text.bedkomLeader.title}
                         discord={text.bedkomLeader.dctag}
@@ -128,7 +128,7 @@ export default function CommitteeTabs() {
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.ctfkom.body}}/>
                     </div>
                     <LogChamp 
-                        img={config.url.CDN_URL + "/img/portraits/" +  text.ctfkomLeader.img}
+                        img={config.url.CDN_URL + '/img/portraits/' +  text.ctfkomLeader.img}
                         name={text.ctfkomLeader.name}
                         position={text.ctfkomLeader.title}
                         discord={text.ctfkomLeader.dctag}
@@ -146,7 +146,7 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp 
-                        img={config.url.CDN_URL + "/img/portraits/" +  text.satkomLeader.img}
+                        img={config.url.CDN_URL + '/img/portraits/' +  text.satkomLeader.img}
                         name={text.satkomLeader.name}
                         position={text.satkomLeader.title}
                         discord={text.satkomLeader.dctag}
@@ -164,7 +164,7 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp 
-                        img={config.url.CDN_URL + "/img/portraits/" +  text.prLeader.img}
+                        img={config.url.CDN_URL + '/img/portraits/' +  text.prLeader.img}
                         name={text.prLeader.name}
                         position={text.prLeader.title}
                         discord={text.prLeader.dctag}

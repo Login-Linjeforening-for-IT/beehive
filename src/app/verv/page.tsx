@@ -1,13 +1,13 @@
 'use client'
 
-import ImageCarousel from "@components/shared/imagecarousel/ImageCarousel"
-import Button from "@components/shared/button/Button"
-import VervTabs from "./VervTabs"
+import ImageCarousel from '@components/shared/imagecarousel/ImageCarousel'
+import Button from '@components/shared/button/Button'
+import VervTabs from './VervTabs'
 import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
-import { useContext, useEffect, useState } from "react"
-import "./page.css"
-import AppContext from "@context/context"
+import { useContext, useEffect, useState } from 'react'
+import './page.css'
+import AppContext from '@context/context'
 
 export default function Verv() {
     const { lang } = useContext(AppContext)

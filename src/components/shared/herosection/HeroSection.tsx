@@ -1,12 +1,12 @@
 'use client'
 
-import LoginLogo from "@components/svg/brandlogos/LoginLogo"
-import Button from "@components/shared/button/Button"
-import no from "@text/landing/no.json"
-import en from "@text/landing/en.json"
-import "./HeroSection.css"
-import { useContext, useEffect, useState } from "react"
-import AppContext from "@context/context"
+import LoginLogo from '@components/svg/brandlogos/LoginLogo'
+import Button from '@components/shared/button/Button'
+import no from '@text/landing/no.json'
+import en from '@text/landing/en.json'
+import './HeroSection.css'
+import { useContext, useEffect, useState } from 'react'
+import AppContext from '@context/context'
 
 export default function LandingPage() {
     const { lang } = useContext(AppContext)

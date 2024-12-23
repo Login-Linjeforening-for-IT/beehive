@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 export const COLOR_THEMES = {
-    LIGHT: "light",
-    DARK: "dark",
+    LIGHT: 'light',
+    DARK: 'dark',
 }
 
 export default function ThemeContext() {
@@ -11,7 +11,7 @@ export default function ThemeContext() {
     useEffect(() => {
         document.body.classList.remove(...Object.values(COLOR_THEMES))
         document.body.classList.add(theme)
-        localStorage.setItem("theme", theme)
+        localStorage.setItem('theme', theme)
     }, [theme])
 
     function switchTheme() {

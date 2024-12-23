@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import "./spinner.css"
+import { useEffect, useState } from 'react'
+import './spinner.css'
 
 export default function Spinner({width, height}: {width: number, height: number}) {
     const [displaySpinner, setDisplaySpinner] = useState(false)

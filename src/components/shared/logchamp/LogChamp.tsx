@@ -1,5 +1,5 @@
-import DecoratedPicture from "@components/shared/images/decoratedpicture/DecoratedPicture"
-import "./LogChamp.css"
+import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
+import './LogChamp.css'
 
 type LogChampProps = {
   name: string

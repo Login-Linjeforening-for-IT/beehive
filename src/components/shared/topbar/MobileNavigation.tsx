@@ -1,10 +1,10 @@
 'use client'
 
-import Link from "next/link"
-import { useContext, useEffect, useState } from "react"
-import no from "@text/layout/no.json"
-import en from "@text/layout/en.json"
-import AppContext from "@context/context"
+import Link from 'next/link'
+import { useContext, useEffect, useState } from 'react'
+import no from '@text/layout/no.json'
+import en from '@text/layout/en.json'
+import AppContext from '@context/context'
 
 export default function MobileNavigation({ open, setIsOpen }: any) {
     const { lang } = useContext(AppContext)
@@ -24,7 +24,7 @@ export default function MobileNavigation({ open, setIsOpen }: any) {
     }
 
     return (
-        <nav className={`mobile-nav${open ? " mobile-nav--open" : ""}`}>
+        <nav className={`mobile-nav${open ? ' mobile-nav--open' : ''}`}>
             <Link onClick={close} href="/events" tabIndex={open ? 0 : -1}>
                 <li className="mobile-nav_item">{text.nav.events}</li>
             </Link>
@@ -36,7 +36,7 @@ export default function MobileNavigation({ open, setIsOpen }: any) {
             </Link>
             <div
                 className={`mobile-nav-dropdown${
-                    isDropdownOpen ? " mobile-nav-dropdown--open" : ""
+                    isDropdownOpen ? ' mobile-nav-dropdown--open' : ''
                 }`}
             >
                 <button

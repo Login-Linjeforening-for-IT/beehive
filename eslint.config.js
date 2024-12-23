@@ -1,13 +1,13 @@
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import typescriptParser from '@typescript-eslint/parser';
-import stylisticJs from '@stylistic/eslint-plugin-js';
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import typescriptParser from '@typescript-eslint/parser'
+import stylisticJs from '@stylistic/eslint-plugin-js'
 
 export default [
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
     {
-        ignores: ['dist', 'node_modules'],
+        ignores: ["**/v*"],
         plugins: {
             '@stylistic/js': stylisticJs,
         },
@@ -31,7 +31,7 @@ export default [
             ],
             '@stylistic/js/quotes': [
                 'error',
-                'double'
+                'single'
             ],
             '@stylistic/js/semi': [
                 'error',

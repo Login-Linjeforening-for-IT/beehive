@@ -1,15 +1,15 @@
 'use client'
 
-import "./DateTile.css"
-import { createGradient, hexToRgba, isValidHex } from "@utils/ColorManipulation"
-import AppContext from "@context/context"
-import { useContext } from "react"
+import './DateTile.css'
+import { createGradient, hexToRgba, isValidHex } from '@utils/ColorManipulation'
+import AppContext from '@context/context'
+import { useContext } from 'react'
 
 export default function DateTile({
     startDate,
     endDate,
     color,
-    varient = "regular",
+    varient = 'regular',
     useDayText = false,
 }: any) {
     const { lang } = useContext(AppContext)
@@ -22,44 +22,44 @@ export default function DateTile({
 
     const months = {
         en: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
         ],
         no: [
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "mai",
-            "jun",
-            "jul",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "des",
+            'jan',
+            'feb',
+            'mar',
+            'apr',
+            'mai',
+            'jun',
+            'jul',
+            'aug',
+            'sep',
+            'okt',
+            'nov',
+            'des',
         ],
     }
 
     const daysOfWeek = {
-        en: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        no: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+        en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
     }
 
     let background
 
     if (isValidHex(color)) {
-        if (varient === "regular") {
+        if (varient === 'regular') {
             background = createGradient(color, 1)
         } else {
             background = hexToRgba(color, 0.75)
@@ -72,7 +72,7 @@ export default function DateTile({
         return (
             <div
                 className={`date-tile date-tile--${varient} ${
-                    sDate === eDate ? "" : "date-tile--wide"
+                    sDate === eDate ? '' : 'date-tile--wide'
                 }`}
                 style={{ background: background }}
             >
@@ -88,17 +88,17 @@ export default function DateTile({
         return (
             <div
                 className={`date-tile date-tile--${varient} ${
-                    sDate === eDate ? "" : "date-tile--wide"
+                    sDate === eDate ? '' : 'date-tile--wide'
                 }`}
                 style={{ background: background }}
             >
                 <div className="date-tile_date">
                     <div
                         className={`date-tile_day ${
-                            sDate === eDate ? "" : "date-tile_day--wide"
+                            sDate === eDate ? '' : 'date-tile_day--wide'
                         }`}
                     >
-                        {sDate === eDate ? sDate : sDate + "-" + eDate}
+                        {sDate === eDate ? sDate : sDate + '-' + eDate}
                     </div>
                     <div className="date-tile_month">{(months as any)[lang][eMonth]}</div>
                 </div>

@@ -1,41 +1,41 @@
 'use client'
 
-import { useState, useEffect, useContext } from "react"
-import config from "@config"
-import Spinner from "@components/shared/spinner/spinner"
-import Article from "@components/shared/article/Article"
-import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
-import Button from "@components/shared/button/Button"
-import Alert from "@components/shared/alert/Alert"
-import { getJob } from "@utils/api"
+import { useState, useEffect, useContext } from 'react'
+import config from '@config'
+import Spinner from '@components/shared/spinner/spinner'
+import Article from '@components/shared/article/Article'
+import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
+import Button from '@components/shared/button/Button'
+import Alert from '@components/shared/alert/Alert'
+import { getJob } from '@utils/api'
 import no from '@text/jobadPage/no.json'
 import en from '@text/jobadPage/en.json'
-import "./page.css"
-import { formatDeadlineDate } from "@utils/DatetimeFormatter"
-import AppContext from "@context/context"
+import './page.css'
+import { formatDeadlineDate } from '@utils/DatetimeFormatter'
+import AppContext from '@context/context'
 
 const jobTypeTranslations = {
     no: {
-        summer: "Sommerjobb",
-        full: "Fulltid",
-        verv: "Verv",
-        part: "Deltid"
+        summer: 'Sommerjobb',
+        full: 'Fulltid',
+        verv: 'Verv',
+        part: 'Deltid'
     },
     en: {
-        summer: "Sommer job",
-        full: "Fulltime",
-        verv: "Voluntary",
-        part: "Parttime"
+        summer: 'Sommer job',
+        full: 'Fulltime',
+        verv: 'Voluntary',
+        part: 'Parttime'
     }
 }
 
-function getJobTypeLabel(job_type: any, lang = "no") {
+function getJobTypeLabel(job_type: any, lang = 'no') {
     // @ts-ignore
-    const labelNo = jobTypeTranslations["no"][job_type] || job_type
+    const labelNo = jobTypeTranslations['no'][job_type] || job_type
     // @ts-ignore
-    const labelEn = jobTypeTranslations["en"][job_type] || labelNo
+    const labelEn = jobTypeTranslations['en'][job_type] || labelNo
 
-    return lang === "en" ? labelEn : labelNo
+    return lang === 'en' ? labelEn : labelNo
 }
 
 function deadlineWarning(deadline: Date) {
@@ -66,8 +66,8 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                 setJobad(response)
                 setShowBannerImg(!!response.job.banner_image)
             } catch (error) {
-                console.error("Error fetching job ad data:", error)
-                setError("Failed to load job ad data.")
+                console.error('Error fetching job ad data:', error)
+                setError('Failed to load job ad data.')
             } finally {
                 setLoading(false)
             }
@@ -93,7 +93,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
             {!loading && !error && jobad && (
                 <div
                     className={`jobad-page ${
-                        showBannerImg ? "jobad-page--banner" : "jobad-page--noBanner"
+                        showBannerImg ? 'jobad-page--banner' : 'jobad-page--noBanner'
                     }`}
                 >
                     <div className="jobad-details">
@@ -101,7 +101,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                             <picture className="jobad-details_company-logo">
                                 <RenderSmoothImage
                                     // @ts-ignore
-                                    src={useFallbackImg ? "@assets/img/placeholders/jobad.svg" : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
+                                    src={useFallbackImg ? '@assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
                                     // @ts-ignore
                                     alt={jobad.organization.logo}
                                     className='jobad-details_image'
@@ -119,7 +119,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                                         rel="noreferrer"
                                     >
                                         {/* @ts-ignore */}
-                                        {tr(jobad.organization.name_en, jobad.organization.name_no) + " "}
+                                        {tr(jobad.organization.name_en, jobad.organization.name_no) + ' '}
                                         <i className="material-symbols-sharp">arrow_outward</i>
                                     </a>
                                 ) : (
@@ -188,7 +188,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                     </div>
                     <div className="jobad-details_value">
                         {/* @ts-ignore */}
-                        {jobad.job.cities.join(", ")}
+                        {jobad.job.cities.join(', ')}
                     </div>
                 </>
                             }
@@ -203,7 +203,7 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                     </div>
                     <div className="jobad-details_value">
                         {/* @ts-ignore */}
-                        {jobad.job.skills.join(", ")}
+                        {jobad.job.skills.join(', ')}
                     </div>
                 </>
                             }
@@ -225,11 +225,11 @@ export default function JobadPage({ params }: { params: { id: number } }) {
                         <picture className="jobad-banner">
                             <RenderSmoothImage
                                 // @ts-ignore
-                                src={config.url.CDN_URL + "/img/ads/" + jobad.job.banner_image}
+                                src={config.url.CDN_URL + '/img/ads/' + jobad.job.banner_image}
                                 // @ts-ignore
                                 alt={jobad.job.banner_image}
                                 onError={hideBannerImg}
-                                className={"jobad-banner_image"}
+                                className={'jobad-banner_image'}
                             />
                         </picture>
                     )}

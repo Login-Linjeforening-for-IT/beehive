@@ -1,11 +1,11 @@
 'use client'
 
-import MarkdownRender from "@components/shared/markdownrender/MarkdownRender"
-import Alert from "@components/shared/alert/Alert"
-import "./Article.css"
-import { formatPublishedDate } from "@utils/DatetimeFormatter"
-import { useContext } from "react"
-import AppContext from "@context/context"
+import MarkdownRender from '@components/shared/markdownrender/MarkdownRender'
+import Alert from '@components/shared/alert/Alert'
+import './Article.css'
+import { formatPublishedDate } from '@utils/DatetimeFormatter'
+import { useContext } from 'react'
+import AppContext from '@context/context'
 
 type ArticleProps = { 
   title: string
@@ -24,12 +24,12 @@ export default function Article({ title, publishTime, updateTime, informational,
             <h1 className="article_header">{title}</h1>
             <div className="article_meta-display">
                 <span className="article_meta-date">
-                    {lang === "en" ? "PUBLISHED: " : "PUBLISERT: "}
+                    {lang === 'en' ? 'PUBLISHED: ' : 'PUBLISERT: '}
                     {formatPublishedDate(publishTime, lang)}
                 </span>
                 {publishTime < updateTime &&
           <span className="article_meta-date">
-              {lang === "en" ? "UPDATED: " : "OPPDATERT: "}
+              {lang === 'en' ? 'UPDATED: ' : 'OPPDATERT: '}
               {formatPublishedDate(updateTime, lang)}
           </span>
                 }

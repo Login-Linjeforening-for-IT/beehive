@@ -1,18 +1,18 @@
-import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation"
-import "./defualt-banner.css"
+import { adjustBrightnessHex, createGradient, isValidHex } from '@/utils/ColorManipulation'
+import './defualt-banner.css'
 
-export default function DefaultBedpresBanner({ color, transition = true, className = "" }: ColorTransitionClassNameProps) {
+export default function DefaultBedpresBanner({ color, transition = true, className = '' }: ColorTransitionClassNameProps) {
 
     let gradient = color
-    let fillColor = "white"
+    let fillColor = 'white'
 
     if (isValidHex(color)) {
         gradient = createGradient(color)
-        fillColor = adjustBrightnessHex(color, -0.3) || "white"
+        fillColor = adjustBrightnessHex(color, -0.3) || 'white'
     }
 
     return (
-        <div className={`default-banner ${transition ? "default-banner--transition" : ""} ${className}`} style={{background: gradient}}>
+        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{background: gradient}}>
             <svg className='default-banner_svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill={fillColor} fillRule="evenodd" clipRule="evenodd" d="M220.342 134.071L235.342 125.071L237.658 128.93L222.658 137.93L220.342 134.071Z" />
                 <path fill={fillColor} fillRule="evenodd" clipRule="evenodd" d="M210.673 84.5801L237.673 101.08L235.327 104.92L208.327 88.4198L210.673 84.5801Z" />

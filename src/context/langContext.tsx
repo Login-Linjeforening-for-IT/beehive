@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 export const LANGUAGES = {
-    NO: "no",
-    EN: "en",
+    NO: 'no',
+    EN: 'en',
 }
 
 export default function LangContext() {
@@ -11,7 +11,7 @@ export default function LangContext() {
     useEffect(() => {
         document.body.classList.remove(...Object.values(LANGUAGES))
         document.body.classList.add(lang)
-        localStorage.setItem("lang", lang)
+        localStorage.setItem('lang', lang)
     }, [lang])
 
     function switchLang() {

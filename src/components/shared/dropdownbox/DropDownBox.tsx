@@ -1,5 +1,5 @@
-import { useState } from "react"
-import "./DropDownBox.css"
+import { useState } from 'react'
+import './DropDownBox.css'
 
 export default function DropDownBox({ title, children }: any) {
     const [isOpen, setOpen] = useState(false)
@@ -9,7 +9,7 @@ export default function DropDownBox({ title, children }: any) {
     }
  
     return (
-        <div className={`drop-down-box ${isOpen ? "drop-down-box--open" : ""}`}>
+        <div className={`drop-down-box ${isOpen ? 'drop-down-box--open' : ''}`}>
             <div 
                 className='drop-down-box_toggle'
                 // @ts-ignore
@@ -20,7 +20,7 @@ export default function DropDownBox({ title, children }: any) {
                     chevron_right
                 </i>
             </div>
-            <div className={`drop-down-box_content ${isOpen ? "drop-down-box_content--open" : ""}`}>
+            <div className={`drop-down-box_content ${isOpen ? 'drop-down-box_content--open' : ''}`}>
                 {children}
             </div>
         </div>

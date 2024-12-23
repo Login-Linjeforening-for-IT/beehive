@@ -1,5 +1,5 @@
-import Link from "next/link"
-import "./Button.css"
+import Link from 'next/link'
+import './Button.css'
 
 type ButtonProps = {
     children: any
@@ -17,19 +17,19 @@ type ButtonProps = {
 
 export default function Button({
     children,
-    variant = "primary",
-    size = "medium",
+    variant = 'primary',
+    size = 'medium',
     leadingIcon,
     trailingIcon,
     disabled = false,
-    className = "",
+    className = '',
     active = false,
-    target = "_blank",
+    target = '_blank',
     onClick,
     href,
     ...props
 }: ButtonProps) {
-    const baseClassName = `button button--${variant} button--${size} ${active ? "active" : ""} ${className}`
+    const baseClassName = `button button--${variant} button--${size} ${active ? 'active' : ''} ${className}`
     const iconOnly = (leadingIcon || trailingIcon) && !children
 
     const content = (
@@ -51,9 +51,9 @@ export default function Button({
     return (
         <Link
             href={href}
-            className={`${baseClassName} ${disabled ? "button--disabled" : ""} ${iconOnly ? "button--icon-only" : ""}`}
+            className={`${baseClassName} ${disabled ? 'button--disabled' : ''} ${iconOnly ? 'button--icon-only' : ''}`}
             target={target}
-            rel={target === "_blank" ? "noopener noreferrer" : undefined}
+            rel={target === '_blank' ? 'noopener noreferrer' : undefined}
             onClick={onClick}
             {...props}
         >

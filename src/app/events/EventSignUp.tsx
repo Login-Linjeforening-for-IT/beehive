@@ -1,13 +1,13 @@
 'use client'
 
-import Button from "@components/shared/button/Button"
-import Alert from "@components/shared/alert/Alert"
-import "./EventSignUp.css"
-import no from "@text/eventPage/no.json"
-import en from "@text/eventPage/en.json"
-import { formatDeadlineDate, formatPublishedDate } from "@utils/DatetimeFormatter"
-import { useContext } from "react"
-import AppContext from "@context/context"
+import Button from '@components/shared/button/Button'
+import Alert from '@components/shared/alert/Alert'
+import './EventSignUp.css'
+import no from '@text/eventPage/no.json'
+import en from '@text/eventPage/en.json'
+import { formatDeadlineDate, formatPublishedDate } from '@utils/DatetimeFormatter'
+import { useContext } from 'react'
+import AppContext from '@context/context'
 
 export default function EventSignUp({
     url,
@@ -20,38 +20,38 @@ export default function EventSignUp({
     const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
     const now = new Date()
-    let msg = ""
+    let msg = ''
     let reqSignup = true
     let ready = true
     let active = false
     let showBtn = true
     let warning = false
-    let msgIcon = "info"
+    let msgIcon = 'info'
 
     if (canceled) {
         msg = text.signup.canceled
         showBtn = false
         warning = true
-        msgIcon = "disabled_by_default"
-    } else if (url === "") {
+        msgIcon = 'disabled_by_default'
+    } else if (url === '') {
         reqSignup = false
         showBtn = false
         msg = text.signup.none
-    } else if (url === "TBD") {
+    } else if (url === 'TBD') {
         ready = false
         showBtn = false
         msg = text.signup.notReady
     } else if (now > signupDeadline) {
         msg =
       text.signup.closed +
-      ": " +
+      ': ' +
       formatPublishedDate(signupDeadline, lang)
         warning = true
-        msgIcon = "disabled_by_default"
+        msgIcon = 'disabled_by_default'
     } else if (full) {
         msg = text.signup.full
         warning = true
-        msgIcon = "sentiment_dissatisfied"
+        msgIcon = 'sentiment_dissatisfied'
     } else if (now > signupRelease && now < signupDeadline) {
         active = true
     }
@@ -59,7 +59,7 @@ export default function EventSignUp({
     return (
         <div
             className={`event-signup event-signup--${
-                showBtn ? "bottom-left-corner" : "bottom-right-corner"
+                showBtn ? 'bottom-left-corner' : 'bottom-right-corner'
             }`}
         >
             <div className="event-signup_header">{text.signup.title}:</div>
@@ -113,7 +113,7 @@ export default function EventSignUp({
             )}
             {msg && (
                 <Alert
-                    variant={warning ? "warning" : "info"}
+                    variant={warning ? 'warning' : 'info'}
                     icon={msgIcon}
                     className="event-signup_alert"
                 >

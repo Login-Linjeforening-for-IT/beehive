@@ -1,15 +1,15 @@
 'use client'
 
-import { useState, useEffect } from "react"
-import Markdown from "react-markdown"
-import remarkGfm from "remark-gfm"
-import EventItem from "@components/event/EventItem"
-import EventCardSkeleton from "@components/event/EventCardSkeleton"
-import JobadCard from "@components/jobad/JobadCard"
-import JobadCardSkeleton from "@components/jobad/JobadCardSkeleton"
-import Alert from "@components/shared/alert/Alert"
-import { getEventRow, getJobRow } from "@utils/api"
-import "./MarkdownRender.css"
+import { useState, useEffect } from 'react'
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import EventItem from '@components/event/EventItem'
+import EventCardSkeleton from '@components/event/EventCardSkeleton'
+import JobadCard from '@components/jobad/JobadCard'
+import JobadCardSkeleton from '@components/jobad/JobadCardSkeleton'
+import Alert from '@components/shared/alert/Alert'
+import { getEventRow, getJobRow } from '@utils/api'
+import './MarkdownRender.css'
 
 type CustomLinkProps = {
   href: number
@@ -46,17 +46,17 @@ const components = {
 export default function MarkdownRender({MDstr}: {MDstr: string}) {
     return (
         <Markdown components={components} remarkPlugins={[remarkGfm]}>
-            {MDstr.replace(/\\n/g, "\n")}
+            {MDstr.replace(/\\n/g, '\n')}
         </Markdown>
     )
 }
 
 function CustomLink({ href, children }: CustomLinkProps) {
-    if (typeof children === "string") {
-        if (children === ":event") {
+    if (typeof children === 'string') {
+        if (children === ':event') {
             return EventEmbed(href)
         }
-        if (children === ":jobad") {
+        if (children === ':jobad') {
             return JobadEmbed(href)
         }
     }
@@ -75,7 +75,7 @@ function CustomLink({ href, children }: CustomLinkProps) {
 
 function ErrorMessage({ err, title }: ErrorMessageProps) {
     if (!err.error) {
-        return "Unknown error"
+        return 'Unknown error'
     }
 
     return (
@@ -110,7 +110,7 @@ function EventEmbed(id: number) {
                 setEvent(response)
                 setLoading(false)
             } catch (error: any) {
-                console.error("Error Fetching Event Data:", error)
+                console.error('Error Fetching Event Data:', error)
                 setLoading(false)
                 setError(error)
             }
@@ -121,7 +121,7 @@ function EventEmbed(id: number) {
 
     if (error) {
         return (
-            <ErrorMessage err={error} title={"Error Fetching Event #" + id} />
+            <ErrorMessage err={error} title={'Error Fetching Event #' + id} />
         )
     }
 
@@ -158,7 +158,7 @@ function JobadEmbed(id: number) {
                 setJobad(response)
                 setLoading(false)
             } catch (error) {
-                console.error("Error fetching job ad data:", error)
+                console.error('Error fetching job ad data:', error)
                 setLoading(false)
                 setError(JSON.stringify(error))
             }
@@ -169,7 +169,7 @@ function JobadEmbed(id: number) {
 
     if (error) {
         return (
-            <ErrorMessage err={error} title={"Error Fetching Job Ad #" + id} />
+            <ErrorMessage err={error} title={'Error Fetching Job Ad #' + id} />
         )
     }
 

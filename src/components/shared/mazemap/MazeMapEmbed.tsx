@@ -1,8 +1,8 @@
 'use client'
 
-import "./MazeMapEmbed.css"
-import { useEffect, useState } from "react"
-import "@/vendor/mazemap/mazemap.min.css"
+import './MazeMapEmbed.css'
+import { useEffect, useState } from 'react'
+import '@/vendor/mazemap/mazemap.min.css'
 
 export default function MazeMapEmbed({ poi, ...props }: any) {
 
@@ -16,12 +16,12 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     //initialize map only once, poi will probably not change
     useEffect(() => {
-        import("@/vendor/mazemap/mazemap.min.js" as any).then((mazemap) => setMazemap(mazemap))
+        import('@/vendor/mazemap/mazemap.min.js' as any).then((mazemap) => setMazemap(mazemap))
         if (!Mazemap || !hasMounted) return
 
         // @ts-ignore
         const embeddedMazemap = new Mazemap.Map({
-            container: "mazemap",
+            container: 'mazemap',
             campuses: 1,
             center: {
                 lng: 10.683431,
@@ -43,15 +43,15 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
         embeddedMazemap.dragPan._mousePan.enable()
 
-        embeddedMazemap.on("load", () => {
+        embeddedMazemap.on('load', () => {
             // Initialize a Highlighter for POIs
             // Storing the object on the map just makes it easy to access for other things
             // @ts-ignore
             embeddedMazemap.highlighter = new Mazemap.Highlighter(embeddedMazemap, {
                 showOutline: true,
                 showFill: true,
-                outlineColor: "#fd8738",
-                fillColor: "#d95d0a",
+                outlineColor: '#fd8738',
+                fillColor: '#d95d0a',
             })
 
             // Fetching via Data API
@@ -72,7 +72,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                 })
 
                 // if poi is the lounge, set custom name
-                setRoom(poi.properties.title === "A155.1" ? "Login Lounge" : poi.properties.title)
+                setRoom(poi.properties.title === 'A155.1' ? 'Login Lounge' : poi.properties.title)
             })
         })
 
@@ -109,7 +109,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
             >
                 <div id='mazemap' className='mazemap'>
                     <a
-                        href={"https://use.mazemap.com/#v=1&sharepoitype=poi&campusid=1&sharepoi=" + poi}
+                        href={'https://use.mazemap.com/#v=1&sharepoitype=poi&campusid=1&sharepoi=' + poi}
                         rel="noreferrer noopener"
                         target="_blank"
                         className='mazemap_link mazemap_overlay-item'

@@ -1,4 +1,4 @@
-import "./SocialLinks.css"
+import './SocialLinks.css'
 
 
 export default function SocialLinks() {

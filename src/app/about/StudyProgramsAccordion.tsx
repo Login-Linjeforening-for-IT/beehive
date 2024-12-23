@@ -2,8 +2,8 @@ import AccordionItem from '@components/shared/accordion/AccordionItem'
 import AccordionContent from '@components/shared/accordion/AccordionContent'
 import { useContext, useState } from 'react'
 import Link from 'next/link'
-import no from "@text/about/no.json"
-import en from "@text/about/en.json"
+import no from '@text/about/no.json'
+import en from '@text/about/en.json'
 import AppContext from '@context/context'
 
 export default function StudyProgramsAccordion() {
@@ -23,8 +23,8 @@ export default function StudyProgramsAccordion() {
                 <li className='accordion_content-item'>
                     {text.bachelor.computerEngineer}
                     <Link 
-                      href='https://www.ntnu.no/studier/bidata' 
-                      target='_blank'
+                        href='https://www.ntnu.no/studier/bidata' 
+                        target='_blank'
                     >
                         <i className='material-symbols-sharp'>arrow_outward</i>
                     </Link>
@@ -72,13 +72,13 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='accordion_content-item'>
-                  {text.master.colorimg}
-                  <Link 
-                      href='https://www.ntnu.no/studier/mscosi'
-                      target='_blank'
-                  >
-                      <i className='material-symbols-sharp'>arrow_outward</i>
-                  </Link>
+                    {text.master.colorimg}
+                    <Link 
+                        href='https://www.ntnu.no/studier/mscosi'
+                        target='_blank'
+                    >
+                        <i className='material-symbols-sharp'>arrow_outward</i>
+                    </Link>
                 </li>
             </AccordionContent>
             <AccordionItem 

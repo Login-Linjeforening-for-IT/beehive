@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect, useRef } from "react"
-import "./ImageCarousel.css"
-import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
+import { useState, useEffect, useRef } from 'react'
+import './ImageCarousel.css'
+import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
 
 function NavigationButton({ side, onClick, onFocus }: any) {
     return (
@@ -10,7 +10,7 @@ function NavigationButton({ side, onClick, onFocus }: any) {
             className={`image-carousel_nav-item image-carousel_nav-item--${side}`}
             onClick={onClick}
             onFocus={onFocus}
-            aria-label={side === "left" ? "previous" : "next"}
+            aria-label={side === 'left' ? 'previous' : 'next'}
         ></button>
     )
 }
@@ -41,7 +41,7 @@ function DotIndicator({ index, isActive }: any) {
     return (
         <div
             key={index}
-            className={`image-carousel_dot-container ${isActive ? "image-carousel_dot-container--active" : ""}`}
+            className={`image-carousel_dot-container ${isActive ? 'image-carousel_dot-container--active' : ''}`}
         >
             <div className='image-carousel_dot'></div>
         </div>
@@ -107,15 +107,15 @@ export default function ImageCarousel({ slides }: any) {
     }
 
     function getClassName(index: number) {
-        if (index === activeIndex) return "image-carousel_slide--active"
-        if (index === (activeIndex - 1 + slides.length) % slides.length) return "image-carousel_slide--prev"
-        if (index === (activeIndex + 1) % slides.length) return "image-carousel_slide--next"
-        if (index === (activeIndex + 2) % slides.length) return "image-carousel_slide--new-next"
-        return "image-carousel_slide--hide"
+        if (index === activeIndex) return 'image-carousel_slide--active'
+        if (index === (activeIndex - 1 + slides.length) % slides.length) return 'image-carousel_slide--prev'
+        if (index === (activeIndex + 1) % slides.length) return 'image-carousel_slide--next'
+        if (index === (activeIndex + 2) % slides.length) return 'image-carousel_slide--new-next'
+        return 'image-carousel_slide--hide'
     }
 
     return (
-        <div className={`image-carousel ${isPaused ? "image-carousel--paused" : ""}`}>
+        <div className={`image-carousel ${isPaused ? 'image-carousel--paused' : ''}`}>
             <div
                 className="image-carousel_slides-container"
                 onMouseEnter={pause}

@@ -1,13 +1,13 @@
 'use client'
 
-import config from "@config"
-import SocialLinks from "./SocialLinks"
+import config from '@config'
+import SocialLinks from './SocialLinks'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
-import "./Footer.css"
-import Image from "next/image"
-import { useContext, useEffect, useState } from "react"
-import AppContext from "@context/context"
+import './Footer.css'
+import Image from 'next/image'
+import { useContext, useEffect, useState } from 'react'
+import AppContext from '@context/context'
 
 const version = process.env.REACT_APP_FRONTEND_VERSION
 
@@ -88,12 +88,12 @@ export default function Footer() {
                         __html: ` ${text.footer.copy1} ${currentYear} ${text.footer.copy2}`,
                     }}
                 />
-                {typeof version !== "undefined" ? (
+                {typeof version !== 'undefined' ? (
                     <a
                         className="footer-content_version-tag"
                         target="_blank"
                         href={
-                            "https://git.logntnu.no/tekkom/web/beehive/frontend/-/tags/" +
+                            'https://git.logntnu.no/tekkom/web/beehive/frontend/-/tags/' +
                         version
                         }
                     >

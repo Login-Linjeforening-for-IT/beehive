@@ -1,11 +1,11 @@
 'use client'
 
-import MazeMapEmbed from "@components/shared/mazemap/MazeMapEmbed"
+import MazeMapEmbed from '@components/shared/mazemap/MazeMapEmbed'
 import no from '@text/contact/no.json'
 import en from '@text/contact/en.json'
-import "./Contact.css"
-import { useContext, useEffect, useState } from "react"
-import AppContext from "@context/context"
+import './Contact.css'
+import { useContext, useEffect, useState } from 'react'
+import AppContext from '@context/context'
 
 export default function Contact() {
     const { lang } = useContext(AppContext)

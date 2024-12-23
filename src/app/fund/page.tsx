@@ -1,16 +1,15 @@
 'use client'
 
-import config from "@config"
-import LogChamp from "@components/shared/logchamp/LogChamp"
-import placholder from "@assets/img/placeholders/portrett_placeholder.svg"
-import DecoratedPicture from "@components/shared/images/decoratedpicture/DecoratedPicture"
+import config from '@config'
+import LogChamp from '@components/shared/logchamp/LogChamp'
+import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
 import board_en from '@text/board/no.json'
 import board_no from '@text/board/en.json'
-import "./page.css"
-import { useContext } from "react"
-import AppContext from "@context/context"
+import './page.css'
+import { useContext } from 'react'
+import AppContext from '@context/context'
 
 export default function Fund() {
     const { lang } = useContext(AppContext)
@@ -86,7 +85,7 @@ export default function Fund() {
                         </div>
                         <div className='fund-board_intro-picture'>
                             <DecoratedPicture
-                                imgUrl={config.url.CDN_URL + "/img/fondet/gruppebilde.jpg"}
+                                imgUrl={config.url.CDN_URL + '/img/fondet/gruppebilde.jpg'}
                                 variant={4}
                                 cornerSize={90}
                                 width={300}
@@ -101,8 +100,8 @@ export default function Fund() {
                             <div>
                                 <LogChamp
                                     key={key}
-                                    img={text[key].img == "" ? placholder : `${config.url.CDN_URL}/img/fondet/${text[key].img}`}
-                                    name={text[key].name == "" ? text.board.composition.placeholder : text[key].name}
+                                    img={text[key].img == '' ? '@assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fondet/${text[key].img}`}
+                                    name={text[key].name == '' ? text.board.composition.placeholder : text[key].name}
                                     position={text[key].title}
                                     discord={text[key].dctag}
                                     discordLink={text[key].dclink}

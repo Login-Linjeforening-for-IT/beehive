@@ -1,17 +1,17 @@
 'use client'
 
-import { useState } from "react"
-import Navigation from "./Navigation"
-import MobileNavigation from "./MobileNavigation"
-import ThemeToggle from "@components/shared/themetoggle/ThemeToggle"
-import LoginLogoSmall from "@components/svg/brandlogos/LoginLogoSmall"
+import { useState } from 'react'
+import Navigation from './Navigation'
+import MobileNavigation from './MobileNavigation'
+import ThemeToggle from '@components/shared/themetoggle/ThemeToggle'
+import LoginLogoSmall from '@components/svg/brandlogos/LoginLogoSmall'
 // import ProfileSVG from '@components/svg/profilesvg'
-import LangToggle from "@components/shared/langtoggle/LangToggle"
-import Link from "next/link"
-import "./TopBar.css"
+import LangToggle from '@components/shared/langtoggle/LangToggle'
+import Link from 'next/link'
+import './TopBar.css'
 
 export default function TopBar() {
-    if (typeof localStorage === "undefined") {
+    if (typeof localStorage === 'undefined') {
         return null
     }
 
@@ -19,7 +19,7 @@ export default function TopBar() {
     const toggle = () => setIsOpen(!isOpen)
   
     return (
-        <div className={`topbar ${isOpen ? "topbar--open" : ""}`}>
+        <div className={`topbar ${isOpen ? 'topbar--open' : ''}`}>
             <div className='topbar_logo'>
                 <Link href='/' onClick={isOpen ? toggle : () => {}} >
                     <LoginLogoSmall />
@@ -38,7 +38,7 @@ export default function TopBar() {
                     </Link>
                 </div> */}
             </nav>
-            <button className={`topbar_hamburger ${isOpen ? "topbar_hamburger--open" : ""}`} onClick={toggle}>
+            <button className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`} onClick={toggle}>
                 <div className='topbar_burger-bun topbar_burger-bun--top'></div>
                 <div className='topbar_burger-bun topbar_burger-bun--bottom'></div>
             </button>

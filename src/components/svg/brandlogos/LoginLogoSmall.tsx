@@ -14,5 +14,5 @@ export default function LoginLogoSmall() {
             <path className='logo-small_letter' d='M31.6667 18.3333H43.3334V81.6666H31.6667V18.3333Z'/>
             <path className='logo-small_letter' d='M31.6667 70H68.3334V81.6667H31.6667V70Z'/>
         </svg>
-   )
+    )
 }

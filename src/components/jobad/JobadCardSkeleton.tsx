@@ -1,4 +1,4 @@
-import "./JobadCardSkeleton.css"
+import './JobadCardSkeleton.css'
 
 export default function JobadCardSkeleton() {
     return (

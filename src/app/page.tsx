@@ -1,20 +1,20 @@
 'use client'
 
-import { useState, useEffect, useContext } from "react"
-import config from "@config"
-import { getEvents, getJobs } from "@utils/api"
-import DecoratedPicture from "@components/shared/images/decoratedpicture/DecoratedPicture"
-import Alert from "@components/shared/alert/Alert"
-import EventCardSkeleton from "@components/event/EventCardSkeleton"
-import EventListItem from "@components/event/EventItem"
-import JobadCard from "@components/jobad/JobadCard"
-import JobadCardSkeleton from "@components/jobad/JobadCardSkeleton"
-import HeroSection from "@components/shared/herosection/HeroSection"
-import Link from "next/link"
+import { useState, useEffect, useContext } from 'react'
+import config from '@config'
+import { getEvents, getJobs } from '@utils/api'
+import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
+import Alert from '@components/shared/alert/Alert'
+import EventCardSkeleton from '@components/event/EventCardSkeleton'
+import EventListItem from '@components/event/EventItem'
+import JobadCard from '@components/jobad/JobadCard'
+import JobadCardSkeleton from '@components/jobad/JobadCardSkeleton'
+import HeroSection from '@components/shared/herosection/HeroSection'
+import Link from 'next/link'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
-import "./page.css"
-import AppContext, { Provider } from "@context/context"
+import './page.css'
+import AppContext, { Provider } from '@context/context'
 
 export default function Home() {
     return (
@@ -32,10 +32,10 @@ function SmallInfo() {
     const text = lang === 'en' ? en : no
 
     function getSponsorPath() {
-        if (theme === "light") {
-            return "/img/company/mnemonic-logo_dark-nopayoff-2021.svg"
+        if (theme === 'light') {
+            return '/img/company/mnemonic-logo_dark-nopayoff-2021.svg'
         } else {
-            return "/img/company/mnemonic-logo_light-nopayoff-2021.svg"
+            return '/img/company/mnemonic-logo_light-nopayoff-2021.svg'
         }
     }
 
@@ -75,7 +75,7 @@ function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={config.url.CDN_URL + "/img/cyberdagen_preben.jpg"}
+                    imgUrl={config.url.CDN_URL + '/img/cyberdagen_preben.jpg'}
                     variant={2}
                     cornerSize={40}
                     width={150}
@@ -146,8 +146,8 @@ function EventsPreview() {
                     setEvents(eventsData)
                 }
             } catch (error) {
-                setError("Unexpected error occurred")
-                console.error("Unexpected error:", error)
+                setError('Unexpected error occurred')
+                console.error('Unexpected error:', error)
             } finally {
                 setLoading(false)
             }
@@ -224,8 +224,8 @@ function JobadsPreview() {
                     setJobads(jobadsData)
                 }
             } catch (error) {
-                setError("Unexpected error occurred")
-                console.error("Unexpected error:", error)
+                setError('Unexpected error occurred')
+                console.error('Unexpected error:', error)
             } finally {
                 setLoading(false)
             }

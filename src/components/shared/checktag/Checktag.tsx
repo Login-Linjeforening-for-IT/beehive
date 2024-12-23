@@ -1,4 +1,4 @@
-import "./Checktag.css"
+import './Checktag.css'
 
 type ChecktagProps = {
     id: string

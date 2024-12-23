@@ -1,17 +1,17 @@
-import { useState } from "react"
-import Button from "@components/shared/button/Button"
-import "./GroupToggle.css"
+import { useState } from 'react'
+import Button from '@components/shared/button/Button'
+import './GroupToggle.css'
 
 function GroupToggle({ 
     options, 
     activeOptionIndex: controlledActiveOptionIndex, 
     defaultActiveOptionIndex = 0,
     onOptionChange, 
-    size = "medium",
-    groupVariant = "outlined",
-    buttonVariant = "ghost",
-    className = "",
-    ariaLabel = "Toggle group"
+    size = 'medium',
+    groupVariant = 'outlined',
+    buttonVariant = 'ghost',
+    className = '',
+    ariaLabel = 'Toggle group'
 }: any) {
     const [internalActiveOptionIndex, setInternalActiveOptionIndex] = useState(defaultActiveOptionIndex)
     const activeOptionIndex = controlledActiveOptionIndex !== undefined ? controlledActiveOptionIndex : internalActiveOptionIndex
@@ -42,8 +42,8 @@ function GroupToggle({
                         size={size}
                         onClick={() => handleOptionChange(index)}
                         className={`group-toggle_button ${
-                            index === 0 ? "group-toggle_button--first" : 
-                                index === options.length - 1 ? "group-toggle_button--last" : ""
+                            index === 0 ? 'group-toggle_button--first' : 
+                                index === options.length - 1 ? 'group-toggle_button--last' : ''
                         }`}
                         leadingIcon={leadingIcon}
                         trailingIcon={trailingIcon}

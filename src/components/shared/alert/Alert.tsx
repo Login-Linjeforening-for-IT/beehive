@@ -1,4 +1,4 @@
-import "./Alert.css"
+import './Alert.css'
 
 type AlertProps = {
     children: any
@@ -7,7 +7,7 @@ type AlertProps = {
     className: string
 }
 
-export default function Alert({ children, variant = "info", icon = "info", className = "" }: AlertProps) {
+export default function Alert({ children, variant = 'info', icon = 'info', className = '' }: AlertProps) {
     return (
         <div className={`alert alert--${variant} ${className}`}>
             <i className="alert_icon material-symbols-sharp">{icon}</i>

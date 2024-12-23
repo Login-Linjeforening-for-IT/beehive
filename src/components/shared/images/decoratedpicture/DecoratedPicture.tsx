@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from "react"
-import "./DecoratedPicture.css"
+import { useState, useEffect } from 'react'
+import './DecoratedPicture.css'
 
 type DecoratedPictureProps = {
     imgUrl: string
@@ -13,7 +13,7 @@ type DecoratedPictureProps = {
     className?: string
 }
 
-function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = "" }: DecoratedPictureProps) {
+function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
     const [isLoaded, setIsLoaded] = useState(false)
     const maskID = `mask-${variant}-${width}-${height}`
 
@@ -157,12 +157,12 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                     />
                 )}
                 <image
-                    width={cover ? "100%" : width}
-                    height={cover ? "100%" : height}
+                    width={cover ? '100%' : width}
+                    height={cover ? '100%' : height}
                     clipPath={`url(#${maskID})`}
-                    className={`decor-pic_img decor-pic_img--${isLoaded ? "visible" : "hidden"}`}
+                    className={`decor-pic_img decor-pic_img--${isLoaded ? 'visible' : 'hidden'}`}
                     href={imgUrl}
-                    {...(cover ? { preserveAspectRatio: "xMidYMid slice" } : {})}
+                    {...(cover ? { preserveAspectRatio: 'xMidYMid slice' } : {})}
                 />
             </svg>
         </picture>

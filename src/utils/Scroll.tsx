@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect } from "react"
+import { useEffect } from 'react'
 {/* @ts-ignore */}
-import { useLocation } from "react-router"
+import { useLocation } from 'react-router'
 
 export default function Scroll(props: any) {
     const location = useLocation()

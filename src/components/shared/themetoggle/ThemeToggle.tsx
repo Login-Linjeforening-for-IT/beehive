@@ -1,8 +1,8 @@
 'use client'
 
-import { useContext } from "react"
-import "./ThemeToggle.css"
-import AppContext from "@context/context"
+import { useContext } from 'react'
+import './ThemeToggle.css'
+import AppContext from '@context/context'
 
 export default function ThemeToggle() {
     const { switchTheme } = useContext(AppContext)
@@ -26,7 +26,7 @@ export default function ThemeToggle() {
                 </mask>
                 <circle
                     className="theme-toggle_sun-moon"
-                    mask={"url(#theme-toggle_clip-path)"}
+                    mask={'url(#theme-toggle_clip-path)'}
                     cx="50"
                     cy="50"
                     r="23"

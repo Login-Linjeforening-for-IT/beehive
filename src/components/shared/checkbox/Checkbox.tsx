@@ -1,4 +1,4 @@
-import "./Checkbox.css"
+import './Checkbox.css'
 
 type CheckboxProps = { 
     id: string

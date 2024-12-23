@@ -1,40 +1,40 @@
 'use client'
 
-import { useState, useEffect, useMemo, useContext } from "react"
-import config from "@config"
-import Spinner from "@components/shared/spinner/spinner"
-import DateTile from "@components/shared/datetile/DateTile"
-import DropDownBox from "@components/shared/dropdownbox/DropDownBox"
-import MazeMapEmbed from "@components/shared/mazemap/MazeMapEmbed"
-import EventSignUp from "../EventSignUp"
-import Alert from "@components/shared/alert/Alert"
-import Article from "@components/shared/article/Article"
-import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
-import MarkdownRender from "@components/shared/markdownrender/MarkdownRender"
-import DefaultEventBanner from "@components/svg/defaultbanners/DefaultEventBanner"
-import DefaultCtfBanner from "@components/svg/defaultbanners/DefaultCtfBanner"
-import DefaultTekkomBanner from "@components/svg/defaultbanners/DefaultTekkomBanner"
-import DefaultBedpresBanner from "@components/svg/defaultbanners/DefaultBedpresBanner"
-import DefaultSocialBanner from "@components/svg/defaultbanners/DefaultSocialBanner"
-import { getEvent } from "@utils/api"
+import { useState, useEffect, useMemo, useContext } from 'react'
+import config from '@config'
+import Spinner from '@components/shared/spinner/spinner'
+import DateTile from '@components/shared/datetile/DateTile'
+import DropDownBox from '@components/shared/dropdownbox/DropDownBox'
+import MazeMapEmbed from '@components/shared/mazemap/MazeMapEmbed'
+import EventSignUp from '../EventSignUp'
+import Alert from '@components/shared/alert/Alert'
+import Article from '@components/shared/article/Article'
+import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
+import MarkdownRender from '@components/shared/markdownrender/MarkdownRender'
+import DefaultEventBanner from '@components/svg/defaultbanners/DefaultEventBanner'
+import DefaultCtfBanner from '@components/svg/defaultbanners/DefaultCtfBanner'
+import DefaultTekkomBanner from '@components/svg/defaultbanners/DefaultTekkomBanner'
+import DefaultBedpresBanner from '@components/svg/defaultbanners/DefaultBedpresBanner'
+import DefaultSocialBanner from '@components/svg/defaultbanners/DefaultSocialBanner'
+import { getEvent } from '@utils/api'
 import no from '@text/eventPage/no.json'
 import en from '@text/eventPage/en.json'
-import { formatEventStatusDate, isOngoing } from "@utils/DatetimeFormatter"
-import "./EventPage.css"
-import AppContext from "@context/context"
+import { formatEventStatusDate, isOngoing } from '@utils/DatetimeFormatter'
+import './page.css'
+import AppContext from '@context/context'
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
-    case "Sosialt":
+    case 'Sosialt':
         // @ts-ignore
         return <DefaultSocialBanner color={color} className="event-banner_image" />
-    case "TekKom":
+    case 'TekKom':
         // @ts-ignore
         return <DefaultTekkomBanner color={color} className="event-banner_image" />
-    case "CTF":
+    case 'CTF':
         // @ts-ignore
         return <DefaultCtfBanner color={color} className="event-banner_image" />
-    case "Bedpres":
+    case 'Bedpres':
         // @ts-ignore
         return <DefaultBedpresBanner color={color} className="event-banner_image" />
     default:
@@ -53,7 +53,7 @@ function getURLAddress(url: string) {
 
 function renderOrganizations(organizations: any[]) {
     if (!Array.isArray(organizations)) return null
-    return organizations.map((org) => org.name_no).join(", ")
+    return organizations.map((org) => org.name_no).join(', ')
 }
 
 function link(href: string, name: string) {
@@ -87,7 +87,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
                 }
                 setEvent(response)
             } catch (error) {
-                console.error("Error fetching event data:", error)
+                console.error('Error fetching event data:', error)
                 setError(`Error fetching event: ${id}`)
             } finally {
                 setLoading(false)
@@ -155,13 +155,13 @@ export default function EventPage({ params }: { params: { id: number } }) {
                               )}
                           </div>
                           {/* @ts-ignore */}
-                          {event.event.time_type !== "whole_day" &&
+                          {event.event.time_type !== 'whole_day' &&
                     <div className="event-datetime-display_time">
                         <i className="event-datetime-display_time-icon material-symbols-sharp">schedule</i>
                         {/* @ts-ignore */}
-                        {event.event.time_type === "tbd" ? "TBD" : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
+                        {event.event.time_type === 'tbd' ? 'TBD' : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}
-                        {event.event.time_type === "default" && ` - ${DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_end))}`}
+                        {event.event.time_type === 'default' && ` - ${DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_end))}`}
                     </div>
                           }
                       </div>
@@ -232,9 +232,9 @@ export default function EventPage({ params }: { params: { id: number } }) {
                               </div>
                               <div className="event-details_info">
                                   {/* @ts-ignore */}
-                                  {event.event.link_discord && <>{link(event.event.link_discord, "Discord")}<br/></>}
+                                  {event.event.link_discord && <>{link(event.event.link_discord, 'Discord')}<br/></>}
                                   {/* @ts-ignore */}
-                                  {event.event.link_facebook && link(event.event.link_facebook, "Facebook")}
+                                  {event.event.link_facebook && link(event.event.link_facebook, 'Facebook')}
                               </div>
                           </>
                       )}
@@ -258,7 +258,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
               <div className="event-description">
                   <Article
                       // @ts-ignore
-                      title={(event.event.canceled ? `❌ (${text.canceled})` : "") + tr(event.event.name_en, event.event.name_no)}
+                      title={(event.event.canceled ? `❌ (${text.canceled})` : '') + tr(event.event.name_en, event.event.name_no)}
                       // @ts-ignore
                       publishTime={new Date(event.event.time_publish)}
                       // @ts-ignore
@@ -289,7 +289,7 @@ export default function EventPage({ params }: { params: { id: number } }) {
               </div>
 
               {/* @ts-ignore */}
-              {event.location && event.location.type === "mazemap" && (
+              {event.location && event.location.type === 'mazemap' && (
                   <div className='event-map'>
                       {/* @ts-ignore */}
                       <MazeMapEmbed campusID={event.location.mazemap_campus_id} poi={event.location.mazemap_poi_id} />

@@ -1,38 +1,38 @@
 'use client'
 
-import { useState, useEffect, useContext } from "react"
-import "./JobadsListItem.css"
-import config from "@config"
-import Tags from "@components/tags/Tags"
-import RenderSmoothImage from "@components/shared/images/rendersmoothimage/RenderSmoothImage"
-import Link from "next/link"
-import { isNew } from "@utils/DatetimeFormatter"
-import { formatDeadlineDate } from "@utils/DatetimeFormatter"
-import Image from "next/image"
-import AppContext from "@context/context"
+import { useState, useEffect, useContext } from 'react'
+import './JobadsListItem.css'
+import config from '@config'
+import Tags from '@components/shared/tags/Tags'
+import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
+import Link from 'next/link'
+import { isNew } from '@utils/DatetimeFormatter'
+import { formatDeadlineDate } from '@utils/DatetimeFormatter'
+import Image from 'next/image'
+import AppContext from '@context/context'
 
 const jobTypeTranslations = {
     no: {
-        summer: "Sommerjobb",
-        full: "Fulltid",
-        verv: "Verv",
-        part: "Deltid"
+        summer: 'Sommerjobb',
+        full: 'Fulltid',
+        verv: 'Verv',
+        part: 'Deltid'
     },
     en: {
-        summer: "Sommer job",
-        full: "Fulltime",
-        verv: "Voluntary",
-        part: "Parttime"
+        summer: 'Sommer job',
+        full: 'Fulltime',
+        verv: 'Voluntary',
+        part: 'Parttime'
     }
 }
 
-function getJobTypeLabel(job_type: any, lang = "no") {
+function getJobTypeLabel(job_type: any, lang = 'no') {
     // @ts-ignore
-    const labelNo = jobTypeTranslations["no"][job_type] || job_type
+    const labelNo = jobTypeTranslations['no'][job_type] || job_type
     // @ts-ignore
-    const labelEn = jobTypeTranslations["en"][job_type] || labelNo
+    const labelEn = jobTypeTranslations['en'][job_type] || labelNo
 
-    return lang === "en" ? labelEn : labelNo
+    return lang === 'en' ? labelEn : labelNo
 }
 
 function formatCities(cities: any[]) {
@@ -47,14 +47,14 @@ function formatCities(cities: any[]) {
         if (counter >= characterLimit) {
             return (
                 <>
-                    {arr.join(", ")}, <span className='jobads-item_detail-overflow-number'>+{cities.length - i}</span>
+                    {arr.join(', ')}, <span className='jobads-item_detail-overflow-number'>+{cities.length - i}</span>
                 </>
             )
         }
         arr.push(cities[i])
     }
 
-    return (arr.join(", "))
+    return (arr.join(', '))
 }
 
 export default function JobadsListItem({ jobad }: any) {
@@ -73,8 +73,8 @@ export default function JobadsListItem({ jobad }: any) {
 
     return (
         <Link href={`/career/${jobad.id}`}>
-            <div className={jobad.highlight ? "jobads-item jobads-item--highlight" : "jobads-item" }>
-                <div className={useTags(jobad.time_publish, jobad.highlight) ? "jobads-item_wrapper jobads-item_wrapper--with-tags" : "jobads-item_wrapper" }>
+            <div className={jobad.highlight ? 'jobads-item jobads-item--highlight' : 'jobads-item' }>
+                <div className={useTags(jobad.time_publish, jobad.highlight) ? 'jobads-item_wrapper jobads-item_wrapper--with-tags' : 'jobads-item_wrapper' }>
                     {useTags(jobad.time_publish, jobad.highlight) && 
             <div className="jobads-item_tags">
                 <Tags
@@ -100,7 +100,7 @@ export default function JobadsListItem({ jobad }: any) {
                         )}
                     </picture>
                     <div className='jobads-item_info'>
-                        <div className='jobads-item_name'>{lang === "en" ? jobad.title_en : jobad.title_no}</div>
+                        <div className='jobads-item_name'>{lang === 'en' ? jobad.title_en : jobad.title_no}</div>
                         <ul className='jobads-item_details'>
                             <li className='jobads-item_detail'>
                                 <i className='jobads-item_icon material-symbols-sharp'>hourglass_bottom</i>
@@ -108,7 +108,7 @@ export default function JobadsListItem({ jobad }: any) {
                             </li>
                             <li className='jobads-item_detail'>
                                 <i className='jobads-item_icon material-symbols-sharp'>apartment</i>
-                                {lang === "en" ? jobad.organization_name_en : jobad.organization_name_no}
+                                {lang === 'en' ? jobad.organization_name_en : jobad.organization_name_no}
                             </li>
                             {jobad.job_type && 
                                 <li className='jobads-item_detail'>

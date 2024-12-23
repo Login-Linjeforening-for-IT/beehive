@@ -1,13 +1,13 @@
 'use client'
 
-import { createContext } from "react"
-import ThemeSlice from "./themeContext"
-import LangSlice from "./langContext"
+import { createContext } from 'react'
+import ThemeSlice from './themeContext'
+import LangSlice from './langContext'
 
 const AppContext = createContext({
-    theme: "dark",
+    theme: 'dark',
     switchTheme: () => {},
-    lang: "no",
+    lang: 'no',
     switchLang: () => {},
 })
 

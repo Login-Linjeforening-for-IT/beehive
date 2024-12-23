@@ -1,31 +1,31 @@
 'use client'
 
-import { useState, useEffect, useRef, useContext } from "react"
-import Spinner from "@components/shared/spinner/spinner"
-import JobadsListItem from "@components/jobad/JobadsListItem"
-import Button from "@components/shared/button/Button"
-import FilterGroup from "@components/shared/filter/filter"
-import Alert from "@components/shared/alert/Alert"
-import debounce from "@/utils/debounce"
-import prepFilter from "@components/shared/filter/prepFilter"
-import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from "@utils/api"
+import { useState, useEffect, useRef, useContext } from 'react'
+import Spinner from '@components/shared/spinner/spinner'
+import JobadsListItem from '@components/jobad/JobadsListItem'
+import Button from '@components/shared/button/Button'
+import FilterGroup from '@components/shared/filter/filter'
+import Alert from '@components/shared/alert/Alert'
+import debounce from '@/utils/debounce'
+import prepFilter from '@components/shared/filter/prepFilter'
+import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from '@utils/api'
 import no from '@text/jobadList/no.json'
 import en from '@text/jobadList/en.json'
-import "./page.css"
-import AppContext from "@context/context"
+import './page.css'
+import AppContext from '@context/context'
 
 const jobTypeTranslations = {
     no: {
-        summer: "Sommerjobb",
-        full: "Fulltid",
-        verv: "Verv",
-        part: "Deltid"
+        summer: 'Sommerjobb',
+        full: 'Fulltid',
+        verv: 'Verv',
+        part: 'Deltid'
     },
     en: {
-        summer: "Sommer job",
-        full: "Fulltime",
-        verv: "Voluntary",
-        part: "Parttime"
+        summer: 'Sommer job',
+        full: 'Fulltime',
+        verv: 'Voluntary',
+        part: 'Parttime'
     }
 }
 
@@ -52,8 +52,8 @@ export default function Jobads() {
             setJobads(response)
             offset.current = response.length
         } catch (error) {
-            console.error("Error fetching filtered jobs:", error)
-            setError("Failed to load jobs based on filters.")
+            console.error('Error fetching filtered jobs:', error)
+            setError('Failed to load jobs based on filters.')
         } finally {
             setLoading(false)
         }
@@ -68,8 +68,8 @@ export default function Jobads() {
             offset.current = jobads.length + response.length
             setJobads((prevItems) => [...prevItems, ...response])
         } catch (error) {
-            console.error("Error loading more jobs:", error)
-            setError("Failed to load job ads.")
+            console.error('Error loading more jobs:', error)
+            setError('Failed to load job ads.')
         } finally {
             setLoading(false)
         }
@@ -82,19 +82,19 @@ export default function Jobads() {
 
                 const jobtypeFilters = await getJobTypeFilters()
                 // @ts-ignore
-                if (jobtypeFilters) response["jobtypes"] = jobtypeFilters
+                if (jobtypeFilters) response['jobtypes'] = jobtypeFilters
 
                 const cityFilters = await getCityFilters()
                 // @ts-ignore
-                if (cityFilters) response["cities"] = cityFilters
+                if (cityFilters) response['cities'] = cityFilters
 
                 const skillFilters = await getSkillFilters()
                 // @ts-ignore
-                if (skillFilters) response["skills"] = skillFilters
+                if (skillFilters) response['skills'] = skillFilters
 
                 setFilterData(response)
             } catch (error) {
-                setError("Failed to initialize job ads data.")
+                setError('Failed to initialize job ads data.')
             } finally {
                 setLoading(false)
             }
@@ -123,15 +123,15 @@ export default function Jobads() {
                 trailingIcon={<i className='material-symbols-sharp'>filter_list</i>}
                 onClick={toggleFilter}
                 size="medium"
-                className={`jobads_filter-toggle ${isFilterOpen ? "active" : ""}`}
+                className={`jobads_filter-toggle ${isFilterOpen ? 'active' : ''}`}
             >
                 Filter
             </Button>
 
             <div className="jobads">
                 <div className="jobads_section--left">
-                    <div className={`jobads_filter-container ${isFilterOpen ? "jobads_filter-container--open" : ""}`}>
-                        {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : "No filter data available"}
+                    <div className={`jobads_filter-container ${isFilterOpen ? 'jobads_filter-container--open' : ''}`}>
+                        {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : 'No filter data available'}
                     </div>
                 </div>
                 <div className="jobads_section--right">
@@ -168,17 +168,17 @@ export default function Jobads() {
 function getLabelKey(key: string) {
     return (v: any) => {
         return {
-            "no": v[key],
-            "en": v[key],
+            'no': v[key],
+            'en': v[key],
         }
     }
 }
 
 function getJobTypeLabel(v: any) {
     // @ts-ignore  
-    const labelNo = jobTypeTranslations["no"][v["job_type"]] || v["job_type"]
+    const labelNo = jobTypeTranslations['no'][v['job_type']] || v['job_type']
     // @ts-ignore
-    const labelEn = jobTypeTranslations["en"][v["job_type"]] || labelNo
+    const labelEn = jobTypeTranslations['en'][v['job_type']] || labelNo
     return {
         no: labelNo,
         en: labelEn,
@@ -191,13 +191,13 @@ async function getJobTypeFilters() {
         if (err) throw new Error(err)
 
         const label = {
-            en: "Type",
-            no: "Type"
+            en: 'Type',
+            no: 'Type'
         }
 
-        return prepFilter(jobTypeFilterData, "jobtypes", label, "job_type", getJobTypeLabel, "count", "check")
+        return prepFilter(jobTypeFilterData, 'jobtypes', label, 'job_type', getJobTypeLabel, 'count', 'check')
     } catch (error) {
-        console.error("Error fetching job type filters:", error)
+        console.error('Error fetching job type filters:', error)
         return null
     }
 }
@@ -208,13 +208,13 @@ async function getCityFilters() {
         if (err) throw new Error(err)
 
         const label = {
-            en: "Cities",
-            no: "Byer"
+            en: 'Cities',
+            no: 'Byer'
         }
 
-        return prepFilter(jobCityFilterData, "cities", label, "city", getLabelKey("city"), "count", "tag")
+        return prepFilter(jobCityFilterData, 'cities', label, 'city', getLabelKey('city'), 'count', 'tag')
     } catch (error) {
-        console.error("Error fetching city filters:", error)
+        console.error('Error fetching city filters:', error)
         return null
     }
 }
@@ -225,13 +225,13 @@ async function getSkillFilters() {
         if (err) throw new Error(err)
 
         const label = {
-            en: "Skills",
-            no: "Ferdigheter"
+            en: 'Skills',
+            no: 'Ferdigheter'
         }
 
-        return prepFilter(jobSkillFilterData, "skills", label, "skill", getLabelKey("skill"), "count", "tag")
+        return prepFilter(jobSkillFilterData, 'skills', label, 'skill', getLabelKey('skill'), 'count', 'tag')
     } catch (error) {
-        console.error("Error fetching skill filters:", error)
+        console.error('Error fetching skill filters:', error)
         return null
     }
 }

@@ -1,13 +1,13 @@
 'use client'
 
-import { useRef, useState, useEffect, useContext } from "react"
-import Button from "@components/shared/button/Button"
-import CheckBox from "@components/shared/checkbox/Checkbox"
-import CheckTag from "@components/shared/checktag/Checktag"
+import { useRef, useState, useEffect, useContext } from 'react'
+import Button from '@components/shared/button/Button'
+import CheckBox from '@components/shared/checkbox/Checkbox'
+import CheckTag from '@components/shared/checktag/Checktag'
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
-import "./filter.css"
-import AppContext from "@context/context"
+import './filter.css'
+import AppContext from '@context/context'
 
 export default function FilterGroup({ filters, onApply, close = false }: any) {
     const selectedFilters = useRef({})
@@ -158,7 +158,7 @@ function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
         onSelect(!checked)
     }
 
-    if(type == "tag") {
+    if(type == 'tag') {
         return (
             <CheckTag
             // @ts-ignore

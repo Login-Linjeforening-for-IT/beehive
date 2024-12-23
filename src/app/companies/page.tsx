@@ -1,11 +1,11 @@
 'use client'
 
-import Contact from "@components/shared/contact/Contact"
+import Contact from '@components/shared/contact/Contact'
 import no from '@text/companies/no.json'
 import en from '@text/companies/en.json'
-import "./page.css"
-import { useContext } from "react"
-import AppContext from "@context/context"
+import './page.css'
+import { useContext } from 'react'
+import AppContext from '@context/context'
 
 export default function CompaniesPage() {
     const { lang } = useContext(AppContext)

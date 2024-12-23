@@ -1,20 +1,20 @@
 
 
-import { adjustBrightnessHex, createGradient, isValidHex } from "@/utils/ColorManipulation"
-import "./defualt-banner.css"
+import { adjustBrightnessHex, createGradient, isValidHex } from '@/utils/ColorManipulation'
+import './defualt-banner.css'
 
-export default function DefaultEventBanner({ color, transition = true, className = "" }: ColorTransitionClassNameProps) {
+export default function DefaultEventBanner({ color, transition = true, className = '' }: ColorTransitionClassNameProps) {
 
     let gradient = color
-    let fillColor = "white"
+    let fillColor = 'white'
 
     if (isValidHex(color)) {
         gradient = createGradient(color)
-        fillColor = adjustBrightnessHex(color, -0.3) || "white"
+        fillColor = adjustBrightnessHex(color, -0.3) || 'white'
     }
 
     return (
-        <div className={`default-banner ${transition ? "default-banner--transition" : ""} ${className}`} style={{background: gradient}}>
+        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{background: gradient}}>
             <svg className='default-banner_svg' viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="500" height="200"/>
                 <g clipPath="url(#clip0_328_310)">

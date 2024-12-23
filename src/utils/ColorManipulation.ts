@@ -21,7 +21,7 @@ export function isValidHex(hex: string) {
  * @returns The hex color string.
  */
 export function rgbToHex(r: number, g: number, b: number) {
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
+    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
 }
 
 /**
@@ -83,7 +83,7 @@ export function adjustBrightnessRGB(rgb: RGB, percent: number) {
  */
 export function adjustBrightnessHex(hex: string, percent: number) {
     if (!isValidHex(hex)) {
-        console.error("Invalid hex color input")
+        console.error('Invalid hex color input')
         return null
     }
 
@@ -100,10 +100,10 @@ export function adjustBrightnessHex(hex: string, percent: number) {
  */
 export function createGradient(color: string, opacity = 1) {
     if (!isValidHex(color)) {
-        console.error("Invalid color input")
+        console.error('Invalid color input')
     
         // Default gradient with transparency
-        return "linear-gradient(120deg,, rgba(204,204,204,0.8), rgba(170,170,170,0.8), rgba(136,136,136,0.8))"
+        return 'linear-gradient(120deg,, rgba(204,204,204,0.8), rgba(170,170,170,0.8), rgba(136,136,136,0.8))'
     }
 
     const rgb = hexToRgb(color)

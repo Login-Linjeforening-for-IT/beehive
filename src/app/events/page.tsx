@@ -1,24 +1,24 @@
 'use client'
 
-import { useState, useEffect, useRef, useContext } from "react"
-import EventListItem from "@components/event/EventItem"
-import Spinner from "@components/shared/spinner/spinner"
-import FilterGroup from "@components/shared/filter/filter"
-import Button from "@components/shared/button/Button"
-import GroupToggle from "@components/shared/grouptoggle/GroupToggle"
-import Alert from "@components/shared/alert/Alert"
-import prepFilter from "@components/shared/filter/prepFilter"
-import { getEventCategoryFilters, getEvents } from "@utils/api"
-import debounce from "@/utils/debounce"
+import { useState, useEffect, useRef, useContext } from 'react'
+import EventListItem from '@components/event/EventItem'
+import Spinner from '@components/shared/spinner/spinner'
+import FilterGroup from '@components/shared/filter/filter'
+import Button from '@components/shared/button/Button'
+import GroupToggle from '@components/shared/grouptoggle/GroupToggle'
+import Alert from '@components/shared/alert/Alert'
+import prepFilter from '@components/shared/filter/prepFilter'
+import { getEventCategoryFilters, getEvents } from '@utils/api'
+import debounce from '@/utils/debounce'
 import no from '@text/eventlist/no.json'
 import en from '@text/eventlist/en.json'
-import "./page.css"
-import AppContext from "@context/context"
+import './page.css'
+import AppContext from '@context/context'
 
 function getLabelKeyWithLang(key: string) {
     return (v: any) => {
-        const vNo = v[key + "_no"]
-        const vEn = v[key + "_en"] || vNo
+        const vNo = v[key + '_no']
+        const vEn = v[key + '_en'] || vNo
 
         return {
             no: vNo,
@@ -35,22 +35,22 @@ async function getCategoryFilters() {
         }
 
         const title = {
-            en: "Categories",
-            no: "Kategorier",
+            en: 'Categories',
+            no: 'Kategorier',
         }
 
         return prepFilter(
             categoryFilterData,
-            "categories",
+            'categories',
             title,
-            "id",
-            getLabelKeyWithLang("name"),
-            "count",
-            "check",
+            'id',
+            getLabelKeyWithLang('name'),
+            'count',
+            'check',
             true
         )
     } catch (error) {
-        console.error("Error fetching category filters:", error)
+        console.error('Error fetching category filters:', error)
         return null
     }
 }
@@ -103,7 +103,7 @@ function groupEvents(eventsArray: any[]) {
 }
 
 export default function Events() {
-    if (typeof localStorage === "undefined") {
+    if (typeof localStorage === 'undefined') {
         return null
     }
     
@@ -124,7 +124,7 @@ export default function Events() {
         futureEvents: [] as any[],
     })
     const [eventsView, setEventsView] = useState(() => {
-        return localStorage.getItem("events-view") || "list-view"
+        return localStorage.getItem('events-view') || 'list-view'
     })
 
     function toggleFilter() {
@@ -132,15 +132,15 @@ export default function Events() {
     }
 
     useEffect(() => {
-        localStorage.setItem("events-view", eventsView)
+        localStorage.setItem('events-view', eventsView)
     }, [eventsView])
 
     const [viewToggleIndex, setViewToggleIndex] = useState(
-        eventsView == "grid-view" ? 0 : 1
+        eventsView == 'grid-view' ? 0 : 1
     )
     function handleOptionChange(index: number) {
         setViewToggleIndex(index)
-        setEventsView(index == 0 ? "grid-view" : "list-view")
+        setEventsView(index == 0 ? 'grid-view' : 'list-view')
     }
 
     const ap = debounce(async (v: any) => {
@@ -157,8 +157,8 @@ export default function Events() {
             setEvents(response)
             setGroupedEvents(groupEvents(response))
         } catch (error) {
-            console.error("Error fetching filtered events:", error)
-            setError("Failed to load events based on filters.")
+            console.error('Error fetching filtered events:', error)
+            setError('Failed to load events based on filters.')
         } finally {
             setLoading(false)
         }
@@ -196,8 +196,8 @@ export default function Events() {
 
             setShowLoadMore(response.length === limit)
         } catch (error) {
-            console.error("Error loading events:", error)
-            setError("Failed to load events.")
+            console.error('Error loading events:', error)
+            setError('Failed to load events.')
         } finally {
             setLoading(false)
         }
@@ -208,11 +208,11 @@ export default function Events() {
             try {
                 const d: any = {}
                 const categoryFilters = await getCategoryFilters()
-                if (categoryFilters) d["categories"] = categoryFilters
+                if (categoryFilters) d['categories'] = categoryFilters
                 setFilterData(d)
                 await loadItems()
             } catch (error) {
-                setError("Failed to initialize event data.")
+                setError('Failed to initialize event data.')
             } finally {
                 setLoading(false)
             }
@@ -246,7 +246,7 @@ export default function Events() {
                             onClick={toggleFilter}
                             size="medium"
                             className={`events-topbar_filter-toggle ${
-                                isFilterOpen ? "active" : ""
+                                isFilterOpen ? 'active' : ''
                             }`}
                         >
                             Filter
@@ -282,7 +282,7 @@ export default function Events() {
                             <div className="events_section--left">
                                 <div
                                     className={`events_filter-container ${
-                                        isFilterOpen ? "events_filter-container--open" : ""
+                                        isFilterOpen ? 'events_filter-container--open' : ''
                                     }`}
                                 >
                                     {filterData ? (
@@ -292,14 +292,14 @@ export default function Events() {
                                             close={toggleFilter}
                                         />
                                     ) : (
-                                        "no filter data"
+                                        'no filter data'
                                     )}
                                 </div>
                             </div>
                             <div className="events_section--right">
                                 <ul
                                     className={`events_list events_list${
-                                        eventsView === "grid-view" ? "--grid-view" : "--list-view"
+                                        eventsView === 'grid-view' ? '--grid-view' : '--list-view'
                                     }`}
                                 >
                                     {groupedEvents.currentWeekEvents &&
@@ -317,9 +317,9 @@ export default function Events() {
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
-                                                            eventsView === "grid-view"
-                                                                ? "card"
-                                                                : "list-item"
+                                                            eventsView === 'grid-view'
+                                                                ? 'card'
+                                                                : 'list-item'
                                                         }
                                                     />
                                                 </li>
@@ -343,9 +343,9 @@ export default function Events() {
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
-                                                            eventsView === "grid-view"
-                                                                ? "card"
-                                                                : "list-item"
+                                                            eventsView === 'grid-view'
+                                                                ? 'card'
+                                                                : 'list-item'
                                                         }
                                                     />
                                                 </li>
@@ -373,9 +373,9 @@ export default function Events() {
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
-                                                            eventsView === "grid-view"
-                                                                ? "card"
-                                                                : "list-item"
+                                                            eventsView === 'grid-view'
+                                                                ? 'card'
+                                                                : 'list-item'
                                                         }
                                                     />
                                                 </li>

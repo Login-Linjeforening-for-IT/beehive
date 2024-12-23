@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import Button from "./Button"
-import GroupToggle from "@components/shared/grouptoggle/GroupToggle"
+import React, { useState } from 'react'
+import Button from './Button'
+import GroupToggle from '@components/shared/grouptoggle/GroupToggle'
 
 export default function ButtonShowcase() {
-    const variants = ["primary", "secondary", "primary-outlined", "secondary-outlined", "ghost", "danger"]
-    const sizes = ["small", "medium", "large", "xl"]
-    const iconPlacements = ["none", "leading", "trailing", "leading-empty"]
+    const variants = ['primary', 'secondary', 'primary-outlined', 'secondary-outlined', 'ghost', 'danger']
+    const sizes = ['small', 'medium', 'large', 'xl']
+    const iconPlacements = ['none', 'leading', 'trailing', 'leading-empty']
 
     function renderIcon(iconName: string) {
         return <i className="material-symbols-sharp">{iconName}</i>
@@ -31,14 +31,14 @@ export default function ButtonShowcase() {
                                 // Only the variant name as text.
                                 let text = variant
 
-                                if (placement === "leading") {
-                                    leadingIcon = renderIcon("favorite")
-                                } else if (placement === "trailing") {
-                                    trailingIcon = renderIcon("home")
-                                } else if (placement === "leading-empty") {
-                                    leadingIcon = renderIcon("settings")
+                                if (placement === 'leading') {
+                                    leadingIcon = renderIcon('favorite')
+                                } else if (placement === 'trailing') {
+                                    trailingIcon = renderIcon('home')
+                                } else if (placement === 'leading-empty') {
+                                    leadingIcon = renderIcon('settings')
                                     // Empty text for this variation.
-                                    text = ""
+                                    text = ''
                                 }
 
                                 return (
@@ -80,9 +80,9 @@ export default function ButtonShowcase() {
             <div className="button-showcase_section">
                 <GroupToggle
                     options={[
-                        { leadingIcon: renderIcon("grid_view"), text:"leading icon" },
-                        { trailingIcon: renderIcon("filter_list"), text:"trailing icon" },
-                        { leadingIcon: <i className="logfont-login"></i>, text:"logfont icon" }
+                        { leadingIcon: renderIcon('grid_view'), text:'leading icon' },
+                        { trailingIcon: renderIcon('filter_list'), text:'trailing icon' },
+                        { leadingIcon: <i className="logfont-login"></i>, text:'logfont icon' }
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
@@ -92,8 +92,8 @@ export default function ButtonShowcase() {
             <div className="button-showcase_section">
                 <GroupToggle
                     options={[
-                        { text:"Ghost" },
-                        { text:"Ghost" }
+                        { text:'Ghost' },
+                        { text:'Ghost' }
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
@@ -105,8 +105,8 @@ export default function ButtonShowcase() {
             <div className="button-showcase_section">
                 <GroupToggle
                     options={[
-                        { leadingIcon: renderIcon("grid_view"), text:"large" },
-                        { leadingIcon: renderIcon("filter_list") }
+                        { leadingIcon: renderIcon('grid_view'), text:'large' },
+                        { leadingIcon: renderIcon('filter_list') }
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
@@ -118,8 +118,8 @@ export default function ButtonShowcase() {
             <div className="button-showcase_section">
                 <GroupToggle
                     options={[
-                        { leadingIcon: renderIcon("grid_view"), text:"xl" },
-                        { leadingIcon: renderIcon("filter_list") },
+                        { leadingIcon: renderIcon('grid_view'), text:'xl' },
+                        { leadingIcon: renderIcon('filter_list') },
                         { leadingIcon: <i className="logfont-satkom-filled"></i> }
                     ]}
                     activeOptionIndex={activeOptionIndex}
