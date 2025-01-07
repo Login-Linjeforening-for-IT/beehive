@@ -7,7 +7,9 @@ export default [
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
     {
-        ignores: ["**/v*"],
+        ignores: ["**/vendor/**", "**/mazemap.min.js"],
+    },
+    {
         plugins: {
             '@stylistic/js': stylisticJs,
         },
