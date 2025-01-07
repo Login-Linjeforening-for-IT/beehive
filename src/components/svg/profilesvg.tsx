@@ -1,8 +1,8 @@
-import {useContext} from 'react'
-import ThemeContext from '@context/themeSlice'
+import { useContext } from 'react'
+import AppContext from '@context/context'
 
 export default function ProfileSVG() {
-    const value = useContext(ThemeContext)
+    const value = useContext(AppContext)
 
     function picColor() {
         if (value.theme == 'light') {

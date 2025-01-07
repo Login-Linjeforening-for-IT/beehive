@@ -69,8 +69,8 @@ function link(href: string, name: string) {
     )
 }
 
-export default function EventPage({ params }: { params: { id: number } }) {
-    const id = params.id
+export default async function EventPage({ params }: PromisedPageProps) {
+    const id = (await params).id
     const [useFallbackBanner, setUseFallbackBanner] = useState(false)
     const [event, setEvent] = useState(null)
     const [loading, setLoading] = useState(true)

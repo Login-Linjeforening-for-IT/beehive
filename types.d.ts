@@ -207,3 +207,7 @@ type ColorTransitionClassNameProps = {
     transition: boolean
     className: string
 }
+
+type PromisedPageProps = {
+    params: Promise<{ id: number }>
+}

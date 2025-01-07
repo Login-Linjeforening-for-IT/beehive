@@ -46,8 +46,8 @@ function deadlineWarning(deadline: Date) {
     return diff < oneDay && diff > 0
 }
 
-export default function JobadPage({ params }: { params: { id: number } }) {
-    const id = params.id
+export default async function JobadPage({ params }: PromisedPageProps) {
+    const id = (await params).id
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const [showBannerImg, setShowBannerImg] = useState(false)
     const hideBannerImg = () => setShowBannerImg(false)
