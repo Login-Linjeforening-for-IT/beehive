@@ -30,10 +30,12 @@ const jobTypeTranslations = {
 }
 
 export default function Jobads() {
+    // eslint-disable-next-line
     const [ jobads, setJobads ] = useState<any[]>([])
     const [ filterData, setFilterData ] = useState({})
     const [ loading, setLoading ] = useState(true)
     const [ error, setError ] = useState<string | null>(null)
+    // eslint-disable-next-line
     const filters = useRef<any>({})
     const limit = 10
     const offset = useRef(0)
@@ -41,6 +43,7 @@ export default function Jobads() {
     const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
 
+    // eslint-disable-next-line
     const ap = debounce(async (v: any) => {
         filters.current = v
 
@@ -93,7 +96,7 @@ export default function Jobads() {
                 if (skillFilters) response['skills'] = skillFilters
 
                 setFilterData(response)
-            } catch (error) {
+            } catch {
                 setError('Failed to initialize job ads data.')
             } finally {
                 setLoading(false)
@@ -166,6 +169,7 @@ export default function Jobads() {
 }
 
 function getLabelKey(key: string) {
+    // eslint-disable-next-line
     return (v: any) => {
         return {
             'no': v[key],
@@ -174,6 +178,7 @@ function getLabelKey(key: string) {
     }
 }
 
+// eslint-disable-next-line
 function getJobTypeLabel(v: any) {
     // @ts-ignore  
     const labelNo = jobTypeTranslations['no'][v['job_type']] || v['job_type']

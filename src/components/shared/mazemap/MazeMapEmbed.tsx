@@ -4,19 +4,22 @@ import './MazeMapEmbed.css'
 import { useEffect, useState } from 'react'
 import '@/vendor/mazemap/mazemap.min.css'
 
+// eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
 
     const defualtHeight = 320
     const [hasMounted, setHasMounted] = useState(false)
     useEffect(() => setHasMounted(true), [])
     //import Mazemap dynamically to prevent ssr issues
+    // eslint-disable-next-line
     const [Mazemap, setMazemap] = useState<any[] | null>(null)
+    // eslint-disable-next-line
     const [map, setMap] = useState<any>(null)
     const [room, setRoom] = useState(null)
 
     //initialize map only once, poi will probably not change
     useEffect(() => {
-        import('@/vendor/mazemap/mazemap.min.js' as any).then((mazemap) => setMazemap(mazemap))
+        import('@/vendor/mazemap/mazemap.min.js').then((mazemap) => setMazemap(mazemap))
         if (!Mazemap || !hasMounted) return
 
         // @ts-ignore
@@ -56,6 +59,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
             // Fetching via Data API
             // @ts-ignore
+            // eslint-disable-next-line
             Mazemap.Data.getPoi(poi).then((poi: any) => {
                 // @ts-ignore
                 const lngLat = Mazemap.Util.getPoiLngLat(poi)

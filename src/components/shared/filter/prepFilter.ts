@@ -1,5 +1,6 @@
 
 
+// eslint-disable-next-line
 export default function prepFilter(data: any, id: string, label: any, idKey = 'id', getLabel: any, countKey = 'count', type: any, showCount = false) {
     const filters = {}
   

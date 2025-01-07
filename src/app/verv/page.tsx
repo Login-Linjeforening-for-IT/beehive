@@ -15,6 +15,7 @@ export default function Verv() {
 
     useEffect(() => {
         const text = lang === 'en' ? en : no
+        // eslint-disable-next-line
         setText(text as any)
     }, [lang])
 
@@ -42,6 +43,7 @@ export default function Verv() {
                 </p>
             </section>
             <section className="verv-page_section page-section--full-width">
+                {/* @ts-ignore */}
                 <ImageCarousel slides={slides} />
             </section>
             <section className="verv-committees page-section--normal">

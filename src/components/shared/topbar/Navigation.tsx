@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { Ref, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
@@ -57,7 +57,7 @@ export default function Navigation() {
                         <ul className="main-nav-dropdown_items">
                             <Link
                                 href="/about"
-                                ref={navItemRefs.current[0] as any}
+                                ref={navItemRefs.current[0] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
                                 <li className="main-nav-dropdown_item link--corner-hover">
@@ -67,7 +67,7 @@ export default function Navigation() {
                             </Link>
                             <Link
                                 href="verv"
-                                ref={navItemRefs.current[1] as any}
+                                ref={navItemRefs.current[1] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
                                 <li className="main-nav-dropdown_item link--corner-hover">
@@ -79,7 +79,7 @@ export default function Navigation() {
                             </Link>
                             <Link
                                 href="/fond"
-                                ref={navItemRefs.current[2] as any}
+                                ref={navItemRefs.current[2] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
                                 <li className="main-nav-dropdown_item link--corner-hover">

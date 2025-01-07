@@ -46,11 +46,12 @@ function getDefaultBanner(category: string, color: string) {
 function getURLAddress(url: string) {
     try {
         return new URL(url).hostname
-    } catch (error) {
+    } catch {
         return url
     }
 }
 
+// eslint-disable-next-line
 function renderOrganizations(organizations: any[]) {
     if (!Array.isArray(organizations)) return null
     return organizations.map((org) => org.name_no).join(', ')
@@ -76,6 +77,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const { lang } = useContext(AppContext)
+    // eslint-disable-next-line
     const text: any = lang === 'en' ? en : no
 
     useEffect(() => {

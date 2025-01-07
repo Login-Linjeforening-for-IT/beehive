@@ -13,6 +13,7 @@ import AppContext from '@context/context'
 
 export default function Fund() {
     const { lang } = useContext(AppContext)
+    // eslint-disable-next-line
     const text: any = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
 
     return (

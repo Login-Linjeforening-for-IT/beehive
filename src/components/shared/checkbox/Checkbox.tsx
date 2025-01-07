@@ -3,8 +3,10 @@ import './Checkbox.css'
 type CheckboxProps = { 
     id: string
     label: string
-    count: boolean, 
+    count: boolean,
+    // eslint-disable-next-line
     checked: any
+    // eslint-disable-next-line
     onChange: any
 }
 

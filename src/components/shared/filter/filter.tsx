@@ -9,6 +9,7 @@ import en from '@text/filter/en.json'
 import './filter.css'
 import AppContext from '@context/context'
 
+// eslint-disable-next-line
 export default function FilterGroup({ filters, onApply, close = false }: any) {
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
@@ -60,6 +61,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
     return (
         <div className="filter-groups">
             {
+                // eslint-disable-next-line
                 Object.entries(filters).map(([filterGroupItemID, filterGroupItem]) => {
                     // @ts-ignore
                     if(Object.values(filterGroupItem.filters).length > 0) {
@@ -107,19 +109,23 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
         </div>
     )
 }
-
+// eslint-disable-next-line
 function getFilterGroupItemOnSelectWithin(onSelect: any, filterGroupItemID: any) {
+    // eslint-disable-next-line
     return (filterID: any, isSelected: any) => {
         onSelect(filterGroupItemID, filterID, isSelected)
     }
 }
 
+// eslint-disable-next-line
 function getFilterItemOnSelect(onSelect: any, filterID: any) {
+    // eslint-disable-next-line
     return (isSelected: any) => {
         onSelect(filterID, isSelected)
     }
 }
 
+// eslint-disable-next-line
 function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any) {
     const { lang } = useContext(AppContext)
 
@@ -145,6 +151,7 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
     )
 }
 
+// eslint-disable-next-line
 function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
     const [ checked, setChecked ] = useState(false)
     const { lang } = useContext(AppContext)

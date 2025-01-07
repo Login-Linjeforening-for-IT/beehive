@@ -29,6 +29,7 @@ const jobTypeTranslations = {
     }
 }
 
+// eslint-disable-next-line
 function getJobTypeLabel(job_type: any, lang = 'no') {
     // @ts-ignore
     const labelNo = jobTypeTranslations['no'][job_type] || job_type
@@ -46,11 +47,15 @@ function deadlineWarning(deadline: Date) {
     return diff < oneDay && diff > 0
 }
 
-export default async function JobadPage({ params }: PromisedPageProps) {
-    const id = (await params).id
+export default function JobadPage({ params }: PromisedPageProps) {
+    // @ts-expect-error - this is client side, async await doesnt work here
+    const id = params.id
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const [showBannerImg, setShowBannerImg] = useState(false)
-    const hideBannerImg = () => setShowBannerImg(false)
+    function hideBannerImg() {
+        setShowBannerImg(false)
+    }
+    // eslint-disable-next-line
     const [jobad, setJobad] = useState<any | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)

@@ -13,6 +13,7 @@ export default function LangToggle() {
         switchLang()
         setJump(true)
         setTimeout(() => setJump(false), 400)
+        setButtonText(lang)
     }
 
     return(

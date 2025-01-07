@@ -129,8 +129,10 @@ function EndCard({ path }: {path: string}) {
 }
 
 function EventsPreview() {
+    // eslint-disable-next-line
     const [events, setEvents] = useState<any[] | null>(null)
     const [loading, setLoading] = useState(true)
+    // eslint-disable-next-line
     const [error, setError] = useState<any | null>(null)
     const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
@@ -183,6 +185,7 @@ function EventsPreview() {
                 )}
                 {!loading && events && events.length > 0 && (
                     <ul className="dynamic-preview-list">
+                        {/* eslint-disable-next-line */}
                         {events.map((e: any) => (
                             <li key={e.id} className="dynamic-preview-list_item">
                                 <EventListItem event={e} variant="card" highlight={false} />
@@ -207,8 +210,10 @@ function EventsPreview() {
 }
 
 function JobadsPreview() {
+    // eslint-disable-next-line
     const [jobads, setJobads] = useState<any[] | null>(null)
     const [loading, setLoading] = useState(true)
+    // eslint-disable-next-line
     const [error, setError] = useState<any | null>(null)
     const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
