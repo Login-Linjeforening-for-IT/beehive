@@ -1,7 +1,8 @@
+import { ReactNode } from 'react'
 import './Alert.css'
 
 type AlertProps = {
-    children: any
+    children: ReactNode
     variant: string
     icon: string
     className: string

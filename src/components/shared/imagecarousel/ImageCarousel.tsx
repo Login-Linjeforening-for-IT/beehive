@@ -32,12 +32,14 @@ function SlideItem({ image, index, className, title, description, onFocus }: any
                 src={image}
                 alt={title}
                 className='image-carousel_image'
+                onError={undefined}
+                transition={false}
             />
         </div>
     )
 }
 
-function DotIndicator({ index, isActive }: any) {
+function DotIndicator({ index, isActive }: {index: number, isActive: boolean}) {
     return (
         <div
             key={index}

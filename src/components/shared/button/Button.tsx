@@ -1,16 +1,17 @@
 import Link from 'next/link'
 import './Button.css'
+import { ReactNode } from 'react'
 
 type ButtonProps = {
-    children: any
-    leadingIcon: any
+    children: ReactNode
+    leadingIcon: React.JSX.Element | null
     size?: string
     href: string
-    onClick?: any
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>
     target?: string
     active?: boolean
     disabled?: boolean
-    trailingIcon?: any
+    trailingIcon?: ReactNode
     className?: string
     variant?: string
 }

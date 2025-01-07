@@ -110,6 +110,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                 alt={event?.eventname}
                 className="event-banner_image"
                 onError={() => setUseFallbackBanner(true)}
+                transition={false}
             />
         )
     }, [useFallbackBanner, event])

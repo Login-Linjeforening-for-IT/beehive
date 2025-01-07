@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 // @ts-expect-error
 import { useLocation } from 'react-router'
 
 // finnes duplicate scroll funksjon?
-export default function Scroll(children: any) {
+export default function Scroll({children}: {children: ReactNode}) {
     const location = useLocation()
     useEffect(() => {
         window.scrollTo(0,0)

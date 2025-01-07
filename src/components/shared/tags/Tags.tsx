@@ -8,13 +8,21 @@ import { useContext, useEffect, useState } from 'react'
 import './Tags.css'
 import AppContext from '@context/context'
 
+type TagsProps = {
+    highlight : boolean,
+    timePublish : Date,
+    canceled : boolean,
+    full : boolean,
+    ongoing : boolean
+}
+
 export default function Tags({
-    highlight = false,
-    timePublish = 0,
-    canceled = false,
-    full = false,
-    ongoing = false
-}: any) {
+    highlight,
+    timePublish,
+    canceled,
+    full,
+    ongoing
+}: TagsProps) {
     const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 
@@ -28,7 +36,7 @@ export default function Tags({
             {canceled && <Tag variant="danger">{text.canceled}</Tag>}
             {ongoing && !canceled && <Tag variant="success">{text.ongoing}</Tag>}
             {highlight && !canceled && <Tag variant="highlight">{text.highlight}</Tag>}
-            {isNew(timePublish) && <Tag variant="info">{text.new}</Tag>}
+            {isNew(timePublish.toString()) && <Tag variant="info">{text.new}</Tag>}
             {full && <Tag variant="danger">{text.full}</Tag>}
         </>
     )

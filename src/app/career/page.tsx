@@ -106,6 +106,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     alt={jobad.organization.logo}
                                     className='jobad-details_image'
                                     onError={() => setUseFallbackImg(true)}
+                                    transition={false}
                                 />
                             </picture>
                             <div className="jobad-details_company-name">
@@ -230,6 +231,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 alt={jobad.job.banner_image}
                                 onError={hideBannerImg}
                                 className={'jobad-banner_image'}
+                                transition={false}
                             />
                         </picture>
                     )}

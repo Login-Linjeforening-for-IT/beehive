@@ -47,8 +47,11 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                 {!disableTags &&
           <div className="jobad-card_tags">
               <Tags
-                  highlight={jobad.highlight}
-                  timePublish={new Date(jobad.time_publish)}
+                    highlight={jobad.highlight}
+                    timePublish={new Date(jobad.time_publish)}
+                    canceled={false}
+                    full={false}
+                    ongoing={false}
               />
           </div>
                 }

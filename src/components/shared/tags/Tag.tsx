@@ -1,6 +1,12 @@
+import { ReactNode } from 'react'
 import './Tags.css'
 
-export default function Tag({ children, variant = 'info' }: any) {
+type TagProps = {
+    children: ReactNode
+    variant: string
+}
+
+export default function Tag({ children, variant }: TagProps) {
     return (
         <div className={`tag tag--${variant}`}>
             <div className="tag_container">

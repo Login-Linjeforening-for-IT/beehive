@@ -70,6 +70,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                                         alt={event.image_small}
                                         src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
                                         onError={() => setShowImage(false)}
+                                        transition={false}
                                     />
                                 ) : (
                                     getDefaultBanner(event.category_name_no, event.category_color)
@@ -121,6 +122,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                         alt={event.image_small}
                         src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
                         onError={() => setShowImage(false)}
+                        transition={false}
                     />
                 ) : (
                     getDefaultBanner(event.category_name_no, event.category_color)

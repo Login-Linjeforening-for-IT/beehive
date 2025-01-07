@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
+import { SetStateAction, useContext, useEffect, useState } from 'react'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import AppContext from '@context/context'
 
-export default function MobileNavigation({ open, setIsOpen }: any) {
+export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
     const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
 

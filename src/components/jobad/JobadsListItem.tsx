@@ -80,6 +80,9 @@ export default function JobadsListItem({ jobad }: any) {
                 <Tags
                     highlight={jobad.highlight}
                     timePublish={new Date(jobad.time_publish)}
+                    canceled={false}
+                    full={false}
+                    ongoing={false}
                 />
             </div>
                     }
