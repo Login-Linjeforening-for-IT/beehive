@@ -5,7 +5,7 @@ import './DecoratedPicture.css'
 
 type DecoratedPictureProps = {
     imgUrl: string
-    variant: any
+    variant: number
     width: number
     height: number
     cornerSize: number

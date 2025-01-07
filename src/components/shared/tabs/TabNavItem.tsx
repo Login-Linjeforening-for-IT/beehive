@@ -1,4 +1,13 @@
-export default function TabNavItem({ id, title, activeTab, setActiveTab }: any) {
+import React, { SetStateAction } from "react"
+
+type TabNavItemProps = {
+    id: string
+    title: React.JSX.Element
+    activeTab: string
+    setActiveTab: React.Dispatch<SetStateAction<string>>
+}
+
+export default function TabNavItem({ id, title, activeTab, setActiveTab }: TabNavItemProps) {
  
     function handleClick() {
         setActiveTab(id)

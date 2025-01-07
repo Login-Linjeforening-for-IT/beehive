@@ -4,23 +4,29 @@ import { useState, useEffect, useRef } from 'react'
 import './ImageCarousel.css'
 import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
 
-function NavigationButton({ side, onClick, onFocus }: any) {
+function NavigationButton({ side, onClick }: {side:string, onClick: React.MouseEventHandler<HTMLButtonElement> }) {
     return (
         <button
             className={`image-carousel_nav-item image-carousel_nav-item--${side}`}
             onClick={onClick}
-            onFocus={onFocus}
             aria-label={side === 'left' ? 'previous' : 'next'}
         ></button>
     )
 }
 
-function SlideItem({ image, index, className, title, description, onFocus }: any) {
+type SlideItemProps = {
+    image: string
+    index: number
+    className: string
+    title: string
+    description: string
+}
+
+function SlideItem({ image, index, className, title, description }: SlideItemProps) {
     return (
         <div
             key={index}
             className={`image-carousel_slide ${className}`}
-            onFocus={onFocus}
         >
             <div className="image-carousel_image-overlay">
                 <div className="image-carousel_image-overlay-info">
@@ -50,7 +56,7 @@ function DotIndicator({ index, isActive }: {index: number, isActive: boolean}) {
     )
 }
 
-export default function ImageCarousel({ slides }: any) {
+export default function ImageCarousel({ slides }: {slides: []}) {
 
     const [activeIndex, setActiveIndex] = useState(0)
     const [isTransitioning, setIsTransitioning] = useState(false)
@@ -128,7 +134,7 @@ export default function ImageCarousel({ slides }: any) {
                     side="left"
                     onClick={() => prev()}
                 />
-                {slides.map((slides: any, index: number) => (
+                {slides.map((slides: {imgSrc:string,title:string,description:string,}, index: number) => (
                     <SlideItem
                         key={index}
                         image={slides.imgSrc}
@@ -144,7 +150,7 @@ export default function ImageCarousel({ slides }: any) {
                 />
             </div>
             <div className="image-carousel_dots">
-                {slides.map((_: any, index: number) => (
+                {slides.map((index: number) => (
                     <DotIndicator
                         key={index}
                         index={index}

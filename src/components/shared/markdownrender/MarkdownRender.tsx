@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import EventItem from '@components/event/EventItem'
@@ -13,7 +13,7 @@ import './MarkdownRender.css'
 
 type CustomLinkProps = {
   href: number
-  children: any
+  children: ReactNode
 }
 
 type ErrorMessageProps = {
@@ -25,21 +25,21 @@ const components = {
     // The md string should not contain a main header (#), the h1 header is  
     // rendered by the parent component. If by mistake it cointains 
     // a "# main header" this returns h2 instead.
-    h1: ({children}: any) => <h2 className='markdown-render_h2'>{children}</h2>,
-    h2: ({children}: any) => <h2 className='markdown-render_h2'>{children}</h2>,
-    h3: ({children}: any) => <h3 className='markdown-render_h3'>{children}</h3>,
-    h4: ({children}: any) => <h4 className='markdown-render_h4'>{children}</h4>,
-    h5: ({children}: any) => <h5 className='markdown-render_h5'>{children}</h5>,
-    h6: ({children}: any) => <h6 className='markdown-render_h6'>{children}</h6>,
-    p:  ({children}: any) => <section className='markdown-render_section'>{children}</section>,
-    em: ({children}: any) => <em className='markdown-render_em'>{children}</em>,
-    strong: ({children}: any) => <strong className='markdown-render_strong'>{children}</strong>,
-    table: ({children}: any) => <table className='markdown-render_table'>{children}</table>,
-    th: ({children}: any) => <th className='markdown-render_th'>{children}</th>,
-    td: ({children}: any) => <td className='markdown-render_td'>{children}</td>,
-    ul: ({children}: any) => <ul className='markdown-render_ul'>{children}</ul>,
-    ol: ({children}: any) => <ol className='markdown-render_ol'>{children}</ol>,
-    li: ({children}: any) => <li className='markdown-render_li'>{children}</li>,
+    h1: ({children}: {children:ReactNode}) => <h2 className='markdown-render_h2'>{children}</h2>,
+    h2: ({children}: {children:ReactNode}) => <h2 className='markdown-render_h2'>{children}</h2>,
+    h3: ({children}: {children:ReactNode}) => <h3 className='markdown-render_h3'>{children}</h3>,
+    h4: ({children}: {children:ReactNode}) => <h4 className='markdown-render_h4'>{children}</h4>,
+    h5: ({children}: {children:ReactNode}) => <h5 className='markdown-render_h5'>{children}</h5>,
+    h6: ({children}: {children:ReactNode}) => <h6 className='markdown-render_h6'>{children}</h6>,
+    p:  ({children}: {children:ReactNode}) => <section className='markdown-render_section'>{children}</section>,
+    em: ({children}: {children:ReactNode}) => <em className='markdown-render_em'>{children}</em>,
+    strong: ({children}: {children:ReactNode}) => <strong className='markdown-render_strong'>{children}</strong>,
+    table: ({children}: {children:ReactNode}) => <table className='markdown-render_table'>{children}</table>,
+    th: ({children}: {children:ReactNode}) => <th className='markdown-render_th'>{children}</th>,
+    td: ({children}: {children:ReactNode}) => <td className='markdown-render_td'>{children}</td>,
+    ul: ({children}: {children:ReactNode}) => <ul className='markdown-render_ul'>{children}</ul>,
+    ol: ({children}: {children:ReactNode}) => <ol className='markdown-render_ol'>{children}</ol>,
+    li: ({children}: {children:ReactNode}) => <li className='markdown-render_li'>{children}</li>,
     a: CustomLink
 }
 
@@ -142,7 +142,7 @@ function JobadEmbed(id: number) {
 
     const [jobad, setJobad] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         async function fetchData() {

@@ -9,6 +9,15 @@ import { formatDeadlineDate, formatPublishedDate } from '@utils/DatetimeFormatte
 import { useContext } from 'react'
 import AppContext from '@context/context'
 
+type EventSignUpProps = {
+    url: string
+    full: boolean
+    canceled: boolean
+    cap: number | null
+    signupRelease: Date
+    signupDeadline: Date 
+}
+
 export default function EventSignUp({
     url,
     full,
@@ -16,7 +25,7 @@ export default function EventSignUp({
     cap = null,
     signupRelease,
     signupDeadline,
-}: any) {
+}: EventSignUpProps) {
     const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
     const now = new Date()

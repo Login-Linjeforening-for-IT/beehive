@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import './DropDownBox.css'
 
-export default function DropDownBox({ title, children }: { title:string, children:ReactNode}) {
+export default function DropDownBox({ title, children }: { title:ReactNode, children:ReactNode}) {
     const [isOpen, setOpen] = useState(false)
 
     function handleClick() {

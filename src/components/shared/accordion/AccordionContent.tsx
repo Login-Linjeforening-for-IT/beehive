@@ -1,7 +1,9 @@
+import { ReactNode } from "react"
+
 type AccordionContentProps = {
     id: string
-    activeAccordionItem: any
-    children: any
+    activeAccordionItem: string
+    children: ReactNode
 }
 
 export default function AccordionContent({id, activeAccordionItem, children}: AccordionContentProps) {
