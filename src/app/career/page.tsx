@@ -29,6 +29,7 @@ const jobTypeTranslations = {
     }
 }
 
+// eslint-disable-next-line
 function getJobTypeLabel(job_type: any, lang = 'no') {
     // @ts-ignore
     const labelNo = jobTypeTranslations['no'][job_type] || job_type
@@ -51,6 +52,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const [showBannerImg, setShowBannerImg] = useState(false)
     const hideBannerImg = () => setShowBannerImg(false)
+    // eslint-disable-next-line
     const [jobad, setJobad] = useState<any | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)

@@ -30,6 +30,7 @@ export default function CommitteeTabs() {
 
     useEffect(() => {
         const text = lang === 'en' ? en : no
+        // eslint-disable-next-line
         setText(text as any)
     }, [lang])
 
@@ -55,10 +56,15 @@ export default function CommitteeTabs() {
                     {Object.keys(text).map((key) => (
                         <LogChamp
                             key={key}
+                            // eslint-disable-next-line
                             img={`${config.url.CDN_URL}/img/portraits/${(text as any)[key].img}`}
+                            // eslint-disable-next-line
                             name={(text as any)[key].name}
+                            // eslint-disable-next-line
                             position={(text as any)[key].title}
+                            // eslint-disable-next-line
                             discord={(text as any)[key].dctag}
+                            // eslint-disable-next-line
                             discordLink={(text as any)[key].dclink}
                         />
                     ))}
