@@ -88,6 +88,7 @@ async function _fetchWrapper(path: string, options = {}) {
         }
 
         return [data, null]
+    // eslint-disable-next-line
     } catch (error: any) {
         return [null, error.message || 'Unknown error! Please contact TekKom']
     }

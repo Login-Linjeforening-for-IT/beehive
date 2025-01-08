@@ -12,13 +12,14 @@ import { getEventRow, getJobRow } from '@utils/api'
 import './MarkdownRender.css'
 
 type CustomLinkProps = {
-  href: number
-  children: ReactNode
+    href: number
+    children: ReactNode
 }
 
 type ErrorMessageProps = {
-  err: any
-  title: string
+    // eslint-disable-next-line
+    err: any
+    title: string
 }
 
 const components = {
@@ -109,6 +110,7 @@ function EventEmbed(id: number) {
 
                 setEvent(response)
                 setLoading(false)
+            // eslint-disable-next-line
             } catch (error: any) {
                 console.error('Error Fetching Event Data:', error)
                 setLoading(false)

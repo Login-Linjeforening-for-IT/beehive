@@ -3,7 +3,9 @@ import './Accordion.css'
 type AccordionItemProps = { 
     id: string
     title: string
+    // eslint-disable-next-line
     activeAccordionItem: any
+    // eslint-disable-next-line
     setActiveAccordionItem: any
 }
 

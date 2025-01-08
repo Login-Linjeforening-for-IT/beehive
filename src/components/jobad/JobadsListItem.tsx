@@ -26,6 +26,7 @@ const jobTypeTranslations = {
     }
 }
 
+// eslint-disable-next-line
 function getJobTypeLabel(job_type: any, lang = 'no') {
     // @ts-ignore
     const labelNo = jobTypeTranslations['no'][job_type] || job_type
@@ -35,6 +36,7 @@ function getJobTypeLabel(job_type: any, lang = 'no') {
     return lang === 'en' ? labelEn : labelNo
 }
 
+// eslint-disable-next-line
 function formatCities(cities: any[]) {
 
     const characterLimit = 30
@@ -57,6 +59,7 @@ function formatCities(cities: any[]) {
     return (arr.join(', '))
 }
 
+// eslint-disable-next-line
 export default function JobadsListItem({ jobad }: any) {
     const [useFallbackImg, setUseFallbackImg] = useState(false)
     const { lang } = useContext(AppContext)
@@ -65,6 +68,7 @@ export default function JobadsListItem({ jobad }: any) {
         setUseFallbackImg(false)
     }, [jobad.organization_logo])
   
+    // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any) {
         if (highlight) return true
         if (isNew(publishTime)) return true

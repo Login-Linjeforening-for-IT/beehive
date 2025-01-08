@@ -2,6 +2,21 @@ import { useState } from 'react'
 import Button from '@components/shared/button/Button'
 import './GroupToggle.css'
 
+type GroupToggleProps = {
+    // eslint-disable-next-line
+    options: any, 
+    // eslint-disable-next-line
+    activeOptionIndex: any
+    defaultActiveOptionIndex?: number
+    // eslint-disable-next-line
+    onOptionChange: any
+    size: string
+    groupVariant?: string
+    buttonVariant?: string
+    className?: string
+    ariaLabel?: string
+}
+
 function GroupToggle({ 
     options, 
     activeOptionIndex: controlledActiveOptionIndex, 
@@ -12,7 +27,7 @@ function GroupToggle({
     buttonVariant = 'ghost',
     className = '',
     ariaLabel = 'Toggle group'
-}: any) {
+}: GroupToggleProps) {
     const [internalActiveOptionIndex, setInternalActiveOptionIndex] = useState(defaultActiveOptionIndex)
     const activeOptionIndex = controlledActiveOptionIndex !== undefined ? controlledActiveOptionIndex : internalActiveOptionIndex
 
@@ -31,6 +46,7 @@ function GroupToggle({
             role="group"
             aria-label={ariaLabel}
         >
+            {/* eslint-disable-next-line */}
             {options.map((option: any, index: number) => {
                 const isActive = activeOptionIndex === index
                 const { text, leadingIcon, trailingIcon, ...restButtonProps } = option

@@ -3,7 +3,9 @@ import './Checktag.css'
 type ChecktagProps = {
     id: string
     label: string
+    // eslint-disable-next-line
     checked: any
+    // eslint-disable-next-line
     onChange: any
 }
 

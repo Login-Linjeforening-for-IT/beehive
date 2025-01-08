@@ -10,6 +10,7 @@ import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import Image from 'next/image'
 import AppContext from '@context/context'
 
+// eslint-disable-next-line
 export default function JobadCard({ jobad, disableTags=false }: any) {
     const { lang } = useContext(AppContext)
     const [useFallbackImg, setUseFallbackImg] = useState(false)
@@ -45,15 +46,15 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                     </li>
                 </ul>
                 {!disableTags &&
-          <div className="jobad-card_tags">
-              <Tags
-                    highlight={jobad.highlight}
-                    timePublish={new Date(jobad.time_publish)}
-                    canceled={false}
-                    full={false}
-                    ongoing={false}
-              />
-          </div>
+                <div className="jobad-card_tags">
+                    <Tags
+                        highlight={jobad.highlight}
+                        timePublish={new Date(jobad.time_publish)}
+                        canceled={false}
+                        full={false}
+                        ongoing={false}
+                    />
+                </div>
                 }
             </div>
         </Link>

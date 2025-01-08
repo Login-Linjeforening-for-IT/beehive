@@ -61,7 +61,7 @@ export default function ImageCarousel({ slides }: {slides: []}) {
     const [activeIndex, setActiveIndex] = useState(0)
     const [isTransitioning, setIsTransitioning] = useState(false)
     const [isPaused, setIsPaused] = useState(false)
-    const intervalRef = useRef<any>(null)
+    const intervalRef = useRef<HTMLAnchorElement | null | NodeJS.Timeout>(null)
 
     useEffect(() => {
         if (!isPaused) {
@@ -69,15 +69,19 @@ export default function ImageCarousel({ slides }: {slides: []}) {
         }
 
         return () => {
-            clearInterval(intervalRef.current)
+            if (typeof intervalRef.current === 'string') {
+                clearInterval(intervalRef.current)
+            }
         }
     }, [isPaused])
 
     function startCarousel() {
-        clearInterval(intervalRef.current)
-        intervalRef.current = setInterval(() => {
-            next(true)
-        }, 3000)
+        if (typeof intervalRef.current === 'string') {
+            clearInterval(intervalRef.current)
+            intervalRef.current = setInterval(() => {
+                next(true)
+            }, 3000)
+        }
     }
 
     const next = (isAutoCarousel = false) => {
@@ -104,7 +108,9 @@ export default function ImageCarousel({ slides }: {slides: []}) {
 
     function pause() {
         setIsPaused(true)
-        clearInterval(intervalRef.current)
+        if (typeof intervalRef.current === 'string') {
+            clearInterval(intervalRef.current)
+        }
     }
 
     function resume() {

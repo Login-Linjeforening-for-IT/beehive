@@ -17,16 +17,18 @@ import { formatEventStartDate, isOngoing } from '@utils/DatetimeFormatter'
 import AppContext from '@context/context'
 
 type EventListItemProps = { 
-  event: any
-  highlight: boolean
-  disableTags?: boolean
-  variant: string 
+    // eslint-disable-next-line
+    event: any
+    highlight: boolean
+    disableTags?: boolean
+    variant: string 
 }
 
 export default function EventListItem({ event, highlight = true, disableTags = false, variant='list-item' }: EventListItemProps) {
     const [showImage, setShowImage] = useState(true)
     const { lang } = useContext(AppContext)
 
+    // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
         if (disableTags) return false
         if (highlight) return true

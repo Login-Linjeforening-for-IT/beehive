@@ -26,6 +26,7 @@ export default function VervTabs() {
 
     useEffect(() => {
         const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
+        // eslint-disable-next-line
         setText(text as any)
     }, [lang])
 

@@ -96,7 +96,7 @@ export default function Jobads() {
                 if (skillFilters) response['skills'] = skillFilters
 
                 setFilterData(response)
-            } catch (error) {
+            } catch {
                 setError('Failed to initialize job ads data.')
             } finally {
                 setLoading(false)

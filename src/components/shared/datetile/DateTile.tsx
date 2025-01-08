@@ -11,6 +11,7 @@ export default function DateTile({
     color,
     varient = 'regular',
     useDayText = false,
+    // eslint-disable-next-line
 }: any) {
     const { lang } = useContext(AppContext)
     const sTime = new Date(startDate)
@@ -78,6 +79,7 @@ export default function DateTile({
             >
                 <div className="date-tile_date">
                     <div className="date-tile_dayofweek">
+                        {/* eslint-disable-next-line */}
                         {(daysOfWeek as any)[lang][sTime.getDay()]}.
                     </div>
                 </div>
@@ -100,6 +102,7 @@ export default function DateTile({
                     >
                         {sDate === eDate ? sDate : sDate + '-' + eDate}
                     </div>
+                    {/* eslint-disable-next-line */}
                     <div className="date-tile_month">{(months as any)[lang][eMonth]}</div>
                 </div>
             </div>
@@ -113,6 +116,7 @@ export default function DateTile({
                 <div className="date-tile_date">
                     <div className="date-tile_day date-tile_day--wide">{sDate}</div>
                     <div className="date-tile_month date-tile_month--wide">
+                        {/* eslint-disable-next-line */}
                         {(months as any)[lang][sMonth]}
                     </div>
                 </div>
@@ -120,6 +124,7 @@ export default function DateTile({
                 <div className="date-tile_date">
                     <div className="date-tile_day date-tile_day--wide">{eDate}</div>
                     <div className="date-tile_month date-tile_month--wide">
+                        {/* eslint-disable-next-line */}
                         {(months as any)[lang][eMonth]}
                     </div>
                 </div>
