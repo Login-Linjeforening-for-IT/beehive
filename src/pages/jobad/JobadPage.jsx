@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { config } from "../../Constants";
 
@@ -48,11 +48,13 @@ function deadlineWarning(deadline) {
   return diff < oneDay && diff > 0;
 }
 
-const JobadPage = ({ t, i18n }) => {
-  const { id } = useParams();
+const JobadPage = () => {
+  
+  const { t, i18n } = useTranslation('jobadPage')
   const useEng = i18n.language === "en";
   const lang = useEng ? 'en' : 'no';
   const tr = Translator.getTranslation(useEng);
+  const { id } = useParams();
 
   const [useFallbackImg, setUseFallbackImg] = useState(false);
   const [showBannerImg, setShowBannerImg] = useState(false);
@@ -232,4 +234,4 @@ const JobadPage = ({ t, i18n }) => {
   );
 };
 
-export default withTranslation("jobadPage")(JobadPage);
+export default JobadPage;

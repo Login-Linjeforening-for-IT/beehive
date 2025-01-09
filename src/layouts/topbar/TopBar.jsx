@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
 import ThemeToggle from '../../components/themetoggle/ThemeToggle'
@@ -25,6 +26,7 @@ const TopBar = () => {
                 <ThemeToggle/>
                 <LangToggle/>
                 {/* TODO */}
+                {/* consider using a material symbols icon instead for consistency */}
                 {/* <div className='topbar_profile'>
                     <NavLink to='profile'>
                         <picture>

@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import {withTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { config } from '../../Constants';
 
 import Button from '../../components/button/Button';
 
 import './NotFoundPage.css';
 
-const NotFoundPage = ({t}) => {
+const NotFoundPage = () => {
 
+  const { t } = useTranslation('notfound');
   const navigate = useNavigate();
 
 	return (
@@ -29,4 +30,4 @@ const NotFoundPage = ({t}) => {
 	)
 }
 
-export default withTranslation('notfound')(NotFoundPage)
+export default NotFoundPage;

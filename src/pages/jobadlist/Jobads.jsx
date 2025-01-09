@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import Spinner from "../../components/spinner/Spinner";
 import JobadsListItem from "../../components/jobad/JobadsListItem";
@@ -98,8 +98,9 @@ const getSkillFilters = async () => {
   }
 }
 
-const Jobads = ({ t }) => {
+const Jobads = () => {
 
+  const { t } = useTranslation('jobadListPage');
   const [ jobads, setJobads ] = useState([]);
   const [ filterData, setFilterData ] = useState({});
   const [ loading, setLoading ] = useState(true);
@@ -227,4 +228,4 @@ const Jobads = ({ t }) => {
   );
 };
 
-export default withTranslation('jobadListPage')(Jobads);
+export default Jobads;

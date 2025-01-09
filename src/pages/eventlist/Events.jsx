@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import EventListItem from "../../components/event/EventItem.jsx";
 import Spinner from "../../components/spinner/Spinner";
@@ -103,7 +103,10 @@ function groupEvents(eventsArray) {
   };
 }
 
-const Events = ({ t }) => {
+const Events = () => {
+
+  const { t } = useTranslation("eventListPage");
+
   const [events, setEvents] = useState([]);
   const [filterData, setFilterData] = useState({});
   const [showLoadMore, setShowLoadMore] = useState(false);
@@ -299,7 +302,7 @@ const Events = ({ t }) => {
                   {groupedEvents.currentWeekEvents &&
                     groupedEvents.currentWeekEvents.length > 0 && (
                       <>
-                        <div className="event-list-separator event-list-seperator--first">
+                        <div className="event-list-separator event-list-separator--first">
                           <p className="event-list-separator__text">
                             {t("this-week")}
                           </p>
@@ -402,4 +405,4 @@ const Events = ({ t }) => {
   );
 };
 
-export default withTranslation("eventListPage")(Events);
+export default Events;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { withTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 import { config } from "../../Constants";
 
 import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg'
@@ -13,8 +13,9 @@ import RenderSmoothImage from '../images/rendersmoothimage/RenderSmoothImage';
 import './JobadCard.css'
 
 
-const JobadCard = ({ i18n, jobad, disableTags=false }) => {
+const JobadCard = ({ jobad, disableTags=false }) => {
 
+  const { i18n } = useTranslation()
   const useEng = i18n.language === 'en';
   const tr = Translator.getTranslation(useEng);
 
@@ -63,4 +64,4 @@ const JobadCard = ({ i18n, jobad, disableTags=false }) => {
   )
 }
 
-export default withTranslation('jobadListPage')(JobadCard);
+export default JobadCard;

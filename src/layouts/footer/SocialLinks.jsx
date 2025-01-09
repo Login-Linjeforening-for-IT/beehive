@@ -43,7 +43,7 @@ const SocialLinks = () => {
       <a
         className="footer-social-links__link"
         title="Gitlab"
-        href="https://git.logntnu.no/"
+        href="https://gitlab.login.no/tekkom"
         target="_blank"
         rel="noreferrer"
       >
