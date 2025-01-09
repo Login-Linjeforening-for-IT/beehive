@@ -1,8 +1,11 @@
-import {withTranslation} from "react-i18next";
+import {useTranslation} from "react-i18next";
 import MazeMapEmbed from '../mazemap/MazeMapEmbed';
 import './Contact.css';
 
-const Contact = ({t}) => {
+const Contact = () => {
+
+  const { t } = useTranslation('contact');
+
   return(
     <div className='contact-card'>
       <h2 className='heading-2 heading-2--icon'>
@@ -41,4 +44,4 @@ const Contact = ({t}) => {
   )
 }
 
-export default withTranslation('contact')(Contact);
+export default Contact;

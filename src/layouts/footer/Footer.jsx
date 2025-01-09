@@ -1,4 +1,4 @@
-import React, { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { config } from "../../Constants";
 import SocialLinks from "./SocialLinks";
 
@@ -7,7 +7,9 @@ import "./Footer.css";
 
 var version = process.env.REACT_APP_FRONTEND_VERSION;
 
-const Footer = ({ t }) => {
+const Footer = () => {
+
+  const { t } = useTranslation("layout");
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
 
@@ -93,4 +95,4 @@ const Footer = ({ t }) => {
   );
 };
 
-export default withTranslation("layout")(Footer);
+export default Footer;

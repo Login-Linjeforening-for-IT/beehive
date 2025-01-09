@@ -1,4 +1,4 @@
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { isNew } from "../../utils/DatetimeFormatter";
 
 import Tag from "./Tag";
@@ -7,13 +7,15 @@ import "./Tags.css";
 
 
 const Tags = ({
-  t,
   highlight = false,
   timePublish = 0,
   canceled = false,
   full = false,
   ongoing = false
 }) => {
+
+  const { t } = useTranslation('tags');
+
   return (
     <>
       {canceled && <Tag variant="danger">{t("canceled")}</Tag>}
@@ -25,4 +27,4 @@ const Tags = ({
   );
 };
 
-export default withTranslation("tags")(Tags);
+export default Tags;

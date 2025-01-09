@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { config } from "../../Constants";
 
@@ -68,12 +68,14 @@ const link = (href, name) => {
   )
 }
 
-const EventPage = ({ t, i18n }) => {
-  const { id } = useParams();
+const EventPage = () => {
+
+  const { t, i18n } = useTranslation("eventPage");
   const useEng = i18n.language === "en";
   const lang = useEng ? 'en' : 'no';
   const tr = Translator.getTranslation(useEng);
 
+  const { id } = useParams();
   const [useFallbackBanner, setUseFallbackBanner] = useState(false);
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -99,7 +101,7 @@ const EventPage = ({ t, i18n }) => {
   }, [id]);
 
   const eventBanner = useMemo(() => {
-    if (useFallbackBanner || !event) {
+    if (useFallbackBanner || !event || !event?.event?.image_banner) {
       return getDefaultBanner(event?.category?.name_no, event?.category?.color);
     }
     return (
@@ -136,7 +138,7 @@ const EventPage = ({ t, i18n }) => {
                       new Date(event.event.time_start),
                       new Date(event.event.time_end)
                     ) && 
-                      <span class="event-datetime-display__live-dot"></span>
+                      <span className="event-datetime-display__live-dot"></span>
                     }
                     {DatetimeFormatter.formatEventStatusDate(
                       new Date(event.event.time_start),
@@ -261,4 +263,4 @@ const EventPage = ({ t, i18n }) => {
   );
 };
 
-export default withTranslation("eventPage")(EventPage);
+export default EventPage;

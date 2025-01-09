@@ -1,9 +1,12 @@
-import {withTranslation} from "react-i18next";
+import {useTranslation} from "react-i18next";
 import Contact from "../../components/contact/Contact";
 import "./Policy.css";
 
 
-const Policy = ({t}) => {
+const Policy = () => {
+
+  const { t } = useTranslation('policy');
+
   return (
     <div className='page-container'>
       <div className='page-section--normal'>
@@ -66,4 +69,4 @@ const Policy = ({t}) => {
   );
 }
 
-export default withTranslation('policy')(Policy);
+export default Policy;

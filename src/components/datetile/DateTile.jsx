@@ -1,16 +1,18 @@
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import * as ColorManipulation from "../../utils/ColorManipulation.js";
 
 import "./DateTile.css";
 
 const DateTile = ({
-  i18n,
   startDate,
   endDate,
   color,
   varient = "regular",
   useDayText = false,
 }) => {
+
+  const { i18n } = useTranslation();
+  const lang = i18n.language === "en" ? "en" : "no";
 
   const sTime = new Date(startDate);
   const eTime = new Date(endDate);
@@ -20,8 +22,6 @@ const DateTile = ({
 
   const sMonth = sTime.getMonth();
   const eMonth = eTime.getMonth();
-
-  const lang = i18n.language === "en" ? "en" : "no";
 
   const months = {
     en: [
@@ -131,4 +131,4 @@ const DateTile = ({
   }
 };
 
-export default withTranslation()(DateTile);
+export default DateTile;

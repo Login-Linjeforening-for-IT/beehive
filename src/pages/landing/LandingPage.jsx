@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { config } from "../../Constants";
 import ThemeContext from "../../context/ThemeContext";
@@ -17,7 +17,9 @@ import HeroSection from "./HeroSection";
 import "./LandingPage.css";
 
 
-const SmallInfo = ({ t }) => {
+const SmallInfo = () => {
+
+  const { t } = useTranslation('landingPage');
   const value = useContext(ThemeContext);
 
   const getSponsorPath = () => {
@@ -114,7 +116,10 @@ const EndCard = ({ t, path }) => {
   );
 };
 
-const EventsPreview = ({ t }) => {
+const EventsPreview = () => {
+
+  const { t } = useTranslation('landingPage');
+
   const [events, setEvents] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -137,6 +142,10 @@ const EventsPreview = ({ t }) => {
       }
     })();
   }, []);
+
+  if (!loading && (!events || events.length === 0)) {
+    return null;
+  }
 
   return (
     <>
@@ -190,7 +199,10 @@ const EventsPreview = ({ t }) => {
   );
 };
 
-const JobadsPreview = ({ t }) => {
+const JobadsPreview = () => {
+
+  const { t } = useTranslation('landingPage');
+
   const [jobads, setJobads] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -213,6 +225,10 @@ const JobadsPreview = ({ t }) => {
       }
     })();
   }, []);
+
+  if (!loading && (!jobads || jobads.length === 0)) {
+    return null;
+  }
 
   return (
     <>
@@ -266,15 +282,15 @@ const JobadsPreview = ({ t }) => {
   );
 };
 
-const LandingPage = ({ t }) => {
+const LandingPage = () => {
   return (
     <div>
       <HeroSection />
-      <EventsPreview t={t} />
-      <JobadsPreview t={t} />
-      <SmallInfo t={t} />
+      <EventsPreview />
+      <JobadsPreview />
+      <SmallInfo />
     </div>
   );
 };
 
-export default withTranslation("landingPage")(LandingPage);
+export default LandingPage;

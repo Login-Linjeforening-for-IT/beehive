@@ -1,9 +1,12 @@
 import React, { useCallback, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 
-const Navigation = ({ t }) => {
+const Navigation = () => {
+
+  const { t } = useTranslation('layout');
+
   const navItemRefs = useRef([
     React.createRef(),
     React.createRef(),
@@ -13,7 +16,7 @@ const Navigation = ({ t }) => {
   // each dropdown item will unfocus (blur) whenever it is clicked.
   // this prevents it from staying visble after removing the mouse.
   // this allows for showing the dropdown on focus and hover without
-  // being focused anfter clicking it. Accessibility smooth as hell
+  // being focused after clicking it. Accessibility smooth as hell
   const handleClick = useCallback(() => {
     navItemRefs.current.forEach((ref) => {
       if (ref.current) {
@@ -73,7 +76,7 @@ const Navigation = ({ t }) => {
                 onClick={handleClick}
               >
                 <li className="main-nav-dropdown__item link--corner-hover">
-                  <i class="fund-section__header-icon material-symbols-sharp main-nav-dropdown__leading-icon">
+                  <i className="fund-section__header-icon material-symbols-sharp main-nav-dropdown__leading-icon">
                     corporate_fare
                   </i>
                   {t("nav.fondet")}
@@ -105,4 +108,4 @@ const Navigation = ({ t }) => {
   );
 };
 
-export default withTranslation("layout")(Navigation);
+export default Navigation;

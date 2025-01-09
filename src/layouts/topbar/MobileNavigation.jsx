@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 
-const MobileNavigation = ({ t, open, setIsOpen }) => {
+const MobileNavigation = ({ open, setIsOpen }) => {
+
+  const { t } = useTranslation('layout');
+  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
@@ -82,4 +85,4 @@ const MobileNavigation = ({ t, open, setIsOpen }) => {
   );
 };
 
-export default withTranslation("layout")(MobileNavigation);
+export default MobileNavigation;

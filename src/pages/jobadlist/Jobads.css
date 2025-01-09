@@ -71,7 +71,7 @@
     height: 2rem;
     position: absolute;
     border-width: .7rem;
-    border-color: var(--color-border-default);
+    border-color: var(--color-border-light);
     border-style: none solid solid none;
     bottom: 0;
     right: 0;
@@ -79,16 +79,16 @@
   }
 
   .jobads__filter-container:before {
-      content: '';
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      border-width: .7rem;
-      border-color: var(--color-border-default);
-      border-style: solid solid none none;
-      top: 0;
-      right: 0;
-      transition: .1s;
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    border-width: .7rem;
+    border-color: var(--color-border-light);
+    border-style: solid solid none none;
+    top: 0;
+    right: 0;
+    transition: .1s;
   }
 
   .jobads__list {
