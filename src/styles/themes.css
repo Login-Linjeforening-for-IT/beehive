@@ -40,8 +40,8 @@
 
     /* Border Colors */
     --color-border-default: var(--color-grey-800);
-    --color-border-light: var(--color-grey-700);
-    --color-border-strong: var(--color-grey-900);
+    --color-border-light: var(--color-grey-850);
+    --color-border-strong: var(--color-grey-700);
   
 
     /* Buttons */
@@ -65,7 +65,7 @@
 
 
     /* Form Element Colors */
-    --color-checkbox-outline: var(--color-grey-600);
+    --color-checkbox-outline: var(--color-grey-700);
     --color-checkbox-bg-hover: var(--color-grey-800);
 
     --color-checktag-bg: var(--color-grey-800);
@@ -172,7 +172,7 @@
     
     /* Border Colors */
     --color-border-default: var(--color-grey-500);
-    --color-border-light: var(--color-grey-300);
+    --color-border-light: var(--color-grey-400);
     --color-border-strong: var(--color-grey-600);
   
 
@@ -198,7 +198,7 @@
 
     /* Form Element Colors */
     --color-checkbox-outline: var(--color-grey-600);
-    --color-checkbox-bg-hover: var(--color-grey-300);
+    --color-checkbox-bg-hover: var(--color-grey-400);
 
     --color-checktag-bg: var(--color-grey-400);
     --color-checktag-text: var(--color-black);

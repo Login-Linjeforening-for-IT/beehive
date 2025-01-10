@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { config } from '../../Constants';
 import board from '../../assets/boardmembers/boardmembers.json';
@@ -20,11 +20,11 @@ import '../../components/tabs/Tabs.css';
 import './CommitteeTabs.css';
 
 
+const CommitteeTabs = () => {
 
-const CommitteeTabs = ({t, i18n}) => {
-
-  const [activeTab, setActiveTab] = useState('styret')
+  const { t, i18n } = useTranslation('aboutPage');
   const useEng = i18n.language === "en";
+  const [activeTab, setActiveTab] = useState('styret');
 
   return (
     <div className='about-section tabs committees page-section--without-gaps'>
@@ -169,5 +169,4 @@ const CommitteeTabs = ({t, i18n}) => {
   )
 }
 
-
-export default withTranslation('aboutPage')(CommitteeTabs)
+export default CommitteeTabs;
