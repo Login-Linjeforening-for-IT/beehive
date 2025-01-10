@@ -1,4 +1,4 @@
-import { withTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next"
 import { config } from '../../Constants'
 import LogChamp from '../../components/logchamp/LogChamp'
 import board from '../../assets/boardmembers/fundBoardMembers.json'
@@ -7,8 +7,9 @@ import DecoratedPicture from '../../components/images/decoratedpicture/Decorated
 
 import './Fund.css'
 
-const Fund = ({t, i18n}) => {
+const Fund = () => {
 
+    const { t, i18n } = useTranslation('fundPage');
     const useEng = i18n.language === 'en';
 
     return (
@@ -31,14 +32,14 @@ const Fund = ({t, i18n}) => {
             </section>
             <section className='page-section--normal fund-section'>
                 <div className='fund-section__container fund-section__container--grid'>
-                    <div class='fund-section__container--grid-item'>
+                    <div className='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>show_chart</i>
                             <span>{t('purpose.title')}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: t('purpose.body')}}/>
                     </div>
-                    <div class='fund-section__container--grid-item'>
+                    <div className='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>groups</i>
                             <span>{t('meeting.title')}</span>
@@ -47,14 +48,14 @@ const Fund = ({t, i18n}) => {
                     </div>
                     </div>
                     <div className='fund-section__container fund-section__container--grid'>
-                    <div class='fund-section__container--grid-item'>
+                    <div className='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>diversity_1</i>
                             <span>{t('application.title')}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: t('application.body')}}/>
                     </div>
-                    <div class='fund-section__container--grid-item'>
+                    <div className='fund-section__container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
                             <i className='heading-2__icon material-symbols-sharp'>monitoring</i>
                             <span>{t('yield.title')}</span>
@@ -70,7 +71,7 @@ const Fund = ({t, i18n}) => {
                         <span>{t('board.title')}</span>
                     </h2>
                     <div className='fund-board__intro'>
-                        <div class='fund-board__intro-text'>
+                        <div className='fund-board__intro-text'>
                             <p className='p--highlighted'>{t('board.intro')}</p>
                             <p className='p--regular' dangerouslySetInnerHTML={{__html: t('board.body')}}/>
                         </div>
@@ -88,9 +89,8 @@ const Fund = ({t, i18n}) => {
                     <h3 className='heading-3'>{t('board.composition.title')}</h3>
                     <div className='fund-board__members'>
                         {Object.keys(board).map(key => (
-                            <div>
+                            <div key={key}>
                                 <LogChamp
-                                    key={key}
                                     img={board[key].img == '' ? placholder : config.url.CDN_URL + '/img/fondet/' + board[key].img}
                                     name={board[key].name == '' ? t('board.composition.placeholder') : board[key].name}
                                     stilling={useEng ? board[key].title_en : board[key].title_no}
@@ -107,4 +107,4 @@ const Fund = ({t, i18n}) => {
 }
 
 
-export default withTranslation('fundPage')(Fund)
+export default Fund;

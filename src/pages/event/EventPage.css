@@ -228,7 +228,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-default);
+        border-color: var(--color-border-light);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -256,7 +256,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-default);
+        border-color: var(--color-border-light);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -269,7 +269,7 @@
         height: 2rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-default);
+        border-color: var(--color-border-light);
         border-style: none solid solid none;
         bottom: 0;
         right: 0;

@@ -1,4 +1,4 @@
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import ImageCarousel from "../../components/imagecarousel/ImageCarousel";
 import Button from "../../components/button/Button";
@@ -7,7 +7,9 @@ import VervTabs from "./VervTabs";
 import "./Verv.css";
 
 
-const Verv = ({ t }) => {
+const Verv = () => {
+
+  const { t } = useTranslation('vervPage');
   const slides = [];
 
   for (let i = 1; i <= 15; i++) {
@@ -61,4 +63,4 @@ const Verv = ({ t }) => {
   );
 };
 
-export default withTranslation("vervPage")(Verv);
+export default Verv;

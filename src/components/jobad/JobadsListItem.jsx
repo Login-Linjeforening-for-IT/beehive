@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import './JobadsListItem.css';
 import fallbackImg from '../../assets/img/placeholders/jobad-logo__placeholder.svg';
@@ -59,8 +59,9 @@ const formatCities = (cities) => {
 }
 
 
-const JobadsListItem = ({ i18n, jobad }) => {
+const JobadsListItem = ({ jobad }) => {
 
+  const { i18n } = useTranslation('jobadListPage');
   const useEng = i18n.language === 'en';
   const tr = Translator.getTranslation(useEng);
 
@@ -135,4 +136,4 @@ const JobadsListItem = ({ i18n, jobad }) => {
   )
 }
 
-export default withTranslation('jobadListPage')(JobadsListItem);
+export default JobadsListItem;

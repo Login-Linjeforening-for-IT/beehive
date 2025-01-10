@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import DateTile from "../datetile/DateTile";
 import Tags from "../tags/Tags";
@@ -35,12 +35,14 @@ const getDefaultBanner = (category, color) => {
 };
 
 
-const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant='list-item' }) => {
+const EventListItem = ({ event, highlight=true, disableTags=false, variant='list-item' }) => {
 
-  const [showImage, setShowImage] = useState(true);
+  const { i18n } = useTranslation();
   const lang = i18n.language == "en" ? "en" : "no";
   const useEng = lang === 'en';
   const tr = getTranslation(useEng);
+
+  const [showImage, setShowImage] = useState(true);
 
   const useTags = (publishTime, highlight, canceled, full, ongoing) => {
     if (disableTags) return false;
@@ -148,4 +150,4 @@ const EventListItem = ({ i18n, event, highlight=true, disableTags=false, variant
   );
 };
 
-export default withTranslation("eventListPage")(EventListItem);
+export default EventListItem;

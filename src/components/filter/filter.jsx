@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import Button from "../button/Button";
 import CheckBox from "../checkbox/Checkbox"
 import CheckTag from "../checktag/Checktag"
@@ -17,8 +17,9 @@ const getFilterItemOnSelect = (onSelect, filterID) => {
     }
 }
 
-const Filter = withTranslation()(({ i18n, label, filter, showCount, onSelect, type, resetTrigger }) => {
+const Filter = (({ label, filter, showCount, onSelect, type, resetTrigger }) => {
 
+    const { i18n } = useTranslation();
     const lang = i18n.language === "en" ? "en" : "no";
 
     return (
@@ -42,7 +43,9 @@ const Filter = withTranslation()(({ i18n, label, filter, showCount, onSelect, ty
     );
 })
 
-const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, resetTrigger, type }) => {
+const FilterItem = (({ filter, showCount, onSelect, resetTrigger, type }) => {
+
+    const { i18n } = useTranslation();
     const lang = i18n.language === "en" ? "en" : "no";
     const [ checked, setChecked ] = useState(false);
 
@@ -76,7 +79,10 @@ const FilterItem = withTranslation()(({ i18n, filter, showCount, onSelect, reset
     )
 });
 
-const FilterGroup = ({ t, filters, onApply, close = false }) => {
+const FilterGroup = ({ filters, onApply, close = false }) => {
+
+    const { t } = useTranslation('filter');
+
     const selectedFilters = useRef({});
     const [ resetTrigger, setResetTrigger ] = useState(false);
 
@@ -155,4 +161,4 @@ const FilterGroup = ({ t, filters, onApply, close = false }) => {
     );
 }
 
-export default withTranslation("filter")(FilterGroup);
+export default FilterGroup;

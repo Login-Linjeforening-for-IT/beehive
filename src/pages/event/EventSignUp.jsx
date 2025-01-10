@@ -1,4 +1,4 @@
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import * as DatetimeFormatter from "../../utils/DatetimeFormatter";
 
@@ -9,8 +9,6 @@ import "./EventSignUp.css";
 
 
 const EventSignUp = ({
-  t,
-  i18n,
   url,
   full,
   canceled = false,
@@ -18,8 +16,10 @@ const EventSignUp = ({
   signupRelease,
   signupDeadline,
 }) => {
-  const now = new Date();
+
+  const { t, i18n } = useTranslation("eventPage");
   const lang = i18n.language == "en" ? "en" : "no";
+  const now = new Date();
 
   let msg = "";
   let reqSignup = true;
@@ -139,7 +139,7 @@ const EventSignUp = ({
   );
 };
 
-export default withTranslation("eventPage")(EventSignUp);
+export default EventSignUp;
 
 // Oversikt:
 

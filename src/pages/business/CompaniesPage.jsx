@@ -1,9 +1,12 @@
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import Contact from "../../components/contact/Contact";
 import "./CompaniesPage.css";
 
 
-const CompaniesPage = ({ t }) => {
+const CompaniesPage = () => {
+
+  const { t } = useTranslation("companiesPage");
+
   return (
     <div className="page-container">
       <div className="page-section--normal">
@@ -78,4 +81,4 @@ const CompaniesPage = ({ t }) => {
   );
 };
 
-export default withTranslation("companiesPage")(CompaniesPage);
+export default CompaniesPage;

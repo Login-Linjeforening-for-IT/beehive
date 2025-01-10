@@ -1,10 +1,12 @@
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import {useEffect, useState} from 'react'
 
 import './LangToggle.css'
 
-const LangToggle = ({i18n}) => {
-  const [buttonText, setButtonText] = useState('')
+const LangToggle = () => {
+
+  const { i18n } = useTranslation();
+  const [buttonText, setButtonText] = useState('');
   const [jump, setJump] = useState(false);
   
   useEffect( () => {
@@ -32,4 +34,4 @@ const LangToggle = ({i18n}) => {
   )
 }
 
-export default withTranslation()(LangToggle)
+export default LangToggle;

@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import LoginLogo from "../../components/svg/brandlogos/LoginLogo";
 import Button from "../../components/button/Button";
 
 import "./HeroSection.css";
 
-const HeroSection = ({ t }) => {
+const HeroSection = () => {
 
+  const { t } = useTranslation('landingPage');
   const navigate = useNavigate();
 
   return (
@@ -46,4 +47,4 @@ const HeroSection = ({ t }) => {
   );
 };
 
-export default withTranslation("landingPage")(HeroSection);
+export default HeroSection;

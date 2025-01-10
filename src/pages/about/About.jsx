@@ -1,4 +1,4 @@
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { config } from "../../Constants";
 
 import CommitteeTabs from "./CommitteeTabs";
@@ -9,7 +9,10 @@ import Contact from "../../components/contact/Contact";
 import "./About.css";
 
 
-const About = ({ t }) => {
+const About = () => {
+
+  const { t } = useTranslation("aboutPage");
+
   return (
     <div className="page-container">
       <h1 className="page-section--normal heading-1 heading-1--top-left-corner">
@@ -76,4 +79,4 @@ const About = ({ t }) => {
   );
 };
 
-export default withTranslation("aboutPage")(About);
+export default About;

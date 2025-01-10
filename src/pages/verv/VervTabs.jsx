@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import TabNavItem from "../../components/tabs/TabNavItem";
 import TabContent from "../../components/tabs/TabContent";
@@ -19,9 +19,12 @@ import "../../components/tabs/Tabs.css";
 import "../about/CommitteeTabs.css";
 
 
-const VervTabs = ({ t, i18n }) => {
-  const [activeTab, setActiveTab] = useState("event");
+const VervTabs = () => {
+
+  const { t, i18n } = useTranslation('vervPage');
   const useEng = i18n.language === "en";
+
+  const [activeTab, setActiveTab] = useState("event");
 
   return (
     <div className="tabs committees page-section--without-gaps">
@@ -232,4 +235,4 @@ const VervTabs = ({ t, i18n }) => {
   );
 };
 
-export default withTranslation("vervPage")(VervTabs);
+export default VervTabs;

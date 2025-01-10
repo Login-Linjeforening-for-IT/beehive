@@ -1,5 +1,5 @@
 //
-// This page is a work in progress ( not is use )
+// This page is a work in progress ( not in use )
 //
 
 import {withTranslation} from 'react-i18next';

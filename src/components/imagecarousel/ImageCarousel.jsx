@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { withTranslation } from 'react-i18next';
 import "./ImageCarousel.css";
 import RenderSmoothImage from "../images/rendersmoothimage/RenderSmoothImage";
 
@@ -141,4 +140,4 @@ const ImageCarousel = ({ slides }) => {
     );
 };
 
-export default withTranslation('vervPage')(ImageCarousel);
+export default ImageCarousel;
