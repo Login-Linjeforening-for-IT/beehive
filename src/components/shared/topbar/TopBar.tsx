@@ -8,7 +8,7 @@ import LoginLogoSmall from '@components/svg/brandlogos/LoginLogoSmall'
 import LangToggle from '@components/shared/langtoggle/LangToggle'
 import Link from 'next/link'
 import './TopBar.css'
-import ThemeToggle from '../themetoggle/ThemeToggle'
+import ThemeToggle from '../themetoggle/themeToggle'
 
 export default function TopBar() {
     const [isOpen, setIsOpen] = useState(false)
