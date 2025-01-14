@@ -6,13 +6,9 @@ import LangSlice from './langContext'
 
 const AppContext = createContext({
     theme: 'dark',
-    switchTheme: () => {
-        console.log("called fake")
-    },
+    switchTheme: () => {},
     lang: 'no',
-    switchLang: () => {
-        console.log("called fake")
-    },
+    switchLang: () => {},
 })
 
 export function Provider({ children }: { children: React.ReactNode }) {
