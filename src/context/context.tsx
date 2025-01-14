@@ -1,12 +1,14 @@
 'use client'
 
 import { createContext } from 'react'
-import ThemeSlice from '../components/shared/themetoggle/themeToggle'
+import ThemeSlice from './themeContext'
 import LangSlice from './langContext'
 
 const AppContext = createContext({
     theme: 'dark',
-    switchTheme: () => {},
+    switchTheme: () => {
+        console.log("called fake")
+    },
     lang: 'no',
     switchLang: () => {
         console.log("called fake")
@@ -14,9 +16,7 @@ const AppContext = createContext({
 })
 
 export function Provider({ children }: { children: React.ReactNode }) {
-    // const { theme, switchTheme } = ThemeSlice()
-    const theme = "dark"
-    const switchTheme = () => ({})
+    const { theme, switchTheme } = ThemeSlice()
     const { lang, switchLang } = LangSlice()
 
     return (
