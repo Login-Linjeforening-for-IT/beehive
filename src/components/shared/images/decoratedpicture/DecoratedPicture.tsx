@@ -15,7 +15,6 @@ type DecoratedPictureProps = {
 }
 
 function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
-    return <></>
     const [isLoaded, setIsLoaded] = useState(false)
     const maskID = `mask-${variant}-${width}-${height}`
 
@@ -159,12 +158,14 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                     />
                 )}
                 <NextImage
-                    fill={true}
                     // @ts-ignore
                     clipPath={`url(#${maskID})`}
                     className={`decor-pic_img decor-pic_img--${isLoaded ? 'visible' : 'hidden'}`}
-                    href={imgUrl}
+                    src={imgUrl}
+                    alt='image'
                     {...(cover ? { preserveAspectRatio: 'xMidYMid slice' } : {})}
+                    width={200}
+                    height={200}
                 />
             </svg>
         </picture>
