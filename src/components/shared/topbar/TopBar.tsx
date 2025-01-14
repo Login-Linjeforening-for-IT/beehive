@@ -9,6 +9,7 @@ import LangToggle from '@components/shared/langtoggle/LangToggle'
 import Link from 'next/link'
 import './TopBar.css'
 import ThemeToggle from '../themetoggle/themeToggle'
+import { ThemeProvider } from "@context/themeContext";
 
 export default function TopBar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -25,7 +26,9 @@ export default function TopBar() {
             </div>
             <Navigation />
             <nav className='topbar_toggle'>
-                <ThemeToggle />
+                <ThemeProvider>
+                    <ThemeToggle />
+                </ThemeProvider>
                 <LangToggle />
                 {/* TODO */}
                 {/* <div className='topbar_profile'>
