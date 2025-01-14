@@ -17,7 +17,9 @@ export default function RootLayout({children}: {children: ReactNode}) {
     return (
         <html lang="en" className='w-[100vw]'>
             <body className='w-full'>
-                <TopBar/>
+                <header className="main-header">
+                    <TopBar/>
+                </header>
                 <main className='w-full'>
                     {children}
                 </main>
