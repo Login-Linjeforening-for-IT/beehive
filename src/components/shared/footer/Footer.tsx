@@ -31,8 +31,8 @@ export default function Footer() {
                             src={`${config.url.CDN_URL}/img/logo/logo-tekst-white.svg`}
                             className="footer-content_logo-image"
                             alt="Login - Linjeforeningen for IT"
-                            width={0}
-                            height={0}
+                            width={800}
+                            height={200}
                         />
                     </picture>
                 </div>
@@ -43,8 +43,8 @@ export default function Footer() {
                                 src={`${config.url.CDN_URL}/img/company/mnemonic-logo_light-nopayoff-2021.svg`}
                                 className="footer-content_logo-image"
                                 alt="mnemonic"
-                                width={0}
-                                height={0}
+                                width={800}
+                                height={200}
                             />
                         </picture>
                     </a>
