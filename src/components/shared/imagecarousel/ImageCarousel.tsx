@@ -16,16 +16,14 @@ function NavigationButton({ side, onClick }: {side:string, onClick: React.MouseE
 
 type SlideItemProps = {
     image: string
-    index: number
     className: string
     title: string
     description: string
 }
 
-function SlideItem({ image, index, className, title, description }: SlideItemProps) {
+function SlideItem({ image, className, title, description }: SlideItemProps) {
     return (
         <div
-            key={index}
             className={`image-carousel_slide ${className}`}
         >
             <div className="image-carousel_image-overlay">
@@ -45,10 +43,9 @@ function SlideItem({ image, index, className, title, description }: SlideItemPro
     )
 }
 
-function DotIndicator({ index, isActive }: {index: number, isActive: boolean}) {
+function DotIndicator({ isActive }: {isActive: boolean}) {
     return (
         <div
-            key={index}
             className={`image-carousel_dot-container ${isActive ? 'image-carousel_dot-container--active' : ''}`}
         >
             <div className='image-carousel_dot'></div>
@@ -144,7 +141,6 @@ export default function ImageCarousel({ slides }: {slides: []}) {
                     <SlideItem
                         key={index}
                         image={slides.imgSrc}
-                        index={index}
                         className={getClassName(index)}
                         title={slides.title}
                         description={slides.description}
@@ -156,10 +152,9 @@ export default function ImageCarousel({ slides }: {slides: []}) {
                 />
             </div>
             <div className="image-carousel_dots">
-                {slides.map((index: number) => (
+                {slides.map((_, index: number) => (
                     <DotIndicator
                         key={index}
-                        index={index}
                         isActive={index === activeIndex}
                     />
                 ))}

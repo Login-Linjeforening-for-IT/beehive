@@ -34,36 +34,42 @@ export default function VervTabs() {
         <div className="tabs committees page-section--without-gaps">
             <ul className="tabs_nav">
                 <TabNavItem
+                    key="event"
                     title={<EventkomLogo />}
                     id="event"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
+                    key="tek"
                     title={<TekkomLogo />}
                     id="tek"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
+                    key="bedkom"
                     title={<BedkomLogo />}
                     id="bedkom"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
+                    key="ctf"
                     title={<CtfkomLogo />}
                     id="ctf"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
+                    key="sat"
                     title={<SatkomLogo />}
                     id="sat"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
+                    key="pr"
                     title={<PrLogo />}
                     id="pr"
                     activeTab={activeTab}
