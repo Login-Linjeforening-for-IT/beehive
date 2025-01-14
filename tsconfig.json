@@ -27,6 +27,7 @@
         "@img/*": ["./public/img/*"],
         "@app/*": ["./src/app/*"],
         "@text/*": ["./public/text/*"],
+        "@assets/*": ["./public/assets/*"],
         "@themes/*": ["./src/themes/*"],
         "@utils/*": ["./src/utils/*"],
         "@interfaces": ["./interfaces.ts"],
