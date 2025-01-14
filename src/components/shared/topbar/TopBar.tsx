@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
-import ThemeToggle from '@components/shared/themetoggle/ThemeToggle'
 import LoginLogoSmall from '@components/svg/brandlogos/LoginLogoSmall'
 // import ProfileSVG from '@components/svg/profilesvg'
 import LangToggle from '@components/shared/langtoggle/LangToggle'
 import Link from 'next/link'
 import './TopBar.css'
+import ThemeToggle from '../themetoggle/ThemeToggle'
 
 export default function TopBar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -25,8 +25,8 @@ export default function TopBar() {
             </div>
             <Navigation />
             <nav className='topbar_toggle'>
-                <ThemeToggle/>
-                <LangToggle/>
+                <ThemeToggle />
+                <LangToggle />
                 {/* TODO */}
                 {/* <div className='topbar_profile'>
                     <Link href='/profile'>
