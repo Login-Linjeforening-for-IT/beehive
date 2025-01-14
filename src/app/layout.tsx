@@ -3,8 +3,7 @@ import type { Metadata } from 'next'
 import TopBar from '@components/shared/topbar/TopBar'
 import Footer from '@components/shared/footer/Footer'
 import './globals.css'
-import '../styles/colors.css'
-import '../styles/themes.css'
+import './globals.css'
 
 export const metadata: Metadata = {
     title: 'Login',

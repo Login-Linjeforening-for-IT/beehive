@@ -266,6 +266,7 @@
     pointer-events: none;
     transition: opacity .2s ease-in-out, transform .2s ease-in-out;
     transform: translateY(-1rem);
+    z-index: 1;
   }
 
   .main-nav-dropdown_toggle:hover .main-nav-dropdown_wrapper,

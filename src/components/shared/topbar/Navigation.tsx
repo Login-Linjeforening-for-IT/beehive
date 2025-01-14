@@ -3,6 +3,7 @@ import Link from 'next/link'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import AppContext from '@context/context'
+import ArrowDown from '@components/svg/symbols/ArrowDown'
 
 export default function Navigation() {
     const { lang } = useContext(AppContext)
@@ -47,11 +48,9 @@ export default function Navigation() {
             </Link>
             <div className="main-nav-dropdown">
                 <div className="main-nav-dropdown_toggle" tabIndex={0}>
-                    <div className="main-nav_item">
+                    <div className="flex flex-row items-center main-nav_item">
                         {text.nav.about}
-                        <i className="material-symbols-sharp main-nav-dropdown_toggle-arrow">
-                            expand_more
-                        </i>
+                        <ArrowDown size="1.5rem" fill="white"/>
                     </div>
                     <div className="main-nav-dropdown_wrapper">
                         <ul className="main-nav-dropdown_items">
