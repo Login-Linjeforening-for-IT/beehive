@@ -32,9 +32,11 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                             transition={false}
                         />
                     ) : (
-                        <Image className='jobad-card_img'
+                        <Image
+                            className='jobad-card_img'
                             alt={jobad.organization_logo}
                             src="@assets/img/placeholders/jobad.svg"
+                            fill={true}
                         />
                     )}
                 </picture>

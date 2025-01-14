@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import AppContext from '@context/context'
+import Image from 'next/image'
 
 export default function ProfileSVG() {
     const value = useContext(AppContext)
@@ -16,7 +17,7 @@ export default function ProfileSVG() {
         <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="22" height="22">
             <title>loginperson</title>
             <defs>
-                <image  width="22" height="22" id="profile" href={picColor()}/>
+                <Image width={22} height={22} id="profile" alt="profile" src={picColor()} />
             </defs>
             <style>
             </style>

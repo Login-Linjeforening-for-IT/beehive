@@ -100,9 +100,11 @@ export default function JobadsListItem({ jobad }: any) {
                                 transition={false}
                             />
                         ) : (
-                            <Image className='jobads-item_img'
+                            <Image 
+                                className='jobads-item_img'
                                 alt={jobad.organization_logo}
                                 src="@assets/img/placeholders/jobad.svg"
+                                fill={true}
                             />
                         )}
                     </picture>

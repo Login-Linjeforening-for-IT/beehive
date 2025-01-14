@@ -20,6 +20,8 @@ export default function RenderSmoothImage({ src, alt, className, onError, transi
             className={`smooth-image ${transition ? 'smooth-image--transition' : ''} smooth-image--${imageLoaded ? 'visible' : 'hidden'} ${className}`}
             onLoad={() => setImageLoaded(true)}
             onError={onError}
+            width={800}
+            height={200}
         />
     )
 }

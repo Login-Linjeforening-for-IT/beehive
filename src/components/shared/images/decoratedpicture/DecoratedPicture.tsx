@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import './DecoratedPicture.css'
+import { default as NextImage } from 'next/image'
 
 type DecoratedPictureProps = {
     imgUrl: string
@@ -14,6 +15,7 @@ type DecoratedPictureProps = {
 }
 
 function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
+    return <></>
     const [isLoaded, setIsLoaded] = useState(false)
     const maskID = `mask-${variant}-${width}-${height}`
 
@@ -156,9 +158,9 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                         className="decor-pic_img-placeholder"
                     />
                 )}
-                <image
-                    width={cover ? '100%' : width}
-                    height={cover ? '100%' : height}
+                <NextImage
+                    fill={true}
+                    // @ts-ignore
                     clipPath={`url(#${maskID})`}
                     className={`decor-pic_img decor-pic_img--${isLoaded ? 'visible' : 'hidden'}`}
                     href={imgUrl}

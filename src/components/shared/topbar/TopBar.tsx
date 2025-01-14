@@ -11,12 +11,10 @@ import Link from 'next/link'
 import './TopBar.css'
 
 export default function TopBar() {
-    if (typeof localStorage === 'undefined') {
-        return null
-    }
-
     const [isOpen, setIsOpen] = useState(false)
-    const toggle = () => setIsOpen(!isOpen)
+    function toggle() {
+        setIsOpen(!isOpen)
+    }
   
     return (
         <div className={`topbar ${isOpen ? 'topbar--open' : ''}`}>

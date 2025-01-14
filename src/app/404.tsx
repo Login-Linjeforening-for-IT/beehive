@@ -21,9 +21,10 @@ export default function NotFoundPage() {
     return (
         <div className='not-found'>
             <picture className='not-found_pic'>
-                <Image 
+                <Image
                     src={`${config.url.CDN_URL}/img/pizza404.png`} 
                     className='not-found_img' alt='Hangry 404'
+                    fill={true}
                 />
             </picture>
             <div className='not-found_text'>
