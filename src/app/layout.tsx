@@ -6,6 +6,7 @@ import '@assets/fonts/style.css'
 import '@assets/fonts/logfont/style.css'
 import './globals.css'
 import '@/styles/globals.css'
+import { Provider } from '@context/context'
 
 
 export const metadata: Metadata = {
@@ -17,13 +18,15 @@ export default function RootLayout({children}: {children: ReactNode}) {
     return (
         <html lang="en" className='w-[100vw]'>
             <body className='w-full'>
-                <header className="main-header">
-                    <TopBar/>
-                </header>
-                <main className='w-full'>
-                    {children}
-                </main>
-                <Footer/>
+                <Provider>
+                    <header className="main-header">
+                        <TopBar/>
+                    </header>
+                    <main className='w-full'>
+                        {children}
+                    </main>
+                    <Footer/>
+                </Provider>
             </body>
         </html>
     )

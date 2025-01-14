@@ -1,20 +1,13 @@
 'use client'
 
-import { createContext, useState, useEffect } from "react"
+import { useEffect, useState } from 'react'
 
-const COLOR_THEMES = {
+export const COLOR_THEMES = {
     LIGHT: "light",
     DARK: "dark",
 }
 
-// const storedTheme = localStorage?.getItem("theme") || COLOR_THEMES.DARK
-
-const ThemeContext = createContext({
-    theme: COLOR_THEMES.DARK,
-    switchTheme: () => {}
-})
-
-export function ThemeProvider({ children }: any) {
+export default function ThemeContext() {
     const [theme, setTheme] = useState(COLOR_THEMES.DARK)
 
     useEffect(() => {
@@ -28,11 +21,5 @@ export function ThemeProvider({ children }: any) {
         setTheme(newTheme)
     }
 
-    return (
-        <ThemeContext.Provider value={{ theme, switchTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    )
+    return { theme, switchTheme }
 }
-
-export default ThemeContext

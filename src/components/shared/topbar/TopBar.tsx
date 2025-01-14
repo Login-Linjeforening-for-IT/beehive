@@ -6,10 +6,9 @@ import MobileNavigation from './MobileNavigation'
 import LoginLogoSmall from '@components/svg/brandlogos/LoginLogoSmall'
 // import ProfileSVG from '@components/svg/profilesvg'
 import LangToggle from '@components/shared/langtoggle/LangToggle'
+import ThemeToggle from '../themetoggle/themeToggle'
 import Link from 'next/link'
 import './TopBar.css'
-import ThemeToggle from '../themetoggle/themeToggle'
-import { ThemeProvider } from "@context/themeContext";
 
 export default function TopBar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -26,9 +25,7 @@ export default function TopBar() {
             </div>
             <Navigation />
             <nav className='topbar_toggle'>
-                <ThemeProvider>
-                    <ThemeToggle />
-                </ThemeProvider>
+                <ThemeToggle />
                 <LangToggle />
                 {/* TODO */}
                 {/* <div className='topbar_profile'>

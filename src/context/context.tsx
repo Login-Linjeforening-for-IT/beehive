@@ -8,7 +8,9 @@ const AppContext = createContext({
     theme: 'dark',
     switchTheme: () => {},
     lang: 'no',
-    switchLang: () => {},
+    switchLang: () => {
+        console.log("called fake")
+    },
 })
 
 export function Provider({ children }: { children: React.ReactNode }) {

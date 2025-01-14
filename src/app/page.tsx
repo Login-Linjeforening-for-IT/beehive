@@ -14,16 +14,16 @@ import Link from 'next/link'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import './page.css'
-import AppContext, { Provider } from '@context/context'
+import AppContext from '@context/context'
 
 export default function Home() {
     return (
-        <Provider>
+        <>
             <HeroSection />
             <EventsPreview />
             <JobadsPreview />
             <SmallInfo />
-        </Provider>
+        </>
     )
 }
 
