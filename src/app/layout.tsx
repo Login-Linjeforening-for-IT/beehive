@@ -25,7 +25,9 @@ export default function RootLayout({children}: {children: ReactNode}) {
                     <main className='w-full'>
                         {children}
                     </main>
-                    <Footer/>
+                    <footer className="main-footer">
+                        <Footer/>
+                    </footer>
                 </Provider>
             </body>
         </html>
