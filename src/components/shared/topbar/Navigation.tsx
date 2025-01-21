@@ -4,6 +4,10 @@ import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import AppContext from '@context/context'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
+import Heart from '@components/svg/symbols/Heart'
+import Office from '@components/svg/symbols/Office'
+import Book from '@components/svg/symbols/Book'
+import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 
 export default function Navigation() {
     const { lang } = useContext(AppContext)
@@ -69,10 +73,8 @@ export default function Navigation() {
                                 ref={navItemRefs.current[1] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown_item link--corner-hover">
-                                    <i className="material-symbols-sharp main-nav-dropdown_leading-icon">
-                                        favorite
-                                    </i>
+                                <li className="flex flex-row items-center main-nav-dropdown_item link--corner-hover">
+                                    <Heart size="1.5rem" fill="white" className={'mr-[0.7rem]'} />
                                     {text.nav.verv}
                                 </li>
                             </Link>
@@ -81,10 +83,8 @@ export default function Navigation() {
                                 ref={navItemRefs.current[2] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown_item link--corner-hover">
-                                    <i className="fund-section_header-icon material-symbols-sharp main-nav-dropdown_leading-icon">
-                                        corporate_fare
-                                    </i>
+                                <li className="flex flex-row items-center main-nav-dropdown_item link--corner-hover">
+                                    <Office size="1.5rem" fill="white" className={'mr-[0.7rem]'} />
                                     {text.nav.fondet}
                                 </li>
                             </Link>
@@ -97,14 +97,10 @@ export default function Navigation() {
                                 ref={navItemRefs.current[3]}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown_item link--corner-hover">
-                                    <i className="material-symbols-sharp main-nav-dropdown_leading-icon">
-                                        import_contacts
-                                    </i>
+                                <li className="flex flex-row items-center main-nav-dropdown_item link--corner-hover">
+                                    <Book size="1.5rem" fill="white" className={'mr-[0.7rem]'} />
                                     Wiki
-                                    <i className="material-symbols-sharp wiki_arrow">
-                                        arrow_outward
-                                    </i>
+                                    <ArrowOutward size="1.5rem" fill="white" className=""/>
                                 </li>
                             </a>
                         </ul>

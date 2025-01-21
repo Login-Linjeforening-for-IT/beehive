@@ -5,6 +5,8 @@ import { SetStateAction, useContext, useEffect, useState } from 'react'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import AppContext from '@context/context'
+import ArrowDown from '@components/svg/symbols/ArrowDown'
+import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 
 export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
     const { lang } = useContext(AppContext)
@@ -44,11 +46,9 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                     onClick={toggleDropdown}
                     tabIndex={open ? 0 : -1}
                 >
-                    <li className="mobile-nav_item">
+                    <li className="flex flex-row items-center mobile-nav_item">
                         {text.nav.about}
-                        <i className="material-symbols-sharp mobile-nav-dropdown_toggle-arrow">
-                            expand_more
-                        </i>
+                        <ArrowDown size="1.5rem" fill="white"/>
                     </li>
                 </button>
                 <div className="mobile-nav-dropdown_items">
@@ -80,11 +80,9 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                         rel="noreferrer"
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown_item">
+                        <li className="flex flex-row mobile-nav-dropdown_item">
                             Wiki
-                            <i className="material-symbols-sharp wiki_arrow">
-                                arrow_outward
-                            </i>
+                            <ArrowOutward size="1.5rem" fill="white" className=""/>
                         </li>
                     </a>
                 </div>

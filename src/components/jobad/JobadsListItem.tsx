@@ -10,6 +10,7 @@ import { isNew } from '@utils/DatetimeFormatter'
 import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import Image from 'next/image'
 import AppContext from '@context/context'
+import Pin from '@components/svg/symbols/Pin'
 
 const jobTypeTranslations = {
     no: {
@@ -126,8 +127,8 @@ export default function JobadsListItem({ jobad }: any) {
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
-                                <li className='jobads-item_detail'>
-                                    <i className='jobads-item_icon material-symbols-sharp'>location_on</i>
+                                <li className='flex flex-row items-center jobads-item_detail'>
+                                    <Pin size="1.5rem" fill="white" className="jobads-item_icon" />
                                     {formatCities(jobad.cities)}
                                 </li>
                             }

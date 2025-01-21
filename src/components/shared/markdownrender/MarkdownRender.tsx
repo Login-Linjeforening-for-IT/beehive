@@ -81,7 +81,7 @@ function ErrorMessage({ err, title }: ErrorMessageProps) {
 
     return (
     // @ts-ignore
-        <Alert variant='danger' icon='error'>
+        <Alert variant='danger'>
             {title}
             <br/>
             {err.status && <p>Status: {err.status}</p>}

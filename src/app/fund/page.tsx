@@ -10,6 +10,11 @@ import board_no from '@text/board/en.json'
 import './page.css'
 import { useContext } from 'react'
 import AppContext from '@context/context'
+import Chart from '@components/svg/symbols/Chart'
+import Group from '@components/svg/symbols/Group'
+import Diversity from '@components/svg/symbols/Diversity'
+import ChartDetailed from '@components/svg/symbols/ChartDetailed'
+import Office from '@components/svg/symbols/Office'
 
 export default function Fund() {
     const { lang } = useContext(AppContext)
@@ -37,17 +42,17 @@ export default function Fund() {
             <section className='page-section--normal fund-section'>
                 <div className='fund-section_container fund-section_container--grid'>
                     {/* @ts-ignore */}
-                    <div class='fund-section_container--grid-item'>
-                        <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2_icon material-symbols-sharp'>show_chart</i>
+                    <div className='fund-section_container--grid-item'>
+                        <h2 className='flex flex-row heading-2 heading-2--icon'>
+                            <Chart size="3rem" fill="white" className="mr-4"/>
                             <span>{text.purpose.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
                     </div>
                     {/* @ts-ignore */}
-                    <div class='fund-section_container--grid-item'>
+                    <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2_icon material-symbols-sharp'>groups</i>
+                            <Group size="3rem" fill="white" className="mr-4"/>
                             <span>{text.meeting.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
@@ -55,17 +60,17 @@ export default function Fund() {
                 </div>
                 <div className='fund-section_container fund-section_container--grid'>
                     {/* @ts-ignore */}
-                    <div class='fund-section_container--grid-item'>
+                    <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2_icon material-symbols-sharp'>diversity_1</i>
+                            <Diversity size="3rem" fill="white" className="mr-4"/>
                             <span>{text.application.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
                     </div>
                     {/* @ts-ignore */}
-                    <div class='fund-section_container--grid-item'>
+                    <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <i className='heading-2_icon material-symbols-sharp'>monitoring</i>
+                            <ChartDetailed size="3rem" fill="white" className="mr-4"/>
                             <span>{text.yield.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
@@ -75,12 +80,12 @@ export default function Fund() {
             <section className='page-section--without-gaps fund-section fund-section--highlighted'>
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
-                        <i className='heading-2_icon material-symbols-sharp'>corporate_fare</i>
+                        <Office size="3rem" fill="white" className="heading-2_icon"/>
                         <span>{text.board.title}</span>
                     </h2>
                     <div className='fund-board_intro'>
                         {/* @ts-ignore */}
-                        <div class='fund-board_intro-text'>
+                        <div className='fund-board_intro-text'>
                             <p className='p--highlighted'>{text.board.intro}</p>
                             <p className='p--regular' dangerouslySetInnerHTML={{__html: text.board.body}}/>
                         </div>
@@ -98,9 +103,8 @@ export default function Fund() {
                     <h3 className='heading-3'>{text.board.composition.title}</h3>
                     <div className='fund-board_members'>
                         {Object.keys(text).map(key => (
-                            <div>
+                            <div key={key}>
                                 <LogChamp
-                                    key={key}
                                     img={text[key].img == '' ? '@assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fondet/${text[key].img}`}
                                     name={text[key].name == '' ? text.board.composition.placeholder : text[key].name}
                                     position={text[key].title}

@@ -1,3 +1,4 @@
+import ArrowRight from '@components/svg/symbols/ArrowRight'
 import './Accordion.css'
 
 type AccordionItemProps = { 
@@ -20,8 +21,8 @@ export default function AccordionItem({ id, title, activeAccordionItem, setActiv
     }
  
     return (
-        <li onClick={handleClick} className={`accordion_nav-item ${activeAccordionItem === id ? 'accordion_nav-item--active' : ''}`}>
-            <i className='material-symbols-sharp accordion_icon--left'>chevron_right</i>{ title }
+        <li onClick={handleClick} className={`flex flex-row accordion_nav-item ${activeAccordionItem === id ? 'accordion_nav-item--active' : ''}`}>
+            <ArrowRight size="2.5rem" fill={'white'} className="accordion_icon--left"/>{ title }
         </li>
     )
 }

@@ -15,6 +15,7 @@ import Link from 'next/link'
 import './EventItem.css'
 import { formatEventStartDate, isOngoing } from '@utils/DatetimeFormatter'
 import AppContext from '@context/context'
+import Pin from '@components/svg/symbols/Pin'
 
 type EventListItemProps = { 
     // eslint-disable-next-line
@@ -96,10 +97,8 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                 </li>
                             }
                             {event.location_name_no && (
-                                <li className="event-item_detail">
-                                    <i className="event-item_icon material-symbols-sharp">
-                                        location_on
-                                    </i>
+                                <li className="flex flex-row items-center event-item_detail">
+                                    <Pin size="1.5rem" fill="white" className="event-item_icon" />
                                     {lang ? event.location_name_en : event.location_name_no}
                                 </li>
                             )}

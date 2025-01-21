@@ -11,10 +11,11 @@ type DecoratedPictureProps = {
     height: number
     cornerSize: number
     cover?: boolean
+    objectFitFill?: boolean
     className?: string
 }
 
-function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
+function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, objectFitFill = false, className = '' }: DecoratedPictureProps) {
     const [isLoaded, setIsLoaded] = useState(false)
     const maskID = `mask-${variant}-${width}-${height}`
 
@@ -160,7 +161,9 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                 src={imgUrl}
                 alt='image'
                 {...(cover ? { preserveAspectRatio: 'xMidYMid slice' } : {})}
+                {...(objectFitFill ? { objectFit: 'fill' } : {})}
                 fill={true}
+                
             />
             <svg
                 className={`decor-pic_svg decor-pic_svg--${variant} relative z-1`}

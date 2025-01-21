@@ -103,6 +103,7 @@ function SmallInfo() {
                     cornerSize={0}
                     width={100}
                     height={30}
+                    objectFitFill={true}
                     className="landing-info_picture"
                 />
             </div>
@@ -196,7 +197,6 @@ function EventsPreview() {
                 )}
                 {error && !loading && (
                     <Alert
-                        icon="sentiment_dissatisfied"
                         variant="danger"
                         className="page-section--alert"
                     >
@@ -276,7 +276,6 @@ function JobadsPreview() {
                 )}
                 {error && !loading && (
                     <Alert
-                        icon="sentiment_dissatisfied"
                         variant="danger"
                         className="page-section--alert"
                     >

@@ -13,6 +13,8 @@ import en from '@text/jobadPage/en.json'
 import './page.css'
 import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import AppContext from '@context/context'
+import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import Pin from '@components/svg/symbols/Pin'
 
 const jobTypeTranslations = {
     no: {
@@ -88,7 +90,6 @@ export default function JobadPage({ params }: PromisedPageProps) {
         <div className="page-container">
             <Alert
                 variant='danger'
-                icon='sentiment_dissatisfied'
                 className="page-section--normal page-section--alert"
             >
                 {error}
@@ -126,7 +127,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                     >
                                         {/* @ts-ignore */}
                                         {tr(jobad.organization.name_en, jobad.organization.name_no) + ' '}
-                                        <i className="material-symbols-sharp">arrow_outward</i>
+                                        <ArrowOutward size="1.5rem" fill="white" className=""/>
                                     </a>
                                 ) : (
                                 // @ts-ignore
@@ -182,10 +183,8 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
-                    <div className="jobad-details_lable">
-                        <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
-                            location_on
-                        </i>
+                    <div className="flex flex-row items-center jobad-details_lable">
+                        <Pin size="1.5rem" fill="white" className="jobad-details_icon jobad-details_icon--lable-color" />
                         {/* @ts-ignore */}
                         {jobad.job.cities.length > 1
                             ? text.details.locations
@@ -218,7 +217,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         {jobad.job.application_url && (
                         // @ts-ignore
                             <Button
-                                trailingIcon={<i className="material-symbols-sharp">arrow_outward</i>}
+                                trailingIcon={<ArrowOutward size="1.5rem" fill="white" className=""/>}
                                 // @ts-ignore
                                 href={jobad.job.application_url}
                                 className="jobad-details_apply-btn"

@@ -7,6 +7,8 @@ import en from '@text/landing/en.json'
 import './HeroSection.css'
 import { useContext, useEffect, useState } from 'react'
 import AppContext from '@context/context'
+import Calendar from '@components/svg/symbols/Calendar'
+import School from '@components/svg/symbols/School'
 
 export default function LandingPage() {
     const { lang } = useContext(AppContext)
@@ -34,7 +36,7 @@ export default function LandingPage() {
                             {/* @ts-ignore */}
                             <Button
                                 href="/events"
-                                leadingIcon={<i className="material-symbols-sharp">event</i>}
+                                leadingIcon={<Calendar size="1.5rem" fill="white"/>}
                                 variant="primary"
                             >
                                 {text.heroSection.secondaryButton}
@@ -43,7 +45,7 @@ export default function LandingPage() {
                             <Button
                                 variant="ghost"
                                 href="/about"
-                                leadingIcon={<i className="material-symbols-sharp">school</i>}
+                                leadingIcon={<School size="1.5rem" fill="white"/>}
                             >
                                 {text.heroSection.primaryButton}
                             </Button>

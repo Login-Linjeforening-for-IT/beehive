@@ -44,7 +44,6 @@ export default function Article({ title, publishTime, updateTime, informational,
           </div> */}
                     {/* @ts-ignore */}
                     <Alert
-                        icon='info'
                         className='article_informational-alert'
                     >
                         {informational}

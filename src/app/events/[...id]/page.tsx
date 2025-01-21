@@ -22,6 +22,8 @@ import en from '@text/eventPage/en.json'
 import { formatEventStatusDate, isOngoing } from '@utils/DatetimeFormatter'
 import './page.css'
 import AppContext from '@context/context'
+import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import Pin from '@components/svg/symbols/Pin'
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
@@ -65,7 +67,7 @@ function link(href: string, name: string) {
             target="_blank"
             rel="noreferrer"
         >
-            {name} <i className="material-symbols-sharp">arrow_outward</i>
+            {name} <ArrowOutward size="1.5rem" fill="white" className=""/>
         </a>
     )
 }
@@ -122,7 +124,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
             { loading && <Spinner width={50} height={50} /> }
             {!loading && error && 
         <div className="page-container">
-            <Alert variant='danger' icon='sentiment_dissatisfied' className="page-section--normal page-section--alert">{error}</Alert>
+            <Alert variant='danger' className="page-section--normal page-section--alert">{error}</Alert>
         </div>
             }
             <div className="event-page">
@@ -174,8 +176,8 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {/* @ts-ignore */}
                       {event.location && (
                           <>
-                              <div className="event-details_lable">
-                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">location_on</i>
+                              <div className="flex flex-row items-center event-details_lable">
+                                  <Pin size="1.5rem" fill="white" className="event-details_icon event-details_icon--lable-color" />
                                   {text.info.location}:
                               </div>
                               <div className="event-details_info">

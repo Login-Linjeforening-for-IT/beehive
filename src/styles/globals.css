@@ -126,7 +126,7 @@ body {
     .page-container {
         display: grid;
         grid-template-columns: 1fr 2rem minmax(0, var(--w-page)) 2rem 1fr;
-        padding-top: 2rem;
+        padding-top: 6rem;
     }
 }
 

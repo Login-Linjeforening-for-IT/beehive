@@ -6,6 +6,7 @@ import en from '@text/contact/en.json'
 import './Contact.css'
 import { useContext, useEffect, useState } from 'react'
 import AppContext from '@context/context'
+import TravelExplore from '@components/svg/symbols/TravelExplore'
 
 export default function Contact() {
     const { lang } = useContext(AppContext)
@@ -19,7 +20,7 @@ export default function Contact() {
     return(
         <div className='contact-card'>
             <h2 className='heading-2 heading-2--icon'>
-                <i className='heading-2_icon material-symbols-sharp'>travel_explore</i>
+                <TravelExplore size="3rem" fill="white" className="mr-4" />
                 <span>{text.contact.title}</span>
             </h2>
             <div className='contact-card_info'>

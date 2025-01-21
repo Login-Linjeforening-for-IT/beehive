@@ -3,6 +3,8 @@
 import './MazeMapEmbed.css'
 import { useEffect, useState } from 'react'
 import '@/vendor/mazemap/mazemap.min.css'
+import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import Pin from '@components/svg/symbols/Pin'
 
 // eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
@@ -118,11 +120,11 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                         target="_blank"
                         className='mazemap_link mazemap_overlay-item'
                     >
-                        <i className='mazemap_link-icon material-symbols-sharp'>arrow_outward</i>
+                        <ArrowOutward size="1.5rem" fill="white" className=""/>
                     </a>
                     {room &&
-					<div className='mazemap_location-name mazemap_overlay-item'>
-					    <i className='mazemap_location-name-icon material-symbols-sharp'>location_on</i>
+					<div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
+					    <Pin size="1.5rem" fill="white" className="mazemap_location-name-icon" />
 					    {room}
 					</div>
                     }

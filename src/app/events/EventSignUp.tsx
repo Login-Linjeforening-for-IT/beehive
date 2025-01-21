@@ -8,6 +8,7 @@ import en from '@text/eventPage/en.json'
 import { formatDeadlineDate, formatPublishedDate } from '@utils/DatetimeFormatter'
 import { useContext } from 'react'
 import AppContext from '@context/context'
+import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 
 type EventSignUpProps = {
     url: string
@@ -35,13 +36,11 @@ export default function EventSignUp({
     let active = false
     let showBtn = true
     let warning = false
-    let msgIcon = 'info'
 
     if (canceled) {
         msg = text.signup.canceled
         showBtn = false
         warning = true
-        msgIcon = 'disabled_by_default'
     } else if (url === '') {
         reqSignup = false
         showBtn = false
@@ -56,11 +55,9 @@ export default function EventSignUp({
       ': ' +
       formatPublishedDate(signupDeadline, lang)
         warning = true
-        msgIcon = 'disabled_by_default'
     } else if (full) {
         msg = text.signup.full
         warning = true
-        msgIcon = 'sentiment_dissatisfied'
     } else if (now > signupRelease && now < signupDeadline) {
         active = true
     }
@@ -123,7 +120,6 @@ export default function EventSignUp({
             {msg && (
                 <Alert
                     variant={warning ? 'warning' : 'info'}
-                    icon={msgIcon}
                     className="event-signup_alert"
                 >
                     {msg}
@@ -134,7 +130,7 @@ export default function EventSignUp({
                     {/* @ts-ignore */}
                     <Button
                         trailingIcon={
-                            <i className="material-symbols-sharp">arrow_outward</i>
+                            <ArrowOutward size="1.5rem" fill="white" className=""/>
                         }
                         href={url}
                         className="event-signup_btn"

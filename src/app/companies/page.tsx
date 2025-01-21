@@ -6,6 +6,9 @@ import en from '@text/companies/en.json'
 import './page.css'
 import { useContext } from 'react'
 import AppContext from '@context/context'
+import Flowsheet from '@components/svg/symbols/Flowsheet'
+import Megaphone from '@components/svg/symbols/Megaphone'
+import Wrench from '@components/svg/symbols/Wrench'
 
 export default function CompaniesPage() {
     const { lang } = useContext(AppContext)
@@ -23,9 +26,7 @@ export default function CompaniesPage() {
                 <div className="companies-info">
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2_icon material-symbols-sharp">
-                                flowsheet
-                            </i>
+                            <Flowsheet size="3rem" fill="white" className="mr-[0.4em]" />
                             <span>{text.bedpres.title}</span>
                         </h2>
                         <p className="p--regular">{text.bedpres.body}</p>
@@ -66,14 +67,14 @@ export default function CompaniesPage() {
                     </section>
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2_icon material-symbols-sharp">campaign</i>
+                            <Megaphone size="3rem" fill="white" className="mr-[0.4em]" />
                             <span>{text.profiling.title}</span>
                         </h2>
                         <p className="p--regular">{text.profiling.body}</p>
                     </section>
                     <section>
                         <h2 className="heading-2 heading-2--icon">
-                            <i className="heading-2_icon material-symbols-sharp">build</i>
+                            <Wrench size="3rem" fill="white" className="mr-[0.4em]" />
                             <span>{text.workshop.title}</span>
                         </h2>
                         <p className="p--regular">{text.workshop.body}</p>

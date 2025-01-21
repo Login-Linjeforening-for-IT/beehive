@@ -240,7 +240,6 @@ export default function Events() {
             {!loading && error && (
                 <Alert
                     variant="danger"
-                    icon="sentiment_dissatisfied"
                     className="page-section--normal page-section--alert"
                 >
                     {error}
