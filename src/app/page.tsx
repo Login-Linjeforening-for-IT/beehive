@@ -103,7 +103,6 @@ function SmallInfo() {
                     cornerSize={0}
                     width={100}
                     height={30}
-                    objectFitFill={true}
                     className="landing-info_picture"
                 />
             </div>
