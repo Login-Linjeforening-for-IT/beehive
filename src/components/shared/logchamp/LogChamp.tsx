@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import './LogChamp.css'
 
@@ -10,11 +11,19 @@ type LogChampProps = {
 }
 
 export default function LogChamp({name, position, img, discord, discordLink}: LogChampProps) {
+    const [variant, setVariant] = useState<number | null>(null)
+
+    useEffect(() => {
+        setVariant(Math.ceil(Math.random() * 4))
+    }, [])
+
+    if (variant === null ) return <></>
+      
     return (
         <div className='logchamp'>
             <DecoratedPicture
                 imgUrl={img}
-                variant={Math.ceil(Math.random() * 4)}
+                variant={variant}
                 cornerSize={36}
                 width={100}
                 height={100}

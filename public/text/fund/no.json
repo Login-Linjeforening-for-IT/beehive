@@ -35,9 +35,43 @@
         "title": "Fondsstyret",
         "intro": "Fondsstyret er Fondets øverste organ, og har ansvar for å forvalte Fondets midler i tråd med Fondets formål.",
         "body": "Fondsstyret består av fem medlemmer, der alle velges ved Fondets generalforsamlinger. Ønsker du å delte i Fondsstyret? Følg med på neste generalforsamling og still til valg! <br><br> Ønsker du å vite mer? Ta kontakt på <a class='link link--primary' target='_blank' rel='noopener noreferrer' href='mailto:fondet@login.no'>e-post</a> eller <a class='link link--primary' target='_blank' rel='noopener noreferrer' href='https://discord.gg/login-ntnu'>Discord <i class='logfont-discord'></i></a>! Det er også mulig å slå av en prat hvis du ser oss i gangen.",
-        "composition": {
-            "title": "Styrets Sammensetning",
-            "placeholder": "Velges høsten 2024"
+        "heading1": "Board Composition",
+        "members": {
+            "boardLeader": {
+                "title": "Styreleder",
+                "name": "Sebastian Hestsveen",
+                "dctag": ".stubbe",
+                "dclink": "https://discord.com/users/119120560931340290",
+                "img": "portrait-sebastian.jpg"
+            },
+            "boardMember1": {
+                "title": "Styremedlem",
+                "name": "Sander Osvik Brekke",
+                "dctag": "mightypanda_",
+                "dclink": "https://discord.com/users/611270155372331008",
+                "img": "portrait-sander.jpg"
+            },
+            "boardMember2": {
+                "title": "Styremedlem",
+                "name": "Marte Hensema",
+                "dctag": "hensemaa",
+                "dclink": "https://discord.com/users/1009582485564305408",
+                "img": "portrait-marte.jpg"
+            },
+            "boardMember3": {
+                "title": "Styremedlem",
+                "name": "To be elected in fall 2024",
+                "dctag": "",
+                "dclink": "",
+                "img": ""
+            },
+            "boardMember4": {
+                "title": "Styremedlem",
+                "name": "To be elected in fall 2024",
+                "dctag": "",
+                "dclink": "",
+                "img": ""
+            }
         }
     }
 }

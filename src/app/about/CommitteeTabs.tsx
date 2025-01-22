@@ -23,15 +23,22 @@ import AppContext from '@context/context'
 const no = {...text_no, ...board_no}
 const en = {...text_en, ...board_en}
 
+const no_board = {...board_no}
+const en_board = {...board_en}
+
 export default function CommitteeTabs() {
     const [activeTab, setActiveTab] = useState('styret')
     const { lang } = useContext(AppContext)
     const [text, setText] = useState(no)
+    const [board, setBoard] = useState(no_board)
 
     useEffect(() => {
         const text = lang === 'en' ? en : no
+        const board = lang === 'en' ? en_board : no_board
         // eslint-disable-next-line
         setText(text as any)
+        // eslint-disable-next-line
+        setBoard(board as any)
     }, [lang])
 
     return (
@@ -53,19 +60,19 @@ export default function CommitteeTabs() {
                         </h3>
                         <p className='p--highlighted'>{text.committeeSection.board.body}</p>
                     </div>
-                    {Object.keys(text).map((key) => (
+                    {Object.keys(board).map((key) => (
                         <LogChamp
                             key={key}
                             // eslint-disable-next-line
-                            img={`${config.url.CDN_URL}/img/portraits/${(text as any)[key].img}`}
+                            img={`${config.url.CDN_URL}/img/portraits/${(board as any)[key].img}`}
                             // eslint-disable-next-line
-                            name={(text as any)[key].name}
+                            name={(board as any)[key].name}
                             // eslint-disable-next-line
-                            position={(text as any)[key].title}
+                            position={(board as any)[key].title}
                             // eslint-disable-next-line
-                            discord={(text as any)[key].dctag}
+                            discord={(board as any)[key].dctag}
                             // eslint-disable-next-line
-                            discordLink={(text as any)[key].dclink}
+                            discordLink={(board as any)[key].dclink}
                         />
                     ))}
                 </div>

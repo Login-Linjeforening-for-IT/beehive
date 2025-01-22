@@ -5,8 +5,6 @@ import LogChamp from '@components/shared/logchamp/LogChamp'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
-import board_en from '@text/board/no.json'
-import board_no from '@text/board/en.json'
 import './page.css'
 import { useContext } from 'react'
 import AppContext from '@context/context'
@@ -19,7 +17,9 @@ import Office from '@components/svg/symbols/Office'
 export default function Fund() {
     const { lang } = useContext(AppContext)
     // eslint-disable-next-line
-    const text: any = lang === 'en' ? {...en, ...board_en} : {...no, ...board_no}
+    const text: any = lang === 'en' ? {...en} : {...no}
+
+    const boardMembers = text.board.members
 
     return (
         <div className='page-container'>
@@ -100,16 +100,16 @@ export default function Fund() {
                             />
                         </div>
                     </div>
-                    <h3 className='heading-3'>{text.board.composition.title}</h3>
+                    <h3 className='heading-3'>{text.board.heading1}</h3>
                     <div className='fund-board_members'>
-                        {Object.keys(text).map(key => (
+                        {Object.keys(boardMembers).map(key => (
                             <div key={key}>
                                 <LogChamp
-                                    img={text[key].img == '' ? '@assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fondet/${text[key].img}`}
-                                    name={text[key].name == '' ? text.board.composition.placeholder : text[key].name}
-                                    position={text[key].title}
-                                    discord={text[key].dctag}
-                                    discordLink={text[key].dclink}
+                                    img={boardMembers[key].img == '' ? 'assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fondet/${boardMembers[key].img}`}
+                                    name={boardMembers[key].name == '' ? boardMembers[key].title : boardMembers[key].name}
+                                    position={boardMembers[key].title}
+                                    discord={boardMembers[key].dctag}
+                                    discordLink={boardMembers[key].dclink}
                                 />
                             </div>
                         ))}

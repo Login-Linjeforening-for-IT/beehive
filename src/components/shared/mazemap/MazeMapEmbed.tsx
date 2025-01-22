@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 import '@/vendor/mazemap/mazemap.min.css'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import Pin from '@components/svg/symbols/Pin'
+import Add from '@components/svg/symbols/Add'
+import Remove from '@components/svg/symbols/Remove'
 
 // eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
@@ -129,8 +131,8 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 					</div>
                     }
                     <div className='mazemap_controls mazemap_overlay-item'>
-                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top material-symbols-sharp'>add</button>
-                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom material-symbols-sharp'>remove</button>
+                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'><Add size={'1.5rem'} fill="white" className=""/></button>
+                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'><Remove size={'1.5rem'} fill="white" className="" /></button>
                     </div>
                 </div>
             </div>
