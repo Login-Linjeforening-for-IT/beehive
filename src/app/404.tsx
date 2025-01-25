@@ -32,7 +32,7 @@ export default function NotFoundPage() {
                 <p className='not-found_p p--regular'>
                     {text.msg}
                 </p>
-                <Button href="-1" leadingIcon={<i className='material-symbols-sharp'>west</i>}>
+                <Button href='-1' leadingIcon={<i className='material-symbols-sharp'>west</i>}>
                     {text.help}
                 </Button>
             </div>
