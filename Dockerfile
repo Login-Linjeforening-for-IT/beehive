@@ -1,10 +1,32 @@
-FROM node:20-alpine as build
+# Node image with Alpine Linux
+FROM node:20-alpine
+
+# Installs services
+RUN apk add --no-cache python3 make g++ varnish
+
+# Starts varnish
+COPY default.vcl ./etc/varnish/default.vcl
+
+# Copies entrypoint
+COPY entrypoint.sh /entrypoint.sh
+
+# Copies package.json and package-lock.json
 COPY package*.json ./
+
+# Installs dependencies
 RUN npm install
-COPY . .
+
+# Sets environment variables
 ENV REACT_APP_API_URL=${API_URL}
 ENV REACT_APP_FRONTEND_VERSION=${IMAGE_VERSION}
-EXPOSE 3000
-RUN npm run build
-CMD npm start
 
+# Copies the rest of the UI source code
+COPY . .
+
+RUN npm run build
+
+# Exposes port 3000
+EXPOSE 3000
+
+# Starts the application
+CMD chmod +x /entrypoint.sh; ./entrypoint.sh

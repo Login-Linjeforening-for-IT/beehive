@@ -3,12 +3,10 @@ services:
     container_name: beehive
     build:
       context: ./
-      dockerfile: ./Dockerfile.dev
     ports:
       - "3000:3000"
-    stdin_open: true
     volumes:
       - "./:/app"
       - "/app/node_modules"
     environment:
-      - "NODE_ENV=staging"
+      - "APP_ENV=development"
