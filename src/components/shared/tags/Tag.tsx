@@ -9,8 +9,8 @@ type TagProps = {
 export default function Tag({ children, variant }: TagProps) {
     return (
         <div className={`tag tag--${variant}`}>
-            <div className="tag_container">
-                <div className="tag_name">
+            <div className='tag_container'>
+                <div className='tag_name'>
                     {children}
                 </div>
             </div>

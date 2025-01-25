@@ -81,7 +81,7 @@ export default function JobadsListItem({ jobad }: any) {
             <div className={jobad.highlight ? 'jobads-item jobads-item--highlight' : 'jobads-item' }>
                 <div className={useTags(jobad.time_publish, jobad.highlight) ? 'jobads-item_wrapper jobads-item_wrapper--with-tags' : 'jobads-item_wrapper' }>
                     {useTags(jobad.time_publish, jobad.highlight) && 
-            <div className="jobads-item_tags">
+            <div className='jobads-item_tags'>
                 <Tags
                     highlight={jobad.highlight}
                     timePublish={new Date(jobad.time_publish)}
@@ -94,7 +94,7 @@ export default function JobadsListItem({ jobad }: any) {
                     <picture className='jobads-item_picture'>
                         {(jobad.organization_logo && !useFallbackImg) ? (
                             <RenderSmoothImage
-                                className="jobads-item_img"
+                                className='jobads-item_img'
                                 alt={jobad.organization_logo}
                                 src={`${config.url.CDN_URL}/img/organizations/${jobad.organization_logo}`}
                                 onError={() => setUseFallbackImg(true)}
@@ -104,7 +104,7 @@ export default function JobadsListItem({ jobad }: any) {
                             <Image 
                                 className='jobads-item_img'
                                 alt={jobad.organization_logo}
-                                src="@assets/img/placeholders/jobad.svg"
+                                src='@assets/img/placeholders/jobad.svg'
                                 fill={true}
                             />
                         )}
@@ -128,7 +128,7 @@ export default function JobadsListItem({ jobad }: any) {
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <li className='flex flex-row items-center jobads-item_detail'>
-                                    <Pin size="1.5rem" fill="white" className="jobads-item_icon" />
+                                    <Pin size='1.5rem' fill='white' className='jobads-item_icon' />
                                     {formatCities(jobad.cities)}
                                 </li>
                             }

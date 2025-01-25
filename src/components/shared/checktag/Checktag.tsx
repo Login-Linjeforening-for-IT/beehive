@@ -11,15 +11,15 @@ type ChecktagProps = {
 
 export default function Checktag({ id, label, checked, onChange }: ChecktagProps) {
     return (
-        <label className="checktag">
+        <label className='checktag'>
             <input
                 className='checktag_input'
-                type="checkbox"
+                type='checkbox'
                 id={id}
                 checked={checked}
                 onChange={onChange}
             />
-            <div className="checktag_name">
+            <div className='checktag_name'>
                 {label}
             </div>
         </label>

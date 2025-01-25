@@ -37,8 +37,8 @@ export default function TopBar() {
                 </div> */}
             </nav>
             <button className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`} onClick={toggle}>
-                <div className='topbar_burger-bun topbar_burger-bun--top'></div>
-                <div className='topbar_burger-bun topbar_burger-bun--bottom'></div>
+                <div className='topbar_burger-bun topbar_burger-bun--top' />
+                <div className='topbar_burger-bun topbar_burger-bun--bottom' />
             </button>
             <MobileNavigation open={isOpen} setIsOpen={setIsOpen} />
         </div>

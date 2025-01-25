@@ -14,14 +14,14 @@ export default function ProfileSVG() {
     }
 
     return (
-        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="22" height="22">
+        <svg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' width='22' height='22'>
             <title>loginperson</title>
             <defs>
-                <Image width={22} height={22} id="profile" alt="profile" src={picColor()} />
+                <Image width={22} height={22} id='profile' alt='profile' src={picColor()} />
             </defs>
             <style>
             </style>
-            <use id="Background" href="#profile" x="0" y="0"/>
+            <use id='Background' href='#profile' x='0' y='0'/>
         </svg>
     )
 }

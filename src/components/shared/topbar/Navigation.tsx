@@ -38,69 +38,69 @@ export default function Navigation() {
     }, [navItemRefs])
 
     return (
-        <nav className="main-nav">
-            <Link href="/events">
-                <li className="main-nav_item link--corner-hover">{text.nav.events}</li>
+        <nav className='main-nav'>
+            <Link href='/events'>
+                <li className='main-nav_item link--corner-hover'>{text.nav.events}</li>
             </Link>
-            <Link href="/career">
-                <li className="main-nav_item link--corner-hover">{text.nav.jobad}</li>
+            <Link href='/career'>
+                <li className='main-nav_item link--corner-hover'>{text.nav.jobad}</li>
             </Link>
-            <Link href="/companies">
-                <li className="main-nav_item link--corner-hover">
+            <Link href='/companies'>
+                <li className='main-nav_item link--corner-hover'>
                     {text.nav.companies}
                 </li>
             </Link>
-            <div className="main-nav-dropdown">
-                <div className="main-nav-dropdown_toggle" tabIndex={0}>
-                    <div className="flex flex-row items-center main-nav_item">
+            <div className='main-nav-dropdown'>
+                <div className='main-nav-dropdown_toggle' tabIndex={0}>
+                    <div className='flex flex-row items-center main-nav_item'>
                         {text.nav.about}
-                        <ArrowDown size="1.5rem" fill="white"/>
+                        <ArrowDown size='1.5rem' fill='white'/>
                     </div>
-                    <div className="main-nav-dropdown_wrapper">
-                        <ul className="main-nav-dropdown_items">
+                    <div className='main-nav-dropdown_wrapper'>
+                        <ul className='main-nav-dropdown_items'>
                             <Link
-                                href="/about"
+                                href='/about'
                                 ref={navItemRefs.current[0] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
-                                <li className="main-nav-dropdown_item link--corner-hover">
-                                    <i className="logfont-login main-nav-dropdown_leading-icon"></i>
+                                <li className='main-nav-dropdown_item link--corner-hover'>
+                                    <i className='logfont-login main-nav-dropdown_leading-icon' />
                                     {text.nav.general}
                                 </li>
                             </Link>
                             <Link
-                                href="verv"
+                                href='verv'
                                 ref={navItemRefs.current[1] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
-                                <li className="flex flex-row items-center main-nav-dropdown_item link--corner-hover">
-                                    <Heart size="1.5rem" fill="white" className={'mr-[0.7rem]'} />
+                                <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
+                                    <Heart size='1.5rem' fill='white' className={'mr-[0.7rem]'} />
                                     {text.nav.verv}
                                 </li>
                             </Link>
                             <Link
-                                href="/fond"
+                                href='/fond'
                                 ref={navItemRefs.current[2] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
-                                <li className="flex flex-row items-center main-nav-dropdown_item link--corner-hover">
-                                    <Office size="1.5rem" fill="white" className={'mr-[0.7rem]'} />
+                                <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
+                                    <Office size='1.5rem' fill='white' className={'mr-[0.7rem]'} />
                                     {text.nav.fondet}
                                 </li>
                             </Link>
                             <a
-                                title="Wiki"
-                                href="https://wiki.login.no"
-                                target="_blank"
-                                rel="noreferrer"
+                                title='Wiki'
+                                href='https://wiki.login.no'
+                                target='_blank'
+                                rel='noreferrer'
                                 // @ts-ignore
                                 ref={navItemRefs.current[3]}
                                 onClick={handleClick}
                             >
-                                <li className="flex flex-row items-center main-nav-dropdown_item link--corner-hover">
-                                    <Book size="1.5rem" fill="white" className={'mr-[0.7rem]'} />
+                                <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
+                                    <Book size='1.5rem' fill='white' className={'mr-[0.7rem]'} />
                                     Wiki
-                                    <ArrowOutward size="1.5rem" fill="white" className=""/>
+                                    <ArrowOutward size='1.5rem' fill='white' className=''/>
                                 </li>
                             </a>
                         </ul>

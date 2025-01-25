@@ -20,7 +20,7 @@ export default function LangToggle() {
     return(
         <button value={lang} onClick={handleClick} className='lang-toggle flex flex-row items-center gap-1'>
             <i className={`lang-toggle_icon ${jump ? 'lang-toggle_icon--jump' : ''}`}>
-                <Language size="1.4rem" fill="var(--color-text-regular)"/>
+                <Language size='1.4rem' fill='var(--color-text-regular)'/>
             </i>
             {' ' + buttonText}
         </button>

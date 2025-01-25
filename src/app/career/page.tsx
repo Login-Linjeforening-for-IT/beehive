@@ -87,10 +87,10 @@ export default function JobadPage({ params }: PromisedPageProps) {
         <>
             {loading && <Spinner width={50} height={50} />}
             {!loading && error && 
-        <div className="page-container">
+        <div className='page-container'>
             <Alert
                 variant='danger'
-                className="page-section--normal page-section--alert"
+                className='page-section--normal page-section--alert'
             >
                 {error}
             </Alert>
@@ -102,9 +102,9 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         showBannerImg ? 'jobad-page--banner' : 'jobad-page--noBanner'
                     }`}
                 >
-                    <div className="jobad-details">
-                        <div className="jobad-details_company">
-                            <picture className="jobad-details_company-logo">
+                    <div className='jobad-details'>
+                        <div className='jobad-details_company'>
+                            <picture className='jobad-details_company-logo'>
                                 <RenderSmoothImage
                                     // @ts-ignore
                                     src={useFallbackImg ? '@assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
@@ -115,19 +115,19 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                     transition={false}
                                 />
                             </picture>
-                            <div className="jobad-details_company-name">
+                            <div className='jobad-details_company-name'>
                                 {/* @ts-ignore */}
                                 {jobad.organization.link_homepage ? (
                                     <a
-                                        className="jobad-details_company-name-link link--underscore-hover"
+                                        className='jobad-details_company-name-link link--underscore-hover'
                                         // @ts-ignore
                                         href={jobad.organization.link_homepage}
-                                        target="_blank"
-                                        rel="noreferrer"
+                                        target='_blank'
+                                        rel='noreferrer'
                                     >
                                         {/* @ts-ignore */}
                                         {tr(jobad.organization.name_en, jobad.organization.name_no) + ' '}
-                                        <ArrowOutward size="1.5rem" fill="white" className=""/>
+                                        <ArrowOutward size='1.5rem' fill='white' className=''/>
                                     </a>
                                 ) : (
                                 // @ts-ignore
@@ -135,14 +135,14 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                 )}
                             </div>
                         </div>
-                        <div className="jobad-details_list">
-                            <div className="jobad-details_lable">
-                                <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
+                        <div className='jobad-details_list'>
+                            <div className='jobad-details_lable'>
+                                <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
                                     hourglass_bottom
                                 </i>
                                 {text.details.deadline}:
                             </div>
-                            <div className="jobad-details_value">
+                            <div className='jobad-details_value'>
                                 {formatDeadlineDate(
                                     // @ts-ignore
                                     new Date(jobad.job.application_deadline),
@@ -150,7 +150,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                 )}
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.job.application_deadline)) && (
-                                    <i className="material-symbols-sharp jobad-details_icon jobad-details_icon--warning">
+                                    <i className='material-symbols-sharp jobad-details_icon jobad-details_icon--warning'>
                                         acute
                                     </i>
                                 )}
@@ -158,40 +158,40 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.job.position_title_no && 
                 <>
-                    <div className="jobad-details_lable">
-                        <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
+                    <div className='jobad-details_lable'>
+                        <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
                             badge
                         </i>
                         {text.details.position}:
                     </div>
-                    <div className="jobad-details_value">
+                    <div className='jobad-details_value'>
                         {/* @ts-ignore */}
                         {tr(jobad.job.position_title_en, jobad.job.position_title_no)}
                     </div>
                 </>
                             }
-                            <div className="jobad-details_lable">
-                                <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
+                            <div className='jobad-details_lable'>
+                                <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
                                     work_history
                                 </i>
                                 {text.details.type}:
                             </div>
-                            <div className="jobad-details_value">
+                            <div className='jobad-details_value'>
                                 {/* @ts-ignore */}
                                 {getJobTypeLabel(jobad.job.job_type, lang)}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
-                    <div className="flex flex-row items-center jobad-details_lable">
-                        <Pin size="1.5rem" fill="white" className="jobad-details_icon jobad-details_icon--lable-color" />
+                    <div className='flex flex-row items-center jobad-details_lable'>
+                        <Pin size='1.5rem' fill='white' className='jobad-details_icon jobad-details_icon--lable-color' />
                         {/* @ts-ignore */}
                         {jobad.job.cities.length > 1
                             ? text.details.locations
                             : text.details.location}
                         :
                     </div>
-                    <div className="jobad-details_value">
+                    <div className='jobad-details_value'>
                         {/* @ts-ignore */}
                         {jobad.job.cities.join(', ')}
                     </div>
@@ -200,13 +200,13 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.job.skills && jobad.job.skills.length > 0 &&
                 <>
-                    <div className="jobad-details_lable">
-                        <i className="jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp">
+                    <div className='jobad-details_lable'>
+                        <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
                             build
                         </i>
                         {text.details.skills}:
                     </div>
-                    <div className="jobad-details_value">
+                    <div className='jobad-details_value'>
                         {/* @ts-ignore */}
                         {jobad.job.skills.join(', ')}
                     </div>
@@ -217,17 +217,17 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         {jobad.job.application_url && (
                         // @ts-ignore
                             <Button
-                                trailingIcon={<ArrowOutward size="1.5rem" fill="white" className=""/>}
+                                trailingIcon={<ArrowOutward size='1.5rem' fill='white' className=''/>}
                                 // @ts-ignore
                                 href={jobad.job.application_url}
-                                className="jobad-details_apply-btn"
+                                className='jobad-details_apply-btn'
                             >
                                 {text.details.applyButton}
                             </Button>
                         )}
                     </div>
                     {showBannerImg && (
-                        <picture className="jobad-banner">
+                        <picture className='jobad-banner'>
                             <RenderSmoothImage
                                 // @ts-ignore
                                 src={config.url.CDN_URL + '/img/ads/' + jobad.job.banner_image}
@@ -239,7 +239,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             />
                         </picture>
                     )}
-                    <div className="jobad-description">
+                    <div className='jobad-description'>
                         <Article
                             title={lang ? jobad.job.title_en : jobad.job.title_no}
                             publishTime={new Date(jobad.job.time_publish)}

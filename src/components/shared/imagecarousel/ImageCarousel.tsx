@@ -10,7 +10,7 @@ function NavigationButton({ side, onClick }: {side:string, onClick: React.MouseE
             className={`image-carousel_nav-item image-carousel_nav-item--${side}`}
             onClick={onClick}
             aria-label={side === 'left' ? 'previous' : 'next'}
-        ></button>
+        />
     )
 }
 
@@ -26,10 +26,10 @@ function SlideItem({ image, className, title, description }: SlideItemProps) {
         <div
             className={`image-carousel_slide ${className}`}
         >
-            <div className="image-carousel_image-overlay">
-                <div className="image-carousel_image-overlay-info">
-                    <h2 className="image-carousel_image-overlay-title">{title}</h2>
-                    <p className="image-carousel_image-overlay-description">{description}</p>
+            <div className='image-carousel_image-overlay'>
+                <div className='image-carousel_image-overlay-info'>
+                    <h2 className='image-carousel_image-overlay-title'>{title}</h2>
+                    <p className='image-carousel_image-overlay-description'>{description}</p>
                 </div>
             </div>
             <RenderSmoothImage 
@@ -48,7 +48,7 @@ function DotIndicator({ isActive }: {isActive: boolean}) {
         <div
             className={`image-carousel_dot-container ${isActive ? 'image-carousel_dot-container--active' : ''}`}
         >
-            <div className='image-carousel_dot'></div>
+            <div className='image-carousel_dot' />
         </div>
     )
 }
@@ -128,13 +128,13 @@ export default function ImageCarousel({ slides }: {slides: []}) {
     return (
         <div className={`image-carousel ${isPaused ? 'image-carousel--paused' : ''}`}>
             <div
-                className="image-carousel_slides-container"
+                className='image-carousel_slides-container'
                 onMouseEnter={pause}
                 onMouseLeave={resume}
-                aria-live="polite"
+                aria-live='polite'
             >
                 <NavigationButton
-                    side="left"
+                    side='left'
                     onClick={() => prev()}
                 />
                 {slides.map((slides: {imgSrc:string,title:string,description:string,}, index: number) => (
@@ -147,11 +147,11 @@ export default function ImageCarousel({ slides }: {slides: []}) {
                     />
                 ))}
                 <NavigationButton
-                    side="right"
+                    side='right'
                     onClick={() => next()}
                 />
             </div>
-            <div className="image-carousel_dots">
+            <div className='image-carousel_dots'>
                 {slides.map((_, index: number) => (
                     <DotIndicator
                         key={index}

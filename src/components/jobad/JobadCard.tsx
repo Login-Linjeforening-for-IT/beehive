@@ -25,7 +25,7 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                 <picture className='jobad-card_picture'>
                     {(jobad.organization_logo && !useFallbackImg) ? (
                         <RenderSmoothImage
-                            className="jobad-card_img"
+                            className='jobad-card_img'
                             alt={jobad.organization_logo}
                             src={config.url.CDN_URL + '/img/organizations/' + jobad.organization_logo}
                             onError={() => setUseFallbackImg(true)}
@@ -35,7 +35,7 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                         <Image
                             className='jobad-card_img'
                             alt={jobad.organization_logo}
-                            src="@assets/img/placeholders/jobad.svg"
+                            src='@assets/img/placeholders/jobad.svg'
                             fill={true}
                         />
                     )}
@@ -48,7 +48,7 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                     </li>
                 </ul>
                 {!disableTags &&
-                <div className="jobad-card_tags">
+                <div className='jobad-card_tags'>
                     <Tags
                         highlight={jobad.highlight}
                         timePublish={new Date(jobad.time_publish)}

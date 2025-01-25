@@ -33,11 +33,11 @@ export default function Tags({
 
     return (
         <>
-            {canceled && <Tag variant="danger">{text.canceled}</Tag>}
-            {ongoing && !canceled && <Tag variant="success">{text.ongoing}</Tag>}
-            {highlight && !canceled && <Tag variant="highlight">{text.highlight}</Tag>}
-            {isNew(timePublish.toString()) && <Tag variant="info">{text.new}</Tag>}
-            {full && <Tag variant="danger">{text.full}</Tag>}
+            {canceled && <Tag variant='danger'>{text.canceled}</Tag>}
+            {ongoing && !canceled && <Tag variant='success'>{text.ongoing}</Tag>}
+            {highlight && !canceled && <Tag variant='highlight'>{text.highlight}</Tag>}
+            {isNew(timePublish.toString()) && <Tag variant='info'>{text.new}</Tag>}
+            {full && <Tag variant='danger'>{text.full}</Tag>}
         </>
     )
 }

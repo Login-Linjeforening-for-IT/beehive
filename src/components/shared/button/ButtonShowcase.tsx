@@ -8,7 +8,7 @@ export default function ButtonShowcase() {
     const iconPlacements = ['none', 'leading', 'trailing', 'leading-empty']
 
     function renderIcon(iconName: string) {
-        return <i className="material-symbols-sharp">{iconName}</i>
+        return <i className='material-symbols-sharp'>{iconName}</i>
     }
 
     const [activeOptionIndex, setActiveOptionIndex] = useState(0)
@@ -18,12 +18,12 @@ export default function ButtonShowcase() {
     }
 
     return (
-        <div className="button-showcase">
-            <h2 className="button-showcase_title">All Button Combinations by Size</h2>
+        <div className='button-showcase'>
+            <h2 className='button-showcase_title'>All Button Combinations by Size</h2>
             {sizes.map((size) => (
-                <div key={size} className="button-showcase_size-section">
+                <div key={size} className='button-showcase_size-section'>
                     <h3>{size.charAt(0).toUpperCase() + size.slice(1)} Buttons</h3>
-                    <div className="button-showcase_section">
+                    <div className='button-showcase_section'>
                         {variants.map((variant) =>
                             iconPlacements.map((placement) => {
                                 let leadingIcon = null
@@ -60,36 +60,36 @@ export default function ButtonShowcase() {
             ))}
 
             {/* Other sections can remain as they were if needed */}
-            <h2 className="button-showcase_title">Link Buttons</h2>
-            <div className="button-showcase_section">
+            <h2 className='button-showcase_title'>Link Buttons</h2>
+            <div className='button-showcase_section'>
                 {/* @ts-ignore */}
-                <Button isLink href="https://example.com">Link Button</Button>
+                <Button isLink href='https://example.com'>Link Button</Button>
                 {/* @ts-ignore */}
-                <Button isLink href="https://example.com" variant="secondary">Secondary Link</Button>
+                <Button isLink href='https://example.com' variant='secondary'>Secondary Link</Button>
             </div>
 
-            <h2 className="button-showcase_title">Disabled Buttons</h2>
-            <div className="button-showcase_section">
+            <h2 className='button-showcase_title'>Disabled Buttons</h2>
+            <div className='button-showcase_section'>
                 {/* @ts-ignore */}
                 <Button disabled>Disabled Button</Button>
                 {/* @ts-ignore */}
-                <Button disabled variant="secondary">Disabled Secondary</Button>
+                <Button disabled variant='secondary'>Disabled Secondary</Button>
             </div>
 
-            <h2 className="button-showcase_title">Group Toggles</h2>
-            <div className="button-showcase_section">
+            <h2 className='button-showcase_title'>Group Toggles</h2>
+            <div className='button-showcase_section'>
                 <GroupToggle
                     options={[
                         { leadingIcon: renderIcon('grid_view'), text:'leading icon' },
                         { trailingIcon: renderIcon('filter_list'), text:'trailing icon' },
-                        { leadingIcon: <i className="logfont-login"></i>, text:'logfont icon' }
+                        { leadingIcon: <i className='logfont-login' />, text:'logfont icon' }
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
-                    size="small"
+                    size='small'
                 />
             </div>
-            <div className="button-showcase_section">
+            <div className='button-showcase_section'>
                 <GroupToggle
                     options={[
                         { text:'Ghost' },
@@ -97,12 +97,12 @@ export default function ButtonShowcase() {
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
-                    size="medium"
-                    buttonVariant="secondary-outlined"
-                    groupVariant="ghost"
+                    size='medium'
+                    buttonVariant='secondary-outlined'
+                    groupVariant='ghost'
                 />
             </div>
-            <div className="button-showcase_section">
+            <div className='button-showcase_section'>
                 <GroupToggle
                     options={[
                         { leadingIcon: renderIcon('grid_view'), text:'large' },
@@ -110,21 +110,21 @@ export default function ButtonShowcase() {
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
-                    size="large"
-                    buttonVariant="ghost"
-                    groupVariant="ghost"
+                    size='large'
+                    buttonVariant='ghost'
+                    groupVariant='ghost'
                 />
             </div>
-            <div className="button-showcase_section">
+            <div className='button-showcase_section'>
                 <GroupToggle
                     options={[
                         { leadingIcon: renderIcon('grid_view'), text:'xl' },
                         { leadingIcon: renderIcon('filter_list') },
-                        { leadingIcon: <i className="logfont-satkom-filled"></i> }
+                        { leadingIcon: <i className='logfont-satkom-filled' /> }
                     ]}
                     activeOptionIndex={activeOptionIndex}
                     onOptionChange={handleOptionChange}
-                    size="xl"
+                    size='xl'
                 />
             </div>
             <p>Active Option Index: {activeOptionIndex}</p>

@@ -12,20 +12,18 @@ type CheckboxProps = {
 
 export default function Checkbox({ id, label, count = false, checked, onChange }: CheckboxProps) {
     return (
-        <label className="checkbox">
+        <label className='checkbox'>
             <input
                 className='checkbox_input'
-                type="checkbox"
+                type='checkbox'
                 id={id}
                 checked={checked}
                 onChange={onChange}
             />
-            <span className="checkbox_box"></span>
-            <div className="checkbox_name">
+            <span className='checkbox_box' />
+            <div className='checkbox_name'>
                 {label}
-                {count &&
-          <span className="checkbox_item-count"> ({count})</span>
-                }
+                {count && <span className='checkbox_item-count'> ({count})</span>}
             </div>
         </label>
     )

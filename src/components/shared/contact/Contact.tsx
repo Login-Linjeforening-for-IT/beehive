@@ -20,7 +20,7 @@ export default function Contact() {
     return(
         <div className='contact-card'>
             <h2 className='heading-2 heading-2--icon'>
-                <TravelExplore size="3rem" fill="white" className="mr-4" />
+                <TravelExplore size='3rem' fill='white' className='mr-4' />
                 <span>{text.contact.title}</span>
             </h2>
             <div className='contact-card_info'>

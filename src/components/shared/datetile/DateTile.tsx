@@ -77,8 +77,8 @@ export default function DateTile({
                 }`}
                 style={{ background: background }}
             >
-                <div className="date-tile_date">
-                    <div className="date-tile_dayofweek">
+                <div className='date-tile_date'>
+                    <div className='date-tile_dayofweek'>
                         {/* eslint-disable-next-line */}
                         {(daysOfWeek as any)[lang][sTime.getDay()]}.
                     </div>
@@ -94,7 +94,7 @@ export default function DateTile({
                 }`}
                 style={{ background: background }}
             >
-                <div className="date-tile_date">
+                <div className='date-tile_date'>
                     <div
                         className={`date-tile_day ${
                             sDate === eDate ? '' : 'date-tile_day--wide'
@@ -103,7 +103,7 @@ export default function DateTile({
                         {sDate === eDate ? sDate : sDate + '-' + eDate}
                     </div>
                     {/* eslint-disable-next-line */}
-                    <div className="date-tile_month">{(months as any)[lang][eMonth]}</div>
+                    <div className='date-tile_month'>{(months as any)[lang][eMonth]}</div>
                 </div>
             </div>
         )
@@ -113,17 +113,17 @@ export default function DateTile({
                 className={`date-tile date-tile--wide date-tile--${varient}`}
                 style={{ background: background }}
             >
-                <div className="date-tile_date">
-                    <div className="date-tile_day date-tile_day--wide">{sDate}</div>
-                    <div className="date-tile_month date-tile_month--wide">
+                <div className='date-tile_date'>
+                    <div className='date-tile_day date-tile_day--wide'>{sDate}</div>
+                    <div className='date-tile_month date-tile_month--wide'>
                         {/* eslint-disable-next-line */}
                         {(months as any)[lang][sMonth]}
                     </div>
                 </div>
-                <div className="date-tile_devider">-</div>
-                <div className="date-tile_date">
-                    <div className="date-tile_day date-tile_day--wide">{eDate}</div>
-                    <div className="date-tile_month date-tile_month--wide">
+                <div className='date-tile_devider'>-</div>
+                <div className='date-tile_date'>
+                    <div className='date-tile_day date-tile_day--wide'>{eDate}</div>
+                    <div className='date-tile_month date-tile_month--wide'>
                         {/* eslint-disable-next-line */}
                         {(months as any)[lang][eMonth]}
                     </div>

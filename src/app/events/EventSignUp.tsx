@@ -68,26 +68,26 @@ export default function EventSignUp({
                 showBtn ? 'bottom-left-corner' : 'bottom-right-corner'
             }`}
         >
-            <div className="event-signup_header">{text.signup.title}:</div>
+            <div className='event-signup_header'>{text.signup.title}:</div>
 
             {!canceled && ready && reqSignup && (
-                <div className="event-details_list">
+                <div className='event-details_list'>
                     {/* @ts-ignore */}
                     {cap > 0 && (
                         <>
-                            <div className="event-details_lable">
-                                <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">
+                            <div className='event-details_lable'>
+                                <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>
                                     confirmation_number
                                 </i>
                                 {text.info.capacity}:
                             </div>
-                            <div className="event-details_info">{cap}</div>
+                            <div className='event-details_info'>{cap}</div>
                         </>
                     )}
                     {ready && (
                         <>
-                            <div className="event-details_lable">
-                                <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">
+                            <div className='event-details_lable'>
+                                <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>
                                     exit_to_app
                                 </i>
                                 {now < signupRelease
@@ -95,7 +95,7 @@ export default function EventSignUp({
                                     : text.signup.hasOpened}
                                 :
                             </div>
-                            <div className="event-details_info">
+                            <div className='event-details_info'>
                                 {now < signupRelease
                                     ? formatDeadlineDate(signupRelease, lang)
                                     : formatPublishedDate(signupRelease, lang)}
@@ -104,13 +104,13 @@ export default function EventSignUp({
                     )}
                     {ready && now < signupDeadline && (
                         <>
-                            <div className="event-details_lable">
-                                <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">
+                            <div className='event-details_lable'>
+                                <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>
                                     disabled_by_default
                                 </i>
                                 {text.signup.closes}:
                             </div>
-                            <div className="event-details_info">
+                            <div className='event-details_info'>
                                 {formatDeadlineDate(signupDeadline, lang)}
                             </div>
                         </>
@@ -120,21 +120,21 @@ export default function EventSignUp({
             {msg && (
                 <Alert
                     variant={warning ? 'warning' : 'info'}
-                    className="event-signup_alert"
+                    className='event-signup_alert'
                 >
                     {msg}
                 </Alert>
             )}
             {reqSignup && ready && showBtn && (
-                <div className="event-signup_btn-container">
+                <div className='event-signup_btn-container'>
                     {/* @ts-ignore */}
                     <Button
                         trailingIcon={
-                            <ArrowOutward size="1.5rem" fill="white" className=""/>
+                            <ArrowOutward size='1.5rem' fill='white' className=''/>
                         }
                         href={url}
-                        className="event-signup_btn"
-                        variant="primary"
+                        className='event-signup_btn'
+                        variant='primary'
                         disabled={active ? false : true}
                     >
                         {text.signup.action}
@@ -167,7 +167,7 @@ export default function EventSignUp({
 //
 // |_       [  aktiv  ]
 
-// Krever ingen påmelding, link = ""
+// Krever ingen påmelding, link = ''
 //                   _
 // Påmelding:          |
 //
@@ -175,7 +175,7 @@ export default function EventSignUp({
 // påmelding
 //                   _|
 
-// Åpner tbd, link = "tbd"
+// Åpner tbd, link = 'tbd'
 //                   _
 // Påmelding:          |
 //

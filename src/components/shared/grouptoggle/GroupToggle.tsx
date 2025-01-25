@@ -43,7 +43,7 @@ function GroupToggle({
     return (
         <div 
             className={`group-toggle group-toggle--${groupVariant} group-toggle--${size} ${className}`}
-            role="group"
+            role='group'
             aria-label={ariaLabel}
         >
             {/* eslint-disable-next-line */}

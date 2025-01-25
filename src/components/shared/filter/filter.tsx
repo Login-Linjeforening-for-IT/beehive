@@ -59,7 +59,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
     }
 
     return (
-        <div className="filter-groups">
+        <div className='filter-groups'>
             {
                 // eslint-disable-next-line
                 Object.entries(filters).map(([filterGroupItemID, filterGroupItem]) => {
@@ -83,25 +83,25 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                     }
                 })
             }
-            <div className="filter-groups_buttons">
+            <div className='filter-groups_buttons'>
                 {/* @ts-ignore */}
                 <Button
-                    variant="secondary-outlined"
+                    variant='secondary-outlined'
                     trailingIcon={<i className='material-symbols-sharp'>replay</i>}
                     onClick={onReset}
-                    size="medium"
-                    className="filter-groups_reset"
+                    size='medium'
+                    className='filter-groups_reset'
                 >
                     {text.reset}
                 </Button>
                 {close &&
                 // @ts-ignore
                     <Button
-                        variant="secondary-outlined"
+                        variant='secondary-outlined'
                         leadingIcon={<i className='material-symbols-sharp'>keyboard_arrow_up</i>}
                         onClick={close}
-                        size="medium"
-                        className="filter-groups_close"
+                        size='medium'
+                        className='filter-groups_close'
                     >
                     </Button>
                 }
@@ -130,8 +130,8 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
     const { lang } = useContext(AppContext)
 
     return (
-        <div className="filter">
-            <div className="filter_title">{ label[lang] }</div>
+        <div className='filter'>
+            <div className='filter_title'>{ label[lang] }</div>
             <div className={`filter_items filter_items--${type}`}>
                 {/* @ts-ignore */}
                 {filter.sort((a, b) => b.count - a.count).map((filterItem) => {

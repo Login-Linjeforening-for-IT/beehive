@@ -20,32 +20,32 @@ export default function LandingPage() {
     }, [lang])
 
     return (
-        <div className="hero-section">
-            <div className="hero-section_container">
-                <div className="hero-section_top">
-                    <picture className="hero-section_logo">
+        <div className='hero-section'>
+            <div className='hero-section_container'>
+                <div className='hero-section_top'>
+                    <picture className='hero-section_logo'>
                         <LoginLogo />
                     </picture>
-                    <div className="hero-section_content">
-                        <span className="hero-section_top-text">
+                    <div className='hero-section_content'>
+                        <span className='hero-section_top-text'>
                             {text.heroSection.welcome}
                         </span>
                         <br />
-                        <span className="hero-section_gradient-text">login.no</span>
-                        <div className="hero-section_buttons">
+                        <span className='hero-section_gradient-text'>login.no</span>
+                        <div className='hero-section_buttons'>
                             {/* @ts-ignore */}
                             <Button
-                                href="/events"
-                                leadingIcon={<Calendar size="1.5rem" fill="white"/>}
-                                variant="primary"
+                                href='/events'
+                                leadingIcon={<Calendar size='1.5rem' fill='white'/>}
+                                variant='primary'
                             >
                                 {text.heroSection.secondaryButton}
                             </Button>
                             {/* @ts-ignore */}
                             <Button
-                                variant="ghost"
-                                href="/about"
-                                leadingIcon={<School size="1.5rem" fill="white"/>}
+                                variant='ghost'
+                                href='/about'
+                                leadingIcon={<School size='1.5rem' fill='white'/>}
                             >
                                 {text.heroSection.primaryButton}
                             </Button>

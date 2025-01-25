@@ -56,7 +56,7 @@ export default function CommitteeTabs() {
                 <div className='board-members'>
                     <div className='board-members_intro'>
                         <h3 className='committees_heading heading-3'>
-                            <i className='logfont-styret-filled'></i> {text.committeeSection.board.title}
+                            <i className='logfont-styret-filled' /> {text.committeeSection.board.title}
                         </h3>
                         <p className='p--highlighted'>{text.committeeSection.board.body}</p>
                     </div>
@@ -79,7 +79,7 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='event' activeTab={activeTab}>
                 <h3 className='committees_heading heading-3'>
-                    <i className='logfont-eventkom'></i> {text.committeeSection.eventkom.title}
+                    <i className='logfont-eventkom' /> {text.committeeSection.eventkom.title}
                 </h3>
                 <div className='committees_info'>
                     <div className='committees_text'>
@@ -97,7 +97,7 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='tek' activeTab={activeTab}>
                 <h3 className='committees_heading heading-3'>
-                    <i className='logfont-tekkom'></i> {text.committeeSection.tekkom.title}
+                    <i className='logfont-tekkom' /> {text.committeeSection.tekkom.title}
                 </h3>
                 <div className='committees_info'>
                     <div className='committees_text'>
@@ -115,7 +115,7 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='bedkom' activeTab={activeTab}>
                 <h3 className='committees_heading heading-3'>
-                    <i className='logfont-bedkom'></i> {text.committeeSection.bedkom.title}
+                    <i className='logfont-bedkom' /> {text.committeeSection.bedkom.title}
                 </h3>
                 <div className='committees_info'>
                     <div className='committees_text'>
@@ -133,7 +133,7 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='ctf' activeTab={activeTab}>
                 <h3 className='committees_heading heading-3'>
-                    <i className='logfont-ctfkom'></i> {text.committeeSection.ctfkom.title}
+                    <i className='logfont-ctfkom' /> {text.committeeSection.ctfkom.title}
                 </h3>
                 <div className='committees_info'>
                     <div className='committees_text'>
@@ -151,7 +151,7 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='sat' activeTab={activeTab}>
                 <h3 className='committees_heading heading-3'>
-                    <i className='logfont-satkom-filled'></i> {text.committeeSection.satkom.title}
+                    <i className='logfont-satkom-filled' /> {text.committeeSection.satkom.title}
                 </h3>
                 <div className='committees_info'>
                     <div className='committees_text'>
@@ -169,7 +169,7 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='pr' activeTab={activeTab}>
                 <h3 className='committees_heading heading-3'>
-                    <i className='logfont-pr'></i> {text.committeeSection.pr.title}
+                    <i className='logfont-pr' /> {text.committeeSection.pr.title}
                 </h3>
                 <div className='committees_info'>
                     <div className='committees_text'>

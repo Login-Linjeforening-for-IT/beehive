@@ -10,6 +10,7 @@ import JobadCardSkeleton from '@components/jobad/JobadCardSkeleton'
 import Alert from '@components/shared/alert/Alert'
 import { getEventRow, getJobRow } from '@utils/api'
 import './MarkdownRender.css'
+import Link from 'next/link'
 
 type CustomLinkProps = {
     href: number
@@ -25,7 +26,7 @@ type ErrorMessageProps = {
 const components = {
     // The md string should not contain a main header (#), the h1 header is  
     // rendered by the parent component. If by mistake it cointains 
-    // a "# main header" this returns h2 instead.
+    // a '# main header' this returns h2 instead.
     h1: ({children}: {children:ReactNode}) => <h2 className='markdown-render_h2'>{children}</h2>,
     h2: ({children}: {children:ReactNode}) => <h2 className='markdown-render_h2'>{children}</h2>,
     h3: ({children}: {children:ReactNode}) => <h3 className='markdown-render_h3'>{children}</h3>,
@@ -46,6 +47,7 @@ const components = {
 
 export default function MarkdownRender({MDstr}: {MDstr: string}) {
     return (
+        // @ts-expect-error
         <Markdown components={components} remarkPlugins={[remarkGfm]}>
             {MDstr.replace(/\\n/g, '\n')}
         </Markdown>
@@ -63,14 +65,14 @@ function CustomLink({ href, children }: CustomLinkProps) {
     }
 
     return (
-        <a
+        <Link
             className='link link--primary link--underscore-hover'
             href={String(href)}
             target='_blank'
             rel='noopener noreferrer'
         >
             {children}
-        </a>
+        </Link>
     )
 }
 
@@ -122,20 +124,17 @@ function EventEmbed(id: number) {
     }, [id])
 
     if (error) {
-        return (
-            <ErrorMessage err={error} title={'Error Fetching Event #' + id} />
-        )
+        return <ErrorMessage err={error} title={'Error Fetching Event #' + id} />
     }
 
     return (
-        <div className="markdown-render_card">
-            {loading ? (
-                <EventCardSkeleton />
-            ) : event ? (
-                <EventItem event={event} variant='card' highlight={false} />
-            ) : (
-                <p>Event not found</p>
-            )}
+        <div className='markdown-render_card'>
+            {loading 
+                ? <EventCardSkeleton /> 
+                : event 
+                    ? <EventItem event={event} variant='card' highlight={false} />
+                    : <p>Event not found</p>
+            }
         </div>
     )
 }
@@ -170,20 +169,17 @@ function JobadEmbed(id: number) {
     }, [id])
 
     if (error) {
-        return (
-            <ErrorMessage err={error} title={'Error Fetching Job Ad #' + id} />
-        )
+        return <ErrorMessage err={error} title={`Error Fetching Job Ad #${id}`} />
     }
 
     return (
-        <div className="markdown-render_card">
-            {loading ? (
-                <JobadCardSkeleton/>
-            ) : jobad ? (
-                <JobadCard jobad={jobad} disableTags={true} />
-            ) : (
-                <p>Job ad not found</p>
-            )}
+        <div className='markdown-render_card'>
+            {loading 
+                ? <JobadCardSkeleton/> 
+                : jobad 
+                    ? <JobadCard jobad={jobad} disableTags={true} />
+                    : <p>Job ad not found</p>
+            }
         </div>
     )
 }

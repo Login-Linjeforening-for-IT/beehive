@@ -31,63 +31,63 @@ export default function VervTabs() {
     }, [lang])
 
     return (
-        <div className="tabs committees page-section--without-gaps">
-            <ul className="tabs_nav">
+        <div className='tabs committees page-section--without-gaps'>
+            <ul className='tabs_nav'>
                 <TabNavItem
-                    key="event"
+                    key='event'
                     title={<EventkomLogo />}
-                    id="event"
+                    id='event'
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
-                    key="tek"
+                    key='tek'
                     title={<TekkomLogo />}
-                    id="tek"
+                    id='tek'
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
-                    key="bedkom"
+                    key='bedkom'
                     title={<BedkomLogo />}
-                    id="bedkom"
+                    id='bedkom'
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
-                    key="ctf"
+                    key='ctf'
                     title={<CtfkomLogo />}
-                    id="ctf"
+                    id='ctf'
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
-                    key="sat"
+                    key='sat'
                     title={<SatkomLogo />}
-                    id="sat"
+                    id='sat'
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
                 <TabNavItem
-                    key="pr"
+                    key='pr'
                     title={<PrLogo />}
-                    id="pr"
+                    id='pr'
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                 />
             </ul>
-            <TabContent id="event" activeTab={activeTab}>
-                <h3 className="committees_heading heading-3">
-                    <i className="logfont-eventkom"></i>{' '}
+            <TabContent id='event' activeTab={activeTab}>
+                <h3 className='committees_heading heading-3'>
+                    <i className='logfont-eventkom' />{' '}
                     {text.committeeSection.eventkom.title}
                 </h3>
-                <div className="committees_info">
-                    <div className="committees_text">
-                        <p className="p--highlighted">
+                <div className='committees_info'>
+                    <div className='committees_text'>
+                        <p className='p--highlighted'>
                             {text.committeeSection.eventkom.intro}
                         </p>
                         <p
-                            className="p--regular"
+                            className='p--regular'
                             dangerouslySetInnerHTML={{
                                 __html: text.committeeSection.eventkom.body,
                             }}
@@ -102,17 +102,17 @@ export default function VervTabs() {
                     />
                 </div>
             </TabContent>
-            <TabContent id="tek" activeTab={activeTab}>
-                <h3 className="committees_heading heading-3">
-                    <i className="logfont-tekkom"></i>{' '}
+            <TabContent id='tek' activeTab={activeTab}>
+                <h3 className='committees_heading heading-3'>
+                    <i className='logfont-tekkom' />{' '}
                     {text.committeeSection.tekkom.title}
                 </h3>
-                <div className="committees_info">
-                    <div className="committees_text">
-                        <p className="p--highlighted">
+                <div className='committees_info'>
+                    <div className='committees_text'>
+                        <p className='p--highlighted'>
                             {text.committeeSection.tekkom.intro}
                         </p>
-                        <p className="p--regular">{text.committeeSection.tekkom.body}</p>
+                        <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
                     <LogChamp
                         img={`${config.url.CDN_URL}/img/portraits/${text.tekkomLeader.img}`}
@@ -123,17 +123,17 @@ export default function VervTabs() {
                     />
                 </div>
             </TabContent>
-            <TabContent id="bedkom" activeTab={activeTab}>
-                <h3 className="committees_heading heading-3">
-                    <i className="logfont-bedkom"></i>{' '}
+            <TabContent id='bedkom' activeTab={activeTab}>
+                <h3 className='committees_heading heading-3'>
+                    <i className='logfont-bedkom' />{' '}
                     {text.committeeSection.bedkom.title}
                 </h3>
-                <div className="committees_info">
-                    <div className="committees_text">
-                        <p className="p--highlighted">
+                <div className='committees_info'>
+                    <div className='committees_text'>
+                        <p className='p--highlighted'>
                             {text.committeeSection.bedkom.intro}
                         </p>
-                        <p className="p--regular">{text.committeeSection.bedkom.body}</p>
+                        <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp
                         img={`${config.url.CDN_URL}/img/portraits/${text.bedkomLeader.img}`}
@@ -144,18 +144,18 @@ export default function VervTabs() {
                     />
                 </div>
             </TabContent>
-            <TabContent id="ctf" activeTab={activeTab}>
-                <h3 className="committees_heading heading-3">
-                    <i className="logfont-ctfkom"></i>{' '}
+            <TabContent id='ctf' activeTab={activeTab}>
+                <h3 className='committees_heading heading-3'>
+                    <i className='logfont-ctfkom' />{' '}
                     {text.committeeSection.ctfkom.title}
                 </h3>
-                <div className="committees_info">
-                    <div className="committees_text">
-                        <p className="p--highlighted">
+                <div className='committees_info'>
+                    <div className='committees_text'>
+                        <p className='p--highlighted'>
                             {text.committeeSection.ctfkom.intro}
                         </p>
                         <p
-                            className="p--regular"
+                            className='p--regular'
                             dangerouslySetInnerHTML={{
                                 __html: text.committeeSection.ctfkom.body,
                             }}
@@ -170,20 +170,20 @@ export default function VervTabs() {
                     />
                 </div>
             </TabContent>
-            <TabContent id="sat" activeTab={activeTab}>
-                <h3 className="committees_heading heading-3">
-                    <i className="logfont-satkom-filled"></i>{' '}
+            <TabContent id='sat' activeTab={activeTab}>
+                <h3 className='committees_heading heading-3'>
+                    <i className='logfont-satkom-filled' />{' '}
                     {text.committeeSection.satkom.title}
                 </h3>
-                <div className="committees_info">
-                    <div className="committees_text">
+                <div className='committees_info'>
+                    <div className='committees_text'>
                         <p
-                            className="p--highlighted"
+                            className='p--highlighted'
                             dangerouslySetInnerHTML={{
                                 __html: text.committeeSection.satkom.intro,
                             }}
                         />
-                        <p className="p--regular">{text.committeeSection.satkom.body}</p>
+                        <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp
                         img={`${config.url.CDN_URL}/img/portraits/${text.satkomLeader.img}`}
@@ -194,19 +194,19 @@ export default function VervTabs() {
                     />
                 </div>
             </TabContent>
-            <TabContent id="pr" activeTab={activeTab}>
-                <h3 className="committees_heading heading-3">
-                    <i className="logfont-pr"></i> {text.committeeSection.pr.title}
+            <TabContent id='pr' activeTab={activeTab}>
+                <h3 className='committees_heading heading-3'>
+                    <i className='logfont-pr' /> {text.committeeSection.pr.title}
                 </h3>
-                <div className="committees_info">
-                    <div className="committees_text">
+                <div className='committees_info'>
+                    <div className='committees_text'>
                         <p
-                            className="p--highlighted"
+                            className='p--highlighted'
                             dangerouslySetInnerHTML={{
                                 __html: text.committeeSection.pr.intro,
                             }}
                         />
-                        <p className="p--regular">{text.committeeSection.pr.body}</p>
+                        <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp
                         img={`${config.url.CDN_URL}/img/portraits/${text.prLeader.img}`}

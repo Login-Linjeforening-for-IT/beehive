@@ -11,8 +11,8 @@ type AlertProps = {
 export default function Alert({ children, variant = 'info', className = '' }: AlertProps) {
     return (
         <div className={`flex gap-2 alert alert--${variant} ${className}`}>
-            <ErrorSymbol size="2rem" fill="white" />
-            <div className="alert_content">{children}</div>
+            <ErrorSymbol size='2rem' fill='white' />
+            <div className='alert_content'>{children}</div>
         </div>
     )
 }

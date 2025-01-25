@@ -36,16 +36,16 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                         />
                     </clipPath>
                     <rect
-                        className="decor-pic_rect"
-                        x="0"
-                        y="0"
+                        className='decor-pic_rect'
+                        x='0'
+                        y='0'
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
-                        className="decor-pic_rect"
-                        x="0"
-                        y="0"
+                        className='decor-pic_rect'
+                        x='0'
+                        y='0'
                         width={(cornerSize / 3) * 0.5}
                         height={cornerSize - (cornerSize / 3) * 0.5}
                     />
@@ -64,16 +64,16 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                         />
                     </clipPath>
                     <rect
-                        className="decor-pic_rect"
+                        className='decor-pic_rect'
                         x={width - cornerSize + (cornerSize / 3) * 0.5}
-                        y="0"
+                        y='0'
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
-                        className="decor-pic_rect"
+                        className='decor-pic_rect'
                         x={width - (cornerSize / 3) * 0.5}
-                        y="0"
+                        y='0'
                         width={(cornerSize / 3) * 0.5}
                         height={cornerSize - (cornerSize / 3) * 0.5}
                     />
@@ -92,14 +92,14 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                         />
                     </clipPath>
                     <rect
-                        className="decor-pic_rect"
+                        className='decor-pic_rect'
                         x={width - cornerSize + (cornerSize / 3) * 0.5}
                         y={height - (cornerSize / 3) * 0.5}
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
-                        className="decor-pic_rect"
+                        className='decor-pic_rect'
                         x={width - (cornerSize / 3) * 0.5}
                         y={height - cornerSize + (cornerSize / 3) * 0.5}
                         width={(cornerSize / 3) * 0.5}
@@ -120,15 +120,15 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                         />
                     </clipPath>
                     <rect
-                        className="decor-pic_rect"
-                        x="0"
+                        className='decor-pic_rect'
+                        x='0'
                         y={height - (cornerSize / 3) * 0.5}
                         width={cornerSize - (cornerSize / 3) * 0.5}
                         height={(cornerSize / 3) * 0.5}
                     />
                     <rect
-                        className="decor-pic_rect"
-                        x="0"
+                        className='decor-pic_rect'
+                        x='0'
                         y={height - cornerSize + (cornerSize / 3) * 0.5}
                         width={(cornerSize / 3) * 0.5}
                         height={cornerSize - (cornerSize / 3) * 0.5}
@@ -145,7 +145,7 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
             <svg
                 className={`decor-pic_svg decor-pic_svg--${variant}`}
                 viewBox={`0,0 ${width},${height}`}
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns='http://www.w3.org/2000/svg'
             >
                 {renderDecorations()}
                 {!isLoaded && (
@@ -153,7 +153,7 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
                         width={width}
                         height={height}
                         clipPath={`url(#${maskID})`}
-                        className="decor-pic_img-placeholder"
+                        className='decor-pic_img-placeholder'
                     />
                 )}
                 <image

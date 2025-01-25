@@ -16,16 +16,16 @@ export default function About() {
     const text = lang === 'en' ? en : no
 
     return (
-        <div className="page-container">
-            <h1 className="page-section--normal heading-1 heading-1--top-left-corner">
+        <div className='page-container'>
+            <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>
                 {text.title}
             </h1>
-            <section className="page-section--normal about-section about-intro">
+            <section className='page-section--normal about-section about-intro'>
                 <p
-                    className="mt-0 max-w-[50rem] p--highlighted"
+                    className='mt-0 max-w-[50rem] p--highlighted'
                     dangerouslySetInnerHTML={{ __html: text.intro }}
                 />
-                <div className="about-intro_grid-container">
+                <div className='about-intro_grid-container'>
                     <StudyProgramsAcordion />
                     <DecoratedPicture
                         imgUrl={`${config.url.CDN_URL}/img/styret2.jpg`}
@@ -34,39 +34,39 @@ export default function About() {
                         width={300}
                         height={200}
                         cover={true}
-                        className="about-intro_picture"
+                        className='about-intro_picture'
                     />
                 </div>
             </section>
-            <section className="page-section--normal about-section">
-                <h2 className="heading-2">{text.about.title}</h2>
-                <div className="p--columns">
+            <section className='page-section--normal about-section'>
+                <h2 className='heading-2'>{text.about.title}</h2>
+                <div className='p--columns'>
                     <p
-                        className="p--highlighted"
+                        className='p--highlighted'
                         dangerouslySetInnerHTML={{ __html: text.about.intro }}
                     />
                     <p
-                        className="p--regular"
+                        className='p--regular'
                         dangerouslySetInnerHTML={{ __html: text.about.body.p1 }}
                     />
                     <p
-                        className="p--regular"
+                        className='p--regular'
                         dangerouslySetInnerHTML={{ __html: text.about.body.p2 }}
                     />
                 </div>
             </section>
-            <section className="page-section--normal about-committees">
-                <h2 className="heading-2">{text.committeeSection.title}</h2>
-                <p className="p--regular">{text.committeeSection.intro}</p>
+            <section className='page-section--normal about-committees'>
+                <h2 className='heading-2'>{text.committeeSection.title}</h2>
+                <p className='p--regular'>{text.committeeSection.intro}</p>
             </section>
             <CommitteeTabs />
-            <section className="page-section--normal about-section about-public-docs">
-                <h2 className="heading-2">{text.publicDocs.title}</h2>
+            <section className='page-section--normal about-section about-public-docs'>
+                <h2 className='heading-2'>{text.publicDocs.title}</h2>
                 <p
-                    className="p--regular"
+                    className='p--regular'
                     dangerouslySetInnerHTML={{ __html: text.publicDocs.body }}
                 />
-                <ul className="list">
+                <ul className='list'>
                     <li>{text.publicDocs.bulletPoints.agendas}</li>
                     <li>{text.publicDocs.bulletPoints.minutes}</li>
                     <li>{text.publicDocs.bulletPoints.budgets}</li>
@@ -74,7 +74,7 @@ export default function About() {
                     <li>{text.publicDocs.bulletPoints.bylaws}</li>
                 </ul>
             </section>
-            <div className="page-section--normal">
+            <div className='page-section--normal'>
                 <Contact />
             </div>
         </div>

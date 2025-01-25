@@ -23,7 +23,7 @@ export default function Fund() {
 
     return (
         <div className='page-container'>
-            <div className="page-section--normal">
+            <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
             <section className='page-section--normal fund-intro'>
@@ -44,7 +44,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='flex flex-row heading-2 heading-2--icon'>
-                            <Chart size="3rem" fill="white" className="mr-4"/>
+                            <Chart size='3rem' fill='white' className='mr-4'/>
                             <span>{text.purpose.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
@@ -52,7 +52,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Group size="3rem" fill="white" className="mr-4"/>
+                            <Group size='3rem' fill='white' className='mr-4'/>
                             <span>{text.meeting.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
@@ -62,7 +62,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Diversity size="3rem" fill="white" className="mr-4"/>
+                            <Diversity size='3rem' fill='white' className='mr-4'/>
                             <span>{text.application.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
@@ -70,7 +70,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <ChartDetailed size="3rem" fill="white" className="mr-4"/>
+                            <ChartDetailed size='3rem' fill='white' className='mr-4'/>
                             <span>{text.yield.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
@@ -80,7 +80,7 @@ export default function Fund() {
             <section className='page-section--without-gaps fund-section fund-section--highlighted'>
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
-                        <Office size="3rem" fill="white" className="heading-2_icon"/>
+                        <Office size='3rem' fill='white' className='heading-2_icon'/>
                         <span>{text.board.title}</span>
                     </h2>
                     <div className='fund-board_intro'>

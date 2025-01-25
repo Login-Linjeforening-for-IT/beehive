@@ -29,19 +29,19 @@ function getDefaultBanner(category: string, color: string) {
     switch (category) {
     case 'Sosialt':
         // @ts-ignore
-        return <DefaultSocialBanner color={color} className="event-banner_image" />
+        return <DefaultSocialBanner color={color} className='event-banner_image' />
     case 'TekKom':
         // @ts-ignore
-        return <DefaultTekkomBanner color={color} className="event-banner_image" />
+        return <DefaultTekkomBanner color={color} className='event-banner_image' />
     case 'CTF':
         // @ts-ignore
-        return <DefaultCtfBanner color={color} className="event-banner_image" />
+        return <DefaultCtfBanner color={color} className='event-banner_image' />
     case 'Bedpres':
         // @ts-ignore
-        return <DefaultBedpresBanner color={color} className="event-banner_image" />
+        return <DefaultBedpresBanner color={color} className='event-banner_image' />
     default:
         // @ts-ignore
-        return <DefaultEventBanner color={color} className="event-banner_image" />
+        return <DefaultEventBanner color={color} className='event-banner_image' />
     }
 }
 
@@ -62,12 +62,12 @@ function renderOrganizations(organizations: any[]) {
 function link(href: string, name: string) {
     return (
         <a
-            className="link link--primary link--underscore-hover"
+            className='link link--primary link--underscore-hover'
             href={href}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
         >
-            {name} <ArrowOutward size="1.5rem" fill="white" className=""/>
+            {name} <ArrowOutward size='1.5rem' fill='white' className=''/>
         </a>
     )
 }
@@ -112,7 +112,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                 src={`${config.url.CDN_URL}/img/events/banner/${event?.event?.image_banner}`}
                 // @ts-ignore
                 alt={event?.eventname}
-                className="event-banner_image"
+                className='event-banner_image'
                 onError={() => setUseFallbackBanner(true)}
                 transition={false}
             />
@@ -123,15 +123,15 @@ export default async function EventPage({ params }: PromisedPageProps) {
         <>
             { loading && <Spinner width={50} height={50} /> }
             {!loading && error && 
-        <div className="page-container">
-            <Alert variant='danger' className="page-section--normal page-section--alert">{error}</Alert>
+        <div className='page-container'>
+            <Alert variant='danger' className='page-section--normal page-section--alert'>{error}</Alert>
         </div>
             }
-            <div className="event-page">
+            <div className='event-page'>
                 { !loading && !error && event &&
           <>
-              <div className="event-details">
-                  <div className="event-datetime-display">
+              <div className='event-details'>
+                  <div className='event-datetime-display'>
                       <DateTile
                           // @ts-ignore
                           startDate={new Date(event.event.time_start)}
@@ -140,8 +140,8 @@ export default async function EventPage({ params }: PromisedPageProps) {
                           // @ts-ignore
                           color={event.category.color}
                       />
-                      <div className="event-datetime-display_right">
-                          <div className="event-datetime-display_day">
+                      <div className='event-datetime-display_right'>
+                          <div className='event-datetime-display_day'>
                               {isOngoing(
                                   // @ts-ignore
                                   new Date(event.event.time_start),
@@ -149,7 +149,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                                   new Date(event.event.time_end)
                               ) && 
                               // @ts-ignore
-                      <span class="event-datetime-display_live-dot"></span>
+                      <span class='event-datetime-display_live-dot' />
                               }
                               {formatEventStatusDate(
                                   // @ts-ignore
@@ -161,8 +161,8 @@ export default async function EventPage({ params }: PromisedPageProps) {
                           </div>
                           {/* @ts-ignore */}
                           {event.event.time_type !== 'whole_day' &&
-                    <div className="event-datetime-display_time">
-                        <i className="event-datetime-display_time-icon material-symbols-sharp">schedule</i>
+                    <div className='event-datetime-display_time'>
+                        <i className='event-datetime-display_time-icon material-symbols-sharp'>schedule</i>
                         {/* @ts-ignore */}
                         {event.event.time_type === 'tbd' ? 'TBD' : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}
@@ -172,15 +172,15 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       </div>
                   </div>
 
-                  <div className="event-details_list">
+                  <div className='event-details_list'>
                       {/* @ts-ignore */}
                       {event.location && (
                           <>
-                              <div className="flex flex-row items-center event-details_lable">
-                                  <Pin size="1.5rem" fill="white" className="event-details_icon event-details_icon--lable-color" />
+                              <div className='flex flex-row items-center event-details_lable'>
+                                  <Pin size='1.5rem' fill='white' className='event-details_icon event-details_icon--lable-color' />
                                   {text.info.location}:
                               </div>
-                              <div className="event-details_info">
+                              <div className='event-details_info'>
                                   {/* @ts-ignore */}
                                   {tr(event.location.name_en, event.location.name_no)}
                                   {/* @ts-ignore */}
@@ -189,13 +189,13 @@ export default async function EventPage({ params }: PromisedPageProps) {
                           </>
                       )}
 
-                      <div className="event-details_lable">
-                          <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">category</i>
+                      <div className='event-details_lable'>
+                          <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>category</i>
                           {text.info.type}:
                       </div>
-                      <div className="event-details_info">
+                      <div className='event-details_info'>
                           {/* @ts-ignore */}
-                          <span className="event-details_category-dot" style={{background: event.category.color}}></span>
+                          <span className='event-details_category-dot' style={{background: event.category.color}} />
                           {/* @ts-ignore */}
                           {tr(event.category.name_en, event.category.name_no)}
                       </div>
@@ -203,11 +203,11 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {/* @ts-ignore */}
                       {event.organizations?.length > 0 && (
                           <>
-                              <div className="event-details_lable">
-                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">person</i>
+                              <div className='event-details_lable'>
+                                  <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>person</i>
                                   {text.info.organizer}:
                               </div>
-                              <div className="event-details_info">
+                              <div className='event-details_info'>
                                   {/* @ts-ignore */}
                                   {renderOrganizations(event.organizations)}
                               </div>
@@ -217,11 +217,11 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {/* @ts-ignore */}
                       {event.event.link_stream && (
                           <>
-                              <div className="event-details_lable">
-                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">live_tv</i>
+                              <div className='event-details_lable'>
+                                  <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>live_tv</i>
                                   {text.info.stream}:
                               </div>
-                              <div className="event-details_info">
+                              <div className='event-details_info'>
                                   {/* @ts-ignore */}
                                   {link(event.event.link_stream, getURLAddress(event.event.link_stream))}
                               </div>
@@ -231,11 +231,11 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {/* @ts-ignore */}
                       {(event.event.link_discord || event.event.link_facebook) && (
                           <>
-                              <div className="event-details_lable">
-                                  <i className="event-details_icon event-details_icon--lable-color material-symbols-sharp">link</i>
+                              <div className='event-details_lable'>
+                                  <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>link</i>
                                   {text.info.links}:
                               </div>
-                              <div className="event-details_info">
+                              <div className='event-details_info'>
                                   {/* @ts-ignore */}
                                   {event.event.link_discord && <>{link(event.event.link_discord, 'Discord')}<br/></>}
                                   {/* @ts-ignore */}
@@ -259,8 +259,8 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       signupDeadline={new Date(event.event.time_signup_deadline)}
                   />
               </div>
-              <picture className="event-banner">{eventBanner}</picture>
-              <div className="event-description">
+              <picture className='event-banner'>{eventBanner}</picture>
+              <div className='event-description'>
                   <Article
                       // @ts-ignore
                       title={(event.event.canceled ? `❌ (${text.canceled})` : '') + tr(event.event.name_en, event.event.name_no)}
@@ -275,16 +275,16 @@ export default async function EventPage({ params }: PromisedPageProps) {
                   />
                   {/* @ts-ignore */}
                   {event.rule && (
-                      <div className="rules">
+                      <div className='rules'>
                           <DropDownBox
                               title={
                                   <>
                                       {/* @ts-ignore */}
-                                      <i className="material-symbols-sharp">gavel</i> {tr(event.rule.name_en, event.rule.name_no)}
+                                      <i className='material-symbols-sharp'>gavel</i> {tr(event.rule.name_en, event.rule.name_no)}
                                   </>
                               }
                           >
-                              <div className="rules_content">
+                              <div className='rules_content'>
                                   {/* @ts-ignore */}
                                   <MarkdownRender MDstr={tr(event.rule.description_en, event.rule.description_no)} />
                               </div>

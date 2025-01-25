@@ -232,66 +232,66 @@ export default function Events() {
     }, [])
 
     return (
-        <div className="page-container">
-            <div className="page-section--normal">
-                <h1 className="heading-1 heading-1--top-left-corner">{text.title}</h1>
+        <div className='page-container'>
+            <div className='page-section--normal'>
+                <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
             {loading && <Spinner width={50} height={50} />}
             {!loading && error && (
                 <Alert
-                    variant="danger"
-                    className="page-section--normal page-section--alert"
+                    variant='danger'
+                    className='page-section--normal page-section--alert'
                 >
                     {error}
                 </Alert>
             )}
             {!loading && !error && (
                 <>
-                    <div className="events-top-bar page-section--normal">
+                    <div className='events-top-bar page-section--normal'>
                         {/* @ts-ignore */}
                         <Button
-                            variant="secondary-outlined"
+                            variant='secondary-outlined'
                             trailingIcon={
-                                <i className="material-symbols-sharp">filter_list</i>
+                                <i className='material-symbols-sharp'>filter_list</i>
                             }
                             onClick={toggleFilter}
-                            size="medium"
+                            size='medium'
                             className={`events-topbar_filter-toggle ${
                                 isFilterOpen ? 'active' : ''
                             }`}
                         >
                             Filter
                         </Button>
-                        <div className="button-group events-top-bar_view-toggle">
+                        <div className='button-group events-top-bar_view-toggle'>
                             <GroupToggle
                                 options={[
                                     {
                                         leadingIcon: (
-                                            <i className="material-symbols-sharp">grid_view</i>
+                                            <i className='material-symbols-sharp'>grid_view</i>
                                         ),
                                     },
                                     {
                                         leadingIcon: (
-                                            <i className="material-symbols-sharp">
+                                            <i className='material-symbols-sharp'>
                                                 format_list_bulleted
                                             </i>
                                         ),
                                     },
                                 ]}
                                 // @ts-expect-error
-                                activeVariant="primary-outlined"
-                                inactiveVariant="secondary-outlined"
+                                activeVariant='primary-outlined'
+                                inactiveVariant='secondary-outlined'
                                 onOptionChange={handleOptionChange}
                                 activeOptionIndex={viewToggleIndex}
-                                groupVariant="ghost"
-                                buttonVariant="ghost"
-                                size="medium"
+                                groupVariant='ghost'
+                                buttonVariant='ghost'
+                                size='medium'
                             />
                         </div>
                     </div>
-                    <div className="page-section--without-gaps">
-                        <div className="events">
-                            <div className="events_section--left">
+                    <div className='page-section--without-gaps'>
+                        <div className='events'>
+                            <div className='events_section--left'>
                                 <div
                                     className={`events_filter-container ${
                                         isFilterOpen ? 'events_filter-container--open' : ''
@@ -308,7 +308,7 @@ export default function Events() {
                                     )}
                                 </div>
                             </div>
-                            <div className="events_section--right">
+                            <div className='events_section--right'>
                                 <ul
                                     className={`events_list events_list${
                                         eventsView === 'grid-view' ? '--grid-view' : '--list-view'
@@ -317,8 +317,8 @@ export default function Events() {
                                     {groupedEvents.currentWeekEvents &&
                     groupedEvents.currentWeekEvents.length > 0 && (
                                         <>
-                                            <div className="event-list-separator event-list-seperator--first">
-                                                <p className="event-list-separator_text">
+                                            <div className='event-list-separator event-list-seperator--first'>
+                                                <p className='event-list-separator_text'>
                                                     {text.thisWeek}
                                                 </p>
                                             </div>
@@ -343,8 +343,8 @@ export default function Events() {
                                     {groupedEvents.nextWeekEvents &&
                     groupedEvents.nextWeekEvents.length > 0 && (
                                         <>
-                                            <div className="event-list-separator">
-                                                <p className="event-list-separator_text">
+                                            <div className='event-list-separator'>
+                                                <p className='event-list-separator_text'>
                                                     {text.nextWeek}
                                                 </p>
                                             </div>
@@ -372,8 +372,8 @@ export default function Events() {
                                             {groupedEvents.currentWeekEvents.length +
                           groupedEvents.nextWeekEvents.length >
                           0 && (
-                                                <div className="event-list-separator">
-                                                    <p className="event-list-separator_text">
+                                                <div className='event-list-separator'>
+                                                    <p className='event-list-separator_text'>
                                                         {text.later}
                                                     </p>
                                                 </div>
@@ -398,14 +398,14 @@ export default function Events() {
                                 </ul>
 
                                 {!loading && showLoadMore && events.length > 0 && (
-                                    <div className="events_load-more">
+                                    <div className='events_load-more'>
                                         {/* @ts-ignore */}
                                         <Button
                                             onClick={loadItems}
-                                            variant="secondary"
-                                            className="events_load-more-btn"
+                                            variant='secondary'
+                                            className='events_load-more-btn'
                                             trailingIcon={
-                                                <i className="material-symbols-sharp">arrow_downward</i>
+                                                <i className='material-symbols-sharp'>arrow_downward</i>
                                             }
                                         >
                                             {text.loadMore}

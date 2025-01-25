@@ -27,14 +27,14 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
 
     return (
         <nav className={`mobile-nav${open ? ' mobile-nav--open' : ''}`}>
-            <Link onClick={close} href="/events" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav_item">{text.nav.events}</li>
+            <Link onClick={close} href='/events' tabIndex={open ? 0 : -1}>
+                <li className='mobile-nav_item'>{text.nav.events}</li>
             </Link>
-            <Link onClick={close} href="/career" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav_item">{text.nav.jobad}</li>
+            <Link onClick={close} href='/career' tabIndex={open ? 0 : -1}>
+                <li className='mobile-nav_item'>{text.nav.jobad}</li>
             </Link>
-            <Link onClick={close} href="/companies" tabIndex={open ? 0 : -1}>
-                <li className="mobile-nav_item">{text.nav.companies}</li>
+            <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
+                <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
             <div
                 className={`mobile-nav-dropdown${
@@ -42,47 +42,47 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                 }`}
             >
                 <button
-                    className="mobile-nav-dropdown_toggle"
+                    className='mobile-nav-dropdown_toggle'
                     onClick={toggleDropdown}
                     tabIndex={open ? 0 : -1}
                 >
-                    <li className="flex flex-row items-center mobile-nav_item">
+                    <li className='flex flex-row items-center mobile-nav_item'>
                         {text.nav.about}
-                        <ArrowDown size="1.5rem" fill="white"/>
+                        <ArrowDown size='1.5rem' fill='white'/>
                     </li>
                 </button>
-                <div className="mobile-nav-dropdown_items">
+                <div className='mobile-nav-dropdown_items'>
                     <Link
                         onClick={close}
-                        href="/about"
+                        href='/about'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown_item">{text.nav.general}</li>
+                        <li className='mobile-nav-dropdown_item'>{text.nav.general}</li>
                     </Link>
                     <Link
                         onClick={close}
-                        href="/verv"
+                        href='/verv'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown_item">{text.nav.verv}</li>
+                        <li className='mobile-nav-dropdown_item'>{text.nav.verv}</li>
                     </Link>
                     <Link
                         onClick={close}
-                        href="/fond"
+                        href='/fond'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="mobile-nav-dropdown_item">{text.nav.fondet}</li>
+                        <li className='mobile-nav-dropdown_item'>{text.nav.fondet}</li>
                     </Link>
                     <a
-                        title="Wiki"
-                        href="https://wiki.login.no"
-                        target="_blank"
-                        rel="noreferrer"
+                        title='Wiki'
+                        href='https://wiki.login.no'
+                        target='_blank'
+                        rel='noreferrer'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className="flex flex-row mobile-nav-dropdown_item">
+                        <li className='flex flex-row mobile-nav-dropdown_item'>
                             Wiki
-                            <ArrowOutward size="1.5rem" fill="white" className=""/>
+                            <ArrowOutward size='1.5rem' fill='white' className=''/>
                         </li>
                     </a>
                 </div>

@@ -113,32 +113,32 @@ export default function Jobads() {
     }
 
     return (
-        <div className="page-container">
-            <h1 className="page-section--normal heading-1 heading-1--top-left-corner">{text.title}</h1>
+        <div className='page-container'>
+            <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>{text.title}</h1>
             {loading && <Spinner width={50} height={50} />}
             {/* @ts-ignore */}
-            {!loading && error && <Alert variant='danger' className="page-section--normal page-section--alert">{error}</Alert>}
+            {!loading && error && <Alert variant='danger' className='page-section--normal page-section--alert'>{error}</Alert>}
             {!loading && !error &&
-        <div className="page-section--normal">
+        <div className='page-section--normal'>
             {/* @ts-ignore */}
             <Button
-                variant="secondary-outlined"
+                variant='secondary-outlined'
                 trailingIcon={<i className='material-symbols-sharp'>filter_list</i>}
                 onClick={toggleFilter}
-                size="medium"
+                size='medium'
                 className={`jobads_filter-toggle ${isFilterOpen ? 'active' : ''}`}
             >
                 Filter
             </Button>
 
-            <div className="jobads">
-                <div className="jobads_section--left">
+            <div className='jobads'>
+                <div className='jobads_section--left'>
                     <div className={`jobads_filter-container ${isFilterOpen ? 'jobads_filter-container--open' : ''}`}>
                         {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : 'No filter data available'}
                     </div>
                 </div>
-                <div className="jobads_section--right">
-                    <ul className="jobads_list">
+                <div className='jobads_section--right'>
+                    <ul className='jobads_list'>
                         {jobads.length ? jobads.map((e, idx) => (
                             <li key={idx}>
                                 <JobadsListItem jobad={e} />

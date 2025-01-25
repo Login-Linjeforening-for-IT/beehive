@@ -23,6 +23,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     //initialize map only once, poi will probably not change
     useEffect(() => {
+        // @ts-ignore
         import('@/vendor/mazemap/mazemap.min.js').then((mazemap) => setMazemap(mazemap))
         if (!Mazemap || !hasMounted) return
 
@@ -118,21 +119,21 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                 <div id='mazemap' className='mazemap'>
                     <a
                         href={'https://use.mazemap.com/#v=1&sharepoitype=poi&campusid=1&sharepoi=' + poi}
-                        rel="noreferrer noopener"
-                        target="_blank"
+                        rel='noreferrer noopener'
+                        target='_blank'
                         className='mazemap_link mazemap_overlay-item'
                     >
-                        <ArrowOutward size="1.5rem" fill="white" className=""/>
+                        <ArrowOutward size='1.5rem' fill='white' className=''/>
                     </a>
                     {room &&
 					<div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
-					    <Pin size="1.5rem" fill="white" className="mazemap_location-name-icon" />
+					    <Pin size='1.5rem' fill='white' className='mazemap_location-name-icon' />
 					    {room}
 					</div>
                     }
                     <div className='mazemap_controls mazemap_overlay-item'>
-                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'><Add size={'1.5rem'} fill="white" className=""/></button>
-                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'><Remove size={'1.5rem'} fill="white" className="" /></button>
+                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'><Add size={'1.5rem'} fill='white' className=''/></button>
+                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'><Remove size={'1.5rem'} fill='white' className='' /></button>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ export default function AccordionItem({ id, title, activeAccordionItem, setActiv
  
     return (
         <li onClick={handleClick} className={`flex flex-row accordion_nav-item ${activeAccordionItem === id ? 'accordion_nav-item--active' : ''}`}>
-            <ArrowRight size="2.5rem" fill={'white'} className="accordion_icon--left"/>{ title }
+            <ArrowRight size='2.5rem' fill='white' className='accordion_icon--left'/>{ title }
         </li>
     )
 }
