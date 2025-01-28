@@ -39,7 +39,6 @@ export async function getEvents(categories: string[] | null = null, limit = 20, 
 
     if (categories) queryParams.append('categories', categories.join(','))
     if (highlighted) queryParams.append('highlighted', String(highlighted))
-
     const path = `/events/?${queryParams.toString()}`
     return await _fetchWrapper(path)
 }
@@ -80,7 +79,7 @@ async function _fetchWrapper(path: string, options = {}) {
     const finalOptions = { ...defaultOptions, ...options }
 
     try {
-        const response = await fetch(baseUrl + path, finalOptions)
+        const response = await fetch(`${baseUrl}${path}`, finalOptions)
         const data = await response.json()
 
         if (!response.ok) {

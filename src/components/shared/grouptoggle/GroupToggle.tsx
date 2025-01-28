@@ -53,6 +53,7 @@ function GroupToggle({
 
                 return (
                     <Button
+                        href=''
                         key={index}
                         variant={buttonVariant}
                         size={size}

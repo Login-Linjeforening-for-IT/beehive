@@ -86,6 +86,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
             <div className='filter-groups_buttons'>
                 {/* @ts-ignore */}
                 <Button
+                    href=''
                     variant='secondary-outlined'
                     trailingIcon={<i className='material-symbols-sharp'>replay</i>}
                     onClick={onReset}
@@ -97,6 +98,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                 {close &&
                 // @ts-ignore
                     <Button
+                        href=''
                         variant='secondary-outlined'
                         leadingIcon={<i className='material-symbols-sharp'>keyboard_arrow_up</i>}
                         onClick={close}

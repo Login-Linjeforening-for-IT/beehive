@@ -64,7 +64,6 @@ function groupEvents(eventsArray: any[]) {
     // Calculate the start of the current week (Monday)
     const startOfWeek = new Date(currentDate)
     startOfWeek.setDate(currentDate.getDate() - currentDate.getDay() + 1)
-
     startOfWeek.setHours(0)
     startOfWeek.setMinutes(0)
     startOfWeek.setSeconds(0)
@@ -92,7 +91,7 @@ function groupEvents(eventsArray: any[]) {
             currentWeekEvents.push(event)
         } else if (
             eventDate >= startOfNextWeek &&
-      eventDate < startOfWeekAfterNextWeek
+            eventDate < startOfWeekAfterNextWeek
         ) {
             nextWeekEvents.push(event)
         } else {
@@ -108,9 +107,9 @@ function groupEvents(eventsArray: any[]) {
 }
 
 export default function Events() {
-    if (typeof localStorage === 'undefined') {
-        return null
-    }
+    // if (typeof localStorage === 'undefined') {
+    //     return null
+    // }
     
     const { lang } = useContext(AppContext)
     const text = lang === 'en' ? en : no
@@ -133,9 +132,11 @@ export default function Events() {
         // eslint-disable-next-line
         futureEvents: [] as any[],
     })
-    const [eventsView, setEventsView] = useState(() => {
-        return localStorage.getItem('events-view') || 'list-view'
-    })
+    // const [eventsView, setEventsView] = useState(() => {
+    //     return localStorage.getItem('events-view') || 'list-view'
+    // })
+
+    const eventsView = 'list-view'
 
     function toggleFilter() {
         setIsFilterOpen((prevState) => !prevState)
@@ -146,11 +147,12 @@ export default function Events() {
     }, [eventsView])
 
     const [viewToggleIndex, setViewToggleIndex] = useState(
+        // @ts-expect-error
         eventsView == 'grid-view' ? 0 : 1
     )
     function handleOptionChange(index: number) {
         setViewToggleIndex(index)
-        setEventsView(index == 0 ? 'grid-view' : 'list-view')
+        // setEventsView(index == 0 ? 'grid-view' : 'list-view')
     }
 
     // eslint-disable-next-line
@@ -186,6 +188,7 @@ export default function Events() {
                 throw new Error(err)
             }
 
+            console.log(response)
             offset.current = events.length + response.length
             setEvents((prevItems) => [...prevItems, ...response])
 
@@ -250,6 +253,7 @@ export default function Events() {
                     <div className='events-top-bar page-section--normal'>
                         {/* @ts-ignore */}
                         <Button
+                            href=''
                             variant='secondary-outlined'
                             trailingIcon={
                                 <i className='material-symbols-sharp'>filter_list</i>
@@ -311,6 +315,7 @@ export default function Events() {
                             <div className='events_section--right'>
                                 <ul
                                     className={`events_list events_list${
+                                        // @ts-expect-error
                                         eventsView === 'grid-view' ? '--grid-view' : '--list-view'
                                     }`}
                                 >
@@ -329,6 +334,7 @@ export default function Events() {
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
+                                                            // @ts-expect-error
                                                             eventsView === 'grid-view'
                                                                 ? 'card'
                                                                 : 'list-item'
@@ -355,6 +361,7 @@ export default function Events() {
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
+                                                            // @ts-expect-error
                                                             eventsView === 'grid-view'
                                                                 ? 'card'
                                                                 : 'list-item'
@@ -385,6 +392,7 @@ export default function Events() {
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
+                                                            // @ts-expect-error
                                                             eventsView === 'grid-view'
                                                                 ? 'card'
                                                                 : 'list-item'
@@ -401,6 +409,7 @@ export default function Events() {
                                     <div className='events_load-more'>
                                         {/* @ts-ignore */}
                                         <Button
+                                            href=''
                                             onClick={loadItems}
                                             variant='secondary'
                                             className='events_load-more-btn'
