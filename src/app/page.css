@@ -1,9 +1,5 @@
 /* section previewing events and job ads */
 
-.dynamic-preview {
-    padding: 2rem 0;
-}
-
 .dynamic-preview-heading {
     display: flex;
     justify-content: space-between;
@@ -137,11 +133,6 @@
 
 @media only screen and (min-width: 800px) {
 
-    .dynamic-preview {
-        padding: 2rem 1rem;
-        margin: 0 auto;
-    }
-
     .dynamic-preview-heading {
         padding: 0 3rem;
     }
@@ -183,11 +174,6 @@
 }
 
 @media only screen and (min-width: 1000px) {
-
-    .dynamic-preview {
-        width: 100%;
-        max-width: var(--w-page);
-    }
 
     .dynamic-preview-heading {
         padding: 0 1rem .5rem 1rem;

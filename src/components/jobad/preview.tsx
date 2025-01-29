@@ -41,7 +41,7 @@ export default function JobadsPreview() {
 
     return (
         <>
-            <section className='dynamic-preview'>
+            <section className='py-[2rem] 800px:py-[2rem] 800px:px-[1rem] 800px:mx-auto 1000px:w-full 1000px:max-w-[var(--w-page)]'>
                 <div className='dynamic-preview-heading'>
                     <h2 className='dynamic-preview-heading_title'>
                         {text.jobadsPreview.title}

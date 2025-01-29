@@ -40,19 +40,19 @@ export default function Navigation() {
     return (
         <nav className='main-nav'>
             <Link href='/events'>
-                <li className='main-nav_item link--corner-hover'>{text.nav.events}</li>
+                <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.events}</li>
             </Link>
             <Link href='/career'>
-                <li className='main-nav_item link--corner-hover'>{text.nav.jobad}</li>
+                <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.jobad}</li>
             </Link>
             <Link href='/companies'>
-                <li className='main-nav_item link--corner-hover'>
+                <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.companies}
                 </li>
             </Link>
             <div className='main-nav-dropdown'>
                 <div className='main-nav-dropdown_toggle' tabIndex={0}>
-                    <div className='flex flex-row items-center main-nav_item'>
+                    <div className='list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer flex flex-row items-center '>
                         {text.nav.about}
                         <ArrowDown size='1.5rem' fill='white'/>
                     </div>

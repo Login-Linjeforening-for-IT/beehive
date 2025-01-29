@@ -221,17 +221,6 @@
     width: 100%;
   }
 
-  .main-nav_item {
-    list-style: none;
-    display: block;
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 1rem;
-    padding: .8rem;
-    font-weight: 500;
-    cursor: pointer;
-  }
-
   .active .main-nav_item {
     color: var(--color-link-primary);
   }

@@ -28,47 +28,9 @@
     }
 }
 
-
-/* ----------------------------------- */
-/* -------------- Global ------------- */
-/* ----------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-primary);
-    color: var(--color-text-main);
-    transition: .2s;
-}
-
-body {
-    background-color: var(--color-bg-body);
-}
-
-
 /* ----------------------------------- */
 /* -------------- Layout ------------- */
 /* ----------------------------------- */
-
-.App {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-.main-content {
-    flex: 1;
-    width: 100%;
-    margin: var(--h-topbar) auto;
-    min-height: calc(100vh - var(--h-topbar) - var(--h-topbar));
-}
-
-.main-header {
-    position: fixed;
-    top: 0;
-    z-index: 900;
-    width: 100%;
-}
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .main-header {
@@ -82,10 +44,6 @@ body {
     .main-header {
         background-color: var(--color-bg-topbar-fallback);
     }
-}
-
-.main-footer {
-    background: var(--color-bg-footer);
 }
 
 
@@ -126,7 +84,7 @@ body {
     .page-container {
         display: grid;
         grid-template-columns: 1fr 2rem minmax(0, var(--w-page)) 2rem 1fr;
-        padding-top: 6rem;
+        padding-top: 2rem;
     }
 }
 
@@ -136,50 +94,7 @@ body {
 /* ------------- Headings ------------ */
 /* ----------------------------------- */
 
-.heading-1 {
-    margin: 1rem 0;
-    padding: 0.3em 0;
-    z-index: 2;
-    font-weight: 600;
-    font-size: var(--font-size-heading-lg);
-    line-height: 1.2em;
-    color: var(--color-text-main);
-}
 
-.heading-2 {
-    padding: 1em 0 0.5em 0;
-    z-index: 2;
-    font-weight: 400;
-    font-size: var(--font-size-heading-md);
-    line-height: 1.2em;
-    color: var(--color-text-main);
-}
-
-.heading-3 {
-    padding: 1em 0 0.5rem 0;
-    font-weight: 400;
-    font-size: var(--font-size-heading-sm);
-    color: var(--color-text-main);
-}
-
-.heading-4 {
-    padding: 1em 0 0.5em 0;
-    font-weight: 600;
-    font-size: var(--font-size-heading-xs);
-    color: var(--color-text-main);
-}
-
-.heading-2--icon {
-    display: flex;
-    align-items: center;
-}
-  
-.heading-2_icon {
-    font-size: 1.2em;
-    line-height: inherit;
-    vertical-align: top;
-    margin-right: .4em;
-}
 
 @media only screen and (min-width: 400px) {
 

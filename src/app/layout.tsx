@@ -17,15 +17,15 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: ReactNode}) {
     return (
         <html lang='en' className='w-[100vw]'>
-            <body className='w-full'>
+            <body className='flex flex-col min-h-[100vh] w-full bg-[var(--color-bg-body)]'>
                 <Provider>
-                    <header className='main-header'>
+                    <header className='main-header fixed top-0 z-900 w-full'>
                         <TopBar/>
                     </header>
-                    <main className='w-full'>
+                    <main className='flex-1 w-full mx-auto my-[var(--h-topbar)]'>
                         {children}
                     </main>
-                    <footer className='main-footer'>
+                    <footer className='bg-[var(--color-bg-footer)] main-footer'>
                         <Footer/>
                     </footer>
                 </Provider>
