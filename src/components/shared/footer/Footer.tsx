@@ -9,7 +9,7 @@ import Image from 'next/image'
 import { useContext, useEffect, useState } from 'react'
 import AppContext from '@context/context'
 
-const version = process.env.REACT_APP_FRONTEND_VERSION
+const version = process.env.VERSION
 
 export default function Footer() {
     const currentDate = new Date()
@@ -93,7 +93,7 @@ export default function Footer() {
                         className='footer-content_version-tag'
                         target='_blank'
                         href={
-                            'https://git.logntnu.no/tekkom/web/beehive/frontend/-/tags/' +
+                            'https://gitlab.login.no/tekkom/web/beehive/frontend/-/tags/' +
                         version
                         }
                     >

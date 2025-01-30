@@ -44,7 +44,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Gitlab'
-                href='https://git.logntnu.no/'
+                href='https://gitlab.login.no/'
                 target='_blank'
                 rel='noreferrer'
             >

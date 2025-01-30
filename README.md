@@ -20,7 +20,7 @@ https://docs.docker.com/compose/install/
 Once you have installed the docker-engine and docker-compose on your machine you can follow the following steps in order to set up the development environment:
 
 1. Clone git repository.<br/>
-   `git@git.logntnu.no:tekkom/web/beehive/frontend.git`
+   `git@gitlab.login.no:tekkom/web/beehive/frontend.git`
 2. Move to the cloned repository.<br/>
    `cd frontend`
 3. Change to desired branch.<br/>
