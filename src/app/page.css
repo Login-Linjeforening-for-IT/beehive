@@ -1,27 +1,3 @@
-/* section previewing events and job ads */
-
-.dynamic-preview-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.dynamic-preview-heading_title {
-    padding: .5rem 0;
-    font-weight: 400;
-    font-size: 1.5rem;
-}
-
-.dynamic-preview-heading_link {
-    display: block;
-    padding: .5em 1.5em .5em 1em;
-    position: relative;
-    line-height: 1.4em;
-    height: 2.4em;
-    font-weight: 500;
-}
-
 .dynamic-preview-heading_link:hover .dynamic-preview-heading_link-text {
     color: var(--color-link-primary);
 }

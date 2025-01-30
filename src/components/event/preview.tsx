@@ -42,11 +42,11 @@ export default function EventsPreview() {
     return (
         <>
             <section className='py-[2rem] 800px:py-[2rem] 800px:px-[1rem] 800px:mx-auto 1000px:w-full 1000px:max-w-[var(--w-page)]'>
-                <div className='dynamic-preview-heading'>
-                    <h2 className='dynamic-preview-heading_title'>
+                <div className='flex justify-between items-center px-[2rem]'>
+                    <h2 className='py-[0.5rem] font-normal text-2xl'>
                         {text.eventsPreview.title}
                     </h2>
-                    <Link href='/events' className='dynamic-preview-heading_link'>
+                    <Link href='/events' className='relative block py-[0.5rem] pr-[1.5em] pl-[1rem] leading-[1.4rem] font-medium h-[2.4em]'>
                         <span className='dynamic-preview-heading_link-text'>
                             {text.jobadsPreview.seeAll}
                         </span>

@@ -3,7 +3,6 @@
 import Contact from '@components/shared/contact/Contact'
 import no from '@text/policy/no.json'
 import en from '@text/policy/en.json'
-import './page.css'
 import { useContext } from 'react'
 import AppContext from '@context/context'
 
@@ -14,7 +13,7 @@ export default function Policy() {
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
-                <div className='policy-page'>
+                <div className='max-w-[50rem] m-auto pb-[3rem] 800px:pb-[5rem]'>
                     <h1 className='heading-1 heading-1--top-left-corner'>{text.policy.title}</h1>
                     <section>
                         <h2 className='heading-2'>

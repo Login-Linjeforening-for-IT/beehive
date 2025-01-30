@@ -3,7 +3,6 @@
 import Contact from '@components/shared/contact/Contact'
 import no from '@text/companies/no.json'
 import en from '@text/companies/en.json'
-import './page.css'
 import { useContext } from 'react'
 import AppContext from '@context/context'
 import Flowsheet from '@components/svg/symbols/Flowsheet'
@@ -23,7 +22,7 @@ export default function CompaniesPage() {
                 <section>
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
-                <div className='companies-info'>
+                <div className='grid grid-cols-1 gap-y-[1rem] max-w-[45rem] mb-[3rem] 1000px:grid-cols-2 1000px:gap-x-[4rem] 1000px:gap-y-[2rem] 1000px:mb-[5rem] 1000px:max-w-none'>
                     <section>
                         <h2 className='heading-2 heading-2--icon'>
                             <Flowsheet size='3rem' fill='white' className='mr-[0.4em]' />

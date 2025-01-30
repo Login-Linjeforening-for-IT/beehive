@@ -5,7 +5,6 @@ import LogChamp from '@components/shared/logchamp/LogChamp'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
-import './page.css'
 import { useContext } from 'react'
 import AppContext from '@context/context'
 import Chart from '@components/svg/symbols/Chart'
@@ -26,10 +25,10 @@ export default function Fund() {
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            <section className='page-section--normal fund-intro'>
+            <section className='page-section--normal mb-[2rem]'>
                 <p className='p--highlighted'>{text.intro}</p>
             </section>
-            <section className='page-section--without-gaps fund-section fund-section--highlighted'>
+            <section className='page-section--without-gaps mb-[5rem] bg-[var(--color-bg-surface)] p-[1rem] 800px:p-[1rem_2rem_2rem_2rem] 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-[2rem] 1200px:rounded-[var(--border-radius-large)]'>
                 <h2 className='heading-2'>{text.support.title}</h2>
                 <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.support.intro}}/>
                 <h3 className='heading-4'>{text.support.heading1}</h3>
@@ -39,8 +38,8 @@ export default function Fund() {
                 <h3 className='heading-4'>{text.support.heading3}</h3>
                 <p className='p--regular' dangerouslySetInnerHTML={{__html: text.support.body3}}/>
             </section>
-            <section className='page-section--normal fund-section'>
-                <div className='fund-section_container fund-section_container--grid'>
+            <section className='page-section--normal mb-[5rem]'>
+                <div className='fund-section_container 800px:grid 800px:grid-cols-2 800px:gap-[4rem]'>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='flex flex-row heading-2 heading-2--icon'>
@@ -58,7 +57,7 @@ export default function Fund() {
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
                     </div>
                 </div>
-                <div className='fund-section_container fund-section_container--grid'>
+                <div className='fund-section_container 800px:grid 800px:grid-cols-2 800px:gap-[4rem]'>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
@@ -77,19 +76,19 @@ export default function Fund() {
                     </div>
                 </div>
             </section>
-            <section className='page-section--without-gaps fund-section fund-section--highlighted'>
+            <section className='page-section--without-gaps mb-[5rem] bg-[var(--color-bg-surface)] p-[1rem] 800px:p-[1rem_2rem_2rem_2rem] 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-[2rem] 1200px:rounded-[var(--border-radius-large)]'>
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
                         <Office size='3rem' fill='white' className='heading-2_icon'/>
                         <span>{text.board.title}</span>
                     </h2>
-                    <div className='fund-board_intro'>
+                    <div className='flex flex-wrap justify-center gap-[3rem] mb-[4rem]'>
                         {/* @ts-ignore */}
-                        <div className='fund-board_intro-text'>
+                        <div className='box-border flex-[1_1_20rem] m-auto'>
                             <p className='p--highlighted'>{text.board.intro}</p>
                             <p className='p--regular' dangerouslySetInnerHTML={{__html: text.board.body}}/>
                         </div>
-                        <div className='fund-board_intro-picture'>
+                        <div className='box-border flex-[1_1_20rem] my-auto max-w-[33rem]'>
                             <DecoratedPicture
                                 imgUrl={config.url.CDN_URL + '/img/fondet/gruppebilde.jpg'}
                                 variant={4}
@@ -101,7 +100,7 @@ export default function Fund() {
                         </div>
                     </div>
                     <h3 className='heading-3'>{text.board.heading1}</h3>
-                    <div className='fund-board_members'>
+                    <div className='flex flex-wrap gap-[2rem] justify-center py-[2rem] 800px:gap-[3rem]'>
                         {Object.keys(boardMembers).map(key => (
                             <div key={key}>
                                 <LogChamp
