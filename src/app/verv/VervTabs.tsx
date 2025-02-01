@@ -12,7 +12,6 @@ import SatkomLogo from '@components/svg/committeelogos/SatkomLogo'
 import PrLogo from '@components/svg/committeelogos/PrLogo'
 import config from '@config'
 import '@components/shared/tabs/tabs.css'
-import '@app/about/CommitteeTabs.css'
 import en from '@text/verv/en.json'
 import no from '@text/verv/no.json'
 import board_no from '@text/board/no.json'
@@ -32,7 +31,7 @@ export default function VervTabs() {
 
     return (
         <div className='tabs committees page-section--without-gaps'>
-            <ul className='tabs_nav'>
+            <ul className='grid grid-cols-3 justify-between 500px:flex 500px:flex-nowrap 500px:justify-between tabs_nav'>
                 <TabNavItem
                     key='event'
                     title={<EventkomLogo />}
@@ -77,12 +76,12 @@ export default function VervTabs() {
                 />
             </ul>
             <TabContent id='event' activeTab={activeTab}>
-                <h3 className='committees_heading heading-3'>
+                <h3 className='mb-0 heading-3'>
                     <i className='logfont-eventkom' />{' '}
                     {text.committeeSection.eventkom.title}
                 </h3>
-                <div className='committees_info'>
-                    <div className='committees_text'>
+                <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
+                    <div className='col-[1_/_-2] max-w-[45rem]'>
                         <p className='p--highlighted'>
                             {text.committeeSection.eventkom.intro}
                         </p>
@@ -103,12 +102,12 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id='tek' activeTab={activeTab}>
-                <h3 className='committees_heading heading-3'>
+                <h3 className='mb-0 heading-3'>
                     <i className='logfont-tekkom' />{' '}
                     {text.committeeSection.tekkom.title}
                 </h3>
-                <div className='committees_info'>
-                    <div className='committees_text'>
+                <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
+                    <div className='col-[1_/_-2] max-w-[45rem]'>
                         <p className='p--highlighted'>
                             {text.committeeSection.tekkom.intro}
                         </p>
@@ -124,12 +123,12 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id='bedkom' activeTab={activeTab}>
-                <h3 className='committees_heading heading-3'>
+                <h3 className='mb-0 heading-3'>
                     <i className='logfont-bedkom' />{' '}
                     {text.committeeSection.bedkom.title}
                 </h3>
-                <div className='committees_info'>
-                    <div className='committees_text'>
+                <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
+                    <div className='col-[1_/_-2] max-w-[45rem]'>
                         <p className='p--highlighted'>
                             {text.committeeSection.bedkom.intro}
                         </p>
@@ -145,12 +144,12 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id='ctf' activeTab={activeTab}>
-                <h3 className='committees_heading heading-3'>
+                <h3 className='mb-0 heading-3'>
                     <i className='logfont-ctfkom' />{' '}
                     {text.committeeSection.ctfkom.title}
                 </h3>
-                <div className='committees_info'>
-                    <div className='committees_text'>
+                <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
+                    <div className='col-[1_/_-2] max-w-[45rem]'>
                         <p className='p--highlighted'>
                             {text.committeeSection.ctfkom.intro}
                         </p>
@@ -171,12 +170,12 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id='sat' activeTab={activeTab}>
-                <h3 className='committees_heading heading-3'>
+                <h3 className='mb-0 heading-3'>
                     <i className='logfont-satkom-filled' />{' '}
                     {text.committeeSection.satkom.title}
                 </h3>
-                <div className='committees_info'>
-                    <div className='committees_text'>
+                <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
+                    <div className='col-[1_/_-2] max-w-[45rem]'>
                         <p
                             className='p--highlighted'
                             dangerouslySetInnerHTML={{
@@ -195,11 +194,11 @@ export default function VervTabs() {
                 </div>
             </TabContent>
             <TabContent id='pr' activeTab={activeTab}>
-                <h3 className='committees_heading heading-3'>
+                <h3 className='mb-0 heading-3'>
                     <i className='logfont-pr' /> {text.committeeSection.pr.title}
                 </h3>
-                <div className='committees_info'>
-                    <div className='committees_text'>
+                <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
+                    <div className='col-[1_/_-2] max-w-[45rem]'>
                         <p
                             className='p--highlighted'
                             dangerouslySetInnerHTML={{

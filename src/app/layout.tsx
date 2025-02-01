@@ -5,7 +5,6 @@ import Footer from '@components/shared/footer/Footer'
 import '@assets/fonts/style.css'
 import '@assets/fonts/logfont/style.css'
 import './globals.css'
-import '@/styles/globals.css'
 import { Provider } from '@context/context'
 
 
@@ -22,7 +21,7 @@ export default function RootLayout({children}: {children: ReactNode}) {
                     <header className='main-header fixed top-0 z-900 w-full'>
                         <TopBar/>
                     </header>
-                    <main className='flex-1 w-full mx-auto my-[var(--h-topbar)]'>
+                    <main className='flex-1 w-full mx-auto my-[var(--h-topbar)] min-h-[calc(100vh-var(--h-topbar)-var(--h-topbar))]'>
                         {children}
                     </main>
                     <footer className='bg-[var(--color-bg-footer)] main-footer'>

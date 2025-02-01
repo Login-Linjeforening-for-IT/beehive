@@ -22,43 +22,13 @@
     cursor: pointer;
 }
 
-.tabs_nav-title {
-    padding-bottom: .3rem;
-    width: fit-content;
-    height: 100%;
-    display: block;
-    margin: auto;
-    transition: .2s;
-    color: var(--color-text-discreet);
-    padding: .5rem;
-    border-bottom: .3rem solid var(--color-bg-surface);
-}
-
 .tabs_nav-item:hover .tabs_nav-title {
     color: var(--color-text-main);
-}
-
-.tabs_nav-title--active {
-    color: var(--color-text-main);
-    border-color: var(--color-primary);
-}
-
-.tabs_content {
-    background-color: var(--color-bg-surface);
-    padding: 1rem;
-    box-shadow: var(--container-shadow);
-    border-radius: var(--border-radius);
 }
 
 @media only screen and (min-width: 800px) {
     .tabs_nav {
         padding-left: 2rem;
         padding-right: 2rem;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .tabs_content {
-        margin: 0 2rem;
     }
 }

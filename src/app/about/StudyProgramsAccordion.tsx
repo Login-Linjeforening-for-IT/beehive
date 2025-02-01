@@ -13,7 +13,7 @@ export default function StudyProgramsAccordion() {
     const text = lang === 'en' ? en : no
 
     return(
-        <ul className='accordion'>
+        <ul className='w-full accordion'>
             <AccordionItem 
                 id='bachelor' 
                 title={'Bachelor'} 
