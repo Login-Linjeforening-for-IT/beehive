@@ -1,0 +1,12 @@
+{
+    "details" : {
+        "deadline" : "Deadline",
+        "position" : "Position",
+        "type" : "Type",
+        "location" : "Location",
+        "locations" : "Locations",
+        "skills" : "Skills",
+        "applyButton" : "Apply here"
+    },
+    "published" : "PUBLISHED"
+}

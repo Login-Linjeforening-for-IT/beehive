@@ -2,7 +2,7 @@
     border-radius: var(--border-radius);
 }
 
-.default-banner__svg {
+.default-banner_svg {
     width: 100%;
     display: block;
 }

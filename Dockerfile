@@ -1,30 +1,31 @@
-# BUILD
-# Use a Node 16 base image
-FROM node:19-alpine as build
+# Node image with Alpine Linux
+FROM node:20-alpine
 
-# Install curl
-RUN apk add --no-cache curl
-
-ARG API_URL=API_URL_PLACEHOLDER
-ARG IMAGE_VERSION
-
+# Workdir required for tailwind to compile
 WORKDIR /app
-COPY . /app
 
-ENV REACT_APP_API_URL=${API_URL}
-ENV REACT_APP_FRONTEND_VERSION=${IMAGE_VERSION}
+# Installs services
+RUN apk add --no-cache varnish
 
-RUN npm ci 
+# Starts varnish
+COPY default.vcl /etc/varnish/default.vcl
+
+# Copies entrypoint
+COPY entrypoint.sh ./entrypoint.sh
+
+# Copies package.json and package-lock.json
+COPY package*.json ./
+
+# Installs dependencies
+RUN npm install
+
+# Copies the rest of the UI source code
+COPY . .
+
 RUN npm run build
 
-# SERVE
-FROM nginx:1.23-alpine
+# Exposes port 3000
+EXPOSE 3000
 
-# Copy the script into the image
-COPY docker-entrypoint.sh /docker-entrypoint.d/40-replace_api_url.sh
-
-# Make sure the script is executable
-RUN chmod +x /docker-entrypoint.d/40-replace_api_url.sh
-
-COPY --from=build /app/build/ /usr/share/nginx/html
-COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+# Starts the application
+CMD ["/bin/sh", "/app/entrypoint.sh"]

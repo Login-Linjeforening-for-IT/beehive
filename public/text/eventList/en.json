@@ -1,0 +1,14 @@
+{
+  "title": "Events",
+  "noEvents": "No upcoming events",
+  "loadMore": "Load more",
+  "noResults" : "No results...",
+  "thisWeek": "This week",
+  "nextWeek": "Next week",
+  "later": "Later",
+  "filter": {
+    "title": "filter",
+    "searchHint": "Search...",
+    "resetButton": "Reset"
+  }
+}

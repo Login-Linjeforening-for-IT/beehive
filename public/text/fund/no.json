@@ -1,0 +1,77 @@
+{
+    "title": "Logins Fond",
+    "intro": "Vi er glade for å presentere Logins Fond!",
+    "support": {
+        "title": "Søk Fondet om støtte!",
+        "intro": "Brenner du inne med et initiativ eller en idè der økonomisk støtte vil gi glede til de aller fleste medlemmene i Login? <b>Send en søknad!</b>",
+        "heading1": "Målgruppe",
+        "body1": "Alle grupper og medlemmer som er tilknyttet Login Linjeforening for IT kan søke fondet om støtte. Vi prioriterer søknader til nye initiativer.",
+        "heading2": "Søknadsperioder",
+        "body2": "En gang i semesteret vil fondsstyret kunngjøre via Login sine hovedkommunikasjonskanaler at de nå tar imot søknader. Dette vil typisk vare i en måned og skje i begynnelsen av semesteret. Behandlingstiden for søknadene vil variere avhengig av antall innkomne søknader.",
+        "heading3": "Hvordan søke?",
+        "body3": "Send en e-post til <a class='link link--primary'  target='_blank' rel='noopener noreferrer' href='mailto:fondet@login.no'>fondet@login.no</a> med en søknadstekst. Oppgi antall medlemmer eller studenter involvert i ditt initiativ, samt en fullstendig budsjettering av planene dine. Flere detaljer om hvordan søknaden skal utformes finnes <a class='link link--primary'  target='_blank' rel='noopener noreferrer' href='https://wiki.login.no/fondet/vedtekter'>her <i class='logfont-wikijs'></i></a>."
+    },
+    "purpose": {
+        "title": "Formål",
+        "body": "Formålet til Fondet er å gi Login en økonomisk trygghet og sørge for at Login sitt økonomiske overskudd fordeles rettferdig på nåværende og fremtidige medlemmer av Login. Fondet har også som formål å forhindre den økonomiske verdinedgangen Login sitt økonomiske overskudd og kapital opplever gjennom inflasjon."
+    },
+    "application": {
+        "title": "Åpent kvarter",
+        "body": "Visste du at alle fondsstyremøter begynner med et <b>åpent kvarter</b>? Det innebærer at alle Loginmedlemmer har mulighet til å delta på det første kvarteret til fondsstyremøtene, der du kan ta opp spørsmål, forslag til saker, eller hva som helst annet!"
+    },
+    "meeting": {
+        "title": "Møter",
+        "body": "Alle fondets møter vil bli annonsert en uke i forveien i samsvar med vedtektene gjennom Logins kommunikasjonskanaler. Fondstyret oppfordrer alle som ønsker å delta på åpent kvarter å delta på fondstyremøtene. Alle referater vil bli publisert på Fondets <a class='link link--primary' target='_blank' rel='noopener noreferrer' href='https://wiki.login.no/fondet/referat'>wikiside <i class='logfont-wikijs'></i></a>."
+    },
+    "yield": {
+        "title": "Avkastning",
+        "body": "Fondet har en langsiktig investeringsstrategi, med lav risikofaktor. Dette gjør at avkastningen er moderat, men stabil. Fondet sikter mot en årlig avkastning i tråd med globale indekser for langsiktige investeringer. Vår investeringsplan finnes i Fondets <a class='link link--primary' target='_blank' rel='noopener noreferrer' href='https://wiki.login.no/en/fondet/styringsdokument'>styringsdokument <i class='logfont-wikijs'></i></a>."
+    },
+    "graph": {
+        "title": "Investeringer",
+        "body": "Her vil grafer og visualiseringer av investeringer og verdiutvikling komme når det er ferdigstilt. <br><br> Fondsstyret sikter mot en offentliggjøring av en oversikt over de til enhver tid gjeldende investeringene og den tilhørende verdiutviklingen. Hvorvidt Fondets verdi offentliggjøres i form av kroner og ører eller i prosent er ikke avgjort."
+    },
+    "board": {
+        "title": "Fondsstyret",
+        "intro": "Fondsstyret er Fondets øverste organ, og har ansvar for å forvalte Fondets midler i tråd med Fondets formål.",
+        "body": "Fondsstyret består av fem medlemmer, der alle velges ved Fondets generalforsamlinger. Ønsker du å delte i Fondsstyret? Følg med på neste generalforsamling og still til valg! <br><br> Ønsker du å vite mer? Ta kontakt på <a class='link link--primary' target='_blank' rel='noopener noreferrer' href='mailto:fondet@login.no'>e-post</a> eller <a class='link link--primary' target='_blank' rel='noopener noreferrer' href='https://discord.gg/login-ntnu'>Discord <i class='logfont-discord'></i></a>! Det er også mulig å slå av en prat hvis du ser oss i gangen.",
+        "heading1": "Board Composition",
+        "members": {
+            "boardLeader": {
+                "title": "Styreleder",
+                "name": "Sebastian Hestsveen",
+                "dctag": ".stubbe",
+                "dclink": "https://discord.com/users/119120560931340290",
+                "img": "portrait-sebastian.jpg"
+            },
+            "boardMember1": {
+                "title": "Styremedlem",
+                "name": "Sander Osvik Brekke",
+                "dctag": "mightypanda_",
+                "dclink": "https://discord.com/users/611270155372331008",
+                "img": "portrait-sander.jpg"
+            },
+            "boardMember2": {
+                "title": "Styremedlem",
+                "name": "Marte Hensema",
+                "dctag": "hensemaa",
+                "dclink": "https://discord.com/users/1009582485564305408",
+                "img": "portrait-marte.jpg"
+            },
+            "boardMember3": {
+                "title": "Styremedlem",
+                "name": "To be elected in fall 2024",
+                "dctag": "",
+                "dclink": "",
+                "img": ""
+            },
+            "boardMember4": {
+                "title": "Styremedlem",
+                "name": "To be elected in fall 2024",
+                "dctag": "",
+                "dclink": "",
+                "img": ""
+            }
+        }
+    }
+}

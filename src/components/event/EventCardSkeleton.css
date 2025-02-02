@@ -5,18 +5,18 @@
 	height: 100%;
 }
 
-.event-card-skeleton__image {
+.event-card-skeleton_image {
     width: 100%;
     aspect-ratio: 10/4;
 }
 
-.event-card-skeleton__name {
+.event-card-skeleton_name {
     width: 80%;
     height: 1.6rem;
     margin: 1rem 0;
 }
 
-.event-card-skeleton__details {
+.event-card-skeleton_details {
     width: 60%;
     height: 1.2rem;
 }
