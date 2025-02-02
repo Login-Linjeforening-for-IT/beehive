@@ -2,11 +2,11 @@ services:
   beehive:
     container_name: beehive
     build:
-      context: ./
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - "./:/app"
-      - "/app/node_modules"
     environment:
-      - "APP_ENV=development"
+      - APP_ENV=development
+      - API_URL=https://workerbee-dev.login.no/api
+      - CDN_URL=https://cdn.login.no

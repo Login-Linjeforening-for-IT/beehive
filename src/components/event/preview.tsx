@@ -25,14 +25,13 @@ export default function EventsPreview() {
             try {
                 const [eventsData, err] = await getEvents(null, 3, 0, true)
                 if (err) {
-                    setError(err)
-                    console.error(err)
+                    throw new Error(err)
                 } else {
                     setEvents(eventsData)
                 }
             } catch (error) {
                 setError('Unexpected error occurred')
-                console.error('Unexpected error:', error)
+                console.error(`Unexpected error: ${error}`)
             } finally {
                 setLoading(false)
             }

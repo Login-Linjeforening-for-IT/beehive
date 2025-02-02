@@ -25,14 +25,13 @@ export default function JobadsPreview() {
             try {
                 const [jobadsData, err] = await getJobs(null, null, null, null, 3, 0)
                 if (err) {
-                    setError(err)
-                    console.error(err)
+                    throw new Error(err)
                 } else {
                     setJobads(jobadsData)
                 }
             } catch (error) {
                 setError('Unexpected error occurred')
-                console.error('Unexpected error:', error)
+                console.error(`Unexpected error: ${error}`)
             } finally {
                 setLoading(false)
             }

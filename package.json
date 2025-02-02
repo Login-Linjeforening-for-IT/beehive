@@ -1,6 +1,6 @@
 {
   "name": "beehive",
-  "version": "0.1.0",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@stylistic/eslint-plugin-js": "^3.0.0",
+    "dotenv": "^16.4.7",
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

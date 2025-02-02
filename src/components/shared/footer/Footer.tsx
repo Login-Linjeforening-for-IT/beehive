@@ -8,8 +8,7 @@ import './Footer.css'
 import Image from 'next/image'
 import { useContext, useEffect, useState } from 'react'
 import AppContext from '@context/context'
-
-const version = process.env.VERSION
+import Link from 'next/link'
 
 export default function Footer() {
     const currentDate = new Date()
@@ -88,17 +87,14 @@ export default function Footer() {
                         __html: ` ${text.footer.copy1} ${currentYear} ${text.footer.copy2}`,
                     }}
                 />
-                {typeof version !== 'undefined' ? (
-                    <a
+                {typeof config.version !== 'undefined' ? (
+                    <Link
                         className='footer-content_version-tag'
                         target='_blank'
-                        href={
-                            'https://gitlab.login.no/tekkom/web/beehive/frontend/-/tags/' +
-                        version
-                        }
+                        href={`https://gitlab.login.no/tekkom/web/beehive/frontend/-/tags/${config.version}`}
                     >
-                        v{version}
-                    </a>
+                        v{config.version}
+                    </Link>
                 ) : null}
             </div>
         </div>
