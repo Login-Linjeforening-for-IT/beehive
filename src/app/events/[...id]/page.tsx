@@ -24,6 +24,11 @@ import './page.css'
 import AppContext from '@context/context'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import Pin from '@components/svg/symbols/Pin'
+import Link from '@components/svg/symbols/Link'
+import LiveTv from '@components/svg/symbols/LiveTv'
+import Person from '@components/svg/symbols/Person'
+import Category from '@components/svg/symbols/Category'
+import Schedule from '@components/svg/symbols/Schedule'
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
@@ -67,7 +72,7 @@ function link(href: string, name: string) {
             target='_blank'
             rel='noreferrer'
         >
-            {name} <ArrowOutward size='1.5rem' fill='white' className=''/>
+            {name} <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
         </a>
     )
 }
@@ -162,7 +167,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                           {/* @ts-ignore */}
                           {event.event.time_type !== 'whole_day' &&
                     <div className='event-datetime-display_time'>
-                        <i className='event-datetime-display_time-icon material-symbols-sharp'>schedule</i>
+                        <Schedule className='event-datetime-display_time-icon'/>
                         {/* @ts-ignore */}
                         {event.event.time_type === 'tbd' ? 'TBD' : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}
@@ -177,7 +182,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {event.location && (
                           <>
                               <div className='flex flex-row items-center event-details_lable'>
-                                  <Pin size='1.5rem' fill='white' className='event-details_icon event-details_icon--lable-color' />
+                                  <Pin className='w-[1.5rem] h-[1.5rem] fill-white event-details_icon event-details_icon--lable-color' />
                                   {text.info.location}:
                               </div>
                               <div className='event-details_info'>
@@ -190,7 +195,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       )}
 
                       <div className='event-details_lable'>
-                          <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>category</i>
+                          <Category className='event-details_icon event-details_icon--lable-color'/>
                           {text.info.type}:
                       </div>
                       <div className='event-details_info'>
@@ -204,7 +209,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {event.organizations?.length > 0 && (
                           <>
                               <div className='event-details_lable'>
-                                  <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>person</i>
+                                  <Person className='event-details_icon event-details_icon--lable-color'/>
                                   {text.info.organizer}:
                               </div>
                               <div className='event-details_info'>
@@ -218,7 +223,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {event.event.link_stream && (
                           <>
                               <div className='event-details_lable'>
-                                  <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>live_tv</i>
+                                  <LiveTv className='event-details_icon event-details_icon--lable-color'/>
                                   {text.info.stream}:
                               </div>
                               <div className='event-details_info'>
@@ -232,7 +237,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                       {(event.event.link_discord || event.event.link_facebook) && (
                           <>
                               <div className='event-details_lable'>
-                                  <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>link</i>
+                                  <Link className='event-details_icon event-details_icon--lable-color'/>
                                   {text.info.links}:
                               </div>
                               <div className='event-details_info'>
@@ -280,7 +285,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
                               title={
                                   <>
                                       {/* @ts-ignore */}
-                                      <i className='material-symbols-sharp'>gavel</i> {tr(event.rule.name_en, event.rule.name_no)}
+                                      <Gavel className=''/> {tr(event.rule.name_en, event.rule.name_no)}
                                   </>
                               }
                           >

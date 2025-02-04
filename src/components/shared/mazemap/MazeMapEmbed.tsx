@@ -123,17 +123,17 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                         target='_blank'
                         className='mazemap_link mazemap_overlay-item'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </a>
                     {room &&
 					<div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
-					    <Pin size='1.5rem' fill='white' className='mazemap_location-name-icon' />
+					    <Pin className='w-[1.5rem] h-[1.5rem] fill-white mazemap_location-name-icon' />
 					    {room}
 					</div>
                     }
                     <div className='mazemap_controls mazemap_overlay-item'>
-                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'><Add size={'1.5rem'} fill='white' className=''/></button>
-                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'><Remove size={'1.5rem'} fill='white' className='' /></button>
+                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'><Add className='w-[1.5rem] h-[1.5rem] fill-white'/></button>
+                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'><Remove className='w-[1.5rem] h-[1.5rem] fill-white' /></button>
                     </div>
                 </div>
             </div>

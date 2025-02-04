@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import Image from 'next/image'
 import AppContext from '@context/context'
+import HourglassBottom from '@components/svg/symbols/HourglassBottom'
 
 // eslint-disable-next-line
 export default function JobadCard({ jobad, disableTags=false }: any) {
@@ -43,7 +44,7 @@ export default function JobadCard({ jobad, disableTags=false }: any) {
                 <div className='jobad-card_name'>{lang ? jobad.title_en : jobad.title_no}</div>
                 <ul className='jobad-card_details'>
                     <li className='jobad-card_detail'>
-                        <i className='jobad-card_icon material-symbols-sharp'>hourglass_bottom</i>
+                        <HourglassBottom className='jobad-card_icon'/>
                         {formatDeadlineDate(new Date(jobad.application_deadline), lang ? 'en' : 'no')}
                     </li>
                 </ul>

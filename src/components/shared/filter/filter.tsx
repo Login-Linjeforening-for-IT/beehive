@@ -8,6 +8,8 @@ import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
 import './filter.css'
 import AppContext from '@context/context'
+import KeyboardArrowUp from '@components/svg/symbols/KeyboardArrowUp'
+import Replay from '@components/svg/symbols/Replay'
 
 // eslint-disable-next-line
 export default function FilterGroup({ filters, onApply, close = false }: any) {
@@ -88,7 +90,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                 <Button
                     href=''
                     variant='secondary-outlined'
-                    trailingIcon={<i className='material-symbols-sharp'>replay</i>}
+                    trailingIcon={<Replay className=''/>}
                     onClick={onReset}
                     size='medium'
                     className='filter-groups_reset'
@@ -100,7 +102,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                     <Button
                         href=''
                         variant='secondary-outlined'
-                        leadingIcon={<i className='material-symbols-sharp'>keyboard_arrow_up</i>}
+                        leadingIcon={<KeyboardArrowUp className=''/>}
                         onClick={close}
                         size='medium'
                         className='filter-groups_close'

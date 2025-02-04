@@ -14,6 +14,10 @@ import no from '@text/eventList/no.json'
 import en from '@text/eventList/en.json'
 import './page.css'
 import AppContext from '@context/context'
+import GridView from '@components/svg/symbols/GridView'
+import List from '@components/svg/symbols/List'
+import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
+import ListBulleted from '@components/svg/symbols/ListBulleted'
 
 function getLabelKeyWithLang(key: string) {
     // eslint-disable-next-line
@@ -255,9 +259,7 @@ export default function Events() {
                         <Button
                             href=''
                             variant='secondary-outlined'
-                            trailingIcon={
-                                <i className='material-symbols-sharp'>filter_list</i>
-                            }
+                            trailingIcon={<List className=''/>}
                             onClick={toggleFilter}
                             size='medium'
                             className={`events-topbar_filter-toggle ${
@@ -271,15 +273,11 @@ export default function Events() {
                                 options={[
                                     {
                                         leadingIcon: (
-                                            <i className='material-symbols-sharp'>grid_view</i>
+                                            <GridView className='' />
                                         ),
                                     },
                                     {
-                                        leadingIcon: (
-                                            <i className='material-symbols-sharp'>
-                                                format_list_bulleted
-                                            </i>
-                                        ),
+                                        leadingIcon: (<ListBulleted className='' />),
                                     },
                                 ]}
                                 // @ts-expect-error
@@ -413,9 +411,7 @@ export default function Events() {
                                             onClick={loadItems}
                                             variant='secondary'
                                             className='events_load-more-btn'
-                                            trailingIcon={
-                                                <i className='material-symbols-sharp'>arrow_downward</i>
-                                            }
+                                            trailingIcon={<ArrowDownWard className=''/>}
                                         >
                                             {text.loadMore}
                                         </Button>

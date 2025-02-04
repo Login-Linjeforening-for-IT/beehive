@@ -11,6 +11,9 @@ import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import Image from 'next/image'
 import AppContext from '@context/context'
 import Pin from '@components/svg/symbols/Pin'
+import WorkHistory from '@components/svg/symbols/WorkHistory'
+import Apartment from '@components/svg/symbols/Apartment'
+import HourglassBottom from '@components/svg/symbols/HourglassBottom'
 
 const jobTypeTranslations = {
     no: {
@@ -113,22 +116,22 @@ export default function JobadsListItem({ jobad }: any) {
                         <div className='jobads-item_name'>{lang === 'en' ? jobad.title_en : jobad.title_no}</div>
                         <ul className='jobads-item_details'>
                             <li className='jobads-item_detail'>
-                                <i className='jobads-item_icon material-symbols-sharp'>hourglass_bottom</i>
+                                <HourglassBottom className='jobads-item_icon'/>
                                 {formatDeadlineDate(new Date(jobad.application_deadline), lang)}
                             </li>
                             <li className='jobads-item_detail'>
-                                <i className='jobads-item_icon material-symbols-sharp'>apartment</i>
+                                <Apartment className='jobads-item_icon'/>
                                 {lang === 'en' ? jobad.organization_name_en : jobad.organization_name_no}
                             </li>
                             {jobad.job_type && 
                                 <li className='jobads-item_detail'>
-                                    <i className='jobads-item_icon material-symbols-sharp'>work_history</i>
+                                    <WorkHistory className='jobads-item_icon'/>
                                     {getJobTypeLabel(jobad.job_type, lang)}
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <li className='flex flex-row items-center jobads-item_detail'>
-                                    <Pin size='1.5rem' fill='white' className='jobads-item_icon' />
+                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-white jobads-item_icon' />
                                     {formatCities(jobad.cities)}
                                 </li>
                             }

@@ -15,6 +15,10 @@ import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import AppContext from '@context/context'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import Pin from '@components/svg/symbols/Pin'
+import HourglassBottom from '@components/svg/symbols/HourglassBottom'
+import WorkHistory from '@components/svg/symbols/WorkHistory'
+import Acute from '@components/svg/symbols/Acute'
+import Badge from '@components/svg/symbols/Badge'
 
 const jobTypeTranslations = {
     no: {
@@ -127,7 +131,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                     >
                                         {/* @ts-ignore */}
                                         {tr(jobad.organization.name_en, jobad.organization.name_no) + ' '}
-                                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                                     </a>
                                 ) : (
                                 // @ts-ignore
@@ -137,9 +141,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         </div>
                         <div className='jobad-details_list'>
                             <div className='jobad-details_lable'>
-                                <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                                    hourglass_bottom
-                                </i>
+                                <HourglassBottom className='jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.deadline}:
                             </div>
                             <div className='jobad-details_value'>
@@ -150,18 +152,14 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                 )}
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.job.application_deadline)) && (
-                                    <i className='material-symbols-sharp jobad-details_icon jobad-details_icon--warning'>
-                                        acute
-                                    </i>
+                                    <Acute className='jobad-details_icon jobad-details_icon--warning'/>
                                 )}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.job.position_title_no && 
                 <>
                     <div className='jobad-details_lable'>
-                        <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                            badge
-                        </i>
+                        <Badge className='jobad-details_icon jobad-details_icon--lable-color'/>
                         {text.details.position}:
                     </div>
                     <div className='jobad-details_value'>
@@ -171,9 +169,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                 </>
                             }
                             <div className='jobad-details_lable'>
-                                <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                                    work_history
-                                </i>
+                                <WorkHistory className='jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.type}:
                             </div>
                             <div className='jobad-details_value'>
@@ -184,7 +180,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
                     <div className='flex flex-row items-center jobad-details_lable'>
-                        <Pin size='1.5rem' fill='white' className='jobad-details_icon jobad-details_icon--lable-color' />
+                        <Pin className='w-[1.5rem] h-[1.5rem] fill-white jobad-details_icon jobad-details_icon--lable-color' />
                         {/* @ts-ignore */}
                         {jobad.job.cities.length > 1
                             ? text.details.locations
@@ -217,7 +213,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         {jobad.job.application_url && (
                         // @ts-ignore
                             <Button
-                                trailingIcon={<ArrowOutward size='1.5rem' fill='white' className=''/>}
+                                trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 // @ts-ignore
                                 href={jobad.job.application_url}
                                 className='jobad-details_apply-btn'

@@ -13,6 +13,8 @@ import no from '@text/jobadList/no.json'
 import en from '@text/jobadList/en.json'
 import './page.css'
 import AppContext from '@context/context'
+import List from '@components/svg/symbols/List'
+import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
 
 const jobTypeTranslations = {
     no: {
@@ -123,7 +125,7 @@ export default function Jobads() {
             {/* @ts-ignore */}
             <Button
                 variant='secondary-outlined'
-                trailingIcon={<i className='material-symbols-sharp'>filter_list</i>}
+                trailingIcon={<List className=''/>}
                 onClick={toggleFilter}
                 size='medium'
                 className={`jobads_filter-toggle ${isFilterOpen ? 'active' : ''}`}
@@ -154,7 +156,7 @@ export default function Jobads() {
                                 onClick={loadItems}
                                 variant='secondary'
                                 className='jobads_load-more-btn'
-                                trailingIcon={<i className='material-symbols-sharp'>arrow_downward</i>}
+                                trailingIcon={<ArrowDownWard className=''/>}
                             >
                                 {text.loadMore}
                             </Button>

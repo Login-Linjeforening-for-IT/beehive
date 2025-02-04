@@ -7,6 +7,7 @@ import en from '@text/404/en.json'
 import Image from 'next/image'
 import { useContext, useEffect, useState } from 'react'
 import AppContext from '@context/context'
+import West from '@components/svg/symbols/West'
 
 export default function NotFoundPage() {
     const { lang } = useContext(AppContext)
@@ -32,7 +33,7 @@ export default function NotFoundPage() {
                 <p className='p--regular'>
                     {text.msg}
                 </p>
-                <Button href='-1' leadingIcon={<i className='material-symbols-sharp'>west</i>}>
+                <Button href='-1' leadingIcon={<West className='' />}>
                     {text.help}
                 </Button>
             </div>

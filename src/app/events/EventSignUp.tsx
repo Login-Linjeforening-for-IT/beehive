@@ -9,6 +9,9 @@ import { formatDeadlineDate, formatPublishedDate } from '@utils/DatetimeFormatte
 import { useContext } from 'react'
 import AppContext from '@context/context'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import ConfirmationNumber from '@components/svg/symbols/ConfirmationNumber'
+import DisabledByDefault from '@components/svg/symbols/DisabledByDefault'
+import ExitToApp from '@components/svg/symbols/ExitToApp'
 
 type EventSignUpProps = {
     url: string
@@ -76,9 +79,7 @@ export default function EventSignUp({
                     {cap > 0 && (
                         <>
                             <div className='event-details_lable'>
-                                <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>
-                                    confirmation_number
-                                </i>
+                                <ConfirmationNumber className='event-details_icon event-details_icon--lable-color'/>
                                 {text.info.capacity}:
                             </div>
                             <div className='event-details_info'>{cap}</div>
@@ -87,9 +88,7 @@ export default function EventSignUp({
                     {ready && (
                         <>
                             <div className='event-details_lable'>
-                                <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>
-                                    exit_to_app
-                                </i>
+                                <ExitToApp className='event-details_icon event-details_icon--lable-color'/>
                                 {now < signupRelease
                                     ? text.signup.opens
                                     : text.signup.hasOpened}
@@ -105,9 +104,7 @@ export default function EventSignUp({
                     {ready && now < signupDeadline && (
                         <>
                             <div className='event-details_lable'>
-                                <i className='event-details_icon event-details_icon--lable-color material-symbols-sharp'>
-                                    disabled_by_default
-                                </i>
+                                <DisabledByDefault className='event-details_icon event-details_icon--lable-color '/>
                                 {text.signup.closes}:
                             </div>
                             <div className='event-details_info'>
@@ -130,7 +127,7 @@ export default function EventSignUp({
                     {/* @ts-ignore */}
                     <Button
                         trailingIcon={
-                            <ArrowOutward size='1.5rem' fill='white' className=''/>
+                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                         }
                         href={url}
                         className='event-signup_btn'

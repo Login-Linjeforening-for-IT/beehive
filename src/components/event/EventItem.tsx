@@ -16,6 +16,7 @@ import './EventItem.css'
 import { formatEventStartDate, isOngoing } from '@utils/DatetimeFormatter'
 import AppContext from '@context/context'
 import Pin from '@components/svg/symbols/Pin'
+import Schedule from '@components/svg/symbols/Schedule'
 
 type EventListItemProps = { 
     // eslint-disable-next-line
@@ -86,9 +87,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                         <ul className='event-item_details'>
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                 <li className='event-item_detail'>
-                    <i className='event-item_icon material-symbols-sharp'>
-                        schedule
-                    </i>
+                    <Schedule className='event-item_icon'/>
                     {event.time_type.toLowerCase() != 'tbd' ? 
                         formatEventStartDate(new Date(event.time_start), lang)
                         :
@@ -98,7 +97,7 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                             }
                             {event.location_name_no && (
                                 <li className='flex flex-row items-center event-item_detail'>
-                                    <Pin size='1.5rem' fill='white' className='event-item_icon' />
+                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-white event-item_icon' />
                                     {lang ? event.location_name_en : event.location_name_no}
                                 </li>
                             )}

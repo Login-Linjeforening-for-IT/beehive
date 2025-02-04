@@ -54,7 +54,7 @@ export default function Navigation() {
                 <div className='main-nav-dropdown_toggle' tabIndex={0}>
                     <div className='list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer flex flex-row items-center '>
                         {text.nav.about}
-                        <ArrowDown size='1.5rem' fill='white'/>
+                        <ArrowDown className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </div>
                     <div className='main-nav-dropdown_wrapper'>
                         <ul className='main-nav-dropdown_items'>
@@ -74,7 +74,7 @@ export default function Navigation() {
                                 onClick={handleClick}
                             >
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
-                                    <Heart size='1.5rem' fill='white' className={'mr-[0.7rem]'} />
+                                    <Heart className='w-[1.5rem] h-[1.5rem] fill-white mr-[0.7rem]' />
                                     {text.nav.verv}
                                 </li>
                             </Link>
@@ -84,7 +84,7 @@ export default function Navigation() {
                                 onClick={handleClick}
                             >
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
-                                    <Office size='1.5rem' fill='white' className={'mr-[0.7rem]'} />
+                                    <Office className='w-[1.5rem] h-[1.5rem] fill-white mr-[0.7rem]' />
                                     {text.nav.fondet}
                                 </li>
                             </Link>
@@ -98,9 +98,9 @@ export default function Navigation() {
                                 onClick={handleClick}
                             >
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
-                                    <Book size='1.5rem' fill='white' className={'mr-[0.7rem]'} />
+                                    <Book className='w-[1.5rem] h-[1.5rem] fill-white mr-[0.7rem]' />
                                     Wiki
-                                    <ArrowOutward size='1.5rem' fill='white' className=''/>
+                                    <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                                 </li>
                             </a>
                         </ul>

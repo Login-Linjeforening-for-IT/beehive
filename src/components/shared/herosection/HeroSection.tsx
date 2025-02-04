@@ -36,7 +36,7 @@ export default function LandingPage() {
                             {/* @ts-ignore */}
                             <Button
                                 href='/events'
-                                leadingIcon={<Calendar size='1.5rem' fill='white'/>}
+                                leadingIcon={<Calendar className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 variant='primary'
                             >
                                 {text.heroSection.secondaryButton}
@@ -45,7 +45,7 @@ export default function LandingPage() {
                             <Button
                                 variant='ghost'
                                 href='/about'
-                                leadingIcon={<School size='1.5rem' fill='white'/>}
+                                leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                             >
                                 {text.heroSection.primaryButton}
                             </Button>
