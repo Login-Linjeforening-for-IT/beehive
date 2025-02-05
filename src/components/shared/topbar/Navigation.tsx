@@ -38,7 +38,7 @@ export default function Navigation() {
     }, [navItemRefs])
 
     return (
-        <nav className='main-nav'>
+        <nav className='main-nav max-w-[36rem]'>
             <Link href='/events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.events}</li>
             </Link>
@@ -49,6 +49,9 @@ export default function Navigation() {
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.companies}
                 </li>
+            </Link>
+            <Link href='https://exam.login.no'>
+                <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.exam}</li>
             </Link>
             <div className='main-nav-dropdown'>
                 <div className='main-nav-dropdown_toggle' tabIndex={0}>

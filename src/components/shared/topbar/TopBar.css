@@ -217,7 +217,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 32rem;
     width: 100%;
   }
 

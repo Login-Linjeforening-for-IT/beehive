@@ -36,6 +36,9 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
             <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
+            <Link onClick={close} href='https://exam.login.no' tabIndex={open ? 0 : -1}>
+                <li className='mobile-nav_item'>{text.nav.exam}</li>
+            </Link>
             <div
                 className={`mobile-nav-dropdown${
                     isDropdownOpen ? ' mobile-nav-dropdown--open' : ''
