@@ -22,14 +22,12 @@ const prod = {
 //     version
 // }
 
-// const config = {
-//     url: {
-//         API_URL: "https://workerbee.login.no/api",
-//         CDN_URL: "https://cdn.login.no"
-//     },
-//     version
-// }
-
-const config = prod
+const config = {
+    url: {
+        API_URL: "https://workerbee.login.no/api",
+        CDN_URL: "https://cdn.login.no"
+    },
+    version
+}
 
 export default config
