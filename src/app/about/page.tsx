@@ -1,18 +1,15 @@
-'use client'
-
-import config from '@config'
 import CommitteeTabs from './CommitteeTabs'
 import StudyProgramsAcordion from './StudyProgramsAccordion'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import Contact from '@components/shared/contact/Contact'
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
-import { useContext } from 'react'
-import AppContext from '@context/context'
+import { cookies } from 'next/headers'
+import config from '@config'
 
-export default function About() {
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+export default async function About() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='page-container'>

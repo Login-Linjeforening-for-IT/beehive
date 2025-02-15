@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import TabNavItem from '@components/shared/tabs/TabNavItem'
 import TabContent from '@components/shared/tabs/TabContent'
 import LogChamp from '@components/shared/logchamp/LogChamp'
@@ -16,11 +16,11 @@ import en from '@text/verv/en.json'
 import no from '@text/verv/no.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
-import AppContext from '@context/context'
+import { getCookie } from '@utils/cookies'
 
 export default function VervTabs() {
     const [activeTab, setActiveTab] = useState('event')
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const [text, setText] = useState({ ...no, ...board_no })
 
     useEffect(() => {
@@ -28,6 +28,11 @@ export default function VervTabs() {
         // eslint-disable-next-line
         setText(text as any)
     }, [lang])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     return (
         <div className='tabs committees page-section--without-gaps'>

@@ -1,17 +1,14 @@
-'use client'
-
 import Contact from '@components/shared/contact/Contact'
 import no from '@text/companies/no.json'
 import en from '@text/companies/en.json'
-import { useContext } from 'react'
-import AppContext from '@context/context'
 import Flowsheet from '@components/svg/symbols/Flowsheet'
 import Megaphone from '@components/svg/symbols/Megaphone'
 import Wrench from '@components/svg/symbols/Wrench'
+import { cookies } from 'next/headers'
 
-export default function CompaniesPage() {
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+export default async function CompaniesPage() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='page-container'>

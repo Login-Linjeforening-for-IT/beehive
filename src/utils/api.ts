@@ -43,7 +43,6 @@ export async function getEvents(categories: string[] | null = null, limit = 20, 
     return await _fetchWrapper(path)
 }
 
-
 export async function getEventCategoryFilters() {
     const path = '/filters/events/categories'
     return await _fetchWrapper(path)
@@ -83,12 +82,12 @@ async function _fetchWrapper(path: string, options = {}) {
         const data = await response.json()
 
         if (!response.ok) {
-            return [null, data]
+            return null
         }
 
-        return [data, null]
+        return data
     // eslint-disable-next-line
     } catch (error: any) {
-        return [null, error.message || 'Unknown error! Please contact TekKom']
+        return JSON.stringify(error.message) || 'Unknown error! Please contact TekKom'
     }
 }

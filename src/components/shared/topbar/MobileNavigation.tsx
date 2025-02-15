@@ -1,21 +1,26 @@
 'use client'
 
 import Link from 'next/link'
-import { SetStateAction, useContext, useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
-import AppContext from '@context/context'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import { getCookie } from '@utils/cookies'
 
 export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
 
     useEffect(() => {
-        const text = lang === 'en' ? en : no
+        const text = lang === 'no' ? no : en
         setText(text)
     }, [lang])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)

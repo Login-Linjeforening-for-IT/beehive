@@ -1,8 +1,7 @@
 'use client'
-
+import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import './ImageCarousel.css'
-import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
 
 function NavigationButton({ side, onClick }: {side:string, onClick: React.MouseEventHandler<HTMLButtonElement> }) {
     return (
@@ -32,12 +31,10 @@ function SlideItem({ image, className, title, description }: SlideItemProps) {
                     <p className='image-carousel_image-overlay-description'>{description}</p>
                 </div>
             </div>
-            <RenderSmoothImage 
+            <Image
                 src={image}
                 alt={title}
-                className='image-carousel_image'
-                onError={undefined}
-                transition={false}
+                fill={true}
             />
         </div>
     )

@@ -1,25 +1,17 @@
-'use client'
-
 import config from '@config'
 import SocialLinks from './SocialLinks'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import './Footer.css'
 import Image from 'next/image'
-import { useContext, useEffect, useState } from 'react'
-import AppContext from '@context/context'
 import Link from 'next/link'
+import { cookies } from 'next/headers'
 
-export default function Footer() {
+export default async function Footer() {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
-    const { lang } = useContext(AppContext)
-    const [text, setText] = useState(no)
-
-    useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='footer-content'>
@@ -36,7 +28,7 @@ export default function Footer() {
                     </picture>
                 </div>
                 <div className='footer-content_logo'>
-                    <a href='https://www.mnemonic.io/' target='_blank'>
+                    <Link href='https://www.mnemonic.io/' target='_blank'>
                         <picture className='footer-content_logo-picture'>
                             <Image
                                 src={`${config.url.CDN_URL}/img/company/mnemonic-logo_light-nopayoff-2021.svg`}
@@ -46,7 +38,7 @@ export default function Footer() {
                                 height={200}
                             />
                         </picture>
-                    </a>
+                    </Link>
                     <p className='footer-content_logo-text'>{text.footer.sponsor}</p>
                 </div>
             </div>

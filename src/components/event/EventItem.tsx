@@ -1,22 +1,19 @@
-'use client'
-
-import { useContext, useState } from 'react'
 import DateTile from '@components/shared/datetile/DateTile'
 import Tags from '@components/shared/tags/Tags'
-import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
 import DefaultEventBanner from '@svg/defaultbanners/DefaultEventBanner'
 import DefaultCtfBanner from '@svg/defaultbanners/DefaultCtfBanner'
 import DefaultTekkomBanner from '@svg/defaultbanners/DefaultTekkomBanner'
 import DefaultBedpresBanner from '@svg/defaultbanners/DefaultBedpresBanner'
 import DefaultSocialBanner from '@svg/defaultbanners/DefaultSocialBanner'
-import { isNew } from '@utils/DatetimeFormatter'
 import config from '@config'
 import Link from 'next/link'
-import './EventItem.css'
-import { formatEventStartDate, isOngoing } from '@utils/DatetimeFormatter'
-import AppContext from '@context/context'
 import Pin from '@components/svg/symbols/Pin'
 import Schedule from '@components/svg/symbols/Schedule'
+import { isNew } from '@utils/DatetimeFormatter'
+import { formatEventStartDate, isOngoing } from '@utils/DatetimeFormatter'
+import './EventItem.css'
+import Image from 'next/image'
+import { cookies } from 'next/headers'
 
 type EventListItemProps = { 
     // eslint-disable-next-line
@@ -26,9 +23,8 @@ type EventListItemProps = {
     variant: string 
 }
 
-export default function EventListItem({ event, highlight = true, disableTags = false, variant='list-item' }: EventListItemProps) {
-    const [showImage, setShowImage] = useState(true)
-    const { lang } = useContext(AppContext)
+export default async function EventListItem({ event, highlight = true, disableTags = false, variant='list-item' }: EventListItemProps) {
+    const lang = (await cookies()).get('lang')?.value || 'no'
 
     // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
@@ -68,13 +64,11 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                                 />
                             </div>
                             <picture className='event-item_picture'>
-                                {(event.image_small && showImage) ? (
-                                    <RenderSmoothImage
-                                        className='event-item_img'
-                                        alt={event.image_small}
+                                {event.image_small ? (
+                                    <Image
                                         src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
-                                        onError={() => setShowImage(false)}
-                                        transition={false}
+                                        alt={event.image_small}
+                                        fill={true}
                                     />
                                 ) : (
                                     getDefaultBanner(event.category_name_no, event.category_color)
@@ -86,48 +80,46 @@ export default function EventListItem({ event, highlight = true, disableTags = f
                         <div className='event-item_name'>{lang ? event.name_en : event.name_no}</div>
                         <ul className='event-item_details'>
                             {(event.time_type.toLowerCase() != 'whole_day') &&
-                <li className='event-item_detail'>
-                    <Schedule className='event-item_icon'/>
-                    {event.time_type.toLowerCase() != 'tbd' ? 
-                        formatEventStartDate(new Date(event.time_start), lang)
-                        :
-                        'TBD'
-                    }
-                </li>
+                                <li className='flex'>
+                                    <Schedule className='event-item_icon fill-white-500' fill="white" height={22} width={22} />
+                                    {event.time_type.toLowerCase() != 'tbd' ? 
+                                        formatEventStartDate(new Date(event.time_start), lang)
+                                        :
+                                        'TBD'
+                                    }
+                                </li>
                             }
                             {event.location_name_no && (
-                                <li className='flex flex-row items-center event-item_detail'>
+                                <li className='flex'>
                                     <Pin className='w-[1.5rem] h-[1.5rem] fill-white event-item_icon' />
                                     {lang ? event.location_name_en : event.location_name_no}
                                 </li>
                             )}
                         </ul>
                         {useTags(event.time_publish, event.highlight, event.canceled, event.full, isOngoing(startDate, endDate)) &&
-              <div className='event-item_tags'>
-                  <Tags
-                      highlight={event.highlight}
-                      timePublish={new Date(event.time_publish)}
-                      canceled={event.canceled}
-                      full={event.full}
-                      ongoing={isOngoing(startDate, endDate)}
-                  />
-              </div>
+                            <div className='event-item_tags'>
+                                <Tags
+                                    highlight={event.highlight}
+                                    timePublish={new Date(event.time_publish)}
+                                    canceled={event.canceled}
+                                    full={event.full}
+                                    ongoing={isOngoing(startDate, endDate)}
+                                />
+                            </div>
                         }
                     </div>
                     {variant === 'list-item' &&
-            <picture className='event-item_picture'>
-                {(event.image_small && showImage) ? (
-                    <RenderSmoothImage
-                        className='event-item_img'
-                        alt={event.image_small}
-                        src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
-                        onError={() => setShowImage(false)}
-                        transition={false}
-                    />
-                ) : (
-                    getDefaultBanner(event.category_name_no, event.category_color)
-                )}
-            </picture>
+                        <picture className='event-item_picture'>
+                            {event.image_small ? (
+                                <Image
+                                    src={`${config.url.CDN_URL}/img/events/small/${event.image_small}`}
+                                    alt={event.image_small}
+                                    fill={true}
+                                />
+                            ) : (
+                                getDefaultBanner(event.category_name_no, event.category_color)
+                            )}
+                        </picture>
                     }
                 </div>
             </div>

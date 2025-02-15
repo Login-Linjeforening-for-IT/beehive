@@ -1,14 +1,11 @@
-'use client'
-
 import Contact from '@components/shared/contact/Contact'
 import no from '@text/policy/no.json'
 import en from '@text/policy/en.json'
-import { useContext } from 'react'
-import AppContext from '@context/context'
+import { cookies } from 'next/headers'
 
-export default function Policy() {
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+export default async function Policy() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='page-container'>

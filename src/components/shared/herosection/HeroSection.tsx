@@ -1,23 +1,15 @@
-'use client'
-
 import LoginLogo from '@components/svg/brandlogos/LoginLogo'
 import Button from '@components/shared/button/Button'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
-import './HeroSection.css'
-import { useContext, useEffect, useState } from 'react'
-import AppContext from '@context/context'
 import Calendar from '@components/svg/symbols/Calendar'
 import School from '@components/svg/symbols/School'
+import { cookies } from 'next/headers'
+import './HeroSection.css'
 
-export default function LandingPage() {
-    const { lang } = useContext(AppContext)
-    const [text, setText] = useState(lang === 'en' ? en : no)
-
-    useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
+export default async function LandingPage() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='hero-section'>

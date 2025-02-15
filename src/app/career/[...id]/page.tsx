@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect, useRef, useContext } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Spinner from '@components/shared/spinner/spinner'
-import JobadsListItem from '@components/jobad/JobadsListItem'
+// import JobadsListItem from '@components/jobad/JobadsListItem'
 import Button from '@components/shared/button/Button'
 import FilterGroup from '@components/shared/filter/filter'
 import Alert from '@components/shared/alert/Alert'
@@ -12,9 +12,9 @@ import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } 
 import no from '@text/jobadList/no.json'
 import en from '@text/jobadList/en.json'
 import './page.css'
-import AppContext from '@context/context'
 import List from '@components/svg/symbols/List'
 import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
+import { getCookie } from '@utils/cookies'
 
 const jobTypeTranslations = {
     no: {
@@ -42,8 +42,13 @@ export default function Jobads() {
     const limit = 10
     const offset = useRef(0)
     const [ showLoadMore, setShowLoadMore ] = useState(false)
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+    const [lang, setLang] = useState('no')
+    const text = lang === 'no' ? no : en
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     // eslint-disable-next-line
     const ap = debounce(async (v: any) => {
@@ -143,7 +148,7 @@ export default function Jobads() {
                     <ul className='jobads_list'>
                         {jobads.length ? jobads.map((e, idx) => (
                             <li key={idx}>
-                                <JobadsListItem jobad={e} />
+                                {/* <JobadsListItem jobad={e} /> */}
                             </li>
                         )) :
                             <p>{text.noResults}</p>

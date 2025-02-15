@@ -1,22 +1,27 @@
-import React, { Ref, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { Ref, useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
-import AppContext from '@context/context'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
 import Heart from '@components/svg/symbols/Heart'
 import Office from '@components/svg/symbols/Office'
 import Book from '@components/svg/symbols/Book'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import { getCookie } from '@utils/cookies'
 
 export default function Navigation() {
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
 
     useEffect(() => {
-        const text = lang === 'en' ? en : no
+        const text = lang === 'no' ? no : en
         setText(text)
     }, [lang])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang(temp || 'no')
+    }, [])
 
     const navItemRefs = useRef([
         React.createRef(),

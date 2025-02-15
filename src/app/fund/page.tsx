@@ -1,20 +1,17 @@
-'use client'
-
 import config from '@config'
 import LogChamp from '@components/shared/logchamp/LogChamp'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
-import { useContext } from 'react'
-import AppContext from '@context/context'
 import Chart from '@components/svg/symbols/Chart'
 import Group from '@components/svg/symbols/Group'
 import Diversity from '@components/svg/symbols/Diversity'
 import ChartDetailed from '@components/svg/symbols/ChartDetailed'
 import Office from '@components/svg/symbols/Office'
+import { cookies } from 'next/headers'
 
-export default function Fund() {
-    const { lang } = useContext(AppContext)
+export default async function Fund() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
     // eslint-disable-next-line
     const text: any = lang === 'en' ? {...en} : {...no}
 

@@ -1,12 +1,9 @@
-'use client'
-
-import { isNew } from '@utils/DatetimeFormatter'
 import Tag from './Tag'
 import no from '@text/tags/no.json'
 import en from '@text/tags/en.json'
-import { useContext, useEffect, useState } from 'react'
+import { isNew } from '@utils/DatetimeFormatter'
+import { cookies } from 'next/headers'
 import './Tags.css'
-import AppContext from '@context/context'
 
 type TagsProps = {
     highlight : boolean,
@@ -16,20 +13,16 @@ type TagsProps = {
     ongoing : boolean
 }
 
-export default function Tags({
+export default async function Tags({
     highlight,
     timePublish,
     canceled,
     full,
     ongoing
 }: TagsProps) {
-    const { lang } = useContext(AppContext)
-    const [text, setText] = useState(no)
-
-    useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
+    // const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <>

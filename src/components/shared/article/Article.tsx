@@ -1,11 +1,8 @@
-'use client'
-
 import MarkdownRender from '@components/shared/markdownrender/MarkdownRender'
 import Alert from '@components/shared/alert/Alert'
-import './Article.css'
 import { formatPublishedDate } from '@utils/DatetimeFormatter'
-import { useContext } from 'react'
-import AppContext from '@context/context'
+import { cookies } from 'next/headers'
+import './Article.css'
 
 type ArticleProps = { 
   title: string
@@ -16,8 +13,8 @@ type ArticleProps = {
   description: string
 }
 
-export default function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
-    const { lang } = useContext(AppContext)
+export default async function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
+    const lang = (await cookies()).get('lang')?.value || 'no'
 
     return (
         <div className='article'>
