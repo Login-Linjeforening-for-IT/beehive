@@ -6,6 +6,7 @@ import '@assets/fonts/style.css'
 import '@assets/fonts/logfont/style.css'
 import './globals.css'
 import { Provider } from '@context/context'
+import { cookies } from 'next/headers'
 
 
 export const metadata: Metadata = {
@@ -13,10 +14,12 @@ export const metadata: Metadata = {
     description: ' Login - Linjeforeningen for IT',
 }
 
-export default function RootLayout({children}: {children: ReactNode}) {
+export default async function layout({children}: {children: ReactNode}) {
+    const theme = (await cookies()).get('theme')?.value || 'dark'
+
     return (
-        <html lang='en' className='w-[100vw]'>
-            <body className='flex flex-col min-h-[100vh] w-full bg-[var(--color-bg-body)]'>
+        <html lang='en' className={theme}>
+            <body className='h-[100vh] w-[100vw]'>
                 <Provider>
                     <header className='main-header fixed top-0 z-900 w-full'>
                         <TopBar/>
