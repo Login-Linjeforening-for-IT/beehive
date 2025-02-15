@@ -1,16 +1,12 @@
-version: '3'
-
 services:
-  react:
-    container_name: bh-react-dev
+  beehive:
+    container_name: beehive
     build:
-      context: ./
-      dockerfile: ./Dockerfile.dev
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    stdin_open: true
-    volumes:
-      - "./:/app"
-      - "/app/node_modules"
     environment:
-      - "NODE_ENV=staging"
+      - APP_ENV=development
+      - API_URL=https://workerbee-dev.login.no/api
+      - CDN_URL=https://cdn.login.no

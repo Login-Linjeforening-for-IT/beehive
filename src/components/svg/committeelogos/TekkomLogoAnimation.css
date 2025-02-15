@@ -1,9 +1,9 @@
 @media only screen and (min-width: 800px) {
-    .tabs__nav-title--active .tekkom-logo__caret {
+    .tabs_nav-title--active .tekkom-logo_caret {
         animation: caret 1.2s ease;
     }
 
-    .tabs__nav-title--active .tekkom-logo__block {
+    .tabs_nav-title--active .tekkom-logo_block {
         animation: block 1.2s ease;
     }
 

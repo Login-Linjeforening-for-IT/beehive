@@ -1,0 +1,26 @@
+{
+    "info": {
+        "start": "Starter",
+        "end": "Slutter",
+        "location": "Lokasjon",
+        "type": "Kategori",
+        "organizer": "Arrangør",
+        "links": "Lenker",
+        "stream": "Stream",
+        "capacity": "Plasser"
+    },
+    "signup": {
+        "title": "Påmelding",
+        "action": "Meld meg på",
+        "opens": "Åpner",
+        "hasOpened": "Åpnet",
+        "closes": "Stenger",
+        "closed": "Stengte",
+        "none": "Dette arrangementet krever ingen påmelding",
+        "full": "Arrangementet er fullt",
+        "canceled": "Arrangementet er avlyst",
+        "notReady": "Påmeldingen er ikke klar, mer info kommer senere"
+    },
+    "published" : "PUBLISERT",
+    "canceled": "AVLYST"
+}

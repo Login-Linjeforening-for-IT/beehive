@@ -1,10 +1,10 @@
 @media only screen and (min-width: 800px) {
     
-    .tabs__nav-title--active .pr-logo__shutter {
+    .tabs_nav-title--active .pr-logo_shutter {
         animation: shut 1.8s;
     }
 
-    .pr-logo__shutter {
+    .pr-logo_shutter {
         transform-origin: 50% 52%;
     }
 
@@ -26,7 +26,7 @@
         }
     }
 
-    .tabs__nav-title--active .pr-logo__button {
+    .tabs_nav-title--active .pr-logo_button {
         animation: down 1.8s;
     }
 

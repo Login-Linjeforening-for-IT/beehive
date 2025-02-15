@@ -1,0 +1,13 @@
+{
+    "title": "Jobbannonser",
+    "details" : {
+        "deadline" : "Frist",
+        "position" : "Stilling",
+        "type" : "Type",
+        "location" : "Sted",
+        "locations" : "Steder",
+        "skills" : "Ferdigheter",
+        "applyButton" : "Søk her"
+    },
+    "published" : "PUBLISERT"
+}

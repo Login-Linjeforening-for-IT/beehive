@@ -1,10 +1,10 @@
 @media only screen and (min-width: 800px) {
    
-    .tabs__nav-title--active .satkom-logo__flash1 {
+    .tabs_nav-title--active .satkom-logo_flash1 {
         animation: flash1 .6s linear 2;
         
     }
-    .tabs__nav-title--active .satkom-logo__flash2 {
+    .tabs_nav-title--active .satkom-logo_flash2 {
         animation: flash2 .6s linear 2;
         
     }

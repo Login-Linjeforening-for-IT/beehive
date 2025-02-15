@@ -1,0 +1,14 @@
+{
+  "title": "Arrangementer",
+  "noEvents": "Ingen kommende arrangementer",
+  "loadMore": "Last inn flere",
+  "noResults" : "Ingen treff...",
+  "thisWeek": "Denne uken",
+  "nextWeek": "Neste uke",
+  "later": "Senere",
+  "filter": {
+    "title": "filter",
+    "searchHint": "Søk...",
+    "resetButton": "Nullstill"
+  }
+}

@@ -1,45 +1,45 @@
 @media only screen and (min-width: 800px) {
-    .tabs__nav-title--active .bedkom-logo__c1 {
+    .tabs_nav-title--active .bedkom-logo_c1 {
         animation: c1 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__l1 {
+    .tabs_nav-title--active .bedkom-logo_l1 {
         animation: l1 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__c2 {
+    .tabs_nav-title--active .bedkom-logo_c2 {
         animation: c2 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__l2 {
+    .tabs_nav-title--active .bedkom-logo_l2 {
         animation: l2 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__c3 {
+    .tabs_nav-title--active .bedkom-logo_c3 {
         animation: c3 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__l3 {
+    .tabs_nav-title--active .bedkom-logo_l3 {
         animation: l3 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__c4 {
+    .tabs_nav-title--active .bedkom-logo_c4 {
         animation: c4 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__l4 {
+    .tabs_nav-title--active .bedkom-logo_l4 {
         animation: l4 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__c5 {
+    .tabs_nav-title--active .bedkom-logo_c5 {
         animation: c5 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__l5 {
+    .tabs_nav-title--active .bedkom-logo_l5 {
         animation: l5 1.5s ease 1;
     }
 
-    .tabs__nav-title--active .bedkom-logo__c6 {
+    .tabs_nav-title--active .bedkom-logo_c6 {
         animation: c6 1.5s ease 1;
     }
 
