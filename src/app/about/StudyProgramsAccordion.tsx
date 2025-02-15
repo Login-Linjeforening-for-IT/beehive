@@ -1,16 +1,22 @@
+'use client'
 import AccordionItem from '@components/shared/accordion/AccordionItem'
 import AccordionContent from '@components/shared/accordion/AccordionContent'
-import { useContext, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
-import AppContext from '@context/context'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import { getCookie } from '@utils/cookies'
 
 export default function StudyProgramsAccordion() {
     const [activeAccordionItem, setActiveAccordionItem] = useState('bachelor')
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+    const [lang, setLang] = useState('no')
+    const text = lang === 'no' ? no : en
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     return(
         <ul className='w-full accordion'>
@@ -27,7 +33,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/bidata' 
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
@@ -36,7 +42,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/bdigsec'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
@@ -45,7 +51,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/bprog'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
             </AccordionContent>
@@ -62,14 +68,14 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/mis'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
                     {text.master.applied}
                     <Link 
                         href='https://www.ntnu.edu/studies/macs'
-                        target='_blank'><ArrowOutward size='1.5rem' fill='white' className=''/>
+                        target='_blank'><ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
@@ -78,7 +84,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/mscosi'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
             </AccordionContent>
@@ -95,7 +101,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/phisct'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
@@ -104,7 +110,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/phcos'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
@@ -113,7 +119,7 @@ export default function StudyProgramsAccordion() {
                         href='https://www.ntnu.no/studier/phet'
                         target='_blank'
                     >
-                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </Link>
                 </li>
             </AccordionContent>

@@ -4,24 +4,6 @@ type Coupon = {
     image: string | StaticImport
 }
 
-type Theme = {
-    background: string
-    darker: string
-    contrast: string
-    transparent: string
-    transparentAndroid: string
-    orange: string
-    discord: string
-    textColor: string
-    titleTextColor: string
-    oppositeTextColor: string
-    switchOnState: string
-    switchOffState: string
-    trackColor: string
-    trackBackgroundColor: string
-    dark: string
-}
-
 type AdProps = {
     id: number
     highlight: boolean

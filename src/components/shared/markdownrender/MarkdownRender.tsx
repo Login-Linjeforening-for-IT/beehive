@@ -1,12 +1,8 @@
-'use client'
-
-import { useState, useEffect, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import EventItem from '@components/event/EventItem'
-import EventCardSkeleton from '@components/event/EventCardSkeleton'
 import JobadCard from '@components/jobad/JobadCard'
-import JobadCardSkeleton from '@components/jobad/JobadCardSkeleton'
 import Alert from '@components/shared/alert/Alert'
 import { getEventRow, getJobRow } from '@utils/api'
 import './MarkdownRender.css'
@@ -93,35 +89,10 @@ function ErrorMessage({ err, title }: ErrorMessageProps) {
 }
 
 
-function EventEmbed(id: number) {
-
-    const [event, setEvent] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const [response, err] = await getEventRow(id)
-                if (err) {
-                    setError(err)
-                    return
-                } else {
-                    setError(null)
-                }
-
-                setEvent(response)
-                setLoading(false)
-            // eslint-disable-next-line
-            } catch (error: any) {
-                console.error('Error Fetching Event Data:', error)
-                setLoading(false)
-                setError(error)
-            }
-        }
-
-        fetchData()
-    }, [id])
+async function EventEmbed(id: number) {
+    const [response, err] = await getEventRow(id)
+    const event = response
+    const error = err
 
     if (error) {
         return <ErrorMessage err={error} title={'Error Fetching Event #' + id} />
@@ -129,44 +100,18 @@ function EventEmbed(id: number) {
 
     return (
         <div className='markdown-render_card'>
-            {loading 
-                ? <EventCardSkeleton /> 
-                : event 
-                    ? <EventItem event={event} variant='card' highlight={false} />
-                    : <p>Event not found</p>
+            {event 
+                ? <EventItem event={event} variant='card' highlight={false} />
+                : <p>Event not found</p>
             }
         </div>
     )
 }
 
-function JobadEmbed(id: number) {
-
-    const [jobad, setJobad] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const [ response, err ] = await getJobRow(id)
-                if (err) {
-                    setError(err)
-                    return
-                } else {
-                    setError(null)
-                }
-
-                setJobad(response)
-                setLoading(false)
-            } catch (error) {
-                console.error('Error fetching job ad data:', error)
-                setLoading(false)
-                setError(JSON.stringify(error))
-            }
-        }
-
-        fetchData()
-    }, [id])
+async function JobadEmbed(id: number) {
+    const [response, err] = await getJobRow(id)
+    const jobad = response
+    const error = err
 
     if (error) {
         return <ErrorMessage err={error} title={`Error Fetching Job Ad #${id}`} />
@@ -174,11 +119,9 @@ function JobadEmbed(id: number) {
 
     return (
         <div className='markdown-render_card'>
-            {loading 
-                ? <JobadCardSkeleton/> 
-                : jobad 
-                    ? <JobadCard jobad={jobad} disableTags={true} />
-                    : <p>Job ad not found</p>
+            {jobad 
+                ? <JobadCard jobad={jobad} disableTags={true} />
+                : <p>Job ad not found</p>
             }
         </div>
     )

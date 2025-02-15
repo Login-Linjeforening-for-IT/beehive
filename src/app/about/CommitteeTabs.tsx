@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import config from '@config'
 import TabNavItem from '@components/shared/tabs/TabNavItem'
 import TabContent from '@components/shared/tabs/TabContent'
@@ -17,7 +17,8 @@ import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import '@components/shared/tabs/tabs.css'
-import AppContext from '@context/context'
+import { getCookie } from '@utils/cookies'
+// import { getCookie } from '@utils/cookies'
 
 const no = {...text_no, ...board_no}
 const en = {...text_en, ...board_en}
@@ -27,18 +28,23 @@ const en_board = {...board_en}
 
 export default function CommitteeTabs() {
     const [activeTab, setActiveTab] = useState('styret')
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
     const [board, setBoard] = useState(no_board)
 
     useEffect(() => {
-        const text = lang === 'en' ? en : no
-        const board = lang === 'en' ? en_board : no_board
+        const text = lang === 'no' ? no : en
+        const board = lang === 'no' ? no_board : en_board
         // eslint-disable-next-line
         setText(text as any)
         // eslint-disable-next-line
         setBoard(board as any)
     }, [lang])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     return (
         <div className='mb-[2rem] tabs committees page-section--without-gaps'>

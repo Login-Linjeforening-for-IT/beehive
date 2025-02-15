@@ -1,9 +1,10 @@
 'use client'
 
+// import { getCookie } from '@utils/cookies'
 import './DateTile.css'
 import { createGradient, hexToRgba, isValidHex } from '@utils/ColorManipulation'
-import AppContext from '@context/context'
-import { useContext } from 'react'
+import { getCookie } from '@utils/cookies'
+import { useEffect, useState } from 'react'
 
 export default function DateTile({
     startDate,
@@ -13,13 +14,18 @@ export default function DateTile({
     useDayText = false,
     // eslint-disable-next-line
 }: any) {
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const sTime = new Date(startDate)
     const eTime = new Date(endDate)
     const sDate = sTime.getDate()
     const eDate = eTime.getDate()
     const sMonth = sTime.getMonth()
     const eMonth = eTime.getMonth()
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     const months = {
         en: [

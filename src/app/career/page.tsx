@@ -1,20 +1,20 @@
-'use client'
-
-import { useState, useEffect, useContext } from 'react'
 import config from '@config'
-import Spinner from '@components/shared/spinner/spinner'
 import Article from '@components/shared/article/Article'
-import RenderSmoothImage from '@components/shared/images/rendersmoothimage/RenderSmoothImage'
 import Button from '@components/shared/button/Button'
-import Alert from '@components/shared/alert/Alert'
 import { getJob } from '@utils/api'
 import no from '@text/jobadPage/no.json'
 import en from '@text/jobadPage/en.json'
 import './page.css'
 import { formatDeadlineDate } from '@utils/DatetimeFormatter'
-import AppContext from '@context/context'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import Pin from '@components/svg/symbols/Pin'
+import HourglassBottom from '@components/svg/symbols/HourglassBottom'
+import WorkHistory from '@components/svg/symbols/WorkHistory'
+import Acute from '@components/svg/symbols/Acute'
+import Badge from '@components/svg/symbols/Badge'
+import { cookies } from 'next/headers'
+import Image from 'next/image'
+import Alert from '@components/shared/alert/Alert'
 
 const jobTypeTranslations = {
     no: {
@@ -49,70 +49,34 @@ function deadlineWarning(deadline: Date) {
     return diff < oneDay && diff > 0
 }
 
-export default function JobadPage({ params }: PromisedPageProps) {
-    // @ts-expect-error - this is client side, async await doesnt work here
-    const id = params.id
-    const [useFallbackImg, setUseFallbackImg] = useState(false)
-    const [showBannerImg, setShowBannerImg] = useState(false)
-    function hideBannerImg() {
-        setShowBannerImg(false)
-    }
-    // eslint-disable-next-line
-    const [jobad, setJobad] = useState<any | null>(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const [response, err] = await getJob(id)
-                if (err) throw new Error(err)
-
-                setJobad(response)
-                setShowBannerImg(!!response.job.banner_image)
-            } catch (error) {
-                console.error('Error fetching job ad data:', error)
-                setError('Failed to load job ad data.')
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchData()
-    }, [id])
+export default async function JobadPage({ params }: PromisedPageProps) {
+    const id = (await params).id
+    const jobads = (await getJob(id))
+    const jobad = Array.isArray(jobads) ? jobads[0] : null
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
+    const temp_empty = lang === 'no'
+        ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?'
+        : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'
+    const temp_deactivated = lang === 'no' 
+        ? 'Filtre er midlertidig deaktivert. De kommer tilbake snart!' 
+        : 'Filters are temporarily disabled. They will be back soon.'
 
     return (
-        <>
-            {loading && <Spinner width={50} height={50} />}
-            {!loading && error && 
         <div className='page-container'>
-            <Alert
-                variant='danger'
-                className='page-section--normal page-section--alert'
-            >
-                {error}
-            </Alert>
-        </div>
-            }
-            {!loading && !error && jobad && (
-                <div
-                    className={`jobad-page ${
-                        showBannerImg ? 'jobad-page--banner' : 'jobad-page--noBanner'
-                    }`}
-                >
+            <div className='page-section--normal'>
+                <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
+            </div>
+            {jobad && (
+                <div className={'jobad-page jobad-page--noBanner'}>
                     <div className='jobad-details'>
                         <div className='jobad-details_company'>
                             <picture className='jobad-details_company-logo'>
-                                <RenderSmoothImage
-                                    // @ts-ignore
-                                    src={useFallbackImg ? '@assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
-                                    // @ts-ignore
+                                <Image
+                                    src={!jobad?.organization?.logo ? '@assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
                                     alt={jobad.organization.logo}
-                                    className='jobad-details_image'
-                                    onError={() => setUseFallbackImg(true)}
-                                    transition={false}
+                                    width={800}
+                                    height={200}
                                 />
                             </picture>
                             <div className='jobad-details_company-name'>
@@ -127,7 +91,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                     >
                                         {/* @ts-ignore */}
                                         {tr(jobad.organization.name_en, jobad.organization.name_no) + ' '}
-                                        <ArrowOutward size='1.5rem' fill='white' className=''/>
+                                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                                     </a>
                                 ) : (
                                 // @ts-ignore
@@ -137,9 +101,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         </div>
                         <div className='jobad-details_list'>
                             <div className='jobad-details_lable'>
-                                <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                                    hourglass_bottom
-                                </i>
+                                <HourglassBottom className='jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.deadline}:
                             </div>
                             <div className='jobad-details_value'>
@@ -150,18 +112,14 @@ export default function JobadPage({ params }: PromisedPageProps) {
                                 )}
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.job.application_deadline)) && (
-                                    <i className='material-symbols-sharp jobad-details_icon jobad-details_icon--warning'>
-                                        acute
-                                    </i>
+                                    <Acute className='jobad-details_icon jobad-details_icon--warning'/>
                                 )}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.job.position_title_no && 
                 <>
                     <div className='jobad-details_lable'>
-                        <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                            badge
-                        </i>
+                        <Badge className='jobad-details_icon jobad-details_icon--lable-color'/>
                         {text.details.position}:
                     </div>
                     <div className='jobad-details_value'>
@@ -171,9 +129,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                 </>
                             }
                             <div className='jobad-details_lable'>
-                                <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                                    work_history
-                                </i>
+                                <WorkHistory className='jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.type}:
                             </div>
                             <div className='jobad-details_value'>
@@ -184,7 +140,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
                     <div className='flex flex-row items-center jobad-details_lable'>
-                        <Pin size='1.5rem' fill='white' className='jobad-details_icon jobad-details_icon--lable-color' />
+                        <Pin className='w-[1.5rem] h-[1.5rem] fill-white jobad-details_icon jobad-details_icon--lable-color' />
                         {/* @ts-ignore */}
                         {jobad.job.cities.length > 1
                             ? text.details.locations
@@ -217,7 +173,7 @@ export default function JobadPage({ params }: PromisedPageProps) {
                         {jobad.job.application_url && (
                         // @ts-ignore
                             <Button
-                                trailingIcon={<ArrowOutward size='1.5rem' fill='white' className=''/>}
+                                trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 // @ts-ignore
                                 href={jobad.job.application_url}
                                 className='jobad-details_apply-btn'
@@ -226,19 +182,13 @@ export default function JobadPage({ params }: PromisedPageProps) {
                             </Button>
                         )}
                     </div>
-                    {showBannerImg && (
-                        <picture className='jobad-banner'>
-                            <RenderSmoothImage
-                                // @ts-ignore
-                                src={config.url.CDN_URL + '/img/ads/' + jobad.job.banner_image}
-                                // @ts-ignore
-                                alt={jobad.job.banner_image}
-                                onError={hideBannerImg}
-                                className={'jobad-banner_image'}
-                                transition={false}
-                            />
-                        </picture>
-                    )}
+                    <picture className='jobad-banner'>
+                        <Image
+                            src={`${config.url.CDN_URL}/img/ads/${jobad.job.banner_image}`}
+                            alt={jobad.job.banner_image}
+                            fill={true}
+                        />
+                    </picture>
                     <div className='jobad-description'>
                         <Article
                             title={lang ? jobad.job.title_en : jobad.job.title_no}
@@ -251,6 +201,12 @@ export default function JobadPage({ params }: PromisedPageProps) {
                     </div>
                 </div>
             )}
-        </>
+            <Alert
+                variant='danger'
+                className='page-section--normal page-section--alert'
+            >
+                {Array.isArray(jobads) ? temp_deactivated : temp_empty}
+            </Alert>
+        </div>
     )
 }

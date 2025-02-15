@@ -1,16 +1,14 @@
-'use client'
-
-import { useContext } from 'react'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
-import AppContext from '@context/context'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import Link from 'next/link'
 import config from '@config'
+import { cookies } from 'next/headers'
 
-export default function SmallInfo() {
-    const { lang, theme } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+export default async function SmallInfo() {
+    const theme = (await cookies()).get('theme')?.value || 'dark'
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     function getSponsorPath() {
         if (theme === 'light') {
@@ -56,7 +54,7 @@ export default function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={config.url.CDN_URL + '/img/cyberdagen_preben.jpg'}
+                    imgUrl={`${config.url.CDN_URL}/img/cyberdagen_preben.jpg`}
                     variant={2}
                     cornerSize={40}
                     width={150}
@@ -79,7 +77,7 @@ export default function SmallInfo() {
                     </a>
                 </div>
                 <DecoratedPicture
-                    imgUrl={config.url.CDN_URL + getSponsorPath()}
+                    imgUrl={`${config.url.CDN_URL}${getSponsorPath()}`}
                     variant={0}
                     cornerSize={0}
                     width={100}

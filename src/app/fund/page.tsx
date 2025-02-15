@@ -1,20 +1,17 @@
-'use client'
-
 import config from '@config'
 import LogChamp from '@components/shared/logchamp/LogChamp'
 import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
 import no from '@text/fund/no.json'
 import en from '@text/fund/en.json'
-import { useContext } from 'react'
-import AppContext from '@context/context'
 import Chart from '@components/svg/symbols/Chart'
 import Group from '@components/svg/symbols/Group'
 import Diversity from '@components/svg/symbols/Diversity'
 import ChartDetailed from '@components/svg/symbols/ChartDetailed'
 import Office from '@components/svg/symbols/Office'
+import { cookies } from 'next/headers'
 
-export default function Fund() {
-    const { lang } = useContext(AppContext)
+export default async function Fund() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
     // eslint-disable-next-line
     const text: any = lang === 'en' ? {...en} : {...no}
 
@@ -43,7 +40,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='flex flex-row heading-2 heading-2--icon'>
-                            <Chart size='3rem' fill='white' className='mr-4'/>
+                            <Chart className='w-[3rem] h-[3rem] fill-white mr-4'/>
                             <span>{text.purpose.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
@@ -51,7 +48,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Group size='3rem' fill='white' className='mr-4'/>
+                            <Group className='w-[3rem] h-[3rem] fill-white mr-4'/>
                             <span>{text.meeting.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
@@ -61,7 +58,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Diversity size='3rem' fill='white' className='mr-4'/>
+                            <Diversity className='w-[3rem] h-[3rem] fill-white mr-4'/>
                             <span>{text.application.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
@@ -69,7 +66,7 @@ export default function Fund() {
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <ChartDetailed size='3rem' fill='white' className='mr-4'/>
+                            <ChartDetailed className='w-[3rem] h-[3rem] fill-white mr-4'/>
                             <span>{text.yield.title}</span>
                         </h2>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
@@ -79,7 +76,7 @@ export default function Fund() {
             <section className='page-section--without-gaps mb-[5rem] bg-[var(--color-bg-surface)] p-[1rem] 800px:p-[1rem_2rem_2rem_2rem] 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-[2rem] 1200px:rounded-[var(--border-radius-large)]'>
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
-                        <Office size='3rem' fill='white' className='heading-2_icon'/>
+                        <Office className='w-[3rem] h-[3rem] fill-white heading-2_icon'/>
                         <span>{text.board.title}</span>
                     </h2>
                     <div className='flex flex-wrap justify-center gap-[3rem] mb-[4rem]'>

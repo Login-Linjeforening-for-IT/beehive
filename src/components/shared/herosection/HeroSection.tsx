@@ -1,23 +1,15 @@
-'use client'
-
 import LoginLogo from '@components/svg/brandlogos/LoginLogo'
 import Button from '@components/shared/button/Button'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
-import './HeroSection.css'
-import { useContext, useEffect, useState } from 'react'
-import AppContext from '@context/context'
 import Calendar from '@components/svg/symbols/Calendar'
 import School from '@components/svg/symbols/School'
+import { cookies } from 'next/headers'
+import './HeroSection.css'
 
-export default function LandingPage() {
-    const { lang } = useContext(AppContext)
-    const [text, setText] = useState(lang === 'en' ? en : no)
-
-    useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
+export default async function LandingPage() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='hero-section'>
@@ -36,7 +28,7 @@ export default function LandingPage() {
                             {/* @ts-ignore */}
                             <Button
                                 href='/events'
-                                leadingIcon={<Calendar size='1.5rem' fill='white'/>}
+                                leadingIcon={<Calendar className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 variant='primary'
                             >
                                 {text.heroSection.secondaryButton}
@@ -45,7 +37,7 @@ export default function LandingPage() {
                             <Button
                                 variant='ghost'
                                 href='/about'
-                                leadingIcon={<School size='1.5rem' fill='white'/>}
+                                leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                             >
                                 {text.heroSection.primaryButton}
                             </Button>

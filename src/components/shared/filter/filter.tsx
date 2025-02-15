@@ -1,25 +1,32 @@
 'use client'
 
-import { useRef, useState, useEffect, useContext } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Button from '@components/shared/button/Button'
 import CheckBox from '@components/shared/checkbox/Checkbox'
 import CheckTag from '@components/shared/checktag/Checktag'
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
 import './filter.css'
-import AppContext from '@context/context'
+import KeyboardArrowUp from '@components/svg/symbols/KeyboardArrowUp'
+import Replay from '@components/svg/symbols/Replay'
+import { getCookie } from '@utils/cookies'
 
 // eslint-disable-next-line
 export default function FilterGroup({ filters, onApply, close = false }: any) {
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
 
     useEffect(() => {
-        const text = lang === 'en' ? en : no
+        const text = lang === 'no' ? no : en
         setText(text)
     }, [lang])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     function onReset() {
         selectedFilters.current = {}
@@ -88,7 +95,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                 <Button
                     href=''
                     variant='secondary-outlined'
-                    trailingIcon={<i className='material-symbols-sharp'>replay</i>}
+                    trailingIcon={<Replay className=''/>}
                     onClick={onReset}
                     size='medium'
                     className='filter-groups_reset'
@@ -100,7 +107,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                     <Button
                         href=''
                         variant='secondary-outlined'
-                        leadingIcon={<i className='material-symbols-sharp'>keyboard_arrow_up</i>}
+                        leadingIcon={<KeyboardArrowUp className=''/>}
                         onClick={close}
                         size='medium'
                         className='filter-groups_close'
@@ -129,7 +136,12 @@ function getFilterItemOnSelect(onSelect: any, filterID: any) {
 
 // eslint-disable-next-line
 function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any) {
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     return (
         <div className='filter'>
@@ -156,11 +168,16 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
 // eslint-disable-next-line
 function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
     const [ checked, setChecked ] = useState(false)
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
 
     useEffect(() => {
         setChecked(false)
     }, [resetTrigger])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     function select() {
         setChecked(!checked)

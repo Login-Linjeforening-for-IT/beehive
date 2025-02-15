@@ -1,21 +1,26 @@
 'use client'
 
 import Link from 'next/link'
-import { SetStateAction, useContext, useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
-import AppContext from '@context/context'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
+import { getCookie } from '@utils/cookies'
 
 export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
-    const { lang } = useContext(AppContext)
+    const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
 
     useEffect(() => {
-        const text = lang === 'en' ? en : no
+        const text = lang === 'no' ? no : en
         setText(text)
     }, [lang])
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [])
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
@@ -36,6 +41,9 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
             <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
+            <Link onClick={close} href='https://exam.login.no' tabIndex={open ? 0 : -1}>
+                <li className='mobile-nav_item'>{text.nav.exam}</li>
+            </Link>
             <div
                 className={`mobile-nav-dropdown${
                     isDropdownOpen ? ' mobile-nav-dropdown--open' : ''
@@ -48,7 +56,7 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                 >
                     <li className='flex flex-row items-center mobile-nav_item'>
                         {text.nav.about}
-                        <ArrowDown size='1.5rem' fill='white'/>
+                        <ArrowDown className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </li>
                 </button>
                 <div className='mobile-nav-dropdown_items'>
@@ -82,7 +90,7 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                     >
                         <li className='flex flex-row mobile-nav-dropdown_item'>
                             Wiki
-                            <ArrowOutward size='1.5rem' fill='white' className=''/>
+                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                         </li>
                     </a>
                 </div>

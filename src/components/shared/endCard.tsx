@@ -1,14 +1,12 @@
-'use client'
 
-import AppContext from '@context/context'
-import { useContext } from 'react'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import Link from 'next/link'
+import { cookies } from 'next/headers'
 
-export default function EndCard({ path }: {path: string}) {
-    const { lang } = useContext(AppContext)
-    const text = lang === 'en' ? en : no
+export default async function EndCard({ path }: {path: string}) {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <li className='snap-center max-w-[22rem] 800px:w-full 800px:max-w-[28rem] w-fit min-w-[14rem] 1000px:hidden'>

@@ -1,5 +1,7 @@
+'use client'
 import { ReactNode, useState } from 'react'
 import './DropDownBox.css'
+import ChevronRight from '@components/svg/symbols/ChevronRight'
 
 export default function DropDownBox({ title, children }: { title:ReactNode, children:ReactNode}) {
     const [isOpen, setOpen] = useState(false)
@@ -16,9 +18,7 @@ export default function DropDownBox({ title, children }: { title:ReactNode, chil
                 onClick={e => handleClick(e)}
             >
                 <div>{ title }</div>
-                <i className='material-symbols-sharp drop-down-box_toggle-icon'>
-                    chevron_right
-                </i>
+                <ChevronRight className='drop-down-box_toggle-icon'/>
             </div>
             <div className={`drop-down-box_content ${isOpen ? 'drop-down-box_content--open' : ''}`}>
                 {children}
