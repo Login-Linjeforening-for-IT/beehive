@@ -311,7 +311,7 @@ export default async function Events() {
                                                 </div>
                                             )}
                                             {/*  @ts-ignore eslint-disable-next-line */}
-                                            {events.futureEvents.map((e: EventProps, idx: number) => (
+                                            {/* {events.futureEvents.map((e: EventProps, idx: number) => (
                                                 <li key={idx}>
                                                     <EventListItem
                                                         key={e.id}
@@ -325,7 +325,7 @@ export default async function Events() {
                                                         }
                                                     />
                                                 </li>
-                                            ))}
+                                            ))} */}
                                         </>
                                     )
                                     }
