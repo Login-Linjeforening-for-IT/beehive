@@ -26,8 +26,6 @@ type EventListItemProps = {
 export default async function EventListItem({ event, highlight = true, disableTags = false, variant='list-item' }: EventListItemProps) {
     const lang = (await cookies()).get('lang')?.value || 'no'
 
-    console.log(JSON.stringify(event))
-
     // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
         if (disableTags) return false

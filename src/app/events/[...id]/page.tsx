@@ -21,7 +21,7 @@ import Gavel from '@components/svg/symbols/Gavel'
 import Category from '@components/svg/symbols/Category'
 import Schedule from '@components/svg/symbols/Schedule'
 import { getEvent } from '@utils/api'
-import { formatEventStatusDate, isOngoing } from '@utils/DatetimeFormatter'
+import { formatEventStatusDate, formatTimeHHMM, isOngoing } from '@utils/DatetimeFormatter'
 import { cookies } from 'next/headers'
 import './page.css'
 import Link from 'next/link'
@@ -38,7 +38,7 @@ type EventBannerProps = {
 
 export default async function EventPage({ params }: PromisedPageProps) {
     const id = (await params).id
-    const event = (await getEvent(id))[0]
+    const event = (await getEvent(id))
 
     return (
         <>
@@ -75,7 +75,7 @@ async function Event({event}: InnerEventProps) {
                                 new Date(event.event.time_end)
                             ) && 
                             // @ts-ignore
-                    <span class='event-datetime-display_live-dot' />
+                    <span className='event-datetime-display_live-dot' />
                             }
                             {formatEventStatusDate(
                                 // @ts-ignore
@@ -90,9 +90,9 @@ async function Event({event}: InnerEventProps) {
                     <div className='event-datetime-display_time'>
                         <Schedule className='event-datetime-display_time-icon' width={22} height={22} fill="white" />
                         {/* @ts-ignore */}
-                        {event.event.time_type === 'tbd' ? 'TBD' : DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_start))}
+                        {event.event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}
-                        {event.event.time_type === 'default' && ` - ${DatetimeFormatter.formatTimeHHMM(new Date(event.event.time_end))}`}
+                        {event.event.time_type === 'default' && ` - ${formatTimeHHMM(new Date(event.event.time_end))}`}
                     </div>
                         }
                     </div>
@@ -108,7 +108,7 @@ async function Event({event}: InnerEventProps) {
                             </div>
                             <div className='event-details_info'>
                                 {/* @ts-ignore */}
-                                {lang === 'en' ? event.location.name_en : event.location.name_no}
+                                {lang === 'en' && event.location.name_en ? event.location.name_en : event.location.name_no}
                                 {/* @ts-ignore */}
                                 {event.location.city_name && `, ${event.location.city_name}`}
                             </div>
