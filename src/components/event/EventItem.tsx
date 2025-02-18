@@ -26,6 +26,8 @@ type EventListItemProps = {
 export default async function EventListItem({ event, highlight = true, disableTags = false, variant='list-item' }: EventListItemProps) {
     const lang = (await cookies()).get('lang')?.value || 'no'
 
+    console.log(JSON.stringify(event))
+
     // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any, canceled: boolean, full: boolean, ongoing: boolean) {
         if (disableTags) return false
@@ -77,7 +79,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                         </>
                     )}
                     <div className='event-item_info'>
-                        <div className='event-item_name'>{lang === 'en' ? event.name_en : event.name_no}</div>
+                        <div className='event-item_name'>{lang === 'en' && event.name_en ? event.name_en : event.name_no}</div>
                         <ul className='event-item_details'>
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                                 <li className='flex'>

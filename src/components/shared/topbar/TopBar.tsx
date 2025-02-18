@@ -17,18 +17,18 @@ export default function TopBar() {
     }
   
     return (
-        <div className={`topbar ${isOpen ? 'topbar--open' : ''}`}>
-            <div className='topbar_logo'>
+        <div className={`flex max-w-[calc(var(--w-page)+2rem)] w-full m-auto p-[0.5rem] h-[var(--h-topbar)] transition duration-500 800px:justify-between 800px:p-[1rem] ${isOpen ? 'topbar--open' : ''}`}>
+            <div className='block h-[3rem] p-[0.2rem] 800px:p-0'>
                 <Link href='/' onClick={isOpen ? toggle : () => {}} >
                     <LoginLogoSmall />
                 </Link>
             </div>
             <Navigation />
-            <nav className='topbar_toggle'>
+            <nav className='flex w-[calc(100vw-8rem)] justify-end h-[3rem] mr-[1rem] 800px:w-fit 800px:mr-0'>
                 <ThemeToggle />
                 <LangToggle />
                 {/* TODO */}
-                {/* <div className='topbar_profile'>
+                {/* <div className='mt-[0.9rem] ml-[0.9rem]'>
                     <Link href='/profile'>
                         <picture>
                             <ProfileSVG />

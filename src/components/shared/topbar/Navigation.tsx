@@ -43,7 +43,7 @@ export default function Navigation() {
     }, [navItemRefs])
 
     return (
-        <nav className='main-nav max-w-[36rem]'>
+        <nav className='hidden 800px:flox 800px:justify-between 800px:items-center 800px:w-fill max-w-[36rem]'>
             <Link href='/events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.events}</li>
             </Link>
