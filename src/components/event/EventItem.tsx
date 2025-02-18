@@ -77,7 +77,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                         </>
                     )}
                     <div className='event-item_info'>
-                        <div className='event-item_name'>{lang ? event.name_en : event.name_no}</div>
+                        <div className='event-item_name'>{lang === 'en' ? event.name_en : event.name_no}</div>
                         <ul className='event-item_details'>
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                                 <li className='flex'>
