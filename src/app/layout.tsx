@@ -19,7 +19,7 @@ export default async function layout({children}: {children: ReactNode}) {
     // LogoConsoleOutput()
     return (
         <html lang='en' className={theme}>
-            <body className='h-[100vh] w-[100vw]'>
+            <body className='h-[100vh] w-[100vw] bg-[var(--color-bg-body)]'>
                 <header className='main-header fixed top-0 z-900 w-full'>
                     <TopBar/>
                 </header>

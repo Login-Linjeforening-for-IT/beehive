@@ -133,19 +133,19 @@ export default function Jobads() {
                 trailingIcon={<List className=''/>}
                 onClick={toggleFilter}
                 size='medium'
-                className={`jobads_filter-toggle ${isFilterOpen ? 'active' : ''}`}
+                className={`hidden ${isFilterOpen ? 'active' : ''}`}
             >
                 Filter
             </Button>
 
-            <div className='jobads'>
-                <div className='jobads_section--left'>
-                    <div className={`jobads_filter-container ${isFilterOpen ? 'jobads_filter-container--open' : ''}`}>
+            <div className='1000px:grid 1000px:grid-cols-[20rem_aauto] 1000px:gap-[3vw] 1000px:p-[2rem_0]'>
+                <div className='order-1'>
+                    <div className={`p-[1rem_1.5rem] hidden bg-[var(--color-bg-surface)] mt-[0.5rem] rounded-[var(--border-radius)] shadow-[var(--container-shadow)] ${isFilterOpen ? 'block' : ''}`}>
                         {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : 'No filter data available'}
                     </div>
                 </div>
-                <div className='jobads_section--right'>
-                    <ul className='jobads_list'>
+                <div className='order-2'>
+                    <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
                         {jobads.length ? jobads.map((e, idx) => (
                             <li key={idx}>
                                 {/* <JobadsListItem jobad={e} /> */}
@@ -155,12 +155,12 @@ export default function Jobads() {
                         }
                     </ul>
                     {showLoadMore && jobads.length > 0 && (
-                        <div className='jobads_load-more'>
+                        <div className='flex justify-center'>
                             {/* @ts-ignore */}
                             <Button 
                                 onClick={loadItems}
                                 variant='secondary'
-                                className='jobads_load-more-btn'
+                                className='m-[2rem_0] 400px:w-fit 400px:min-w-[12rem] 400px:mx-auto'
                                 trailingIcon={<ArrowDownWard className=''/>}
                             >
                                 {text.loadMore}

@@ -156,7 +156,7 @@ export default async function Events() {
             )} */}
             {(
                 <>
-                    <div className='events-top-bar page-section--normal'>
+                    <div className='flex justify-between items-center 400px:gap-[1rem] 400px:p-0 1000px:justify-end 1000px:p-[0_0_1rem_0] page-section--normal'>
                         {/* @ts-ignore */}
                         {/* <Button
                             href=''
@@ -164,13 +164,13 @@ export default async function Events() {
                             trailingIcon={<List className=''/>}
                             onClick={toggleFilter}
                             size='medium'
-                            className={`events-topbar_filter-toggle ${
+                            className={`1000px:hidden ${
                                 isFilterOpen ? 'active' : ''
                             }`}
                         >
                             Filter
                         </Button> */}
-                        <div className='button-group events-top-bar_view-toggle'>
+                        <div className='button-group justify-end 1000px:mr-[1.5rem]'>
                             {/* <GroupToggle
                                 options={[
                                     {
@@ -193,11 +193,11 @@ export default async function Events() {
                         </div>
                     </div>
                     <div className='page-section--without-gaps'>
-                        <div className='events'>
+                        <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw] events'>
                             <div className='events_section--left'>
                                 {/* <div
                                     className={`events_filter-container ${
-                                        isFilterOpen ? 'events_filter-container--open' : ''
+                                        isFilterOpen ? 'block' : ''
                                     }`}
                                 >
                                     {filterData ? (
@@ -221,7 +221,7 @@ export default async function Events() {
                                 <ul
                                     className={`events_list events_list${
                                         // @ts-expect-error
-                                        eventsView === 'grid-view' ? '--grid-view' : '--list-view'
+                                        eventsView === 'grid-view' ? 'grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
                                     }`}
                                 >
                                     {/* events.currentWeekEvents &&

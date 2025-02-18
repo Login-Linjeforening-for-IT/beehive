@@ -4,33 +4,33 @@
   border-top: 0.2rem solid var(--color-border-light);
 }
 
-.event-signup__header {
+.event-signup_header {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-.event-signup__list {
+.event-signup_list {
   margin: 1rem 0 2rem 0;
 }
 
-.event-signup__alert.alert {
+.event-signup_alert.alert {
   margin-bottom: 1rem;
 }
 
-.event-signup__btn.button {
+.event-signup_btn.button {
   width: 100%;
   pointer-events: auto;
   cursor: pointer;
 }
 
 @media only screen and (min-width: 400px) {
-  .event-signup__alert.alert {
+  .event-signup_alert.alert {
     max-width: 20rem;
     width: fit-content;
   }
 
-  .event-signup__btn.button {
+  .event-signup_btn.button {
     width: fit-content;
     min-width: 10rem;
   }
@@ -67,17 +67,17 @@
   }
 
   /* alert is to the left when there is no apply button, and corner is to the right */
-  .event-signup--bottom-right-corner .event-signup__alert.alert {
+  .event-signup--bottom-right-corner .event-signup_alert.alert {
     margin: 0 auto 0 0;
   }
 
-  .event-signup__alert.alert {
+  .event-signup_alert.alert {
     max-width: 17rem;
     width: fit-content;
     margin-left: auto;
   }
 
-  .event-signup__btn-container {
+  .event-signup_btn-container {
     display: flex;
     justify-content: flex-end;
   }
