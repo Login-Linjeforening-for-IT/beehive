@@ -5,7 +5,7 @@ import config from '@config'
 import TabNavItem from '@components/shared/tabs/TabNavItem'
 import TabContent from '@components/shared/tabs/TabContent'
 import LogChamp from '@components/shared/logchamp/LogChamp'
-import EventkomLogo from '@components/svg/committeelogos/EventkomLogo'
+import EvntkomLogo from '@components/svg/committeelogos/EvntkomLogo'
 import BedkomLogo from '@components/svg/committeelogos/BedkomLogo'
 import TekkomLogo from '@components/svg/committeelogos/TekkomLogo'
 import CtfkomLogo from '@components/svg/committeelogos/CtfkomLogo'
@@ -50,7 +50,7 @@ export default function CommitteeTabs() {
         <div className='mb-[2rem] tabs committees page-section--without-gaps'>
             <ul className='grid grid-cols-3 justify-between 500px:flex 500px:flex-nowrap 500px:justify-between tabs_nav'>
                 <TabNavItem title={<StyretLogo/>} id='styret' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<EventkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<EvntkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<TekkomLogo/>} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<BedkomLogo/>} id='bedkom' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<CtfkomLogo/>} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab}/>
@@ -84,12 +84,12 @@ export default function CommitteeTabs() {
             </TabContent>
             <TabContent id='event' activeTab={activeTab}>
                 <h3 className='mb-0 heading-3'>
-                    <i className='logfont-eventkom' /> {text.committeeSection.eventkom.title}
+                    <i className='logfont-evntkom' /> {text.committeeSection.evntkom.title}
                 </h3>
                 <div className='grid gap-[3rem] items-start grid-cols-auto 800px:grid-cols-[auto_11rem]'>
                     <div className='col-[1_/_-2] max-w-[45rem]'>
-                        <p className='p--highlighted'>{text.committeeSection.eventkom.intro}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.eventkom.body}} />
+                        <p className='p--highlighted'>{text.committeeSection.evntkom.intro}</p>
+                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.evntkom.body}} />
                     </div>
                     <LogChamp 
                         img={config.url.CDN_URL + '/img/portraits/' +  text.evntkomLeader.img}

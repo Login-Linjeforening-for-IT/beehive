@@ -21,7 +21,7 @@
     "intro": "The association is run by volunteer students who work to ensure that you get the most out of your studies at <i class='logfont-ntnu'></i> NTNU.",
     "body": {
       "p1": "We regularly organize social events and company presentations. We keep in touch with relevant companies and invite you to, among other things, the cyber days once a semester so that you, as a student, get to know the opportunities your education gives you.",
-      "p2": "Every week we gather students for <i class='logfont-tekkom'></i> TekKom and <i class='logfont-ctf-filled'></i> CTF gatherings, where you can learn new things or contribute to the association. Here you can meet other students who share the joy of learning and putting the knowledge you acquire into practice. <i class='logfont-eventkom-filled'></i> EvntKom is also constantly working on new and exciting events such as movie nights and winter ball."
+      "p2": "Every week we gather students for <i class='logfont-tekkom'></i> TekKom and <i class='logfont-ctf-filled'></i> CTF gatherings, where you can learn new things or contribute to the association. Here you can meet other students who share the joy of learning and putting the knowledge you acquire into practice. <i class='logfont-evntkom-filled'></i> EvntKom is also constantly working on new and exciting events such as movie nights and winter ball."
     }
   },
   "committeeSection": {
@@ -31,10 +31,10 @@
       "title": "Board",
       "body": "The highest level of the association is the board. During the annual meeting, the chairman, deputy chairman and secretary are voted in, and these sit together with the leaders from the various committees on the board. Together, these are responsible for running the association, managing the finances and ensuring that everyone performs the tasks they are supposed to."      
     },
-    "eventkom": {
-      "title": "EventKom",
-      "intro": "EventKom is Login's party committee, where the goal is to use up all the income Bedkom provides.",
-      "body": "EventKom is responsible for setting up social events on behalf of Login throughout the semester. We offer gatherings where students can meet across study programmes, years and classes in order to have a break from everyday study life. The aim of EventKom is to build a strong community among the IT students at the school, which you can lean on when the study life gets busy. If you have suggestions for activities, or want to join the committee, just contact us on <a class='link link--primary' href='https://discord.gg/login-ntnu' target='_blank' rel='noopener noreferrer'> Discord</a>. Suggestions and feedback are welcomed, and we hope to hear from you."
+    "evntkom": {
+      "title": "EvntKom",
+      "intro": "EvntKom is Login's party committee, where the goal is to use up all the income Bedkom provides.",
+      "body": "EvntKom is responsible for setting up social events on behalf of Login throughout the semester. We offer gatherings where students can meet across study programmes, years and classes in order to have a break from everyday study life. The aim of EvntKom is to build a strong community among the IT students at the school, which you can lean on when the study life gets busy. If you have suggestions for activities, or want to join the committee, just contact us on <a class='link link--primary' href='https://discord.gg/login-ntnu' target='_blank' rel='noopener noreferrer'> Discord</a>. Suggestions and feedback are welcomed, and we hope to hear from you."
     },
     "tekkom": {
       "title": "TekKom",

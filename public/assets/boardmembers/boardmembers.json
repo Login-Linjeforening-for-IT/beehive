@@ -23,13 +23,13 @@
         "dclink": "https://discordapp.com/users/616878763010949121",
         "img": "portrett_sekretær.jpg"
     },
-    "eventkomLeader": {
-        "title_en": "EventKom Leader",
-        "title_no": "Eventkom Leder",
+    "evntkomLeader": {
+        "title_en": "EvntKom Leader",
+        "title_no": "Evntkom Leder",
         "name": "Sebastian Marterer",
         "dctag": "coldfridge.",
         "dclink": "https://discordapp.com/users/486788989097869314",
-        "img": "portrett_eventkom-leder.jpg"
+        "img": "portrett_evntkom-leder.jpg"
     },
     "bedkomLeader": {
         "title_en": "Bedkom Leader",

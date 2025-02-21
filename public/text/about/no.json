@@ -21,7 +21,7 @@
     "intro": "Foreningen drives av frivillige studenter som arbeider for at du skal få mest mulig ut av studiene dine ved <i class='logfont-ntnu'></i> NTNU.",
     "body": {
       "p1":"Vi arrangerer regelmessig sosiale arrangementer og bedriftspresentasjoner. Vi holder kontakt med aktuelle bedrifter og inviterer til blant annet cyberdagene én gang i semesteret slik at du som student skal bli kjent med mulighetene utdanningen din gir deg.",
-      "p2": "Hver uke samler vi studenter til <i class='logfont-tekkom'></i> TekKom- og <i class='logfont-ctf-filled'></i> CTF-samlinger, der man kan lære seg nye ting eller komme med bidrag til foreningen. Her kan man møte andre studenter som deler gleden for å lære, og å sette kunnskapene man tilegner seg i praksis. Videre jobber <i class='logfont-eventkom-filled'></i> EvntKom stadig med nye og spennende arrangementer som f.eks. filmkvelder og vinterball."
+      "p2": "Hver uke samler vi studenter til <i class='logfont-tekkom'></i> TekKom- og <i class='logfont-ctf-filled'></i> CTF-samlinger, der man kan lære seg nye ting eller komme med bidrag til foreningen. Her kan man møte andre studenter som deler gleden for å lære, og å sette kunnskapene man tilegner seg i praksis. Videre jobber <i class='logfont-evntkom-filled'></i> EvntKom stadig med nye og spennende arrangementer som f.eks. filmkvelder og vinterball."
     }
   },
   "committeeSection": {
@@ -33,17 +33,17 @@
       "leader": "Leder",
       "deputyChairman": "Nestleder",
       "secretary": "Sekretær",
-      "eventkom": "EventKom leder",
+      "evntkom": "EvntKom leder",
       "bedkom": "Bedkom leder",
       "tekkom": "TekKom leder",
       "ctfkom": "CTF leder",
       "satkom": "SATkom leder",
       "pr": "PR leder"
     },
-    "eventkom": {
-      "title": "EventKom",
-      "intro": "EventKom er Logins party-komité hvor målet er å bruke opp alle inntektene Bedkom sørger for.",
-      "body": "EventKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret. Vi tilbyr sammenkomster der studenter kan møtes på tvers av studieprogram, år og klasser for å få et avbrekk fra studiehverdagen. Målet til EventKom er å bygge et sterkt fellesskap blant IT-studentene ved skolen, som du kan lene deg på når studiehverdagen tar på. Dersom du har forslag til aktiviteter, eller ønsker å være med i komiteen er det bare å kontakte oss på <a class='link link--primary' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>. Forslag og tilbakemeldinger tas imot med glede, og vi håper å høre fra deg."
+    "evntkom": {
+      "title": "EvntKom",
+      "intro": "EvntKom er Logins party-komité hvor målet er å bruke opp alle inntektene Bedkom sørger for.",
+      "body": "EvntKom har ansvar for å stelle i stand sosiale arrangement på vegne av Login gjennom semesteret. Vi tilbyr sammenkomster der studenter kan møtes på tvers av studieprogram, år og klasser for å få et avbrekk fra studiehverdagen. Målet til EvntKom er å bygge et sterkt fellesskap blant IT-studentene ved skolen, som du kan lene deg på når studiehverdagen tar på. Dersom du har forslag til aktiviteter, eller ønsker å være med i komiteen er det bare å kontakte oss på <a class='link link--primary' href=\"https://discord.gg/login-ntnu\\\" target=\"_blank\" rel=\"noreferrer\"> Discord</a>. Forslag og tilbakemeldinger tas imot med glede, og vi håper å høre fra deg."
     },
     "tekkom": {
       "title": "TekKom",
