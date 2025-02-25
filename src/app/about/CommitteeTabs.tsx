@@ -44,7 +44,7 @@ export default function CommitteeTabs() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     return (
         <div className='mb-[2rem] tabs committees page-section--without-gaps'>

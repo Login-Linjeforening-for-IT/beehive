@@ -441,6 +441,7 @@ abbr {
 	--breakpoint-432px: 432px;
 	--breakpoint-350px: 350px;
 	--breakpoint-400px: 400px;
+	--breakpoint-450px: 450px;
 	--breakpoint-500px: 500px;
 	--breakpoint-600px: 600px;
 	--breakpoint-700px: 700px;
@@ -549,7 +550,7 @@ abbr {
 
 	/* Border Colors */
 	--color-border-default: var(--color-grey-800);
-	/* --color-border-light: var(--color-grey-700); */
+	--color-border-light: var(--color-grey-700);
 	/* --color-border-strong: var(--color-grey-900); */
 
 	/* Buttons */

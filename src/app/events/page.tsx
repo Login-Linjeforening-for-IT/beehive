@@ -14,7 +14,6 @@ import en from '@text/eventList/en.json'
 // import ListBulleted from '@components/svg/symbols/ListBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
-import './page.css'
 
 export default async function Events() {
     const lang = (await cookies()).get('lang')?.value || 'no'
@@ -193,10 +192,10 @@ export default async function Events() {
                         </div>
                     </div>
                     <div className='page-section--without-gaps'>
-                        <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw] events'>
-                            <div className='events_section--left'>
+                        <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
+                            <div className='1000px:order-1'>
                                 {/* <div
-                                    className={`events_filter-container ${
+                                    className={`p-[1rem_1.5rem] hidden bg-[var(--color-bg-surface)] m-[0.5rem] rounded-[var(--border-radius)] shadow-[var(--container-shadow)] 400px:m.[0.5rem_0] 1000px:p-0 1000px:m-0 1000px:relative 1000px:block 1000px:bg-none 1000px:shadow-none 1000px:after:content-[''] 1000px:after:w-[2rem] 1000px:after:h-[2rem] 1000px:after:absolute 1000px:after:bottom-0 1000px:after:right-0 1000px:after:border-[var(--color-border-light)]  1000px:after:border-t-0 1000px:after:border-r 1000px:after:border-b-0 1000px:after:border-l 1000px:after:border-[0.7rem] 1000px:after:transition 1000px:after:duration-100 1000px:before:content-[''] 1000px:before:w-[2rem] 1000px:before:h-[2rem] 1000px:before:absolute 1000px:before:border-t 1000px:before:border-r 1000px:before:border-b-0 1000px:before:border-l-0 1000px:before:border-[0.7rem] 1000px:before:border-[var(--color-border-light)] 1000px:before:top-0 1000px:before:right-0 1000px:before:transition 1000px:before:duration-100  ${
                                         isFilterOpen ? 'block' : ''
                                     }`}
                                 >
@@ -217,19 +216,19 @@ export default async function Events() {
                                     {lang === 'no' ? 'Filtre er midlertidig deaktivert. De kommer tilbake snart!' : 'Filters are temporarily disabled. They will be back soon.'}
                                 </Alert>
                             </div>
-                            <div className='events_section--right'>
+                            <div className='1000px:order-2'>
                                 <ul
-                                    className={`events_list events_list${
+                                    className={`list-none pt-[1rem] 1000px:pt-0 events_list${
                                         // @ts-expect-error
-                                        eventsView === 'grid-view' ? 'grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
+                                        eventsView === '--grid-view' ? 'grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
                                     }`}
                                 >
                                     {/* events.currentWeekEvents &&
                                     events.currentWeekEvents.length > 0 && ( */}
                                     {events && (
                                         <>
-                                            {/* <div className='event-list-separator event-list-seperator--first'>
-                                                <p className='event-list-separator_text'>
+                                            {/* <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[''] before:absolute before:top[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] 600px:hidden mt-[0.2rem]'>
+                                                <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                     {text.thisWeek}
                                                 </p>
                                             </div> */}
@@ -272,8 +271,8 @@ export default async function Events() {
                                     {events && (
                                         // events.nextWeekEvents.length > 0 && (
                                         <>
-                                            {/* <div className='event-list-separator'>
-                                                <p className='event-list-separator_text'>
+                                            {/* <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[''] before:absolute before:top[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] 600px:hidden'>
+                                                <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                     {text.nextWeek}
                                                 </p>
                                             </div> */}
@@ -304,8 +303,8 @@ export default async function Events() {
                                             {/* {events.currentWeekEvents.length +
                                             events.nextWeekEvents.length > 0 && ( */}
                                             {(
-                                                <div className='event-list-separator'>
-                                                    <p className='event-list-separator_text'>
+                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] 600px:hidden'>
+                                                    <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                         {text.later}
                                                     </p>
                                                 </div>
@@ -338,7 +337,7 @@ export default async function Events() {
                                             href=''
                                             onClick={loadItems}
                                             variant='secondary'
-                                            className='events_load-more-btn'
+                                            className='m-[2rem_0]'
                                             trailingIcon={<ArrowDownWard className=''/>}
                                         >
                                             {text.loadMore}

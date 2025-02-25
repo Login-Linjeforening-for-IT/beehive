@@ -245,7 +245,9 @@ async function EventBanner({event}: EventBannerProps) {
             <Image
                 src={`${config.url.CDN_URL}/img/events/banner/${event?.event?.image_banner}`}
                 alt={lang === 'no' ? event?.event.name_no : event.event.name_en}
-                fill={true}
+                width={1000}
+                height={400}
+                className='relative w-full rounded-var[(--border-radius)]'
             />
         </>
     )

@@ -25,7 +25,7 @@ export default function DateTile({
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     const months = {
         en: [

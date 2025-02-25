@@ -41,12 +41,6 @@
     position: relative;
 }
 
-.jobad-details_company {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
 .jobad-details_image {
     display: block;
     width: 7.5rem;
@@ -70,18 +64,6 @@
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;
 	hyphens: auto;
-}
-
-.jobad-details_list {
-    display: grid;
-    grid-template-columns: min-content auto;
-    gap: 1rem;
-    margin-bottom: 3rem;
-}
-
-.jobad-details_lable {
-    color: var(--color-text-discreet);
-    display: inline-flex;
 }
 
 .jobad-details_icon--warning {
@@ -140,10 +122,6 @@
 @media only screen and (min-width: 450px) {
     .jobad-details {
         padding: 2rem;
-    }
-
-    .jobad-details_company {
-        gap: 2rem;
     }
 
     .jobad-details_image {
@@ -212,10 +190,6 @@
         bottom: 0;
         left: 0;
         transition: .1s;
-    }
-
-    .jobad-details_company {
-        display: block;
     }
 
     .jobad-details_company-name {

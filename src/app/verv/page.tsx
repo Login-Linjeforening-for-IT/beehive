@@ -21,7 +21,7 @@ export default function Verv() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     const slides = []
 

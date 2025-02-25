@@ -4,10 +4,13 @@ import { useEffect, useState } from 'react'
 import './LangToggle.css'
 import Language from '@components/svg/symbols/Language'
 import { getCookie, setCookie } from '@utils/cookies'
+import { useRouter } from 'next/navigation'
 
 export default function LangToggle() {
     const [lang, setLang] = useState<'no' | 'en'>('no')
     const [jump, setJump] = useState(false)
+
+    const router = useRouter()
     
     useEffect(() => {
         const savedLang = getCookie('lang') as 'no' | 'en'
@@ -22,7 +25,7 @@ export default function LangToggle() {
         setLang(newLang)
         setJump(true)
         setTimeout(() => setJump(false), 400)
-        window.location.reload()
+        router.refresh()
     }
 
     return(

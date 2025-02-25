@@ -70,7 +70,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
             {jobad && (
                 <div className={'jobad-page jobad-page--noBanner'}>
                     <div className='jobad-details'>
-                        <div className='jobad-details_company'>
+                        <div className='flex gap-[1rem] mb-[2rem] 450px:gap-[2rem] 800px:block'>
                             <picture className='jobad-details_company-logo'>
                                 <Image
                                     src={!jobad?.organization?.logo ? '@assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
@@ -99,8 +99,8 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 )}
                             </div>
                         </div>
-                        <div className='jobad-details_list'>
-                            <div className='jobad-details_lable'>
+                        <div className='grid grid-cols-[min-content_auto] gap-[1rem] mb-[3rem]'>
+                            <div className='text-[var(--color-text-discreet)] inline-flex'>
                                 <HourglassBottom className='jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.deadline}:
                             </div>
@@ -118,7 +118,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.job.position_title_no && 
                 <>
-                    <div className='jobad-details_lable'>
+                    <div className='text-[var(--color-text-discreet)] inline-flex'>
                         <Badge className='jobad-details_icon jobad-details_icon--lable-color'/>
                         {text.details.position}:
                     </div>
@@ -128,7 +128,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                     </div>
                 </>
                             }
-                            <div className='jobad-details_lable'>
+                            <div className='text-[var(--color-text-discreet)] inline-flex'>
                                 <WorkHistory className='jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.type}:
                             </div>
@@ -139,7 +139,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.job.cities && jobad.job.cities.length > 0 &&
                 <>
-                    <div className='flex flex-row items-center jobad-details_lable'>
+                    <div className='flex flex-row items-center text-[var(--color-text-discreet)] inline-flex'>
                         <Pin className='w-[1.5rem] h-[1.5rem] fill-white jobad-details_icon jobad-details_icon--lable-color' />
                         {/* @ts-ignore */}
                         {jobad.job.cities.length > 1
@@ -156,7 +156,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.job.skills && jobad.job.skills.length > 0 &&
                 <>
-                    <div className='jobad-details_lable'>
+                    <div className='text-[var(--color-text-discreet)] inline-flex'>
                         <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
                             build
                         </i>

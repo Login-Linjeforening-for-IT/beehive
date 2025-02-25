@@ -21,7 +21,7 @@ export default function Navigation() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang(temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     const navItemRefs = useRef([
         React.createRef(),

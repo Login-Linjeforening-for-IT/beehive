@@ -16,7 +16,7 @@ export default function StudyProgramsAccordion() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     return(
         <ul className='w-full accordion'>

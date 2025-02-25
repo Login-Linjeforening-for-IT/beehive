@@ -21,7 +21,7 @@ export default function Contact() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     return(
         <div className='contact-card'>

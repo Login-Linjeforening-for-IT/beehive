@@ -32,7 +32,7 @@ export default function VervTabs() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [getCookie('lang')])
 
     return (
         <div className='tabs committees page-section--without-gaps'>
