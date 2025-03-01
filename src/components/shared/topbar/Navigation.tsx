@@ -8,6 +8,7 @@ import Office from '@components/svg/symbols/Office'
 import Book from '@components/svg/symbols/Book'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import { getCookie } from '@utils/cookies'
+import { language } from '../langtoggle/LangToggle'
 
 export default function Navigation() {
     const [lang, setLang] = useState('no')
@@ -21,7 +22,7 @@ export default function Navigation() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang(temp || 'no')
-    }, [getCookie('lang')])
+    }, [language])
 
     const navItemRefs = useRef([
         React.createRef(),

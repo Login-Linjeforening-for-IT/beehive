@@ -7,6 +7,7 @@ import './Contact.css'
 import { useEffect, useState } from 'react'
 import TravelExplore from '@components/svg/symbols/TravelExplore'
 import { getCookie } from '@utils/cookies'
+import { language } from '../langtoggle/LangToggle'
 // import { getCookie } from '@utils/cookies'
 
 export default function Contact() {
@@ -21,7 +22,7 @@ export default function Contact() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [getCookie('lang')])
+    }, [language])
 
     return(
         <div className='contact-card'>

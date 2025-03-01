@@ -5,6 +5,7 @@ import './DateTile.css'
 import { createGradient, hexToRgba, isValidHex } from '@utils/ColorManipulation'
 import { getCookie } from '@utils/cookies'
 import { useEffect, useState } from 'react'
+import { language } from '../langtoggle/LangToggle'
 
 export default function DateTile({
     startDate,
@@ -25,7 +26,7 @@ export default function DateTile({
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [getCookie('lang')])
+    }, [language])
 
     const months = {
         en: [

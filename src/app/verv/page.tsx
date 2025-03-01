@@ -7,6 +7,7 @@ import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
 import { useEffect, useState } from 'react'
 import { getCookie } from '@utils/cookies'
+import { language } from '@components/shared/langtoggle/LangToggle'
 
 export default function Verv() {
     const [lang, setLang] = useState('no')
@@ -21,7 +22,7 @@ export default function Verv() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [getCookie('lang')])
+    }, [language])
 
     const slides = []
 

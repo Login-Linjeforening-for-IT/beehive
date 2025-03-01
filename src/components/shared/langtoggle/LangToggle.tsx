@@ -6,6 +6,8 @@ import Language from '@components/svg/symbols/Language'
 import { getCookie, setCookie } from '@utils/cookies'
 import { useRouter } from 'next/navigation'
 
+export let language = 'no'
+
 export default function LangToggle() {
     const [lang, setLang] = useState<'no' | 'en'>('no')
     const [jump, setJump] = useState(false)
@@ -23,6 +25,7 @@ export default function LangToggle() {
         const newLang = lang === 'no' ? 'en' : 'no'
         setCookie('lang', newLang)
         setLang(newLang)
+        language = newLang
         setJump(true)
         setTimeout(() => setJump(false), 400)
         router.refresh()

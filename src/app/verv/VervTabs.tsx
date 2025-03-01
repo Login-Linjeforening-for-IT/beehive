@@ -17,6 +17,7 @@ import no from '@text/verv/no.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import { getCookie } from '@utils/cookies'
+import { language } from '@components/shared/langtoggle/LangToggle'
 
 export default function VervTabs() {
     const [activeTab, setActiveTab] = useState('event')
@@ -32,7 +33,7 @@ export default function VervTabs() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [getCookie('lang')])
+    }, [language])
 
     return (
         <div className='tabs committees page-section--without-gaps'>

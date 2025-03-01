@@ -7,6 +7,7 @@ import no from '@text/about/no.json'
 import en from '@text/about/en.json'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import { getCookie } from '@utils/cookies'
+import { language } from '@components/shared/langtoggle/LangToggle'
 
 export default function StudyProgramsAccordion() {
     const [activeAccordionItem, setActiveAccordionItem] = useState('bachelor')
@@ -16,7 +17,7 @@ export default function StudyProgramsAccordion() {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [getCookie('lang')])
+    }, [language])
 
     return(
         <ul className='w-full accordion'>
