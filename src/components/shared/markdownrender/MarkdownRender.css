@@ -37,6 +37,7 @@
 
 .markdown-render_ol {
     margin: 1rem 1rem 1rem 1.5rem;
+    list-style: decimal;
 }
 
 .markdown-render_ul{
@@ -48,7 +49,7 @@
     color: var(--color-text-regular);
 }
 
-.markdown-render_li:before {
+.markdown-render_ul .markdown-render_li:before {
     content: '\2022';
     color: var(--color-text-primary);
     font-weight: bold;
