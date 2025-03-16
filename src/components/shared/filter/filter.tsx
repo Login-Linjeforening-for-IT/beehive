@@ -10,9 +10,15 @@ import './filter.css'
 import KeyboardArrowUp from '@components/svg/symbols/KeyboardArrowUp'
 import Replay from '@components/svg/symbols/Replay'
 import { getCookie } from '@utils/cookies'
+import { language } from '../langtoggle/LangToggle'
+import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 
 // eslint-disable-next-line
-export default function FilterGroup({ filters, onApply, close = false }: any) {
+export default function FilterGroup({ filters, close = false }: any) {
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
     const [lang, setLang] = useState('no')
@@ -26,12 +32,31 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [language])
 
     function onReset() {
         selectedFilters.current = {}
         setResetTrigger(!resetTrigger)
         apply()
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function onApply(f:any){
+        const params = new URLSearchParams(searchParams?.toString())
+
+        if (Object.values(f).length > 0) {
+            params.set('categories', Object.values(f).join(','))
+        }
+        else {
+            params.delete('categories') 
+        }
+        router.push(pathname+'?'+params.toString())
+    }
+
+    function params(){
+        const params = new URLSearchParams(searchParams?.toString())
+        params.delete('categories')
+        return params.toString()
     }
 
     function apply() {
@@ -68,32 +93,26 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
     return (
         <div className='filter-groups'>
             {
-                // eslint-disable-next-line
-                Object.entries(filters).map(([filterGroupItemID, filterGroupItem]) => {
-                    // @ts-ignore
-                    if(Object.values(filterGroupItem.filters).length > 0) {
-                        return (
-                            <Filter
-                                key={filterGroupItemID}
-                                // @ts-ignore
-                                label={filterGroupItem.label}
-                                // @ts-ignore
-                                showCount={filterGroupItem.showCount}
-                                // @ts-ignore
-                                filter={Object.values(filterGroupItem.filters)}
-                                // @ts-ignore
-                                type={filterGroupItem.type}
-                                onSelect={getFilterGroupItemOnSelectWithin(onSelect, filterGroupItemID)}
-                                resetTrigger={resetTrigger}
-                            />
-                        )
-                    }
-                })
+                (Object.values(filters.filters).length > 0) && (
+                    <Filter
+                        // @ts-ignore
+                        label={filters.label}
+                        // @ts-ignore
+                        showCount={filters.showCount}
+                        // @ts-ignore
+                        filter={Object.values(filters.filters)}
+                        // @ts-ignore
+                        type={filters.type}
+                        onSelect={getFilterGroupItemOnSelectWithin(onSelect,filters.filters)}
+                        resetTrigger={resetTrigger}
+                    />
+                )
             }
             <div className='filter-groups_buttons'>
                 {/* @ts-ignore */}
                 <Button
-                    href=''
+                    href={pathname+'?'+params()}
+                    target='_self'
                     variant='secondary-outlined'
                     trailingIcon={<Replay className=''/>}
                     onClick={onReset}
@@ -106,6 +125,7 @@ export default function FilterGroup({ filters, onApply, close = false }: any) {
                 // @ts-ignore
                     <Button
                         href=''
+                        target='_self'
                         variant='secondary-outlined'
                         leadingIcon={<KeyboardArrowUp className=''/>}
                         onClick={close}
@@ -141,7 +161,7 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [language])
 
     return (
         <div className='filter'>
@@ -177,7 +197,7 @@ function FilterItem({ filter, showCount, onSelect, resetTrigger, type }: any) {
     useEffect(() => {
         const temp = getCookie('lang')
         setLang( temp || 'no')
-    }, [])
+    }, [language])
 
     function select() {
         setChecked(!checked)

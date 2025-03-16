@@ -17,7 +17,7 @@ type GroupToggleProps = {
 
 function GroupToggle({ 
     options, 
-    defaultActiveOptionIndex = 0,
+    defaultActiveOptionIndex = 1,
     size = 'medium',
     groupVariant = 'outlined',
     buttonVariant = 'ghost',
@@ -27,16 +27,13 @@ function GroupToggle({
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const view = searchParams?.get('view')
-    const viewIndex = view == 'grid' ? 0 : view == 'list' ? 1 : null
-    const activeOptionIndex = viewIndex || defaultActiveOptionIndex
-
+    const viewIndex = view == 'grid' ? 0 : view == 'list' ? 1 : defaultActiveOptionIndex
+    const activeOptionIndex = viewIndex
 
     function setView(view: string) {
         const params = new URLSearchParams(searchParams?.toString())
         params.set('view', view)
-
         return params.toString()
-        
     }
 
     return (

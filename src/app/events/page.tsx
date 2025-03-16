@@ -1,11 +1,9 @@
 import EventListItem from '@components/event/EventItem'
 // import Spinner from '@components/shared/spinner/spinner'
-// import FilterGroup from '@components/shared/filter/filter'
+import FilterGroup from '@components/shared/filter/filter'
 // import Button from '@components/shared/button/Button'
 import GroupToggle from '@components/shared/grouptoggle/GroupToggle'
-import Alert from '@components/shared/alert/Alert'
 import prepFilter from '@components/shared/filter/prepFilter'
-// import debounce from '@/utils/debounce'
 import no from '@text/eventList/no.json'
 import en from '@text/eventList/en.json'
 import GridView from '@components/svg/symbols/GridView'
@@ -15,12 +13,17 @@ import ListBulleted from '@components/svg/symbols/ListBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 
-export default async function Events({ searchParams }: { 
-    searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function Page({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
+    const filters = (await searchParams)
+
+    const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
+    const filtersParams = typeof filters.categories === 'string' ? filters.categories.split(',') : []
+    
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
+    
     const limit = 20
-    const temp_events = await getEvents([], limit, 0)
+    const temp_events = await getEvents(filtersParams, limit, 0)
     const events = (Array.isArray(temp_events) ? temp_events : []).filter((event: EventProps) => {
         const start = new Date(event.time_end).getTime()
         const now = new Date().getTime()
@@ -28,119 +31,9 @@ export default async function Events({ searchParams }: {
     })
     const { currentWeekEvents, nextWeekEvents, futureEvents } = groupEvents(events)
 
-    const eventsView = (await searchParams).view+'-view' || 'list-view'
+    const categoryFilters = await getCategoryFilters()
 
-    // const [events, setEvents] = useState<any[]>([])
-    // const [filterData, setFilterData] = useState({})
-    // const [showLoadMore, setShowLoadMore] = useState(false)
-    // const [loading, setLoading] = useState(true)
-    // const [error, setError] = useState<string | null>(null)
-    // const [isFilterOpen, setIsFilterOpen] = useState(false)
-    // const filters = useRef<any>({})
-    // const offset = useRef(0)
-    // const [groupedEvents, setGroupedEvents] = useState({
-    //     currentWeekEvents: [] as any[],
-    //     nextWeekEvents: [] as any[],
-    //     futureEvents: [] as any[],
-    // })
-    // const [eventsView, setEventsView] = useState(() => {
-    //     return localStorage.getItem('events-view') || 'list-view'
-    // })
-
-    // function toggleFilter() {
-    //     setIsFilterOpen((prevState) => !prevState)
-    // }
-
-    // useEffect(() => {
-    //     localStorage.setItem('events-view', eventsView)
-    // }, [eventsView])
-
-    // const [viewToggleIndex, setViewToggleIndex] = useState(
-    //     // @ts-expect-error
-    //     eventsView == 'grid-view' ? 0 : 1
-    // )
-    // function handleOptionChange(index: number) {
-    //     setViewToggleIndex(index)
-    //     // setEventsView(index == 0 ? 'grid-view' : 'list-view')
-    // }
-
-    // const ap = debounce(async (v: any) => {
-    //     filters.current = v
-
-    //     try {
-    //         const [response, err] = await getEvents(v.categories, limit, 0)
-    //         if (err) {
-    //             throw new Error(err)
-    //         }
-
-    //         setShowLoadMore(response.length === limit)
-    //         offset.current = limit
-    //         setEvents(response)
-    //         setGroupedEvents(groupEvents(response))
-    //     } catch (error) {
-    //         console.error('Error fetching filtered events:', error)
-    //         setError('Failed to load events based on filters.')
-    //     } finally {
-    //         setLoading(false)
-    //     }
-    // }, 50)
-
-    // async function loadItems() {
-    //     try {
-    //         const [response, err] = await getEvents(
-    //             filters.current.categories,
-    //             limit,
-    //             offset.current
-    //         )
-    //         if (err) {
-    //             throw new Error(err)
-    //         }
-
-    //         console.log(response)
-    //         offset.current = events.length + response.length
-    //         setEvents((prevItems) => [...prevItems, ...response])
-
-    //         const categorizedResponse = groupEvents(response)
-    //         setGroupedEvents((prevOrder) => ({
-    //             currentWeekEvents: [
-    //                 ...prevOrder.currentWeekEvents,
-    //                 ...categorizedResponse.currentWeekEvents,
-    //             ],
-    //             nextWeekEvents: [
-    //                 ...prevOrder.nextWeekEvents,
-    //                 ...categorizedResponse.nextWeekEvents,
-    //             ],
-    //             futureEvents: [
-    //                 ...prevOrder.futureEvents,
-    //                 ...categorizedResponse.futureEvents,
-    //             ],
-    //         }))
-
-    //         setShowLoadMore(response.length === limit)
-    //     } catch (error) {
-    //         console.error('Error loading events:', error)
-    //         setError('Failed to load events.')
-    //     } finally {
-    //         setLoading(false)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             // eslint-disable-next-line
-    //             const d: any = {}
-    //             const categoryFilters = await getCategoryFilters()
-    //             if (categoryFilters) d['categories'] = categoryFilters
-    //             setFilterData(d)
-    //             await loadItems()
-    //         } catch {
-    //             setError('Failed to initialize event data.')
-    //         } finally {
-    //             setLoading(false)
-    //         }
-    //     })()
-    // }, [])
+    const isFilterOpen = false
 
     return (
         <div className='page-container'>
@@ -197,27 +90,20 @@ export default async function Events({ searchParams }: {
                     <div className='page-section--without-gaps'>
                         <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
                             <div className='1000px:order-1'>
-                                {/* <div
+                                <div
                                     className={`p-[1rem_1.5rem] hidden bg-[var(--color-bg-surface)] m-[0.5rem] rounded-[var(--border-radius)] shadow-[var(--container-shadow)] 400px:m.[0.5rem_0] 1000px:p-0 1000px:m-0 1000px:relative 1000px:block 1000px:bg-none 1000px:shadow-none 1000px:after:content-[''] 1000px:after:w-[2rem] 1000px:after:h-[2rem] 1000px:after:absolute 1000px:after:bottom-0 1000px:after:right-0 1000px:after:border-[var(--color-border-light)]  1000px:after:border-t-0 1000px:after:border-r 1000px:after:border-b-0 1000px:after:border-l 1000px:after:border-[0.7rem] 1000px:after:transition 1000px:after:duration-100 1000px:before:content-[''] 1000px:before:w-[2rem] 1000px:before:h-[2rem] 1000px:before:absolute 1000px:before:border-t 1000px:before:border-r 1000px:before:border-b-0 1000px:before:border-l-0 1000px:before:border-[0.7rem] 1000px:before:border-[var(--color-border-light)] 1000px:before:top-0 1000px:before:right-0 1000px:before:transition 1000px:before:duration-100  ${
                                         isFilterOpen ? 'block' : ''
                                     }`}
                                 >
-                                    {filterData ? (
+                                    {categoryFilters ? (
                                         <FilterGroup
-                                            filters={filterData}
-                                            onApply={ap}
-                                            close={toggleFilter}
+                                            filters={categoryFilters}
+                                            close={false}
                                         />
                                     ) : (
                                         'no filter data'
                                     )}
-                                </div> */}
-                                <Alert
-                                    variant='danger'
-                                    className='page-section--normal page-section--alert'
-                                >
-                                    {lang === 'no' ? 'Filtre er midlertidig deaktivert. De kommer tilbake snart!' : 'Filters are temporarily disabled. They will be back soon.'}
-                                </Alert>
+                                </div>
                             </div>
                             <div className='1000px:order-2'>
                                 <ul
@@ -230,7 +116,7 @@ export default async function Events({ searchParams }: {
                                         <>
                                             {eventsView == 'list-view' && (
                                                 <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] mt-[0.2rem]'>
-                                                    <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                    <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                         {text.thisWeek}
                                                     </p>
                                                 </div>
@@ -257,7 +143,7 @@ export default async function Events({ searchParams }: {
                                         <>
                                             {eventsView == 'list-view' && (
                                                 <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
-                                                    <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                    <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                         {text.nextWeek}
                                                     </p>
                                                 </div>
@@ -344,12 +230,12 @@ function getLabelKeyWithLang(key: string) {
     }
 }
 
-// eslint-disable-next-line
+ 
 async function getCategoryFilters() {
     try {
-        const [categoryFilterData, err] = await getEventCategoryFilters()
-        if (err) {
-            throw new Error(JSON.stringify(err))
+        const categoryFilterData = await getEventCategoryFilters()
+        if (typeof categoryFilterData === 'string') {
+            throw new Error(categoryFilterData)
         }
 
         const title = {
