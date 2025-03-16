@@ -1,15 +1,13 @@
-import { useState } from 'react'
+'use client'
+
 import Button from '@components/shared/button/Button'
 import './GroupToggle.css'
+import { useSearchParams, usePathname } from 'next/navigation'
 
 type GroupToggleProps = {
     // eslint-disable-next-line
     options: any, 
-    // eslint-disable-next-line
-    activeOptionIndex: any
     defaultActiveOptionIndex?: number
-    // eslint-disable-next-line
-    onOptionChange: any
     size: string
     groupVariant?: string
     buttonVariant?: string
@@ -19,25 +17,26 @@ type GroupToggleProps = {
 
 function GroupToggle({ 
     options, 
-    activeOptionIndex: controlledActiveOptionIndex, 
     defaultActiveOptionIndex = 0,
-    onOptionChange, 
     size = 'medium',
     groupVariant = 'outlined',
     buttonVariant = 'ghost',
     className = '',
     ariaLabel = 'Toggle group'
 }: GroupToggleProps) {
-    const [internalActiveOptionIndex, setInternalActiveOptionIndex] = useState(defaultActiveOptionIndex)
-    const activeOptionIndex = controlledActiveOptionIndex !== undefined ? controlledActiveOptionIndex : internalActiveOptionIndex
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    const view = searchParams?.get('view')
+    const viewIndex = view == 'grid' ? 0 : view == 'list' ? 1 : null
+    const activeOptionIndex = viewIndex || defaultActiveOptionIndex
 
-    function handleOptionChange(index: number) {
-        if (controlledActiveOptionIndex === undefined) {
-            setInternalActiveOptionIndex(index)
-        }
-        if (onOptionChange) {
-            onOptionChange(index)
-        }
+
+    function setView(view: string) {
+        const params = new URLSearchParams(searchParams?.toString())
+        params.set('view', view)
+
+        return params.toString()
+        
     }
 
     return (
@@ -53,11 +52,11 @@ function GroupToggle({
 
                 return (
                     <Button
-                        href=''
+                        href={pathname + '?' + setView(option.name)}
                         key={index}
+                        target='_self'
                         variant={buttonVariant}
                         size={size}
-                        onClick={() => handleOptionChange(index)}
                         className={`group-toggle_button ${
                             index === 0 ? 'group-toggle_button--first' : 
                                 index === options.length - 1 ? 'group-toggle_button--last' : ''

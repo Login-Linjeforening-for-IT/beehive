@@ -89,8 +89,8 @@
 }
 
 .button--ghost.active .button_text,
-.button--ghost.active .button_icon i {
-  color: var(--color-btn-primary-outlined);
+.button--ghost.active .button_icon svg {
+  fill: var(--color-btn-primary-outlined);
 }
 
 .button--danger {

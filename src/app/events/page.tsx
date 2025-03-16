@@ -2,29 +2,34 @@ import EventListItem from '@components/event/EventItem'
 // import Spinner from '@components/shared/spinner/spinner'
 // import FilterGroup from '@components/shared/filter/filter'
 // import Button from '@components/shared/button/Button'
-// import GroupToggle from '@components/shared/grouptoggle/GroupToggle'
+import GroupToggle from '@components/shared/grouptoggle/GroupToggle'
 import Alert from '@components/shared/alert/Alert'
 import prepFilter from '@components/shared/filter/prepFilter'
 // import debounce from '@/utils/debounce'
 import no from '@text/eventList/no.json'
 import en from '@text/eventList/en.json'
-// import GridView from '@components/svg/symbols/GridView'
+import GridView from '@components/svg/symbols/GridView'
 // import List from '@components/svg/symbols/List'
 // import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
-// import ListBulleted from '@components/svg/symbols/ListBulleted'
+import ListBulleted from '@components/svg/symbols/ListBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 
-export default async function Events() {
+export default async function Events({ searchParams }: { 
+    searchParams: { [key: string]: string | string[] | undefined } }) {
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
     const limit = 20
     const temp_events = await getEvents([], limit, 0)
     const events = (Array.isArray(temp_events) ? temp_events : []).filter((event: EventProps) => {
-        const start = new Date(event.time_start).getTime()
+        const start = new Date(event.time_end).getTime()
         const now = new Date().getTime()
         return start - now > 0
     })
+    const { currentWeekEvents, nextWeekEvents, futureEvents } = groupEvents(events)
+
+    const eventsView = (await searchParams).view+'-view' || 'list-view'
+
     // const [events, setEvents] = useState<any[]>([])
     // const [filterData, setFilterData] = useState({})
     // const [showLoadMore, setShowLoadMore] = useState(false)
@@ -41,8 +46,6 @@ export default async function Events() {
     // const [eventsView, setEventsView] = useState(() => {
     //     return localStorage.getItem('events-view') || 'list-view'
     // })
-
-    const eventsView = 'list-view'
 
     // function toggleFilter() {
     //     setIsFilterOpen((prevState) => !prevState)
@@ -170,25 +173,25 @@ export default async function Events() {
                             Filter
                         </Button> */}
                         <div className='button-group justify-end 1000px:mr-[1.5rem]'>
-                            {/* <GroupToggle
+                            <GroupToggle
                                 options={[
                                     {
                                         leadingIcon: (
-                                            <GridView className='' />
+                                            <GridView className='w-[1.5rem] fill-white' />
                                         ),
+                                        name: 'grid'
                                     },
                                     {
-                                        leadingIcon: (<ListBulleted className='' />),
+                                        leadingIcon: (<ListBulleted className='w-[1.5rem] fill-white' />),
+                                        name: 'list'
                                     },
                                 ]}
-                                activeVariant='primary-outlined'
-                                inactiveVariant='secondary-outlined'
-                                // onOptionChange={handleOptionChange}
-                                // activeOptionIndex={viewToggleIndex}
+                                // activeVariant='primary-outlined'
+                                // inactiveVariant='secondary-outlined'
                                 groupVariant='ghost'
                                 buttonVariant='ghost'
                                 size='medium'
-                            /> */}
+                            />
                         </div>
                     </div>
                     <div className='page-section--without-gaps'>
@@ -219,28 +222,26 @@ export default async function Events() {
                             <div className='1000px:order-2'>
                                 <ul
                                     className={`list-none pt-[1rem] 1000px:pt-0 events_list${
-                                        // @ts-expect-error
-                                        eventsView === '--grid-view' ? 'grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
+                                        eventsView === 'grid-view' ? '--grid-view grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
                                     }`}
                                 >
-                                    {/* events.currentWeekEvents &&
-                                    events.currentWeekEvents.length > 0 && ( */}
-                                    {events && (
+
+                                    {currentWeekEvents?.length > 0 && (
                                         <>
-                                            {/* <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[''] before:absolute before:top[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] 600px:hidden mt-[0.2rem]'>
-                                                <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
-                                                    {text.thisWeek}
-                                                </p>
-                                            </div> */}
-                                            {/* @ts-ignore */}
-                                            {events.map((e, idx) => (
+                                            {eventsView == 'list-view' && (
+                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] mt-[0.2rem]'>
+                                                    <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                        {text.thisWeek}
+                                                    </p>
+                                                </div>
+                                            )}
+                                            {currentWeekEvents.map((e, idx) => (
                                                 <li key={idx}>
                                                     <EventListItem
                                                         key={e.id}
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
-                                                            // @ts-expect-error
                                                             eventsView === 'grid-view'
                                                                 ? 'card'
                                                                 : 'list-item'
@@ -248,83 +249,60 @@ export default async function Events() {
                                                     />
                                                 </li>
                                             ))}
-                                            {/* {groupedEvents.currentWeekEvents.map((e, idx) => (
+                                        </>
+                                    )
+                                    }
+
+                                    {nextWeekEvents?.length > 0 && (
+                                        <>
+                                            {eventsView == 'list-view' && (
+                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
+                                                    <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                        {text.nextWeek}
+                                                    </p>
+                                                </div>
+                                            )}
+                                            {nextWeekEvents.map((e, idx) => (
                                                 <li key={idx}>
                                                     <EventListItem
                                                         key={e.id}
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
-                                                            // @ts-expect-error
                                                             eventsView === 'grid-view'
                                                                 ? 'card'
                                                                 : 'list-item'
                                                         }
                                                     />
                                                 </li>
-                                            ))} */}
+                                            ))}
                                         </>
                                     )
                                     }
 
-                                    {/* {events.nextWeekEvents && */}
-                                    {events && (
-                                        // events.nextWeekEvents.length > 0 && (
+                                    {futureEvents?.length > 0 && (
                                         <>
-                                            {/* <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[''] before:absolute before:top[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] 600px:hidden'>
-                                                <p className='bg-[var(--color-bg-body)] color-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
-                                                    {text.nextWeek}
-                                                </p>
-                                            </div> */}
-                                            {/* @ts-ignore */}
-                                            {/* {groupedEvents.nextWeekEvents.map((e, idx) => (
-                                                <li key={idx}>
-                                                    <EventListItem
-                                                        key={e.id}
-                                                        event={e}
-                                                        highlight={e.highlight}
-                                                        variant={
-                                                            // @ts-expect-error
-                                                            eventsView === 'grid-view'
-                                                                ? 'card'
-                                                                : 'list-item'
-                                                        }
-                                                    />
-                                                </li>
-                                            ))} */}
-                                        </>
-                                    )
-                                    }
-
-                                    {/* {events.futureEvents &&
-                                        events.futureEvents.length > 0 && ( */}
-                                    {events && (
-                                        <>
-                                            {/* {events.currentWeekEvents.length +
-                                            events.nextWeekEvents.length > 0 && ( */}
-                                            {(
-                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] 600px:hidden'>
+                                            {eventsView == 'list-view' && currentWeekEvents?.length + nextWeekEvents?.length > 0 && (
+                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
                                                     <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                         {text.later}
                                                     </p>
                                                 </div>
                                             )}
-                                            {/*  @ts-ignore eslint-disable-next-line */}
-                                            {/* {events.futureEvents.map((e: EventProps, idx: number) => (
+                                            {futureEvents.map((e, idx) => (
                                                 <li key={idx}>
                                                     <EventListItem
                                                         key={e.id}
                                                         event={e}
                                                         highlight={e.highlight}
                                                         variant={
-                                                            // @ts-expect-error
                                                             eventsView === 'grid-view'
                                                                 ? 'card'
                                                                 : 'list-item'
                                                         }
                                                     />
                                                 </li>
-                                            ))} */}
+                                            ))}
                                         </>
                                     )
                                     }
