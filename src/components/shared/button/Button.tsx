@@ -30,7 +30,7 @@ export default function Button({
     href,
     ...props
 }: ButtonProps) {
-    const baseClassName = `button button--${variant} button--${size} ${active ? 'active' : ''} ${className}`
+    const baseClassName = `button inline-flex button--${variant} button--${size} ${active ? 'active' : ''} ${className}`
     const iconOnly = (leadingIcon || trailingIcon) && !children
 
     const content = (

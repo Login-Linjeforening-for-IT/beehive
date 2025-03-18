@@ -1,17 +1,15 @@
 import EventListItem from '@components/event/EventItem'
 // import Spinner from '@components/shared/spinner/spinner'
-import FilterGroup from '@components/shared/filter/filter'
-// import Button from '@components/shared/button/Button'
 import GroupToggle from '@components/shared/grouptoggle/GroupToggle'
 import prepFilter from '@components/shared/filter/prepFilter'
 import no from '@text/eventList/no.json'
 import en from '@text/eventList/en.json'
 import GridView from '@components/svg/symbols/GridView'
-// import List from '@components/svg/symbols/List'
 // import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
 import ListBulleted from '@components/svg/symbols/ListBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
+import FilterItem from '@components/event/filter'
 
 export default async function Page({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
     const filters = (await searchParams)
@@ -33,8 +31,6 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
 
     const categoryFilters = await getCategoryFilters()
 
-    const isFilterOpen = false
-
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
@@ -53,18 +49,6 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
                 <>
                     <div className='flex justify-between items-center 400px:gap-[1rem] 400px:p-0 1000px:justify-end 1000px:p-[0_0_1rem_0] page-section--normal'>
                         {/* @ts-ignore */}
-                        {/* <Button
-                            href=''
-                            variant='secondary-outlined'
-                            trailingIcon={<List className=''/>}
-                            onClick={toggleFilter}
-                            size='medium'
-                            className={`1000px:hidden ${
-                                isFilterOpen ? 'active' : ''
-                            }`}
-                        >
-                            Filter
-                        </Button> */}
                         <div className='button-group justify-end 1000px:mr-[1.5rem]'>
                             <GroupToggle
                                 options={[
@@ -90,20 +74,7 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
                     <div className='page-section--without-gaps'>
                         <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
                             <div className='1000px:order-1'>
-                                <div
-                                    className={`p-[1rem_1.5rem] hidden bg-[var(--color-bg-surface)] m-[0.5rem] rounded-[var(--border-radius)] shadow-[var(--container-shadow)] 400px:m.[0.5rem_0] 1000px:p-0 1000px:m-0 1000px:relative 1000px:block 1000px:bg-none 1000px:shadow-none 1000px:after:content-[''] 1000px:after:w-[2rem] 1000px:after:h-[2rem] 1000px:after:absolute 1000px:after:bottom-0 1000px:after:right-0 1000px:after:border-[var(--color-border-light)]  1000px:after:border-t-0 1000px:after:border-r 1000px:after:border-b-0 1000px:after:border-l 1000px:after:border-[0.7rem] 1000px:after:transition 1000px:after:duration-100 1000px:before:content-[''] 1000px:before:w-[2rem] 1000px:before:h-[2rem] 1000px:before:absolute 1000px:before:border-t 1000px:before:border-r 1000px:before:border-b-0 1000px:before:border-l-0 1000px:before:border-[0.7rem] 1000px:before:border-[var(--color-border-light)] 1000px:before:top-0 1000px:before:right-0 1000px:before:transition 1000px:before:duration-100  ${
-                                        isFilterOpen ? 'block' : ''
-                                    }`}
-                                >
-                                    {categoryFilters ? (
-                                        <FilterGroup
-                                            filters={categoryFilters}
-                                            close={false}
-                                        />
-                                    ) : (
-                                        'no filter data'
-                                    )}
-                                </div>
+                                <FilterItem categoryFilters={categoryFilters} />
                             </div>
                             <div className='1000px:order-2'>
                                 <ul

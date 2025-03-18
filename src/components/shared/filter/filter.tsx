@@ -93,7 +93,7 @@ export default function FilterGroup({ filters, close = false }: any) {
     return (
         <div className='filter-groups'>
             {
-                (Object.values(filters.filters).length > 0) && (
+                (filters.filters && Object.values(filters.filters).length > 0) && (
                     <Filter
                         // @ts-ignore
                         label={filters.label}
