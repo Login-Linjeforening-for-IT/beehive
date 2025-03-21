@@ -81,7 +81,6 @@
 	min-height: 3.5rem;
 	padding: .2rem .5rem;
 	backdrop-filter: blur(6px);
-	-webkit-backdrop-filter: blur(6px);
 }
 
 .date-tile--overlay .date-tile_day {

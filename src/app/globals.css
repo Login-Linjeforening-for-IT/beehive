@@ -47,7 +47,6 @@
     .main-header {
         background-color: var(--color-bg-topbar);
         backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px); /* This should provide support for Safari, but needs to be tested */
     }
 }
 
