@@ -127,7 +127,7 @@ export default function FilterGroup({ filters, close }: any) {
                         href=''
                         target='_self'
                         variant='secondary-outlined'
-                        leadingIcon={<KeyboardArrowUp className=''/>}
+                        leadingIcon={<KeyboardArrowUp className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>}
                         onClick={close}
                         size='medium'
                         className='filter-groups_close'

@@ -87,8 +87,8 @@ async function Event({event}: InnerEventProps) {
                         </div>
                         {/* @ts-ignore */}
                         {event.event.time_type !== 'whole_day' &&
-                    <div className='event-datetime-display_time'>
-                        <Schedule className='event-datetime-display_time-icon' width={22} height={22} fill="white" />
+                    <div className='flex flex-row items-center event-datetime-display_time'>
+                        <Schedule className='w-[1.8rem] h-[1.8rem] fill-white event-datetime-display_time-icon'/>
                         {/* @ts-ignore */}
                         {event.event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}
@@ -103,7 +103,7 @@ async function Event({event}: InnerEventProps) {
                     {event.location && (
                         <>
                             <div className='flex flex-row items-center event-details_lable'>
-                                <Pin className='w-[1.5rem] h-[1.5rem] fill-white event-details_icon event-details_icon--lable-color' />
+                                <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color' />
                                 {text.info.location}:
                             </div>
                             <div className='event-details_info'>
@@ -116,7 +116,7 @@ async function Event({event}: InnerEventProps) {
                     )}
 
                     <div className='event-details_lable'>
-                        <Category className='event-details_icon event-details_icon--lable-color'/>
+                        <Category className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                         {text.info.type}:
                     </div>
                     <div className='event-details_info'>
@@ -130,7 +130,7 @@ async function Event({event}: InnerEventProps) {
                     {event.organizations?.length > 0 && (
                         <>
                             <div className='event-details_lable'>
-                                <Person className='event-details_icon event-details_icon--lable-color'/>
+                                <Person className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                                 {text.info.organizer}:
                             </div>
                             <div className='event-details_info'>
@@ -144,7 +144,7 @@ async function Event({event}: InnerEventProps) {
                     {event.event.link_stream && (
                         <>
                             <div className='event-details_lable'>
-                                <LiveTv className='event-details_icon event-details_icon--lable-color'/>
+                                <LiveTv className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                                 {text.info.stream}:
                             </div>
                             <div className='event-details_info'>
@@ -158,7 +158,7 @@ async function Event({event}: InnerEventProps) {
                     {(event.event.link_discord || event.event.link_facebook) && (
                         <>
                             <div className='event-details_lable'>
-                                <SVGLink className='event-details_icon event-details_icon--lable-color'/>
+                                <SVGLink className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                                 {text.info.links}:
                             </div>
                             <div className='event-details_info'>
@@ -296,7 +296,7 @@ function link(href: string, name: string) {
             target='_blank'
             rel='noreferrer'
         >
-            {name} <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
+            {name} <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)]'/>
         </Link>
     )
 }
