@@ -24,7 +24,7 @@ export default async function About() {
                 <div className='flex flex-wrap items-start justify-center gap-[5%] 800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'>
                     <StudyProgramsAcordion />
                     <DecoratedPicture
-                        imgUrl={`${config.url.CDN_URL}/img/styret2.jpg`}
+                        imgUrl={`${config.url.CDN_URL}/img/board/gruppebilde.JPG`}
                         variant={3}
                         cornerSize={90}
                         width={300}

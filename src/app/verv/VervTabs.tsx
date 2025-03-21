@@ -99,7 +99,7 @@ export default function VervTabs() {
                         />
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/portraits/${text.evntkomLeader.img}`}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.evntkomLeader.img}`}
                         name={text.evntkomLeader.name}
                         position={text.evntkomLeader.title}
                         discord={text.evntkomLeader.dctag}
@@ -120,7 +120,7 @@ export default function VervTabs() {
                         <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/portraits/${text.tekkomLeader.img}`}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.tekkomLeader.img}`}
                         name={text.tekkomLeader.name}
                         position={text.tekkomLeader.title}
                         discord={text.tekkomLeader.dctag}
@@ -141,7 +141,7 @@ export default function VervTabs() {
                         <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/portraits/${text.bedkomLeader.img}`}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.bedkomLeader.img}`}
                         name={text.bedkomLeader.name}
                         position={text.bedkomLeader.title}
                         discord={text.bedkomLeader.dctag}
@@ -167,7 +167,7 @@ export default function VervTabs() {
                         />
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/portraits/${text.ctfkomLeader.img}`}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.ctfkomLeader.img}`}
                         name={text.ctfkomLeader.name}
                         position={text.ctfkomLeader.title}
                         discord={text.ctfkomLeader.dctag}
@@ -191,7 +191,7 @@ export default function VervTabs() {
                         <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/portraits/${text.satkomLeader.img}`}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.satkomLeader.img}`}
                         name={text.satkomLeader.name}
                         position={text.satkomLeader.title}
                         discord={text.satkomLeader.dctag}
@@ -214,7 +214,7 @@ export default function VervTabs() {
                         <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/portraits/${text.prLeader.img}`}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.prLeader.img}`}
                         name={text.prLeader.name}
                         position={text.prLeader.title}
                         discord={text.prLeader.dctag}

@@ -4,62 +4,62 @@
         "name": "Ida Førland",
         "dctag": "idaforland",
         "dclink": "https://discordapp.com/users/470279697465606159",
-        "img": "portrett_leder.jpg"
+        "img": "leder.png"
     },
     "deputyLeader": {
         "title": "Deputy Leader",
         "name": "Kristian Eriksen",
         "dctag": "kissaer",
         "dclink": "https://discordapp.com/users/301619379001491457",
-        "img": "portrett_nestleder.jpg"
+        "img": "nestleder.png"
     },
     "secretary": {
         "title": "Sekretær",
         "name": "Sofia Serine Mikkelsen",
         "dctag": "sofiaserine",
         "dclink": "https://discordapp.com/users/616878763010949121",
-        "img": "portrett_sekretær.jpg"
+        "img": "sekretær.png"
     },
     "evntkomLeader": {
         "title": "Evntkom Leder",
         "name": "Sebastian Marterer",
         "dctag": "coldfridge.",
         "dclink": "https://discordapp.com/users/486788989097869314",
-        "img": "portrett_evntkom-leder.jpg"
+        "img": "evntkom_leder.png"
     },
     "bedkomLeader": {
         "title": "Bedkom Leder",
         "name": "Lavrans Åsen Felix",
         "dctag": "james00728",
         "dclink": "https://discordapp.com/users/378257251908976640",
-        "img": "portrett_bedkom-leder.jpg"
+        "img": "bedkom_leder.png"
     },
     "tekkomLeader": {
         "title": "TekKom Leder",
         "name": "Eirik Hanasand",
         "dctag": "eirikhanasand",
         "dclink": "https://discordapp.com/users/376827396764073997",
-        "img": "portrett_tekkom-leder.jpg"
+        "img": "tekkom_leder.png"
     },
     "ctfkomLeader": {
         "title": "CTFkom Leder",
         "name": "Tormod Fjeld Lie",
         "dctag": "tmod.",
         "dclink": "https://discordapp.com/users/841095548890251304",
-        "img": "portrett_ctfkom-leder.jpg"
+        "img": "ctfkom_leder.png"
     },
     "satkomLeader": {
         "title": "SATkom Leder",
         "name": "Erik Hansen-Tangen Breien",
         "dctag": "kireb",
         "dclink": "https://discordapp.com/users/165972992931790848",
-        "img": "portret_satkom-leder"
+        "img": "satkom_leder.png"
     },
     "prLeader": {
         "title": "PR Leder",
         "name": "Marius Nicolai Holte Aga",
         "dctag": "iamk3v",
         "dclink": "https://discordapp.com/users/164311829177171968",
-        "img": "portrett_pr-leder.jpg"
+        "img": "pr_leder.png"
     }
 }

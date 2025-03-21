@@ -32,7 +32,7 @@ export default async function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={`${config.url.CDN_URL}/img/styret.jpg`}
+                    imgUrl={`${config.url.CDN_URL}/img/board/gruppebilde.JPG`}
                     variant={4}
                     cornerSize={40}
                     width={150}
