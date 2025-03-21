@@ -1,65 +1,65 @@
 {    
     "leader": {
         "title": "Leder",
-        "name": "Ida Førland",
-        "dctag": "idaforland",
-        "dclink": "https://discordapp.com/users/470279697465606159",
+        "name": "Johan Wilvang",
+        "dctag": "johan_w",
+        "dclink": "https://discordapp.com/users/382587377022926848",
         "img": "leder.png"
     },
     "deputyLeader": {
         "title": "Nestleder",
-        "name": "Kristian Eriksen",
-        "dctag": "kissaer",
-        "dclink": "https://discordapp.com/users/301619379001491457",
+        "name": "Sebastian Marterer",
+        "dctag": "coldfridge.",
+        "dclink": "https://discordapp.com/users/486788989097869314",
         "img": "nestleder.png"
     },
     "secretary": {
         "title": "Sekretær",
-        "name": "Sofia Serine Mikkelsen",
-        "dctag": "sofiaserine",
-        "dclink": "https://discordapp.com/users/616878763010949121",
+        "name": "Amanda Nyseth",
+        "dctag": "amandavn05",
+        "dclink": "https://discordapp.com/users/1273571773463658552",
         "img": "sekretær.png"
     },
     "evntkomLeader": {
         "title": "Evntkom Leder",
-        "name": "Sebastian Marterer",
-        "dctag": "coldfridge.",
-        "dclink": "https://discordapp.com/users/486788989097869314",
+        "name": "Peder Gintal",
+        "dctag": "pergint",
+        "dclink": "https://discordapp.com/users/249630146678620172",
         "img": "evntkom_leder.png"
     },
     "bedkomLeader": {
         "title": "Bedkom Leder",
-        "name": "Lavrans Åsen Felix",
-        "dctag": "james00728",
-        "dclink": "https://discordapp.com/users/378257251908976640",
+        "name": "Daoud Chaudhry",
+        "dctag": "dahood018784",
+        "dclink": "https://discordapp.com/users/428285256467087383",
         "img": "bedkom_leder.png"
     },
     "tekkomLeader": {
         "title": "TekKom Leder",
-        "name": "Eirik Hanasand",
-        "dctag": "eirikhanasand",
-        "dclink": "https://discordapp.com/users/376827396764073997",
+        "name": "Gjermund H. Pedersen",
+        "dctag": "turtleman02",
+        "dclink": "https://discordapp.com/users/260370482757500938",
         "img": "tekkom_leder.png"
     },
     "ctfkomLeader": {
         "title": "CTFkom Leder",
-        "name": "Tormod Fjeld Lie",
-        "dctag": "tmod.",
-        "dclink": "https://discordapp.com/users/841095548890251304",
+        "name": "Maja Melby",
+        "dctag": "majam_",
+        "dclink": "https://discordapp.com/users/1011661501536407552",
         "img": "ctfkom_leder.png"
     },
     "satkomLeader": {
         "title": "SATkom Leder",
-        "name": "Erik Hansen-Tangen Breien",
-        "dctag": "kireb",
-        "dclink": "https://discordapp.com/users/165972992931790848",
+        "name": "Sivert Hovemoen",
+        "dctag": "sivsiv01",
+        "dclink": "https://discordapp.com/users/208903111975239681",
         "img": "satkom_leder.png"
     },
     "prLeader": {
         "title": "PR Leder",
-        "name": "Marius Nicolai Holte Aga",
-        "dctag": "iamk3v",
-        "dclink": "https://discordapp.com/users/164311829177171968",
+        "name": "Halvard Holen",
+        "dctag": "cosinus8455",
+        "dclink": "https://discordapp.com/users/184282867579224064",
         "img": "pr_leder.png"
     }
 }
