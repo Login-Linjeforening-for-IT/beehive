@@ -168,11 +168,11 @@
     
     .jobad-details:before {
         content: '';
-        width: 2rem;
-        height: 2rem;
+        width: 2.6rem;
+        height: 2.6rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-light);
+        border-color: var(--color-border-default);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -181,11 +181,11 @@
 
     .jobad-details:after {
         content: '';
-        width: 2rem;
-        height: 2rem;
+        width: 2.6rem;
+        height: 2.6rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-light);
+        border-color: var(--color-border-default);
         border-style: none none solid solid;
         bottom: 0;
         left: 0;
@@ -220,11 +220,11 @@
 
     .jobad-description:after {
         content: '';
-        width: 2rem;
-        height: 2rem;
+        width: 2.6rem;
+        height: 2.6rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-light);
+        border-color: var(--color-bg-surface);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -233,11 +233,11 @@
 
     .jobad-description:before {
         content: '';
-        width: 2rem;
-        height: 2rem;
+        width: 2.6rem;
+        height: 2.6rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-border-light);
+        border-color: var(--color-bg-surface);
         border-style: none solid solid none;
         bottom: 0;
         right: 0;

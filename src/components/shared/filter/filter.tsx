@@ -14,7 +14,7 @@ import { language } from '../langtoggle/LangToggle'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 
 // eslint-disable-next-line
-export default function FilterGroup({ filters, close = false }: any) {
+export default function FilterGroup({ filters, close }: any) {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()

@@ -63,7 +63,7 @@ export default async function EventSignUp({
 
     return (
         <div
-            className={`mt-[1.8rem] pt-[1.2rem] border-t-[0.2rem] border-solid border-[var(--color-border-light)] 800px:relative 800px:after:content-[""] 800px:after:w-[2rem] 800px:after:h-[2rem] 800px:after:absolute 800px:after:border-[0.7rem] 800px:after:border-[var(--color-border-light)] 800px:after:bottom-0 800px:after:transition 800px:after:duration-100 event-signup--${
+            className={`mt-[1.8rem] pt-[1.2rem] border-t-[0.2rem] border-solid border-[var(--color-border-default)] 800px:relative 800px:after:content-[""] 800px:after:w-[2rem] 800px:after:h-[2rem] 800px:after:absolute 800px:after:border-[0.7rem] 800px:after:border-[var(--color-border-default)] 800px:after:bottom-0 800px:after:transition 800px:after:duration-100 event-signup--${
                 showBtn ? '800px:after:left-0 800px:after:border-b 800px:after:border-l  800px:after:border-solid' : 'group 800px:pb-[3rem] 800px:after:border-r 800px:after:border-b 800px:after:border-solid 800px:after:right-0'
             }`}
         >

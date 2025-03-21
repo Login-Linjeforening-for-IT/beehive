@@ -138,8 +138,8 @@
         z-index: -1;
         content: '';
         position: absolute;
-        width: 2rem;
-        height: 2rem;
+        width: 2.6rem;
+        height: 2.6rem;
         border-width: .7rem;
         border-color: var(--color-border-default);
         border-style: solid none none solid;
@@ -549,7 +549,7 @@ abbr {
 	--color-text-on-primary: var(--color-white);
 
 	/* Border Colors */
-	--color-border-default: var(--color-grey-800);
+	--color-border-default: var(--color-grey-850);
 	--color-border-light: var(--color-grey-700);
 	/* --color-border-strong: var(--color-grey-900); */
 
@@ -663,7 +663,7 @@ abbr {
 	
 	/* Border Colors */
 	--color-border-default: var(--color-grey-500);
-	/* --color-border-light: var(--color-grey-300); */
+	/* --color-bg-surface: var(--color-grey-300); */
 	/* --color-border-strong: var(--color-grey-600); */
 
 	/* Button Colors */
