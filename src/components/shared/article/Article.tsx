@@ -16,6 +16,8 @@ type ArticleProps = {
 export default async function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
     const lang = (await cookies()).get('lang')?.value || 'no'
 
+    console.log(description)
+
     return (
         <div className='article'>
             <h1 className='article_header'>{title}</h1>

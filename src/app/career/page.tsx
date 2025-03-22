@@ -1,20 +1,21 @@
-import config from '@config'
-import Article from '@components/shared/article/Article'
+'use client'
+
+import { useState, useEffect, useRef } from 'react'
+import Spinner from '@components/shared/spinner/spinner'
+// import JobadsListItem from '@components/jobad/JobadsListItem'
 import Button from '@components/shared/button/Button'
-import { getJob } from '@utils/api'
-import no from '@text/jobadPage/no.json'
-import en from '@text/jobadPage/en.json'
-import './page.css'
-import { formatDeadlineDate } from '@utils/DatetimeFormatter'
-import ArrowOutward from '@components/svg/symbols/ArrowOutward'
-import Pin from '@components/svg/symbols/Pin'
-import HourglassBottom from '@components/svg/symbols/HourglassBottom'
-import WorkHistory from '@components/svg/symbols/WorkHistory'
-import Acute from '@components/svg/symbols/Acute'
-import Badge from '@components/svg/symbols/Badge'
-import { cookies } from 'next/headers'
-import Image from 'next/image'
+import FilterGroup from '@components/shared/filter/filter'
 import Alert from '@components/shared/alert/Alert'
+import debounce from '@/utils/debounce'
+import prepFilter from '@components/shared/filter/prepFilter'
+import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from '@utils/api'
+import no from '@text/jobadList/no.json'
+import en from '@text/jobadList/en.json'
+import './page.css'
+import List from '@components/svg/symbols/List'
+import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
+import { getCookie } from '@utils/cookies'
+import { language } from '@components/shared/langtoggle/LangToggle'
 
 const jobTypeTranslations = {
     no: {
@@ -31,182 +32,226 @@ const jobTypeTranslations = {
     }
 }
 
-// eslint-disable-next-line
-function getJobTypeLabel(job_type: any, lang = 'no') {
-    // @ts-ignore
-    const labelNo = jobTypeTranslations['no'][job_type] || job_type
-    // @ts-ignore
-    const labelEn = jobTypeTranslations['en'][job_type] || labelNo
-
-    return lang === 'en' ? labelEn : labelNo
-}
-
-function deadlineWarning(deadline: Date) {
-    const now = new Date()
-    const diff = deadline.getTime() - now.getTime()
-    const oneDay = 1000 * 60 * 60 * 24
-
-    return diff < oneDay && diff > 0
-}
-
-export default async function JobadPage({ params }: PromisedPageProps) {
-    const id = (await params).id
-    const jobads = (await getJob(id))
-    const jobad = Array.isArray(jobads) ? jobads[0] : null
-    const lang = (await cookies()).get('lang')?.value || 'no'
+export default function Jobads() {
+    // eslint-disable-next-line
+    const [ jobads, setJobads ] = useState<any[]>([])
+    const [ filterData, setFilterData ] = useState({})
+    const [ loading, setLoading ] = useState(true)
+    const [ error, setError ] = useState<string | null>(null)
+    // eslint-disable-next-line
+    const filters = useRef<any>({})
+    const limit = 10
+    const offset = useRef(0)
+    const [ showLoadMore, setShowLoadMore ] = useState(false)
+    const [lang, setLang] = useState('no')
     const text = lang === 'no' ? no : en
     const temp_empty = lang === 'no'
         ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?'
         : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'
     const temp_deactivated = lang === 'no' 
-        ? 'Filtre er midlertidig deaktivert. De kommer tilbake snart!' 
-        : 'Filters are temporarily disabled. They will be back soon.'
+        ? 'Siden er midlertidig deaktivert. Kommer tilbake snart!' 
+        : 'Page is temporarily disabled. Will be back soon.'
+
+    useEffect(() => {
+        const temp = getCookie('lang')
+        setLang( temp || 'no')
+    }, [language])
+
+    // eslint-disable-next-line
+    const ap = debounce(async (v: any) => {
+        filters.current = v
+
+        try {
+            const [ response, err ] = await getJobs(v.skills, v.cities, null, v.jobtypes, limit, 0)
+            if (err) throw new Error(err)
+
+            setShowLoadMore(response.length === limit)
+            setJobads(response)
+            offset.current = response.length
+        } catch (error) {
+            console.error('Error fetching filtered jobs:', error)
+            setError('Failed to load jobs based on filters.')
+        } finally {
+            setLoading(false)
+        }
+    }, 50)
+
+    async function loadItems() {
+        try {
+            const [ response, err ] = await getJobs(filters.current.skills, null, null, filters.current.jobtypes, limit, offset.current)
+            if (err) throw new Error(err)
+
+            setShowLoadMore(response.length === limit)
+            offset.current = jobads.length + response.length
+            setJobads((prevItems) => [...prevItems, ...response])
+        } catch (error) {
+            console.error('Error loading more jobs:', error)
+            setError('Failed to load job ads.')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = {}
+
+                const jobtypeFilters = await getJobTypeFilters()
+                // @ts-ignore
+                if (jobtypeFilters) response['jobtypes'] = jobtypeFilters
+
+                const cityFilters = await getCityFilters()
+                // @ts-ignore
+                if (cityFilters) response['cities'] = cityFilters
+
+                const skillFilters = await getSkillFilters()
+                // @ts-ignore
+                if (skillFilters) response['skills'] = skillFilters
+
+                setFilterData(response)
+            } catch {
+                setError('Failed to initialize job ads data.')
+            } finally {
+                setLoading(false)
+            }
+        })()
+
+        loadItems()
+    }, [])
+
+    const [isFilterOpen, setIsFilterOpen] = useState(false)
+
+    function toggleFilter() {
+        setIsFilterOpen(prevState => !prevState)
+    }
 
     return (
         <div className='page-container'>
-            <div className='page-section--normal'>
-                <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
-            </div>
-            {jobad && (
-                <div className={'jobad-page jobad-page--noBanner'}>
-                    <div className='jobad-details'>
-                        <div className='flex gap-[1rem] mb-[2rem] 450px:gap-[2rem] 800px:block'>
-                            <picture className='jobad-details_company-logo'>
-                                <Image
-                                    src={!jobad?.organization?.logo ? '@assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
-                                    alt={jobad.organization.logo}
-                                    width={800}
-                                    height={200}
-                                />
-                            </picture>
-                            <div className='jobad-details_company-name'>
-                                {/* @ts-ignore */}
-                                {jobad.organization.link_homepage ? (
-                                    <a
-                                        className='jobad-details_company-name-link link--underscore-hover'
-                                        // @ts-ignore
-                                        href={jobad.organization.link_homepage}
-                                        target='_blank'
-                                        rel='noreferrer'
-                                    >
-                                        {/* @ts-ignore */}
-                                        {tr(jobad.organization.name_en, jobad.organization.name_no) + ' '}
-                                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
-                                    </a>
-                                ) : (
-                                // @ts-ignore
-                                    tr(jobad.organization.name_en, jobad.organization.name_no)
-                                )}
-                            </div>
-                        </div>
-                        <div className='grid grid-cols-[min-content_auto] gap-[1rem] mb-[3rem]'>
-                            <div className='text-[var(--color-text-discreet)] inline-flex'>
-                                <HourglassBottom className='jobad-details_icon jobad-details_icon--lable-color'/>
-                                {text.details.deadline}:
-                            </div>
-                            <div className='jobad-details_value'>
-                                {formatDeadlineDate(
-                                    // @ts-ignore
-                                    new Date(jobad.job.application_deadline),
-                                    lang
-                                )}
-                                {/* @ts-ignore */}
-                                {deadlineWarning(new Date(jobad.job.application_deadline)) && (
-                                    <Acute className='jobad-details_icon jobad-details_icon--warning'/>
-                                )}
-                            </div>
-                            {/* @ts-ignore */}
-                            {jobad.job.position_title_no && 
-                <>
-                    <div className='text-[var(--color-text-discreet)] inline-flex'>
-                        <Badge className='jobad-details_icon jobad-details_icon--lable-color'/>
-                        {text.details.position}:
-                    </div>
-                    <div className='jobad-details_value'>
-                        {/* @ts-ignore */}
-                        {tr(jobad.job.position_title_en, jobad.job.position_title_no)}
-                    </div>
-                </>
-                            }
-                            <div className='text-[var(--color-text-discreet)] inline-flex'>
-                                <WorkHistory className='jobad-details_icon jobad-details_icon--lable-color'/>
-                                {text.details.type}:
-                            </div>
-                            <div className='jobad-details_value'>
-                                {/* @ts-ignore */}
-                                {getJobTypeLabel(jobad.job.job_type, lang)}
-                            </div>
-                            {/* @ts-ignore */}
-                            {jobad.job.cities && jobad.job.cities.length > 0 &&
-                <>
-                    <div className='flex flex-row items-center text-[var(--color-text-discreet)] inline-flex'>
-                        <Pin className='w-[1.5rem] h-[1.5rem] fill-white jobad-details_icon jobad-details_icon--lable-color' />
-                        {/* @ts-ignore */}
-                        {jobad.job.cities.length > 1
-                            ? text.details.locations
-                            : text.details.location}
-                        :
-                    </div>
-                    <div className='jobad-details_value'>
-                        {/* @ts-ignore */}
-                        {jobad.job.cities.join(', ')}
-                    </div>
-                </>
-                            }
-                            {/* @ts-ignore */}
-                            {jobad.job.skills && jobad.job.skills.length > 0 &&
-                <>
-                    <div className='text-[var(--color-text-discreet)] inline-flex'>
-                        <i className='jobad-details_icon jobad-details_icon--lable-color material-symbols-sharp'>
-                            build
-                        </i>
-                        {text.details.skills}:
-                    </div>
-                    <div className='jobad-details_value'>
-                        {/* @ts-ignore */}
-                        {jobad.job.skills.join(', ')}
-                    </div>
-                </>
-                            }
-                        </div>
-                        {/* @ts-ignore */}
-                        {jobad.job.application_url && (
-                        // @ts-ignore
-                            <Button
-                                trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>}
-                                // @ts-ignore
-                                href={jobad.job.application_url}
-                                className='jobad-details_apply-btn'
-                            >
-                                {text.details.applyButton}
-                            </Button>
-                        )}
-                    </div>
-                    <picture className='jobad-banner'>
-                        <Image
-                            src={`${config.url.CDN_URL}/img/ads/${jobad.job.banner_image}`}
-                            alt={jobad.job.banner_image}
-                            fill={true}
-                        />
-                    </picture>
-                    <div className='jobad-description'>
-                        <Article
-                            title={lang ? jobad.job.title_en : jobad.job.title_no}
-                            publishTime={new Date(jobad.job.time_publish)}
-                            updateTime={new Date(jobad.job.updated_at)}
-                            informational={false}
-                            introduction={lang ? jobad.job.description_short_en : jobad.job.description_short_no}
-                            description={lang ? jobad.job.description_long_en : jobad.job.description_long_no}
-                        />
-                    </div>
-                </div>
-            )}
-            <Alert
-                variant='danger'
-                className='page-section--normal page-section--alert'
-            >
-                {Array.isArray(jobads) ? temp_deactivated : temp_empty}
-            </Alert>
+            <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>{text.title}</h1>
+            {loading && <Spinner width={50} height={50} />}
+            {/* @ts-ignore */}
+            <Alert variant='danger' className='page-section--normal page-section--alert'>{temp_deactivated}</Alert>
+            {/* {!loading && error && <Alert variant='danger' className='page-section--normal page-section--alert'>{error}</Alert>} */}
+            {!loading && !error &&
+            // <div className='page-section--normal'>
+            //     {/* @ts-ignore */}
+            //     <Button
+            //         variant='secondary-outlined'
+            //         trailingIcon={<List className=''/>}
+            //         onClick={toggleFilter}
+            //         size='medium'
+            //         className={`hidden ${isFilterOpen ? 'active' : ''}`}
+            //     >
+            //         Filter
+            //     </Button>
+
+            //     <div className='1000px:grid 1000px:grid-cols-[20rem_aauto] 1000px:gap-[3vw] 1000px:p-[2rem_0]'>
+            //         <div className='order-1'>
+            //             <div className={`p-[1rem_1.5rem] hidden bg-[var(--color-bg-surface)] mt-[0.5rem] rounded-[var(--border-radius)] shadow-[var(--container-shadow)] ${isFilterOpen ? 'block' : ''}`}>
+            //                 {filterData ? <FilterGroup filters={filterData} onApply={ap} close={toggleFilter}/> : 'No filter data available'}
+            //             </div>
+            //         </div>
+            //         <div className='order-2'>
+            //             <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
+            //                 {jobads.length ? jobads.map((e, idx) => (
+            //                     <li key={idx}>
+            //                         {/* <JobadsListItem jobad={e} /> */}
+            //                     </li>
+            //                 )) :
+            //                     <p>{text.noResults}</p>
+            //                 }
+            //             </ul>
+            //             {showLoadMore && jobads.length > 0 && (
+            //                 <div className='flex justify-center'>
+            //                     {/* @ts-ignore */}
+            //                     <Button 
+            //                         onClick={loadItems}
+            //                         variant='secondary'
+            //                         className='m-[2rem_0] 400px:w-fit 400px:min-w-[12rem] 400px:mx-auto'
+            //                         trailingIcon={<ArrowDownWard className=''/>}
+            //                     >
+            //                         {text.loadMore}
+            //                     </Button>
+            //                 </div>
+            //             )}
+            //         </div>
+            //     </div>
+            // </div> 
+        <></>}
         </div>
     )
+}
+
+function getLabelKey(key: string) {
+    // eslint-disable-next-line
+    return (v: any) => {
+        return {
+            'no': v[key],
+            'en': v[key],
+        }
+    }
+}
+
+// eslint-disable-next-line
+function getJobTypeLabel(v: any) {
+    // @ts-ignore  
+    const labelNo = jobTypeTranslations['no'][v['job_type']] || v['job_type']
+    // @ts-ignore
+    const labelEn = jobTypeTranslations['en'][v['job_type']] || labelNo
+    return {
+        no: labelNo,
+        en: labelEn,
+    }
+}
+
+async function getJobTypeFilters() {
+    try {
+        const [jobTypeFilterData, err] = await getJobJobtypeFilters()
+        if (err) throw new Error(err)
+
+        const label = {
+            en: 'Type',
+            no: 'Type'
+        }
+
+        return prepFilter(jobTypeFilterData, 'jobtypes', label, 'job_type', getJobTypeLabel, 'count', 'check')
+    } catch (error) {
+        console.error('Error fetching job type filters:', error)
+        return null
+    }
+}
+
+async function getCityFilters() {
+    try {
+        const [jobCityFilterData, err] = await getJobCityFilters()
+        if (err) throw new Error(err)
+
+        const label = {
+            en: 'Cities',
+            no: 'Byer'
+        }
+
+        return prepFilter(jobCityFilterData, 'cities', label, 'city', getLabelKey('city'), 'count', 'tag')
+    } catch (error) {
+        console.error('Error fetching city filters:', error)
+        return null
+    }
+}
+
+async function getSkillFilters() {
+    try {
+        const [jobSkillFilterData, err] = await getJobSkillFilters()
+        if (err) throw new Error(err)
+
+        const label = {
+            en: 'Skills',
+            no: 'Ferdigheter'
+        }
+
+        return prepFilter(jobSkillFilterData, 'skills', label, 'skill', getLabelKey('skill'), 'count', 'tag')
+    } catch (error) {
+        console.error('Error fetching skill filters:', error)
+        return null
+    }
 }

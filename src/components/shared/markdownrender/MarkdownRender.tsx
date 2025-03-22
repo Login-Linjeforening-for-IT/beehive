@@ -90,12 +90,9 @@ function ErrorMessage({ err, title }: ErrorMessageProps) {
 
 
 async function EventEmbed(id: number) {
-    const [response, err] = await getEventRow(id)
-    const event = response
-    const error = err
-
-    if (error) {
-        return <ErrorMessage err={error} title={'Error Fetching Event #' + id} />
+    const event = await getEventRow(id)
+    if (typeof event === 'string') {
+        <ErrorMessage err={event} title={'Error Fetching Event #' + id} />
     }
 
     return (
@@ -109,14 +106,10 @@ async function EventEmbed(id: number) {
 }
 
 async function JobadEmbed(id: number) {
-    const [response, err] = await getJobRow(id)
-    const jobad = response
-    const error = err
-
-    if (error) {
-        return <ErrorMessage err={error} title={`Error Fetching Job Ad #${id}`} />
+    const jobad = await getJobRow(id)
+    if (typeof jobad === 'string') {
+        <ErrorMessage err={jobad} title={'Error Fetching Event #' + id} />
     }
-
     return (
         <div className='markdown-render_card'>
             {jobad 
