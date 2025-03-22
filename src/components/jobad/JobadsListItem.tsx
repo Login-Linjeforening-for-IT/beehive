@@ -52,9 +52,10 @@ export default async function JobadsListItem({ jobad }: any) {
                 />
             </div>
                     }
-                    <picture className='jobads-item_picture'>
+                    <picture className='relative h-full aspect-[3/2] 400px:h-[4.5rem] 600px:h-[7rem] 800px:h-[8rem] jobads-item_picture'>
                         {jobad.organization_logo ? (
                             <Image
+                                className='jobads-item_img'
                                 src={`${config.url.CDN_URL}/img/organizations/${jobad.organization_logo}`}
                                 alt={jobad.organization_logo}
                                 fill={true}
@@ -62,32 +63,32 @@ export default async function JobadsListItem({ jobad }: any) {
                         ) : (
                             <Image 
                                 className='jobads-item_img'
-                                alt={jobad.organization_logo}
-                                src='@assets/img/placeholders/jobad.svg'
+                                alt={'fallback image'}
+                                src='/assets/img/placeholders/jobad.svg'
                                 fill={true}
                             />
                         )}
                     </picture>
                     <div className='jobads-item_info'>
-                        <div className='jobads-item_name'>{lang === 'en' ? jobad.title_en : jobad.title_no}</div>
+                        <div className='jobads-item_name'>{lang === 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}</div>
                         <ul className='jobads-item_details'>
-                            <li className='jobads-item_detail'>
-                                <HourglassBottom className='jobads-item_icon'/>
+                            <li className='flex flex-row jobads-item_detail'>
+                                <HourglassBottom className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                 {formatDeadlineDate(new Date(jobad.application_deadline), lang)}
                             </li>
-                            <li className='jobads-item_detail'>
-                                <Apartment className='jobads-item_icon'/>
-                                {lang === 'en' ? jobad.organization_name_en : jobad.organization_name_no}
+                            <li className='flex flex-row jobads-item_detail'>
+                                <Apartment className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
+                                {lang === 'en' && jobad.organization_name_en ? jobad.organization_name_en : jobad.organization_name_no}
                             </li>
                             {jobad.job_type && 
-                                <li className='jobads-item_detail'>
-                                    <WorkHistory className='jobads-item_icon'/>
+                                <li className='flex flex-row jobads-item_detail'>
+                                    <WorkHistory className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                     {getJobTypeLabel(jobad.job_type, lang)}
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <li className='flex flex-row items-center jobads-item_detail'>
-                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-white jobads-item_icon' />
+                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon' />
                                     {formatCities(jobad.cities)}
                                 </li>
                             }
@@ -106,7 +107,7 @@ function getJobTypeLabel(job_type: any, lang = 'no') {
     // @ts-ignore
     const labelEn = jobTypeTranslations['en'][job_type] || labelNo
 
-    return lang === 'en' ? labelEn : labelNo
+    return lang === 'en' && labelEn ? labelEn : labelNo
 }
 
 // eslint-disable-next-line

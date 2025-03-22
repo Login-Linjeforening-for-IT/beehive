@@ -9,11 +9,11 @@ import GridView from '@components/svg/symbols/GridView'
 import ListBulleted from '@components/svg/symbols/ListBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
-import FilterItem from '@components/event/filter'
+import FilterItem from '@components/shared/filter/filterItem'
 
 export default async function Page({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
     const filters = (await searchParams)
-
+    
     const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
     const filtersParams = typeof filters.categories === 'string' ? filters.categories.split(',') : []
     
@@ -74,7 +74,7 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
                     <div className='page-section--without-gaps'>
                         <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
                             <div className='1000px:order-1'>
-                                <FilterItem categoryFilters={categoryFilters} />
+                                <FilterItem filterData={categoryFilters} />
                             </div>
                             <div className='1000px:order-2'>
                                 <ul

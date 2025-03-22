@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 
 // eslint-disable-next-line
-export default function FilterItem({categoryFilters}:{categoryFilters: any}) {
+export default function FilterItem({filterData}:{filterData: any}) {
 
     const [isFilterOpen, setIsFilterOpen] = useState(true)
 
@@ -35,9 +35,9 @@ export default function FilterItem({categoryFilters}:{categoryFilters: any}) {
                     isFilterOpen ? 'block' : 'hidden'
                 }`}
             >
-                {categoryFilters ? (
+                {filterData ? (
                     <FilterGroup
-                        filters={categoryFilters}
+                        filters={filterData}
                         close={toggleFilter}
                     />
                 ) : (
