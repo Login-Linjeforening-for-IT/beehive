@@ -14,7 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default async function layout({children}: {children: ReactNode}) {
-    const theme = (await cookies()).get('theme')?.value || 'dark'
+    const Cookies = await cookies()
+    const theme = Cookies.get('theme')?.value || 'dark'
     // needs to run clientside not serverside
     // LogoConsoleOutput()
     return (
