@@ -31,7 +31,8 @@ export default function CommitteeTabs() {
     const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
     const [board, setBoard] = useState(no_board)
-    const actualBoard = Array.isArray(Object.keys(board)) ? Object.keys(board) : []
+    const boardKeys = Object.keys(board)
+    const actualBoard = Array.isArray(boardKeys) ? boardKeys : []
 
     useEffect(() => {
         const text = lang === 'no' ? no : en
