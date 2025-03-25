@@ -35,7 +35,6 @@ export default function CommitteeTabs() {
     useEffect(() => {
         const text = lang === 'no' ? no : en
         const board = lang === 'no' ? no_board : en_board
-        // eslint-disable-next-line
         setText(text as any)
         // eslint-disable-next-line
         setBoard(board as any)

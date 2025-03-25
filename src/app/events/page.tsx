@@ -11,7 +11,11 @@ import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 import FilterItem from '@components/shared/filter/filterItem'
 
-export default async function Page({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
+type PageProps = { 
+    searchParams: Promise<{ [key: string]: string | undefined }> 
+}
+
+export default async function Page({searchParams}: PageProps) {
     const filters = (await searchParams)
     
     const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
@@ -36,15 +40,6 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            {/* {loading && <Spinner width={50} height={50} />} */}
-            {/* {!loading && error && (
-                <Alert
-                    variant='danger'
-                    className='page-section--normal page-section--alert'
-                >
-                    {error}
-                </Alert>
-            )} */}
             {(
                 <>
                     <div className='flex justify-between items-center 400px:gap-[1rem] 400px:p-0 1000px:justify-end 1000px:p-[0_0_1rem_0] page-section--normal'>
@@ -230,8 +225,7 @@ async function getCategoryFilters() {
     }
 }
 
-// eslint-disable-next-line
-function groupEvents(eventsArray: any[]) {
+function groupEvents(eventsArray: EventProps[]) {
     // Get the current date
     const currentDate = new Date()
 
@@ -251,12 +245,9 @@ function groupEvents(eventsArray: any[]) {
     startOfWeekAfterNextWeek.setDate(startOfWeek.getDate() + 14)
 
     // group the dates
-    // eslint-disable-next-line
-    const currentWeekEvents: any[] = []
-    // eslint-disable-next-line
-    const nextWeekEvents: any[] = []
-    // eslint-disable-next-line
-    const futureEvents: any[] = []
+    const currentWeekEvents: EventProps[] = []
+    const nextWeekEvents: EventProps[] = []
+    const futureEvents: EventProps[] = []
 
     eventsArray.forEach((event) => {
         const eventDate = new Date(event.time_start)
