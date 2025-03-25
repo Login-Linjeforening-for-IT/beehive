@@ -73,7 +73,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                     <div className='order-2'>
                         <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
                             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                            {jobads.length ? jobads.map((e: any, idx: number) => (
+                            {Array.isArray(jobads) && jobads.length ? jobads.map((e: any, idx: number) => (
                                 <li key={idx}>
                                     <JobadsListItem jobad={e} />
                                 </li>

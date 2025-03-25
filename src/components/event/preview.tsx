@@ -24,7 +24,7 @@ export default async function EventsPreview() {
                         </span>
                     </Link>
                 </div>
-                {events && events.length > 0 && (
+                {Array.isArray(events) && events.length > 0 && (
                     <ul className='grid grid-flow-col list-none overflow-auto p-[0_1rem_1rem_1rem] snap-x snap-mandatory 400px:gap-[1rem] 800px:grid-cols-2 800px:grid-flow-row-dense 800px:p-[1rem_4vw_0_4vw] 800px:gap-[4vw] 1000px:grid-cols-3 1000px:gap-[1rem] 1000px:p-0'>
                         {/* eslint-disable-next-line */}
                         {events.map((e: any) => (

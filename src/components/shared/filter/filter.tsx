@@ -88,11 +88,14 @@ export default function FilterGroup({ filters, close }: any) {
         apply()
     }
 
+    const filterKeys = Object.entries(filters)
+    const actualFilters = Array.isArray(filterKeys) ? filterKeys : []
+
     return (
         <div className='filter-groups'>
             {
                 // eslint-disable-next-line
-                Object.entries(filters).map(([filterGroupItemID, filterGroupItem]) => {
+                actualFilters.map(([filterGroupItemID, filterGroupItem]) => {
                     // @ts-ignore
                     if(Object.values(filterGroupItem.filters).length > 0) {
                         return (

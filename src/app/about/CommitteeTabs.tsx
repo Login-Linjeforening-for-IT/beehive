@@ -31,6 +31,7 @@ export default function CommitteeTabs() {
     const [lang, setLang] = useState('no')
     const [text, setText] = useState(no)
     const [board, setBoard] = useState(no_board)
+    const actualBoard = Array.isArray(Object.keys(board)) ? Object.keys(board) : []
 
     useEffect(() => {
         const text = lang === 'no' ? no : en
@@ -65,7 +66,7 @@ export default function CommitteeTabs() {
                         </h3>
                         <p className='p--highlighted'>{text.committeeSection.board.body}</p>
                     </div>
-                    {Object.keys(board).map((key) => (
+                    {actualBoard.map((key) => (
                         <LogChamp
                             key={key}
                             // eslint-disable-next-line

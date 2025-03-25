@@ -16,6 +16,8 @@ export default async function Fund() {
     const text: any = lang === 'en' ? {...en} : {...no}
 
     const boardMembers = text.board.members
+    const boardMemberKeys = Object.keys(boardMembers)
+    const actualBoardMembers = Array.isArray(boardMemberKeys) ? boardMemberKeys : []
 
     return (
         <div className='page-container'>
@@ -98,7 +100,7 @@ export default async function Fund() {
                     </div>
                     <h3 className='heading-3'>{text.board.heading1}</h3>
                     <div className='flex flex-wrap gap-[2rem] justify-center py-[2rem] 800px:gap-[3rem]'>
-                        {Object.keys(boardMembers).map(key => (
+                        {actualBoardMembers.map(key => (
                             <div key={key}>
                                 <LogChamp
                                     img={boardMembers[key].img == '' ? 'assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fondet/${boardMembers[key].img}`}
