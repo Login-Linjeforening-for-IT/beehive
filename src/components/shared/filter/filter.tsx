@@ -11,13 +11,13 @@ import KeyboardArrowUp from '@components/svg/symbols/KeyboardArrowUp'
 import Replay from '@components/svg/symbols/Replay'
 import { getCookie } from '@utils/cookies'
 import { language } from '../langtoggle/LangToggle'
-import { usePathname, useSearchParams, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 // eslint-disable-next-line
 export default function FilterGroup({ filters, close }: any) {
     const router = useRouter()
     const pathname = usePathname()
-    const searchParams = useSearchParams()
+    // const searchParams = useSearchParams()
     
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
@@ -42,20 +42,18 @@ export default function FilterGroup({ filters, close }: any) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function onApply(f:any){
-        const params = new URLSearchParams(searchParams?.toString())
+        const params = new URLSearchParams()
 
-        if (Object.values(f).length > 0) {
-            params.set('categories', Object.values(f).join(','))
-        }
-        else {
-            params.delete('categories') 
-        }
+        Object.entries(f).forEach(([filterGroupItemID, filterGroupItem]) => {
+            if (Object.values(f).length > 0)
+                params.set(filterGroupItemID, filterGroupItem as string)
+        })
+
         router.push(pathname+'?'+params.toString())
     }
 
     function params(){
-        const params = new URLSearchParams(searchParams?.toString())
-        params.delete('categories')
+        const params = new URLSearchParams()
         return params.toString()
     }
 
@@ -93,20 +91,27 @@ export default function FilterGroup({ filters, close }: any) {
     return (
         <div className='filter-groups'>
             {
-                (filters.filters && Object.values(filters.filters).length > 0) && (
-                    <Filter
-                        // @ts-ignore
-                        label={filters.label}
-                        // @ts-ignore
-                        showCount={filters.showCount}
-                        // @ts-ignore
-                        filter={Object.values(filters.filters)}
-                        // @ts-ignore
-                        type={filters.type}
-                        onSelect={getFilterGroupItemOnSelectWithin(onSelect,filters.filters)}
-                        resetTrigger={resetTrigger}
-                    />
-                )
+                // eslint-disable-next-line
+                Object.entries(filters).map(([filterGroupItemID, filterGroupItem]) => {
+                    // @ts-ignore
+                    if(Object.values(filterGroupItem.filters).length > 0) {
+                        return (
+                            <Filter
+                                key={filterGroupItemID}
+                                // @ts-ignore
+                                label={filterGroupItem.label}
+                                // @ts-ignore
+                                showCount={filterGroupItem.showCount}
+                                // @ts-ignore
+                                filter={Object.values(filterGroupItem.filters)}
+                                // @ts-ignore
+                                type={filterGroupItem.type}
+                                onSelect={getFilterGroupItemOnSelectWithin(onSelect, filterGroupItemID)}
+                                resetTrigger={resetTrigger}
+                            />
+                        )
+                    }
+                })
             }
             <div className='filter-groups_buttons'>
                 {/* @ts-ignore */}

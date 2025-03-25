@@ -31,96 +31,35 @@ const jobTypeTranslations = {
     }
 }
 
-export default async function Jobads() {
-    // eslint-disable-next-line
-    // const [ jobads, setJobads ] = useState<any[]>([])
-    // const [ filterData, setFilterData ] = useState({})
-    // const [ loading, setLoading ] = useState(true)
-    // const [ error, setError ] = useState<string | null>(null)
-    // // eslint-disable-next-line
-    // const filters = useRef<any>({})
-    // const offset = useRef(0)
-    // const [ showLoadMore, setShowLoadMore ] = useState(false)
+export default async function Jobads({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
+
+    const filters = (await searchParams)
+
+    const jobtypes = typeof filters.jobtypes === 'string' ? filters.jobtypes : null
+    const cities = typeof filters.cities === 'string' ? filters.cities : null
+    const skills = typeof filters.skills === 'string' ? filters.skills : null
+    
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response: { skills?: any[], cities?: any[], jobtypes?: any[] } = {}
+
+    const jobtypeFilters = await getJobTypeFilters()
+    // @ts-ignore
+    if (jobtypeFilters) response['jobtypes'] = jobtypeFilters
+
+    const cityFilters = await getCityFilters()
+    // @ts-ignore
+    if (cityFilters) response['cities'] = cityFilters
+    
+    const skillFilters = await getSkillFilters()
+    // @ts-ignore
+    if (skillFilters) response['skills'] = skillFilters
+
     const limit = 10
-    // const jobs = await getJobs(v.skills, v.cities, null, v.jobtypes, limit, 0)
-    const jobads = await getJobs(null, null, null, null, limit, 0)
 
-    // useEffect(() => {
-    //     const temp = getCookie('lang')
-    //     setLang( temp || 'no')
-    // }, [language])
-
-    // // eslint-disable-next-line
-    // const ap = debounce(async (v: any) => {
-    //     filters.current = v
-
-    //     try {
-    //         const [ response, err ] = await getJobs(v.skills, v.cities, null, v.jobtypes, limit, 0)
-    //         if (err) throw new Error(err)
-
-    //         setShowLoadMore(response.length === limit)
-    //         setJobads(response)
-    //         offset.current = response.length
-    //     } catch (error) {
-    //         console.error('Error fetching filtered jobs:', error)
-    //         setError('Failed to load jobs based on filters.')
-    //     } finally {
-    //         setLoading(false)
-    //     }
-    // }, 50)
-
-    // async function loadItems() {
-    //     try {
-    //         const [ response, err ] = await getJobs(filters.current.skills, null, null, filters.current.jobtypes, limit, offset.current)
-    //         if (err) throw new Error(err)
-
-    //         setShowLoadMore(response.length === limit)
-    //         offset.current = jobads.length + response.length
-    //         setJobads((prevItems) => [...prevItems, ...response])
-    //     } catch (error) {
-    //         console.error('Error loading more jobs:', error)
-    //         setError('Failed to load job ads.')
-    //     } finally {
-    //         setLoading(false)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             const response = {}
-
-    //             const jobtypeFilters = await getJobTypeFilters()
-    //             // @ts-ignore
-    //             if (jobtypeFilters) response['jobtypes'] = jobtypeFilters
-
-    //             const cityFilters = await getCityFilters()
-    //             // @ts-ignore
-    //             if (cityFilters) response['cities'] = cityFilters
-
-    //             const skillFilters = await getSkillFilters()
-    //             // @ts-ignore
-    //             if (skillFilters) response['skills'] = skillFilters
-
-    //             setFilterData(response)
-    //         } catch {
-    //             setError('Failed to initialize job ads data.')
-    //         } finally {
-    //             setLoading(false)
-    //         }
-    //     })()
-
-    //     loadItems()
-    // }, [])
-
-    // const [isFilterOpen, setIsFilterOpen] = useState(false)
-
-    // function toggleFilter() {
-    //     setIsFilterOpen(prevState => !prevState)
-    // }
+    const jobads = await getJobs(skills, cities, null, jobtypes, limit, 0)
 
     return (
         <div className='page-container'>
@@ -129,13 +68,7 @@ export default async function Jobads() {
             <div className='page-section--normal'>
                 <div className='1000px:grid 1000px:grid-cols-[20rem_auto] 1000px:gap-[3vw] 1000px:p-[2rem_0]'>
                     <div className='order-1'>
-                        {/* <FilterItem filterData={filterData} /> */}
-                        <Alert
-                            variant='danger'
-                            className='page-section--normal page-section--alert'
-                        >
-                            {lang === 'no' ? 'Filtre er midlertidig deaktivert. De kommer tilbake snart!' : 'Filters are temporarily disabled. They will be back soon.'}
-                        </Alert>
+                        <FilterItem filterData={response} />
                     </div>
                     <div className='order-2'>
                         <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
@@ -197,8 +130,9 @@ function getJobTypeLabel(v: any) {
 
 async function getJobTypeFilters() {
     try {
-        const [jobTypeFilterData, err] = await getJobJobtypeFilters()
-        if (err) throw new Error(err)
+        const jobTypeFilterData = await getJobJobtypeFilters()
+        if (typeof jobTypeFilterData === 'string') 
+            throw new Error(jobTypeFilterData)
 
         const label = {
             en: 'Type',
@@ -214,8 +148,9 @@ async function getJobTypeFilters() {
 
 async function getCityFilters() {
     try {
-        const [jobCityFilterData, err] = await getJobCityFilters()
-        if (err) throw new Error(err)
+        const jobCityFilterData = await getJobCityFilters()
+        if (typeof jobCityFilterData === 'string') 
+            throw new Error(jobCityFilterData)
 
         const label = {
             en: 'Cities',
@@ -231,8 +166,9 @@ async function getCityFilters() {
 
 async function getSkillFilters() {
     try {
-        const [jobSkillFilterData, err] = await getJobSkillFilters()
-        if (err) throw new Error(err)
+        const jobSkillFilterData = await getJobSkillFilters()
+        if (typeof jobSkillFilterData === 'string') 
+            throw new Error(jobSkillFilterData)
 
         const label = {
             en: 'Skills',

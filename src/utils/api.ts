@@ -12,13 +12,13 @@ export async function getJobRow(jobID: number) {
     return await _fetchWrapper(path)
 }
 
-export async function getJobs(skills: string[] | null = null, cities: string[] | null = null, organizations: string[] | null = null, jobtypes: string[] | null = null, limit = 20, offset = 0) {
+export async function getJobs(skills: string | null = null, cities: string | null = null, organizations: string | null = null, jobtypes: string | null = null, limit = 20, offset = 0) {
     const queryParts = new URLSearchParams({ limit: String(limit), offset: String(offset) })
 
-    if (skills) queryParts.append('skills', skills.join(','))
-    if (cities) queryParts.append('cities', cities.join(','))
-    if (organizations) queryParts.append('organizations', organizations.join(','))
-    if (jobtypes) queryParts.append('jobtypes', jobtypes.join(','))
+    if (skills) queryParts.append('skills', skills)
+    if (cities) queryParts.append('cities', cities)
+    if (organizations) queryParts.append('organizations', organizations)
+    if (jobtypes) queryParts.append('jobtypes', jobtypes)
 
     const path = `/jobs/?${queryParts.toString()}`
     return await _fetchWrapper(path)
@@ -34,10 +34,10 @@ export async function getEventRow(eventID: number) {
     return await _fetchWrapper(path)
 }
 
-export async function getEvents(categories: string[] | null = null, limit = 20, offset = 0, highlighted = false) {
+export async function getEvents(categories: string | null = null, limit = 20, offset = 0, highlighted = false) {
     const queryParams = new URLSearchParams({ limit: String(limit), offset: String(offset) })
 
-    if (categories) queryParams.append('categories', categories.join(','))
+    if (categories) queryParams.append('categories', categories)
     if (highlighted) queryParams.append('highlighted', String(highlighted))
     const path = `/events/?${queryParams.toString()}`
     return await _fetchWrapper(path)

@@ -15,7 +15,7 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
     const filters = (await searchParams)
     
     const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
-    const filtersParams = typeof filters.categories === 'string' ? filters.categories.split(',') : []
+    const filtersParams = typeof filters.categories === 'string' ? filters.categories : null
     
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
@@ -29,7 +29,14 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
     })
     const { currentWeekEvents, nextWeekEvents, futureEvents } = groupEvents(events)
 
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response: { categories?: any[] } = {}
+
     const categoryFilters = await getCategoryFilters()
+    // @ts-ignore
+    if (categoryFilters) response['categories'] = categoryFilters
+    
 
     return (
         <div className='page-container'>
@@ -74,7 +81,7 @@ export default async function Page({searchParams}: { searchParams: Promise<{ [ke
                     <div className='page-section--without-gaps'>
                         <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
                             <div className='1000px:order-1'>
-                                <FilterItem filterData={categoryFilters} />
+                                <FilterItem filterData={response} />
                             </div>
                             <div className='1000px:order-2'>
                                 <ul
