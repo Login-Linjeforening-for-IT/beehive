@@ -1,3 +1,5 @@
+process.env.TZ = 'Europe/Oslo' 
+
 type KeyStringArray = { 
   [key: string]: string[]
 }

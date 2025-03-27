@@ -121,7 +121,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
-                                        {lang && jobad.job.position_title_en ? jobad.job.position_title_en : jobad.job.position_title_no}
+                                        {lang == 'en' && jobad.job.position_title_en ? jobad.job.position_title_en : jobad.job.position_title_no}
                                     </div>
                                 </>
                                 }
@@ -190,11 +190,11 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                         }
                         <div className='jobad-description'>
                             <Article
-                                title={lang && jobad.job.title_en ? jobad.job.title_en : jobad.job.title_no}
+                                title={lang == 'en' && jobad.job.title_en ? jobad.job.title_en : jobad.job.title_no}
                                 publishTime={new Date(jobad.job.time_publish)}
                                 updateTime={new Date(jobad.job.updated_at)}
                                 informational={false}
-                                introduction={lang && jobad.job.description_short_en ? jobad.job.description_short_en : jobad.job.description_short_no}
+                                introduction={lang == 'en' && jobad.job.description_short_en ? jobad.job.description_short_en : jobad.job.description_short_no}
                                 description={lang == 'en' && jobad.job.description_long_en ? jobad.job.description_long_en : jobad.job.description_long_no}
                             />
                         </div>
