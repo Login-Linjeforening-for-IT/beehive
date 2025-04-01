@@ -89,7 +89,7 @@ export default async function Fund() {
                         </div>
                         <div className='box-border flex-[1_1_20rem] my-auto max-w-[33rem]'>
                             <DecoratedPicture
-                                imgUrl={config.url.CDN_URL + '/img/fondet/gruppebilde.jpg'}
+                                imgUrl={config.url.CDN_URL}     //fondet group picture here
                                 variant={4}
                                 cornerSize={90}
                                 width={300}
