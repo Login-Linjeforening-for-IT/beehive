@@ -1,11 +1,10 @@
-'use server'
-
 import ImageCarousel from '@components/shared/imagecarousel/ImageCarousel'
 import Button from '@components/shared/button/Button'
 import VervTabs from './VervTabs'
 import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
 import { cookies } from 'next/headers'
+import config from '@config'
 
 export default async function Verv() {
     const lang = (await cookies()).get('lang')?.value || 'no'
@@ -14,7 +13,7 @@ export default async function Verv() {
 
     for (let i = 1; i <= 15; i++) {
         slides.push({
-            imgSrc: `https://cdn.login.no/img/imagecarousel/${i}.jpg`,
+            imgSrc: `${config.url.CDN_URL}/img/imagecarousel/${i}.jpg`,
             title: text.imageCarousel[String(i) as keyof typeof text.imageCarousel].title,
             description: text.imageCarousel[String(i) as keyof typeof text.imageCarousel].description,
         })
