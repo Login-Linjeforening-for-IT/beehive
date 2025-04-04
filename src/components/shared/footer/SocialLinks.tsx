@@ -1,5 +1,5 @@
+import config from '@config'
 import './SocialLinks.css'
-
 
 export default function SocialLinks() {
     return (
@@ -44,7 +44,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Gitlab'
-                href='https://gitlab.login.no/'
+                href={config.url.GITLAB_URL}
                 target='_blank'
                 rel='noreferrer'
             >
@@ -53,7 +53,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Wiki'
-                href='https://wiki.login.no'
+                href={config.url.EXAM_URL}
                 target='_blank'
                 rel='noreferrer'
             >

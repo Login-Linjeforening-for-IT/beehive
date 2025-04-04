@@ -1,3 +1,4 @@
+import config from '@config'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
@@ -57,7 +58,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'cdn.login.no',
+                hostname: `${config.url.CDN_URL}`,
                 port: '',
                 pathname: '/**',
                 search: '',

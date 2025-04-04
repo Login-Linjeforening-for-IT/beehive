@@ -9,6 +9,7 @@ import Book from '@components/svg/symbols/Book'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import { getCookie } from '@utils/cookies'
 import { language } from '../langtoggle/LangToggle'
+import config from '@config'
 
 export default function Navigation() {
     const [lang, setLang] = useState('no')
@@ -56,7 +57,7 @@ export default function Navigation() {
                     {text.nav.companies}
                 </li>
             </Link>
-            <Link href='https://exam.login.no'>
+            <Link href={config.url.EXAM_URL}>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.exam}</li>
             </Link>
             <div className='main-nav-dropdown'>
@@ -99,7 +100,7 @@ export default function Navigation() {
                             </Link>
                             <a
                                 title='Wiki'
-                                href='https://wiki.login.no'
+                                href={config.url.WIKI_URL}
                                 target='_blank'
                                 rel='noreferrer'
                                 // @ts-ignore

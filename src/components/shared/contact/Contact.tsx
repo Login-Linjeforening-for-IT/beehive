@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import TravelExplore from '@components/svg/symbols/TravelExplore'
 import { getCookie } from '@utils/cookies'
 import { language } from '../langtoggle/LangToggle'
+import config from '@config'
 // import { getCookie } from '@utils/cookies'
 
 export default function Contact() {
@@ -46,9 +47,9 @@ export default function Contact() {
                     <p className='p--regular'>
                         <a
                             className='link link--primary link--underscore-hover'
-                            href='mailto:kontakt@login.no'
+                            href={`mailto:${config.url.MAIL_URL}`}
                         >
-                            kontakt@login.no
+                            {config.url.MAIL_URL}
                         </a>
                     </p>
                 </div>

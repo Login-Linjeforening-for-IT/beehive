@@ -7,6 +7,7 @@ import en from '@text/layout/en.json'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import { getCookie } from '@utils/cookies'
+import config from '@config'
 
 export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
     const [lang, setLang] = useState('no')
@@ -41,7 +42,7 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
             <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
-            <Link onClick={close} href='https://exam.login.no' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href={config.url.EXAM_URL} tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.exam}</li>
             </Link>
             <div
@@ -83,7 +84,7 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                     </Link>
                     <a
                         title='Wiki'
-                        href='https://wiki.login.no'
+                        href={config.url.WIKI_URL}
                         target='_blank'
                         rel='noreferrer'
                         tabIndex={open && isDropdownOpen ? 0 : -1}

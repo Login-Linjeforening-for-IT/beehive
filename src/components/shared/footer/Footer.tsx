@@ -62,9 +62,9 @@ export default async function Footer() {
                     <p className='footer-content_contact-text'>
                         <a
                             className='footer-content_contact-link link--underscore-hover'
-                            href='mailto:kontakt@login.no'
+                            href={`mailto:${config.url.MAIL_URL}`}
                         >
-                            kontakt@login.no
+                            {config.url.MAIL_URL}
                         </a>
                     </p>
                 </div>
@@ -83,7 +83,7 @@ export default async function Footer() {
                     <Link
                         className='footer-content_version-tag'
                         target='_blank'
-                        href={`https://gitlab.login.no/tekkom/web/beehive/frontend/-/tags/${config.version}`}
+                        href={`${config.url.GITLAB_URL}/tekkom/web/beehive/frontend/-/tags/${config.version}`}
                     >
                         v{config.version}
                     </Link>

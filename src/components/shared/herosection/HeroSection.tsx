@@ -6,6 +6,7 @@ import Calendar from '@components/svg/symbols/Calendar'
 import School from '@components/svg/symbols/School'
 import { cookies } from 'next/headers'
 import './HeroSection.css'
+import config from '@config'
 
 export default async function LandingPage() {
     const lang = (await cookies()).get('lang')?.value || 'no'
@@ -23,7 +24,7 @@ export default async function LandingPage() {
                             {text.heroSection.welcome}
                         </span>
                         <br />
-                        <span className='hero-section_gradient-text'>login.no</span>
+                        <span className='hero-section_gradient-text'>{config.url.MAIN_URL}</span>
                         <div className='hero-section_buttons'>
                             {/* @ts-ignore */}
                             <Button
