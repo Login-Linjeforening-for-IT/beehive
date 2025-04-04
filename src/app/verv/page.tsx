@@ -1,28 +1,16 @@
-'use client'
+'use server'
 
 import ImageCarousel from '@components/shared/imagecarousel/ImageCarousel'
 import Button from '@components/shared/button/Button'
 import VervTabs from './VervTabs'
 import no from '@text/verv/no.json'
 import en from '@text/verv/en.json'
-import { useEffect, useState } from 'react'
-import { getCookie } from '@utils/cookies'
-import { language } from '@components/shared/langtoggle/LangToggle'
+import { cookies } from 'next/headers'
 
-export default function Verv() {
-    const [lang, setLang] = useState('no')
-    const [text, setText] = useState(no)
+export default async function Verv() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
-    useEffect(() => {
-        const text = lang === 'no' ? no : en
-        // eslint-disable-next-line
-        setText(text as any)
-    }, [lang])
-
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [language])
 
     const slides = []
 

@@ -1,7 +1,7 @@
 'use client'
-import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import './ImageCarousel.css'
+import CarouselImage from './CarouselImage'
 
 function NavigationButton({ side, onClick }: {side:string, onClick: React.MouseEventHandler<HTMLButtonElement> }) {
     return (
@@ -31,10 +31,7 @@ function SlideItem({ image, className, title, description }: SlideItemProps) {
                     <p className='image-carousel_image-overlay-description'>{description}</p>
                 </div>
             </div>
-            <Image
-                src={image}
-                alt={title}
-                fill={true}
+            <CarouselImage image={image} title={title}
             />
         </div>
     )

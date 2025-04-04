@@ -1,27 +1,16 @@
-'use client'
+'use server'
 
 import config from '@config'
 import Button from '@components/shared/button/Button'
 import no from '@text/404/no.json'
 import en from '@text/404/en.json'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 import West from '@components/svg/symbols/West'
-import { getCookie } from '@utils/cookies'
+import { cookies } from 'next/headers'
 
-export default function NotFoundPage() {
-    const [lang, setLang] = useState('no')
-    const [text, setText] = useState(no)
-
-    useEffect(() => {
-        const text = lang === 'no' ? no : en
-        setText(text)
-    }, [lang])
-
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [])
+export default async function NotFoundPage() {
+    const lang = (await cookies()).get('lang')?.value || 'no'
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='py-[4rem] px-[1rem] max-w-[40rem] m-auto 800px:flex 800px:items-center 800px:justify-around 800px:max-w-[75rem] 800px:gap-[2rem]'>
