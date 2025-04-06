@@ -8,7 +8,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Discord'
-                href='https://discord.gg/login-ntnu'
+                href={config.url.DISCORD_URL}
                 target='_blank'
                 rel='noreferrer'
             >
@@ -17,7 +17,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Instagram'
-                href='https://www.instagram.com/login_linjeforening/'
+                href={config.url.INSTAGRAM_URL}
                 target='_blank'
                 rel='noreferrer'
             >
@@ -26,7 +26,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Facebook'
-                href='https://facebook.com/LogNTNU'
+                href={config.url.FACEBOOK_URL}
                 target='_blank'
                 rel='noreferrer'
             >
@@ -35,7 +35,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Linkedin'
-                href='https://www.linkedin.com/company/linjeforeningen-login/about'
+                href={config.url.LINKEDIN_URL}
                 target='_blank'
                 rel='noreferrer'
             >
@@ -53,7 +53,7 @@ export default function SocialLinks() {
             <a
                 className='footer-social-links_link'
                 title='Wiki'
-                href={config.url.EXAM_URL}
+                href={config.url.WIKI_URL}
                 target='_blank'
                 rel='noreferrer'
             >

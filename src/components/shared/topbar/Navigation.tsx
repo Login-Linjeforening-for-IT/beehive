@@ -57,7 +57,7 @@ export default function Navigation() {
                     {text.nav.companies}
                 </li>
             </Link>
-            <Link href={config.url.EXAM_URL}>
+            <Link target='_blank' href={config.url.EXAM_URL}>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>{text.nav.exam}</li>
             </Link>
             <div className='main-nav-dropdown'>

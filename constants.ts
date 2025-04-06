@@ -13,7 +13,11 @@ const config = {
         EXAM_URL: 'https://exam.login.no',
         WIKI_URL: 'https://wiki.login.no',
         GITLAB_URL: 'https://gitlab.login.no',
-        MAIL_URL: 'kontakt@login.no'
+        LINKEDIN_URL: 'https://www.linkedin.com/company/linjeforeningen-login/about',
+        MAIL_URL: 'kontakt@login.no',
+        FACEBOOK_URL: 'https://facebook.com/LogNTNU',
+        INSTAGRAM_URL: 'https://www.instagram.com/login_linjeforening/',
+        DISCORD_URL: 'https://discord.gg/login-ntnu'
     },
     version
 }
