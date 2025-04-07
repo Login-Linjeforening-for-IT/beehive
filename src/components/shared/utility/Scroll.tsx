@@ -1,7 +1,6 @@
 'use client'
 
 import { ReactNode, useEffect } from 'react'
-// @ts-expect-error
 import { useLocation } from 'react-router'
 
 // finnes duplicate scroll funksjon?
