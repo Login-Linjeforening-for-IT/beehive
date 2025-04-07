@@ -10,7 +10,6 @@ import Remove from '@components/svg/symbols/Remove'
 
 // eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
-
     const defualtHeight = 320
     const [hasMounted, setHasMounted] = useState(false)
     useEffect(() => setHasMounted(true), [])
@@ -21,10 +20,26 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
     const [map, setMap] = useState<any>(null)
     const [room, setRoom] = useState(null)
 
-    //initialize map only once, poi will probably not change
     useEffect(() => {
-        // @ts-ignore
-        import('@/vendor/mazemap/mazemap.min.js').then((mazemap) => setMazemap(mazemap))
+        const script = document.createElement('script')
+        script.src = '/vendor/mazemap.min.js'
+        script.onload = () => {
+            // @ts-ignore
+            setMazemap(window.Mazemap)
+        }
+
+        script.onerror = (error) => {
+            console.error('Failed to load Mazemap script:', error)
+        }
+
+        document.body.appendChild(script)
+        return () => {
+            document.body.removeChild(script)
+        }
+    }, [])
+
+    // initialize map only once, poi will probably not change
+    useEffect(() => {
         if (!Mazemap || !hasMounted) return
 
         // @ts-ignore
@@ -48,8 +63,6 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
             touchPitch: false,
             pitchWithRotate: false,
         })
-
-        embeddedMazemap.dragPan._mousePan.enable()
 
         embeddedMazemap.on('load', () => {
             // Initialize a Highlighter for POIs
@@ -88,7 +101,6 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
         setMap(embeddedMazemap)
     }, [Mazemap, hasMounted, poi])
 
-    //Allocate height for map before map is loaded
     if (!hasMounted) {
         return (
             <>
@@ -111,10 +123,9 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     return (
         <>
-            <div className='mazemap-container'
-                style={{
-                    height: props.height || defualtHeight,
-                }}
+            <div 
+                className='mazemap-container'
+                style={{ height: props.height || defualtHeight }}
             >
                 <div id='mazemap' className='mazemap'>
                     <a
@@ -126,14 +137,18 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                         <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
                     </a>
                     {room &&
-					<div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
-					    <Pin className='w-[1.5rem] h-[1.5rem] fill-white mazemap_location-name-icon' />
-					    {room}
-					</div>
+                        <div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
+                            <Pin className='w-[1.5rem] h-[1.5rem] fill-white mazemap_location-name-icon' />
+                            {room}
+                        </div>
                     }
                     <div className='mazemap_controls mazemap_overlay-item'>
-                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'><Add className='w-[1.5rem] h-[1.5rem] fill-white'/></button>
-                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'><Remove className='w-[1.5rem] h-[1.5rem] fill-white' /></button>
+                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'>
+                            <Add className='w-[1.5rem] h-[1.5rem] fill-white'/>
+                        </button>
+                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'>
+                            <Remove className='w-[1.5rem] h-[1.5rem] fill-white' />
+                        </button>
                     </div>
                 </div>
             </div>

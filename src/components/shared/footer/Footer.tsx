@@ -57,7 +57,7 @@ export default async function Footer() {
                 </div>
                 <div className='footer-content_contact-section'>
                     <h4 className='footer-content_contact-header'>
-                        {text.footer.contactInfo.address.header}
+                        {text.footer.contactInfo.email}
                     </h4>
                     <p className='footer-content_contact-text'>
                         <a
