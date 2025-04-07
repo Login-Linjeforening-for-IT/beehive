@@ -15,7 +15,7 @@ type GroupToggleProps = {
     ariaLabel?: string
 }
 
-function GroupToggle({ 
+export default function GroupToggle({ 
     options, 
     defaultActiveOptionIndex = 1,
     size = 'medium',
@@ -71,5 +71,3 @@ function GroupToggle({
         </div>
     )
 }
-
-export default GroupToggle

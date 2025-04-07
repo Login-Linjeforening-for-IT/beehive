@@ -3,14 +3,9 @@ import { useState, useEffect, useRef } from 'react'
 import './ImageCarousel.css'
 import CarouselImage from './CarouselImage'
 
-function NavigationButton({ side, onClick }: {side:string, onClick: React.MouseEventHandler<HTMLButtonElement> }) {
-    return (
-        <button
-            className={`image-carousel_nav-item image-carousel_nav-item--${side}`}
-            onClick={onClick}
-            aria-label={side === 'left' ? 'previous' : 'next'}
-        />
-    )
+type NavigateButtonProps = {
+    side: string, 
+    onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 type SlideItemProps = {
@@ -18,6 +13,16 @@ type SlideItemProps = {
     className: string
     title: string
     description: string
+}
+
+function NavigationButton({ side, onClick }: NavigateButtonProps) {
+    return (
+        <button
+            className={`image-carousel_nav-item image-carousel_nav-item--${side}`}
+            onClick={onClick}
+            aria-label={side === 'left' ? 'previous' : 'next'}
+        />
+    )
 }
 
 function SlideItem({ image, className, title, description }: SlideItemProps) {
@@ -31,8 +36,7 @@ function SlideItem({ image, className, title, description }: SlideItemProps) {
                     <p className='image-carousel_image-overlay-description'>{description}</p>
                 </div>
             </div>
-            <CarouselImage image={image} title={title}
-            />
+            <CarouselImage image={image} title={title} />
         </div>
     )
 }
