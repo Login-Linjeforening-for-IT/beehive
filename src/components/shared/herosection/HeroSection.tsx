@@ -31,6 +31,7 @@ export default async function LandingPage() {
                                 href='/events'
                                 leadingIcon={<Calendar className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 variant='primary'
+                                target=''
                             >
                                 {text.heroSection.secondaryButton}
                             </Button>
@@ -39,6 +40,7 @@ export default async function LandingPage() {
                                 variant='ghost'
                                 href='/about'
                                 leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-white'/>}
+                                target=''
                             >
                                 {text.heroSection.primaryButton}
                             </Button>
