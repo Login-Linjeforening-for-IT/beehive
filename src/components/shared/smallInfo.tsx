@@ -26,7 +26,7 @@ export default async function SmallInfo() {
                     <p className='p--regular'>{text.whoAreWe.body}</p>
                     <Link
                         className='mt-[1rem] p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
-                        href='/about'
+                        href='about'
                     >
                         {text.readMore}
                     </Link>
@@ -48,7 +48,7 @@ export default async function SmallInfo() {
                     <p className='p--regular'>{text.companiesInfo.body}</p>
                     <Link
                         className='mt-[1rem] p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
-                        href='/companies'
+                        href='companies'
                     >
                         {text.readMore}
                     </Link>

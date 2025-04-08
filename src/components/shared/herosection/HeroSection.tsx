@@ -27,7 +27,7 @@ export default async function LandingPage() {
                         <div className='hero-section_buttons'>
                             {/* @ts-ignore */}
                             <Button
-                                href='/events'
+                                href='events'
                                 leadingIcon={<Calendar className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 variant='primary'
                             >
@@ -35,9 +35,9 @@ export default async function LandingPage() {
                             </Button>
                             {/* @ts-ignore */}
                             <Button
-                                variant='ghost'
-                                href='/about'
+                                href='about'
                                 leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-white'/>}
+                                variant='ghost'
                             >
                                 {text.heroSection.primaryButton}
                             </Button>

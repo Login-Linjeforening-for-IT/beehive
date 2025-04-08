@@ -6,10 +6,14 @@ import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
-import { getCookie } from '@utils/cookies'
 
-export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
-    const [lang, setLang] = useState('no')
+type MobileNavigationProps = {
+    lang: Lang
+    open:boolean, 
+    setIsOpen:React.Dispatch<SetStateAction<boolean>>
+}
+
+export default function MobileNavigation({ lang, open, setIsOpen }: MobileNavigationProps) {
     const [text, setText] = useState(no)
 
     useEffect(() => {
@@ -17,13 +21,10 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
         setText(text)
     }, [lang])
 
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [])
-
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
+    function toggleDropdown() {
+        setIsDropdownOpen(!isDropdownOpen)
+    }
 
     function close() {
         setIsOpen(false)
@@ -32,13 +33,13 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
 
     return (
         <nav className={`mobile-nav${open ? ' mobile-nav--open' : ''}`}>
-            <Link onClick={close} href='/events' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href='events' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.events}</li>
             </Link>
-            <Link onClick={close} href='/career' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href='career' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.jobad}</li>
             </Link>
-            <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href='companies' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
             <Link onClick={close} href='https://exam.login.no' tabIndex={open ? 0 : -1}>
@@ -62,21 +63,21 @@ export default function MobileNavigation({ open, setIsOpen }: {open:boolean, set
                 <div className='mobile-nav-dropdown_items'>
                     <Link
                         onClick={close}
-                        href='/about'
+                        href='about'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className='mobile-nav-dropdown_item'>{text.nav.general}</li>
                     </Link>
                     <Link
                         onClick={close}
-                        href='/verv'
+                        href='verv'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className='mobile-nav-dropdown_item'>{text.nav.verv}</li>
                     </Link>
                     <Link
                         onClick={close}
-                        href='/fond'
+                        href='fond'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className='mobile-nav-dropdown_item'>{text.nav.fondet}</li>

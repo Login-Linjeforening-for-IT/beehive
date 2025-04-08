@@ -193,3 +193,5 @@ type ColorTransitionClassNameProps = {
 type PromisedPageProps = {
     params: Promise<{ id: number }>
 }
+
+type Lang = 'en' | 'no'

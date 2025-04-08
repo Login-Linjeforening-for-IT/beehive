@@ -8,8 +8,12 @@ import { useRouter } from 'next/navigation'
 
 export let language = 'no'
 
-export default function LangToggle() {
-    const [lang, setLang] = useState<'no' | 'en'>('no')
+type LangToggleProps = {
+    serverLang: Lang
+}
+
+export default function LangToggle({serverLang}: LangToggleProps) {
+    const [lang, setLang] = useState<'no' | 'en'>(serverLang)
     const [jump, setJump] = useState(false)
 
     const router = useRouter()
@@ -34,7 +38,7 @@ export default function LangToggle() {
     return(
         <button value={lang} onClick={handleClick} className='lang-toggle flex flex-row items-center gap-1'>
             <i className={`lang-toggle_icon ${jump ? 'lang-toggle_icon--jump' : ''}`}>
-                <Language className='w-[1.4rem] h-[1.4rem] fill-[var(--color-text-regular)]'/>
+                <Language className='lang-icon w-[1.4rem] h-[1.4rem]'/>
             </i>
             {' ' + lang}
         </button>

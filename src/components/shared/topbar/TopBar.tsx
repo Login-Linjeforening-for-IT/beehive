@@ -10,7 +10,11 @@ import ThemeToggle from '../themetoggle/themeToggle'
 import Link from 'next/link'
 import './TopBar.css'
 
-export default function TopBar() {
+type TopBarProps = {
+    lang: Lang
+}
+
+export default function TopBar({lang}: TopBarProps) {
     const [isOpen, setIsOpen] = useState(false)
     function toggle() {
         setIsOpen(!isOpen)
@@ -23,24 +27,27 @@ export default function TopBar() {
                     <LoginLogoSmall />
                 </Link>
             </div>
-            <Navigation />
+            <Navigation lang={lang} />
             <nav className='flex w-[calc(100vw-8rem)] justify-end h-[3rem] mr-[1rem] 800px:w-fit 800px:mr-0'>
                 <ThemeToggle />
-                <LangToggle />
+                <LangToggle serverLang={lang} />
                 {/* TODO */}
                 {/* <div className='mt-[0.9rem] ml-[0.9rem]'>
-                    <Link href='/profile'>
+                    <Link href='profile'>
                         <picture>
                             <ProfileSVG />
                         </picture>
                     </Link>
                 </div> */}
             </nav>
-            <button className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`} onClick={toggle}>
+            <button 
+                className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`} 
+                onClick={toggle}
+            >
                 <div className='topbar_burger-bun topbar_burger-bun--top' />
                 <div className='topbar_burger-bun topbar_burger-bun--bottom' />
             </button>
-            <MobileNavigation open={isOpen} setIsOpen={setIsOpen} />
+            <MobileNavigation lang={lang} open={isOpen} setIsOpen={setIsOpen} />
         </div>
     )
 }

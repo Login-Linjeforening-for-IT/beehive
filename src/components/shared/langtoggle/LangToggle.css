@@ -14,6 +14,19 @@
     background-color: rgb(100,100,100,0.1);
 }
 
+.dark .lang-icon {
+    fill: white;
+}
+
+.light .lang-icon {
+    fill: black;
+}
+
+.dark .theme-toggle_sun-moon {
+    transform: scale(1);
+    fill: white;
+}
+
 .lang-toggle_icon {
     font-size: 1.4rem;
     line-height: 2rem;
@@ -33,6 +46,10 @@
 @media only screen and (max-width: 800px) {
     .topbar--open .lang-toggle,
     .topbar--open .lang-toggle_icon {
-        color: var(--color-white);
+        color: white;
+    }
+
+    .topbar--open .lang-icon {
+        fill: white;
     }
 }
