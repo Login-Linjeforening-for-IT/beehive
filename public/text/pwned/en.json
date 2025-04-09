@@ -1,5 +1,5 @@
 {
-    "text": "It has been {time} seconds since you've been pwned 🙈",
+    "text": "It has been {time} since you've been pwned 🙈",
     "pwned": [
         {
             "text": "You after we deleted your assignment while your pc was unlocked",
@@ -80,10 +80,6 @@
         {
             "text": "Bernie Sanders is disappointed that you didn't lock your screen.",
             "image": "bernie-sanders.jpg"
-        },
-        {
-            "text": "Disappointed turtle is disappointed you left your screen unlocked.",
-            "image": "disappointed-turtle.jpg"
         },
         {
             "text": "Yeah, if you could go ahead and lock your screen next time, that'd be great.",

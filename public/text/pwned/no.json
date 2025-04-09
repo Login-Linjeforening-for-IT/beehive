@@ -1,5 +1,5 @@
 {
-    "text": "Det har gått {time} sekunder siden du ble pwned 🙈",
+    "text": "Det har gått {time} siden du ble pwned 🙈",
     "pwned": [
         {
             "text": "Deg etter at vi sletta obligen din mens pcen din var ulåst",
@@ -80,10 +80,6 @@
         {
             "text": "Bernie Sanders er skuffet over at du ikke låste skjermen.",
             "image": "bernie-sanders.jpg"
-        },
-        {
-            "text": "Skuffet skilpadde er skuffet over at du lot skjermen stå ulåst.",
-            "image": "disappointed-turtle.jpg"
         },
         {
             "text": "Ja, hvis du bare kunne låst skjermen neste gang, så hadde det vært flott.",

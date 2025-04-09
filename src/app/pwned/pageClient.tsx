@@ -21,6 +21,13 @@ type MemeProps = {
 export default function PageClient({pwnedNumber, lang}: PageClientProps){
     const [time, setTime] = useState<number>(1)
     const memes = (lang === 'no' ? no : en) as MemeProps
+    const seconds = time === 1 
+        ? lang === 'no'
+            ? 'sekund' 
+            : 'second'
+        : lang === 'no' 
+            ? 'sekunder' 
+            : 'seconds'
 
     useEffect(() => {
         let interval: Interval = 0
@@ -42,7 +49,7 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                     height={400}
                 />
             </div>
-            <p className='text-xl'>{memes.text.replace('{time}', String(time))}</p>
+            <p className='text-xl'>{memes.text.replace('{time}', `${String(time)} ${seconds}`)}</p>
         </div>
     )
 }
