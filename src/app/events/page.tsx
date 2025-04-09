@@ -49,19 +49,19 @@ export default async function Page({searchParams}: PageProps) {
             </div>
             {(
                 <>
-                    <div className='flex justify-between items-center 400px:gap-[1rem] 400px:p-0 1000px:justify-end 1000px:p-[0_0_1rem_0] page-section--normal'>
+                    <div className='hidden 1000px:flex justify-between items-center 400px:gap-[1rem] 400px:p-0 1000px:justify-end 1000px:p-[0_0_1rem_0] page-section--normal'>
                         {/* @ts-ignore */}
-                        <div className='button-group justify-end 1000px:mr-[1.5rem]'>
+                        <div className='button-group justify-end 1000px:mr-[1rem]'>
                             <GroupToggle
                                 options={[
                                     {
                                         leadingIcon: (
-                                            <GridView className='w-[1.5rem] fill-white' />
+                                            <GridView className='w-[1.5rem] fill-[var(--color-text-main)]' />
                                         ),
                                         name: 'grid'
                                     },
                                     {
-                                        leadingIcon: (<ListBulleted className='w-[1.5rem] fill-white' />),
+                                        leadingIcon: (<ListBulleted className='w-[1.5rem] fill-[var(--color-text-main)]' />),
                                         name: 'list'
                                     },
                                 ]}
@@ -75,8 +75,31 @@ export default async function Page({searchParams}: PageProps) {
                     </div>
                     <div className='page-section--without-gaps'>
                         <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
-                            <div className='1000px:order-1'>
-                                <FilterItem filterData={response} />
+                            <div className='1000px:order-1 flex flex-row'>
+                                <div className='w-full h-full'>
+                                    <FilterItem filterData={response} />
+                                </div>
+                                <div className='button-group justify-end absolute right-0 800px:mr-[2.5rem] mr-[1.5rem] 1000px:hidden'>
+                                    <GroupToggle
+                                        options={[
+                                            {
+                                                leadingIcon: (
+                                                    <GridView className='w-[1.5rem] fill-[var(--color-text-main)]' />
+                                                ),
+                                                name: 'grid'
+                                            },
+                                            {
+                                                leadingIcon: (<ListBulleted className='w-[1.5rem] fill-[var(--color-text-main)]' />),
+                                                name: 'list'
+                                            },
+                                        ]}
+                                        // activeVariant='primary-outlined'
+                                        // inactiveVariant='secondary-outlined'
+                                        groupVariant='ghost'
+                                        buttonVariant='ghost'
+                                        size='medium'
+                                    />
+                                </div>
                             </div>
                             <div className='1000px:order-2'>
                                 <ul

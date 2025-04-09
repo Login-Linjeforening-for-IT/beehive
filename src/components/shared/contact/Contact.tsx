@@ -27,7 +27,7 @@ export default function Contact() {
     return(
         <div className='contact-card'>
             <h2 className='heading-2 heading-2--icon'>
-                <TravelExplore className='w-[3rem] h-[3rem] fill-white mr-4' />
+                <TravelExplore className='w-[3rem] h-[3rem] fill-[var(--color-text-main)] mr-4' />
                 <span>{text.contact.title}</span>
             </h2>
             <div className='contact-card_info'>

@@ -82,7 +82,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                         <ul className='event-item_details'>
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                                 <li className='flex text-[0.9rem]'>
-                                    <Schedule className='w-[22px] h-[22px] event-item_icon fill-white' />
+                                    <Schedule className='w-[22px] h-[22px] event-item_icon fill-[var(--color-text-main)]' />
                                     {event.time_type.toLowerCase() != 'tbd' ? 
                                         formatEventStartDate(new Date(event.time_start), lang)
                                         :
@@ -92,7 +92,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             }
                             {event.location_name_no && (
                                 <li className='flex text-[0.9rem]'>
-                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-white event-item_icon' />
+                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)] event-item_icon' />
                                     {lang && event.location_name_en ? event.location_name_en : event.location_name_no}
                                 </li>
                             )}

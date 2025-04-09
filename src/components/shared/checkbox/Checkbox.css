@@ -49,18 +49,16 @@
 .checkbox_input:checked + .checkbox_box:after {
     display: block;
 }
-
 /* the checkmark tick */
 .checkbox_box:after {
-    left: .38rem;
-    top: .08rem;
-    width: .3rem;
-    height: .7rem;
+    left: 50%;
+    top: 45%;
+    width: .4rem;
+    height: .8rem;
     border: solid var(--color-text-on-primary);
     border-width: 0 .18rem .18rem 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+    position: absolute;
 }
 
 .checkbox_item-count {

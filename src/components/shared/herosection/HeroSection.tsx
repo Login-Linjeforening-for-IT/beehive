@@ -36,7 +36,7 @@ export default async function LandingPage() {
                             {/* @ts-ignore */}
                             <Button
                                 href='about'
-                                leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-white'/>}
+                                leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>}
                                 variant='ghost'
                             >
                                 {text.heroSection.primaryButton}

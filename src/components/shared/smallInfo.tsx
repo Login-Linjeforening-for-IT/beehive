@@ -82,7 +82,7 @@ export default async function SmallInfo() {
                     cornerSize={0}
                     width={100}
                     height={30}
-                    className='order-1 800px:col-span-4 w-full max-w-[31rem] m-auto 800px:max-w-[40rem]'
+                    className={'order-1 800px:col-span-4 w-full max-w-[31rem] m-auto 800px:max-w-[40rem] transition-all duration-1000 ease-linear'}
                 />
             </div>
         </>

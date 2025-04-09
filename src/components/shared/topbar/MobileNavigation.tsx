@@ -57,7 +57,7 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
                 >
                     <li className='flex flex-row items-center mobile-nav_item'>
                         {text.nav.about}
-                        <ArrowDown className='w-[1.5rem] h-[1.5rem] fill-white'/>
+                        <ArrowDown className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </li>
                 </button>
                 <div className='mobile-nav-dropdown_items'>
@@ -91,7 +91,7 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
                     >
                         <li className='flex flex-row mobile-nav-dropdown_item'>
                             Wiki
-                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>
+                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
                         </li>
                     </a>
                 </div>

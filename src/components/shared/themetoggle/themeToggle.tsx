@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react'
 import { getCookie, setCookie } from '@/utils/cookies'
 import './toggle.css'
+import { useRouter } from 'next/navigation'
 
 export default function ThemeSwitch() {
+    const router = useRouter()
     const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
     useEffect(() => {
@@ -21,10 +23,11 @@ export default function ThemeSwitch() {
         const newTheme = theme === 'dark' ? 'light' : 'dark'
         setCookie('theme', newTheme)
         setTheme(newTheme)
+        router.refresh()
     }
 
     return (
-        <div className='grid place-items-center justify-end'>
+        <div className='grid place-items-center justify-end rounded-[var(--border-radius)] hover:bg-[#6464641a]'>
             <label>
                 <input
                     type='checkbox'

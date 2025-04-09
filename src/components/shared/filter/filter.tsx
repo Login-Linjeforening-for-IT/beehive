@@ -122,7 +122,7 @@ export default function FilterGroup({ filters, close }: any) {
                     href={pathname+'?'+params()}
                     target='_self'
                     variant='secondary-outlined'
-                    trailingIcon={<Replay className=''/>}
+                    trailingIcon={<Replay className='w-[1.25rem] h-[1.25rem] fill-[var(--color-text-regular)]'/>}
                     onClick={onReset}
                     size='medium'
                     className='filter-groups_reset'

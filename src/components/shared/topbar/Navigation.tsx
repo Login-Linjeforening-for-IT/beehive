@@ -35,7 +35,7 @@ export default function Navigation({lang}: NavigationProps) {
     }, [navItemRefs])
 
     return (
-        <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[36rem]'>
+        <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[40rem]'>
             <Link href='events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.events}
@@ -52,8 +52,9 @@ export default function Navigation({lang}: NavigationProps) {
                 </li>
             </Link>
             <Link href='https://exam.login.no'>
-                <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
+                <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.exam}
+                    <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
                 </li>
             </Link>
             <div className='main-nav-dropdown'>

@@ -88,7 +88,7 @@ async function Event({event}: InnerEventProps) {
                         {/* @ts-ignore */}
                         {event.event.time_type !== 'whole_day' &&
                     <div className='flex flex-row items-center event-datetime-display_time'>
-                        <Schedule className='w-[1.8rem] h-[1.8rem] fill-white event-datetime-display_time-icon'/>
+                        <Schedule className='w-[1.8rem] h-[1.8rem] fill-[var(--color-text-main)] event-datetime-display_time-icon'/>
                         {/* @ts-ignore */}
                         {event.event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.event.time_start))}
                         {/* @ts-ignore */}

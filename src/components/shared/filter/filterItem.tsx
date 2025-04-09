@@ -9,7 +9,7 @@ import { useState } from 'react'
 // eslint-disable-next-line
 export default function FilterItem({filterData}:{filterData: any}) {
 
-    const [isFilterOpen, setIsFilterOpen] = useState(true)
+    const [isFilterOpen, setIsFilterOpen] = useState(false)
 
     function toggleFilter() {
         setIsFilterOpen((prevState) => !prevState)
@@ -23,7 +23,7 @@ export default function FilterItem({filterData}:{filterData: any}) {
                 variant='secondary-outlined'
                 target='_self'
                 onClick={toggleFilter}
-                trailingIcon={<List className=''/>}
+                trailingIcon={<List className={`w-[1.25rem] h-[1.25rem] ${isFilterOpen ? 'fill-[var(--color-login-orange)]' : 'fill-[var(--color-text-regular)]'}`}/>}
                 className={`1000px:hidden ${
                     isFilterOpen ? 'active' : ''
                 }`}

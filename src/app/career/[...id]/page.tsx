@@ -87,7 +87,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                         >
                                             {/* @ts-ignore */}
                                             {lang && jobad.organization.name_en ? jobad.organization.name_en : jobad.organization.name_no + ' '}
-                                            <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-white'/>
+                                            <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-[var(--color-text-main)]'/>
                                         </a>
                                     ) : (
                                         <>
@@ -168,7 +168,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {jobad.job.application_url && (
                             // @ts-ignore
                                 <Button
-                                    trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>}
+                                    trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>}
                                     // @ts-ignore
                                     href={jobad.job.application_url}
                                     className='jobad-details_apply-btn'
