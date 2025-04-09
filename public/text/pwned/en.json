@@ -1,12 +1,9 @@
 {
+    "text": "It has been {time} seconds since you've been pwned 🙈",
     "pwned": [
         {
             "text": "You after we deleted your assignment while your pc was unlocked",
             "image": "oblig.png"
-        },
-        {
-            "text": "Billy is sad, you didn't lock the screen",
-            "image": "sad_billy.jpg"
         },
         {
             "text": "Cafeteria prices when you forget to lock the screen 📈",
@@ -41,6 +38,10 @@
             "image": "cat_clock.gif"
         },
         {
+            "text": "You trying to end the day after leaving your screen unlocked",
+            "image": "cat_clock_forward.gif"
+        },
+        {
             "text": "You trying to reverse the damage after your classmates installed crypto ransomware while you were at USB kiosk",
             "image": "cat_drinking.gif"
         },
@@ -61,22 +62,6 @@
             "image": "greta.jpg"
         },
         {
-            "text": "Gollum is disappointed that you forgot to put your precious lock on the screen, my precious!",
-            "image": "golum.jpg"
-        },
-        {
-            "text": "Lock your screen you must.",
-            "image": "yoda.jpg"
-        },
-        {
-            "text": "Lock your screen, fool.",
-            "image": "mister-t.jpg"
-        },
-        {
-            "text": "You no lock screen? Son I am disappoint.",
-            "image": "son-i-am-disappoint.jpg"
-        },
-        {
             "text": "Y U NO LOCK YOUR SCREEN",
             "image": "y-u-no.jpg"
         },
@@ -89,14 +74,6 @@
             "image": "orbweaver.jpg"
         },
         {
-            "text": "Human, you must lock your screen. There will be no further warnings.",
-            "image": "scary-robot.jpg"
-        },
-        {
-            "text": "If you forget to lock your screen, you're gonna have a bad time!",
-            "image": "southpark-ski-instructor.jpg"
-        },
-        {
             "text": "Who else but Zoidberg would forget to lock their screen?",
             "image": "zoidberg.png"
         },
@@ -105,24 +82,12 @@
             "image": "bernie-sanders.jpg"
         },
         {
-            "text": "Muhammad Sarim Akhtar is disappointed that you didn't lock your screen.",
-            "image": "muhammad-sarim-akhtar.jpg"
-        },
-        {
             "text": "Disappointed turtle is disappointed you left your screen unlocked.",
             "image": "disappointed-turtle.jpg"
         },
         {
             "text": "Yeah, if you could go ahead and lock your screen next time, that'd be great.",
             "image": "lumbergh.jpg"
-        },
-        {
-            "text": "You forgot to lock your screen, and you made Dawson cry.",
-            "image": "dawson-crying.jpg"
-        },
-        {
-            "text": "Grumpy Cat is disappointed that you didn't lock your screen.",
-            "image": "grumpy-cat.jpg"
         },
         {
             "text": "The Captain is disappointed that you didn't lock your screen.",

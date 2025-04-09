@@ -14,6 +14,7 @@ type PageClientProps = {
 }
 
 type MemeProps = { 
+    text: string
     pwned: ({ text: string, image: string })[]
 }
 
@@ -41,7 +42,7 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                     height={400}
                 />
             </div>
-            <p className='text-xl'>It has been {time} seconds since you've been pwned 🙈</p>
+            <p className='text-xl'>{memes.text.replace('{time}', String(time))}</p>
         </div>
     )
 }
