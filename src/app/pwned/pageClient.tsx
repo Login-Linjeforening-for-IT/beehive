@@ -7,8 +7,6 @@ import no from '@text/pwned/no.json'
 import en from '@text/pwned/en.json'
 import useDarkModeObserver from '@/hooks/darkModeObserver'
 
-type Interval = NodeJS.Timeout | number
-
 type PageClientProps = {
     pwnedNumber: number
     lang: Lang
@@ -22,7 +20,6 @@ type MemeProps = {
 export default function PageClient({pwnedNumber, lang}: PageClientProps){
     const [time, setTime] = useState<number>(1)
     const isDark = useDarkModeObserver()
-
     const memes = (lang === 'no' ? no : en) as MemeProps
     const seconds = time === 1
         ? lang === 'no'
@@ -33,10 +30,12 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
             : 'seconds'
 
     useEffect(() => {
-        let interval: Interval = 0
-        interval = setInterval(() => {
-            setTime((prevtime) => prevtime + 1)
+        const startTime = Date.now()
+        const interval = setInterval(() => {
+            const difference = Math.floor((Date.now() - startTime) / 1000)
+            setTime(difference)
         }, 1000)
+
         return () => clearInterval(interval)
     }, [])
 

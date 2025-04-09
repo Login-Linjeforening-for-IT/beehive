@@ -8,5 +8,6 @@ export async function middleware(req: NextRequest) {
     res.headers.set('x-theme', theme)
     res.headers.set('x-lang', lang)
     res.headers.set('x-pwned', pwned.toString())
+    res.headers.set('x-current-path', req.nextUrl.pathname)
     return res
 }
