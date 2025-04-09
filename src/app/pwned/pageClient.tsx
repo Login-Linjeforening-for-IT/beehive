@@ -5,12 +5,13 @@ import Image from 'next/image'
 import config from '@config'
 import no from '@text/pwned/no.json'
 import en from '@text/pwned/en.json'
+import useDarkModeObserver from '@/hooks/darkModeObserver'
 
 type Interval = NodeJS.Timeout | number
 
 type PageClientProps = {
     pwnedNumber: number
-    lang: string
+    lang: Lang
 }
 
 type MemeProps = { 
@@ -20,13 +21,15 @@ type MemeProps = {
 
 export default function PageClient({pwnedNumber, lang}: PageClientProps){
     const [time, setTime] = useState<number>(1)
+    const isDark = useDarkModeObserver()
+
     const memes = (lang === 'no' ? no : en) as MemeProps
-    const seconds = time === 1 
+    const seconds = time === 1
         ? lang === 'no'
-            ? 'sekund' 
+            ? 'sekund'
             : 'second'
-        : lang === 'no' 
-            ? 'sekunder' 
+        : lang === 'no'
+            ? 'sekunder'
             : 'seconds'
 
     useEffect(() => {
@@ -49,7 +52,18 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                     height={400}
                 />
             </div>
-            <p className='text-xl'>{memes.text.replace('{time}', `${String(time)} ${seconds}`)}</p>
+            <div className='flex gap-2'>
+                <p className='text-xl flex'>
+                    {memes.text.replace('{time}', `${String(time)} ${seconds}`)}
+                </p>
+                <Image 
+                    src={`${config.url.CDN_URL}/img/login_shitty_thicc${isDark ? '_white' : ''}.png`} 
+                    className='object-contain w-[1.5rem] h-[1.5rem]'
+                    alt='meme'
+                    width={40}
+                    height={40}
+                />
+            </div>
         </div>
     )
 }
