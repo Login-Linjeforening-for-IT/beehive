@@ -51,7 +51,7 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                     height={400}
                 />
             </div>
-            <div className='flex gap-2'>
+            <div className='flex gap-2 items-center'>
                 <p className='text-xl flex'>
                     {memes.text.replace('{time}', `${String(time)} ${seconds}`)}
                 </p>
