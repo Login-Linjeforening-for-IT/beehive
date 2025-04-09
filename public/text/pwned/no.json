@@ -1,137 +1,132 @@
 {
     "pwned": [
         {
-            "text": "Det stinker at du ikke låste skjermen din.",
-            "image": "skunk.jpg"
+            "text": "Billy er trist, du låste ikke skjermen",
+            "image": "sad_billy.jpg"
         },
         {
-            "text": "Man forlater ikke bare skjermen ulåst.",
-            "image": "one-does-not-simply.jpg"
+            "text": "Kantineprisene når du glemmer å låse skjermen 📈",
+            "image": "sit_math.jpg"
         },
         {
-            "text": "HVORFOR LÅSER DU IKKE SKJERMEN DIN?",
-            "image": "y-u-no.jpg"
+            "text": "Du etter å ha forlatt skjermen ulåst",
+            "image": "sit_peas.jpg"
         },
         {
-            "text": "Baby polarbjørn er skuffet over at du ikke låste skjermen din.",
-            "image": "sad-polar-bear.jpg"
+            "text": "PC-en din etter å ha vært ulåst hele dagen",
+            "image": "laptop_smoking.gif"
         },
         {
-            "text": "Hvordan tør du å forlate skjermen ulåst.",
+            "text": "Du på vei til kantina etter å ha glemt å låse skjermen",
+            "image": "sit_money.jpg"
+        },
+        {
+            "text": "PC-en din etter at klassekameratene dine installerte en bitcoin-miner mens du var på do",
+            "image": "pc_fire.gif"
+        },
+        {
+            "text": "Katten utenfor bygg A etter at du lot skjermen stå ulåst",
+            "image": "cat_washed.gif"
+        },
+        {
+            "text": "Hele Login-loungen ser på mens skjermen din er ulåst",
+            "image": "cat_shocked.gif"
+        },
+        {
+            "text": "Du prøver å skru tilbake tiden etter å ha latt skjermen stå ulåst",
+            "image": "cat_clock.gif"
+        },
+        {
+            "text": "Du prøver å reversere skaden etter at klassekameratene dine installerte crypto-ransomware mens du var ved USB-kiosken",
+            "image": "cat_drinking.gif"
+        },
+        {
+            "text": "Oops, glemte å låse PC-en i dag #sparka #it-sikkerhet",
+            "image": "erjon.png"
+        },
+        {
+            "text": "Meg som ser livet falle fra hverandre etter at jeg glemte å låse skjermen",
+            "image": "house_fire.gif"
+        },
+        {
+            "text": "Jeg er bare en chill fyr, jeg bryr meg ikke om å låse skjermen",
+            "image": "chill_guy.gif"
+        },
+        {
+            "text": "Hvordan våger du å la skjermen stå ulåst?",
             "image": "greta.jpg"
         },
         {
-            "text": "Charlize Theron er skuffet over at du ikke låste skjermen din.",
-            "image": "charlize-theron.jpg"
-        },
-        {
-            "text": "Hvis du glemmer å låse skjermen, kommer du til å få en dårlig tid!",
-            "image": "southpark-ski-instructor.jpg"
-        },
-        {
-            "text": "Elon Musk er skuffet over at du ikke låste skjermen din.",
-            "image": "elon-musk.jpg"
-        },
-        {
-            "text": "Lås skjermen før du blir viklet inn.",
-            "image": "orbweaver.jpg"
-        },
-        {
-            "text": "Du er ikke hakket lever, lås skjermen din.",
-            "image": "upsetcat.jpg"
-        },
-        {
-            "text": "Cain er skuffet over at du glemte å låse skjermen din.",
-            "image": "cain-statue.jpg"
-        },
-        {
-            "text": "Cupido er ikke imponert over din ulåste skjerm.",
-            "image": "disappointed-cupid.jpg"
-        },
-        {
-            "text": "Muhammad Sarim Akhtar er skuffet over at du ikke låste skjermen din.",
-            "image": "muhammad-sarim-akhtar.jpg"
-        },
-        {
-            "text": "Gollum er skuffet over at du glemte å sette på låsen på skjermen, min dyrebare!",
+            "text": "Gollum er skuffet over at du glemte å sette din dyrebare lås på skjermen, min dyrebare!",
             "image": "golum.jpg"
         },
         {
-            "text": "McKayla er ikke imponert over din ulåste datamaskin.",
-            "image": "mckayla.jpg"
-        },
-        {
-            "text": "Ja, hvis du kan gå videre og låse skjermen din neste gang, ville det vært flott.",
-            "image": "lumbergh.jpg"
-        },
-        {
-            "text": "Obama er skuffet over at du ikke låste skjermen din.",
-            "image": "obama.jpg"
-        },
-        {
-            "text": "Grumpy Cat er skuffet over at du ikke låste skjermen din.",
-            "image": "grumpy-cat.jpg"
-        },
-        {
-            "text": "Doggo er trist over at du glemte å låse skjermen din.",
-            "image": "disappointed_dog.jpg"
-        },
-        {
-            "text": "Captain Holt er skuffet over at du ikke låste skjermen din.",
-            "image": "captain-holt.jpg"
-        },
-        {
-            "text": "Lås skjermen du må.",
+            "text": "Låse skjermen din, du må.",
             "image": "yoda.jpg"
         },
         {
-            "text": "Onkel Sam vil at du skal låse skjermen din.",
-            "image": "uncle-sam.jpg"
-        },
-        {
-            "text": "Gordon Ramsay er skuffet over at du ikke låste skjermen din.",
-            "image": "gordon.jpg"
-        },
-        {
-            "text": "Bernie Sanders er skuffet over at du ikke låste skjermen din.",
-            "image": "bernie-sanders.jpg"
-        },
-        {
-            "text": "Lisa Simpson er skuffet over at du ikke låste skjermen din.",
-            "image": "lisa-simpson.jpg"
-        },
-        {
-            "text": "Menneske, du må låse skjermen din. Det vil ikke være flere advarsler.",
-            "image": "scary-robot.jpg"
+            "text": "Lås skjermen din, tosk.",
+            "image": "mister-t.jpg"
         },
         {
             "text": "Du låser ikke skjermen? Sønn, jeg er skuffet.",
             "image": "son-i-am-disappoint.jpg"
         },
         {
+            "text": "Y U NO LÅSE SKJERMEN",
+            "image": "y-u-no.jpg"
+        },
+        {
+            "text": "Gordon Ramsay er skuffet over at du ikke låste skjermen.",
+            "image": "gordon.jpg"
+        },
+        {
+            "text": "Lås skjermen før du vikler deg inn i trøbbel",
+            "image": "orbweaver.jpg"
+        },
+        {
+            "text": "Menneske, du må låse skjermen din. Det vil ikke komme flere advarsler.",
+            "image": "scary-robot.jpg"
+        },
+        {
+            "text": "Hvis du glemmer å låse skjermen, kommer du til å få en dårlig dag!",
+            "image": "southpark-ski-instructor.jpg"
+        },
+        {
             "text": "Hvem ellers enn Zoidberg ville glemme å låse skjermen sin?",
             "image": "zoidberg.png"
         },
         {
-            "text": "Kapteinen er skuffet over at du ikke låste skjermen din.",
-            "image": "the-captain.jpg"
+            "text": "Bernie Sanders er skuffet over at du ikke låste skjermen.",
+            "image": "bernie-sanders.jpg"
         },
         {
-            "text": "Du glemte å låse skjermen din, og du fikk Dawson til å gråte.",
+            "text": "Muhammad Sarim Akhtar er skuffet over at du ikke låste skjermen.",
+            "image": "muhammad-sarim-akhtar.jpg"
+        },
+        {
+            "text": "Skuffet skilpadde er skuffet over at du lot skjermen stå ulåst.",
+            "image": "disappointed-turtle.jpg"
+        },
+        {
+            "text": "Ja, hvis du bare kunne låse skjermen neste gang, så hadde det vært flott.",
+            "image": "lumbergh.jpg"
+        },
+        {
+            "text": "Du glemte å låse skjermen, og du fikk Dawson til å gråte.",
             "image": "dawson-crying.jpg"
         },
         {
-            "text": "Skuffet katt er skuffet over at du forlot skjermen ulåst.",
+            "text": "Grumpy Cat er skuffet over at du ikke låste skjermen.",
+            "image": "grumpy-cat.jpg"
+        },
+        {
+            "text": "Kapteinen er skuffet over at du ikke låste skjermen.",
+            "image": "the-captain.jpg"
+        },
+        {
+            "text": "Skuffet katt er skuffet over at du lot skjermen stå ulåst.",
             "image": "disappointed-cat.png.jpeg"
-        },
-        {
-            "text": "Lås skjermen din, fjott.",
-            "image": "mister-t.jpg"
-        },
-        {
-            "text": "Skuffet skilpadde er skuffet over at du forlot skjermen ulåst.",
-            "image": "disappointed-turtle.jpg"
         }
     ]
-    
 }
