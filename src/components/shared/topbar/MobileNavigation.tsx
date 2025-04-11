@@ -6,11 +6,7 @@ import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
 import ArrowDown from '@components/svg/symbols/ArrowDown'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
-import { getCookie } from '@utils/cookies'
 import config from '@config'
-
-export default function MobileNavigation({ open, setIsOpen }: {open:boolean, setIsOpen:React.Dispatch<SetStateAction<boolean>>}) {
-    const [lang, setLang] = useState('no')
 
 type MobileNavigationProps = {
     lang: Lang
