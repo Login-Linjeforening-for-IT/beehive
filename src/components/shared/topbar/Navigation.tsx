@@ -11,6 +11,7 @@ import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 type NavigationProps = {
     lang: Lang
 }
+import config from '@config'
 
 export default function Navigation({lang}: NavigationProps) {
     const text = lang === 'no' ? no : en
@@ -51,7 +52,7 @@ export default function Navigation({lang}: NavigationProps) {
                     {text.nav.companies}
                 </li>
             </Link>
-            <Link href='https://exam.login.no'>
+            <Link target='_blank' href={config.url.EXAM_URL}>
                 <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.exam}
                     <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
@@ -97,7 +98,7 @@ export default function Navigation({lang}: NavigationProps) {
                             </Link>
                             <a
                                 title='Wiki'
-                                href='https://wiki.login.no'
+                                href={config.url.WIKI_URL}
                                 target='_blank'
                                 rel='noreferrer'
                                 // @ts-ignore

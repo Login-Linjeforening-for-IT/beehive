@@ -7,5 +7,5 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - API_URL=https://workerbee-dev.login.no/api
-      - CDN_URL=https://cdn.login.no
+      API_URL: ${API_URL:-http://workerbee.login.no/api}
+      CDN_URL: ${CDN_URL:-https://cdn.login.no}

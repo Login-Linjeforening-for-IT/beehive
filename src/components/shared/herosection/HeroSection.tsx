@@ -6,6 +6,7 @@ import Calendar from '@components/svg/symbols/Calendar'
 import School from '@components/svg/symbols/School'
 import { cookies } from 'next/headers'
 import './HeroSection.css'
+import config from '@config'
 
 export default async function LandingPage() {
     const lang = (await cookies()).get('lang')?.value || 'no'
@@ -23,13 +24,14 @@ export default async function LandingPage() {
                             {text.heroSection.welcome}
                         </span>
                         <br />
-                        <span className='hero-section_gradient-text'>login.no</span>
+                        <span className='hero-section_gradient-text'>{config.url.MAIN_URL}</span>
                         <div className='hero-section_buttons'>
                             {/* @ts-ignore */}
                             <Button
                                 href='events'
                                 leadingIcon={<Calendar className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 variant='primary'
+                                target=''
                             >
                                 {text.heroSection.secondaryButton}
                             </Button>
@@ -38,6 +40,7 @@ export default async function LandingPage() {
                                 href='about'
                                 leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>}
                                 variant='ghost'
+                                target=''
                             >
                                 {text.heroSection.primaryButton}
                             </Button>

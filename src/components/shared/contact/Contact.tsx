@@ -3,11 +3,11 @@
 import MazeMapEmbed from '@components/shared/mazemap/MazeMapEmbed'
 import no from '@text/contact/no.json'
 import en from '@text/contact/en.json'
-import './Contact.css'
 import { useEffect, useState } from 'react'
 import TravelExplore from '@components/svg/symbols/TravelExplore'
 import { getCookie } from '@utils/cookies'
 import { language } from '../langtoggle/LangToggle'
+import config from '@config'
 // import { getCookie } from '@utils/cookies'
 
 export default function Contact() {
@@ -30,8 +30,8 @@ export default function Contact() {
                 <TravelExplore className='w-[3rem] h-[3rem] fill-[var(--color-text-main)] mr-4' />
                 <span>{text.contact.title}</span>
             </h2>
-            <div className='contact-card_info'>
-                <div className='contact-card_text'>
+            <div className='flex justify-between w-full'>
+                <div>
                     <h4 className='heading-4'>{text.contact.address}:</h4>
                     <p className='p--regular'>
                         Login - Linjeforeningen for IT
@@ -46,16 +46,14 @@ export default function Contact() {
                     <p className='p--regular'>
                         <a
                             className='link link--primary link--underscore-hover'
-                            href='mailto:kontakt@login.no'
+                            href={`mailto:${config.url.MAIL_URL}`}
                         >
-                            kontakt@login.no
+                            {config.url.MAIL_URL}
                         </a>
                     </p>
                 </div>
-                <div className='contact-card_map'>
-                    <MazeMapEmbed 
-                        poi={229153}
-                    />
+                <div className='relative w-full max-w-[40rem] bottom-16 h-[50vh]'>
+                    <MazeMapEmbed poi={229153} height={345} />
                 </div>
             </div>
         </div>

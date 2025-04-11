@@ -13,7 +13,7 @@ type DecoratedPictureProps = {
     className?: string
 }
 
-function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
+export default function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
     const [isLoaded, setIsLoaded] = useState(false)
     const maskID = `mask-${variant}-${width}-${height}`
 
@@ -169,8 +169,6 @@ function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = 
         </picture>
     )
 }
-
-export default DecoratedPicture
 
 // import Image from 'next/image'
 // import './DecoratedPicture.css'
