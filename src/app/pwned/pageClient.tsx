@@ -40,8 +40,10 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
     }, [])
 
     return (
-        <div className='h-[calc(100vh-var(--h-topbar))] w-full flex flex-col justify-center items-center'>
-            <h1 className='text-xl font-semibold'>{memes.pwned[pwnedNumber].text}</h1>
+        <div className='h-[calc(100vh-var(--h-topbar))] w-full grid grid-rows-[auto,1fr,auto] justify-items-center items-center'>
+            <h1 className='text-xl font-semibold px-[2rem] max-w-[60rem] text-center'>
+                {memes.pwned[pwnedNumber].text}
+            </h1>
             <div className='relative max-h-[25rem] m-[2rem]'>
                 <Image
                     src={`${config.url.CDN_URL}/img/pwned/${memes.pwned[pwnedNumber].image}`} 
@@ -51,8 +53,8 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                     height={400}
                 />
             </div>
-            <div className='flex gap-2 items-center'>
-                <p className='text-xl flex'>
+            <div className='flex gap-2 items-center px-[2rem]'>
+                <p className='text-xl flex text-center'>
                     {memes.text.replace('{time}', `${String(time)} ${seconds}`)}
                 </p>
                 <Image 

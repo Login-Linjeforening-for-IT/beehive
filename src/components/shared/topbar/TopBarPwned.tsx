@@ -25,7 +25,7 @@ export default function TopBar({lang, theme}: TopBarProps) {
                     />
                 </a>
             </div>
-            <nav className='flex w-[calc(100vw-8rem)] justify-end h-[3rem] mr-[1rem] 800px:w-fit 800px:mr-0'>
+            <nav className='flex w-full justify-end h-[3rem] 800px:w-fit mr-0'>
                 <ThemeToggle />
                 <LangToggle serverLang={lang} />
             </nav>
