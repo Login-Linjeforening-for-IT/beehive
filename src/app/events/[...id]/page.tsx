@@ -208,7 +208,7 @@ async function Event({event}: InnerEventProps) {
                             title={
                                 <>
                                     {/* @ts-ignore */}
-                                    <Gavel className=''/> {lang === 'en' ? event.rule.name_en : event.rule.name_no}
+                                    <Gavel className='fill-[var(--color-text-main)] h-[1.75rem]'/> {lang === 'en' ? event.rule.name_en : event.rule.name_no}
                                 </>
                             }
                         >

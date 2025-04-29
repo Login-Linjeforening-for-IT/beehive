@@ -17,8 +17,8 @@ export default function DropDownBox({ title, children }: { title:ReactNode, chil
                 // @ts-ignore
                 onClick={e => handleClick(e)}
             >
-                <div>{ title }</div>
-                <ChevronRight className='drop-down-box_toggle-icon'/>
+                <div className='flex flex-row gap-[0.1rem] items-center'>{ title }</div>
+                <ChevronRight className='fill-[var(--color-text-main)] drop-down-box_toggle-icon'/>
             </div>
             <div className={`drop-down-box_content ${isOpen ? 'drop-down-box_content--open' : ''}`}>
                 {children}
