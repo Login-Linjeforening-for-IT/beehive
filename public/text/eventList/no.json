@@ -10,5 +10,6 @@
     "title": "filter",
     "searchHint": "Søk...",
     "resetButton": "Nullstill"
-  }
+  },
+  "calendar": "Add to calendar"
 }

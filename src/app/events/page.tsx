@@ -10,6 +10,8 @@ import ListBulleted from '@components/svg/symbols/ListBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 import FilterItem from '@components/shared/filter/filterItem'
+import Button from '@components/shared/button/Button'
+import Calendar from '@components/svg/symbols/Calendar'
 
 type PageProps = { 
     searchParams: Promise<{ [key: string]: string | undefined }> 
@@ -78,6 +80,11 @@ export default async function Page({searchParams}: PageProps) {
                             <div className='1000px:order-1 flex flex-row'>
                                 <div className='w-full h-full'>
                                     <FilterItem filterData={response} />
+                                    <div className='pt-[1rem]'>
+                                        <Button target={'_self'} leadingIcon={<Calendar className={''} />} href={'https://workerbee.login.no/api/calendar'}>
+                                            <p>{text.calendar}</p>
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className='button-group justify-end absolute right-0 800px:mr-[2.5rem] mr-[1.5rem] 1000px:hidden'>
                                     <GroupToggle
