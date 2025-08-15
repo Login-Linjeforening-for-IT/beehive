@@ -52,7 +52,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             day={event.category_name_no === 'Fadderuka' ? true : false}
                         />
                     ) : (
-                        <>
+                        <div className='relative event-item_picture'>
                             <div className='event-item_date-overlay'>
                                 <DateTile
                                     startDate={new Date(event.time_start)}
@@ -63,19 +63,17 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                     useDayText={event.category_name_no === 'Fadderuka' ? true : false}
                                 />
                             </div>
-                            <picture className='relative event-item_picture'>
-                                {event.image_small ? (
-                                    <Image
-                                        src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
-                                        alt={event.image_small}
-                                        fill={true}
-                                        className='object-cover'
-                                    />
-                                ) : (
-                                    getDefaultBanner(event.category_name_no, event.category_color)
-                                )}
-                            </picture>
-                        </>
+                            {event.image_small ? (
+                                <Image
+                                    src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
+                                    alt={event.image_small}
+                                    fill={true}
+                                    className='object-cover'
+                                />
+                            ) : (
+                                getDefaultBanner(event.category_name_no, event.category_color)
+                            )}
+                        </div>
                     )}
                     <div className='event-item_info'>
                         <div className='event-item_name'>{lang === 'en' && event.name_en ? event.name_en : event.name_no}</div>
@@ -110,7 +108,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                         }
                     </div>
                     {variant === 'list-item' &&
-                        <picture className='relative event-item_picture'>
+                        <div className='relative event-item_picture'>
                             {event.image_small ? (
                                 <Image
                                     src={`${config.url.CDN_URL}/img/events/small/${event.image_small}`}
@@ -121,7 +119,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             ) : (
                                 getDefaultBanner(event.category_name_no, event.category_color)
                             )}
-                        </picture>
+                        </div>
                     }
                 </div>
             </div>

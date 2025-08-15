@@ -101,11 +101,10 @@
   flex-direction: column;
 }
 
-.event-item_date-overlay {
+.event-item--card .event-item_date-overlay {
   position: absolute;
-}
-
-.event-item_date-overlay {
+  top: 0.4rem;
+  left:0.4rem;
   z-index: 2;
 }
 
@@ -127,8 +126,9 @@
 }
 
 @container event-item--card (width > 360px) {
-  .event-item_date-overlay {
-    margin: 0.8rem;
+  .event-item--card .event-item_date-overlay {
+    top: 0.4rem;
+    left: 0.4rem;
   }
 
   .event-item--card .event-item_name {
