@@ -37,17 +37,17 @@ export default function Navigation({lang}: NavigationProps) {
 
     return (
         <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[40rem]'>
-            <Link href='events'>
+            <Link href='/events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.events}
                 </li>
             </Link>
-            <Link href='career'>
+            <Link href='/career'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.jobad}
                 </li>
             </Link>
-            <Link href='companies'>
+            <Link href='/companies'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.companies}
                 </li>
@@ -67,7 +67,7 @@ export default function Navigation({lang}: NavigationProps) {
                     <div className='main-nav-dropdown_wrapper'>
                         <ul className='main-nav-dropdown_items'>
                             <Link
-                                href='about'
+                                href='/about'
                                 ref={navItemRefs.current[0] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
@@ -77,7 +77,7 @@ export default function Navigation({lang}: NavigationProps) {
                                 </li>
                             </Link>
                             <Link
-                                href='verv'
+                                href='/verv'
                                 ref={navItemRefs.current[1] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
@@ -87,7 +87,7 @@ export default function Navigation({lang}: NavigationProps) {
                                 </li>
                             </Link>
                             <Link
-                                href='fond'
+                                href='/fond'
                                 ref={navItemRefs.current[2] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
