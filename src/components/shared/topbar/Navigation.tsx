@@ -37,23 +37,23 @@ export default function Navigation({lang}: NavigationProps) {
 
     return (
         <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[40rem]'>
-            <Link href='events'>
+            <Link href='/events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.events}
                 </li>
             </Link>
-            <Link href='career'>
+            <Link href='/career'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.jobad}
                 </li>
             </Link>
-            <Link href='companies'>
+            <Link href='/companies'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.companies}
                 </li>
             </Link>
             <Link target='_blank' href={config.url.EXAM_URL}>
-                <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
+                <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 pr-2 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.exam}
                     <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
                 </li>
@@ -67,7 +67,7 @@ export default function Navigation({lang}: NavigationProps) {
                     <div className='main-nav-dropdown_wrapper'>
                         <ul className='main-nav-dropdown_items'>
                             <Link
-                                href='about'
+                                href='/about'
                                 ref={navItemRefs.current[0] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
@@ -77,7 +77,7 @@ export default function Navigation({lang}: NavigationProps) {
                                 </li>
                             </Link>
                             <Link
-                                href='verv'
+                                href='/verv'
                                 ref={navItemRefs.current[1] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
@@ -87,7 +87,7 @@ export default function Navigation({lang}: NavigationProps) {
                                 </li>
                             </Link>
                             <Link
-                                href='fond'
+                                href='/fond'
                                 ref={navItemRefs.current[2] as Ref<HTMLAnchorElement>}
                                 onClick={handleClick}
                             >
@@ -96,7 +96,7 @@ export default function Navigation({lang}: NavigationProps) {
                                     {text.nav.fondet}
                                 </li>
                             </Link>
-                            <a
+                            <Link
                                 title='Wiki'
                                 href={config.url.WIKI_URL}
                                 target='_blank'
@@ -110,7 +110,7 @@ export default function Navigation({lang}: NavigationProps) {
                                     Wiki
                                     <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
                                 </li>
-                            </a>
+                            </Link>
                         </ul>
                     </div>
                 </div>

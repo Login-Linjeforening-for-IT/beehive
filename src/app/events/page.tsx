@@ -11,7 +11,7 @@ import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 import FilterItem from '@components/shared/filter/filterItem'
 import Button from '@components/shared/button/Button'
-import Calendar from '@components/svg/symbols/Calendar'
+import Download from '@components/svg/symbols/Download'
 
 type PageProps = { 
     searchParams: Promise<{ [key: string]: string | undefined }> 
@@ -49,11 +49,48 @@ export default async function Page({searchParams}: PageProps) {
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            {(
-                <>
-                    <div className='hidden 1000px:flex justify-between items-center 400px:gap-[1rem] 400px:p-0 1000px:justify-end 1000px:p-[0_0_1rem_0] page-section--normal'>
-                        {/* @ts-ignore */}
-                        <div className='button-group justify-end 1000px:mr-[1rem]'>
+            <div className='hidden 1000px:flex justify-end pb-[1rem] page-section--normal'>
+                {/* @ts-ignore */}
+                <div className='justify-end'>
+                    <GroupToggle
+                        options={[
+                            {
+                                leadingIcon: (
+                                    <GridView className='w-[1.5rem] fill-[var(--color-text-main)]' />
+                                ),
+                                name: 'grid'
+                            },
+                            {
+                                leadingIcon: (<ListBulleted className='w-[1.5rem] fill-[var(--color-text-main)]' />),
+                                name: 'list'
+                            },
+                        ]}
+                        // activeVariant='primary-outlined'
+                        // inactiveVariant='secondary-outlined'
+                        groupVariant='ghost'
+                        buttonVariant='ghost'
+                        size='medium'
+                    />
+                </div>
+            </div>
+            <div className='page-section--without-gaps'>
+                <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
+                    <div className='1000px:order-1 flex flex-row'>
+                        <div className='w-full'>
+                            <FilterItem filterData={response} />
+                            <div className='hidden 1000px:block pt-[2rem]'>
+                                <Button size='medium' variant='secondary-outlined' target='_self' trailingIcon={<Download className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'>
+                                    {text.calendar}
+                                </Button>
+                            </div>
+                        </div>
+                        <div className='flex gap-2 items-center right-0 left-[7rem] justify-between absolute mx-[0.5rem] 400px:mx-[1rem] 800px:mx-[2rem] 1000px:hidden'>
+                            <div className='hidden 500px:inline-flex'>
+                                <Button size='medium' variant='secondary-outlined' target='_self' trailingIcon={<Download className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'>
+                                    {text.calendar}
+                                </Button>
+                            </div>
+                            <Button className='500px:hidden' size='medium' variant='secondary-outlined' target='_self' leadingIcon={<Download className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'/>
                             <GroupToggle
                                 options={[
                                     {
@@ -69,138 +106,104 @@ export default async function Page({searchParams}: PageProps) {
                                 ]}
                                 // activeVariant='primary-outlined'
                                 // inactiveVariant='secondary-outlined'
-                                groupVariant='ghost'
-                                buttonVariant='ghost'
+                                groupVariant='secondary-outlined'
                                 size='medium'
                             />
                         </div>
                     </div>
-                    <div className='page-section--without-gaps'>
-                        <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
-                            <div className='1000px:order-1 flex flex-row'>
-                                <div className='w-full h-full'>
-                                    <FilterItem filterData={response} />
-                                    <div className='pt-[1rem]'>
-                                        <Button target={'_self'} leadingIcon={<Calendar className={''} />} href={'https://workerbee.login.no/api/calendar'}>
-                                            <p>{text.calendar}</p>
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className='button-group justify-end absolute right-0 800px:mr-[2.5rem] mr-[1.5rem] 1000px:hidden'>
-                                    <GroupToggle
-                                        options={[
-                                            {
-                                                leadingIcon: (
-                                                    <GridView className='w-[1.5rem] fill-[var(--color-text-main)]' />
-                                                ),
-                                                name: 'grid'
-                                            },
-                                            {
-                                                leadingIcon: (<ListBulleted className='w-[1.5rem] fill-[var(--color-text-main)]' />),
-                                                name: 'list'
-                                            },
-                                        ]}
-                                        // activeVariant='primary-outlined'
-                                        // inactiveVariant='secondary-outlined'
-                                        groupVariant='ghost'
-                                        buttonVariant='ghost'
-                                        size='medium'
-                                    />
-                                </div>
-                            </div>
-                            <div className='1000px:order-2'>
-                                <ul
-                                    className={`list-none pt-[1rem] 1000px:pt-0 events_list${
-                                        eventsView === 'grid-view' ? '--grid-view grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
-                                    }`}
-                                >
+                    <div className='1000px:order-2'>
+                        <ul
+                            className={`list-none pt-[1rem] 1000px:pt-0 events_list${
+                                eventsView === 'grid-view' ? '--grid-view grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
+                            }`}
+                        >
 
-                                    {currentWeekEvents?.length > 0 && (
-                                        <>
-                                            {eventsView == 'list-view' && (
-                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] mt-[0.2rem]'>
-                                                    <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
-                                                        {text.thisWeek}
-                                                    </p>
-                                                </div>
-                                            )}
-                                            {currentWeekEvents.map((e, idx) => (
-                                                <li key={idx}>
-                                                    <EventListItem
-                                                        key={e.id}
-                                                        event={e}
-                                                        highlight={e.highlight}
-                                                        variant={
-                                                            eventsView === 'grid-view'
-                                                                ? 'card'
-                                                                : 'list-item'
-                                                        }
-                                                    />
-                                                </li>
-                                            ))}
-                                        </>
-                                    )
-                                    }
+                            {currentWeekEvents?.length > 0 && (
+                                <>
+                                    {eventsView == 'list-view' && (
+                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] mt-[0.2rem]'>
+                                            <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                {text.thisWeek}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {currentWeekEvents.map((e, idx) => (
+                                        <li key={idx}>
+                                            <EventListItem
+                                                key={e.id}
+                                                event={e}
+                                                highlight={e.highlight}
+                                                variant={
+                                                    eventsView === 'grid-view'
+                                                        ? 'card'
+                                                        : 'list-item'
+                                                }
+                                            />
+                                        </li>
+                                    ))}
+                                </>
+                            )
+                            }
 
-                                    {nextWeekEvents?.length > 0 && (
-                                        <>
-                                            {eventsView == 'list-view' && (
-                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
-                                                    <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
-                                                        {text.nextWeek}
-                                                    </p>
-                                                </div>
-                                            )}
-                                            {nextWeekEvents.map((e, idx) => (
-                                                <li key={idx}>
-                                                    <EventListItem
-                                                        key={e.id}
-                                                        event={e}
-                                                        highlight={e.highlight}
-                                                        variant={
-                                                            eventsView === 'grid-view'
-                                                                ? 'card'
-                                                                : 'list-item'
-                                                        }
-                                                    />
-                                                </li>
-                                            ))}
-                                        </>
-                                    )
-                                    }
+                            {nextWeekEvents?.length > 0 && (
+                                <>
+                                    {eventsView == 'list-view' && (
+                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
+                                            <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                {text.nextWeek}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {nextWeekEvents.map((e, idx) => (
+                                        <li key={idx}>
+                                            <EventListItem
+                                                key={e.id}
+                                                event={e}
+                                                highlight={e.highlight}
+                                                variant={
+                                                    eventsView === 'grid-view'
+                                                        ? 'card'
+                                                        : 'list-item'
+                                                }
+                                            />
+                                        </li>
+                                    ))}
+                                </>
+                            )
+                            }
 
-                                    {futureEvents?.length > 0 && (
-                                        <>
-                                            {eventsView == 'list-view' && currentWeekEvents?.length + nextWeekEvents?.length > 0 && (
-                                                <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
-                                                    <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
-                                                        {text.later}
-                                                    </p>
-                                                </div>
-                                            )}
-                                            {futureEvents.map((e, idx) => (
-                                                <li key={idx}>
-                                                    <EventListItem
-                                                        key={e.id}
-                                                        event={e}
-                                                        highlight={e.highlight}
-                                                        variant={
-                                                            eventsView === 'grid-view'
-                                                                ? 'card'
-                                                                : 'list-item'
-                                                        }
-                                                    />
-                                                </li>
-                                            ))}
-                                        </>
-                                    )
-                                    }
-                                </ul>
+                            {futureEvents?.length > 0 && (
+                                <>
+                                    {eventsView == 'list-view' && currentWeekEvents?.length + nextWeekEvents?.length > 0 && (
+                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
+                                            <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
+                                                {text.later}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {futureEvents.map((e, idx) => (
+                                        <li key={idx}>
+                                            <EventListItem
+                                                key={e.id}
+                                                event={e}
+                                                highlight={e.highlight}
+                                                variant={
+                                                    eventsView === 'grid-view'
+                                                        ? 'card'
+                                                        : 'list-item'
+                                                }
+                                            />
+                                        </li>
+                                    ))}
+                                </>
+                            )
+                            }
+                        </ul>
 
-                                {events.length > 0 && (
-                                    <div className='events_load-more'>
-                                        {/* @ts-ignore */}
-                                        {/* <Button
+                        {events.length > 0 && (
+                            <div className='events_load-more'>
+                                {/* @ts-ignore */}
+                                {/* <Button
                                             href=''
                                             onClick={loadItems}
                                             variant='secondary'
@@ -209,13 +212,11 @@ export default async function Page({searchParams}: PageProps) {
                                         >
                                             {text.loadMore}
                                         </Button> */}
-                                    </div>
-                                )}
                             </div>
-                        </div>
+                        )}
                     </div>
-                </>
-            )}
+                </div>
+            </div>
         </div>
     )
 }

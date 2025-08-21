@@ -1,14 +1,15 @@
 .hero-section {
     width: 100%;
-    margin-top: calc(var(--h-topbar) * -1); /* counter the margin from main */
     background: var(--gradient-hero-section-bg);
-    height: 35rem;
+    height: 100vh;
+    max-height: 40rem;
+    min-height: 32rem;
 }
 
 .hero-section_container {
     max-width: 40rem;
     top: 50%;
-    margin: var(--h-topbar) 10vw;
+    margin: var(--h-topbar);
     transform: translateY(-50%);
     position: relative;
 }

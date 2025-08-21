@@ -1,4 +1,5 @@
 'use client'
+
 import AccordionItem from '@components/shared/accordion/AccordionItem'
 import AccordionContent from '@components/shared/accordion/AccordionContent'
 import { useEffect, useState } from 'react'
@@ -28,31 +29,34 @@ export default function StudyProgramsAccordion() {
                 setActiveAccordionItem={setActiveAccordionItem} 
             />
             <AccordionContent id='bachelor' activeAccordionItem={activeAccordionItem}>
-                <li className='flex flex-row accordion_content-item'>
-                    {text.bachelor.computerEngineer}
+                <li className='accordion_content-item'>
                     <Link 
                         href='https://www.ntnu.no/studier/bidata' 
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.bachelor.computerEngineer}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.bachelor.digsec}
                     <Link 
                         href='https://www.ntnu.no/studier/bdigsec'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.bachelor.digsec}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.bachelor.prog}
                     <Link 
                         href='https://www.ntnu.no/studier/bprog'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.bachelor.prog}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
             </AccordionContent>
@@ -64,28 +68,34 @@ export default function StudyProgramsAccordion() {
             />
             <AccordionContent id='master' activeAccordionItem={activeAccordionItem}>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.master.infosec}
+                    
                     <Link 
                         href='https://www.ntnu.no/studier/mis'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.master.infosec}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.master.applied}
                     <Link 
                         href='https://www.ntnu.edu/studies/macs'
-                        target='_blank'><ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
+                    >
+                        {text.master.applied}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
-                <li className='flex flex-row accordion_content-item'>
-                    {text.master.colorimg}
+                <li className='accordion_content-item'>
                     <Link 
                         href='https://www.ntnu.no/studier/mscosi'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.master.colorimg}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
             </AccordionContent>
@@ -97,30 +107,33 @@ export default function StudyProgramsAccordion() {
             />
             <AccordionContent id='phd' activeAccordionItem={activeAccordionItem}>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.phd.infosec}
                     <Link 
                         href='https://www.ntnu.no/studier/phisct'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.phd.infosec}
+                        <ArrowOutward className='max-max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.phd.data}
                     <Link 
                         href='https://www.ntnu.no/studier/phcos'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.phd.data}
+                        <ArrowOutward className='max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    {text.phd.tele}
                     <Link 
                         href='https://www.ntnu.no/studier/phet'
                         target='_blank'
+                        className='flex flex-row items-center gap-[0.5rem]'
                     >
-                        <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        {text.phd.tele}
+                        <ArrowOutward className='max-max-w-[1.5rem] w-full h-[1.5rem] fill-[var(--color-text-main)]'/>
                     </Link>
                 </li>
             </AccordionContent>

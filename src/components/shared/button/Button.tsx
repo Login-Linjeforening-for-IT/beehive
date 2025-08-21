@@ -3,8 +3,8 @@ import './Button.css'
 import { ReactNode } from 'react'
 
 type ButtonProps = {
-    children: ReactNode
-    leadingIcon: React.JSX.Element | null
+    children?: ReactNode
+    leadingIcon?: ReactNode
     size?: string
     href: string
     onClick?: React.MouseEventHandler<HTMLAnchorElement>

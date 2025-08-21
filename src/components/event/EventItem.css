@@ -31,6 +31,7 @@
   border-radius: var(--border-radius);
   background-color: rgba(128, 128, 128, 0.05);
   aspect-ratio: 10 / 4;
+  overflow: hidden;
 }
 
 .event-item_info {
@@ -73,7 +74,7 @@
 }
 
 .event-item_icon {
-  color: var(---color-text-regular);
+  color: var(--color-text-regular);
   padding-right: 0.3rem;
   line-height: inherit;
   font-size: 1.3em;
