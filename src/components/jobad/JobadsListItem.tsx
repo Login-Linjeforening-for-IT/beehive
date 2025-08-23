@@ -52,7 +52,7 @@ export default async function JobadsListItem({ jobad }: any) {
                 />
             </div>
                     }
-                    <picture className='relative h-full aspect-[3/2] 400px:h-[4.5rem] 600px:h-[7rem] 800px:h-[8rem] jobads-item_picture'>
+                    <div className='relative h-full aspect-[3/2] 400px:h-[4.5rem] 600px:h-[7rem] 800px:h-[8rem] jobads-item_picture'>
                         {jobad.organization_logo ? (
                             <Image
                                 className='jobads-item_img'
@@ -68,7 +68,7 @@ export default async function JobadsListItem({ jobad }: any) {
                                 fill={true}
                             />
                         )}
-                    </picture>
+                    </div>
                     <div className='jobads-item_info'>
                         <div className='jobads-item_name'>{lang === 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}</div>
                         <ul className='jobads-item_details'>

@@ -65,7 +65,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                 <div className={`jobad-page jobad-page--${jobad.job.banner_image ? 'banner' : 'noBanner'}`}>
                     <div className='jobad-details'>
                         <div className='flex flex-row flex-wrap gap-[1rem] mb-[2rem] 800px:flex-col'>
-                            <picture className='jobad-details_image'>
+                            <div className='jobad-details_image'>
                                 <Image
                                     src={!jobad?.organization?.logo ? '/assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
                                     alt={jobad.organization.logo}
@@ -73,7 +73,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     width={300}
                                     height={200}
                                 />
-                            </picture>
+                            </div>
                             <div className='jobad-details_company-name'>
                                 {/* @ts-ignore */}
                                 {jobad.organization.link_homepage ? (
@@ -177,13 +177,13 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                         )}
                     </div>
                     {jobad.job.banner_image &&
-                            <picture className='relative w-full aspect-[10/4] jobad-banner'>
+                            <div className='relative w-full aspect-[10/4] jobad-banner'>
                                 <Image
                                     src={`${config.url.CDN_URL}/img/ads/${jobad.job.banner_image}`}
                                     alt={jobad.job.banner_image}
                                     fill={true}
                                 />
-                            </picture>
+                            </div>
                     }
                     <div className='jobad-description'>
                         <Article

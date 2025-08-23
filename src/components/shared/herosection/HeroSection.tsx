@@ -16,9 +16,9 @@ export default async function LandingPage() {
         <div className='hero-section'>
             <div className='hero-section_container'>
                 <div className='hero-section_top'>
-                    <picture className='hero-section_logo'>
+                    <div className='hero-section_logo'>
                         <LoginLogo />
-                    </picture>
+                    </div>
                     <div className='hero-section_content'>
                         <span className='hero-section_top-text'>
                             {text.heroSection.welcome}

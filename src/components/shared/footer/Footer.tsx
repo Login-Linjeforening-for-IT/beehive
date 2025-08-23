@@ -17,7 +17,7 @@ export default async function Footer() {
         <div className='footer-content'>
             <div className='footer-content_logos-conteiner'>
                 <div className='footer-content_logo'>
-                    <picture className='footer-content_logo-picture'>
+                    <div className='footer-content_logo-picture'>
                         <Image
                             src={`${config.url.CDN_URL}/img/logo/logo-tekst-white.svg`}
                             className='footer-content_logo-image'
@@ -25,11 +25,11 @@ export default async function Footer() {
                             width={800}
                             height={200}
                         />
-                    </picture>
+                    </div>
                 </div>
                 <div className='footer-content_logo'>
                     <Link href='https://www.mnemonic.io/' target='_blank'>
-                        <picture className='footer-content_logo-picture'>
+                        <div className='footer-content_logo-picture'>
                             <Image
                                 src={`${config.url.CDN_URL}/img/company/mnemonic-logo_light-nopayoff-2021.svg`}
                                 className='footer-content_logo-image'
@@ -37,7 +37,7 @@ export default async function Footer() {
                                 width={800}
                                 height={200}
                             />
-                        </picture>
+                        </div>
                     </Link>
                     <p className='footer-content_logo-text'>{text.footer.sponsor}</p>
                 </div>

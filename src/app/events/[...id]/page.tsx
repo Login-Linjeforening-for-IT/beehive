@@ -197,9 +197,9 @@ async function Event({event}: InnerEventProps) {
                     signupDeadline={new Date(event.event.time_signup_deadline)}
                 />
             </div>
-            <picture className='event-banner'>
+            <div className='event-banner'>
                 <EventBanner event={event} />
-            </picture>
+            </div>
             <div className='event-description'>
                 <Article
                     // @ts-ignore
