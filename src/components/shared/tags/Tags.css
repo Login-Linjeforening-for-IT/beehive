@@ -1,7 +1,7 @@
 /* tags */
 
 .tag {
-  font-size: .75rem;
+  font-size: .7rem;
   border-radius: 10em;
   display: block;
   width: fit_container;
@@ -76,6 +76,6 @@
 
 @media only screen and (min-width: 800px) {
   .tag {
-    font-size: .8rem;
+    font-size: .75rem;
   }
 }

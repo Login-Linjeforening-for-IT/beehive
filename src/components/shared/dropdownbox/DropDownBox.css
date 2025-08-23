@@ -4,7 +4,6 @@
 
 .drop-down-box_toggle {
     font-size: 1.2rem;
-    line-height: 2.25rem;
     padding: .5rem .5rem .5rem 1rem;
     transition: background-color .2s;
     cursor: pointer;

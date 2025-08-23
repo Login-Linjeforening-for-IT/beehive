@@ -53,7 +53,7 @@ export default function Navigation({lang}: NavigationProps) {
                 </li>
             </Link>
             <Link target='_blank' href={config.url.EXAM_URL}>
-                <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
+                <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 pr-2 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.exam}
                     <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
                 </li>
@@ -96,7 +96,7 @@ export default function Navigation({lang}: NavigationProps) {
                                     {text.nav.fondet}
                                 </li>
                             </Link>
-                            <a
+                            <Link
                                 title='Wiki'
                                 href={config.url.WIKI_URL}
                                 target='_blank'
@@ -110,7 +110,7 @@ export default function Navigation({lang}: NavigationProps) {
                                     Wiki
                                     <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
                                 </li>
-                            </a>
+                            </Link>
                         </ul>
                     </div>
                 </div>

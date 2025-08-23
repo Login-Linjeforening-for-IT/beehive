@@ -25,7 +25,7 @@ export default async function layout({children}: {children: ReactNode}) {
     // LogoConsoleOutput()
     return (
         <html lang='en' className={theme}>
-            <body className='absolute top-0 h-[100vh] w-[100vw] bg-[var(--color-bg-body)]'>
+            <body className='absolute top-0 h-[100vh] w-full bg-[var(--color-bg-body)]'>
                 {page !== 'pwned' ?
                     <header className='main-header fixed top-0 z-900 w-full'>
                         <TopBar lang={lang} />

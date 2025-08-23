@@ -34,17 +34,21 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
 
     return (
         <nav className={`mobile-nav${open ? ' mobile-nav--open' : ''}`}>
-            <Link onClick={close} href='events' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href='/events' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.events}</li>
             </Link>
-            <Link onClick={close} href='career' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href='/career' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.jobad}</li>
             </Link>
-            <Link onClick={close} href='companies' tabIndex={open ? 0 : -1}>
+            <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
             <Link target='_blank' onClick={close} href={config.url.EXAM_URL} tabIndex={open ? 0 : -1}>
-                <li className='mobile-nav_item'>{text.nav.exam}</li>
+                <li className='flex flex-row gap-2 mobile-nav_item'>
+                    {text.nav.exam}
+                    <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]' />
+                </li>
+
             </Link>
             <div
                 className={`mobile-nav-dropdown${
@@ -56,45 +60,45 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
                     onClick={toggleDropdown}
                     tabIndex={open ? 0 : -1}
                 >
-                    <li className='flex flex-row items-center mobile-nav_item'>
+                    <li className='flex flex-row gap-2 items-center mobile-nav_item'>
                         {text.nav.about}
-                        <ArrowDown className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                        <ArrowDown className={`w-[1.5rem] h-[1.5rem] fill-white transition-transform duration-400 ${isDropdownOpen ? 'rotate-180' : ''}`}/>
                     </li>
                 </button>
                 <div className='mobile-nav-dropdown_items'>
                     <Link
                         onClick={close}
-                        href='about'
+                        href='/about'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className='mobile-nav-dropdown_item'>{text.nav.general}</li>
                     </Link>
                     <Link
                         onClick={close}
-                        href='verv'
+                        href='/verv'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className='mobile-nav-dropdown_item'>{text.nav.verv}</li>
                     </Link>
                     <Link
                         onClick={close}
-                        href='fond'
+                        href='/fond'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
                         <li className='mobile-nav-dropdown_item'>{text.nav.fondet}</li>
                     </Link>
-                    <a
+                    <Link
                         title='Wiki'
                         href={config.url.WIKI_URL}
                         target='_blank'
                         rel='noreferrer'
                         tabIndex={open && isDropdownOpen ? 0 : -1}
                     >
-                        <li className='flex flex-row mobile-nav-dropdown_item'>
+                        <li className='flex flex-row gap-2 mobile-nav-dropdown_item'>
                             Wiki
-                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>
+                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
                         </li>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>

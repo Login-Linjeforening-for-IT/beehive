@@ -44,9 +44,8 @@
 .jobad-details_image {
     display: block;
     width: 7.5rem;
-    border-radius: .2rem;
-    aspect-ratio: 3 / 2;
-    object-fit: contain;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .jobad-details_company-name {
@@ -125,7 +124,6 @@
 
     .jobad-details_apply-btn {
         width: fit-content;
-        min-width: 10rem;
     }
 
     .jobad-description {
@@ -187,10 +185,6 @@
         transition: .1s;
     }
 
-    .jobad-details_company-name {
-        margin-top: 1rem;
-    }
-
     .jobad-details_image {
         width: 12rem;
     }
@@ -219,7 +213,7 @@
         height: 2.6rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-bg-surface);
+        border-color: var(--color-border-default);
         border-style: solid solid none none;
         top: 0;
         right: 0;
@@ -232,7 +226,7 @@
         height: 2.6rem;
         position: absolute;
         border-width: .7rem;
-        border-color: var(--color-bg-surface);
+        border-color: var(--color-border-default);
         border-style: none solid solid none;
         bottom: 0;
         right: 0;

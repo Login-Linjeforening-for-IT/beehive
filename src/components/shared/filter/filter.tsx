@@ -139,8 +139,7 @@ export default function FilterGroup({ filters, close }: any) {
                         onClick={close}
                         size='medium'
                         className='filter-groups_close'
-                    >
-                    </Button>
+                    />
                 }
             </div>
         </div>

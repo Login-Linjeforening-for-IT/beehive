@@ -79,7 +79,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                                 </li>
                             )) :
                                 <Alert
-                                    variant='danger'
+                                    variant='info'
                                     className='page-section--normal page-section--alert'
                                 >
                                     {lang === 'no' ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?' : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'} 

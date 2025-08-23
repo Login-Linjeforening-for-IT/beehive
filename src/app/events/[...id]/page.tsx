@@ -5,6 +5,7 @@ import MazeMapEmbed from '@components/shared/mazemap/MazeMapEmbed'
 import EventSignUp from '../EventSignUp'
 import Article from '@components/shared/article/Article'
 import MarkdownRender from '@components/shared/markdownrender/MarkdownRender'
+import Alert from '@components/shared/alert/Alert'
 import DefaultEventBanner from '@components/svg/defaultbanners/DefaultEventBanner'
 import DefaultCtfBanner from '@components/svg/defaultbanners/DefaultCtfBanner'
 import DefaultTekkomBanner from '@components/svg/defaultbanners/DefaultTekkomBanner'
@@ -39,12 +40,23 @@ type EventBannerProps = {
 export default async function EventPage({ params }: PromisedPageProps) {
     const id = (await params).id
     const event = (await getEvent(id))
+    const lang = (await cookies()).get('lang')?.value || 'no'
+     
+    const errorMsg = lang === 'no'
+        ? 'Oi! Her var det tomt... '
+        : 'Oh! Looks empty... '
 
     return (
         <>
-            <div className='event-page'>
-                {event && <Event event={event} />}
-            </div>
+            {event && <Event event={event} />}
+            {!event && (
+                <Alert
+                    variant='danger'
+                    className='page-section--normal page-section--alert'
+                >
+                    {errorMsg}
+                </Alert>
+            )}
         </>
     )
 }
@@ -55,7 +67,7 @@ async function Event({event}: InnerEventProps) {
     const text: any = lang === 'no' ? no : en
 
     return (
-        <>
+        <div className='event-page'>
             <div className='event-details'>
                 <div className='event-datetime-display'>
                     <DateTile
@@ -74,8 +86,8 @@ async function Event({event}: InnerEventProps) {
                                 // @ts-ignore
                                 new Date(event.event.time_end)
                             ) && 
-                            // @ts-ignore
-                    <span className='event-datetime-display_live-dot' />
+                                // @ts-ignore
+                                <span className='event-datetime-display_live-dot' />
                             }
                             {formatEventStatusDate(
                                 // @ts-ignore
@@ -87,13 +99,13 @@ async function Event({event}: InnerEventProps) {
                         </div>
                         {/* @ts-ignore */}
                         {event.event.time_type !== 'whole_day' &&
-                    <div className='flex flex-row items-center event-datetime-display_time'>
-                        <Schedule className='w-[1.8rem] h-[1.8rem] fill-[var(--color-text-main)] event-datetime-display_time-icon'/>
-                        {/* @ts-ignore */}
-                        {event.event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.event.time_start))}
-                        {/* @ts-ignore */}
-                        {event.event.time_type === 'default' && ` - ${formatTimeHHMM(new Date(event.event.time_end))}`}
-                    </div>
+                            <div className='flex flex-row items-center event-datetime-display_time'>
+                                <Schedule className='w-[1.8rem] h-[1.8rem] fill-[var(--color-text-main)] event-datetime-display_time-icon'/>
+                                {/* @ts-ignore */}
+                                {event.event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.event.time_start))}
+                                {/* @ts-ignore */}
+                                {event.event.time_type === 'default' && ` - ${formatTimeHHMM(new Date(event.event.time_end))}`}
+                            </div>
                         }
                     </div>
                 </div>
@@ -228,7 +240,7 @@ async function Event({event}: InnerEventProps) {
                     <MazeMapEmbed campusID={event.location.mazemap_campus_id} poi={event.location.mazemap_poi_id} />
                 </div>
             )}
-        </>
+        </div>
     )
 }
 
@@ -247,7 +259,7 @@ async function EventBanner({event}: EventBannerProps) {
                 alt={lang === 'no' ? event?.event.name_no : event.event.name_en}
                 width={1000}
                 height={400}
-                className='relative w-full rounded-var[(--border-radius)]'
+                className='w-full rounded-var[(--border-radius)]'
             />
         </>
     )
