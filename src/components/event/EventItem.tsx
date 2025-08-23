@@ -63,21 +63,23 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                     useDayText={event.category_name_no === 'Fadderuka' ? true : false}
                                 />
                             </div>
-                            {event.image_small ? (
-                                <Image
-                                    src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
-                                    alt={event.image_small}
-                                    fill={true}
-                                    className='object-cover'
-                                />
-                            ) : (
-                                getDefaultBanner(event.category_name_no, event.category_color)
-                            )}
+                            <picture className='relative event-item_picture'>
+                                {event.image_small ? (
+                                    <Image
+                                        src={config.url.CDN_URL + '/img/events/small/' + event.image_small}
+                                        alt={event.image_small}
+                                        fill={true}
+                                        className='object-cover'
+                                    />
+                                ) : (
+                                    getDefaultBanner(event.category_name_no, event.category_color)
+                                )}
+                            </picture>
                         </div>
                     )}
                     <div className='event-item_info'>
                         <div className='event-item_name'>{lang === 'en' && event.name_en ? event.name_en : event.name_no}</div>
-                        <ul className='event-item_details'>
+                        <ul className='event-item_details color-[#e6e6e6]'>
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                                 <li className='flex text-[0.9rem]'>
                                     <Schedule className='w-[22px] h-[22px] event-item_icon fill-[var(--color-text-main)]' />

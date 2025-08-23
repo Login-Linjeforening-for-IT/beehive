@@ -52,13 +52,13 @@
 }
 
 .image-carousel_nav-item--left::before {
-  border-top: 0.4rem solid var(--color-primary);
-  border-left: 0.4rem solid var(--color-primary);
+  border-top: 0.5rem solid var(--color-primary);
+  border-left: 0.5rem solid var(--color-primary);
 }
 
 .image-carousel_nav-item--right::before {
-  border-right: 0.4rem solid var(--color-primary);
-  border-bottom: 0.4rem solid var(--color-primary);
+  border-right: 0.5rem solid var(--color-primary);
+  border-bottom: 0.5rem solid var(--color-primary);
 }
 
 .image-carousel--paused .image-carousel_nav-item--left::before,

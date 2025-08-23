@@ -34,7 +34,7 @@ export default async function About() {
                     />
                 </div>
             </section>
-            <section className='page-section--normal 800px:mb-[5rem]'>
+            <section className='page-section--normal mb-[2rem] 800px:mb-[5rem]'>
                 <h2 className='heading-2'>{text.about.title}</h2>
                 <div className='p--columns'>
                     <p
@@ -56,7 +56,7 @@ export default async function About() {
                 <p className='p--regular'>{text.committeeSection.intro}</p>
             </section>
             <CommitteeTabs />
-            <section className='page-section--normal 800px:mb-[5rem] about-public-docs'>
+            <section className='page-section--normal 800px:mb-[5rem]'>
                 <h2 className='heading-2'>{text.publicDocs.title}</h2>
                 <p
                     className='p--regular'

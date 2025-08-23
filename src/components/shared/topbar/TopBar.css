@@ -2,7 +2,7 @@
 
 .mobile-nav {
   position: fixed;
-  top: 6rem;
+  top: 4rem;
   width: calc(100% - 2rem);
   max-width: 35rem;
   margin: 0 auto;

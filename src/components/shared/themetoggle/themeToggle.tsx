@@ -28,7 +28,7 @@ export default function ThemeSwitch() {
 
     return (
         <div className='grid place-items-center justify-end rounded-[var(--border-radius)] hover:bg-[#6464641a]'>
-            <label>
+            <label className='cursor-pointer'>
                 <input
                     type='checkbox'
                     checked={theme === 'light'}
@@ -44,7 +44,7 @@ export default function ThemeSwitch() {
 function ThemeIcon() {
     return (
         <svg
-            className={'theme-toggle_svg'}
+            className='theme-toggle_svg'
             viewBox='0 0 100 100'
             xmlns='http://www.w3.org/2000/svg'
         >
