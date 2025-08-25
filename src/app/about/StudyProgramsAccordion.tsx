@@ -22,16 +22,16 @@ export default function StudyProgramsAccordion() {
 
     return(
         <ul className='w-full accordion'>
-            <AccordionItem 
-                id='bachelor' 
-                title={'Bachelor'} 
-                activeAccordionItem={activeAccordionItem} 
-                setActiveAccordionItem={setActiveAccordionItem} 
+            <AccordionItem
+                id='bachelor'
+                title={'Bachelor'}
+                activeAccordionItem={activeAccordionItem}
+                setActiveAccordionItem={setActiveAccordionItem}
             />
             <AccordionContent id='bachelor' activeAccordionItem={activeAccordionItem}>
                 <li className='accordion_content-item'>
-                    <Link 
-                        href='https://www.ntnu.no/studier/bidata' 
+                    <Link
+                        href='https://www.ntnu.no/studier/bidata'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
                     >
@@ -40,7 +40,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.no/studier/bdigsec'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -50,7 +50,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.no/studier/bprog'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -60,7 +60,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
             </AccordionContent>
-            <AccordionItem 
+            <AccordionItem
                 id='master'
                 title={'Master'}
                 activeAccordionItem={activeAccordionItem}
@@ -68,8 +68,8 @@ export default function StudyProgramsAccordion() {
             />
             <AccordionContent id='master' activeAccordionItem={activeAccordionItem}>
                 <li className='flex flex-row accordion_content-item'>
-                    
-                    <Link 
+
+                    <Link
                         href='https://www.ntnu.no/studier/mis'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -79,7 +79,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.edu/studies/macs'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -89,7 +89,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.no/studier/mscosi'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -99,15 +99,15 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
             </AccordionContent>
-            <AccordionItem 
+            <AccordionItem
                 id='phd'
-                title={'Ph.d'} 
+                title={'Ph.d'}
                 activeAccordionItem={activeAccordionItem}
                 setActiveAccordionItem={setActiveAccordionItem}
             />
             <AccordionContent id='phd' activeAccordionItem={activeAccordionItem}>
                 <li className='flex flex-row accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.no/studier/phisct'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -117,7 +117,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.no/studier/phcos'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'
@@ -127,7 +127,7 @@ export default function StudyProgramsAccordion() {
                     </Link>
                 </li>
                 <li className='flex flex-row accordion_content-item'>
-                    <Link 
+                    <Link
                         href='https://www.ntnu.no/studier/phet'
                         target='_blank'
                         className='flex flex-row items-center gap-[0.5rem]'

@@ -4,7 +4,7 @@ import './ImageCarousel.css'
 import CarouselImage from './CarouselImage'
 
 type NavigateButtonProps = {
-    side: string, 
+    side: string,
     onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
@@ -77,18 +77,18 @@ export default function ImageCarousel({ slides }: {slides: []}) {
         intervalRef.current = setInterval(() => {
             next(true)
         }, 3000)
-        
+
     }
 
     const next = (isAutoCarousel = false) => {
         // prevent new transition if there is an ongoing transition
         if (isTransitioning) return
-        
+
         // automatic transitions are slower
         const transitionDuration = isAutoCarousel ? 1600 : 500
         setIsTransitioning(true)
         setActiveIndex(prevIndex => (prevIndex + 1) % slides.length)
-        
+
         // let transition complete before allowing navigation
         setTimeout(() => setIsTransitioning(false), transitionDuration)
     }
@@ -97,7 +97,7 @@ export default function ImageCarousel({ slides }: {slides: []}) {
         if (isTransitioning) return
         setIsTransitioning(true)
         setActiveIndex(prevIndex => (prevIndex - 1 + slides.length) % slides.length)
-        
+
         // let transition complete before allowing navigation
         setTimeout(() => setIsTransitioning(false), 500)
     }
@@ -136,7 +136,7 @@ export default function ImageCarousel({ slides }: {slides: []}) {
                     side='left'
                     onClick={() => prev()}
                 />
-                {slides.map((slides: {imgSrc:string,title:string,description:string,}, index: number) => (
+                {slides.map((slides: {imgSrc: string,title: string,description: string,}, index: number) => (
                     <SlideItem
                         key={index}
                         image={slides.imgSrc}

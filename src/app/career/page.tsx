@@ -38,7 +38,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
     const jobtypes = typeof filters.jobtypes === 'string' ? filters.jobtypes : null
     const cities = typeof filters.cities === 'string' ? filters.cities : null
     const skills = typeof filters.skills === 'string' ? filters.skills : null
-    
+
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
 
@@ -52,7 +52,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
     const cityFilters = await getCityFilters()
     // @ts-ignore
     if (cityFilters) response['cities'] = cityFilters
-    
+
     const skillFilters = await getSkillFilters()
     // @ts-ignore
     if (skillFilters) response['skills'] = skillFilters
@@ -82,14 +82,14 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                                     variant='info'
                                     className='page-section--normal page-section--alert'
                                 >
-                                    {lang === 'no' ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?' : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'} 
+                                    {lang === 'no' ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?' : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'}
                                 </Alert>
                             }
                         </ul>
                         {/* {showLoadMore && jobads.length > 0 && (
                             // <div className='flex justify-center'>
-                                
-                            //     <Button 
+
+                            //     <Button
                             //         onClick={loadItems}
                             //         variant='secondary'
                             //         className='m-[2rem_0] 400px:w-fit 400px:min-w-[12rem] 400px:mx-auto'
@@ -101,7 +101,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                         )} */}
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     )
 }
@@ -118,7 +118,7 @@ function getLabelKey(key: string) {
 
 // eslint-disable-next-line
 function getJobTypeLabel(v: any) {
-    // @ts-ignore  
+    // @ts-ignore
     const labelNo = jobTypeTranslations['no'][v['job_type']] || v['job_type']
     // @ts-ignore
     const labelEn = jobTypeTranslations['en'][v['job_type']] || labelNo
@@ -131,7 +131,7 @@ function getJobTypeLabel(v: any) {
 async function getJobTypeFilters() {
     try {
         const jobTypeFilterData = await getJobJobtypeFilters()
-        if (typeof jobTypeFilterData === 'string') 
+        if (typeof jobTypeFilterData === 'string')
             throw new Error(jobTypeFilterData)
 
         const label = {
@@ -140,7 +140,7 @@ async function getJobTypeFilters() {
         }
 
         return prepFilter(jobTypeFilterData, 'jobtypes', label, 'job_type', getJobTypeLabel, 'count', 'check')
-    } catch (error) {
+    } catch(error) {
         console.error('Error fetching job type filters:', error)
         return null
     }
@@ -149,7 +149,7 @@ async function getJobTypeFilters() {
 async function getCityFilters() {
     try {
         const jobCityFilterData = await getJobCityFilters()
-        if (typeof jobCityFilterData === 'string') 
+        if (typeof jobCityFilterData === 'string')
             throw new Error(jobCityFilterData)
 
         const label = {
@@ -158,7 +158,7 @@ async function getCityFilters() {
         }
 
         return prepFilter(jobCityFilterData, 'cities', label, 'city', getLabelKey('city'), 'count', 'tag')
-    } catch (error) {
+    } catch(error) {
         console.error('Error fetching city filters:', error)
         return null
     }
@@ -167,7 +167,7 @@ async function getCityFilters() {
 async function getSkillFilters() {
     try {
         const jobSkillFilterData = await getJobSkillFilters()
-        if (typeof jobSkillFilterData === 'string') 
+        if (typeof jobSkillFilterData === 'string')
             throw new Error(jobSkillFilterData)
 
         const label = {
@@ -176,7 +176,7 @@ async function getSkillFilters() {
         }
 
         return prepFilter(jobSkillFilterData, 'skills', label, 'skill', getLabelKey('skill'), 'count', 'tag')
-    } catch (error) {
+    } catch(error) {
         console.error('Error fetching skill filters:', error)
         return null
     }

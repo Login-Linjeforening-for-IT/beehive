@@ -93,7 +93,7 @@ export default function CommitteeTabs() {
                         <p className='p--highlighted'>{text.committeeSection.evntkom.intro}</p>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.evntkom.body}} />
                     </div>
-                    <LogChamp 
+                    <LogChamp
                         img={config.url.CDN_URL + '/img/board/portraits/' +  text.evntkomLeader.img}
                         name={text.evntkomLeader.name}
                         position={text.evntkomLeader.title}
@@ -111,7 +111,7 @@ export default function CommitteeTabs() {
                         <p className='p--highlighted'>{text.committeeSection.tekkom.intro}</p>
                         <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
-                    <LogChamp 
+                    <LogChamp
                         img={`${config.url.CDN_URL}/img/board/portraits/${text.tekkomLeader.img}`}
                         name={text.tekkomLeader.name}
                         position={text.tekkomLeader.title}
@@ -129,7 +129,7 @@ export default function CommitteeTabs() {
                         <p className='p--highlighted'>{text.committeeSection.bedkom.intro}</p>
                         <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
-                    <LogChamp 
+                    <LogChamp
                         img={config.url.CDN_URL + '/img/board/portraits/' +  text.bedkomLeader.img}
                         name={text.bedkomLeader.name}
                         position={text.bedkomLeader.title}
@@ -147,7 +147,7 @@ export default function CommitteeTabs() {
                         <p className='p--highlighted'>{text.committeeSection.ctfkom.intro}</p>
                         <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.ctfkom.body}}/>
                     </div>
-                    <LogChamp 
+                    <LogChamp
                         img={config.url.CDN_URL + '/img/board/portraits/' +  text.ctfkomLeader.img}
                         name={text.ctfkomLeader.name}
                         position={text.ctfkomLeader.title}
@@ -165,7 +165,7 @@ export default function CommitteeTabs() {
                         <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.satkom.intro}} />
                         <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
-                    <LogChamp 
+                    <LogChamp
                         img={config.url.CDN_URL + '/img/board/portraits/' +  text.satkomLeader.img}
                         name={text.satkomLeader.name}
                         position={text.satkomLeader.title}
@@ -183,7 +183,7 @@ export default function CommitteeTabs() {
                         <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.pr.intro}} />
                         <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
-                    <LogChamp 
+                    <LogChamp
                         img={config.url.CDN_URL + '/img/board/portraits/' +  text.prLeader.img}
                         name={text.prLeader.name}
                         position={text.prLeader.title}

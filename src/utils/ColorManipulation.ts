@@ -101,7 +101,7 @@ export function adjustBrightnessHex(hex: string, percent: number) {
 export function createGradient(color: string, opacity = 1) {
     if (!isValidHex(color)) {
         console.error('Invalid color input')
-    
+
         // Default gradient with transparency
         return 'linear-gradient(120deg,, rgba(204,204,204,0.8), rgba(170,170,170,0.8), rgba(136,136,136,0.8))'
     }

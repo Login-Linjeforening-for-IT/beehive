@@ -19,7 +19,7 @@ export default function TopBar({lang}: TopBarProps) {
     function toggle() {
         setIsOpen(!isOpen)
     }
-  
+
     return (
         <div className={`flex max-w-[calc(var(--w-page)+2rem)] w-full m-auto p-[0.5rem] h-[var(--h-topbar)] transition duration-500 800px:justify-between 800px:p-[1rem] ${isOpen ? 'topbar--open' : ''}`}>
             <div className='block h-[3rem] p-[0.2rem] 800px:p-0'>
@@ -40,8 +40,8 @@ export default function TopBar({lang}: TopBarProps) {
                     </Link>
                 </div> */}
             </nav>
-            <button 
-                className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`} 
+            <button
+                className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`}
                 onClick={toggle}
             >
                 <div className='topbar_burger-bun topbar_burger-bun--top' />

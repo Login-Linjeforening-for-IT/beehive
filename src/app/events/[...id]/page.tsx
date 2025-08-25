@@ -41,7 +41,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
     const id = (await params).id
     const event = (await getEvent(id))
     const lang = (await cookies()).get('lang')?.value || 'no'
-     
+
     const errorMsg = lang === 'no'
         ? 'Oi! Her var det tomt... '
         : 'Oh! Looks empty... '
@@ -85,7 +85,7 @@ async function Event({event}: InnerEventProps) {
                                 new Date(event.event.time_start),
                                 // @ts-ignore
                                 new Date(event.event.time_end)
-                            ) && 
+                            ) &&
                                 // @ts-ignore
                                 <span className='event-datetime-display_live-dot' />
                             }
@@ -268,21 +268,21 @@ async function EventBanner({event}: EventBannerProps) {
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
-    case 'Sosialt':
+        case 'Sosialt':
         // @ts-ignore
-        return <DefaultSocialBanner color={color} className='event-banner_image' />
-    case 'TekKom':
+            return <DefaultSocialBanner color={color} className='event-banner_image' />
+        case 'TekKom':
         // @ts-ignore
-        return <DefaultTekkomBanner color={color} className='event-banner_image' />
-    case 'CTF':
+            return <DefaultTekkomBanner color={color} className='event-banner_image' />
+        case 'CTF':
         // @ts-ignore
-        return <DefaultCtfBanner color={color} className='event-banner_image' />
-    case 'Bedpres':
+            return <DefaultCtfBanner color={color} className='event-banner_image' />
+        case 'Bedpres':
         // @ts-ignore
-        return <DefaultBedpresBanner color={color} className='event-banner_image' />
-    default:
+            return <DefaultBedpresBanner color={color} className='event-banner_image' />
+        default:
         // @ts-ignore
-        return <DefaultEventBanner color={color} className='event-banner_image' />
+            return <DefaultEventBanner color={color} className='event-banner_image' />
     }
 }
 

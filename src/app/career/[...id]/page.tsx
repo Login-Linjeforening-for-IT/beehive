@@ -60,7 +60,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
         ? 'Oi! Her var det tomt... '
         : 'Oh! Looks empty... '
     return (
-        <>        
+        <>
             {jobad && (
                 <div className={`jobad-page jobad-page--${jobad.job.banner_image ? 'banner' : 'noBanner'}`}>
                     <div className='jobad-details'>
@@ -112,7 +112,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 )}
                             </div>
                             {/* @ts-ignore */}
-                            {jobad.job.position_title_no && 
+                            {jobad.job.position_title_no &&
                                 <>
                                     <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
                                         <Badge className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color'/>

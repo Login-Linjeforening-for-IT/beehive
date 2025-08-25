@@ -18,7 +18,7 @@ export default function FilterGroup({ filters, close }: any) {
     const router = useRouter()
     const pathname = usePathname()
     // const searchParams = useSearchParams()
-    
+
     const selectedFilters = useRef({})
     const [ resetTrigger, setResetTrigger ] = useState(false)
     const [lang, setLang] = useState('no')
@@ -41,7 +41,7 @@ export default function FilterGroup({ filters, close }: any) {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function onApply(f:any){
+    function onApply(f: any){
         const params = new URLSearchParams()
 
         Object.entries(f).forEach(([filterGroupItemID, filterGroupItem]) => {

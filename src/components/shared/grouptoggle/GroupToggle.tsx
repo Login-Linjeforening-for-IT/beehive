@@ -15,8 +15,8 @@ type GroupToggleProps = {
     ariaLabel?: string
 }
 
-export default function GroupToggle({ 
-    options, 
+export default function GroupToggle({
+    options,
     defaultActiveOptionIndex = 1,
     size = 'medium',
     groupVariant = 'outlined',
@@ -37,7 +37,7 @@ export default function GroupToggle({
     }
 
     return (
-        <div 
+        <div
             className={`group-toggle group-toggle--${groupVariant} group-toggle--${size} ${className}`}
             role='group'
             aria-label={ariaLabel}
@@ -55,7 +55,7 @@ export default function GroupToggle({
                         variant={buttonVariant}
                         size={size}
                         className={`group-toggle_button ${
-                            index === 0 ? 'group-toggle_button--first' : 
+                            index === 0 ? 'group-toggle_button--first' :
                                 index === options.length - 1 ? 'group-toggle_button--last' : ''
                         }`}
                         leadingIcon={leadingIcon}

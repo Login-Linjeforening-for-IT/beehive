@@ -20,7 +20,7 @@ export default function LogChamp({name, position, img, discord, discordLink}: Lo
     }, [])
 
     if (variant === null ) return <></>
-      
+
     return (
         <div className='logchamp'>
             <DecoratedPicture

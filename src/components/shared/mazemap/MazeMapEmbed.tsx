@@ -123,7 +123,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     return (
         <>
-            <div 
+            <div
                 className='mazemap-container'
                 style={{ height: props.height || defualtHeight }}
             >

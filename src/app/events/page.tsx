@@ -13,19 +13,19 @@ import FilterItem from '@components/shared/filter/filterItem'
 import Button from '@components/shared/button/Button'
 import Download from '@components/svg/symbols/Download'
 
-type PageProps = { 
-    searchParams: Promise<{ [key: string]: string | undefined }> 
+type PageProps = {
+    searchParams: Promise<{ [key: string]: string | undefined }>
 }
 
 export default async function Page({searchParams}: PageProps) {
     const filters = (await searchParams)
-    
+
     const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
     const filtersParams = typeof filters.categories === 'string' ? filters.categories : null
-    
+
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
-    
+
     const limit = 20
     const temp_events = await getEvents(filtersParams, limit, 0)
     const events = (Array.isArray(temp_events) ? temp_events : []).filter((event: EventProps) => {
@@ -42,7 +42,7 @@ export default async function Page({searchParams}: PageProps) {
     const categoryFilters = await getCategoryFilters()
     // @ts-ignore
     if (categoryFilters) response['categories'] = categoryFilters
-    
+
 
     return (
         <div className='page-container'>
@@ -234,7 +234,7 @@ function getLabelKeyWithLang(key: string) {
     }
 }
 
- 
+
 async function getCategoryFilters() {
     try {
         const categoryFilterData = await getEventCategoryFilters()
@@ -257,7 +257,7 @@ async function getCategoryFilters() {
             'check',
             true
         )
-    } catch (error) {
+    } catch(error) {
         console.error(`Error fetching category filters: ${error}`)
         return null
     }

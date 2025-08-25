@@ -6,11 +6,11 @@ import { cookies } from 'next/headers'
 import './Tags.css'
 
 type TagsProps = {
-    highlight : boolean,
-    timePublish : Date,
-    canceled : boolean,
-    full : boolean,
-    ongoing : boolean
+    highlight: boolean,
+    timePublish: Date,
+    canceled: boolean,
+    full: boolean,
+    ongoing: boolean
 }
 
 export default async function Tags({

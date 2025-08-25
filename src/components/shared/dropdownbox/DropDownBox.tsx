@@ -3,16 +3,16 @@ import { ReactNode, useState } from 'react'
 import './DropDownBox.css'
 import ChevronRight from '@components/svg/symbols/ChevronRight'
 
-export default function DropDownBox({ title, children }: { title:ReactNode, children:ReactNode}) {
+export default function DropDownBox({ title, children }: { title: ReactNode, children: ReactNode}) {
     const [isOpen, setOpen] = useState(false)
 
     function handleClick() {
         setOpen(!isOpen)
     }
- 
+
     return (
         <div className={`drop-down-box ${isOpen ? 'drop-down-box--open' : ''}`}>
-            <div 
+            <div
                 className='drop-down-box_toggle'
                 // @ts-ignore
                 onClick={e => handleClick(e)}

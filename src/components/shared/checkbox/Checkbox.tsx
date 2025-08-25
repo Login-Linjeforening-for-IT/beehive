@@ -1,6 +1,6 @@
 import './Checkbox.css'
 
-type CheckboxProps = { 
+type CheckboxProps = {
     id: string
     label: string
     count: boolean,

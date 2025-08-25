@@ -15,7 +15,7 @@ type EventSignUpProps = {
     canceled: boolean
     cap: number | null
     signupRelease: Date
-    signupDeadline: Date 
+    signupDeadline: Date
 }
 
 export default async function EventSignUp({

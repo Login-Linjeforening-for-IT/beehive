@@ -12,7 +12,7 @@ type PageClientProps = {
     lang: Lang
 }
 
-type MemeProps = { 
+type MemeProps = {
     text: string
     pwned: ({ text: string, image: string })[]
 }
@@ -46,7 +46,7 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
             </h1>
             <div className='relative max-h-[25rem] m-[2rem]'>
                 <Image
-                    src={`${config.url.CDN_URL}/img/pwned/${memes.pwned[pwnedNumber].image}`} 
+                    src={`${config.url.CDN_URL}/img/pwned/${memes.pwned[pwnedNumber].image}`}
                     className='object-contain w-auto h-[25rem]'
                     alt='meme'
                     width={400}
@@ -57,8 +57,8 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                 <p className='text-xl flex text-center'>
                     {memes.text.replace('{time}', `${String(time)} ${seconds}`)}
                 </p>
-                <Image 
-                    src={`${config.url.CDN_URL}/img/login_shitty_thicc${isDark ? '_white' : ''}.png`} 
+                <Image
+                    src={`${config.url.CDN_URL}/img/login_shitty_thicc${isDark ? '_white' : ''}.png`}
                     className='object-contain w-[1.5rem] h-[1.5rem]'
                     alt='meme'
                     width={40}

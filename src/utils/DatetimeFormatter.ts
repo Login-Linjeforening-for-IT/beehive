@@ -1,7 +1,7 @@
-process.env.TZ = 'Europe/Oslo' 
+process.env.TZ = 'Europe/Oslo'
 
-type KeyStringArray = { 
-  [key: string]: string[]
+type KeyStringArray = {
+    [key: string]: string[]
 }
 
 // returns true if more time has passed than the limit(ms)
@@ -56,7 +56,7 @@ export function formatTimeHHMM(dateTime: Date) {
 }
 
 
-// return examples: 
+// return examples:
 // if less than an hour: "30 minutes ago"
 // if same day: "Today, 12:00"
 // if one day ago: "Yesterday, 12:00"
@@ -102,7 +102,7 @@ export function formatPublishedDate(dateTime: Date, lang='en') {
 
     if (dateTime.toDateString() === now.toDateString()) {
         return `${dayExpration[lang][0]}, ${timeStr}`
-    } 
+    }
     if (dayDif === 1) {
         return `${dayExpration[lang][1]}, ${timeStr}`
     }
@@ -196,7 +196,7 @@ export function formatEventStatusDate(startDate: Date, endDate: Date, lang='no')
         no: ['I dag', 'I morgen', 'I går', ' dager siden']
     }
     const offsetDays = getOffsetDays(new Date(startDate))
-    
+
     if (offsetDays === 0) {
         if (now > endDate) return lang === 'no' ? 'Ferdig' : 'Finished'
         return dayExpration[lang][0]
@@ -248,8 +248,8 @@ export function formatEventStartDate(dateTime: Date, lang='en') {
 //  - 2024, 15. sep, 12:00
 //  - Man, 15. sep, 12:00
 //  - Tomorrow, 12:00
-//  - Today, 12:00 
-//  - Closed 15. sep, 12:00 
+//  - Today, 12:00
+//  - Closed 15. sep, 12:00
 
 // event exprasion: formatEventStatusDate() [X]
 //  - Monday...
@@ -265,6 +265,6 @@ export function formatEventStartDate(dateTime: Date, lang='en') {
 //  - Man, 12:00
 //  - 2024, Man, 12:00
 
-// other: 
+// other:
 //  - getOffestDays() [X]
 //  - isElapsed() [X]

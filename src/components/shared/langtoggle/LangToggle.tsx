@@ -17,7 +17,7 @@ export default function LangToggle({serverLang}: LangToggleProps) {
     const [jump, setJump] = useState(false)
 
     const router = useRouter()
-    
+
     useEffect(() => {
         const savedLang = getCookie('lang') as 'no' | 'en'
         if (savedLang) {

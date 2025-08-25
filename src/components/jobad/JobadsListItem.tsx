@@ -29,7 +29,7 @@ const jobTypeTranslations = {
 // eslint-disable-next-line
 export default async function JobadsListItem({ jobad }: any) {
     const lang = (await cookies()).get('lang')?.value || 'no'
-  
+
     // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any) {
         if (highlight) return true
@@ -41,7 +41,7 @@ export default async function JobadsListItem({ jobad }: any) {
         <Link href={`/career/${jobad.id}`}>
             <div className={jobad.highlight ? 'jobads-item jobads-item--highlight' : 'jobads-item' }>
                 <div className={useTags(jobad.time_publish, jobad.highlight) ? 'jobads-item_wrapper jobads-item_wrapper--with-tags' : 'jobads-item_wrapper' }>
-                    {useTags(jobad.time_publish, jobad.highlight) && 
+                    {useTags(jobad.time_publish, jobad.highlight) &&
             <div className='jobads-item_tags'>
                 <Tags
                     highlight={jobad.highlight}
@@ -61,7 +61,7 @@ export default async function JobadsListItem({ jobad }: any) {
                                 fill={true}
                             />
                         ) : (
-                            <Image 
+                            <Image
                                 className='jobads-item_img'
                                 alt={'fallback image'}
                                 src='/assets/img/placeholders/jobad.svg'
@@ -80,7 +80,7 @@ export default async function JobadsListItem({ jobad }: any) {
                                 <Apartment className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                 {lang === 'en' && jobad.organization_name_en ? jobad.organization_name_en : jobad.organization_name_no}
                             </li>
-                            {jobad.job_type && 
+                            {jobad.job_type &&
                                 <li className='flex flex-row jobads-item_detail'>
                                     <WorkHistory className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                     {getJobTypeLabel(jobad.job_type, lang)}

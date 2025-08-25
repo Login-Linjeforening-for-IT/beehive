@@ -15,12 +15,12 @@ import './EventItem.css'
 import Image from 'next/image'
 import { cookies } from 'next/headers'
 
-type EventListItemProps = { 
+type EventListItemProps = {
     // eslint-disable-next-line
     event: any
     highlight: boolean
     disableTags?: boolean
-    variant: string 
+    variant: string
 }
 
 export default async function EventListItem({ event, highlight = true, disableTags = false, variant='list-item' }: EventListItemProps) {
@@ -81,7 +81,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                                 <li className='flex text-[0.9rem]'>
                                     <Schedule className='w-[22px] h-[22px] event-item_icon fill-[var(--color-text-main)]' />
-                                    {event.time_type.toLowerCase() != 'tbd' ? 
+                                    {event.time_type.toLowerCase() != 'tbd' ?
                                         formatEventStartDate(new Date(event.time_start), lang)
                                         :
                                         'TBD'
@@ -129,20 +129,20 @@ export default async function EventListItem({ event, highlight = true, disableTa
 
 function getDefaultBanner(category: string, color: string) {
     switch (category) {
-    case 'Sosialt':
-        {/* @ts-ignore */}
-        return <DefaultSocialBanner color={color} className='event-item_img' />
-    case 'TekKom':
-        {/* @ts-ignore */}
-        return <DefaultTekkomBanner color={color} className='event-item_img' />
-    case 'CTF':
-        {/* @ts-ignore */}
-        return <DefaultCtfBanner color={color} className='event-item_img' />
-    case 'Bedpres':
-        {/* @ts-ignore */}
-        return <DefaultBedpresBanner color={color} className='event-item_img' />
-    default:
-        {/* @ts-ignore */}
-        return <DefaultEventBanner color={color} className='event-item_img' />
+        case 'Sosialt':
+            {/* @ts-ignore */}
+            return <DefaultSocialBanner color={color} className='event-item_img' />
+        case 'TekKom':
+            {/* @ts-ignore */}
+            return <DefaultTekkomBanner color={color} className='event-item_img' />
+        case 'CTF':
+            {/* @ts-ignore */}
+            return <DefaultCtfBanner color={color} className='event-item_img' />
+        case 'Bedpres':
+            {/* @ts-ignore */}
+            return <DefaultBedpresBanner color={color} className='event-item_img' />
+        default:
+            {/* @ts-ignore */}
+            return <DefaultEventBanner color={color} className='event-item_img' />
     }
 }

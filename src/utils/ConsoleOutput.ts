@@ -1,7 +1,7 @@
 export function LogoConsoleOutput() {
 
     // Looks good in chrome console
-    const chromeStr = 
+    const chromeStr =
         '%c███████╗                              ███████╗\n' +
         '██╔════╝                              ╚════██║\n' +
         '██║%c ██╗     ██████╗  ██████╗ ██╗███╗   ██╗ %c██║\n' +
@@ -12,10 +12,10 @@ export function LogoConsoleOutput() {
         '██║%c ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝ %c██║\n' +
         '███████╗%c                              %c███████║\n' +
         '╚══════╝                              ╚══════╝%c\n\n' +
-        '       - Laget av TekKom med 🍕 og ❤️'    
+        '       - Laget av TekKom med 🍕 og ❤️'
 
     // Needs fine tuning during a TekKom meeting, time consuming but easy work
-    const safariStr = 
+    const safariStr =
         '%c███████╗\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t███████╗\n' +
         '██╔════╝\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t╚════██║\n' +
         '██║%c ██╗      \t\t\t██████╗\t\t██████╗\t  ██╗███╗ \t\t   ██╗%c██║\n' +
@@ -30,14 +30,14 @@ export function LogoConsoleOutput() {
 
     let str = ''
 
-    if(navigator.userAgent.indexOf('Chrome') != -1) { 
+    if(navigator.userAgent.indexOf('Chrome') != -1) {
         str = chromeStr
     } else if (navigator.userAgent.indexOf('Firefox') != -1) {
         str = chromeStr
     } else if (navigator.userAgent.indexOf('Safari') != -1) {
         str = safariStr
-    } else { 
-        return (console.log('Login')) 
+    } else {
+        return (console.log('Login'))
     }
 
     // each string is the CSS to apply for each consecutive %c

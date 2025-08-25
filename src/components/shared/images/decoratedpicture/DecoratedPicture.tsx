@@ -25,118 +25,118 @@ export default function DecoratedPicture({ imgUrl, variant, width, height, corne
 
     function renderDecorations() {
         switch (variant) {
-        case 1:
-            return (
-                <>
-                    <clipPath id={maskID}>
-                        <polygon
-                            points={`0,${cornerSize} ${cornerSize / 3},${cornerSize} ${
-                                cornerSize / 3
-                            },${cornerSize / 3} ${cornerSize},${cornerSize / 3} ${cornerSize},0 ${width},0 ${width},${height} 0,${height}`}
+            case 1:
+                return (
+                    <>
+                        <clipPath id={maskID}>
+                            <polygon
+                                points={`0,${cornerSize} ${cornerSize / 3},${cornerSize} ${
+                                    cornerSize / 3
+                                },${cornerSize / 3} ${cornerSize},${cornerSize / 3} ${cornerSize},0 ${width},0 ${width},${height} 0,${height}`}
+                            />
+                        </clipPath>
+                        <rect
+                            className='decor-pic_rect'
+                            x='0'
+                            y='0'
+                            width={cornerSize - (cornerSize / 3) * 0.5}
+                            height={(cornerSize / 3) * 0.5}
                         />
-                    </clipPath>
-                    <rect
-                        className='decor-pic_rect'
-                        x='0'
-                        y='0'
-                        width={cornerSize - (cornerSize / 3) * 0.5}
-                        height={(cornerSize / 3) * 0.5}
-                    />
-                    <rect
-                        className='decor-pic_rect'
-                        x='0'
-                        y='0'
-                        width={(cornerSize / 3) * 0.5}
-                        height={cornerSize - (cornerSize / 3) * 0.5}
-                    />
-                </>
-            )
-        case 2:
-            return (
-                <>
-                    <clipPath id={maskID}>
-                        <polygon
-                            points={`0,0 ${width - cornerSize},0 ${width - cornerSize},${
-                                cornerSize / 3
-                            } ${width - cornerSize / 3},${cornerSize / 3} ${
-                                width - cornerSize / 3
-                            },${cornerSize} ${width},${cornerSize} ${width},${height} 0,${height}`}
+                        <rect
+                            className='decor-pic_rect'
+                            x='0'
+                            y='0'
+                            width={(cornerSize / 3) * 0.5}
+                            height={cornerSize - (cornerSize / 3) * 0.5}
                         />
-                    </clipPath>
-                    <rect
-                        className='decor-pic_rect'
-                        x={width - cornerSize + (cornerSize / 3) * 0.5}
-                        y='0'
-                        width={cornerSize - (cornerSize / 3) * 0.5}
-                        height={(cornerSize / 3) * 0.5}
-                    />
-                    <rect
-                        className='decor-pic_rect'
-                        x={width - (cornerSize / 3) * 0.5}
-                        y='0'
-                        width={(cornerSize / 3) * 0.5}
-                        height={cornerSize - (cornerSize / 3) * 0.5}
-                    />
-                </>
-            )
-        case 3:
-            return (
-                <>
-                    <clipPath id={maskID}>
-                        <polygon
-                            points={`0,0 ${width},0 ${width},${height - cornerSize} ${
-                                width - cornerSize / 3
-                            },${height - cornerSize} ${width - cornerSize / 3},${
-                                height - cornerSize / 3
-                            } ${width - cornerSize},${height - cornerSize / 3} ${width - cornerSize},${height} 0,${height}`}
+                    </>
+                )
+            case 2:
+                return (
+                    <>
+                        <clipPath id={maskID}>
+                            <polygon
+                                points={`0,0 ${width - cornerSize},0 ${width - cornerSize},${
+                                    cornerSize / 3
+                                } ${width - cornerSize / 3},${cornerSize / 3} ${
+                                    width - cornerSize / 3
+                                },${cornerSize} ${width},${cornerSize} ${width},${height} 0,${height}`}
+                            />
+                        </clipPath>
+                        <rect
+                            className='decor-pic_rect'
+                            x={width - cornerSize + (cornerSize / 3) * 0.5}
+                            y='0'
+                            width={cornerSize - (cornerSize / 3) * 0.5}
+                            height={(cornerSize / 3) * 0.5}
                         />
-                    </clipPath>
-                    <rect
-                        className='decor-pic_rect'
-                        x={width - cornerSize + (cornerSize / 3) * 0.5}
-                        y={height - (cornerSize / 3) * 0.5}
-                        width={cornerSize - (cornerSize / 3) * 0.5}
-                        height={(cornerSize / 3) * 0.5}
-                    />
-                    <rect
-                        className='decor-pic_rect'
-                        x={width - (cornerSize / 3) * 0.5}
-                        y={height - cornerSize + (cornerSize / 3) * 0.5}
-                        width={(cornerSize / 3) * 0.5}
-                        height={cornerSize - (cornerSize / 3) * 0.5}
-                    />
-                </>
-            )
-        case 4:
-            return (
-                <>
-                    <clipPath id={maskID}>
-                        <polygon
-                            points={`0,0 ${width},0 ${width},${height} ${cornerSize},${height} ${cornerSize},${
-                                height - cornerSize / 3
-                            } ${cornerSize / 3},${height - cornerSize / 3} ${
-                                cornerSize / 3
-                            },${height - cornerSize} 0,${height - cornerSize}`}
+                        <rect
+                            className='decor-pic_rect'
+                            x={width - (cornerSize / 3) * 0.5}
+                            y='0'
+                            width={(cornerSize / 3) * 0.5}
+                            height={cornerSize - (cornerSize / 3) * 0.5}
                         />
-                    </clipPath>
-                    <rect
-                        className='decor-pic_rect'
-                        x='0'
-                        y={height - (cornerSize / 3) * 0.5}
-                        width={cornerSize - (cornerSize / 3) * 0.5}
-                        height={(cornerSize / 3) * 0.5}
-                    />
-                    <rect
-                        className='decor-pic_rect'
-                        x='0'
-                        y={height - cornerSize + (cornerSize / 3) * 0.5}
-                        width={(cornerSize / 3) * 0.5}
-                        height={cornerSize - (cornerSize / 3) * 0.5}
-                    />
-                </>
-            )
-        default:
-            return null
+                    </>
+                )
+            case 3:
+                return (
+                    <>
+                        <clipPath id={maskID}>
+                            <polygon
+                                points={`0,0 ${width},0 ${width},${height - cornerSize} ${
+                                    width - cornerSize / 3
+                                },${height - cornerSize} ${width - cornerSize / 3},${
+                                    height - cornerSize / 3
+                                } ${width - cornerSize},${height - cornerSize / 3} ${width - cornerSize},${height} 0,${height}`}
+                            />
+                        </clipPath>
+                        <rect
+                            className='decor-pic_rect'
+                            x={width - cornerSize + (cornerSize / 3) * 0.5}
+                            y={height - (cornerSize / 3) * 0.5}
+                            width={cornerSize - (cornerSize / 3) * 0.5}
+                            height={(cornerSize / 3) * 0.5}
+                        />
+                        <rect
+                            className='decor-pic_rect'
+                            x={width - (cornerSize / 3) * 0.5}
+                            y={height - cornerSize + (cornerSize / 3) * 0.5}
+                            width={(cornerSize / 3) * 0.5}
+                            height={cornerSize - (cornerSize / 3) * 0.5}
+                        />
+                    </>
+                )
+            case 4:
+                return (
+                    <>
+                        <clipPath id={maskID}>
+                            <polygon
+                                points={`0,0 ${width},0 ${width},${height} ${cornerSize},${height} ${cornerSize},${
+                                    height - cornerSize / 3
+                                } ${cornerSize / 3},${height - cornerSize / 3} ${
+                                    cornerSize / 3
+                                },${height - cornerSize} 0,${height - cornerSize}`}
+                            />
+                        </clipPath>
+                        <rect
+                            className='decor-pic_rect'
+                            x='0'
+                            y={height - (cornerSize / 3) * 0.5}
+                            width={cornerSize - (cornerSize / 3) * 0.5}
+                            height={(cornerSize / 3) * 0.5}
+                        />
+                        <rect
+                            className='decor-pic_rect'
+                            x='0'
+                            y={height - cornerSize + (cornerSize / 3) * 0.5}
+                            width={(cornerSize / 3) * 0.5}
+                            height={cornerSize - (cornerSize / 3) * 0.5}
+                        />
+                    </>
+                )
+            default:
+                return null
         }
     }
 
@@ -193,11 +193,11 @@ export default function DecoratedPicture({ imgUrl, variant, width, height, corne
 //                     viewBox={`0,0 ${width},${height}`}
 //                     xmlns='http://www.w3.org/2000/svg'
 //                 >
-//                     <RenderDecorations 
-//                         variant={variant} 
+//                     <RenderDecorations
+//                         variant={variant}
 //                         width={width}
-//                         height={height} 
-//                         maskID={maskID} 
+//                         height={height}
+//                         maskID={maskID}
 //                         cornerSize={cornerSize}
 //                     />
 //                 </svg>

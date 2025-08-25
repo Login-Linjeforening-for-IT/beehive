@@ -10,8 +10,8 @@ import config from '@config'
 
 type MobileNavigationProps = {
     lang: Lang
-    open:boolean, 
-    setIsOpen:React.Dispatch<SetStateAction<boolean>>
+    open: boolean,
+    setIsOpen: React.Dispatch<SetStateAction<boolean>>
 }
 
 export default function MobileNavigation({ lang, open, setIsOpen }: MobileNavigationProps) {

@@ -4,13 +4,13 @@ import { formatPublishedDate } from '@utils/DatetimeFormatter'
 import { cookies } from 'next/headers'
 import './Article.css'
 
-type ArticleProps = { 
-  title: string
-  publishTime: Date
-  updateTime: Date
-  informational: boolean
-  introduction?: string
-  description: string
+type ArticleProps = {
+    title: string
+    publishTime: Date
+    updateTime: Date
+    informational: boolean
+    introduction?: string
+    description: string
 }
 
 export default async function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
@@ -47,7 +47,7 @@ export default async function Article({ title, publishTime, updateTime, informat
                     </Alert>
                 </div>
             )}
-            {introduction && 
+            {introduction &&
         <article
             className='article_intro p--highlighted'
             dangerouslySetInnerHTML={{ __html: introduction }}

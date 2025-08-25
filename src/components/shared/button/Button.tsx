@@ -35,13 +35,13 @@ export default function Button({
 
     const content = (
         <>
-            {leadingIcon && 
+            {leadingIcon &&
         <span className='button_icon button_icon--leading'>
             {leadingIcon}
         </span>
             }
             {children && <span className='button_text'>{children}</span>}
-            {trailingIcon && 
+            {trailingIcon &&
         <span className='button_icon button_icon--trailing'>
             {trailingIcon}
         </span>
