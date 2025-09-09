@@ -49,8 +49,7 @@ export default async function EventSignUp({
         showBtn = false
         msg = text.signup.notReady
     } else if (now > signupDeadline) {
-        msg =
-            text.signup.closed + ': ' + formatPublishedDate(signupDeadline, lang)
+        msg = text.signup.closed + ': ' + formatPublishedDate(signupDeadline, lang)
         warning = true
     } else if (full) {
         msg = text.signup.full
