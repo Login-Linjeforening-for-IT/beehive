@@ -1,15 +1,12 @@
-import dotenv from 'dotenv'
-
-dotenv.config()
-
-const { API_URL, CDN_URL } = process.env
+const { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_CDN_URL } = process.env
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { version } = require('package.json')
 
 const config = {
     url: {
         MAIN_URL: 'login.no',
-        API_URL: API_URL || 'https://workerbee.login.no/api',
-        CDN_URL: CDN_URL || "https://cdn.login.no",
+        API_URL: NEXT_PUBLIC_API_URL ?? 'https://workerbee.login.no/api',
+        CDN_URL: NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
         EXAM_URL: 'https://exam.login.no',
         WIKI_URL: 'https://wiki.login.no',
         GITLAB_URL: 'https://gitlab.login.no',
