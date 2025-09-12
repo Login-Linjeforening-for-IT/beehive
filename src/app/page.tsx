@@ -1,6 +1,6 @@
 import HeroSection from '@components/shared/herosection/HeroSection'
 import EventsPreview from '@components/event/preview'
-// import JobadsPreview from '@components/jobad/preview'
+import JobadsPreview from '@components/jobad/preview'
 import SmallInfo from '@components/shared/smallInfo'
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <HeroSection />
             <EventsPreview />
-            {/* <JobadsPreview /> */}
+            <JobadsPreview />
             <SmallInfo />
         </>
     )

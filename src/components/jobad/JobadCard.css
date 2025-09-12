@@ -16,17 +16,27 @@
 }
 
 .jobad-card_picture {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 10 / 4;
+	min-height: 80px;
+	max-height: 160px;
 	background-color: var(--color-border-default);
 	border-radius: var(--border-radius);
+	overflow: clip;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: .15rem solid var(--color-border-default);
 }
 
 .jobad-card_img {
 	display: block;
 	width: 100%;
-	object-fit: cover;
-	aspect-ratio: 3/2;
-	border-radius: var(--border-radius);
-	border: .15rem solid var(--color-border-default);
+	height: 100%;
+	object-position: center;
+	border-radius: 0;
+	border: none;
 }
 
 .jobad-card_name {
@@ -58,6 +68,7 @@
 	color: var(--color-text-regular);
 	line-height: 1.4em;
 	font-size: .9rem;
+	width: 100%;
 }
 
 .jobad-card_icon {
