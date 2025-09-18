@@ -19,7 +19,7 @@ export default function CurrentlyPlayingCard({ song }: { song: SpotifySong }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
-    const progressMs = Date.parse(song.timestamp) - startMs
+    const progressMs = Math.max(0, Math.min(Date.parse(song.timestamp) - startMs, durationMs))
     const progressPercent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0
 
     return (
