@@ -62,6 +62,13 @@ const nextConfig: NextConfig = {
                 pathname: '/**',
                 search: '',
             },
+            {
+                protocol: 'https',
+                hostname: 'i.scdn.co',
+                port: '',
+                pathname: '/image/**',
+                search: '',
+            },
         ],
     },
 }
