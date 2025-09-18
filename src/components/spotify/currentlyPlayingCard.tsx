@@ -7,7 +7,6 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
-
     const [progressMs, setProgressMs] = useState(0)
 
     useEffect(() => {
@@ -26,6 +25,10 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     }, [song.id, startMs, durationMs])
 
     const progressPercent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0
+
+    if (progressPercent === 100) {
+        return
+    }
 
     return (
         <div className='flex items-center gap-4 p-2 rounded-lg bg-neutral-800/70 shadow-none w-md'>
