@@ -2,9 +2,7 @@ import no from '@text/spotify/no.json'
 import en from '@text/spotify/en.json'
 import { cookies } from 'next/headers'
 import getActivity from '@utils/spotify/getActivity'
-import AverageDuration from '@components/spotify/duration'
-import CurrentlyPlaying from '@components/spotify/currentlyPlaying'
-import TopFiveThisX from '@components/spotify/topFiveThisX'
+import SpotifyClient from './pageClient'
 
 export default async function Spotify() {
     const lang = (await cookies()).get('lang')?.value || 'no'
@@ -13,15 +11,5 @@ export default async function Spotify() {
 
     const data = await getActivity()
 
-    return (
-        <div className='page-container'>
-            <div className='page-section--normal'>
-                <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
-                <CurrentlyPlaying songs={data.currentlyPlaying} />
-                <AverageDuration duration={data.averageDuration} />
-                <TopFiveThisX data={data} />
-                <p>{JSON.stringify(data)}</p>
-            </div>
-        </div>
-    )
+    return <SpotifyClient initialData={data} />
 }
