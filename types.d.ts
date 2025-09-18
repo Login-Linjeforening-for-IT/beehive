@@ -256,12 +256,17 @@ type Artist = {
 type ArtistPlayed = {
     artist: string
     play_count: string
+    top_song: string
+    album: string
+    image: string
 }
 
 type Album = {
     album: string
     artist: string
     play_count: string
+    top_song: string
+    top_song_image: string
 }
 
 type Artist = {
@@ -274,6 +279,7 @@ type CountedSong = {
     artist: string
     album: string
     listens: number
+    image: string
 }
 
 type SongDay = {
