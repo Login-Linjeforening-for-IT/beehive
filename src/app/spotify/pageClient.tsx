@@ -6,6 +6,7 @@ import en from '@text/spotify/en.json'
 import AverageDuration from '@components/spotify/duration'
 import CurrentlyPlaying from '@components/spotify/currentlyPlaying'
 import TopFiveThisX from '@components/spotify/topFiveThisX'
+import { MostPlayed } from '@components/spotify/mostPlayed'
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -39,6 +40,11 @@ export default function Spotify({ initialData }: { initialData: Spotify }) {
                 <CurrentlyPlaying songs={data.currentlyPlaying} />
                 <AverageDuration duration={data.averageDuration} />
                 <TopFiveThisX data={data} />
+                <MostPlayed
+                    mostPlayedAlbums={data.mostPlayedAlbums}
+                    mostPlayedArtists={data.mostPlayedArtists}
+                    mostPlayedSongs={data.mostPlayedSongs}
+                />
             </div>
         </div>
     )

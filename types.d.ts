@@ -200,7 +200,7 @@ type Spotify = {
     averageDuration: number
     currentlyPlaying: Song[]
     mostPlayedAlbums: Album[]
-    mostPlayedArtists: Artist[]
+    mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
     mostPlayedSongsPerDay: SongDay[]
     topFiveToday: CountedSong[]
@@ -251,6 +251,11 @@ type Artist = {
     name: string
     listens: number
     timestamp: string
+}
+
+type ArtistPlayed = {
+    artist: string
+    play_count: string
 }
 
 type Album = {
