@@ -51,6 +51,10 @@ const nextConfig: NextConfig = {
                 source: '/rekruttering',
                 destination: '/recruitment'
             },
+            {
+                source: '/spotify',
+                destination: '/music'
+            },
         ]
     },
     images: {
