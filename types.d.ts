@@ -94,7 +94,7 @@ type EventLocation = {
     type: 'mazmap' | 'coords' | 'address' | 'none'
     mazemap_campus_id: number | null
     mazemap_poi_id: number | null
-    address_street: string 
+    address_street: string
     address_postcode: number | null
     city_name: string
     coordinate_lat: number | null
@@ -195,3 +195,85 @@ type PromisedPageProps = {
 }
 
 type Lang = 'en' | 'no'
+
+type Spotify = {
+    averageDuration: [ { avg_seconds: number } ]
+    currentlyPlaying: Song[]
+    mostPlayedAlbums: Album[]
+    mostPlayedArtists: Artist[]
+    mostPlayedSongs: CountedSong[]
+    mostPlayedSongsPerDay: SongDay[]
+    topFiveToday: CountedSong[]
+    topFiveYesterday: CountedSong[]
+    topFiveThisWeek: CountedSong[]
+    topFiveThisMonth: CountedSong[]
+    topFiveThisYear: CountedSong[]
+}
+
+type Song = {
+    id: 13,
+    song: string
+    artist: string
+    album: string
+    start: string
+    end: string
+    source: string
+    user: string
+    timestamp: string
+    image: string
+    play_count: number
+}
+
+type Activity = {
+    id: string
+    song: string
+    artist: string
+    album: string
+    start: string
+    end: string
+    source: string
+    user: string
+    timestamp: string
+}
+
+type Song = {
+    id: number
+    name: string
+    artist: string
+    album: string
+    image: string
+    listens: number
+    timestamp: string
+}
+
+type Artist = {
+    id: number
+    name: string
+    listens: number
+    timestamp: string
+}
+
+type Album = {
+    album: string
+    artist: string
+    play_count: string
+}
+
+type Artist = {
+    name: string
+    play_count: string
+}
+
+type CountedSong = {
+    song: string
+    artist: string
+    album: string
+    listens: number
+}
+
+type SongDay = {
+    day: string
+    songs_played: string
+    albums: Album[]
+    images: Image[]
+}
