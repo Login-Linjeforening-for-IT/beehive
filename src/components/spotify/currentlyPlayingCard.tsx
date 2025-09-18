@@ -1,21 +1,7 @@
 
 import Image from 'next/image'
 
-type SpotifySong = {
-    id: number;
-    song: string;
-    artist: string;
-    album: string;
-    start: string;
-    end: string;
-    source: string;
-    user: string;
-    timestamp: string;
-    image: string;
-    play_count: number;
-}
-
-export default function CurrentlyPlayingCard({ song }: { song: SpotifySong }) {
+export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
