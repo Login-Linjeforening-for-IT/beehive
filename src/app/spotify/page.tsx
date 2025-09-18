@@ -3,7 +3,6 @@ import en from '@text/spotify/en.json'
 import { cookies } from 'next/headers'
 import getActivity from '@utils/spotify/getActivity'
 import AverageDuration from '@components/spotify/duration'
-import CurrentlyPlayingCard from '@components/spotify/currentlyPlayingCard'
 import CurrentlyPlaying from '@components/spotify/currentlyPlaying'
 import TopFiveThisX from '@components/spotify/topFiveThisX'
 
@@ -19,8 +18,6 @@ export default async function Spotify() {
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
                 <AverageDuration duration={data.averageDuration} />
-                <CurrentlyPlayingCard song={data.currentlyPlaying[0]} />
-                <AverageDuration duration={data} />
                 <CurrentlyPlaying songs={data.currentlyPlaying} />
                 <TopFiveThisX data={data} />
                 <p>{JSON.stringify(data)}</p>

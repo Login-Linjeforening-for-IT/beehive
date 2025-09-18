@@ -197,7 +197,7 @@ type PromisedPageProps = {
 type Lang = 'en' | 'no'
 
 type Spotify = {
-    averageDuration: [ { avg_seconds: number } ]
+    averageDuration: number
     currentlyPlaying: Song[]
     mostPlayedAlbums: Album[]
     mostPlayedArtists: Artist[]

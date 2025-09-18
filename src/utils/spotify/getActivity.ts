@@ -1,6 +1,6 @@
 import config from '@config'
 
-export default async function getActivity() {
+export default async function getActivity(): Promise<Spotify> {
     try {
         const response = await fetch(`${config.url.TEKKOM_BOT_API_URL}/activity`)
 
@@ -9,11 +9,12 @@ export default async function getActivity() {
         }
 
         const data = await response.json()
+        console.log(data)
         return data
     } catch (error) {
         console.log(error)
         return {
-            averageDuration: [],
+            averageDuration: 0,
             currentlyPlaying: [],
             mostPlayedAlbums: [],
             mostPlayedArtists: [],
@@ -21,7 +22,7 @@ export default async function getActivity() {
             mostPlayedSongsPerDay: [],
             topFiveToday: [],
             topFiveYesterday: [],
-            topfiveThisWeek: [],
+            topFiveThisWeek: [],
             topFiveThisMonth: [],
             topFiveThisYear: []
         }
