@@ -17,8 +17,8 @@ export default async function Spotify() {
         <div className='page-container'>
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
-                <AverageDuration duration={data.averageDuration} />
                 <CurrentlyPlaying songs={data.currentlyPlaying} />
+                <AverageDuration duration={data.averageDuration} />
                 <TopFiveThisX data={data} />
                 <p>{JSON.stringify(data)}</p>
             </div>
