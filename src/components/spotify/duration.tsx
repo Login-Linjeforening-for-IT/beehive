@@ -1,8 +1,11 @@
+import Card from './actualCard'
+
 export default function AverageDuration({duration}: {duration: number}) {
-    return <div>
-        <h1>Duration</h1>
-        <p>{formatDuration(duration)}</p>
-    </div>
+    return (
+        <Card text='Average Duration'>
+            <p>{formatDuration(duration)}</p>
+        </Card>
+    )
 }
 
 function formatDuration(seconds: number): string {
