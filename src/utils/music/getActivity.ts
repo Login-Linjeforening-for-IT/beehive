@@ -1,6 +1,6 @@
 import config from '@config'
 
-export default async function getActivity(): Promise<Spotify> {
+export default async function getActivity(): Promise<Music> {
     try {
         const response = await fetch(`${config.url.TEKKOM_BOT_API_URL}/activity`)
 
@@ -11,6 +11,7 @@ export default async function getActivity(): Promise<Spotify> {
         const data = await response.json()
         return data
     } catch (error) {
+        console.log(error)
         return {
             averageDuration: 0,
             currentlyPlaying: [],

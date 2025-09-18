@@ -1,12 +1,12 @@
 'use client'
 
 import useSWR from 'swr'
-import no from '@text/spotify/no.json'
-import en from '@text/spotify/en.json'
-import AverageDuration from '@components/spotify/duration'
-import CurrentlyPlaying from '@components/spotify/currentlyPlaying'
-import TopFiveThisX from '@components/spotify/topFiveThisX'
-import { MostPlayed } from '@components/spotify/mostPlayed'
+import no from '@text/music/no.json'
+import en from '@text/music/en.json'
+import AverageDuration from '@components/music/duration'
+import CurrentlyPlaying from '@components/music/currentlyPlaying'
+import TopFiveThisX from '@components/music/topFiveThisX'
+import { MostPlayed } from '@components/music/mostPlayed'
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -14,8 +14,8 @@ async function fetcher(url: string) {
     return data
 }
 
-export default function Spotify({ initialData }: { initialData: Spotify }) {
-    const { data } = useSWR('/api/spotify', fetcher, {
+export default function Music({ initialData }: { initialData: Music }) {
+    const { data } = useSWR('/api/music', fetcher, {
         refreshInterval: 10000,
         fallbackData: initialData,
     })

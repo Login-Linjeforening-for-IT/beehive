@@ -1,4 +1,4 @@
-import getActivity from '@utils/spotify/getActivity'
+import getActivity from '@utils/music/getActivity'
 import { NextResponse } from 'next/server'
 
 export async function GET() {

@@ -1,4 +1,4 @@
-export default function TopFiveThisX({ data }: { data: Spotify }) {
+export default function TopFiveThisX({ data }: { data: Music }) {
     return (
         <div>
             <InnerTopFiveThisX interval='today' data={data} />
@@ -10,7 +10,7 @@ export default function TopFiveThisX({ data }: { data: Spotify }) {
     )
 }
 
-export function InnerTopFiveThisX({ interval, data }: { interval: string, data: Spotify }) {
+export function InnerTopFiveThisX({ interval, data }: { interval: string, data: Music }) {
     return <div></div>
     // const lookup: { interval: string; data: CountedSong[] }[] = [
     //     { interval: 'today', data: data.topFiveToday },
