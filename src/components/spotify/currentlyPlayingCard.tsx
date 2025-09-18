@@ -1,11 +1,30 @@
+'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
-    const progressMs = Math.max(0, Math.min(Date.parse(song.timestamp) - startMs, durationMs))
+
+    const [progressMs, setProgressMs] = useState(0)
+
+    useEffect(() => {
+        function updateProgress() {
+            const now = Date.now()
+            setProgressMs(Math.max(0, Math.min(now - startMs, durationMs)))
+        }
+        updateProgress()
+        let intervalId: NodeJS.Timeout | null = null
+        if (durationMs > 0) {
+            intervalId = setInterval(updateProgress, 1000)
+        }
+        return () => {
+            if (intervalId) clearInterval(intervalId)
+        }
+    }, [song.id, startMs, durationMs])
+
     const progressPercent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0
 
     return (
@@ -36,6 +55,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     )
 
     function msToMinSec(ms: number) {
+        if (!isFinite(ms) || ms < 0) return '0:00'
         const min = Math.floor(ms / 60000)
         const sec = Math.floor((ms % 60000) / 1000)
         return `${min}:${sec.toString().padStart(2, '0')}`
