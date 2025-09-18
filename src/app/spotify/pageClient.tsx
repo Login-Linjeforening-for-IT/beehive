@@ -7,7 +7,11 @@ import AverageDuration from '@components/spotify/duration'
 import CurrentlyPlaying from '@components/spotify/currentlyPlaying'
 import TopFiveThisX from '@components/spotify/topFiveThisX'
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+async function fetcher(url: string) {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+}
 
 export default function Spotify({ initialData }: { initialData: Spotify }) {
     const { data } = useSWR('/api/spotify', fetcher, {
@@ -25,12 +29,13 @@ export default function Spotify({ initialData }: { initialData: Spotify }) {
 
     const text = lang === 'en' ? en : no
 
-    if (!data) return <p>Loading...</p>
-
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
+                <section className='page-section--normal mb-[2rem]'>
+                    <p className='p--highlighted'>{text.intro}</p>
+                </section>
                 <CurrentlyPlaying songs={data.currentlyPlaying} />
                 <AverageDuration duration={data.averageDuration} />
                 <TopFiveThisX data={data} />
