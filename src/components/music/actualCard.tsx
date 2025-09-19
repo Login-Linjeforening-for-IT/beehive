@@ -29,7 +29,7 @@ export default function Card({ text, children, className, dropdown = false, defa
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2 w-full'>
-                    <h1 className={`${smallText ? 'text-sm text-zinc-500 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'} ${centerText && 'text-center w-full'}`}>{text}</h1>
+                    <h1 className={`${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'} ${centerText && 'text-center w-full'}`}>{text}</h1>
                     {playIcon && <PlayIcon />}
                 </div>
                 {dropdown && (
