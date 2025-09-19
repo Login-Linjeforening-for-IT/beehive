@@ -19,7 +19,17 @@ interface WithArtist {
     artist: string
 }
 
-export default function TileMap<T extends WithArtist>({ text, items, getCountWithIcons, getImage, getImageHash, getTitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
+export default function TileMap<T extends WithArtist>({
+    text,
+    items,
+    getCountWithIcons,
+    getImage,
+    getImageHash,
+    getTitle,
+    getCount,
+    dropdown = false,
+    defaultOpen = true
+}: TileMapProps<T>) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
