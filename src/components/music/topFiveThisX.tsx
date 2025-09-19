@@ -31,6 +31,10 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
 
     const songsToShow = lookup[interval] ?? []
 
+    if (songsToShow.length === 0) {
+        return null
+    }
+
     return (
         <div className='grid gap-2 w-full'>
             <TopTileMap items={songsToShow} text={`Top Five ${formatText(interval)}`} />
