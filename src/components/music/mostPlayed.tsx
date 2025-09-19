@@ -2,6 +2,9 @@ import React from 'react'
 import Card from './actualCard'
 import TileCard from './tileCard'
 import TileMap from './tileMap'
+import no from '@text/music/no.json'
+import en from '@text/music/en.json'
+import { cookies } from 'next/headers'
 
 type MostPlayedProps = {
     mostPlayedAlbums: Album[]
@@ -10,7 +13,12 @@ type MostPlayedProps = {
     mostActiveUsers: MusicUser[]
 }
 
-export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
+export async function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const text = (lang === 'no' ? no : en) as any
+
+
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-4 w-full justify-items-center'>
             <TileMap
@@ -20,6 +28,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => a.listens}
+                countSuffix={text.plays}
                 dropdown={true}
                 defaultOpen={true}
             />
@@ -30,6 +39,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.listens}
+                countSuffix={text.plays}
                 dropdown={true}
                 defaultOpen={true}
             />
@@ -40,6 +50,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => a.listens}
+                countSuffix={text.plays}
                 dropdown={true}
                 defaultOpen={true}
             />

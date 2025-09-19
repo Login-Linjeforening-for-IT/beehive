@@ -4,5 +4,8 @@
     "average_duration": "Gjennomsnittlig lengde",
     "total_minutes": "Total lyttetid",
     "minutes_this_year": "Lyttetid i år",
-    "total_songs": "Sanger totalt"
+    "total_songs": "Sanger totalt",
+    "plays": "avspillinger",
+    "liked": "likte",
+    "skips": "hopper over"
 }

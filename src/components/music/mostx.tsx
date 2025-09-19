@@ -1,5 +1,8 @@
 import React from 'react'
 import TileMap from './tileMap'
+import { cookies } from 'next/headers'
+import no from '@text/music/no.json'
+import en from '@text/music/en.json'
 
 type MostLikedProps = {
     mostLikedAlbums: LikedAlbum[]
@@ -10,7 +13,11 @@ type MostLikedProps = {
     mostSkippedSongs: SkippedSong[]
 }
 
-export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostSkippedAlbums, mostSkippedArtists, mostSkippedSongs }: MostLikedProps) {
+export async function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostSkippedAlbums, mostSkippedArtists, mostSkippedSongs }: MostLikedProps) {
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const text = (lang === 'no' ? no : en) as any
+
     return (
         <>
             <TileMap
@@ -20,7 +27,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => Math.round(a.like_ratio * 100)}
-                countSuffix='% liked'
+                countSuffix={`% ${text.liked}`}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -32,7 +39,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => a.skips}
-                countSuffix='skips'
+                countSuffix={text.skips}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -43,7 +50,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => Math.round(a.like_ratio * 100)}
-                countSuffix='% liked'
+                countSuffix={`% ${text.liked}`}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -54,7 +61,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.skips}
-                countSuffix='skips'
+                countSuffix={text.skips}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -65,7 +72,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => Math.round(a.like_ratio * 100)}
-                countSuffix='% liked'
+                countSuffix={`% ${text.liked}`}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -76,7 +83,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => a.skips}
-                countSuffix='skips'
+                countSuffix={text.skips}
                 dropdown={true}
                 defaultOpen={false}
             />

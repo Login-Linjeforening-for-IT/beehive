@@ -4,5 +4,8 @@
     "average_duration": "Average Duration",
     "total_minutes": "Total Listen Time",
     "minutes_this_year": "Listen Time This Year",
-    "total_songs": "Total Songs"
+    "total_songs": "Total Songs",
+    "plays": "plays",
+    "liked": "liked",
+    "skips": "skips"
 }
