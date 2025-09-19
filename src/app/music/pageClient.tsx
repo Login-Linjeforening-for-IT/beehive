@@ -14,21 +14,13 @@ async function fetcher(url: string) {
     return data
 }
 
-export default function Music({ initialData }: { initialData: Music }) {
+export default function Music({ initialData, lang }: { initialData: Music, lang: Lang }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const text = (lang === 'no' ? no : en) as any
     const { data } = useSWR('/api/music', fetcher, {
         refreshInterval: 10000,
         fallbackData: initialData,
     })
-
-    const lang =
-        typeof document !== 'undefined'
-            ? (document.cookie
-                .split('; ')
-                .find((row) => row.startsWith('lang='))
-                ?.split('=')[1] as 'en' | 'no') || 'no'
-            : 'no'
-
-    const text = lang === 'en' ? en : no
 
     const userTemp = [
         {user: 'test1', image: 'img/logo/logo-white-small.svg', total_minutes: '12345'},
@@ -39,20 +31,20 @@ export default function Music({ initialData }: { initialData: Music }) {
     ]
 
     const tileInfoData = [
-        { title: 'Average Duration', value: formatDuration(data.stats.avg_seconds) },
-        { title: 'Total Minutes', value: formatDuration(data.stats.total_minutes) },
-        { title: 'Total Minutes This Year', value: formatDuration(data.stats.total_minutes_this_year) },
-        { title: 'Total Songs', value: data.stats.total_songs.toString() }
+        { title: text.average_duration, value: formatDuration(data.stats.avg_seconds) },
+        { title: text.total_minutes, value: formatDuration(data.stats.total_minutes) },
+        { title: text.minutes_this_year, value: formatDuration(data.stats.total_minutes_this_year) },
+        { title: text.total_songs, value: data.stats.total_songs.toString() }
     ]
 
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
-                <section className='page-section--normal mb-[2rem]'>
+                <section className='page-section--normal'>
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
-                <section className='flex flex-col gap-6 justify-center items-center'>
+                <section className='flex flex-col justify-center items-center'>
                     <TileInfo data={tileInfoData} />
                     <TopFiveThisX data={data} />
                     <MostPlayed

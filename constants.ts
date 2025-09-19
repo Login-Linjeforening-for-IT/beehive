@@ -15,8 +15,9 @@ const config = {
         FACEBOOK_URL: 'https://facebook.com/LogNTNU',
         INSTAGRAM_URL: 'https://www.instagram.com/login_linjeforening/',
         DISCORD_URL: 'https://discord.gg/login-ntnu',
-        TEKKOM_BOT_API_URL: 'https://api.tekkom-bot.login.no/api'
-        // TEKKOM_BOT_API_URL: 'http://localhost:8080/api'
+        // TEKKOM_BOT_API_URL: 'https://api.tekkom-bot.login.no/api'
+        TEKKOM_BOT_API_URL: 'http://localhost:8080/api',
+        SPOTIFY_IMAGE_API_URL: 'https://i.scdn.co/image'
     },
     version
 }

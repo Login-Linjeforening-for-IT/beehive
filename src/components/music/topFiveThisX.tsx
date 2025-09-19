@@ -4,7 +4,7 @@ type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear'
 
 export default function TopFiveThisX({ data }: { data: Music }) {
     return (
-        <div className='grid grid-cols-2 gap-4 w-full'>
+        <div className='grid grid-cols-2 gap-4 w-full mb-4'>
             <InnerTopFiveThisX interval='today' data={data} />
             <InnerTopFiveThisX interval='yesterday' data={data} />
             <InnerTopFiveThisX interval='thisWeek' data={data} />
@@ -32,7 +32,7 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
     const songsToShow = lookup[interval] ?? []
 
     return (
-        <div className='grid gap-2'>
+        <div className='grid gap-2 w-full'>
             <TopTileMap items={songsToShow} text={`Top Five ${formatText(interval)}`} />
         </div>
     )

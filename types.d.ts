@@ -68,9 +68,9 @@ type DetailedEventData = {
     capacity: number | null
     full: boolean
     category: number
-    location: number | null,
-    parent: number | null,
-    rule: number | null,
+    location: number | null
+    parent: number | null
+    rule: number | null
     updated_at: string
     created_at: string
     deleted_at: string
@@ -197,7 +197,7 @@ type PromisedPageProps = {
 type Lang = 'en' | 'no'
 
 type Music = {
-    averageDuration: number
+    stats: MusicStats
     currentlyPlaying: Song[]
     mostPlayedAlbums: Album[]
     mostPlayedArtists: ArtistPlayed[]
@@ -211,10 +211,17 @@ type Music = {
     topFiveLastMonth: TopXSong[]
     topFiveThisYear: TopXSong[]
     topFiveLastYear: TopXSong[]
+    mostActiveUsers: MusicUser[]
+    mostLikedAlbums: LikedAlbum[]
+    mostLikedArtists: LikedArtist[]
+    mostLikedSongs: LikedSong[]
+    mostSkippedAlbums: SkippedAlbum[]
+    mostSkippedArtists: SkippedArtist[]
+    mostSkippedSongs: SkippedSong[]
 }
 
 type Song = {
-    id: 13,
+    id: 13
     song: string
     artist: string
     album: string
@@ -304,4 +311,67 @@ type TopXSong = {
     album: string
     listens: string
     image: string
+}
+
+type MusicUser = {
+    name: string
+    avatar: string
+    user_id: string
+    songs_played: string
+}
+
+type LikedAlbum = {
+    album: string
+    artist: string
+    total_listens: string
+    total_skips: string
+    like_ratio: number
+}
+
+type LikedArtist = {
+    artist: string
+    total_listens: string
+    total_skips: string
+    like_ratio: number
+}
+
+type LikedSong = {
+    song: string
+    artist: string
+    album: string
+    skips: number
+    listens: number
+    image: string
+    like_ratio: number
+}
+
+type SkippedAlbum = {
+    album: string
+    artist: string
+    skips: number
+    top_song: string
+    top_song_image: string
+}
+
+type SkippedArtist = {
+    artist: string
+    skips: number
+    top_song: null
+    album: null
+    image: null
+}
+
+type SkippedSong = {
+    song: string
+    artist: string
+    album: string
+    skips: number
+    image: string
+}
+
+type MusicStats = {
+    avg_seconds: number
+    total_minutes: number
+    total_minutes_this_year: number
+    total_songs: number
 }

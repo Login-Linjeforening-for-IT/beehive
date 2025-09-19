@@ -1,4 +1,8 @@
 {
     "title": "Music",
-    "intro": "Have you ever wondered what Login is listening to? Here is the answer!"
+    "intro": "Have you ever wondered what Login is listening to? Here is the answer!",
+    "average_duration": "Average Duration",
+    "total_minutes": "Total Minutes",
+    "minutes_this_year": "Total Minutes This Year",
+    "total_songs": "Total Songs"
 }

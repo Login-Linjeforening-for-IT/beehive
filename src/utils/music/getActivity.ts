@@ -13,7 +13,12 @@ export default async function getActivity(): Promise<Music> {
     } catch (error) {
         console.log(error)
         return {
-            averageDuration: 0,
+            stats: {
+                avg_seconds: 0,
+                total_minutes: 0,
+                total_minutes_this_year: 0,
+                total_songs: 0,
+            },
             currentlyPlaying: [],
             mostPlayedAlbums: [],
             mostPlayedArtists: [],
@@ -22,8 +27,18 @@ export default async function getActivity(): Promise<Music> {
             topFiveToday: [],
             topFiveYesterday: [],
             topFiveThisWeek: [],
+            topFiveLastWeek: [],
             topFiveThisMonth: [],
-            topFiveThisYear: []
+            topFiveLastMonth: [],
+            topFiveThisYear: [],
+            topFiveLastYear: [],
+            mostActiveUsers: [],
+            mostLikedAlbums: [],
+            mostLikedArtists: [],
+            mostLikedSongs: [],
+            mostSkippedAlbums: [],
+            mostSkippedArtists: [],
+            mostSkippedSongs: []
         }
     }
 }

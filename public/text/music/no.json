@@ -1,4 +1,8 @@
 {
-    "title": "Music",
-    "intro": "Har du noen gang lurt på hva Login hører på? Her er svaret!"
+    "title": "Musikk",
+    "intro": "Har du noen gang lurt på hva Login hører på? Her er svaret!",
+    "average_duration": "Gjennomsnittlig lengde",
+    "total_minutes": "Minutter totalt",
+    "minutes_this_year": "Minutter i år",
+    "total_songs": "Sanger totalt"
 }
