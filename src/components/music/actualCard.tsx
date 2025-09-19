@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 
 type CardProps = {
     text: string
@@ -25,14 +26,10 @@ export default function Card({ text, children, className, dropdown = false, defa
             >
                 <h1 className='font-semibold text-lg'>{text}</h1>
                 {dropdown && (
-                    <svg
-                        className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                    >
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 9l-7 7-7-7' />
-                    </svg>
+                    <ChevronDown
+                        className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                        size={20}
+                    />
                 )}
             </div>
             <div className={`grid place-items-center transition-all duration-300 overflow-hidden ${
