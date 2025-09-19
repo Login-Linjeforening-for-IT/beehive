@@ -27,8 +27,8 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
 
     const tileInfoData = [
         { title: text.average_duration, value: formatDuration(data.stats.avg_seconds) },
-        { title: text.total_minutes, value: formatDuration(data.stats.total_minutes) },
-        { title: text.minutes_this_year, value: formatDuration(data.stats.total_minutes_this_year) },
+        { title: text.total_minutes, value: formatDuration(data.stats.total_minutes * 60) },
+        { title: text.minutes_this_year, value: formatDuration(data.stats.total_minutes_this_year * 60) },
         { title: text.total_songs, value: data.stats.total_songs.toString() }
     ]
 
