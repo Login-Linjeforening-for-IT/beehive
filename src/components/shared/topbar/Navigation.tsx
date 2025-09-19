@@ -36,7 +36,7 @@ export default function Navigation({lang}: NavigationProps) {
     }, [navItemRefs])
 
     return (
-        <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[40rem]'>
+        <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[50rem]'>
             <Link href='/events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.events}
