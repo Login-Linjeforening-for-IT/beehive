@@ -20,8 +20,8 @@ export default function TopTileMap({ text, items, dropdown = false, defaultOpen 
                         className={`${index === 0 ? 'col-span-2' : ''} w-full`}
                     >
                         <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />
-                        <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={song.artist} />
-                        <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={song.album} />
+                        <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.artist} />
+                        <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.album} />
                         <div className='text-sm text-neutral-400 truncate'>{song.listens} plays</div>
                     </TileCard>
                 ))}
