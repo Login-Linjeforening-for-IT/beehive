@@ -14,7 +14,7 @@ export default function TopTileMap({ text, items }: {text: string, items: TopXSo
                         <div className='font-semibold text-lg truncate'>{song.song}</div>
                         <div className='text-sm text-gray-400 truncate'>{song.artist}</div>
                         <div className='text-sm text-gray-400 truncate'>{song.album}</div>
-                        <div className='text-sm text-gray-400 truncate'>{song.play_count} plays</div>
+                        <div className='text-sm text-gray-400 truncate'>{song.listens} plays</div>
                     </TileCard>
                 ))}
             </div>

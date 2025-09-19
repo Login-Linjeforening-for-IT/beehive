@@ -27,7 +27,11 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
 
     return (
         <div className='grid gap-2'>
-            <TopTileMap items={songsToShow} text={`Top Five ${interval.slice(0, 1).toUpperCase()}${interval.slice(1)}`} />
+            <TopTileMap items={songsToShow} text={`Top Five ${formatText(interval)}`} />
         </div>
     )
+}
+
+function formatText(text: string) {
+    return `${text.slice(0, 1).toUpperCase()}${text.slice(1).replace(/([A-Z])/g, ' $1')}`
 }

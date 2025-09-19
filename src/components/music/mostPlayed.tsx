@@ -28,7 +28,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
-                getCount={a => a.play_count}
+                getCount={a => a.listens}
             />
 
             <TileMap
@@ -36,7 +36,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 items={mostPlayedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
-                getCount={a => a.play_count}
+                getCount={a => a.listens}
             />
 
             <TileMap

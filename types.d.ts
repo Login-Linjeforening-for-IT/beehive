@@ -221,7 +221,7 @@ type Song = {
     user: string
     timestamp: string
     image: string
-    play_count: number
+    listens: number
 }
 
 type Activity = {
@@ -255,7 +255,7 @@ type Artist = {
 
 type ArtistPlayed = {
     artist: string
-    play_count: string
+    listens: string
     top_song: string
     album: string
     image: string
@@ -264,14 +264,14 @@ type ArtistPlayed = {
 type Album = {
     album: string
     artist: string
-    play_count: string
+    listens: string
     top_song: string
     top_song_image: string
 }
 
 type Artist = {
     name: string
-    play_count: string
+    listens: string
 }
 
 type CountedSong = {
@@ -299,6 +299,6 @@ type TopXSong = {
     song: string
     artist: string
     album: string
-    play_count: string
+    listens: string
     image: string
 }
