@@ -46,6 +46,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         mostPlayedSongs={data.mostPlayedSongs}
                         mostActiveUsers={data.mostActiveUsers}
                     />
+                    <CurrentlyPlaying songs={data.currentlyPlaying} />
                     <div className='grid grid-cols-2 gap-4 w-full'>
                         <Mostx
                             lang={lang}
@@ -58,7 +59,6 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         />
                     </div>
                     <TopFiveThisX data={data} />
-                    <CurrentlyPlaying songs={data.currentlyPlaying} />
                 </section>
             </div>
         </div>
