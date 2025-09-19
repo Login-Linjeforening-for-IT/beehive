@@ -37,7 +37,7 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
 
     return (
         <div className='grid gap-2 w-full'>
-            <TopTileMap items={songsToShow} text={`Top Five ${formatText(interval)}`} />
+            <TopTileMap items={songsToShow} text={`Top Five ${formatText(interval)}`} dropdown={true} defaultOpen={false} />
         </div>
     )
 }

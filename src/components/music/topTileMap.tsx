@@ -2,9 +2,16 @@ import Card from './actualCard'
 import Marquee from './Marquee'
 import TileCard from './tileCard'
 
-export default function TopTileMap({ text, items }: {text: string, items: TopXSong[]}) {
+type TopTileMapProps = {
+    text: string
+    items: TopXSong[]
+    dropdown?: boolean
+    defaultOpen?: boolean
+}
+
+export default function TopTileMap({ text, items, dropdown = false, defaultOpen = true }: TopTileMapProps) {
     return (
-        <Card text={text} className='w-full'>
+        <Card text={text} className='w-full' dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 pt-2 w-full'>
                 {items.map((song, index) => (
                     <TileCard

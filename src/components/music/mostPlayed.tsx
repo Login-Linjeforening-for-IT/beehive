@@ -18,6 +18,8 @@ interface TileMapProps<T> {
     getTitle: (item: T) => string
     getSubtitle?: (item: T) => string
     getCount?: (item: T) => string | number
+    dropdown?: boolean
+    defaultOpen?: boolean
 }
 
 export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
@@ -30,6 +32,8 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => a.listens}
+                dropdown={true}
+                defaultOpen={true}
             />
 
             <TileMap
@@ -38,6 +42,8 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.listens}
+                dropdown={true}
+                defaultOpen={true}
             />
 
             <TileMap
@@ -46,17 +52,19 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => a.listens}
+                dropdown={true}
+                defaultOpen={true}
             />
 
-            <Users text='Most Active Users' items={mostActiveUsers} />
+            <Users text='Most Active Users' items={mostActiveUsers} dropdown={true} defaultOpen={true} />
 
         </div>
     )
 }
 
-function Users({ text, items }: { text: string, items: MusicUser[] }) {
+function Users({ text, items, dropdown = false, defaultOpen = true }: { text: string, items: MusicUser[], dropdown?: boolean, defaultOpen?: boolean }) {
     return (
-        <Card text={text}>
+        <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
                 {items.slice(0, 5).map((item, index) => (
                     <TileCard
@@ -75,9 +83,9 @@ function Users({ text, items }: { text: string, items: MusicUser[] }) {
     )
 }
 
-function TileMap<T>({ text, items, getImage, getImageHash, getTitle, getSubtitle, getCount }: TileMapProps<T>) {
+function TileMap<T>({ text, items, getImage, getImageHash, getTitle, getSubtitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
     return (
-        <Card text={text}>
+        <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
                 {items.map((item, index) => (
                     <TileCard
