@@ -10,9 +10,10 @@ type CardProps = {
     className?: string
     playIcon?: boolean
     smallText?: boolean
+    centerText?: boolean
 }
 
-export default function Card({ text, children, className, dropdown = false, defaultOpen = true, playIcon = false, smallText = false }: CardProps) {
+export default function Card({ text, children, className, dropdown = false, defaultOpen = true, playIcon = false, smallText = false, centerText = false }: CardProps) {
     const [isOpen, setIsOpen] = useState(defaultOpen)
 
     const toggleOpen = () => {
@@ -27,8 +28,8 @@ export default function Card({ text, children, className, dropdown = false, defa
                 className={`flex items-center justify-between ${dropdown ? 'cursor-pointer' : ''}`}
                 onClick={toggleOpen}
             >
-                <div className='flex gap-2'>
-                    <h1 className={`${smallText ? 'text-sm text-zinc-500 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'}`}>{text}</h1>
+                <div className='flex gap-2 w-full'>
+                    <h1 className={`${smallText ? 'text-sm text-zinc-500 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'} ${centerText && 'text-center w-full'}`}>{text}</h1>
                     {playIcon && <PlayIcon />}
                 </div>
                 {dropdown && (
