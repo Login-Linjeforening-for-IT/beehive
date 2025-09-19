@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Marquee from './Marquee'
 
 export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const startMs = Date.parse(song.start)
@@ -40,9 +41,9 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
                 className='rounded-lg object-cover bg-gray-900 w-16 h-16'
             />
             <div className='flex flex-col flex-1 min-w-0'>
-                <div className='font-medium text-base text-white truncate'>{song.song}</div>
-                <div className='text-xs text-zinc-400 truncate'>{song.artist}</div>
-                <div className='text-xs text-zinc-400 truncate'>{song.album}</div>
+                <Marquee text={song.song} className='truncate' innerClassName='font-medium text-base text-white' />
+                <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-zinc-400' />
+                <Marquee text={song.album} className='truncate' innerClassName='text-xs text-zinc-400' />
                 <div className='mt-2 flex items-center w-full gap-2'>
                     <span className='text-xs text-gray-400 min-w-[40px] text-right'>{msToMinSec(progressMs)}</span>
                     <div className='h-1.5 flex-1 bg-white/20 rounded-full overflow-hidden relative'>
