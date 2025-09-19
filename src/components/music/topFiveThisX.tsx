@@ -1,3 +1,7 @@
+import TileCard from './tileCard'
+
+type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear'
+
 export default function TopFiveThisX({ data }: { data: Music }) {
     return (
         <div>
@@ -10,22 +14,37 @@ export default function TopFiveThisX({ data }: { data: Music }) {
     )
 }
 
-export function InnerTopFiveThisX({ interval, data }: { interval: string, data: Music }) {
-    console.log(interval, data)
-    return <div></div>
-    // const lookup: { interval: string; data: CountedSong[] }[] = [
-    //     { interval: 'today', data: data.topFiveToday },
-    //     { interval: 'yesterday', data: data.topFiveYesterday },
-    //     { interval: 'thisWeek', data: data.topFiveThisWeek },
-    //     { interval: 'thisMonth', data: data.topFiveThisMonth },
-    //     { interval: 'thisYear', data: data.topFiveThisYear },
-    // ]
+function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Music }) {
+    const lookup: Record<IntervalKey, CountedSong[]> = {
+        today: data.topFiveToday,
+        yesterday: data.topFiveYesterday,
+        thisWeek: data.topFiveThisWeek,
+        thisMonth: data.topFiveThisMonth,
+        thisYear: data.topFiveThisYear,
+    }
 
-    // return (
-    //     <div>
-    //         {lookup.map(({ interval, data }) => (
-    //             <InnerTopFiveThisX key={interval} data={data} />
-    //         ))}
-    //     </div>
-    // )
+    const songsToShow = lookup[interval] ?? []
+
+    return (
+        <div>
+            {songsToShow.map((song, index) => (
+                <TopCard key={`${interval}-${index}`} index={index} song={song} />
+            ))}
+        </div>
+    )
+}
+
+
+function TopCard({ index, song }: { song: CountedSong, index: number }) {
+    return (
+        <TileCard
+            imageHash={song.image}
+            className={`${index === 0 ? 'col-span-2' : ''}`}
+        >
+            <div className='font-semibold text-lg truncate'>{song.song}</div>
+            <div className='text-sm text-gray-400 truncate'>{song.artist}</div>
+            <div className='text-sm text-gray-400 truncate'>{song.album}</div>
+            <div className='text-sm text-gray-400 truncate'>{song.listens} plays</div>
+        </TileCard>
+    )
 }
