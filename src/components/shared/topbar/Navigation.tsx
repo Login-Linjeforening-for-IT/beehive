@@ -52,6 +52,11 @@ export default function Navigation({lang}: NavigationProps) {
                     {text.nav.companies}
                 </li>
             </Link>
+            <Link href='/music'>
+                <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
+                    {text.nav.music}
+                </li>
+            </Link>
             <Link target='_blank' href={config.url.EXAM_URL}>
                 <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 pr-2 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.exam}

@@ -43,6 +43,9 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
             <Link onClick={close} href='/companies' tabIndex={open ? 0 : -1}>
                 <li className='mobile-nav_item'>{text.nav.companies}</li>
             </Link>
+            <Link onClick={close} href='/music' tabIndex={open ? 0 : -1}>
+                <li className='mobile-nav_item'>{text.nav.music}</li>
+            </Link>
             <Link target='_blank' onClick={close} href={config.url.EXAM_URL} tabIndex={open ? 0 : -1}>
                 <li className='flex flex-row gap-2 mobile-nav_item'>
                     {text.nav.exam}
