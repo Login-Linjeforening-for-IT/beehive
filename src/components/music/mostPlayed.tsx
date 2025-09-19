@@ -6,6 +6,7 @@ import no from '@text/music/no.json'
 import en from '@text/music/en.json'
 import Marquee from './Marquee'
 import { Trophy } from 'lucide-react'
+import PlayIcon from './playIcon'
 
 type MostPlayedProps = {
     lang: Lang
@@ -13,6 +14,7 @@ type MostPlayedProps = {
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
     mostActiveUsers: MusicUser[]
+    currentlyPlaying: Song[]
 }
 
 type UsersProps = {
@@ -20,6 +22,7 @@ type UsersProps = {
     items: MusicUser[]
     dropdown?: boolean
     defaultOpen?: boolean
+    currentlyPlaying: Song[]
 }
 
 export default function MostPlayed({
@@ -28,6 +31,7 @@ export default function MostPlayed({
     mostPlayedArtists,
     mostPlayedSongs,
     mostActiveUsers,
+    currentlyPlaying
 }: MostPlayedProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
@@ -64,34 +68,45 @@ export default function MostPlayed({
                 defaultOpen={true}
             />
 
-            <Users text={text.most_active_users} items={mostActiveUsers} dropdown={true} defaultOpen={true} />
+            <Users
+                text={text.most_active_users}
+                items={mostActiveUsers}
+                currentlyPlaying={currentlyPlaying}
+                dropdown={true}
+                defaultOpen={true}
+            />
 
         </div>
     )
 }
 
-function Users({ text, items, dropdown = false, defaultOpen = true }: UsersProps) {
+function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPlaying }: UsersProps) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
-                {items.slice(0, 5).map((item, index) => (
-                    <TileCard
-                        key={`${index}-${item.user_id}`}
-                        imageHash={item.avatar}
-                        className={`${index === 0 ? 'col-span-2 outline-1 outline-yellow-200 m-0.5' : ''}`}
-                        discord={true}
-                        user_id={item.user_id}
-                    >
-                        <div className='flex w-full justify-between text-neutral-400 items-top'>
-                            <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
-                            <Trophy className={`p-[1px] w-6 
-                                ${index === 0 ? 'stroke-yellow-400' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
-                        </div>
-                        <div className='text-sm text-neutral-400 truncate'>
-                            {item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}
-                        </div>
-                    </TileCard>
-                ))}
+                {items.slice(0, 5).map((item, index) => {
+                    const isCurrentlyListening = currentlyPlaying.find((user) => user.user === item.name)
+                    return (
+                        <TileCard
+                            key={`${index}-${item.user_id}`}
+                            imageHash={item.avatar}
+                            className={`${index === 0 ? 'col-span-2 outline-1 outline-yellow-200 m-0.5' : ''}`}
+                            discord={true}
+                            user_id={item.user_id}
+                        >
+                            <div className='flex w-full justify-between text-neutral-400 items-top'>
+                                <div className='flex gap-2'>
+                                    <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
+                                    {isCurrentlyListening !== undefined && <PlayIcon />}
+                                </div>
+                                <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-yellow-400' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
+                            </div>
+                            <div className='text-sm text-neutral-400 truncate'>
+                                {item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}
+                            </div>
+                        </TileCard>
+                    )
+                })}
             </div>
         </Card>
     )

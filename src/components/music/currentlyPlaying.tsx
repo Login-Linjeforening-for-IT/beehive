@@ -3,7 +3,12 @@ import CurrentlyPlayingCard from './currentlyPlayingCard'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
 
-export default function CurrentlyPlaying({ songs, lang }: { songs: Song[], lang: Lang }) {
+type CurrentlyPlayingProps = {
+    songs: Song[]
+    lang: Lang
+}
+
+export default function CurrentlyPlaying({ songs, lang }: CurrentlyPlayingProps) {
     const text = (lang === 'no' ? no : en)
     const uniqueSongs = Array.from(new Map(songs.map(s => [s.id, s])).values())
     return (

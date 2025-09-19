@@ -10,7 +10,7 @@ import TileInfo from '@components/music/tileInfo'
 import MostX from '@components/music/mostx'
 import { Comic_Neue } from 'next/font/google'
 
-const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400','700'] })
+const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -44,6 +44,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         mostPlayedArtists={data.mostPlayedArtists}
                         mostPlayedSongs={data.mostPlayedSongs}
                         mostActiveUsers={data.mostActiveUsers}
+                        currentlyPlaying={data.currentlyPlaying}
                     />
                     <CurrentlyPlaying songs={data.currentlyPlaying} lang={lang} />
                     <div className='grid grid-cols-2 gap-4 w-full'>
