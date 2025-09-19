@@ -5,6 +5,7 @@ import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import useSWR from 'swr'
 import CurrentlyPlayingCard from '../currentlyPlayingCard'
+import PlayIcon from '../playIcon'
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -32,9 +33,12 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
         <>
             <section className='pt-[2rem] max-w-[var(--w-page)] 800px:px-[1rem] 800px:mx-auto 1000px:w-full'>
                 <div className='flex justify-between items-center px-[2rem] 1000px:px-[1rem]'>
-                    <h2 className='py-[0.5rem] font-normal text-2xl'>
-                        {text.musicPreview.title}
-                    </h2>
+                    <div className='gap-2 flex place-items-center'>
+                        <h2 className='py-[0.5rem] font-normal text-2xl'>
+                            {text.musicPreview.title}
+                        </h2>
+                        <PlayIcon noColor={true} />
+                    </div>
                     <Link href='/music' className='group relative block p-[.5em_1.5em_.5em_1em] leading-[1.4em] text-[1.2rem] font-medium h-[2.4em] after:content-[""] after:absolute after:w-[0.6em] after:h-[0.6em] after:top-[0.85em] after:right-[0.5em] after:border-r-[0.18em] after:border-b-[0.18em] after:border-solid after:border-[var(--color-link-primary)] after:transform after:rotate-[-45deg] after:z-[5] after:transition-all'>
                         <span className='hidden 350px:block group-hover:text-[var(--color-link-primary)]'>
                             {text.musicPreview.seeAll}

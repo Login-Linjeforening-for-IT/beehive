@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import PlayIcon from './playIcon'
 
 type CardProps = {
     text: string
@@ -7,9 +8,10 @@ type CardProps = {
     defaultOpen?: boolean
     children: React.ReactNode
     className?: string
+    playIcon?: boolean
 }
 
-export default function Card({ text, children, className, dropdown = false, defaultOpen = true }: CardProps) {
+export default function Card({ text, children, className, dropdown = false, defaultOpen = true, playIcon = false }: CardProps) {
     const [isOpen, setIsOpen] = useState(defaultOpen)
 
     const toggleOpen = () => {
@@ -24,7 +26,10 @@ export default function Card({ text, children, className, dropdown = false, defa
                 className={`flex items-center justify-between ${dropdown ? 'cursor-pointer' : ''}`}
                 onClick={toggleOpen}
             >
-                <h1 className='font-semibold text-lg'>{text}</h1>
+                <div className='flex gap-2'>
+                    <h1 className={`font-semibold text-lg ${playIcon && 'text-[var(--color-primary-500)]'}`}>{text}</h1>
+                    {playIcon && <PlayIcon />}
+                </div>
                 {dropdown && (
                     <ChevronDown
                         className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
