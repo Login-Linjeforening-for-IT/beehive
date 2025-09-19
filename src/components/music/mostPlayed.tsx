@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './actualCard'
 import TileCard from './tileCard'
+import Marquee from './Marquee'
 
 type MostPlayedProps = {
     mostPlayedAlbums: Album[]
@@ -59,7 +60,7 @@ function Users({ text, items }: { text: string, items: MusicUser[] }) {
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
                 {items.slice(0, 5).map((item, index) => (
                     <TileCard
-                        key={item.user_id}
+                        key={`${index}-${item.user_id}`}
                         imageHash={item.avatar}
                         className={`${index === 0 ? 'col-span-2' : ''}`}
                         discord={true}
@@ -85,12 +86,12 @@ function TileMap<T>({ text, items, getImage, getImageHash, getTitle, getSubtitle
                         image={getImage ? getImage(item) : undefined}
                         className={`${index === 0 ? 'col-span-2' : ''}`}
                     >
-                        <div className='font-semibold text-lg truncate'>{getTitle(item)}</div>
+                        <Marquee className='truncate' innerClassName='font-semibold text-lg' text={`${getTitle(item)}`} />
                         {getSubtitle && (
-                            <div className='text-sm text-gray-400 truncate'>{getSubtitle(item)}</div>
+                            <Marquee className='truncate' innerClassName='text-sm text-gray-400' text={`${getSubtitle(item)}`} />
                         )}
                         {getCount && (
-                            <div className='text-sm text-gray-400 truncate'>{getCount(item)} plays</div>
+                            <Marquee className='truncate' innerClassName='text-sm text-gray-400' text={`${getCount(item)} plays`} />
                         )}
                     </TileCard>
                 ))}

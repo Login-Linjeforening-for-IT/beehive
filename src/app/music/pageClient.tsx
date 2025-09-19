@@ -7,6 +7,9 @@ import CurrentlyPlaying from '@components/music/currentlyPlaying'
 import TopFiveThisX from '@components/music/topFiveThisX'
 import { MostPlayed } from '@components/music/mostPlayed'
 import { TileInfo } from '@components/music/tileInfo'
+import { Comic_Neue } from 'next/font/google'
+
+const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400','700'] })
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -32,19 +35,31 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
-                <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
+                <div className='grid grid-cols-2 w-full'>
+                    <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
+                    <h1 className={`${comicNeue.className} text-right text-lg text-[var(--color-primary)] self-center`}>#LoginWrapped</h1>
+                </div>
                 <section className='page-section--normal'>
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
-                <section className='flex flex-col justify-center items-center'>
+                <section className='flex flex-col justify-center items-center gap-4'>
                     <TileInfo data={tileInfoData} />
-                    <TopFiveThisX data={data} />
                     <MostPlayed
                         mostPlayedAlbums={data.mostPlayedAlbums}
                         mostPlayedArtists={data.mostPlayedArtists}
                         mostPlayedSongs={data.mostPlayedSongs}
                         mostActiveUsers={data.mostActiveUsers}
                     />
+                    <TopFiveThisX data={data} />
+                    {/* !!! tbd !!!
+                        mostLikedAlbums: LikedAlbum[]
+                        mostLikedArtists: LikedArtist[]
+                        mostLikedSongs: LikedSong[]
+                        mostSkippedAlbums: SkippedAlbum[]
+                        mostSkippedArtists: SkippedArtist[]
+                        mostSkippedSongs: SkippedSong[]
+                        !!! tbd !!!
+                    */}
                     <CurrentlyPlaying songs={data.currentlyPlaying} />
                 </section>
             </div>
