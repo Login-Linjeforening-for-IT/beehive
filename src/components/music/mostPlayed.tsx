@@ -4,6 +4,8 @@ import TileCard from './tileCard'
 import TileMap from './tileMap'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
+import Marquee from './Marquee'
+import { Trophy } from 'lucide-react'
 
 type MostPlayedProps = {
     lang: Lang
@@ -76,11 +78,15 @@ function Users({ text, items, dropdown = false, defaultOpen = true }: UsersProps
                     <TileCard
                         key={`${index}-${item.user_id}`}
                         imageHash={item.avatar}
-                        className={`${index === 0 ? 'col-span-2' : ''}`}
+                        className={`${index === 0 ? 'col-span-2 outline-1 outline-yellow-200 m-0.5' : ''}`}
                         discord={true}
                         user_id={item.user_id}
                     >
-                        <div className='font-semibold text-lg truncate'>{item.name}</div>
+                        <div className='flex w-full justify-between text-neutral-400 items-top'>
+                            <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
+                            <Trophy className={`p-[1px] w-6 
+                                ${index === 0 ? 'stroke-yellow-400' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
+                        </div>
                         <div className='text-sm text-neutral-400 truncate'>
                             {item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}
                         </div>
