@@ -8,49 +8,85 @@ type MostPlayedProps = {
     mostPlayedSongs: CountedSong[]
 }
 
+interface TileMapProps<T> {
+    text: string
+    items: T[]
+    getImage: (item: T) => string
+    getTitle: (item: T) => string
+    getSubtitle?: (item: T) => string
+    getCount?: (item: T) => string | number
+}
+
+type TileCardProps = {
+    imageHash: string
+    className?: string
+    children: React.ReactNode
+}
+
 export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs }: MostPlayedProps) {
     return (
         <div className='space-y-8'>
-            <Card text='Most Played Albums'>
-                <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
-                    {mostPlayedAlbums.map((album, index) => (
-                        <TileCard key={album.album} imageHash={album.top_song_image} className={`${index == 0 ? 'col-span-2' : ''}`}>
-                            <div className='font-semibold text-lg truncate'>{album.album}</div>
-                            <div className='text-sm text-gray-400 truncate'>{album.artist}</div>
-                            <div className='text-sm text-gray-400 truncate'>{album.play_count} plays</div>
-                        </TileCard>
-                    ))}
-                </div>
-            </Card>
+            <TileMap
+                text='Most Played Albums'
+                items={mostPlayedAlbums}
+                getImage={a => a.top_song_image}
+                getTitle={a => a.album}
+                getSubtitle={a => a.artist}
+                getCount={a => a.play_count}
+            />
 
-            <Card text='Most Played Artists'>
-                <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
-                    {mostPlayedArtists.map((artist, index) => (
-                        <TileCard key={artist.artist} imageHash={artist.image} className={`${index == 0 ? 'col-span-2' : ''}`}>
-                            <div className='font-semibold text-lg truncate'>{artist.artist}</div>
-                            <div className='text-sm text-gray-400 truncate'>{artist.album}</div>
-                            <div className='text-sm text-gray-400 truncate'>{artist.play_count} plays</div>
-                        </TileCard>
-                    ))}
-                </div>
-            </Card>
+            <TileMap
+                text='Most Played Artists'
+                items={mostPlayedArtists}
+                getImage={a => a.image}
+                getTitle={a => a.artist}
+                getCount={a => a.play_count}
+            />
 
-            <Card text='Most Played Songs'>
-                <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
-                    {mostPlayedSongs.map((song, index) => (
-                        <TileCard key={song.song} imageHash={song.image} className={`${index == 0 ? 'col-span-2' : ''}`}>
-                            <div className='font-semibold text-lg truncate'>{song.song}</div>
-                            <div className='text-sm text-gray-400 truncate'>{song.artist}</div>
-                            <div className='text-sm text-gray-400 truncate'>{song.listens} plays</div>
-                        </TileCard>
-                    ))}
-                </div>
-            </Card>
+            <TileMap
+                text='Most Played Songs'
+                items={mostPlayedSongs}
+                getImage={a => a.image}
+                getTitle={a => a.song}
+                getCount={a => a.listens}
+            />
+
         </div>
     )
 }
 
-function TileCard({ imageHash, className, children }: { imageHash: string; className?: string; children: React.ReactNode }) {
+function TileMap<T>({
+    text,
+    items,
+    getImage,
+    getTitle,
+    getSubtitle,
+    getCount,
+}: TileMapProps<T>) {
+    return (
+        <Card text={text}>
+            <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
+                {items.map((item, index) => (
+                    <TileCard
+                        key={getTitle(item)}
+                        imageHash={getImage(item)}
+                        className={`${index === 0 ? 'col-span-2' : ''}`}
+                    >
+                        <div className='font-semibold text-lg truncate'>{getTitle(item)}</div>
+                        {getSubtitle && (
+                            <div className='text-sm text-gray-400 truncate'>{getSubtitle(item)}</div>
+                        )}
+                        {getCount && (
+                            <div className='text-sm text-gray-400 truncate'>{getCount(item)} plays</div>
+                        )}
+                    </TileCard>
+                ))}
+            </div>
+        </Card>
+    )
+}
+
+function TileCard({ imageHash, className, children }: TileCardProps) {
     return (
         <div className={`flex items-center gap-4 p-2 rounded-lg bg-neutral-700/30 shadow-none ${className}`}>
             <Image
