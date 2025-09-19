@@ -7,6 +7,7 @@ export default function TopTileMap({ text, items }: {text: string, items: TopXSo
             <div className='grid grid-cols-2 gap-2 w-lg pt-2'>
                 {items.map((song, index) => (
                     <TileCard
+                        key={index}
                         imageHash={song.image}
                         className={`${index === 0 ? 'col-span-2' : ''}`}
                     >
