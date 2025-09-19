@@ -12,7 +12,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
     return (
         <div className='space-y-8'>
             <Card text='Most Played Albums'>
-                <div className='grid grid-cols-2 gap-2 w-xl'>
+                <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
                     {mostPlayedAlbums.map((album, index) => (
                         <TileCard key={album.album} imageHash={album.top_song_image} className={`${index == 0 ? 'col-span-2' : ''}`}>
                             <div className='font-semibold text-lg truncate'>{album.album}</div>
@@ -24,7 +24,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
             </Card>
 
             <Card text='Most Played Artists'>
-                <div className='grid grid-cols-2 gap-2 w-xl'>
+                <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
                     {mostPlayedArtists.map((artist, index) => (
                         <TileCard key={artist.artist} imageHash={artist.image} className={`${index == 0 ? 'col-span-2' : ''}`}>
                             <div className='font-semibold text-lg truncate'>{artist.artist}</div>
@@ -36,7 +36,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
             </Card>
 
             <Card text='Most Played Songs'>
-                <div className='grid grid-cols-2 gap-2 w-xl'>
+                <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
                     {mostPlayedSongs.map((song, index) => (
                         <TileCard key={song.song} imageHash={song.image} className={`${index == 0 ? 'col-span-2' : ''}`}>
                             <div className='font-semibold text-lg truncate'>{song.song}</div>
@@ -52,7 +52,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
 
 function TileCard({ imageHash, className, children }: { imageHash: string; className?: string; children: React.ReactNode }) {
     return (
-        <div className={`flex items-center gap-4 p-2 rounded-lg bg-neutral-800 shadow-none ${className}`}>
+        <div className={`flex items-center gap-4 p-2 rounded-lg bg-neutral-700/30 shadow-none ${className}`}>
             <Image
                 src={`https://i.scdn.co/image/${imageHash}`}
                 alt={''}
