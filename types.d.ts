@@ -206,8 +206,11 @@ type Music = {
     topFiveToday: TopXSong[]
     topFiveYesterday: TopXSong[]
     topFiveThisWeek: TopXSong[]
+    topFiveLastWeek: TopXSong[]
     topFiveThisMonth: TopXSong[]
+    topFiveLastMonth: TopXSong[]
     topFiveThisYear: TopXSong[]
+    topFiveLastYear: TopXSong[]
 }
 
 type Song = {

@@ -1,6 +1,6 @@
 import TopTileMap from './topTileMap'
 
-type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear'
+type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear' | 'lastWeek' | 'lastMonth' | 'lastYear'
 
 export default function TopFiveThisX({ data }: { data: Music }) {
     return (
@@ -8,8 +8,11 @@ export default function TopFiveThisX({ data }: { data: Music }) {
             <InnerTopFiveThisX interval='today' data={data} />
             <InnerTopFiveThisX interval='yesterday' data={data} />
             <InnerTopFiveThisX interval='thisWeek' data={data} />
+            <InnerTopFiveThisX interval='lastWeek' data={data} />
             <InnerTopFiveThisX interval='thisMonth' data={data} />
+            <InnerTopFiveThisX interval='lastMonth' data={data} />
             <InnerTopFiveThisX interval='thisYear' data={data} />
+            <InnerTopFiveThisX interval='lastYear' data={data} />
         </div>
     )
 }
@@ -19,8 +22,11 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
         today: data.topFiveToday,
         yesterday: data.topFiveYesterday,
         thisWeek: data.topFiveThisWeek,
+        lastWeek: data.topFiveLastWeek,
         thisMonth: data.topFiveThisMonth,
+        lastMonth: data.topFiveThisMonth,
         thisYear: data.topFiveThisYear,
+        lastYear: data.topFiveThisYear,
     }
 
     const songsToShow = lookup[interval] ?? []
