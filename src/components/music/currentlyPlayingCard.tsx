@@ -32,7 +32,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     }
 
     return (
-        <div className='flex items-center gap-4 p-2 rounded-lg bg-neutral-800/70 shadow-none w-lg'>
+        <div className='flex items-center gap-4 p-2 rounded-lg bg-neutral-800/70 shadow-none w-full'>
             <Image
                 src={`https://i.scdn.co/image/${Array.isArray(song.image) ? song.image[0] : song.image}`}
                 alt={song.album}

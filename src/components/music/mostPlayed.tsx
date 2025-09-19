@@ -21,7 +21,7 @@ interface TileMapProps<T> {
 
 export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUser }: MostPlayedProps) {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-8 w-full justify-items-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-4 w-full justify-items-center'>
             <TileMap
                 text='Most Played Albums'
                 items={mostPlayedAlbums}
@@ -62,7 +62,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
 function TileMap<T>({ text, items, getImage, getImageHash, getTitle, getSubtitle, getCount }: TileMapProps<T>) {
     return (
         <Card text={text}>
-            <div className='grid grid-cols-2 gap-2 w-lg pt-2'>
+            <div className='grid grid-cols-2 gap-2 w-full pt-2'>
                 {items.map((item, index) => (
                     <TileCard
                         key={getTitle(item)}
