@@ -97,7 +97,7 @@ function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPla
                             <div className='flex w-full justify-between text-neutral-400 items-top'>
                                 <div className='flex gap-2'>
                                     <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
-                                    {isCurrentlyListening !== undefined && <PlayIcon />}
+                                    {isCurrentlyListening !== undefined && <PlayIcon noColor />}
                                 </div>
                                 <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-yellow-400' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>

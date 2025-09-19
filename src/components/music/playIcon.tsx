@@ -1,7 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function PlayIcon({noColor}: {noColor?: boolean}) {
-    // const color = noColor ? 'bg-[var(--color-primary-500)]' : 'bg-[var(--color-primary-500)]'
-    const color = 'bg-[var(--color-primary-500)]'
+    const color = noColor ? 'bg-neutral-400' : 'bg-[var(--color-primary-500)]'
     return (
         <div className='flex items-end gap-1 h-5'>
             <div className={`w-1 ${color} animate-bar1`} />
