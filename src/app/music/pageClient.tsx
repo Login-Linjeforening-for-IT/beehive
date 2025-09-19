@@ -68,12 +68,29 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
 }
 
 function formatDuration(seconds: number): string {
-    const h = Math.floor(seconds / 3600)
-    const m = Math.floor((seconds % 3600) / 60)
-    const s = seconds % 60
+    const MINUTE = 60
+    const HOUR = MINUTE * 60
+    const DAY = HOUR * 24
+    const WEEK = DAY * 7
+    const MONTH = DAY * 30
+    const YEAR = DAY * 365
+
+    const years = Math.floor(seconds / YEAR)
+    const months = Math.floor((seconds % YEAR) / MONTH)
+    const weeks = Math.floor((seconds % MONTH) / WEEK)
+    const days = Math.floor((seconds % WEEK) / DAY)
+    const hours = Math.floor((seconds % DAY) / HOUR)
+    const minutes = Math.floor((seconds % HOUR) / MINUTE)
+    const remainingSeconds = seconds % MINUTE
+
     const parts = []
-    if (h > 0) parts.push(`${h}h`)
-    if (m > 0) parts.push(`${m}m`)
-    if (s > 0 || parts.length === 0) parts.push(`${s}s`)
+    if (years > 0) parts.push(`${years}y`)
+    if (months > 0) parts.push(`${months}mo`)
+    if (weeks > 0) parts.push(`${weeks}w`)
+    if (days > 0) parts.push(`${days}d`)
+    if (hours > 0) parts.push(`${hours}h`)
+    if (minutes > 0) parts.push(`${minutes}m`)
+    if (remainingSeconds > 0 || parts.length === 0) parts.push(`${remainingSeconds}s`)
+
     return parts.join(' ')
 }
