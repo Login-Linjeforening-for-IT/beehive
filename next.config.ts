@@ -73,6 +73,12 @@ const nextConfig: NextConfig = {
                 pathname: '/image/**',
                 search: '',
             },
+            {
+                protocol: 'https',
+                hostname: 'cdn.discordapp.com',
+                port: '',
+                pathname: '/avatars/**',
+            }
         ],
     },
 }

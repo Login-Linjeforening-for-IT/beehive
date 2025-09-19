@@ -17,18 +17,10 @@ async function fetcher(url: string) {
 export default function Music({ initialData, lang }: { initialData: Music, lang: Lang }) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
-    const { data } = useSWR('/api/music', fetcher, {
+    const { data }: { data: Music } = useSWR('/api/music', fetcher, {
         refreshInterval: 10000,
         fallbackData: initialData,
     })
-
-    const userTemp = [
-        {user: 'test1', image: 'img/logo/logo-white-small.svg', total_minutes: '12345'},
-        {user: 'test2', image: 'img/logo/logo-white-small.svg', total_minutes: '67890'},
-        {user: 'test3', image: 'img/logo/logo-white-small.svg', total_minutes: '111213'},
-        {user: 'test4', image: 'img/logo/logo-white-small.svg', total_minutes: '141516'},
-        {user: 'test5', image: 'img/logo/logo-white-small.svg', total_minutes: '151617'}
-    ]
 
     const tileInfoData = [
         { title: text.average_duration, value: formatDuration(data.stats.avg_seconds) },
@@ -51,7 +43,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         mostPlayedAlbums={data.mostPlayedAlbums}
                         mostPlayedArtists={data.mostPlayedArtists}
                         mostPlayedSongs={data.mostPlayedSongs}
-                        mostActiveUser={userTemp}
+                        mostActiveUsers={data.mostActiveUsers}
                     />
                     <CurrentlyPlaying songs={data.currentlyPlaying} />
                 </section>
