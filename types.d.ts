@@ -288,3 +288,9 @@ type SongDay = {
     albums: Album[]
     images: Image[]
 }
+
+type ActiveUser = {
+    user: string
+    total_minutes: string
+    image: string
+}

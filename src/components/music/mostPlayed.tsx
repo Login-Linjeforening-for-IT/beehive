@@ -6,30 +6,33 @@ type MostPlayedProps = {
     mostPlayedAlbums: Album[]
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
+    mostActiveUser: ActiveUser[]
 }
 
 interface TileMapProps<T> {
     text: string
     items: T[]
-    getImage: (item: T) => string
+    getImage?: (item: T) => string
+    getImageHash?: (item: T) => string
     getTitle: (item: T) => string
     getSubtitle?: (item: T) => string
     getCount?: (item: T) => string | number
 }
 
 type TileCardProps = {
-    imageHash: string
+    image?: string
+    imageHash?: string
     className?: string
     children: React.ReactNode
 }
 
-export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs }: MostPlayedProps) {
+export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUser }: MostPlayedProps) {
     return (
-        <div className='space-y-8'>
+        <div className='grid grid-cols-2 gap-4'>
             <TileMap
                 text='Most Played Albums'
                 items={mostPlayedAlbums}
-                getImage={a => a.top_song_image}
+                getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => a.play_count}
@@ -38,7 +41,7 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
             <TileMap
                 text='Most Played Artists'
                 items={mostPlayedArtists}
-                getImage={a => a.image}
+                getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.play_count}
             />
@@ -46,30 +49,32 @@ export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSong
             <TileMap
                 text='Most Played Songs'
                 items={mostPlayedSongs}
-                getImage={a => a.image}
+                getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => a.listens}
+            />
+
+            <TileMap
+                text='Most Active Users'
+                items={mostActiveUser}
+                getImage={a => a.image}
+                getTitle={a => a.user}
+                getCount={a => a.total_minutes}
             />
 
         </div>
     )
 }
 
-function TileMap<T>({
-    text,
-    items,
-    getImage,
-    getTitle,
-    getSubtitle,
-    getCount,
-}: TileMapProps<T>) {
+function TileMap<T>({ text, items, getImage, getImageHash, getTitle, getSubtitle, getCount }: TileMapProps<T>) {
     return (
         <Card text={text}>
-            <div className='grid grid-cols-2 gap-2 w-xl pt-2'>
+            <div className='grid grid-cols-2 gap-2 w-lg pt-2'>
                 {items.map((item, index) => (
                     <TileCard
                         key={getTitle(item)}
-                        imageHash={getImage(item)}
+                        imageHash={getImageHash ? getImageHash(item) : undefined}
+                        image={getImage ? getImage(item) : undefined}
                         className={`${index === 0 ? 'col-span-2' : ''}`}
                     >
                         <div className='font-semibold text-lg truncate'>{getTitle(item)}</div>
@@ -86,15 +91,15 @@ function TileMap<T>({
     )
 }
 
-function TileCard({ imageHash, className, children }: TileCardProps) {
+function TileCard({ image, imageHash, className, children }: TileCardProps) {
     return (
         <div className={`flex items-center gap-4 p-2 rounded-lg bg-neutral-700/30 shadow-none ${className}`}>
             <Image
-                src={`https://i.scdn.co/image/${imageHash}`}
+                src={image ? image : `https://i.scdn.co/image/${imageHash}`}
                 alt={''}
                 width={64}
                 height={64}
-                className='rounded-lg object-cover bg-gray-900 w-16 h-16'
+                className='rounded-lg object-cover w-16 h-16'
             />
             <div className='flex flex-col flex-1 min-w-0'>
                 {children}

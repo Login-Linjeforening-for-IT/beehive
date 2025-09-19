@@ -3,7 +3,7 @@
 import useSWR from 'swr'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
-import AverageDuration from '@components/music/duration'
+// import AverageDuration from '@components/music/duration'
 import CurrentlyPlaying from '@components/music/currentlyPlaying'
 import TopFiveThisX from '@components/music/topFiveThisX'
 import { MostPlayed } from '@components/music/mostPlayed'
@@ -30,6 +30,14 @@ export default function Music({ initialData }: { initialData: Music }) {
 
     const text = lang === 'en' ? en : no
 
+    const userTemp = [
+        {user: 'test1', image: 'img/logo/logo-white-small.svg', total_minutes: '12345'},
+        {user: 'test2', image: 'img/logo/logo-white-small.svg', total_minutes: '67890'},
+        {user: 'test3', image: 'img/logo/logo-white-small.svg', total_minutes: '111213'},
+        {user: 'test4', image: 'img/logo/logo-white-small.svg', total_minutes: '141516'},
+        {user: 'test5', image: 'img/logo/logo-white-small.svg', total_minutes: '151617'}
+    ]
+
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
@@ -37,14 +45,17 @@ export default function Music({ initialData }: { initialData: Music }) {
                 <section className='page-section--normal mb-[2rem]'>
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
-                <CurrentlyPlaying songs={data.currentlyPlaying} />
-                <AverageDuration duration={data.averageDuration} />
-                <TopFiveThisX data={data} />
-                <MostPlayed
-                    mostPlayedAlbums={data.mostPlayedAlbums}
-                    mostPlayedArtists={data.mostPlayedArtists}
-                    mostPlayedSongs={data.mostPlayedSongs}
-                />
+                <section className='flex flex-col gap-6'>
+                    {/* <AverageDuration duration={data.averageDuration} /> */}
+                    <TopFiveThisX data={data} />
+                    <MostPlayed
+                        mostPlayedAlbums={data.mostPlayedAlbums}
+                        mostPlayedArtists={data.mostPlayedArtists}
+                        mostPlayedSongs={data.mostPlayedSongs}
+                        mostActiveUser={userTemp}
+                    />
+                    <CurrentlyPlaying songs={data.currentlyPlaying} />
+                </section>
             </div>
         </div>
     )
