@@ -17,7 +17,6 @@ export default function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
 
-
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-4 w-full justify-items-center'>
             <TileMap
