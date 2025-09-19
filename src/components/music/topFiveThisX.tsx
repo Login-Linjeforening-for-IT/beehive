@@ -6,7 +6,7 @@ type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear'
 
 export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }) {
     return (
-        <div className='grid grid-cols-2 gap-4 w-full'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
             <InnerTopFiveThisX interval='today' data={data} lang={lang} />
             <InnerTopFiveThisX interval='yesterday' data={data} lang={lang} />
             <InnerTopFiveThisX interval='thisWeek' data={data} lang={lang} />

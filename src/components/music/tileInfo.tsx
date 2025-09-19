@@ -10,7 +10,7 @@ export default function TileInfo({ data, text }: { data: Music, text: any }) {
     ]
 
     return (
-        <div className='flex flex-row gap-4 w-full'>
+        <div className='flex flex-col md:flex-row gap-4 w-full'>
             {tileInfoData.map((item) => (
                 <Card key={item.title} text={item.title} smallText={true} centerText={true}>
                     <p className='font-bold'>{item.value}</p>

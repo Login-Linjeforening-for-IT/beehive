@@ -23,7 +23,7 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
     const uniqueSongs = Array.from(new Map(songs.map(s => [s.id, s])).values()).slice(0, 4)
     function SongPreview() {
         return  (
-            <div className='grid grid-cols-2 gap-4 place-items-center w-full'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center w-full'>
                 {uniqueSongs.map((song) => <CurrentlyPlayingCard key={song.id} song={song} />)}
             </div>
         )

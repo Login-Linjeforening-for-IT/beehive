@@ -32,13 +32,13 @@ export default function TileMap<T extends WithArtist>({
 }: TileMapProps<T>) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
-            <div className='grid grid-cols-2 gap-2 w-full pt-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full pt-2'>
                 {items.map((item, index) => (
                     <TileCard
                         key={getTitle(item) + '-' + index}
                         imageHash={getImageHash ? getImageHash(item) : undefined}
                         image={getImage ? getImage(item) : undefined}
-                        className={`${index === 0 ? 'col-span-2' : ''}`}
+                        className={`${index === 0 ? 'md:col-span-2' : ''}`}
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={`${getTitle(item)}`} />

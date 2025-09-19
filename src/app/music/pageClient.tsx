@@ -47,7 +47,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         currentlyPlaying={data.currentlyPlaying}
                     />
                     <CurrentlyPlaying songs={data.currentlyPlaying} lang={lang} />
-                    <div className='grid grid-cols-2 gap-4 w-full'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
                         <MostX
                             lang={lang}
                             mostLikedAlbums={data.mostLikedAlbums}

@@ -83,14 +83,14 @@ export default function MostPlayed({
 function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPlaying }: UsersProps) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
-            <div className='grid grid-cols-2 gap-2 w-full pt-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full pt-2'>
                 {items.slice(0, 5).map((item, index) => {
                     const isCurrentlyListening = currentlyPlaying.find((user) => user.user === item.name)
                     return (
                         <TileCard
                             key={`${index}-${item.user_id}`}
                             imageHash={item.avatar}
-                            className={`${index === 0 ? 'col-span-2 outline-1 outline-yellow-200 m-0.5' : ''}`}
+                            className={`${index === 0 ? 'md:col-span-2 outline-1 outline-yellow-200 m-0.5' : ''}`}
                             discord={true}
                             user_id={item.user_id}
                         >
