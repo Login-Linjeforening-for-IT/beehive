@@ -1,7 +1,7 @@
 import Card from './actualCard'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function TileInfo({ data, text }: { data: Music, text: any }) {
+export default function TileInfo({ data, text }: { data: Music, text: any }) {
     const tileInfoData: Array<{ title: string; value: string }> = [
         { title: text.average_duration, value: formatDuration(data.stats.avg_seconds) },
         { title: text.total_minutes, value: formatDuration(data.stats.total_minutes * 60) },

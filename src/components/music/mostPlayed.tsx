@@ -13,7 +13,7 @@ type MostPlayedProps = {
     mostActiveUsers: MusicUser[]
 }
 
-export function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
+export default function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
 

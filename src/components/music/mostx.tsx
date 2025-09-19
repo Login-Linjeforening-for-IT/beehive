@@ -13,7 +13,15 @@ type MostLikedProps = {
     mostSkippedSongs: SkippedSong[]
 }
 
-export function Mostx({ lang, mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostSkippedAlbums, mostSkippedArtists, mostSkippedSongs }: MostLikedProps) {
+export default function MostX({
+    lang,
+    mostLikedAlbums,
+    mostLikedArtists,
+    mostLikedSongs,
+    mostSkippedAlbums,
+    mostSkippedArtists,
+    mostSkippedSongs
+}: MostLikedProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
 

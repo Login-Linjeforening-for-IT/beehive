@@ -5,10 +5,10 @@ import no from '@text/music/no.json'
 import en from '@text/music/en.json'
 import CurrentlyPlaying from '@components/music/currentlyPlaying'
 import TopFiveThisX from '@components/music/topFiveThisX'
-import { MostPlayed } from '@components/music/mostPlayed'
-import { TileInfo } from '@components/music/tileInfo'
+import MostPlayed from '@components/music/mostPlayed'
+import TileInfo from '@components/music/tileInfo'
+import MostX from '@components/music/mostx'
 import { Comic_Neue } from 'next/font/google'
-import { Mostx } from '@components/music/mostx'
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400','700'] })
 
@@ -48,7 +48,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                     />
                     <CurrentlyPlaying songs={data.currentlyPlaying} />
                     <div className='grid grid-cols-2 gap-4 w-full'>
-                        <Mostx
+                        <MostX
                             lang={lang}
                             mostLikedAlbums={data.mostLikedAlbums}
                             mostLikedArtists={data.mostLikedArtists}
