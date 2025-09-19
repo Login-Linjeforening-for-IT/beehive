@@ -8,6 +8,7 @@ import TopFiveThisX from '@components/music/topFiveThisX'
 import { MostPlayed } from '@components/music/mostPlayed'
 import { TileInfo } from '@components/music/tileInfo'
 import { Comic_Neue } from 'next/font/google'
+import { Mostx } from '@components/music/mostx'
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400','700'] })
 
@@ -44,16 +45,17 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         mostPlayedSongs={data.mostPlayedSongs}
                         mostActiveUsers={data.mostActiveUsers}
                     />
+                    <div className='grid grid-cols-2 gap-4 w-full'>
+                        <Mostx
+                            mostLikedAlbums={data.mostLikedAlbums}
+                            mostLikedArtists={data.mostLikedArtists}
+                            mostLikedSongs={data.mostLikedSongs}
+                            mostSkippedAlbums={data.mostSkippedAlbums}
+                            mostSkippedArtists={data.mostSkippedArtists}
+                            mostSkippedSongs={data.mostSkippedSongs}
+                        />
+                    </div>
                     <TopFiveThisX data={data} />
-                    {/* !!! tbd !!!
-                        mostLikedAlbums: LikedAlbum[]
-                        mostLikedArtists: LikedArtist[]
-                        mostLikedSongs: LikedSong[]
-                        mostSkippedAlbums: SkippedAlbum[]
-                        mostSkippedArtists: SkippedArtist[]
-                        mostSkippedSongs: SkippedSong[]
-                        !!! tbd !!!
-                    */}
                     <CurrentlyPlaying songs={data.currentlyPlaying} />
                 </section>
             </div>
