@@ -34,7 +34,6 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
     )
 }
 
-
 function TopCard({ index, song }: { song: CountedSong, index: number }) {
     return (
         <TileCard
