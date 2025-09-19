@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-interface MarqueeProps {
+type MarqueeProps = {
     text: string
     className?: string
     innerClassName?: string
@@ -21,8 +21,7 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
         setScrollDistance(textWidth - containerWidth)
     }, [text])
 
-    // Dynamic duration based on distance (optional)
-    const duration = Math.max(6, scrollDistance / 30) // longer text scrolls slower
+    const duration = Math.max(6, scrollDistance / 30)
 
     return (
         <div
