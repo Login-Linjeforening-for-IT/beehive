@@ -7,7 +7,7 @@ interface TileMapProps<T> {
     text: string
     items: T[]
     countSuffix?: string
-    getCountWithIcons?: (item: T) => {likeRatio: number, totalListens: number, totalSkips: number}
+    getCountWithIcons?: (item: T) => { likeRatio: number, totalListens: number, totalSkips: number }
     getImage?: (item: T) => string
     getImageHash?: (item: T) => string
     getTitle: (item: T) => string
@@ -33,8 +33,7 @@ export default function TileMap<T extends WithArtist>({ text, items, countSuffix
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={`${getTitle(item)}`} />
-                            {getCount && <p className='text-neutral-400 pl-2'>{getCount(item)}</p>}
-                            <PlayIcon className='fill-neutral-400 stroke-0 p-[2px] -ml-[2px] pb-[4px]' />
+                            <TopRight item={item} getCount={getCount} />
                         </div>
                         <Marquee
                             className='truncate'
@@ -44,13 +43,13 @@ export default function TileMap<T extends WithArtist>({ text, items, countSuffix
                         {getCountWithIcons && (
                             <div className='flex flex-row items-center gap-2'>
                                 <span className='flex items-center text-neutral-400'>
-                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-400 fill-neutral-400'/>
+                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-400 fill-neutral-400' />
                                 </span>
                                 <span className='flex items-center text-neutral-400'>
                                     {getCountWithIcons(item).totalListens} <Play className='w-4 stroke-neutral-400 fill-neutral-400' />
                                 </span>
                                 <span className='flex items-center text-neutral-400'>
-                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400'/>
+                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400' />
                                 </span>
                             </div>
                         )}
@@ -58,5 +57,17 @@ export default function TileMap<T extends WithArtist>({ text, items, countSuffix
                 ))}
             </div>
         </Card>
+    )
+}
+
+function TopRight<T extends WithArtist>({ getCount, item }: { item: T, getCount?: (item: T) => string | number }) {
+    if (!getCount) {
+        return
+    }
+    return (
+        <>
+            <p className='text-neutral-400 pl-2'>{getCount(item)}</p>
+            <PlayIcon className='fill-neutral-400 stroke-0 p-[2px] -ml-[2px] pb-[4px]' />
+        </>
     )
 }
