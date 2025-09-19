@@ -15,7 +15,7 @@ export default function TileCard({ image, imageHash, className, children }: Tile
                 alt={''}
                 width={64}
                 height={64}
-                className='rounded-lg object-cover bg-gray-900 w-16 h-16'
+                className='rounded-lg object-cover w-16 h-16'
             />
             <div className='flex flex-col flex-1 min-w-0'>
                 {children}
