@@ -9,7 +9,7 @@ interface TileMapProps<T> {
     getImage?: (item: T) => string
     getImageHash?: (item: T) => string
     getTitle: (item: T) => string
-    getCount?: (item: T) => string | number
+    getCount?: (item: T) => string | number | React.ReactElement
     dropdown?: boolean
     defaultOpen?: boolean
 }
