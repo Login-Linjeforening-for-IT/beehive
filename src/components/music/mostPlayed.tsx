@@ -13,14 +13,27 @@ type MostPlayedProps = {
     mostActiveUsers: MusicUser[]
 }
 
-export default function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
+type UsersProps = {
+    text: string
+    items: MusicUser[]
+    dropdown?: boolean
+    defaultOpen?: boolean
+}
+
+export default function MostPlayed({
+    lang,
+    mostPlayedAlbums,
+    mostPlayedArtists,
+    mostPlayedSongs,
+    mostActiveUsers,
+}: MostPlayedProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-4 w-full justify-items-center'>
             <TileMap
-                text='Most Played Albums'
+                text={text.most_played_albums}
                 items={mostPlayedAlbums}
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
@@ -31,7 +44,7 @@ export default function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, 
             />
 
             <TileMap
-                text='Most Played Artists'
+                text={text.most_played_artists}
                 items={mostPlayedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
@@ -42,7 +55,7 @@ export default function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, 
             />
 
             <TileMap
-                text='Most Played Songs'
+                text={text.most_played_songs}
                 items={mostPlayedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
@@ -52,13 +65,13 @@ export default function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, 
                 defaultOpen={true}
             />
 
-            <Users text='Most Active Users' items={mostActiveUsers} dropdown={true} defaultOpen={true} />
+            <Users text={text.most_active_users} items={mostActiveUsers} dropdown={true} defaultOpen={true} />
 
         </div>
     )
 }
 
-function Users({ text, items, dropdown = false, defaultOpen = true }: { text: string, items: MusicUser[], dropdown?: boolean, defaultOpen?: boolean }) {
+function Users({ text, items, dropdown = false, defaultOpen = true }: UsersProps) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
@@ -71,7 +84,9 @@ function Users({ text, items, dropdown = false, defaultOpen = true }: { text: st
                         user_id={item.user_id}
                     >
                         <div className='font-semibold text-lg truncate'>{item.name}</div>
-                        <div className='text-sm text-neutral-400 truncate'>{item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}</div>
+                        <div className='text-sm text-neutral-400 truncate'>
+                            {item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}
+                        </div>
                     </TileCard>
                 ))}
             </div>

@@ -22,13 +22,12 @@ export default function MostX({
     mostSkippedArtists,
     mostSkippedSongs
 }: MostLikedProps) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const text = (lang === 'no' ? no : en) as any
+    const text = lang === 'no' ? no : en
 
     return (
         <>
             <TileMap
-                text='Most Liked Albums'
+                text={text.mostx.most_liked_albums}
                 items={mostLikedAlbums}
                 getImageHash={a => a.image}
                 getTitle={a => a.album}
@@ -42,7 +41,7 @@ export default function MostX({
             />
 
             <TileMap
-                text='Most Skipped Albums'
+                text={text.mostx.most_skipped_albums}
                 items={mostSkippedAlbums}
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
@@ -53,7 +52,7 @@ export default function MostX({
             />
 
             <TileMap
-                text='Most Liked Artists'
+                text={text.mostx.most_liked_artists}
                 items={mostLikedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
@@ -67,7 +66,7 @@ export default function MostX({
             />
 
             <TileMap
-                text='Most Skipped Artists'
+                text={text.mostx.most_skipped_artists}
                 items={mostSkippedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
@@ -78,7 +77,7 @@ export default function MostX({
             />
 
             <TileMap
-                text='Most Liked Songs'
+                text={text.mostx.most_liked_songs}
                 items={mostLikedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
@@ -92,7 +91,7 @@ export default function MostX({
             />
 
             <TileMap
-                text='Most Skipped Songs'
+                text={text.mostx.most_skipped_songs}
                 items={mostSkippedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}

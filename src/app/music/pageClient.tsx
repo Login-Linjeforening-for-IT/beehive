@@ -26,7 +26,6 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
         fallbackData: initialData,
     })
 
-
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
@@ -46,7 +45,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         mostPlayedSongs={data.mostPlayedSongs}
                         mostActiveUsers={data.mostActiveUsers}
                     />
-                    <CurrentlyPlaying songs={data.currentlyPlaying} />
+                    <CurrentlyPlaying songs={data.currentlyPlaying} lang={lang} />
                     <div className='grid grid-cols-2 gap-4 w-full'>
                         <MostX
                             lang={lang}
@@ -58,7 +57,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                             mostSkippedSongs={data.mostSkippedSongs}
                         />
                     </div>
-                    <TopFiveThisX data={data} />
+                    <TopFiveThisX lang={lang} data={data} />
                 </section>
             </div>
         </div>

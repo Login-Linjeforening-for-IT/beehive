@@ -7,5 +7,29 @@
     "total_songs": "Sanger totalt",
     "plays": "avspillinger",
     "liked": "likte",
-    "skips": "hopper over"
+    "skips": "hopper over",
+    "most_played_albums": "Mest spilte albumer",
+    "most_played_artists": "Mest spilte artister",
+    "most_played_songs": "Mest spilte sanger",
+    "most_active_users": "Mest aktive brukere",
+    "currently_playing": "Spilles nå",
+    "mostx": {
+        "most_liked_albums": "Mest likte album",
+        "most_skipped_albums": "Mest hoppet over album",
+        "most_liked_artists": "Mest likte artister",
+        "most_skipped_artists": "Mest hoppet over artist",
+        "most_liked_songs": "Mest likte sanger",
+        "most_skipped_songs": "Mest hoppet over sanger"
+    },
+    "topx": {
+        "intro": "Topp fem",
+        "today": "I dag",
+        "yesterday": "I går",
+        "thisWeek": "denne uka",
+        "lastWeek": "forrige uke",
+        "thisMonth": "denne måneden",
+        "lastMonth": "forrige måned",
+        "thisYear": "i år",
+        "lastYear": "i fjor"
+    }
 }

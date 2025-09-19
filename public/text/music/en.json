@@ -7,5 +7,29 @@
     "total_songs": "Total Songs",
     "plays": "plays",
     "liked": "liked",
-    "skips": "skips"
+    "skips": "skips",
+    "most_played_albums": "Most Played Albums",
+    "most_played_artists": "Most Played Artists",
+    "most_played_songs": "Most Played Songs",
+    "most_active_users": "Most Active Users",
+    "currently_playing": "Currently Playing",
+    "mostx": {
+        "most_liked_albums": "Most Liked Albums",
+        "most_skipped_albums": "Most Skipped Albums",
+        "most_liked_artists": "Most Liked Artists",
+        "most_skipped_artists": "Most Skipped Artists",
+        "most_liked_songs": "Most Liked Songs",
+        "most_skipped_songs": "Most Skipped Songs"
+    },
+    "topx": {
+        "intro": "Top Five",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "thisWeek": "This Week",
+        "lastWeek": "Last Week",
+        "thisMonth": "This Month",
+        "lastMonth": "Last Month",
+        "thisYear": "This Year",
+        "lastYear": "Last Year"
+    }
 }
