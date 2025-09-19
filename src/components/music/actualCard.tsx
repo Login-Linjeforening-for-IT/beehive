@@ -9,9 +9,10 @@ type CardProps = {
     children: React.ReactNode
     className?: string
     playIcon?: boolean
+    smallText?: boolean
 }
 
-export default function Card({ text, children, className, dropdown = false, defaultOpen = true, playIcon = false }: CardProps) {
+export default function Card({ text, children, className, dropdown = false, defaultOpen = true, playIcon = false, smallText = false }: CardProps) {
     const [isOpen, setIsOpen] = useState(defaultOpen)
 
     const toggleOpen = () => {
@@ -27,7 +28,7 @@ export default function Card({ text, children, className, dropdown = false, defa
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2'>
-                    <h1 className={`font-semibold text-lg ${playIcon && 'text-[var(--color-primary-500)]'}`}>{text}</h1>
+                    <h1 className={`${smallText ? 'text-sm text-zinc-500 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'}`}>{text}</h1>
                     {playIcon && <PlayIcon />}
                 </div>
                 {dropdown && (
@@ -37,9 +38,7 @@ export default function Card({ text, children, className, dropdown = false, defa
                     />
                 )}
             </div>
-            <div className={`grid place-items-center transition-all duration-300 overflow-hidden ${
-                dropdown ? (isOpen ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''
-            }`}>
+            <div className={`grid place-items-center transition-all duration-300 overflow-hidden ${dropdown ? (isOpen ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}>
                 {children}
             </div>
         </div>
