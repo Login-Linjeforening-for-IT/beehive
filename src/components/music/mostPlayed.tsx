@@ -38,7 +38,6 @@ export default function MostPlayed({
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
                 getCount={a => a.listens}
-                countSuffix={text.plays}
                 dropdown={true}
                 defaultOpen={true}
             />
@@ -49,7 +48,6 @@ export default function MostPlayed({
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.listens}
-                countSuffix={text.plays}
                 dropdown={true}
                 defaultOpen={true}
             />
@@ -60,7 +58,6 @@ export default function MostPlayed({
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => a.listens}
-                countSuffix={text.plays}
                 dropdown={true}
                 defaultOpen={true}
             />

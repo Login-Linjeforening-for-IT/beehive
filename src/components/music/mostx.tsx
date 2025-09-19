@@ -46,7 +46,6 @@ export default function MostX({
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
                 getCount={a => a.skips}
-                countSuffix={text.skips}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -71,7 +70,6 @@ export default function MostX({
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.skips}
-                countSuffix={text.skips}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -96,7 +94,6 @@ export default function MostX({
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
                 getCount={a => a.skips}
-                countSuffix={text.skips}
                 dropdown={true}
                 defaultOpen={false}
             />
