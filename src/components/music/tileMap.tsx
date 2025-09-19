@@ -64,6 +64,7 @@ function TopRight<T extends WithArtist>({ getCount, item }: { item: T, getCount?
     if (!getCount) {
         return
     }
+
     return (
         <>
             <p className='text-neutral-400 pl-2'>{getCount(item)}</p>
