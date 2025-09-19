@@ -203,11 +203,11 @@ type Music = {
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
     mostPlayedSongsPerDay: SongDay[]
-    topFiveToday: CountedSong[]
-    topFiveYesterday: CountedSong[]
-    topFiveThisWeek: CountedSong[]
-    topFiveThisMonth: CountedSong[]
-    topFiveThisYear: CountedSong[]
+    topFiveToday: TopXSong[]
+    topFiveYesterday: TopXSong[]
+    topFiveThisWeek: TopXSong[]
+    topFiveThisMonth: TopXSong[]
+    topFiveThisYear: TopXSong[]
 }
 
 type Song = {
@@ -292,5 +292,13 @@ type SongDay = {
 type ActiveUser = {
     user: string
     total_minutes: string
+    image: string
+}
+
+type TopXSong = {
+    song: string
+    artist: string
+    album: string
+    play_count: string
     image: string
 }

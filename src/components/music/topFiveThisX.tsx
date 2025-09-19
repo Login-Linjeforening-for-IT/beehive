@@ -1,4 +1,4 @@
-import TileCard from './tileCard'
+import TopTileMap from './topTileMap'
 
 type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear'
 
@@ -15,7 +15,7 @@ export default function TopFiveThisX({ data }: { data: Music }) {
 }
 
 function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Music }) {
-    const lookup: Record<IntervalKey, CountedSong[]> = {
+    const lookup: Record<IntervalKey, TopXSong[]> = {
         today: data.topFiveToday,
         yesterday: data.topFiveYesterday,
         thisWeek: data.topFiveThisWeek,
@@ -26,24 +26,8 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
     const songsToShow = lookup[interval] ?? []
 
     return (
-        <div>
-            {songsToShow.map((song, index) => (
-                <TopCard key={`${interval}-${index}`} index={index} song={song} />
-            ))}
+        <div className='grid gap-2'>
+            <TopTileMap items={songsToShow} text={`Top Five ${interval.slice(0, 1).toUpperCase()}${interval.slice(1)}`} />
         </div>
-    )
-}
-
-function TopCard({ index, song }: { song: CountedSong, index: number }) {
-    return (
-        <TileCard
-            imageHash={song.image}
-            className={`${index === 0 ? 'col-span-2' : ''}`}
-        >
-            <div className='font-semibold text-lg truncate'>{song.song}</div>
-            <div className='text-sm text-gray-400 truncate'>{song.artist}</div>
-            <div className='text-sm text-gray-400 truncate'>{song.album}</div>
-            <div className='text-sm text-gray-400 truncate'>{song.listens} plays</div>
-        </TileCard>
     )
 }
