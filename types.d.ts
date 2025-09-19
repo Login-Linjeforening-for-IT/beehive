@@ -326,6 +326,7 @@ type LikedAlbum = {
     total_listens: string
     total_skips: string
     like_ratio: number
+    image: string
 }
 
 type LikedArtist = {
@@ -333,6 +334,7 @@ type LikedArtist = {
     total_listens: string
     total_skips: string
     like_ratio: number
+    image: string
 }
 
 type LikedSong = {
@@ -358,7 +360,7 @@ type SkippedArtist = {
     skips: number
     top_song: null
     album: null
-    image: null
+    image: string
 }
 
 type SkippedSong = {

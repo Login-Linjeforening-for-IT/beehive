@@ -16,6 +16,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
             <TileMap
                 text='Most Liked Albums'
                 items={mostLikedAlbums}
+                getImageHash={a => a.image}
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => a.total_listens}
@@ -27,6 +28,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
             <TileMap
                 text='Most Skipped Albums'
                 items={mostSkippedAlbums}
+                getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
                 getCount={a => a.skips}
@@ -38,6 +40,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
             <TileMap
                 text='Most Liked Artists'
                 items={mostLikedArtists}
+                getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.total_listens}
                 countSuffix='listens'
@@ -48,6 +51,7 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
             <TileMap
                 text='Most Skipped Artists'
                 items={mostSkippedArtists}
+                getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getCount={a => a.skips}
                 countSuffix='skips'
