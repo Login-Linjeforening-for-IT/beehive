@@ -1,16 +1,17 @@
 import Image from 'next/image'
 
 type TileCardProps = {
-    imageHash: string
+    image?: string
+    imageHash?: string
     className?: string
     children: React.ReactNode
 }
 
-export default function TileCard({ imageHash, className, children }: TileCardProps) {
+export default function TileCard({ image, imageHash, className, children }: TileCardProps) {
     return (
         <div className={`flex items-center gap-4 p-2 rounded-lg bg-neutral-700/30 shadow-none ${className}`}>
             <Image
-                src={`https://i.scdn.co/image/${imageHash}`}
+                src={image ? image : `https://i.scdn.co/image/${imageHash}`}
                 alt={''}
                 width={64}
                 height={64}
