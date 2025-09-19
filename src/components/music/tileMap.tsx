@@ -43,13 +43,13 @@ export default function TileMap<T extends WithArtist>({ text, items, countSuffix
                         {getCountWithIcons && (
                             <div className='flex flex-row items-center gap-2'>
                                 <span className='flex items-center text-neutral-400'>
-                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-400 fill-neutral-400' />
+                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-400 fill-neutral-400 pb-[2px]' />
                                 </span>
                                 <span className='flex items-center text-neutral-400'>
-                                    {getCountWithIcons(item).totalListens} <Play className='w-4 stroke-neutral-400 fill-neutral-400' />
+                                    {getCountWithIcons(item).totalListens} <Play className='w-4 stroke-neutral-400 fill-neutral-400 pb-[2px]' />
                                 </span>
                                 <span className='flex items-center text-neutral-400'>
-                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400' />
+                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400 pb-[2px]' />
                                 </span>
                             </div>
                         )}
