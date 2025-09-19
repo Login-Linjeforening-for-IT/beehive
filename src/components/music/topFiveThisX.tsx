@@ -24,9 +24,9 @@ function InnerTopFiveThisX({ interval, data }: { interval: IntervalKey, data: Mu
         thisWeek: data.topFiveThisWeek,
         lastWeek: data.topFiveLastWeek,
         thisMonth: data.topFiveThisMonth,
-        lastMonth: data.topFiveThisMonth,
+        lastMonth: data.topFiveLastMonth,
         thisYear: data.topFiveThisYear,
-        lastYear: data.topFiveThisYear,
+        lastYear: data.topFiveLastYear,
     }
 
     const songsToShow = lookup[interval] ?? []
