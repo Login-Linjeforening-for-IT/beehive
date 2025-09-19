@@ -25,7 +25,6 @@ export function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, mostPlay
                 items={mostPlayedAlbums}
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
-                getSubtitle={a => a.artist}
                 getCount={a => a.listens}
                 countSuffix={text.plays}
                 dropdown={true}
