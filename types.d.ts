@@ -221,7 +221,7 @@ type Music = {
 }
 
 type Song = {
-    id: 13
+    id: number
     song: string
     artist: string
     album: string
