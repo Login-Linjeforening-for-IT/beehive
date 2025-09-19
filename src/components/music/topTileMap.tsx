@@ -1,3 +1,4 @@
+import { PlayIcon } from 'lucide-react'
 import Card from './actualCard'
 import Marquee from './Marquee'
 import TileCard from './tileCard'
@@ -19,10 +20,13 @@ export default function TopTileMap({ text, items, dropdown = false, defaultOpen 
                         imageHash={song.image}
                         className={`${index === 0 ? 'col-span-2' : ''} w-full`}
                     >
-                        <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />
+                        <div className='flex w-full justify-between text-neutral-400'>
+                            <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />
+                            <p>{song.listens}</p>
+                            <PlayIcon className='stroke-zink-400' fill='var(--text-neutral-400)' />
+                        </div>
                         <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.artist} />
                         <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.album} />
-                        <div className='text-sm text-neutral-400 truncate'>{song.listens} plays</div>
                     </TileCard>
                 ))}
             </div>
