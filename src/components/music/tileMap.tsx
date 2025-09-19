@@ -1,4 +1,4 @@
-import { PlayIcon } from 'lucide-react'
+import { Heart, Play, SkipForward, PlayIcon } from 'lucide-react'
 import Card from './actualCard'
 import Marquee from './Marquee'
 import TileCard from './tileCard'
@@ -7,10 +7,11 @@ interface TileMapProps<T> {
     text: string
     items: T[]
     countSuffix?: string
+    getCountWithIcons?: (item: T) => {likeRatio: number, totalListens: number, totalSkips: number}
     getImage?: (item: T) => string
     getImageHash?: (item: T) => string
     getTitle: (item: T) => string
-    getCount?: (item: T) => string | number | React.ReactElement
+    getCount?: (item: T) => string | number
     dropdown?: boolean
     defaultOpen?: boolean
 }
@@ -19,7 +20,7 @@ interface WithArtist {
     artist: string
 }
 
-export default function TileMap<T extends WithArtist>({ text, items, countSuffix, getImage, getImageHash, getTitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
+export default function TileMap<T extends WithArtist>({ text, items, countSuffix, getCountWithIcons, getImage, getImageHash, getTitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
@@ -40,6 +41,19 @@ export default function TileMap<T extends WithArtist>({ text, items, countSuffix
                             innerClassName='text-sm text-neutral-500'
                             text={`${item.artist} ${countSuffix || ''}`}
                         />
+                        {getCountWithIcons && (
+                            <div className='flex flex-row items-center gap-2'>
+                                <span className='flex items-center text-neutral-400'>
+                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-400 fill-neutral-400'/>
+                                </span>
+                                <span className='flex items-center text-neutral-400'>
+                                    {getCountWithIcons(item).totalListens} <Play className='w-4 stroke-neutral-400 fill-neutral-400' />
+                                </span>
+                                <span className='flex items-center text-neutral-400'>
+                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400'/>
+                                </span>
+                            </div>
+                        )}
                     </TileCard>
                 ))}
             </div>

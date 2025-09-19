@@ -32,7 +32,11 @@ export default function MostX({
                 items={mostLikedAlbums}
                 getImageHash={a => a.image}
                 getTitle={a => a.album}
-                getCount={a => `${Math.round(a.like_ratio * 100)}% ${text.liked} · ${a.total_listens} ${text.plays} · ${a.total_skips} ${text.skips}`}
+                getCountWithIcons={a => ({
+                    likeRatio: Math.round(a.like_ratio * 100),
+                    totalListens: Number(a.total_listens),
+                    totalSkips: Number(a.total_skips)
+                })}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -53,7 +57,11 @@ export default function MostX({
                 items={mostLikedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
-                getCount={a => `${Math.round(a.like_ratio * 100)}% ${text.liked} · ${a.total_listens} ${text.plays} · ${a.total_skips} ${text.skips}`}
+                getCountWithIcons={a => ({
+                    likeRatio: Math.round(a.like_ratio * 100),
+                    totalListens: Number(a.total_listens),
+                    totalSkips: Number(a.total_skips)
+                })}
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -74,7 +82,11 @@ export default function MostX({
                 items={mostLikedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
-                getCount={a => `${Math.round(a.like_ratio * 100)}% ${text.liked} · ${a.listens} ${text.plays} · ${a.skips} ${text.skips}`}
+                getCountWithIcons={a => ({
+                    likeRatio: Math.round(a.like_ratio * 100),
+                    totalListens: Number(a.listens),
+                    totalSkips: Number(a.skips)
+                })}
                 dropdown={true}
                 defaultOpen={false}
             />
