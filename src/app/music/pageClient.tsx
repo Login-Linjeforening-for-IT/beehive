@@ -40,6 +40,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                 <section className='flex flex-col justify-center items-center gap-4'>
                     <TileInfo data={data} text={text} />
                     <MostPlayed
+                        lang={lang}
                         mostPlayedAlbums={data.mostPlayedAlbums}
                         mostPlayedArtists={data.mostPlayedArtists}
                         mostPlayedSongs={data.mostPlayedSongs}
@@ -47,6 +48,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                     />
                     <div className='grid grid-cols-2 gap-4 w-full'>
                         <Mostx
+                            lang={lang}
                             mostLikedAlbums={data.mostLikedAlbums}
                             mostLikedArtists={data.mostLikedArtists}
                             mostLikedSongs={data.mostLikedSongs}

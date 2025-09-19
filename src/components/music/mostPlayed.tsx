@@ -4,17 +4,16 @@ import TileCard from './tileCard'
 import TileMap from './tileMap'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
-import { cookies } from 'next/headers'
 
 type MostPlayedProps = {
+    lang: Lang
     mostPlayedAlbums: Album[]
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
     mostActiveUsers: MusicUser[]
 }
 
-export async function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
-    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
+export async function MostPlayed({ lang, mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUsers }: MostPlayedProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
 

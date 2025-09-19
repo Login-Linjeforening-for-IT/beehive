@@ -1,10 +1,10 @@
 import React from 'react'
 import TileMap from './tileMap'
-import { cookies } from 'next/headers'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
 
 type MostLikedProps = {
+    lang: Lang
     mostLikedAlbums: LikedAlbum[]
     mostLikedArtists: LikedArtist[]
     mostLikedSongs: LikedSong[]
@@ -13,8 +13,7 @@ type MostLikedProps = {
     mostSkippedSongs: SkippedSong[]
 }
 
-export async function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostSkippedAlbums, mostSkippedArtists, mostSkippedSongs }: MostLikedProps) {
-    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
+export async function Mostx({ lang, mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostSkippedAlbums, mostSkippedArtists, mostSkippedSongs }: MostLikedProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
 
