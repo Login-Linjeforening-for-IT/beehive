@@ -3,10 +3,10 @@
 import useSWR from 'swr'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
-// import AverageDuration from '@components/music/duration'
 import CurrentlyPlaying from '@components/music/currentlyPlaying'
 import TopFiveThisX from '@components/music/topFiveThisX'
 import { MostPlayed } from '@components/music/mostPlayed'
+import { TileInfo } from '@components/music/tileInfo'
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -38,6 +38,13 @@ export default function Music({ initialData }: { initialData: Music }) {
         {user: 'test5', image: 'img/logo/logo-white-small.svg', total_minutes: '151617'}
     ]
 
+    const tileInfoData = [
+        { title: 'Average Duration', value: formatDuration(data.stats.avg_seconds) },
+        { title: 'Total Minutes', value: formatDuration(data.stats.total_minutes) },
+        { title: 'Total Minutes This Year', value: formatDuration(data.stats.total_minutes_this_year) },
+        { title: 'Total Songs', value: data.stats.total_songs.toString() }
+    ]
+
     return (
         <div className='page-container'>
             <div className='page-section--normal'>
@@ -46,7 +53,7 @@ export default function Music({ initialData }: { initialData: Music }) {
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
                 <section className='flex flex-col gap-6 justify-center items-center'>
-                    {/* <AverageDuration duration={data.averageDuration} /> */}
+                    <TileInfo data={tileInfoData} />
                     <TopFiveThisX data={data} />
                     <MostPlayed
                         mostPlayedAlbums={data.mostPlayedAlbums}
@@ -59,4 +66,15 @@ export default function Music({ initialData }: { initialData: Music }) {
             </div>
         </div>
     )
+}
+
+function formatDuration(seconds: number): string {
+    const h = Math.floor(seconds / 3600)
+    const m = Math.floor((seconds % 3600) / 60)
+    const s = seconds % 60
+    const parts = []
+    if (h > 0) parts.push(`${h}h`)
+    if (m > 0) parts.push(`${m}m`)
+    if (s > 0 || parts.length === 0) parts.push(`${s}s`)
+    return parts.join(' ')
 }
