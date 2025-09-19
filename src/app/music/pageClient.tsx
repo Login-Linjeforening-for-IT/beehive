@@ -45,7 +45,7 @@ export default function Music({ initialData }: { initialData: Music }) {
                 <section className='page-section--normal mb-[2rem]'>
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
-                <section className='flex flex-col gap-6 items-center'>
+                <section className='flex flex-col gap-6 justify-center items-center'>
                     {/* <AverageDuration duration={data.averageDuration} /> */}
                     <TopFiveThisX data={data} />
                     <MostPlayed

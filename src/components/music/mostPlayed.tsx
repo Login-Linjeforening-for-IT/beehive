@@ -28,7 +28,7 @@ type TileCardProps = {
 
 export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUser }: MostPlayedProps) {
     return (
-        <div className='grid grid-cols-2 gap-4 gap-x-8 w-full'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-8 w-full justify-items-center'>
             <TileMap
                 text='Most Played Albums'
                 items={mostPlayedAlbums}
