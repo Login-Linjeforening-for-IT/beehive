@@ -19,8 +19,8 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 getImageHash={a => a.image}
                 getTitle={a => a.album}
                 getSubtitle={a => a.artist}
-                getCount={a => a.total_listens}
-                countSuffix='listens'
+                getCount={a => Math.round(a.like_ratio * 100)}
+                countSuffix='% liked'
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -42,8 +42,8 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 items={mostLikedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
-                getCount={a => a.total_listens}
-                countSuffix='listens'
+                getCount={a => Math.round(a.like_ratio * 100)}
+                countSuffix='% liked'
                 dropdown={true}
                 defaultOpen={false}
             />
@@ -64,8 +64,8 @@ export function Mostx({ mostLikedAlbums, mostLikedArtists, mostLikedSongs, mostS
                 items={mostLikedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
-                getCount={a => a.listens}
-                countSuffix='listens'
+                getCount={a => Math.round(a.like_ratio * 100)}
+                countSuffix='% liked'
                 dropdown={true}
                 defaultOpen={false}
             />
