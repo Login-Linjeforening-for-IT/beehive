@@ -9,13 +9,16 @@ interface TileMapProps<T> {
     getImage?: (item: T) => string
     getImageHash?: (item: T) => string
     getTitle: (item: T) => string
-    getSubtitle?: (item: T) => string
     getCount?: (item: T) => string | number
     dropdown?: boolean
     defaultOpen?: boolean
 }
 
-export default function TileMap<T>({ text, items, countSuffix, getImage, getImageHash, getTitle, getSubtitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
+interface WithArtist {
+    artist: string
+}
+
+export default function TileMap<T extends WithArtist>({ text, items, countSuffix, getImage, getImageHash, getTitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
@@ -27,9 +30,7 @@ export default function TileMap<T>({ text, items, countSuffix, getImage, getImag
                         className={`${index === 0 ? 'col-span-2' : ''}`}
                     >
                         <Marquee className='truncate' innerClassName='font-semibold text-lg' text={`${getTitle(item)}`} />
-                        {getSubtitle && (
-                            <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={`${getSubtitle(item)}`} />
-                        )}
+                        <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={`${item.artist} ${countSuffix || ''}`} />
                         {getCount && (
                             <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={`${getCount(item)} ${countSuffix || ''}`} />
                         )}
