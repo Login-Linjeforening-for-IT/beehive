@@ -41,8 +41,8 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
             />
             <div className='flex flex-col flex-1 min-w-0'>
                 <div className='font-medium text-base text-white truncate'>{song.song}</div>
-                <div className='text-sm text-gray-200 truncate'>{song.artist}</div>
-                <div className='text-xs text-gray-300 truncate'>{song.album}</div>
+                <div className='text-xs text-zinc-400 truncate'>{song.artist}</div>
+                <div className='text-xs text-zinc-400 truncate'>{song.album}</div>
                 <div className='mt-2 flex items-center w-full gap-2'>
                     <span className='text-xs text-gray-400 min-w-[40px] text-right'>{msToMinSec(progressMs)}</span>
                     <div className='h-1.5 flex-1 bg-white/20 rounded-full overflow-hidden relative'>
