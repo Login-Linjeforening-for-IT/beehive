@@ -6,7 +6,6 @@ import TileCard from './tileCard'
 interface TileMapProps<T> {
     text: string
     items: T[]
-    countSuffix?: string
     getCountWithIcons?: (item: T) => { likeRatio: number, totalListens: number, totalSkips: number }
     getImage?: (item: T) => string
     getImageHash?: (item: T) => string
@@ -20,7 +19,7 @@ interface WithArtist {
     artist: string
 }
 
-export default function TileMap<T extends WithArtist>({ text, items, countSuffix, getCountWithIcons, getImage, getImageHash, getTitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
+export default function TileMap<T extends WithArtist>({ text, items, getCountWithIcons, getImage, getImageHash, getTitle, getCount, dropdown = false, defaultOpen = true }: TileMapProps<T>) {
     return (
         <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
             <div className='grid grid-cols-2 gap-2 w-full pt-2'>
@@ -38,7 +37,7 @@ export default function TileMap<T extends WithArtist>({ text, items, countSuffix
                         <Marquee
                             className='truncate'
                             innerClassName='text-sm text-neutral-500'
-                            text={`${item.artist} ${countSuffix || ''}`}
+                            text={item.artist}
                         />
                         {getCountWithIcons && (
                             <div className='flex flex-row items-center gap-2'>
