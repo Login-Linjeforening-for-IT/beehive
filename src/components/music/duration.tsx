@@ -2,7 +2,7 @@ import Card from './actualCard'
 
 export default function AverageDuration({duration}: {duration: number}) {
     return (
-        <Card text='Average Duration'>
+        <Card text='Average Duration' className='my-2'>
             <p>{formatDuration(duration)}</p>
         </Card>
     )
