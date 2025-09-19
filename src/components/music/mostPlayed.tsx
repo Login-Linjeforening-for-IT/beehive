@@ -19,13 +19,6 @@ interface TileMapProps<T> {
     getCount?: (item: T) => string | number
 }
 
-type TileCardProps = {
-    image?: string
-    imageHash?: string
-    className?: string
-    children: React.ReactNode
-}
-
 export function MostPlayed({ mostPlayedAlbums, mostPlayedArtists, mostPlayedSongs, mostActiveUser }: MostPlayedProps) {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-8 w-full justify-items-center'>
