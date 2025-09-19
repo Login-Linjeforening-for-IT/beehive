@@ -28,10 +28,10 @@ export default function TileMap<T>({ text, items, countSuffix, getImage, getImag
                     >
                         <Marquee className='truncate' innerClassName='font-semibold text-lg' text={`${getTitle(item)}`} />
                         {getSubtitle && (
-                            <Marquee className='truncate' innerClassName='text-sm text-gray-400' text={`${getSubtitle(item)}`} />
+                            <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={`${getSubtitle(item)}`} />
                         )}
                         {getCount && (
-                            <Marquee className='truncate' innerClassName='text-sm text-gray-400' text={`${getCount(item)} ${countSuffix || ''}`} />
+                            <Marquee className='truncate' innerClassName='text-sm text-neutral-400' text={`${getCount(item)} ${countSuffix || ''}`} />
                         )}
                     </TileCard>
                 ))}

@@ -63,7 +63,7 @@ function Users({ text, items, dropdown = false, defaultOpen = true }: { text: st
                         user_id={item.user_id}
                     >
                         <div className='font-semibold text-lg truncate'>{item.name}</div>
-                        <div className='text-sm text-gray-400 truncate'>{item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}</div>
+                        <div className='text-sm text-neutral-400 truncate'>{item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}</div>
                     </TileCard>
                 ))}
             </div>

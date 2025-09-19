@@ -16,7 +16,7 @@ type CardProps = {
 export default function Card({ text, children, className, dropdown = false, defaultOpen = true, playIcon = false, smallText = false, centerText = false }: CardProps) {
     const [isOpen, setIsOpen] = useState(defaultOpen)
 
-    const toggleOpen = () => {
+    function toggleOpen() {
         if (dropdown) {
             setIsOpen(!isOpen)
         }
