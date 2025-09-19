@@ -22,8 +22,8 @@ export default function TopTileMap({ text, items, dropdown = false, defaultOpen 
                     >
                         <div className='flex w-full justify-between text-neutral-400'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />
-                            <p>{song.listens}</p>
-                            <PlayIcon className='stroke-zink-400' fill='var(--text-neutral-400)' />
+                            <p className='text-neutral-400'>{song.listens}</p>
+                            <PlayIcon className='fill-neutral-400 stroke-0'/>
                         </div>
                         <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.artist} />
                         <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.album} />
