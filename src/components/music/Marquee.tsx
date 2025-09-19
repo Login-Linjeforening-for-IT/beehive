@@ -43,6 +43,7 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
                 0% { transform: translateX(0); }
                 20% { transform: translateX(0); }
                 80% { transform: translateX(calc(-1 * var(--scroll-distance))); }
+                90% { transform: translateX(calc(-1 * var(--scroll-distance))); }
                 100% { transform: translateX(0); }
                 }
 
