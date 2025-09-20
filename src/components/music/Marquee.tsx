@@ -36,22 +36,6 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
             >
                 {text}
             </div>
-
-            <style jsx>{`
-                @keyframes marquee {
-                    0% { transform: translateX(0); }
-                    20% { transform: translateX(0); }
-                    70% { transform: translateX(calc(-1 * var(--scroll-distance))); }
-                    90% { transform: translateX(calc(-1 * var(--scroll-distance))); }
-                    100% { transform: translateX(0); }
-                }
-
-                .animate-marquee {
-                    display: inline-block;
-                    vertical-align: top;
-                    animation: marquee 12s linear infinite;
-                }
-            `}</style>
         </div>
     )
 }
