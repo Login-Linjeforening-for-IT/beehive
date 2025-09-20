@@ -18,7 +18,6 @@ import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import '@components/shared/tabs/tabs.css'
 import { getCookie } from '@utils/cookies'
-// import { getCookie } from '@utils/cookies'
 
 const no = {...text_no, ...board_no}
 const en = {...text_en, ...board_en}

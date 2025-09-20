@@ -296,7 +296,6 @@ type SongDay = {
     day: string
     songs_played: string
     albums: Album[]
-    images: Image[]
 }
 
 type ActiveUser = {

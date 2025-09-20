@@ -23,7 +23,7 @@ export default function Card({ text, children, className, dropdown = false, defa
     }
 
     return (
-        <div className={`bg-neutral-800/70 rounded-lg w-full ${isOpen ? 'h-full' : 'h-fit'} p-4 ${className}`}>
+        <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${isOpen ? 'h-full' : 'h-fit'} p-4 ${className}`}>
             <div
                 className={`flex items-center justify-between ${dropdown ? 'cursor-pointer' : ''}`}
                 onClick={toggleOpen}

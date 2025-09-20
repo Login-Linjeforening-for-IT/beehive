@@ -13,7 +13,7 @@ type TileCardProps = {
 export default function TileCard({ image, imageHash, className, children, discord, user_id }: TileCardProps) {
     const src = discord ? `${config.url.DISCORD_AVATARS_API_URL}/${user_id}/${imageHash}?size=1024` : image ? image : `${config.url.SPOTIFY_IMAGE_API_URL}/${imageHash}`
     return (
-        <div className={`flex items-center gap-4 p-2 rounded-lg bg-neutral-700/30 shadow-none ${className}`}>
+        <div className={`flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none ${className}`}>
             <Image
                 src={src}
                 alt={user_id ?? 'Tile card image'}
