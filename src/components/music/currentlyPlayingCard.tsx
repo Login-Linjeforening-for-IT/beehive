@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import Marquee from './Marquee'
 import config from '@config'
@@ -10,19 +10,26 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
     const [progressMs, setProgressMs] = useState(0)
+    const animationRef = useRef<number>(0)
 
     useEffect(() => {
+        if (durationMs <= 0) {
+            return
+        }
+
         function updateProgress() {
             const now = Date.now()
-            setProgressMs(Math.max(0, Math.min(now - startMs, durationMs)))
+            const elapsed = now - startMs
+            setProgressMs(Math.max(0, Math.min(elapsed, durationMs)))
+            animationRef.current = requestAnimationFrame(updateProgress)
         }
-        updateProgress()
-        let intervalId: NodeJS.Timeout | null = null
-        if (durationMs > 0) {
-            intervalId = setInterval(updateProgress, 1000)
-        }
+
+        animationRef.current = requestAnimationFrame(updateProgress)
+
         return () => {
-            if (intervalId) clearInterval(intervalId)
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current)
+            }
         }
     }, [song.id, startMs, durationMs])
 
@@ -49,7 +56,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
                     <span className='text-xs text-[var(--color-text-discreet)] min-w-[40px] text-right'>{msToMinSec(progressMs)}</span>
                     <div className='h-1.5 flex-1 bg-[var(--color-progressbar-unfilled)]/20 rounded-full overflow-hidden relative'>
                         <div
-                            className='h-full bg-[var(--color-progressbar)] transition-width duration-1000 ease-linear'
+                            className='h-full bg-[var(--color-progressbar)] transition-all duration-1000 ease-linear'
                             style={{ width: `${progressPercent}%` }}
                         />
                     </div>
@@ -58,7 +65,6 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
             </div>
         </div>
     )
-
 }
 
 function msToMinSec(ms: number) {

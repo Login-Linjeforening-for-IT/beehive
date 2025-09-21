@@ -25,7 +25,9 @@ export default function TopBar({lang, onlyLogo}: TopBarProps) {
         return (
             <div className={`flex w-[97.5vw] max-w-[97.5vw] w-full m-auto p-[0.5rem] h-[var(--h-topbar)] transition duration-500 800px:justify-between 800px:p-[1rem] ${isOpen ? 'topbar--open' : ''}`}>
                 <div className='block h-[3rem] p-[0.2rem] 800px:p-0'>
-                    <LoginLogoSmall />
+                    <Link href='/'>
+                        <LoginLogoSmall />
+                    </Link>
                 </div>
                 <MobileNavigation lang={lang} open={isOpen} setIsOpen={setIsOpen} />
             </div>

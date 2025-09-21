@@ -7,6 +7,7 @@ import en from '@text/music/en.json'
 import Marquee from './Marquee'
 import { Trophy } from 'lucide-react'
 import PlayIcon from './playIcon'
+import clsx from '@utils/clsx'
 
 type MostPlayedProps = {
     lang: Lang
@@ -100,20 +101,20 @@ function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = true, cu
         >
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full pt-2'>
                 {items.slice(0, 5).map((item, index) => {
-                    const isCurrentlyListening = currentlyPlaying.find((user) => user.user === item.name)
+                    const isCurrentlyListening = currentlyPlaying.some(user => user.user === item.name)
                     const count = Number(category === 'listens' ? (item as MusicUser).songs_played! : (item as MusicSkipUser).songs_skipped!)
                     return (
                         <TileCard
                             key={`${index}-${item.user_id}`}
                             imageHash={item.avatar}
-                            className={`${index === 0 ? 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] m-0.5' : ''}`}
+                            className={clsx(index === 0 && 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] m-0.5')}
                             discord={true}
                             user_id={item.user_id}
                         >
                             <div className='flex w-full justify-between text-neutral-400 items-top'>
-                                <div className='flex gap-2'>
+                                <div className={clsx('flex gap-2', isCurrentlyListening && 'max-w-[85%]')}>
                                     <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
-                                    {isCurrentlyListening !== undefined && <PlayIcon noColor />}
+                                    {isCurrentlyListening && <PlayIcon noColor />}
                                 </div>
                                 <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
