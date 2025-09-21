@@ -28,20 +28,20 @@ export default async function layout({children}: {children: ReactNode}) {
             <body className='absolute top-0 h-[100vh] w-full bg-[var(--color-bg-body)]'>
                 {page !== 'pwned' ?
                     <header className='main-header fixed top-0 z-900 w-full'>
-                        <TopBar lang={lang} />
+                        <TopBar onlyLogo={page === 'display'} lang={lang} />
                     </header>
                     :
-                    <header className='main-header fixed top-0 z-900 w-full'>
+                    page === 'pwned' && <header className='main-header fixed top-0 z-900 w-full'>
                         <TopBarPwned lang={lang} theme={theme} />
                     </header>
                 }
                 <main className='flex-1 w-full mx-auto mt-[var(--h-topbar)] min-h-[calc(100vh-var(--h-topbar))]'>
                     {children}
                 </main>
-                {page !== 'pwned' &&
-                <footer className='bg-[var(--color-bg-footer)] main-footer'>
-                    <Footer />
-                </footer>
+                {page !== 'pwned' && page !== 'display' &&
+                    <footer className='bg-[var(--color-bg-footer)] main-footer'>
+                        <Footer />
+                    </footer>
                 }
             </body>
         </html>
