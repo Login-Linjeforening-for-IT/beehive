@@ -13,7 +13,7 @@ type CardProps<T> = {
     centerText?: boolean
     current?: T
     handleChange?: Dispatch<SetStateAction<T>>
-    changeValues: T[]
+    changeValues?: T[]
 }
 
 export default function Card<T>({
@@ -40,7 +40,7 @@ export default function Card<T>({
 
     function toggleChange(e: React.MouseEvent<HTMLHeadingElement, MouseEvent>) {
         e.stopPropagation()
-        if (handleChange) {
+        if (handleChange && changeValues) {
             handleChange((prev) => prev === changeValues[0] ? changeValues[1] : changeValues[0])
         }
     }
