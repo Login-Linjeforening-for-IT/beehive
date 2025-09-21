@@ -90,7 +90,7 @@ function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPla
                         <TileCard
                             key={`${index}-${item.user_id}`}
                             imageHash={item.avatar}
-                            className={`${index === 0 ? 'md:col-span-2 outline-1 outline-yellow-200 m-0.5' : ''}`}
+                            className={`${index === 0 ? 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] m-0.5' : ''}`}
                             discord={true}
                             user_id={item.user_id}
                         >
@@ -99,7 +99,7 @@ function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPla
                                     <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
                                     {isCurrentlyListening !== undefined && <PlayIcon noColor />}
                                 </div>
-                                <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-yellow-400' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
+                                <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
                             <div className='text-sm text-neutral-400 truncate'>
                                 {item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}

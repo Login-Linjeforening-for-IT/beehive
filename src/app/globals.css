@@ -578,6 +578,7 @@ abbr {
 	/* Wrapped Colors */
 	--color-progressbar: var(--color-white);
 	--color-progressbar-unfilled: var(--color-gray-500);
+	--color-music-outline: var(--color-yellow-200);
 
 	/* Links */
 	--color-link-primary: var(--color-primary-500);
@@ -696,6 +697,7 @@ abbr {
 	/* Wrapped Colors */
 	--color-progressbar: var(--color-gray-500);
 	--color-progressbar-unfilled: var(--color-gray-800);
+	--color-music-outline: var(--color-yellow-500);
 
 	/* Links */
 	--color-link-primary: var(--color-primary-700);
