@@ -49,7 +49,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
                     <span className='text-xs text-[var(--color-text-discreet)] min-w-[40px] text-right'>{msToMinSec(progressMs)}</span>
                     <div className='h-1.5 flex-1 bg-[var(--color-progressbar-unfilled)]/20 rounded-full overflow-hidden relative'>
                         <div
-                            className='h-full bg-[var(--color-progressbar)] transition-all'
+                            className='h-full bg-[var(--color-progressbar)] transition-width duration-1000 ease-linear'
                             style={{ width: `${progressPercent}%` }}
                         />
                     </div>
