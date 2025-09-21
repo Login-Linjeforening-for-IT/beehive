@@ -85,7 +85,7 @@ export default function MostPlayed({
 
 function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = true, currentlyPlaying, mostSkippingUsers }: UsersProps) {
     const musicUserCategories: MusicUserCategory[] = ['listens', 'skips']
-    const [category, setCategory] = useState('skips' as MusicUserCategory)
+    const [category, setCategory] = useState('listens' as MusicUserCategory)
     const items = category === 'listens' ? mostActiveUsers : mostSkippingUsers
     const suffix = category === 'listens' ? 'listen' : 'skip'
 
