@@ -8,8 +8,8 @@
     "most_played_albums": "Most Played Albums",
     "most_played_artists": "Most Played Artists",
     "most_played_songs": "Most Played Songs",
-    "most_active_users": "Most Active Users",
     "currently_playing": "Currently Playing",
+    "users": ["Most Active Users", "Most skipping users"],
     "mostx": {
         "most_liked_albums": "Most Liked Albums",
         "most_skipped_albums": "Most Skipped Albums",

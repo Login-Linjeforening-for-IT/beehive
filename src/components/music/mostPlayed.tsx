@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './actualCard'
 import TileCard from './tileCard'
 import TileMap from './tileMap'
@@ -14,15 +14,17 @@ type MostPlayedProps = {
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
     mostActiveUsers: MusicUser[]
+    mostSkippingUsers: MusicSkipUser[]
     currentlyPlaying: Song[]
 }
 
 type UsersProps = {
-    text: string
-    items: MusicUser[]
+    text: string[]
+    mostActiveUsers: MusicUser[]
     dropdown?: boolean
     defaultOpen?: boolean
     currentlyPlaying: Song[]
+    mostSkippingUsers: MusicSkipUser[]
 }
 
 export default function MostPlayed({
@@ -31,10 +33,10 @@ export default function MostPlayed({
     mostPlayedArtists,
     mostPlayedSongs,
     mostActiveUsers,
+    mostSkippingUsers,
     currentlyPlaying
 }: MostPlayedProps) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const text = (lang === 'no' ? no : en) as any
+    const text = (lang === 'no' ? no : en)
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-4 w-full justify-items-center'>
@@ -69,8 +71,9 @@ export default function MostPlayed({
             />
 
             <Users
-                text={text.most_active_users}
-                items={mostActiveUsers}
+                text={text.users}
+                mostActiveUsers={mostActiveUsers}
+                mostSkippingUsers={mostSkippingUsers}
                 currentlyPlaying={currentlyPlaying}
                 dropdown={true}
                 defaultOpen={true}
@@ -80,12 +83,25 @@ export default function MostPlayed({
     )
 }
 
-function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPlaying }: UsersProps) {
+function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = true, currentlyPlaying, mostSkippingUsers }: UsersProps) {
+    const musicUserCategories: MusicUserCategory[] = ['listens', 'skips']
+    const [category, setCategory] = useState('skips' as MusicUserCategory)
+    const items = category === 'listens' ? mostActiveUsers : mostSkippingUsers
+    const suffix = category === 'listens' ? 'listen' : 'skip'
+
     return (
-        <Card text={text} dropdown={dropdown} defaultOpen={defaultOpen}>
+        <Card<MusicUserCategory>
+            text={text}
+            dropdown={dropdown}
+            current={category}
+            defaultOpen={defaultOpen}
+            handleChange={setCategory}
+            changeValues={musicUserCategories}
+        >
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full pt-2'>
                 {items.slice(0, 5).map((item, index) => {
                     const isCurrentlyListening = currentlyPlaying.find((user) => user.user === item.name)
+                    const count = Number(category === 'listens' ? (item as MusicUser).songs_played! : (item as MusicSkipUser).songs_skipped!)
                     return (
                         <TileCard
                             key={`${index}-${item.user_id}`}
@@ -102,7 +118,7 @@ function Users({ text, items, dropdown = false, defaultOpen = true, currentlyPla
                                 <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
                             <div className='text-sm text-neutral-400 truncate'>
-                                {item.songs_played} listen{Number(item.songs_played) === 1 ? '' : 's'}
+                                {count} {suffix}{count === 1 ? '' : 's'}
                             </div>
                         </TileCard>
                     )

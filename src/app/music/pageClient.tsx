@@ -44,6 +44,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                         mostPlayedArtists={data.mostPlayedArtists}
                         mostPlayedSongs={data.mostPlayedSongs}
                         mostActiveUsers={data.mostActiveUsers}
+                        mostSkippingUsers={data.mostSkippingUsers}
                         currentlyPlaying={data.currentlyPlaying}
                     />
                     <CurrentlyPlaying songs={data.currentlyPlaying} lang={lang} />

@@ -212,6 +212,7 @@ type Music = {
     topFiveThisYear: TopXSong[]
     topFiveLastYear: TopXSong[]
     mostActiveUsers: MusicUser[]
+    mostSkippingUsers: MusicSkipUser[]
     mostLikedAlbums: LikedAlbum[]
     mostLikedArtists: LikedArtist[]
     mostLikedSongs: LikedSong[]
@@ -319,6 +320,15 @@ type MusicUser = {
     songs_played: string
 }
 
+type MusicSkipUser = {
+    name: string
+    avatar: string
+    user_id: string
+    songs_skipped: string
+}
+
+type MusicUserCategory = 'listens' | 'skips'
+
 type LikedAlbum = {
     album: string
     artist: string
@@ -375,4 +385,41 @@ type MusicStats = {
     total_minutes: number
     total_minutes_this_year: number
     total_songs: number
+}
+
+type MusicText = {
+    title: string
+    intro: string
+    average_duration: string
+    total_minutes: string
+    minutes_this_year: string
+    total_songs: string
+    most_played_albums: string
+    most_played_artists: string
+    most_played_songs: string
+    currently_playing: string
+    users: string[]
+    mostx: MostX
+    topx: TopX
+}
+
+type MostX = {
+    most_liked_albums: string
+    most_skipped_albums: string
+    most_liked_artists: string
+    most_skipped_artists: string
+    most_liked_songs: string
+    most_skipped_songs: string
+}
+
+type TopX = {
+    intro: string
+    today: string
+    yesterday: string
+    thisWeek: string
+    lastWeek: string
+    thisMonth: string
+    lastMonth: string
+    thisYear: string
+    lastYear: string
 }

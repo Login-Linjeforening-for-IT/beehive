@@ -579,6 +579,7 @@ abbr {
 	--color-progressbar: var(--color-white);
 	--color-progressbar-unfilled: var(--color-gray-500);
 	--color-music-outline: var(--color-yellow-200);
+	--color-music-change: var(--color-grey-800);
 
 	/* Links */
 	--color-link-primary: var(--color-primary-500);
@@ -698,6 +699,7 @@ abbr {
 	--color-progressbar: var(--color-gray-500);
 	--color-progressbar-unfilled: var(--color-gray-800);
 	--color-music-outline: var(--color-yellow-500);
+	--color-music-change: var(--color-grey-300);
 
 	/* Links */
 	--color-link-primary: var(--color-primary-700);
