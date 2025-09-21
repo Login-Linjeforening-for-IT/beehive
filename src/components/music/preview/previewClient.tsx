@@ -15,7 +15,7 @@ async function fetcher(url: string) {
 
 export default function MusicPreviewClient({ initialData, lang }: { initialData: Music, lang: Lang }) {
     const { data }: { data: Music } = useSWR('/api/music', fetcher, {
-        refreshInterval: 10000,
+        refreshInterval: 5000,
         fallbackData: initialData,
     })
     const text = lang === 'no' ? no : en

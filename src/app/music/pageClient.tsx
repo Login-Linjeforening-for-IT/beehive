@@ -22,7 +22,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const text = (lang === 'no' ? no : en) as any
     const { data }: { data: Music } = useSWR('/api/music', fetcher, {
-        refreshInterval: 10000,
+        refreshInterval: 5000,
         fallbackData: initialData,
     })
 
