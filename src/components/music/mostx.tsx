@@ -25,7 +25,7 @@ export default function MostX({
     const text = lang === 'no' ? no : en
 
     return (
-        <>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
             <TileMap
                 text={text.mostx.most_liked_albums}
                 items={mostLikedAlbums}
@@ -97,6 +97,6 @@ export default function MostX({
                 dropdown={true}
                 defaultOpen={false}
             />
-        </>
+        </div>
     )
 }

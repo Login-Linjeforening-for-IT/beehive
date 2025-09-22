@@ -1,5 +1,5 @@
 import { PlayIcon } from 'lucide-react'
-import Card from './actualCard'
+import Card from './card'
 import Marquee from './Marquee'
 import TileCard from './tileCard'
 

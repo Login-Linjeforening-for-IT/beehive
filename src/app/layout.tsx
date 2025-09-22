@@ -4,10 +4,10 @@ import Footer from '@components/shared/footer/Footer'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import { cookies, headers } from 'next/headers'
-// import { LogoConsoleOutput } from '@utils/ConsoleOutput'
 import '@assets/fonts/style.css'
 import '@assets/fonts/logfont/style.css'
 import './globals.css'
+import clsx from '@utils/clsx'
 
 export const metadata: Metadata = {
     title: 'Login',
@@ -21,14 +21,14 @@ export default async function layout({children}: {children: ReactNode}) {
     const Headers = headers()
     const path = (await Headers).get('x-current-path') || ''
     const page = path.split('/').pop()
-    // needs to run clientside not serverside
-    // LogoConsoleOutput()
+    const dashboard = path.includes('dashboard')
+
     return (
         <html lang='en' className={theme}>
-            <body className='absolute top-0 h-[100vh] w-full bg-[var(--color-bg-body)]'>
+            <body className={clsx('absolute top-0 h-[100vh] w-full bg-[var(--color-bg-body)]', dashboard && 'max-h-[100vh] overflow-hidden')}>
                 {page !== 'pwned' ?
                     <header className='main-header fixed top-0 z-900 w-full'>
-                        <TopBar onlyLogo={page === 'display'} lang={lang} />
+                        <TopBar onlyLogo={dashboard} lang={lang} />
                     </header>
                     :
                     page === 'pwned' && <header className='main-header fixed top-0 z-900 w-full'>
@@ -38,7 +38,7 @@ export default async function layout({children}: {children: ReactNode}) {
                 <main className='flex-1 w-full mx-auto mt-[var(--h-topbar)] min-h-[calc(100vh-var(--h-topbar))]'>
                     {children}
                 </main>
-                {page !== 'pwned' && page !== 'display' &&
+                {page !== 'pwned' && !path.includes('dashboard') &&
                     <footer className='bg-[var(--color-bg-footer)] main-footer'>
                         <Footer />
                     </footer>

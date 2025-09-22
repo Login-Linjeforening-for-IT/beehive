@@ -1,4 +1,4 @@
-import Card from './actualCard'
+import Card from './card'
 import CurrentlyPlayingCard from './currentlyPlayingCard'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'

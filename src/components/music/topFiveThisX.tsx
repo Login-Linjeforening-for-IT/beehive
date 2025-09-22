@@ -19,7 +19,7 @@ export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }
     )
 }
 
-function InnerTopFiveThisX({ interval, data, lang }: { interval: IntervalKey, data: Music, lang: Lang }) {
+export function InnerTopFiveThisX({ interval, data, lang, defaultOpen }: { interval: IntervalKey, data: Music, lang: Lang, defaultOpen?: boolean }) {
     const text = lang === 'no' ? no : en
     const lookup: Record<IntervalKey, { data: TopXSong[], text: string }> = {
         today: { data: data.topFiveToday, text: text.topx.today },
@@ -40,7 +40,7 @@ function InnerTopFiveThisX({ interval, data, lang }: { interval: IntervalKey, da
 
     return (
         <div className='grid gap-2 w-full'>
-            <TopTileMap items={songsToShow.data} text={`${text.topx.intro} ${songsToShow.text}`} dropdown={true} defaultOpen={false} />
+            <TopTileMap items={songsToShow.data} text={`${text.topx.intro} ${songsToShow.text}`} dropdown={true} defaultOpen={defaultOpen ?? false} />
         </div>
     )
 }

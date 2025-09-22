@@ -9,6 +9,7 @@
     "most_played_artists": "Mest spilte artister",
     "most_played_songs": "Mest spilte sanger",
     "currently_playing": "Spilles nå",
+    "active_listeners": "Aktive lyttere",
     "users": ["Mest aktive brukere", "Mest skippende brukere"],
     "mostx": {
         "most_liked_albums": "Mest likte album",

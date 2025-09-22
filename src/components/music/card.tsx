@@ -16,6 +16,7 @@ type CardProps<T> = {
     current?: T
     handleChange?: Dispatch<SetStateAction<T>>
     changeValues?: T[]
+    only?: MusicUserCategory
 }
 
 export default function Card<T>({
@@ -30,6 +31,7 @@ export default function Card<T>({
     current,
     handleChange,
     changeValues,
+    only
 }: CardProps<T>) {
     const [isOpen, setIsOpen] = useState(defaultOpen)
     const titleStyle = `${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'} ${centerText && 'text-center w-full'}`
@@ -61,7 +63,7 @@ export default function Card<T>({
                     {changeValues && current && <h1 className={titleStyle}>
                         {display}
                     </h1>}
-                    {changeValues && opposite && <h1 className={secondStyle} onClick={toggleChange}>
+                    {changeValues && opposite && !only && <h1 className={secondStyle} onClick={toggleChange}>
                         {opposite}
                     </h1>}
                     {playIcon && <PlayIcon />}

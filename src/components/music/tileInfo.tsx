@@ -1,4 +1,4 @@
-import Card from './actualCard'
+import Card from './card'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function TileInfo({ data, text }: { data: Music, text: any }) {
