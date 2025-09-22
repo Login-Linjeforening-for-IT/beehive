@@ -50,8 +50,13 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
             />
             <div className='flex flex-col flex-1 min-w-0'>
                 <Marquee text={song.song} className='truncate' innerClassName='font-medium text-base' />
-                <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
-                <Marquee text={song.album} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
+                {song.artist === 'Unknown' ? <>
+                    <Marquee text={song.album} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
+                    <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
+                </>:<>
+                    <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
+                    <Marquee text={song.album} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
+                </>}
                 <div className='mt-2 flex items-center w-full gap-2'>
                     <span className='text-xs text-[var(--color-text-discreet)] min-w-[40px] text-right'>{msToMinSec(progressMs)}</span>
                     <div className='h-1.5 flex-1 bg-[var(--color-progressbar-unfilled)]/20 rounded-full overflow-hidden relative'>

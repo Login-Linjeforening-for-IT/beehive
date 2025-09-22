@@ -34,7 +34,7 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
                 className={`${shouldScroll ? 'animate-marquee' : ''} ${innerClassName}`}
                 style={{ display: 'block', '--scroll-distance': `${scrollDistance}px`, '--duration': `${duration}s` } as React.CSSProperties}
             >
-                {text}
+                {text === 'Unknown' ? '‎ ' : text}
             </div>
         </div>
     )
