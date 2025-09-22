@@ -40,7 +40,7 @@ export function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = t
                         <TileCard
                             key={`${index}-${item.user_id}`}
                             imageHash={item.avatar}
-                            className={clsx(index === 0 && 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] m-0.5')}
+                            className={clsx(index === 0 && 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] mx-0.5 outline-offset-[-2px]')}
                             discord={true}
                             user_id={item.user_id}
                         >
@@ -51,7 +51,7 @@ export function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = t
                                 </div>
                                 <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
-                            <div className='text-sm text-neutral-400 truncate'>
+                            <div className='text-sm text-neutral-400 truncate mb-6'>
                                 {count} {suffix}{count === 1 ? '' : 's'}
                             </div>
                         </TileCard>

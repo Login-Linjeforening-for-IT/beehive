@@ -34,7 +34,7 @@ export default function Card<T>({
     only
 }: CardProps<T>) {
     const [isOpen, setIsOpen] = useState(defaultOpen)
-    const titleStyle = `${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${playIcon && 'text-[var(--color-primary-500)]'} ${centerText && 'text-center w-full'}`
+    const titleStyle = `${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${centerText && 'text-center w-full'}`
     const secondStyle = 'select-none text-lg font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center mb-1'
     function toggleOpen() {
         if (dropdown) {
