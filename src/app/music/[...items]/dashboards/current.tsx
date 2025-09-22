@@ -26,7 +26,7 @@ export default function MusicDashboardCurrent({ initialData, lang }: { initialDa
     }, [])
 
     return (
-        <div className={`grid place-items-center mx-8 ${data.currentlyPlaying.length > 12 ? 'pt-3' : 'pt-8'}`}>
+        <div className={`grid place-items-center mx-8 ${data.currentlyPlaying.length ? 'pt-4' : 'pt-8'}`}>
             <CurrentlyPlaying expanded={true} songs={data.currentlyPlaying} lang={lang} />
         </div>
     )
