@@ -4,6 +4,14 @@ import en from '@text/music/en.json'
 
 type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear' | 'lastWeek' | 'lastMonth' | 'lastYear'
 
+type InnerTopFiveThisXProps = {
+    interval: IntervalKey
+    data: Music
+    lang: Lang
+    defaultOpen?: boolean
+    dropdown?: boolean
+}
+
 export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }) {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
@@ -19,7 +27,7 @@ export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }
     )
 }
 
-export function InnerTopFiveThisX({ interval, data, lang, defaultOpen }: { interval: IntervalKey, data: Music, lang: Lang, defaultOpen?: boolean }) {
+export function InnerTopFiveThisX({ interval, data, lang, defaultOpen, dropdown }: InnerTopFiveThisXProps) {
     const text = lang === 'no' ? no : en
     const lookup: Record<IntervalKey, { data: TopXSong[], text: string }> = {
         today: { data: data.topFiveToday, text: text.topx.today },
@@ -40,7 +48,12 @@ export function InnerTopFiveThisX({ interval, data, lang, defaultOpen }: { inter
 
     return (
         <div className='grid gap-2 w-full'>
-            <TopTileMap items={songsToShow.data} text={`${text.topx.intro} ${songsToShow.text}`} dropdown={true} defaultOpen={defaultOpen ?? false} />
+            <TopTileMap
+                items={songsToShow.data}
+                text={`${text.topx.intro} ${songsToShow.text}`}
+                dropdown={dropdown ?? true}
+                defaultOpen={defaultOpen ?? false}
+            />
         </div>
     )
 }
