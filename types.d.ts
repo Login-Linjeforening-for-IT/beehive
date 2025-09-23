@@ -256,6 +256,7 @@ type Song = {
     image: string
     listens: number
     timestamp: string
+    sync_id: string
 }
 
 type Artist = {
@@ -292,6 +293,7 @@ type CountedSong = {
     album: string
     listens: number
     image: string
+    sync_id: string
 }
 
 type SongDay = {
@@ -312,6 +314,7 @@ type TopXSong = {
     album: string
     listens: string
     image: string
+    sync_id: string
 }
 
 type MusicUser = {
@@ -355,6 +358,7 @@ type LikedSong = {
     listens: number
     image: string
     like_ratio: number
+    sync_id: string
 }
 
 type SkippedAlbum = {
@@ -379,6 +383,7 @@ type SkippedSong = {
     album: string
     skips: number
     image: string
+    sync_id: string
 }
 
 type MusicStats = {

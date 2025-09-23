@@ -24,6 +24,7 @@ interface TileMapProps<T> {
 
 interface WithArtist {
     artist: string
+    sync_id?: string
 }
 
 export default function TileMap<T extends WithArtist>({
@@ -44,10 +45,11 @@ export default function TileMap<T extends WithArtist>({
     innerClassName
 }: TileMapProps<T>) {
     return (
-        <Card text={text} dropdown={dropdown} open={open} setOpen={setOpen} className={className}>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full'>
+        <Card text={text} dropdown={dropdown} removePadding={true} open={open} setOpen={setOpen} className={className}>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
                 {items.map((item, index) => (
                     <TileCard
+                        sync_id={item.sync_id}
                         key={`${getTitle(item)}-${index}`}
                         imageHash={getImageHash ? getImageHash(item) : undefined}
                         image={getImage ? getImage(item) : undefined}

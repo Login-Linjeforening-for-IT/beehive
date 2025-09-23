@@ -33,8 +33,9 @@ export function Users({ text, mostActiveUsers, dropdown = false, open = true, se
             handleChange={setCategory}
             changeValues={musicUserCategories}
             only={only}
+            removePadding={true}
         >
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
                 {items.slice(0, 5).map((item, index) => {
                     const isCurrentlyListening = currentlyPlaying.some(user => user.user === item.name)
                     const count = Number(category === 'listens' ? (item as MusicUser).songs_played! : (item as MusicSkipUser).songs_skipped!)
@@ -42,9 +43,10 @@ export function Users({ text, mostActiveUsers, dropdown = false, open = true, se
                         <TileCard
                             key={`${index}-${item.user_id}`}
                             imageHash={item.avatar}
-                            className={clsx(index === 0 && 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] mx-0.5 outline-offset-[-2px]')}
+                            className={clsx('hover:scale-102 transition transform', index === 0 && 'md:col-span-2 outline-2 outline-[var(--color-music-outline)] mx-0.5 outline-offset-[-2px]')}
                             discord={true}
                             user_id={item.user_id}
+                            user={true}
                         >
                             <div className='flex w-full justify-between text-neutral-400 items-top'>
                                 <div className={clsx('flex gap-2', isCurrentlyListening && 'max-w-[85%]')}>

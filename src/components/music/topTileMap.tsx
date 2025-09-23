@@ -13,14 +13,17 @@ type TopTileMapProps = {
 }
 
 export default function TopTileMap({ text, items, dropdown = false, open = true, setOpen }: TopTileMapProps) {
+    const removePadding = true
+
     return (
-        <Card text={text} className='w-full' dropdown={dropdown} open={open} setOpen={setOpen}>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 pt-2 w-full'>
+        <Card text={text} className='w-full' dropdown={dropdown} removePadding={removePadding} open={open} setOpen={setOpen}>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 pt-4 w-full p-4'>
                 {items.map((song, index) => (
                     <TileCard
                         key={index}
                         imageHash={song.image}
                         className={`${index === 0 ? 'md:col-span-2' : ''} w-full`}
+                        sync_id={song.sync_id}
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />
