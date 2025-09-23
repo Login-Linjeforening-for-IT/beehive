@@ -39,13 +39,14 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     items={data.mostLikedAlbums}
                     getImageHash={a => a.image}
                     getTitle={a => a.album}
+                    getFirstLine={a => a.artist}
                     getCountWithIcons={a => ({
                         likeRatio: Math.round(a.like_ratio * 100),
                         totalListens: Number(a.total_listens),
                         totalSkips: Number(a.total_skips)
                     })}
                     dropdown={false}
-                    defaultOpen={true}
+                    open={true}
                 />
 
                 <TileMap
@@ -53,13 +54,14 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     items={data.mostLikedArtists}
                     getImageHash={a => a.image}
                     getTitle={a => a.artist}
+                    getFirstLine={a => a.artist}
                     getCountWithIcons={a => ({
                         likeRatio: Math.round(a.like_ratio * 100),
                         totalListens: Number(a.total_listens),
                         totalSkips: Number(a.total_skips)
                     })}
                     dropdown={false}
-                    defaultOpen={true}
+                    open={true}
                 />
 
                 <TileMap
@@ -67,13 +69,14 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     items={data.mostLikedSongs}
                     getImageHash={a => a.image}
                     getTitle={a => a.song}
+                    getFirstLine={a => a.artist}
                     getCountWithIcons={a => ({
                         likeRatio: Math.round(a.like_ratio * 100),
                         totalListens: Number(a.listens),
                         totalSkips: Number(a.skips)
                     })}
                     dropdown={false}
-                    defaultOpen={true}
+                    open={true}
                 />
 
                 <Users
@@ -82,7 +85,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     mostSkippingUsers={data.mostSkippingUsers}
                     currentlyPlaying={data.currentlyPlaying}
                     dropdown={false}
-                    defaultOpen={true}
+                    open={true}
                     only='listens'
                 />
             </div>

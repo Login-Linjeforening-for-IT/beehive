@@ -1,6 +1,7 @@
 import TopTileMap from './topTileMap'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear' | 'lastWeek' | 'lastMonth' | 'lastYear'
 
@@ -8,26 +9,32 @@ type InnerTopFiveThisXProps = {
     interval: IntervalKey
     data: Music
     lang: Lang
-    defaultOpen?: boolean
+    open?: boolean
+    setOpen?: Dispatch<SetStateAction<boolean>>
     dropdown?: boolean
 }
 
 export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }) {
+    const [openOne, setOpenOne] = useState(false)
+    const [openTwo, setOpenTwo] = useState(false)
+    const [openThree, setOpenThree] = useState(false)
+    const [openFour, setOpenFour] = useState(false)
+
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
-            <InnerTopFiveThisX interval='today' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='yesterday' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='thisWeek' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='lastWeek' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='thisMonth' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='lastMonth' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='thisYear' data={data} lang={lang} />
-            <InnerTopFiveThisX interval='lastYear' data={data} lang={lang} />
+            <InnerTopFiveThisX interval='today' open={openOne} setOpen={setOpenOne} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='yesterday' open={openOne} setOpen={setOpenOne} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='thisWeek' open={openTwo} setOpen={setOpenTwo} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='lastWeek' open={openTwo} setOpen={setOpenTwo} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='thisMonth' open={openThree} setOpen={setOpenThree} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='lastMonth' open={openThree} setOpen={setOpenThree} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='thisYear' open={openFour} setOpen={setOpenFour} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='lastYear' open={openFour} setOpen={setOpenFour} data={data} lang={lang} />
         </div>
     )
 }
 
-export function InnerTopFiveThisX({ interval, data, lang, defaultOpen, dropdown }: InnerTopFiveThisXProps) {
+export function InnerTopFiveThisX({ interval, data, lang, open, setOpen, dropdown }: InnerTopFiveThisXProps) {
     const text = lang === 'no' ? no : en
     const lookup: Record<IntervalKey, { data: TopXSong[], text: string }> = {
         today: { data: data.topFiveToday, text: text.topx.today },
@@ -52,9 +59,9 @@ export function InnerTopFiveThisX({ interval, data, lang, defaultOpen, dropdown 
                 items={songsToShow.data}
                 text={`${text.topx.intro} ${songsToShow.text}`}
                 dropdown={dropdown ?? true}
-                defaultOpen={defaultOpen ?? false}
+                open={open}
+                setOpen={setOpen}
             />
         </div>
     )
 }
-

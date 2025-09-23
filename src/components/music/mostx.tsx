@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TileMap from './tileMap'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
@@ -23,6 +23,9 @@ export default function MostX({
     mostSkippedSongs
 }: MostLikedProps) {
     const text = lang === 'no' ? no : en
+    const [openOne, setOpenOne] = useState(false)
+    const [openTwo, setOpenTwo] = useState(false)
+    const [openThree, setOpenThree] = useState(false)
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
@@ -31,13 +34,15 @@ export default function MostX({
                 items={mostLikedAlbums}
                 getImageHash={a => a.image}
                 getTitle={a => a.album}
+                getFirstLine={a => a.artist}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
                     totalListens: Number(a.total_listens),
                     totalSkips: Number(a.total_skips)
                 })}
                 dropdown={true}
-                defaultOpen={false}
+                open={openOne}
+                setOpen={setOpenOne}
             />
 
             <TileMap
@@ -45,9 +50,12 @@ export default function MostX({
                 items={mostSkippedAlbums}
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
+                getFirstLine={a => a.artist}
                 getCount={a => a.skips}
                 dropdown={true}
-                defaultOpen={false}
+                open={openOne}
+                setOpen={setOpenOne}
+                skip={true}
             />
 
             <TileMap
@@ -55,13 +63,15 @@ export default function MostX({
                 items={mostLikedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
+                getFirstLine={a => String(a.like_ratio * 100)}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
                     totalListens: Number(a.total_listens),
                     totalSkips: Number(a.total_skips)
                 })}
                 dropdown={true}
-                defaultOpen={false}
+                open={openTwo}
+                setOpen={setOpenTwo}
             />
 
             <TileMap
@@ -69,9 +79,13 @@ export default function MostX({
                 items={mostSkippedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
+                getFirstLine={a => a.album}
+                getSecondLine={a => a.top_song}
                 getCount={a => a.skips}
                 dropdown={true}
-                defaultOpen={false}
+                open={openTwo}
+                setOpen={setOpenTwo}
+                skip={true}
             />
 
             <TileMap
@@ -79,13 +93,15 @@ export default function MostX({
                 items={mostLikedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
+                getFirstLine={a => a.artist}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
                     totalListens: Number(a.listens),
                     totalSkips: Number(a.skips)
                 })}
                 dropdown={true}
-                defaultOpen={false}
+                open={openThree}
+                setOpen={setOpenThree}
             />
 
             <TileMap
@@ -93,9 +109,13 @@ export default function MostX({
                 items={mostSkippedSongs}
                 getImageHash={a => a.image}
                 getTitle={a => a.song}
+                getFirstLine={a => a.album}
+                getSecondLine={a => a.artist}
                 getCount={a => a.skips}
                 dropdown={true}
-                defaultOpen={false}
+                open={openThree}
+                setOpen={setOpenThree}
+                skip={true}
             />
         </div>
     )

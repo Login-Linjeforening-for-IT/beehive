@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import Marquee from './Marquee'
 import config from '@config'
+import Link from 'next/link'
 
 export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const startMs = Date.parse(song.start)
@@ -40,7 +41,11 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     }
 
     return (
-        <div className='flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full'>
+        <Link
+            href={`${config.url.SPOTIFY_URL}${song.sync_id}?utm_source=login`}
+            target='_blank'
+            className='flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full transform transition hover:scale-[1.015] hover:z-20 min-h-[10vh] h-[10vh] max-h-[10vh]'
+        >
             <Image
                 src={`${config.url.SPOTIFY_IMAGE_API_URL}/${Array.isArray(song.image) ? song.image[0] : song.image}`}
                 alt={song.album}
@@ -68,7 +73,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
                     <span className='text-xs text-[var(--color-text-discreet)] min-w-[40px] text-left'>{msToMinSec(durationMs)}</span>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

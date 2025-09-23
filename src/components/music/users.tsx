@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import Card from './card'
 import Marquee from './Marquee'
 import PlayIcon from './playIcon'
@@ -10,13 +10,14 @@ type UsersProps = {
     text: string[]
     mostActiveUsers: MusicUser[]
     dropdown?: boolean
-    defaultOpen?: boolean
+    open?: boolean
+    setOpen?: Dispatch<SetStateAction<boolean>>
     currentlyPlaying: Song[]
     mostSkippingUsers: MusicSkipUser[]
     only?: MusicUserCategory
 }
 
-export function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = true, currentlyPlaying, mostSkippingUsers, only }: UsersProps) {
+export function Users({ text, mostActiveUsers, dropdown = false, open = true, setOpen, currentlyPlaying, mostSkippingUsers, only }: UsersProps) {
     const musicUserCategories: MusicUserCategory[] = ['listens', 'skips']
     const [category, setCategory] = useState(only ?? 'listens' as MusicUserCategory)
     const items = category === 'listens' ? mostActiveUsers : mostSkippingUsers
@@ -27,12 +28,13 @@ export function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = t
             text={text}
             dropdown={dropdown}
             current={category}
-            defaultOpen={defaultOpen}
+            open={open}
+            setOpen={setOpen}
             handleChange={setCategory}
             changeValues={musicUserCategories}
             only={only}
         >
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full pt-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full'>
                 {items.slice(0, 5).map((item, index) => {
                     const isCurrentlyListening = currentlyPlaying.some(user => user.user === item.name)
                     const count = Number(category === 'listens' ? (item as MusicUser).songs_played! : (item as MusicSkipUser).songs_skipped!)
@@ -49,7 +51,7 @@ export function Users({ text, mostActiveUsers, dropdown = false, defaultOpen = t
                                     <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
                                     {isCurrentlyListening && <PlayIcon noColor />}
                                 </div>
-                                <Trophy className={`p-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
+                                <Trophy className={`px-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
                             <div className='text-sm text-neutral-400 truncate mb-6'>
                                 {count} {suffix}{count === 1 ? '' : 's'}

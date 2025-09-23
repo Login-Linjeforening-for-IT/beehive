@@ -2,17 +2,19 @@ import { PlayIcon } from 'lucide-react'
 import Card from './card'
 import Marquee from './Marquee'
 import TileCard from './tileCard'
+import { Dispatch, SetStateAction } from 'react'
 
 type TopTileMapProps = {
     text: string
     items: TopXSong[]
     dropdown?: boolean
-    defaultOpen?: boolean
+    open?: boolean
+    setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
-export default function TopTileMap({ text, items, dropdown = false, defaultOpen = true }: TopTileMapProps) {
+export default function TopTileMap({ text, items, dropdown = false, open = true, setOpen }: TopTileMapProps) {
     return (
-        <Card text={text} className='w-full' dropdown={dropdown} defaultOpen={defaultOpen}>
+        <Card text={text} className='w-full' dropdown={dropdown} open={open} setOpen={setOpen}>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 pt-2 w-full'>
                 {items.map((song, index) => (
                     <TileCard
@@ -22,7 +24,7 @@ export default function TopTileMap({ text, items, dropdown = false, defaultOpen 
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />
-                            <p className='text-neutral-400'>{song.listens}</p>
+                            <p className='text-neutral-400 pl-2'>{song.listens}</p>
                             <PlayIcon className='fill-neutral-400 stroke-0 p-[2px] -ml-[2px] pb-[4px]' />
                         </div>
                         <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.artist} />

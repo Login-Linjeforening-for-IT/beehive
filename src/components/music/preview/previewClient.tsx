@@ -23,7 +23,7 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
     const uniqueSongs = Array.from(new Map(songs.map(s => [s.id, s])).values()).slice(0, 4)
     function SongPreview() {
         return  (
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center w-full'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center w-full hover:overflow-visible'>
                 {uniqueSongs.map((song) => <CurrentlyPlayingCard key={song.id} song={song} />)}
             </div>
         )
@@ -37,7 +37,7 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
                         <h2 className='py-[0.5rem] font-normal text-2xl'>
                             {text.musicPreview.title}
                         </h2>
-                        <PlayIcon noColor={true} />
+                        <PlayIcon />
                     </div>
                     <Link href='/music' className='group relative block p-[.5em_1.5em_.5em_1em] leading-[1.4em] text-[1.2rem] font-medium h-[2.4em] after:content-[""] after:absolute after:w-[0.6em] after:h-[0.6em] after:top-[0.85em] after:right-[0.5em] after:border-r-[0.18em] after:border-b-[0.18em] after:border-solid after:border-[var(--color-link-primary)] after:transform after:rotate-[-45deg] after:z-[5] after:transition-all'>
                         <span className='hidden 350px:block group-hover:text-[var(--color-link-primary)]'>

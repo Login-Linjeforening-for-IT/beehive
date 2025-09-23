@@ -233,6 +233,7 @@ type Song = {
     timestamp: string
     image: string
     listens: number
+    sync_id: string
 }
 
 type Activity = {
@@ -367,8 +368,8 @@ type SkippedAlbum = {
 type SkippedArtist = {
     artist: string
     skips: number
-    top_song: null
-    album: null
+    top_song: string
+    album: string
     image: string
 }
 

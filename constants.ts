@@ -18,7 +18,8 @@ const config = {
         TEKKOM_BOT_API_URL: 'https://api.tekkom-bot.login.no/api',
         // TEKKOM_BOT_API_URL: 'http://localhost:8080/api',
         SPOTIFY_IMAGE_API_URL: 'https://i.scdn.co/image',
-        DISCORD_AVATARS_API_URL: 'https://cdn.discordapp.com/avatars'
+        DISCORD_AVATARS_API_URL: 'https://cdn.discordapp.com/avatars',
+        SPOTIFY_URL: 'https://open.spotify.com/track/'
     },
     version
 }

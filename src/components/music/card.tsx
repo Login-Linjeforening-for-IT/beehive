@@ -1,13 +1,15 @@
 'use client'
 
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { ChevronDown } from 'lucide-react'
 import PlayIcon from './playIcon'
+import clsx from '@utils/clsx'
 
 type CardProps<T> = {
     text: string | string[]
     dropdown?: boolean
-    defaultOpen?: boolean
+    open?: boolean
+    setOpen?: Dispatch<SetStateAction<boolean>>
     children: React.ReactNode
     className?: string
     playIcon?: boolean
@@ -17,6 +19,7 @@ type CardProps<T> = {
     handleChange?: Dispatch<SetStateAction<T>>
     changeValues?: T[]
     only?: MusicUserCategory
+    removePadding?: boolean
 }
 
 export default function Card<T>({
@@ -24,21 +27,22 @@ export default function Card<T>({
     children,
     className,
     dropdown = false,
-    defaultOpen = true,
+    open = true,
+    setOpen,
     playIcon = false,
     smallText = false,
     centerText = false,
     current,
     handleChange,
     changeValues,
-    only
+    only,
+    removePadding
 }: CardProps<T>) {
-    const [isOpen, setIsOpen] = useState(defaultOpen)
     const titleStyle = `${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${centerText && 'text-center w-full'}`
-    const secondStyle = 'select-none text-lg font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center mb-1'
+    const secondStyle = 'select-none text-lg font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center'
     function toggleOpen() {
-        if (dropdown) {
-            setIsOpen(!isOpen)
+        if (dropdown && setOpen) {
+            setOpen(!open)
         }
     }
 
@@ -53,9 +57,9 @@ export default function Card<T>({
     const opposite = current === 'listens' ? text[1] : text[0]
 
     return (
-        <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${isOpen ? 'h-full' : 'h-fit'} p-4 ${className}`}>
+        <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${open ? 'h-full' : 'h-fit'} ${removePadding ? '' : 'p-4'} ${className}`}>
             <div
-                className={`flex items-center justify-between ${dropdown ? 'cursor-pointer' : ''}`}
+                className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-mb-4', removePadding && !open && 'mb-4')}
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2 w-full'>
@@ -70,12 +74,12 @@ export default function Card<T>({
                 </div>
                 {dropdown && (
                     <ChevronDown
-                        className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                        className={`transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
                         size={20}
                     />
                 )}
             </div>
-            <div className={`grid place-items-center transition-all duration-300 overflow-hidden ${dropdown ? (isOpen ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}>
+            <div className={`grid place-items-center transition-all duration-300 overflow-hidden ${dropdown ? (open ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}>
                 {children}
             </div>
         </div>
