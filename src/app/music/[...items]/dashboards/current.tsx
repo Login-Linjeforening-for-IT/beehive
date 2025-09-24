@@ -5,6 +5,8 @@ import CurrentlyPlaying from '@components/music/currentlyPlaying'
 import { useEffect } from 'react'
 import { getCookie, removeCookie } from '@utils/cookies'
 
+const MAX_VISIBLE_ON_PAGE_WITHOUT_OVERFLOWING = 12
+
 async function fetcher(url: string) {
     const response = await fetch(url)
     const data = await response.json()
@@ -26,7 +28,7 @@ export default function MusicDashboardCurrent({ initialData, lang }: { initialDa
     }, [])
 
     return (
-        <div className={`grid place-items-center mx-8 ${data.currentlyPlaying.length ? 'pt-4' : 'pt-8'}`}>
+        <div className={`grid place-items-center mx-8 ${data.currentlyPlaying.length > MAX_VISIBLE_ON_PAGE_WITHOUT_OVERFLOWING ? 'py-12' : 'pt-8'} h-full`}>
             <CurrentlyPlaying expanded={true} songs={data.currentlyPlaying} lang={lang} />
         </div>
     )

@@ -16,8 +16,17 @@ export default function CurrentlyPlaying({ songs, lang, expanded }: CurrentlyPla
     const uniqueSongs = Array.from(new Map(songs.map(s => [s.id, s])).values())
 
     return (
-        <Card text={text.currently_playing} removePadding={true} className='w-full' dropdown={!expanded} open={open} setOpen={setOpen} playIcon={true}>
-            <div className={`grid grid-cols-1 md:grid-cols-2 p-4 ${expanded && 'pt-2'} gap-2 place-items-center ${expanded ? 'max-h-[81.5vh] overflow-auto' : 'max-h-[69vh] overflow-auto'} noscroll w-full`}>
+        <Card
+            text={text.currently_playing}
+            extraPadding={true}
+            removePadding={true}
+            className='w-full'
+            dropdown={!expanded}
+            open={open}
+            setOpen={setOpen}
+            playIcon={true}
+        >
+            <div className={`grid grid-cols-1 md:grid-cols-2 px-4 pt-2 pb-4 ${expanded && 'pt-4'} gap-x-4 gap-y-2 place-items-center ${expanded ? 'max-h-[77.64vh] overflow-auto' : 'max-h-[69vh] overflow-auto'} noscroll w-full`}>
                 {uniqueSongs.map((song) => <CurrentlyPlayingCard key={song.id} song={song} />)}
             </div>
         </Card>

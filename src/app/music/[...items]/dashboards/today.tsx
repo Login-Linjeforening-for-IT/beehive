@@ -30,13 +30,13 @@ export default function MusicDashboardToday({ initialData, lang }: { initialData
     }, [])
 
     return (
-        <div className='grid place-items-center mx-8 py-8 gap-4'>
+        <div className='grid place-items-center mx-8 py-[22px] gap-4'>
             <CurrentSummary listeners={data.currentlyPlaying.length} text={text.active_listeners} />
             <div className='grid grid-cols-2 gap-4'>
-                <InnerTopFiveThisX open={true} dropdown={false} interval='today' data={data} lang={lang} />
-                <InnerTopFiveThisX open={true} dropdown={false} interval='yesterday' data={data} lang={lang} />
-                <InnerTopFiveThisX open={true} dropdown={false} interval='thisWeek' data={data} lang={lang} />
-                <InnerTopFiveThisX open={true} dropdown={false} interval='lastWeek' data={data} lang={lang} />
+                <InnerTopFiveThisX extraPadding={true} open={true} dropdown={false} interval='today' data={data} lang={lang} />
+                <InnerTopFiveThisX extraPadding={true} open={true} dropdown={false} interval='yesterday' data={data} lang={lang} />
+                <InnerTopFiveThisX extraPadding={true} open={true} dropdown={false} interval='thisWeek' data={data} lang={lang} />
+                <InnerTopFiveThisX extraPadding={true} open={true} dropdown={false} interval='lastWeek' data={data} lang={lang} />
             </div>
         </div>
     )

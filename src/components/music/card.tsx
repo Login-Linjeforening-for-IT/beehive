@@ -20,6 +20,7 @@ type CardProps<T> = {
     changeValues?: T[]
     only?: MusicUserCategory
     removePadding?: boolean
+    extraPadding?: boolean
 }
 
 export default function Card<T>({
@@ -36,7 +37,8 @@ export default function Card<T>({
     handleChange,
     changeValues,
     only,
-    removePadding
+    removePadding,
+    extraPadding
 }: CardProps<T>) {
     const titleStyle = `${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${centerText && 'text-center w-full'}`
     const secondStyle = 'select-none text-lg font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center'
@@ -59,7 +61,7 @@ export default function Card<T>({
     return (
         <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${open ? 'h-full' : 'h-fit'} ${removePadding ? '' : 'p-4'} ${className}`}>
             <div
-                className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-mb-4', removePadding && !open && 'mb-4')}
+                className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-mb-4', removePadding && !open && 'mb-4', extraPadding && 'pb-2')}
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2 w-full'>

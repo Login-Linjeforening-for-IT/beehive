@@ -31,7 +31,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
     }, [])
 
     return (
-        <div className={'grid place-items-center mx-8 py-8 gap-4'}>
+        <div className={'grid place-items-center mx-8 py-2 gap-4'}>
             <TileInfo data={data} text={text} />
             <div className='grid grid-cols-2 gap-4'>
                 <TileMap
@@ -47,6 +47,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     })}
                     dropdown={false}
                     open={true}
+                    extraPadding={true}
                 />
 
                 <TileMap
@@ -62,6 +63,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     })}
                     dropdown={false}
                     open={true}
+                    extraPadding={true}
                 />
 
                 <TileMap
@@ -77,6 +79,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     })}
                     dropdown={false}
                     open={true}
+                    extraPadding={true}
                 />
 
                 <Users
@@ -86,6 +89,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     currentlyPlaying={data.currentlyPlaying}
                     dropdown={false}
                     open={true}
+                    extraPadding={true}
                     only='listens'
                 />
             </div>

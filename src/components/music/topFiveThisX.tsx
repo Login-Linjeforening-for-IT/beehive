@@ -12,6 +12,7 @@ type InnerTopFiveThisXProps = {
     open?: boolean
     setOpen?: Dispatch<SetStateAction<boolean>>
     dropdown?: boolean
+    extraPadding?: boolean
 }
 
 export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }) {
@@ -34,7 +35,7 @@ export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }
     )
 }
 
-export function InnerTopFiveThisX({ interval, data, lang, open, setOpen, dropdown }: InnerTopFiveThisXProps) {
+export function InnerTopFiveThisX({ interval, data, lang, open, setOpen, dropdown, extraPadding }: InnerTopFiveThisXProps) {
     const text = lang === 'no' ? no : en
     const lookup: Record<IntervalKey, { data: TopXSong[], text: string }> = {
         today: { data: data.topFiveToday, text: text.topx.today },
@@ -61,6 +62,7 @@ export function InnerTopFiveThisX({ interval, data, lang, open, setOpen, dropdow
                 dropdown={dropdown ?? true}
                 open={open}
                 setOpen={setOpen}
+                extraPadding={extraPadding}
             />
         </div>
     )

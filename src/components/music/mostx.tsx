@@ -63,7 +63,6 @@ export default function MostX({
                 items={mostLikedArtists}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
-                getFirstLine={a => String(a.like_ratio * 100)}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
                     totalListens: Number(a.total_listens),

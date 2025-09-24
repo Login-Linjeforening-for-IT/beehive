@@ -6,6 +6,13 @@ import Marquee from './Marquee'
 import config from '@config'
 import Link from 'next/link'
 
+type InnerCurrentlyPlayingCardProps = {
+    song: Song
+    progressPercent: number
+    progressMs: number
+    durationMs: number
+}
+
 export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
@@ -40,12 +47,38 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
         return
     }
 
+    if (!song.sync_id) {
+        return (
+            <div className={`flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[10vh] h-[10vh] max-h-[10vh]`}>
+                <InnerCurrentlyPlayingCard
+                    song={song}
+                    durationMs={durationMs}
+                    progressMs={progressMs}
+                    progressPercent={progressPercent}
+                />
+            </div>
+        )
+    }
+
     return (
         <Link
             href={`${config.url.SPOTIFY_URL}${song.sync_id}?utm_source=login`}
             target='_blank'
-            className='flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full transform transition hover:scale-[1.015] hover:z-20 min-h-[10vh] h-[10vh] max-h-[10vh]'
+            className={`flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[10vh] h-[10vh] max-h-[10vh]`}
         >
+            <InnerCurrentlyPlayingCard
+                song={song}
+                durationMs={durationMs}
+                progressMs={progressMs}
+                progressPercent={progressPercent}
+            />
+        </Link>
+    )
+}
+
+function InnerCurrentlyPlayingCard({ song, progressPercent, progressMs, durationMs }: InnerCurrentlyPlayingCardProps) {
+    return (
+        <>
             <Image
                 src={`${config.url.SPOTIFY_IMAGE_API_URL}/${Array.isArray(song.image) ? song.image[0] : song.image}`}
                 alt={song.album}
@@ -58,7 +91,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
                 {song.artist === 'Unknown' ? <>
                     <Marquee text={song.album} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
                     <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
-                </>:<>
+                </> : <>
                     <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
                     <Marquee text={song.album} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
                 </>}
@@ -73,7 +106,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
                     <span className='text-xs text-[var(--color-text-discreet)] min-w-[40px] text-left'>{msToMinSec(durationMs)}</span>
                 </div>
             </div>
-        </Link>
+        </>
     )
 }
 

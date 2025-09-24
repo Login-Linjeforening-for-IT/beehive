@@ -20,6 +20,7 @@ interface TileMapProps<T> {
     skip?: boolean
     className?: string
     innerClassName?: string
+    extraPadding?: boolean
 }
 
 interface WithArtist {
@@ -42,10 +43,11 @@ export default function TileMap<T extends WithArtist>({
     setOpen = () => {},
     skip = false,
     className,
-    innerClassName
+    innerClassName,
+    extraPadding
 }: TileMapProps<T>) {
     return (
-        <Card text={text} dropdown={dropdown} removePadding={true} open={open} setOpen={setOpen} className={className}>
+        <Card text={text} dropdown={dropdown} extraPadding={extraPadding} removePadding={true} open={open} setOpen={setOpen} className={className}>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
                 {items.map((item, index) => (
                     <TileCard
@@ -60,7 +62,7 @@ export default function TileMap<T extends WithArtist>({
                             <TopRight item={item} getCount={getCount} skip={skip} />
                         </div>
                         <Marquee
-                            className={`truncate ${!getSecondLine && !getCountWithIcons && 'mb-5'}`}
+                            className='truncate'
                             innerClassName='text-sm text-neutral-500'
                             text={(getFirstLine && getFirstLine(item)) ?? ''}
                         />

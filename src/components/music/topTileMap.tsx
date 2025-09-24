@@ -10,13 +10,14 @@ type TopTileMapProps = {
     dropdown?: boolean
     open?: boolean
     setOpen?: Dispatch<SetStateAction<boolean>>
+    extraPadding?: boolean
 }
 
-export default function TopTileMap({ text, items, dropdown = false, open = true, setOpen }: TopTileMapProps) {
+export default function TopTileMap({ text, items, dropdown = false, open = true, setOpen, extraPadding }: TopTileMapProps) {
     const removePadding = true
 
     return (
-        <Card text={text} className='w-full' dropdown={dropdown} removePadding={removePadding} open={open} setOpen={setOpen}>
+        <Card text={text} className='w-full' dropdown={dropdown} extraPadding={extraPadding} removePadding={removePadding} open={open} setOpen={setOpen}>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 pt-4 w-full p-4'>
                 {items.map((song, index) => (
                     <TileCard

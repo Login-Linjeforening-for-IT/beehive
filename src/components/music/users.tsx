@@ -15,9 +15,20 @@ type UsersProps = {
     currentlyPlaying: Song[]
     mostSkippingUsers: MusicSkipUser[]
     only?: MusicUserCategory
+    extraPadding?: boolean
 }
 
-export function Users({ text, mostActiveUsers, dropdown = false, open = true, setOpen, currentlyPlaying, mostSkippingUsers, only }: UsersProps) {
+export function Users({
+    text,
+    mostActiveUsers,
+    dropdown = false,
+    open = true,
+    setOpen,
+    currentlyPlaying,
+    mostSkippingUsers,
+    only,
+    extraPadding
+}: UsersProps) {
     const musicUserCategories: MusicUserCategory[] = ['listens', 'skips']
     const [category, setCategory] = useState(only ?? 'listens' as MusicUserCategory)
     const items = category === 'listens' ? mostActiveUsers : mostSkippingUsers
@@ -34,6 +45,7 @@ export function Users({ text, mostActiveUsers, dropdown = false, open = true, se
             changeValues={musicUserCategories}
             only={only}
             removePadding={true}
+            extraPadding={extraPadding}
         >
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
                 {items.slice(0, 5).map((item, index) => {
