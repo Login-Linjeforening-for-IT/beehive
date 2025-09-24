@@ -40,8 +40,8 @@ export default function Card<T>({
     removePadding,
     extraPadding
 }: CardProps<T>) {
-    const titleStyle = `${smallText ? 'text-sm text-neutral-400 self-center mb-1' : 'text-lg font-semibold'} ${centerText && 'text-center w-full'}`
-    const secondStyle = 'select-none text-lg font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center'
+    const titleStyle = `${smallText ? `${changeValues && 'text-xs sm:text-sm'} text-neutral-400 self-center mb-1` : `${changeValues && 'text-xs sm:text-base'} font-semibold`} ${centerText && 'text-center w-full'}`
+    const secondStyle = `select-none font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center ${changeValues && 'text-xs sm:text-base'}`
     function toggleOpen() {
         if (dropdown && setOpen) {
             setOpen(!open)

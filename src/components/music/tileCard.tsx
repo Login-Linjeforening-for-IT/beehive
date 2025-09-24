@@ -21,7 +21,7 @@ type InnerTileCardProps = {
 
 export default function TileCard({ image, imageHash, className, children, discord, user_id, sync_id }: TileCardProps) {
     const src = discord ? `${config.url.DISCORD_AVATARS_API_URL}/${user_id}/${imageHash}?size=1024` : image ? image : `${config.url.SPOTIFY_IMAGE_API_URL}/${imageHash}`
-    const style = `flex items-center gap-4 px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none ${className}  min-h-[10vh] h-[10vh] max-h-[10vh] ${sync_id && 'transform transition hover:scale-102 hover:z-20 cursor-pointer'}`
+    const style = `flex items-center gap-4 px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none ${className} min-h-[90px] h-[90px] max-h-[90px] ${sync_id && 'transform transition hover:scale-102 hover:z-20 cursor-pointer'}`
     const spotifyUrl = `${config.url.SPOTIFY_URL}${sync_id}`
     const discordUrl = `${config.url.DISORD_USER_URL}${user_id}`
 

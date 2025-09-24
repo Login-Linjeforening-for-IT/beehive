@@ -11,7 +11,7 @@ export default function Dashboards() {
     }
 
     return (
-        <div className='flex gap-4'>
+        <div className='flex flex-col md:flex-row gap-4'>
             <Link href='/music/dashboard/today' onClick={handleClick} className={style}>Dashboard Today</Link>
             <Link href='/music/dashboard/all' onClick={handleClick} className={style}>Dashboard All Time</Link>
             <Link href='/music/dashboard/current' onClick={handleClick} className={style}>Currently Listening</Link>

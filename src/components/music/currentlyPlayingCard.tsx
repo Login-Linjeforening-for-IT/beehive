@@ -42,14 +42,15 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     }, [song.id, startMs, durationMs])
 
     const progressPercent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0
-
     if (progressPercent === 100) {
         return
     }
 
+    const style = `flex items-center gap-4 px-2 py-10 md:px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[90px] h-[90px] max-h-[90px]`
+
     if (!song.sync_id) {
         return (
-            <div className={`flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[10vh] h-[10vh] max-h-[10vh]`}>
+            <div className={style}>
                 <InnerCurrentlyPlayingCard
                     song={song}
                     durationMs={durationMs}
@@ -64,7 +65,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
         <Link
             href={`${config.url.SPOTIFY_URL}${song.sync_id}?utm_source=login`}
             target='_blank'
-            className={`flex items-center gap-4 p-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[10vh] h-[10vh] max-h-[10vh]`}
+            className={style}
         >
             <InnerCurrentlyPlayingCard
                 song={song}

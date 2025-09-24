@@ -31,7 +31,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
     }, [])
 
     return (
-        <div className={'grid place-items-center mx-8 py-2 gap-4'}>
+        <div className={'grid place-items-center min-h-full h-full py-6 px-8 gap-4'}>
             <TileInfo data={data} text={text} />
             <div className='grid grid-cols-2 gap-4'>
                 <TileMap
