@@ -16,11 +16,14 @@ const config = {
         INSTAGRAM_URL: 'https://www.instagram.com/login_linjeforening/',
         DISCORD_URL: 'https://discord.gg/login-ntnu',
         DISORD_USER_URL: 'https://discord.com/users/',
-        TEKKOM_BOT_API_URL: 'https://api.tekkom-bot.login.no/api',
-        // TEKKOM_BOT_API_URL: 'http://localhost:8080/api',
+        // TEKKOM_BOT_API_URL: 'https://api.tekkom-bot.login.no/api',
+        TEKKOM_BOT_API_URL: 'http://localhost:8080/api',
         SPOTIFY_IMAGE_API_URL: 'https://i.scdn.co/image',
         DISCORD_AVATARS_API_URL: 'https://cdn.discordapp.com/avatars',
-        SPOTIFY_URL: 'https://open.spotify.com/track/'
+        SPOTIFY_URL: 'https://open.spotify.com/track/',
+        SPOTIFY_EMBED_URL: 'https://open.spotify.com/embed/track',
+        SPOTIFY_ALBUM_URL: 'https://open.spotify.com/album',
+        SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist'
     },
     version
 }

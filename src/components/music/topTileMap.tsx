@@ -21,6 +21,9 @@ export default function TopTileMap({ text, items, dropdown = false, open = true,
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 pt-4 w-full p-4'>
                 {items.map((song, index) => (
                     <TileCard
+                        name={song.song}
+                        start={song.start}
+                        end={song.end}
                         key={index}
                         imageHash={song.image}
                         className={`${index === 0 ? 'md:col-span-2' : ''} w-full`}

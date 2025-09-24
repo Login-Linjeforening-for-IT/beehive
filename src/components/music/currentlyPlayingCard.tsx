@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import Image from 'next/image'
 import Marquee from './Marquee'
 import config from '@config'
+import ImageWithPlayer from './imageWithPlayer'
 import Link from 'next/link'
 
 type InnerCurrentlyPlayingCardProps = {
@@ -80,13 +80,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
 function InnerCurrentlyPlayingCard({ song, progressPercent, progressMs, durationMs }: InnerCurrentlyPlayingCardProps) {
     return (
         <>
-            <Image
-                src={`${config.url.SPOTIFY_IMAGE_API_URL}/${Array.isArray(song.image) ? song.image[0] : song.image}`}
-                alt={song.album}
-                width={64}
-                height={64}
-                className='rounded-lg object-cover bg-gray-900 w-16 h-16'
-            />
+            <ImageWithPlayer song={{...song, name: song.song}} />
             <div className='flex flex-col flex-1 min-w-0'>
                 <Marquee text={song.song} className='truncate' innerClassName='font-medium text-base' />
                 {song.artist === 'Unknown' ? <>

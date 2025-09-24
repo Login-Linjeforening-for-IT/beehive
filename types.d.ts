@@ -264,10 +264,12 @@ type Artist = {
     name: string
     listens: number
     timestamp: string
+    artist_id: string
 }
 
 type ArtistPlayed = {
     artist: string
+    artist_id: string
     listens: string
     top_song: string
     album: string
@@ -276,15 +278,11 @@ type ArtistPlayed = {
 
 type Album = {
     album: string
+    album_id: string
     artist: string
     listens: string
     top_song: string
     top_song_image: string
-}
-
-type Artist = {
-    name: string
-    listens: string
 }
 
 type CountedSong = {
@@ -315,6 +313,8 @@ type TopXSong = {
     listens: string
     image: string
     sync_id: string
+    start?: string
+    end?: string
 }
 
 type MusicUser = {
@@ -335,6 +335,7 @@ type MusicUserCategory = 'listens' | 'skips'
 
 type LikedAlbum = {
     album: string
+    album_id: string
     artist: string
     total_listens: string
     total_skips: string
@@ -344,6 +345,7 @@ type LikedAlbum = {
 
 type LikedArtist = {
     artist: string
+    artist_id: string
     total_listens: string
     total_skips: string
     like_ratio: number
@@ -363,6 +365,7 @@ type LikedSong = {
 
 type SkippedAlbum = {
     album: string
+    album_id: string
     artist: string
     skips: number
     top_song: string
@@ -371,6 +374,7 @@ type SkippedAlbum = {
 
 type SkippedArtist = {
     artist: string
+    artist_id: string
     skips: number
     top_song: string
     album: string
@@ -428,4 +432,12 @@ type TopX = {
     lastMonth: string
     thisYear: string
     lastYear: string
+}
+
+type MinimalSong = {
+    start: string | undefined
+    end: string | undefined
+    image: string | undefined
+    sync_id: string | undefined
+    name: string | undefined
 }

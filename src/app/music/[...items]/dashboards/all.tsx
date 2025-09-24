@@ -33,7 +33,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
     return (
         <div className={'grid place-items-center min-h-full h-full py-6 px-8 gap-4'}>
             <TileInfo data={data} text={text} />
-            <div className='grid grid-cols-2 gap-4'>
+            <div className='grid grid-cols-2 gap-4 w-full'>
                 <TileMap
                     text={text.mostx.most_liked_albums}
                     items={data.mostLikedAlbums}

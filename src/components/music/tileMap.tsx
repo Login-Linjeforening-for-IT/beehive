@@ -10,6 +10,7 @@ interface TileMapProps<T> {
     getCountWithIcons?: (item: T) => { likeRatio: number, totalListens: number, totalSkips: number }
     getImage?: (item: T) => string
     getImageHash?: (item: T) => string
+    getUrl?: (item: T) => string
     dropdown: boolean
     getTitle: (item: T) => string
     getFirstLine?: (item: T) => string
@@ -23,34 +24,50 @@ interface TileMapProps<T> {
     extraPadding?: boolean
 }
 
-interface WithArtist {
-    artist: string
+interface TileMapGeneric {
+    artist?: string
     sync_id?: string
+    start?: string
+    end?: string
+    name?: string
 }
 
-export default function TileMap<T extends WithArtist>({
+export default function TileMap<T extends TileMapGeneric>({
     text,
     items,
     getCountWithIcons,
     getImage,
     getImageHash,
+    getUrl,
     dropdown,
     getTitle,
     getFirstLine,
     getSecondLine,
     getCount,
     open = false,
-    setOpen = () => {},
+    setOpen = () => { },
     skip = false,
     className,
     innerClassName,
     extraPadding
 }: TileMapProps<T>) {
     return (
-        <Card text={text} dropdown={dropdown} extraPadding={extraPadding} removePadding={true} open={open} setOpen={setOpen} className={className}>
+        <Card
+            text={text}
+            dropdown={dropdown}
+            extraPadding={extraPadding}
+            removePadding={true}
+            open={open}
+            setOpen={setOpen}
+            className={className}
+        >
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
                 {items.map((item, index) => (
                     <TileCard
+                        url={getUrl && getUrl(item)}
+                        name={item.name}
+                        start={item.start}
+                        end={item.end}
                         sync_id={item.sync_id}
                         key={`${getTitle(item)}-${index}`}
                         imageHash={getImageHash ? getImageHash(item) : undefined}
@@ -91,7 +108,7 @@ export default function TileMap<T extends WithArtist>({
     )
 }
 
-function TopRight<T extends WithArtist>({ getCount, item, skip }: { item: T, getCount?: (item: T) => string | number, skip: boolean }) {
+function TopRight<T extends TileMapGeneric>({ getCount, item, skip }: { item: T, getCount?: (item: T) => string | number, skip: boolean }) {
     if (!getCount) {
         return
     }

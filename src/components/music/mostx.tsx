@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import TileMap from './tileMap'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
+import config from '@config'
 
 type MostLikedProps = {
     lang: Lang
@@ -33,6 +34,7 @@ export default function MostX({
                 text={text.mostx.most_liked_albums}
                 items={mostLikedAlbums}
                 getImageHash={a => a.image}
+                getUrl={a => `${config.url.SPOTIFY_ALBUM_URL}/${a.album_id}`}
                 getTitle={a => a.album}
                 getFirstLine={a => a.artist}
                 getCountWithIcons={a => ({
@@ -49,6 +51,7 @@ export default function MostX({
                 text={text.mostx.most_skipped_albums}
                 items={mostSkippedAlbums}
                 getImageHash={a => a.top_song_image}
+                getUrl={a => `${config.url.SPOTIFY_ALBUM_URL}/${a.album_id}`}
                 getTitle={a => a.album}
                 getFirstLine={a => a.artist}
                 getCount={a => a.skips}
@@ -62,6 +65,7 @@ export default function MostX({
                 text={text.mostx.most_liked_artists}
                 items={mostLikedArtists}
                 getImageHash={a => a.image}
+                getUrl={a => `${config.url.SPOTIFY_ARTIST_URL}/${a.artist_id}`}
                 getTitle={a => a.artist}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
@@ -77,6 +81,7 @@ export default function MostX({
                 text={text.mostx.most_skipped_artists}
                 items={mostSkippedArtists}
                 getImageHash={a => a.image}
+                getUrl={a => `${config.url.SPOTIFY_ARTIST_URL}/${a.artist_id}`}
                 getTitle={a => a.artist}
                 getFirstLine={a => a.album}
                 getSecondLine={a => a.top_song}
