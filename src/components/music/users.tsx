@@ -61,13 +61,13 @@ export function Users({
                             user={true}
                         >
                             <div className='flex w-full justify-between text-neutral-400 items-top'>
-                                <div className={clsx('flex gap-2', isCurrentlyListening && 'max-w-[85%]')}>
+                                <div className={clsx('flex gap-2', isCurrentlyListening ? 'max-w-[85%]' : 'max-w-full')}>
                                     <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
                                     {isCurrentlyListening && <PlayIcon noColor />}
                                 </div>
                                 <Trophy className={`px-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
-                            <div className='text-sm text-neutral-400 truncate mb-6'>
+                            <div className='text-sm text-neutral-400 truncate'>
                                 {count} {suffix}{count === 1 ? '' : 's'}
                             </div>
                         </TileCard>

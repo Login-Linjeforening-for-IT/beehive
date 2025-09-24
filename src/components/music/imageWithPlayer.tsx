@@ -65,7 +65,7 @@ export default function ImageWithPlayer({ song, src }: { song: MinimalSong, src?
                     className='rounded-lg object-cover bg-gray-900 w-16 h-16'
                 />
                 {isInsideAndNotPodcast && <div className='absolute inset-0 bg-black/50 rounded-lg pt-2'>
-                    {playIconClickable ? <PlayIcon className='h-[50px] w-[50px] fill-white/90 stroke-0 z-10 ml-[8px] cursor-events-none' />
+                    {playIconClickable ? <PlayIcon className='h-[40px] w-[40px] fill-white/90 stroke-0 z-10 ml-[12px] mt-[5px] cursor-events-none' />
                         : <div className='-mt-[5px] pl-[2px]'><Loader /></div>
                     }
                 </div>}
