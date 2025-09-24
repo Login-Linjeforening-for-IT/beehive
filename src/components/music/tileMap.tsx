@@ -85,7 +85,7 @@ export default function TileMap<T extends TileMapGeneric>({
                         />
                         <Marquee
                             className='truncate'
-                            innerClassName='text-sm text-neutral-500'
+                            innerClassName={`text-sm text-neutral-500 ${!getSecondLine && 'mb-6'}`}
                             text={(getSecondLine && getSecondLine(item)) ?? ''}
                         />
                         {getCountWithIcons && (

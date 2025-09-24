@@ -67,7 +67,7 @@ export function Users({
                                 </div>
                                 <Trophy className={`px-[1px] w-6 ${index === 0 ? 'stroke-[var(--color-music-outline)]' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
                             </div>
-                            <div className='text-sm text-neutral-400 truncate'>
+                            <div className='text-sm text-neutral-400 truncate mb-6'>
                                 {count} {suffix}{count === 1 ? '' : 's'}
                             </div>
                         </TileCard>
