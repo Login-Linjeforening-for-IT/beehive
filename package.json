@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^15.5.4",
-    "login-linjeforeningen-for-it": "^1.1.5",
     "lucide-react": "^0.544.0",
     "next": "^15.5.4",
     "react": "^19.1.1",
@@ -19,7 +18,8 @@
     "react-markdown": "^10.1.0",
     "react-router": "^7.9.2",
     "remark-gfm": "^4.0.1",
-    "swr": "^2.3.6"
+    "swr": "^2.3.6",
+    "uibee": "^1.1.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

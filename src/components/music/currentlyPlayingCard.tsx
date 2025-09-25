@@ -5,7 +5,7 @@ import Marquee from './Marquee'
 import config from '@config'
 import ImageWithPlayer from './imageWithPlayer'
 import Link from 'next/link'
-import { useVisibility } from 'login-linjeforeningen-for-it/hooks'
+import { useVisibility } from 'uibee/hooks'
 
 type InnerCurrentlyPlayingCardProps = {
     song: Song

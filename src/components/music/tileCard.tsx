@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ImageWithPlayer from './imageWithPlayer'
 import { useState } from 'react'
-import { useVisibility } from 'login-linjeforeningen-for-it/hooks'
+import { useVisibility } from 'uibee/hooks'
 
 type TileCardProps = {
     name?: string

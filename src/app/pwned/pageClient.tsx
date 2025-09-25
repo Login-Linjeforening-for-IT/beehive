@@ -5,7 +5,7 @@ import Image from 'next/image'
 import config from '@config'
 import no from '@text/pwned/no.json'
 import en from '@text/pwned/en.json'
-import { useDarkMode } from 'login-linjeforeningen-for-it/hooks'
+import { useDarkMode } from 'uibee/hooks'
 
 type PageClientProps = {
     pwnedNumber: number
