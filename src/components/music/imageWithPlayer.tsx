@@ -4,7 +4,7 @@ import { PlayIcon } from 'lucide-react'
 import Image from 'next/image'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
-const TWENTY_MINUTES = 1200000
+const TWENTY_MINUTES = 1800000
 const THIRTY_SECONDS = 30000
 
 export default function ImageWithPlayer({ song, src }: { song: MinimalSong, src?: string }) {
