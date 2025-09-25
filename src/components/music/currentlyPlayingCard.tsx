@@ -5,6 +5,7 @@ import Marquee from './Marquee'
 import config from '@config'
 import ImageWithPlayer from './imageWithPlayer'
 import Link from 'next/link'
+import { useVisibility } from 'login-linjeforeningen-for-it/hooks'
 
 type InnerCurrentlyPlayingCardProps = {
     song: Song
@@ -20,6 +21,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const durationMs = endMs - startMs
     const [progressMs, setProgressMs] = useState(0)
     const [shouldRenderPlayer, setShouldRenderPlayer] = useState(false)
+    const { ref } = useVisibility<HTMLAnchorElement>(() => setShouldRenderPlayer(true))
     const animationRef = useRef<number>(0)
 
     useEffect(() => {
@@ -78,6 +80,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
             className={style}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            ref={ref}
         >
             <InnerCurrentlyPlayingCard
                 song={song}

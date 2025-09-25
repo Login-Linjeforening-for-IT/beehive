@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ImageWithPlayer from './imageWithPlayer'
 import { useState } from 'react'
+import { useVisibility } from 'login-linjeforeningen-for-it/hooks'
 
 type TileCardProps = {
     name?: string
@@ -45,6 +46,7 @@ export default function TileCard({
     const spotifyUrl = `${config.url.SPOTIFY_URL}${sync_id}`
     const discordUrl = `${config.url.DISORD_USER_URL}${user_id}`
     const [shouldRenderPlayer, setShouldRenderPlayer] = useState(false)
+    const { ref } = useVisibility<HTMLAnchorElement>(() => setShouldRenderPlayer(true))
 
     function handleMouseEnter() {
         setShouldRenderPlayer(true)
@@ -63,6 +65,7 @@ export default function TileCard({
                 target='_blank'
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                ref={ref}
             >
                 <InnerTileCard song={song} src={src} children={children} shouldRenderPlayer={shouldRenderPlayer} />
             </Link>

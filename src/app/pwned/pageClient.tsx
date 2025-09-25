@@ -5,7 +5,7 @@ import Image from 'next/image'
 import config from '@config'
 import no from '@text/pwned/no.json'
 import en from '@text/pwned/en.json'
-import useDarkModeObserver from '@/hooks/darkModeObserver'
+import { useDarkMode } from 'login-linjeforeningen-for-it/hooks'
 
 type PageClientProps = {
     pwnedNumber: number
@@ -19,7 +19,7 @@ type MemeProps = {
 
 export default function PageClient({pwnedNumber, lang}: PageClientProps){
     const [time, setTime] = useState<number>(1)
-    const isDark = useDarkModeObserver()
+    const isDark = useDarkMode()
     const memes = (lang === 'no' ? no : en) as MemeProps
     const seconds = time === 1
         ? lang === 'no'
