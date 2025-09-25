@@ -11,6 +11,7 @@ type InnerCurrentlyPlayingCardProps = {
     progressPercent: number
     progressMs: number
     durationMs: number
+    shouldRenderPlayer?: boolean
 }
 
 export default function CurrentlyPlayingCard({ song }: { song: Song }) {
@@ -18,6 +19,7 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
     const [progressMs, setProgressMs] = useState(0)
+    const [shouldRenderPlayer, setShouldRenderPlayer] = useState(false)
     const animationRef = useRef<number>(0)
 
     useEffect(() => {
@@ -48,6 +50,14 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
 
     const style = `flex items-center gap-4 px-2 py-10 md:px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[90px] h-[90px] max-h-[90px]`
 
+    function handleMouseEnter() {
+        setShouldRenderPlayer(true)
+    }
+
+    function handleMouseLeave() {
+        setShouldRenderPlayer(false)
+    }
+
     if (!song.sync_id) {
         return (
             <div className={style}>
@@ -66,21 +76,30 @@ export default function CurrentlyPlayingCard({ song }: { song: Song }) {
             href={`${config.url.SPOTIFY_URL}${song.sync_id}?utm_source=login`}
             target='_blank'
             className={style}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <InnerCurrentlyPlayingCard
                 song={song}
                 durationMs={durationMs}
                 progressMs={progressMs}
                 progressPercent={progressPercent}
+                shouldRenderPlayer={shouldRenderPlayer}
             />
         </Link>
     )
 }
 
-function InnerCurrentlyPlayingCard({ song, progressPercent, progressMs, durationMs }: InnerCurrentlyPlayingCardProps) {
+function InnerCurrentlyPlayingCard({
+    song,
+    progressPercent,
+    progressMs,
+    durationMs,
+    shouldRenderPlayer
+}: InnerCurrentlyPlayingCardProps) {
     return (
         <>
-            <ImageWithPlayer song={{...song, name: song.song}} />
+            <ImageWithPlayer song={{ ...song, name: song.song }} shouldRenderPlayer={shouldRenderPlayer} />
             <div className='flex flex-col flex-1 min-w-0'>
                 <Marquee text={song.song} className='truncate' innerClassName='font-medium text-base' />
                 {song.artist === 'Unknown' ? <>

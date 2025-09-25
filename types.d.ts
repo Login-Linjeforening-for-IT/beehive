@@ -448,3 +448,7 @@ type MinimalSong = {
     sync_id: string | undefined
     name: string | undefined
 }
+
+interface ExtendedNavigator extends Navigator {
+    globalPrivacyControl: boolean
+}

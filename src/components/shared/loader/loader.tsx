@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Loader({ duration = 30 }: { duration?: number }) {
+export default function Loader({ duration = 30, className }: { duration?: number, className?: string }) {
     const radius = 50
     const circumference = 2 * Math.PI * radius
 
     return (
         <svg
-            className='w-15 h-15'
+            className={`w-15 h-15 ${className}`}
             viewBox='0 0 120 120'
         >
             {/* Background circle */}

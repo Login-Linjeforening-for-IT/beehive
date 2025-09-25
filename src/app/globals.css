@@ -864,3 +864,18 @@ abbr {
 		stroke-dashoffset: 0;
 	}
 }
+
+/* Warning */
+@keyframes slide {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+.animate-slide-line {
+	animation: slide 8s linear forwards;
+}

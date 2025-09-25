@@ -2,6 +2,7 @@ import config from '@config'
 import Image from 'next/image'
 import Link from 'next/link'
 import ImageWithPlayer from './imageWithPlayer'
+import { useState } from 'react'
 
 type TileCardProps = {
     name?: string
@@ -23,6 +24,7 @@ type InnerTileCardProps = {
     user_id?: string
     src: string
     song?: MinimalSong
+    shouldRenderPlayer?: boolean
 }
 
 export default function TileCard({
@@ -42,12 +44,27 @@ export default function TileCard({
     const style = `flex items-center gap-4 px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none ${className} min-h-[90px] h-[90px] max-h-[90px] ${(sync_id || user_id || url) && 'transform transition hover:scale-102 hover:z-20 cursor-pointer'}`
     const spotifyUrl = `${config.url.SPOTIFY_URL}${sync_id}`
     const discordUrl = `${config.url.DISORD_USER_URL}${user_id}`
+    const [shouldRenderPlayer, setShouldRenderPlayer] = useState(false)
+
+    function handleMouseEnter() {
+        setShouldRenderPlayer(true)
+    }
+
+    function handleMouseLeave() {
+        setShouldRenderPlayer(false)
+    }
 
     if (sync_id || user_id || url) {
         const song: MinimalSong = { start, end, sync_id, image, name }
         return (
-            <Link className={style} href={url ?? (sync_id ? spotifyUrl : discordUrl)} target='_blank' >
-                <InnerTileCard song={song} src={src} children={children} />
+            <Link
+                className={style}
+                href={url ?? (sync_id ? spotifyUrl : discordUrl)}
+                target='_blank'
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
+                <InnerTileCard song={song} src={src} children={children} shouldRenderPlayer={shouldRenderPlayer} />
             </Link>
         )
     }
@@ -59,11 +76,15 @@ export default function TileCard({
     )
 }
 
-function InnerTileCard({ src, children, user_id, song }: InnerTileCardProps) {
+function InnerTileCard({ src, children, user_id, song, shouldRenderPlayer }: InnerTileCardProps) {
     return (
         <>
-            {song?.sync_id ? <ImageWithPlayer src={src} song={song} />
-                : <Image
+            {song?.sync_id
+                ? <ImageWithPlayer
+                    src={src}
+                    song={song}
+                    shouldRenderPlayer={shouldRenderPlayer}
+                /> : <Image
                     src={src}
                     alt={user_id ?? 'Tile card image'}
                     width={64}
