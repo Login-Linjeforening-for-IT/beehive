@@ -11,7 +11,7 @@ import Office from '@components/svg/symbols/Office'
 import { cookies } from 'next/headers'
 
 export default async function Fund() {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     // eslint-disable-next-line
     const text: any = lang === 'en' ? {...en} : {...no}
 

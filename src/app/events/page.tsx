@@ -23,7 +23,7 @@ export default async function Page({searchParams}: PageProps) {
     const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
     const filtersParams = typeof filters.categories === 'string' ? filters.categories : null
 
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     const limit = 20

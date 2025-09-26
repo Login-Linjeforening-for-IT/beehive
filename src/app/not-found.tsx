@@ -9,7 +9,7 @@ import West from '@components/svg/symbols/West'
 import { cookies } from 'next/headers'
 
 export default async function NotFoundPage() {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

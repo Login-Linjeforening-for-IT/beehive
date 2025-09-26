@@ -39,7 +39,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
     const cities = typeof filters.cities === 'string' ? filters.cities : null
     const skills = typeof filters.skills === 'string' ? filters.skills : null
 
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

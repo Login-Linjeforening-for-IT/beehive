@@ -7,7 +7,7 @@ import { cookies } from 'next/headers'
 import config from '@config'
 
 export default async function Verv() {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
     const slides = []
 

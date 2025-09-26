@@ -10,7 +10,7 @@ import Pin from '@components/svg/symbols/Pin'
 
 // eslint-disable-next-line
 export default async function JobadCard({ jobad, highlight = true, disableTags = false }: any) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     return (
         <Link href={`/career/${jobad.id}`}>
             <div className={`jobad-card ${highlight ? 'jobad-card--highlight' : ''}`}>

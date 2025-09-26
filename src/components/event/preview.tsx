@@ -8,7 +8,7 @@ import { cookies } from 'next/headers'
 
 export default async function EventsPreview() {
     const events = await getEvents(null, 3, 0, true)
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

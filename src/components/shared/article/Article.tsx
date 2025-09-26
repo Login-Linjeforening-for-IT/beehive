@@ -14,7 +14,7 @@ type ArticleProps = {
 }
 
 export default async function Article({ title, publishTime, updateTime, informational, introduction, description }: ArticleProps) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
 
     return (
         <div className='article'>
@@ -40,9 +40,7 @@ export default async function Article({ title, publishTime, updateTime, informat
             {informational}
           </div> */}
                     {/* @ts-ignore */}
-                    <Alert
-                        className='article_informational-alert'
-                    >
+                    <Alert className='article_informational-alert'>
                         {informational}
                     </Alert>
                 </div>

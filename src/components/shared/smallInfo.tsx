@@ -7,7 +7,7 @@ import { cookies } from 'next/headers'
 
 export default async function SmallInfo() {
     const theme = (await cookies()).get('theme')?.value || 'dark'
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     function getSponsorPath() {

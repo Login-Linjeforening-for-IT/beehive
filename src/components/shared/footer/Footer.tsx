@@ -10,7 +10,7 @@ import { cookies } from 'next/headers'
 export default async function Footer() {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

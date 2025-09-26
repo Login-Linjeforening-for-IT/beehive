@@ -54,7 +54,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
     const id = (await params).id
     const jobads = (await getJob(id))
     const jobad = typeof jobads === 'object' ? jobads : null
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
     const temp_empty = lang === 'no'
         ? 'Oi! Her var det tomt... '

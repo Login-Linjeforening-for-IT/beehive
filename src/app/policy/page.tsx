@@ -4,7 +4,7 @@ import en from '@text/policy/en.json'
 import { cookies } from 'next/headers'
 
 export default async function Policy() {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

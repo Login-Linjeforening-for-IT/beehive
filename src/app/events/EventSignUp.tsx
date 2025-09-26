@@ -26,7 +26,7 @@ export default async function EventSignUp({
     signupRelease,
     signupDeadline,
 }: EventSignUpProps) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
     const now = new Date()
     let msg = ''

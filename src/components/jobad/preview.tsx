@@ -8,7 +8,7 @@ import { cookies } from 'next/headers'
 
 export default async function JobadsPreview() {
     const jobads = await getJobs(null, null, null, null, 3, 0)
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

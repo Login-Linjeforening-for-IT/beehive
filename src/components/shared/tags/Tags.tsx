@@ -20,8 +20,7 @@ export default async function Tags({
     full,
     ongoing
 }: TagsProps) {
-    // const lang = (await cookies()).get('lang')?.value || 'no'
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

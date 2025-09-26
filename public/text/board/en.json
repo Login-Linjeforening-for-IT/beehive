@@ -14,49 +14,49 @@
         "img": "nestleder.png"
     },
     "secretary": {
-        "title": "Sekretær",
+        "title": "Secretary",
         "name": "Amanda Nyseth",
         "dctag": "amandavn05",
         "dclink": "https://discordapp.com/users/1273571773463658552",
         "img": "sekretær.png"
     },
     "evntkomLeader": {
-        "title": "Evntkom Leder",
+        "title": "Evntkom Leader",
         "name": "Peder Gintal",
         "dctag": "pergint",
         "dclink": "https://discordapp.com/users/249630146678620172",
         "img": "evntkom_leder.png"
     },
     "bedkomLeader": {
-        "title": "Bedkom Leder",
+        "title": "Bedkom Leader",
         "name": "Daoud Chaudhry",
         "dctag": "dahood018784",
         "dclink": "https://discordapp.com/users/428285256467087383",
         "img": "bedkom_leder.png"
     },
     "tekkomLeader": {
-        "title": "TekKom Leder",
+        "title": "TekKom Leader",
         "name": "Gjermund H. Pedersen",
         "dctag": "turtleman02",
         "dclink": "https://discordapp.com/users/260370482757500938",
         "img": "tekkom_leder.png"
     },
     "ctfkomLeader": {
-        "title": "CTFkom Leder",
+        "title": "CTFkom Leader",
         "name": "Maja Melby",
         "dctag": "majam_",
         "dclink": "https://discordapp.com/users/1011661501536407552",
         "img": "ctfkom_leder.png"
     },
     "satkomLeader": {
-        "title": "SATkom Leder",
+        "title": "SATkom Leader",
         "name": "Sivert Hovemoen",
         "dctag": "sivsiv01",
         "dclink": "https://discordapp.com/users/208903111975239681",
         "img": "satkom_leder.png"
     },
     "prLeader": {
-        "title": "PR Leder",
+        "title": "PR Leader",
         "name": "Halvard Holen",
         "dctag": "cosinus8455",
         "dclink": "https://discordapp.com/users/184282867579224064",

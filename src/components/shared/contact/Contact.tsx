@@ -3,26 +3,12 @@
 import MazeMapEmbed from '@components/shared/mazemap/MazeMapEmbed'
 import no from '@text/contact/no.json'
 import en from '@text/contact/en.json'
-import { useEffect, useState } from 'react'
 import TravelExplore from '@components/svg/symbols/TravelExplore'
-import { getCookie } from '@utils/cookies'
-import { language } from '../langtoggle/LangToggle'
 import config from '@config'
-// import { getCookie } from '@utils/cookies'
+import useLang from '@/hooks/useLang'
 
 export default function Contact() {
-    const [lang, setLang] = useState('no')
-    const [text, setText] = useState(no)
-
-    useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
-
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [language])
+    const text = useLang(no, en)
 
     return(
         <div>

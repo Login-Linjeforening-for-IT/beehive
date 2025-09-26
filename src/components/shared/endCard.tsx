@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { cookies } from 'next/headers'
 
 export default async function EndCard({ path }: {path: string}) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     return (

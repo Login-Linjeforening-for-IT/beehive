@@ -28,7 +28,7 @@ const jobTypeTranslations = {
 
 // eslint-disable-next-line
 export default async function JobadsListItem({ jobad }: any) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
 
     // eslint-disable-next-line
     function useTags(publishTime: any, highlight: any) {

@@ -40,7 +40,7 @@ type EventBannerProps = {
 export default async function EventPage({ params }: PromisedPageProps) {
     const id = (await params).id
     const event = (await getEvent(id))
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
 
     const errorMsg = lang === 'no'
         ? 'Oi! Her var det tomt... '
@@ -62,9 +62,8 @@ export default async function EventPage({ params }: PromisedPageProps) {
 }
 
 async function Event({event}: InnerEventProps) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
-    // eslint-disable-next-line
-    const text: any = lang === 'no' ? no : en
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
+    const text = lang === 'no' ? no : en
 
     return (
         <div className='event-page'>
@@ -245,7 +244,7 @@ async function Event({event}: InnerEventProps) {
 }
 
 async function EventBanner({event}: EventBannerProps) {
-    const lang = (await cookies()).get('lang')?.value || 'no'
+    const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const banner_url = `${config.url.CDN_URL}/img/events/banner/${event?.event?.image_banner}`
     if (!event || !((await fetch(banner_url)).status === 200)) {
         // @ts-ignore

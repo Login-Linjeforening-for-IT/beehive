@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import config from '@config'
 import TabNavItem from '@components/shared/tabs/TabNavItem'
 import TabContent from '@components/shared/tabs/TabContent'
@@ -17,46 +17,27 @@ import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import '@components/shared/tabs/tabs.css'
-import { getCookie } from '@utils/cookies'
+import useLang from '@/hooks/useLang'
 
-const no = {...text_no, ...board_no}
-const en = {...text_en, ...board_en}
-
-const no_board = {...board_no}
-const en_board = {...board_en}
+const no = { ...text_no, board: board_no }
+const en = { ...text_en, board: board_en }
 
 export default function CommitteeTabs() {
     const [activeTab, setActiveTab] = useState('styret')
-    const [lang, setLang] = useState('no')
-    const [text, setText] = useState(no)
-    const [board, setBoard] = useState(no_board)
-    const boardKeys = Object.keys(board)
+    const text = useLang(no, en)
+    const boardKeys = Object.keys(text.board) as Array<keyof typeof text.board>
     const actualBoard = Array.isArray(boardKeys) ? boardKeys : []
-
-    useEffect(() => {
-        const text = lang === 'no' ? no : en
-        const board = lang === 'no' ? no_board : en_board
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        setText(text as any)
-        // eslint-disable-next-line
-        setBoard(board as any)
-    }, [lang])
-
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [])
 
     return (
         <div className='mb-[2rem] 800px:mb-[5rem] tabs page-section--without-gaps'>
             <ul className='grid grid-cols-4 gap-[0.5rem] p-[0.5rem] 450px:grid-cols-7 1200px:px-[2rem]'>
-                <TabNavItem title={<StyretLogo/>} id='styret' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<EvntkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<TekkomLogo/>} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<BedkomLogo/>} id='bedkom' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<CtfkomLogo/>} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<SatkomLogo/>} id='sat' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<PrLogo/>} id='pr' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<StyretLogo />} id='styret' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<EvntkomLogo />} id='event' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<TekkomLogo />} id='tek' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<BedkomLogo />} id='bedkom' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<CtfkomLogo />} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<SatkomLogo />} id='sat' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<PrLogo />} id='pr' activeTab={activeTab} setActiveTab={setActiveTab} />
             </ul>
             <TabContent id='styret' activeTab={activeTab}>
                 <div className='grid grid-cols-1 justify-around 432px:gap-[1rem] 432px:grid-cols-[repeat(auto-fit,11rem)] 800px:gap-[4rem]'>
@@ -69,16 +50,11 @@ export default function CommitteeTabs() {
                     {actualBoard.map((key) => (
                         <LogChamp
                             key={key}
-                            // eslint-disable-next-line
-                            img={`${config.url.CDN_URL}/img/board/portraits/${(board as any)[key].img}`}
-                            // eslint-disable-next-line
-                            name={(board as any)[key].name}
-                            // eslint-disable-next-line
-                            position={(board as any)[key].title}
-                            // eslint-disable-next-line
-                            discord={(board as any)[key].dctag}
-                            // eslint-disable-next-line
-                            discordLink={(board as any)[key].dclink}
+                            img={`${config.url.CDN_URL}/img/board/portraits/${text.board[key].img}`}
+                            name={text.board[key].name}
+                            position={text.board[key].title}
+                            discord={text.board[key].dctag}
+                            discordLink={text.board[key].dclink}
                         />
                     ))}
                 </div>
@@ -90,14 +66,14 @@ export default function CommitteeTabs() {
                 <div className='grid grid-cols-1 gap-[3rem] items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-[45rem]'>
                         <p className='p--highlighted'>{text.committeeSection.evntkom.intro}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.evntkom.body}} />
+                        <p className='p--regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.evntkom.body }} />
                     </div>
                     <LogChamp
-                        img={config.url.CDN_URL + '/img/board/portraits/' +  text.evntkomLeader.img}
-                        name={text.evntkomLeader.name}
-                        position={text.evntkomLeader.title}
-                        discord={text.evntkomLeader.dctag}
-                        discordLink={text.evntkomLeader.dclink}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.evntkomLeader.img}`}
+                        name={text.board.evntkomLeader.name}
+                        position={text.board.evntkomLeader.title}
+                        discord={text.board.evntkomLeader.dctag}
+                        discordLink={text.board.evntkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -111,11 +87,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.tekkomLeader.img}`}
-                        name={text.tekkomLeader.name}
-                        position={text.tekkomLeader.title}
-                        discord={text.tekkomLeader.dctag}
-                        discordLink={text.tekkomLeader.dclink}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.tekkomLeader.img}`}
+                        name={text.board.tekkomLeader.name}
+                        position={text.board.tekkomLeader.title}
+                        discord={text.board.tekkomLeader.dctag}
+                        discordLink={text.board.tekkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -129,11 +105,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp
-                        img={config.url.CDN_URL + '/img/board/portraits/' +  text.bedkomLeader.img}
-                        name={text.bedkomLeader.name}
-                        position={text.bedkomLeader.title}
-                        discord={text.bedkomLeader.dctag}
-                        discordLink={text.bedkomLeader.dclink}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.bedkomLeader.img}`}
+                        name={text.board.bedkomLeader.name}
+                        position={text.board.bedkomLeader.title}
+                        discord={text.board.bedkomLeader.dctag}
+                        discordLink={text.board.bedkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -144,14 +120,14 @@ export default function CommitteeTabs() {
                 <div className='grid grid-cols-1 gap-[3rem] items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-[45rem]'>
                         <p className='p--highlighted'>{text.committeeSection.ctfkom.intro}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.committeeSection.ctfkom.body}}/>
+                        <p className='p--regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.ctfkom.body }} />
                     </div>
                     <LogChamp
-                        img={config.url.CDN_URL + '/img/board/portraits/' +  text.ctfkomLeader.img}
-                        name={text.ctfkomLeader.name}
-                        position={text.ctfkomLeader.title}
-                        discord={text.ctfkomLeader.dctag}
-                        discordLink={text.ctfkomLeader.dclink}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.ctfkomLeader.img}`}
+                        name={text.board.ctfkomLeader.name}
+                        position={text.board.ctfkomLeader.title}
+                        discord={text.board.ctfkomLeader.dctag}
+                        discordLink={text.board.ctfkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -161,15 +137,15 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-[3rem] items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-[45rem]'>
-                        <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.satkom.intro}} />
+                        <p className='p--highlighted' dangerouslySetInnerHTML={{ __html: text.committeeSection.satkom.intro }} />
                         <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp
-                        img={config.url.CDN_URL + '/img/board/portraits/' +  text.satkomLeader.img}
-                        name={text.satkomLeader.name}
-                        position={text.satkomLeader.title}
-                        discord={text.satkomLeader.dctag}
-                        discordLink={text.satkomLeader.dclink}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.satkomLeader.img}`}
+                        name={text.board.satkomLeader.name}
+                        position={text.board.satkomLeader.title}
+                        discord={text.board.satkomLeader.dctag}
+                        discordLink={text.board.satkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -179,15 +155,15 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-[3rem] items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-[45rem]'>
-                        <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.pr.intro}} />
+                        <p className='p--highlighted' dangerouslySetInnerHTML={{ __html: text.committeeSection.pr.intro }} />
                         <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp
-                        img={config.url.CDN_URL + '/img/board/portraits/' +  text.prLeader.img}
-                        name={text.prLeader.name}
-                        position={text.prLeader.title}
-                        discord={text.prLeader.dctag}
-                        discordLink={text.prLeader.dclink}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.prLeader.img}`}
+                        name={text.board.prLeader.name}
+                        position={text.board.prLeader.title}
+                        discord={text.board.prLeader.dctag}
+                        discordLink={text.board.prLeader.dclink}
                     />
                 </div>
             </TabContent>
