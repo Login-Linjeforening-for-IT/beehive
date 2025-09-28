@@ -19,7 +19,7 @@
     "react-router": "^7.9.2",
     "remark-gfm": "^4.0.1",
     "swr": "^2.3.6",
-    "uibee": "^1.1.5"
+    "uibee": "^1.4.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

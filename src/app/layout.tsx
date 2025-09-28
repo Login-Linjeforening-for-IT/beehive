@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 export default async function layout({children}: {children: ReactNode}) {
     const Cookies = await cookies()
     const theme = Cookies.get('theme')?.value || 'dark'
+    const token = Cookies.get('access_token')?.value || null
     const lang = (Cookies.get('lang')?.value || 'no') as Lang
     const Headers = headers()
     const path = (await Headers).get('x-current-path') || ''
@@ -28,7 +29,7 @@ export default async function layout({children}: {children: ReactNode}) {
             <body className={clsx('absolute top-0 h-[100vh] w-full bg-[var(--color-bg-body)]', dashboard && 'max-h-[100vh] overflow-hidden')}>
                 {page !== 'pwned' ?
                     <header className='main-header fixed top-0 z-900 w-full'>
-                        <TopBar onlyLogo={dashboard} lang={lang} />
+                        <TopBar onlyLogo={dashboard} lang={lang} theme={theme} token={token} />
                     </header>
                     :
                     page === 'pwned' && <header className='main-header fixed top-0 z-900 w-full'>

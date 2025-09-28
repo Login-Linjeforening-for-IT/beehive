@@ -4,19 +4,25 @@ import { useState } from 'react'
 import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
 import LoginLogoSmall from '@components/svg/brandlogos/LoginLogoSmall'
-// import ProfileSVG from '@components/svg/profilesvg'
+import ProfileSVG from '@components/svg/profilesvg'
 import LangToggle from '@components/shared/langtoggle/LangToggle'
 import ThemeToggle from '../themetoggle/themeToggle'
 import Link from 'next/link'
 import './TopBar.css'
 import { LogoConsoleOutput } from '@utils/ConsoleOutput'
+import { LogOut, User } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 type TopBarProps = {
     lang: Lang
     onlyLogo?: boolean
+    theme: string
+    token: string | null
 }
 
-export default function TopBar({lang, onlyLogo}: TopBarProps) {
+export default function TopBar({lang, onlyLogo, theme, token}: TopBarProps) {
+    const router = useRouter()
+
     const [isOpen, setIsOpen] = useState(false)
     function toggle() {
         setIsOpen(!isOpen)
@@ -48,14 +54,17 @@ export default function TopBar({lang, onlyLogo}: TopBarProps) {
             <nav className='flex w-[calc(100vw-8rem)] justify-end h-[3rem] mr-[1rem] 800px:w-fit 800px:mr-0'>
                 <ThemeToggle />
                 <LangToggle serverLang={lang} />
-                {/* TODO */}
-                {/* <div className='mt-[0.9rem] ml-[0.9rem]'>
-                    <Link href='profile'>
-                        <picture>
-                            <ProfileSVG />
-                        </picture>
-                    </Link>
-                </div> */}
+                <div className='grid items-center justify-center rounded-[var(--border-radius)] hover:bg-[#6464641a] h-12 w-12'>
+                    {token ?
+                        <Link href='/api/logout' onClick={(e) => { e.preventDefault(); window.location.href = '/api/logout' }}>
+                            <LogOut size={26} />
+                        </Link>
+                        :
+                        <Link href='/api/login'>
+                            <User size={26} />
+                        </Link>
+                    }
+                </div>
             </nav>
             <button
                 className={`topbar_hamburger ${isOpen ? 'topbar_hamburger--open' : ''}`}

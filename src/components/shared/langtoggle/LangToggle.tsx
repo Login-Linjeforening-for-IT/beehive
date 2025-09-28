@@ -36,7 +36,7 @@ export default function LangToggle({serverLang}: LangToggleProps) {
     }
 
     return(
-        <button value={lang} onClick={handleClick} className='lang-toggle flex flex-row items-center gap-1'>
+        <button value={lang} onClick={handleClick} className='lang-toggle flex flex-row items-center justify-center gap-1'>
             <i className={`lang-toggle_icon ${jump ? 'lang-toggle_icon--jump' : ''}`}>
                 <Language className='lang-icon w-[1.4rem] h-[1.4rem]'/>
             </i>
