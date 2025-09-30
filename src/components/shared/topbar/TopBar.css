@@ -142,6 +142,44 @@
   color: var(--color-primary);
 }
 
+
+/* Head */
+.user-icon {
+  position: relative;
+  width: 30px;
+  height: 20px;
+}
+
+/* Head (circle outline) */
+.user-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-text-main);
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Shoulders (arc outline) */
+.user-icon::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 8px;
+  border: 2px solid var(--color-text-main);
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  border-bottom: none;
+  background: transparent;
+}
+
 /* to ensure that the mobile nav can never be open on desktop view */
 @media only screen and (max-width: 800px) {
   .topbar--open {

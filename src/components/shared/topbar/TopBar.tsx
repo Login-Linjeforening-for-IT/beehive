@@ -4,14 +4,12 @@ import { useState } from 'react'
 import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
 import LoginLogoSmall from '@components/svg/brandlogos/LoginLogoSmall'
-import ProfileSVG from '@components/svg/profilesvg'
 import LangToggle from '@components/shared/langtoggle/LangToggle'
 import ThemeToggle from '../themetoggle/themeToggle'
 import Link from 'next/link'
 import './TopBar.css'
 import { LogoConsoleOutput } from '@utils/ConsoleOutput'
-import { LogOut, User } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { LogOut } from 'lucide-react'
 
 type TopBarProps = {
     lang: Lang
@@ -20,9 +18,7 @@ type TopBarProps = {
     token: string | null
 }
 
-export default function TopBar({lang, onlyLogo, theme, token}: TopBarProps) {
-    const router = useRouter()
-
+export default function TopBar({lang, onlyLogo, token}: TopBarProps) {
     const [isOpen, setIsOpen] = useState(false)
     function toggle() {
         setIsOpen(!isOpen)
@@ -32,7 +28,7 @@ export default function TopBar({lang, onlyLogo, theme, token}: TopBarProps) {
 
     if (onlyLogo) {
         return (
-            <div className={`flex w-[97.5vw] max-w-[97.5vw] w-full m-auto p-[0.5rem] h-[var(--h-topbar)] transition duration-500 800px:justify-between 800px:p-[1rem] ${isOpen ? 'topbar--open' : ''}`}>
+            <div className={`flex w-[97.5vw] max-w-[97.5vw] m-auto p-[0.5rem] h-[var(--h-topbar)] transition duration-500 800px:justify-between 800px:p-[1rem] ${isOpen ? 'topbar--open' : ''}`}>
                 <div className='block h-[3rem] p-[0.2rem] 800px:p-0'>
                     <Link href='/' onClick={(e) => { e.preventDefault(); window.location.href = '/' }}>
                         <LoginLogoSmall />
@@ -61,7 +57,7 @@ export default function TopBar({lang, onlyLogo, theme, token}: TopBarProps) {
                         </Link>
                         :
                         <Link href='/api/login'>
-                            <User size={26} />
+                            <div className='user-icon' />
                         </Link>
                     }
                 </div>
