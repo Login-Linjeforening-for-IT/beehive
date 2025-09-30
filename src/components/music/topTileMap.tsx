@@ -35,7 +35,7 @@ export default function TopTileMap({ text, items, dropdown = false, open = true,
                             <PlayIcon className='fill-neutral-400 stroke-0 p-[2px] -ml-[2px] pb-[4px]' />
                         </div>
                         <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.artist} />
-                        <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={song.album} />
+                        <Marquee className='truncate' innerClassName={`text-sm text-neutral-500 ${song.artist === 'Unknown' && 'mb-6'}`} text={song.album} />
                     </TileCard>
                 ))}
             </div>

@@ -85,11 +85,11 @@ export default function TileMap<T extends TileMapGeneric>({
                         />
                         <Marquee
                             className='truncate'
-                            innerClassName={`text-sm text-neutral-500 ${!getSecondLine && 'mb-6'}`}
+                            innerClassName={`text-sm text-neutral-500 ${!getCountWithIcons && !getSecondLine && 'mb-6'}`}
                             text={(getSecondLine && getSecondLine(item)) ?? ''}
                         />
                         {getCountWithIcons && (
-                            <div className='flex flex-row items-center gap-2'>
+                            <div className={`flex flex-row items-center gap-2 ${!getSecondLine && !getFirstLine && 'mb-6'}`}>
                                 <span className='flex items-center text-neutral-500'>
                                     {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-500 fill-neutral-500 pb-[2px]' />
                                 </span>

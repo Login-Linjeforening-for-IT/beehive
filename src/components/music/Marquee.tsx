@@ -23,6 +23,10 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
 
     const duration = Math.max(6, scrollDistance / 30)
 
+    if (text === 'Unknown') {
+        return
+    }
+
     return (
         <div
             ref={containerRef}
@@ -34,7 +38,7 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
                 className={`${shouldScroll ? 'animate-marquee' : ''} ${innerClassName}`}
                 style={{ display: 'block', '--scroll-distance': `${scrollDistance}px`, '--duration': `${duration}s` } as React.CSSProperties}
             >
-                {text === 'Unknown' ? '‎ ' : text}
+                {text}
             </div>
         </div>
     )
