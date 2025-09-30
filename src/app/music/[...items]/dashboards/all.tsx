@@ -42,8 +42,8 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     getFirstLine={a => a.artist}
                     getCountWithIcons={a => ({
                         likeRatio: Math.round(a.like_ratio * 100),
-                        totalListens: Number(a.total_listens),
-                        totalSkips: Number(a.total_skips)
+                        totalListens: a.total_listens,
+                        totalSkips: a.total_skips
                     })}
                     dropdown={false}
                     open={true}
@@ -58,8 +58,8 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     getFirstLine={a => a.artist}
                     getCountWithIcons={a => ({
                         likeRatio: Math.round(a.like_ratio * 100),
-                        totalListens: Number(a.total_listens),
-                        totalSkips: Number(a.total_skips)
+                        totalListens: a.total_listens,
+                        totalSkips: a.total_skips
                     })}
                     dropdown={false}
                     open={true}
@@ -74,8 +74,8 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     getFirstLine={a => a.artist}
                     getCountWithIcons={a => ({
                         likeRatio: Math.round(a.like_ratio * 100),
-                        totalListens: Number(a.listens),
-                        totalSkips: Number(a.skips)
+                        totalListens: a.listens,
+                        totalSkips: a.skips
                     })}
                     dropdown={false}
                     open={true}

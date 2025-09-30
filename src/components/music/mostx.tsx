@@ -39,8 +39,8 @@ export default function MostX({
                 getFirstLine={a => a.artist}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
-                    totalListens: Number(a.total_listens),
-                    totalSkips: Number(a.total_skips)
+                    totalListens: a.total_listens,
+                    totalSkips: a.total_skips
                 })}
                 dropdown={true}
                 open={openOne}
@@ -69,8 +69,8 @@ export default function MostX({
                 getTitle={a => a.artist}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
-                    totalListens: Number(a.total_listens),
-                    totalSkips: Number(a.total_skips)
+                    totalListens: a.total_listens,
+                    totalSkips: a.total_skips
                 })}
                 dropdown={true}
                 open={openTwo}
@@ -100,8 +100,8 @@ export default function MostX({
                 getFirstLine={a => a.artist}
                 getCountWithIcons={a => ({
                     likeRatio: Math.round(a.like_ratio * 100),
-                    totalListens: Number(a.listens),
-                    totalSkips: Number(a.skips)
+                    totalListens: a.listens,
+                    totalSkips: a.skips
                 })}
                 dropdown={true}
                 open={openThree}

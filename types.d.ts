@@ -198,7 +198,7 @@ type Lang = 'en' | 'no'
 
 type Music = {
     stats: MusicStats
-    currentlyPlaying: Song[]
+    currentlyPlaying: CurrentlyPlaying[]
     mostPlayedAlbums: Album[]
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
@@ -221,7 +221,7 @@ type Music = {
     mostSkippedSongs: SkippedSong[]
 }
 
-type Song = {
+type CurrentlyPlaying = {
     id: number
     song: string
     artist: string
@@ -231,8 +231,10 @@ type Song = {
     source: string
     user: string
     timestamp: string
+    avatar: string
+    user_id: string
+    skipped: boolean
     image: string
-    listens: number
     sync_id: string
 }
 
@@ -248,17 +250,6 @@ type Activity = {
     timestamp: string
 }
 
-type Song = {
-    id: number
-    name: string
-    artist: string
-    album: string
-    image: string
-    listens: number
-    timestamp: string
-    sync_id: string
-}
-
 type Artist = {
     id: number
     name: string
@@ -271,7 +262,7 @@ type Artist = {
 type ArtistPlayed = {
     artist: string
     artist_id: string
-    listens: string
+    listens: number
     top_song: string
     album: string
     image: string
@@ -282,7 +273,7 @@ type Album = {
     album: string
     album_id: string
     artist: string
-    listens: string
+    listens: number
     top_song: string
     top_song_image: string
     sync_id: string
@@ -305,7 +296,7 @@ type SongDay = {
 
 type ActiveUser = {
     user: string
-    total_minutes: string
+    total_minutes: number
     image: string
 }
 
@@ -324,14 +315,14 @@ type MusicUser = {
     name: string
     avatar: string
     user_id: string
-    songs_played: string
+    songs_played: number
 }
 
 type MusicSkipUser = {
     name: string
     avatar: string
     user_id: string
-    songs_skipped: string
+    songs_skipped: number
 }
 
 type MusicUserCategory = 'listens' | 'skips'
@@ -340,8 +331,8 @@ type LikedAlbum = {
     album: string
     album_id: string
     artist: string
-    total_listens: string
-    total_skips: string
+    total_listens: number
+    total_skips: number
     like_ratio: number
     image: string
     sync_id: string
@@ -350,8 +341,8 @@ type LikedAlbum = {
 type LikedArtist = {
     artist: string
     artist_id: string
-    total_listens: string
-    total_skips: string
+    total_listens: number
+    total_skips: number
     like_ratio: number
     image: string
     sync_id: string
