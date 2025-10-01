@@ -16,7 +16,7 @@ export default async function Music() {
             <div className='page-section--normal space-y-4'>
                 <Intro text={text} />
                 <MusicClient lang={lang} initialData={data} />
-                <Dashboards />
+                <Dashboards lang={lang} />
             </div>
         </div>
     )

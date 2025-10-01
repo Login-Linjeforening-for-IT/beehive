@@ -29,5 +29,10 @@
         "lastMonth": "Last Month",
         "thisYear": "This Year",
         "lastYear": "Last Year"
+    },
+    "dashboard": {
+        "today": "Dashboard Today",
+        "allTime": "Dashboard All Time",
+        "currently": "Currently Listening"
     }
 }

@@ -29,5 +29,10 @@
         "lastMonth": "forrige måned",
         "thisYear": "i år",
         "lastYear": "i fjor"
+    },
+    "dashboard": {
+        "today": "Dashbord i dag",
+        "allTime": "Dashbord totalt",
+        "currently": "Spilles nå"
     }
 }
