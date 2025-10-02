@@ -59,9 +59,9 @@ export default function Card<T>({
     const opposite = current === 'listens' ? text[1] : text[0]
 
     return (
-        <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${open ? 'h-full' : 'h-fit'} ${removePadding ? '' : 'p-4'} ${className}`}>
+        <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${removePadding ? '' : 'p-4'} ${className}`}>
             <div
-                className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-mb-4', removePadding && !open && 'mb-4', extraPadding && 'pb-2')}
+                className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-pb-4', removePadding && !open && 'pb-4', extraPadding && 'pb-2')}
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2 w-full'>
@@ -81,7 +81,7 @@ export default function Card<T>({
                     />
                 )}
             </div>
-            <div className={`grid place-items-center transition-all duration-300 overflow-hidden ${dropdown ? (open ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}>
+            <div className={`grid place-items-center overflow-hidden transition-all duration-400 ease-in-out ${dropdown ? (open ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}>
                 {children}
             </div>
         </div>
