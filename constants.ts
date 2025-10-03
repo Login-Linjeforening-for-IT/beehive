@@ -1,33 +1,10 @@
 import packageInfo from './package.json'
 
-const isServer = typeof window === 'undefined'
-const requiredEnvironmentVariables = [
-    'NEXT_PUBLIC_URI',
-    'NEXT_PUBLIC_AUTHENTIK_CLIENT_ID',
-    'AUTHENTIK_CLIENT_SECRET',
-    'NEXT_PUBLIC_AUTHENTIK_URI',
-]
-
-const missingVariables = requiredEnvironmentVariables.filter(
-    (key) => !process.env[key]
-)
-
-if (isServer && missingVariables.length > 0) {
-    throw new Error(
-        'Missing essential environment variables:\n' +
-            missingVariables
-                .map((key) => `${key}: ${process.env[key] || 'undefined'}`)
-                .join('\n')
-    )
-}
-
-const env = Object.fromEntries(
-    requiredEnvironmentVariables.map((key) => [key, process.env[key]])
-)
+const { env } = process
 
 const config = {
     url: {
-        MAIN_URL: env.NEXT_PUBLIC_URI ?? 'https://login.no',
+        MAIN_URL: 'login.no',
         API_URL: env.NEXT_PUBLIC_API_URL ?? 'https://workerbee.login.no/api',
         CDN_URL: env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
         EXAM_URL: 'https://exam.login.no',
@@ -49,19 +26,21 @@ const config = {
         SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist'
     },
     auth: {
-        LOGIN_URI: `${env.NEXT_PUBLIC_URI}/api/login`,
-        REDIRECT_URI: `${env.NEXT_PUBLIC_URI}/api/callback`,
-        TOKEN_URI: `${env.NEXT_PUBLIC_URI}/api/token`,
-        LOGOUT_URI: `${env.NEXT_PUBLIC_URI}/api/logout`,
+        BASE_URL: env.BASE_URL,
+        LOGIN_URL: `${env.BASE_URL}/api/login`,
+        REDIRECT_URL: `${env.BASE_URL}/api/callback`,
+        TOKEN_URL: `${env.BASE_URL}/api/token`,
+        LOGOUT_URL: `${env.BASE_URL}/api/logout`,
     },
     authentik: {
-        CLIENT_ID: env.NEXT_PUBLIC_AUTHENTIK_CLIENT_ID,
+        CLIENT_ID: env.AUTHENTIK_CLIENT_ID,
         CLIENT_SECRET: env.AUTHENTIK_CLIENT_SECRET,
-        AUTH_URI: `${env.NEXT_PUBLIC_AUTHENTIK_URI}/application/o/authorize/`,
-        TOKEN_URI: `${env.NEXT_PUBLIC_AUTHENTIK_URI}/application/o/token/`,
-        USERINFO_URI: `${env.NEXT_PUBLIC_AUTHENTIK_URI}/application/o/userinfo/`,
+        AUTH_URL: `${env.AUTHENTIK_URL}/application/o/authorize/`,
+        TOKEN_URL: `${env.AUTHENTIK_URL}/application/o/token/`,
+        USERINFO_URL: `${env.AUTHENTIK_URL}/application/o/userinfo/`,
     },
     version: packageInfo.version
 }
 
 export default config
+

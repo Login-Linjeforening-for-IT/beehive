@@ -4,23 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_URI: ${NEXT_PUBLIC_URI}
-        NEXT_PUBLIC_AUTHENTIK_CLIENT_ID: ${NEXT_PUBLIC_AUTHENTIK_CLIENT_ID}
-        AUTHENTIK_CLIENT_SECRET: ${AUTHENTIK_CLIENT_SECRET}
-        NEXT_PUBLIC_AUTHENTIK_URI: ${NEXT_PUBLIC_AUTHENTIK_URI}
-        API_URL: ${API_URL:-http://workerbee.login.no/api}
-        CDN_URL: ${CDN_URL:-https://cdn.login.no}
-        GITLAB_MESSAGE: ${GITLAB_MESSAGE}
     ports:
       - "3000:3000"
     env_file:
       - .env
-    environment:
-      API_URL: ${API_URL:-http://workerbee.login.no/api}
-      CDN_URL: ${CDN_URL:-https://cdn.login.no}
-      NEXT_PUBLIC_AUTHENTIK_CLIENT_ID: ${NEXT_PUBLIC_AUTHENTIK_CLIENT_ID}
-      AUTHENTIK_CLIENT_SECRET: ${AUTHENTIK_CLIENT_SECRET}
-      NEXT_PUBLIC_AUTHENTIK_URI: ${NEXT_PUBLIC_AUTHENTIK_URI}
-      NEXT_PUBLIC_URI: ${NEXT_PUBLIC_URI}
-      GITLAB_MESSAGE: ${GITLAB_MESSAGE}
