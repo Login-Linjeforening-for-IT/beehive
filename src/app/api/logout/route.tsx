@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
+import config from '@config'
+import { NextResponse } from 'next/server'
 
-export async function GET(request: NextRequest) {
-    const response = NextResponse.redirect(new URL('/', request.url))
+export async function GET() {
+    const response = NextResponse.redirect(new URL('/', config.url.MAIN_URL))
 
     // Remove all authentication cookies
     const cookiesToRemove = [

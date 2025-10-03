@@ -50,13 +50,19 @@ export default function TopBar({lang, onlyLogo, token}: TopBarProps) {
             <nav className='flex w-[calc(100vw-8rem)] justify-end h-[3rem] mr-[1rem] 800px:w-fit 800px:mr-0'>
                 <ThemeToggle />
                 <LangToggle serverLang={lang} />
-                <div className='grid items-center justify-center rounded-[var(--border-radius)] hover:bg-[#6464641a] h-12 w-12'>
+                <div className='rounded-[var(--border-radius)] hover:bg-[#6464641a] h-12 w-12'>
                     {token ?
-                        <Link href='/api/logout' onClick={(e) => { e.preventDefault(); window.location.href = '/api/logout' }}>
-                            <LogOut size={26} />
+                        <Link
+                            href='/api/logout' prefetch={false} onClick={(e) => { e.preventDefault(); window.location.href = '/api/logout' }}
+                            className='grid items-center justify-center h-full w-full'
+                        >
+                            <LogOut size={24} />
                         </Link>
                         :
-                        <Link href='/api/login'>
+                        <Link
+                            href='/api/login'
+                            className='grid items-center justify-center h-full w-full'
+                        >
                             <div className='user-icon' />
                         </Link>
                     }

@@ -1,3 +1,4 @@
+import config from '@config'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
@@ -9,7 +10,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (btg) {
-        return NextResponse.redirect(new URL('/', request.url))
+        return NextResponse.redirect(new URL('/', config.url.MAIN_URL))
     }
 
     const accessToken = url.searchParams.get('access_token')!
@@ -20,7 +21,7 @@ export async function GET(request: NextRequest) {
     const userName = url.searchParams.get('user_name')!
     const userRoles = url.searchParams.get('user_roles')!
 
-    const response = NextResponse.redirect(new URL('/', request.url))
+    const response = NextResponse.redirect(new URL('/', config.url.MAIN_URL))
     response.cookies.set('access_token', accessToken, { path: '/', sameSite: 'lax' })
     response.cookies.set('access_token_expires', accessTokenExpires, { path: '/', sameSite: 'lax' })
     response.cookies.set('refresh_token', refreshToken, { path: '/', sameSite: 'lax' })
