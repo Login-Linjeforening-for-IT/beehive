@@ -8,14 +8,14 @@ import Link from 'next/link'
 import { useVisibility } from 'uibee/hooks'
 
 type InnerCurrentlyPlayingCardProps = {
-    song: Song
+    song: CurrentlyPlaying
     progressPercent: number
     progressMs: number
     durationMs: number
     shouldRenderPlayer?: boolean
 }
 
-export default function CurrentlyPlayingCard({ song }: { song: Song }) {
+export default function CurrentlyPlayingCard({ song }: { song: CurrentlyPlaying }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs

@@ -12,7 +12,7 @@ type MostPlayedProps = {
     mostPlayedSongs: CountedSong[]
     mostActiveUsers: MusicUser[]
     mostSkippingUsers: MusicSkipUser[]
-    currentlyPlaying: Song[]
+    currentlyPlaying: CurrentlyPlaying[]
 }
 
 export default function MostPlayed({

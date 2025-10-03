@@ -5,7 +5,7 @@ import en from '@text/music/en.json'
 import { useState } from 'react'
 
 type CurrentlyPlayingProps = {
-    songs: Song[]
+    songs: CurrentlyPlaying[]
     lang: Lang
     expanded?: boolean
 }
