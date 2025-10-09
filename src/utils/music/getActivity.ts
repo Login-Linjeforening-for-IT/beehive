@@ -19,7 +19,7 @@ export default async function getActivity(): Promise<Music> {
                 total_minutes_this_year: 0,
                 total_songs: 0,
             },
-            currentlyPlaying: [],
+            currentlyListening: [],
             mostPlayedAlbums: [],
             mostPlayedArtists: [],
             mostPlayedSongs: [],

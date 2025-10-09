@@ -198,7 +198,7 @@ type Lang = 'en' | 'no'
 
 type Music = {
     stats: MusicStats
-    currentlyPlaying: CurrentlyPlaying[]
+    currentlyListening: CurrentlyPlaying[]
     mostPlayedAlbums: Album[]
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]

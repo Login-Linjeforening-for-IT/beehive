@@ -12,7 +12,7 @@ type UsersProps = {
     dropdown?: boolean
     open?: boolean
     setOpen?: Dispatch<SetStateAction<boolean>>
-    currentlyPlaying: CurrentlyPlaying[]
+    currentlyListening: CurrentlyPlaying[]
     mostSkippingUsers: MusicSkipUser[]
     only?: MusicUserCategory
     extraPadding?: boolean
@@ -24,7 +24,7 @@ export function Users({
     dropdown = false,
     open = true,
     setOpen,
-    currentlyPlaying,
+    currentlyListening,
     mostSkippingUsers,
     only,
     extraPadding
@@ -49,7 +49,7 @@ export function Users({
         >
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
                 {items.slice(0, 5).map((item, index) => {
-                    const isCurrentlyListening = currentlyPlaying.some(user => user.user === item.name)
+                    const isCurrentlyListening = currentlyListening.some(user => user.user === item.name)
                     const count = category === 'listens'
                         ? (item as MusicUser).songs_played
                         : (item as MusicSkipUser).songs_skipped

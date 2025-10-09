@@ -19,7 +19,7 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
         fallbackData: initialData,
     })
     const text = lang === 'no' ? no : en
-    const songs = data.currentlyPlaying
+    const songs = data.currentlyListening
     const uniqueSongs = Array.from(new Map(songs.map(s => [s.id, s])).values()).slice(0, 4)
 
     function SongPreview() {

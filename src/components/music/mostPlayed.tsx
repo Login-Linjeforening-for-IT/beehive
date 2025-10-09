@@ -12,7 +12,7 @@ type MostPlayedProps = {
     mostPlayedSongs: CountedSong[]
     mostActiveUsers: MusicUser[]
     mostSkippingUsers: MusicSkipUser[]
-    currentlyPlaying: CurrentlyPlaying[]
+    currentlyListening: CurrentlyPlaying[]
 }
 
 export default function MostPlayed({
@@ -22,7 +22,7 @@ export default function MostPlayed({
     mostPlayedSongs,
     mostActiveUsers,
     mostSkippingUsers,
-    currentlyPlaying
+    currentlyListening
 }: MostPlayedProps) {
     const text = (lang === 'no' ? no : en)
     const [openOne, setOpenOne] = useState(true)
@@ -75,7 +75,7 @@ export default function MostPlayed({
                 text={text.users}
                 mostActiveUsers={mostActiveUsers}
                 mostSkippingUsers={mostSkippingUsers}
-                currentlyPlaying={currentlyPlaying}
+                currentlyListening={currentlyListening}
                 dropdown={true}
                 open={openTwo}
                 setOpen={setOpenTwo}

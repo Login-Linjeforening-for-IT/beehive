@@ -86,7 +86,7 @@ export default function MusicDashboardAll({ initialData, lang }: { initialData: 
                     text={text.users}
                     mostActiveUsers={data.mostActiveUsers}
                     mostSkippingUsers={data.mostSkippingUsers}
-                    currentlyPlaying={data.currentlyPlaying}
+                    currentlyListening={data.currentlyListening}
                     dropdown={false}
                     open={true}
                     extraPadding={true}

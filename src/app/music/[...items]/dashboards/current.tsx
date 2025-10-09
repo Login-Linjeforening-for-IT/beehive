@@ -28,8 +28,8 @@ export default function MusicDashboardCurrent({ initialData, lang }: { initialDa
     }, [])
 
     return (
-        <div className={`grid place-items-center mx-8 ${data.currentlyPlaying.length > MAX_VISIBLE_ON_PAGE_WITHOUT_OVERFLOWING ? 'py-12' : 'pt-8'} h-full`}>
-            <CurrentlyPlaying expanded={true} songs={data.currentlyPlaying} lang={lang} />
+        <div className={`grid place-items-center mx-8 ${data.currentlyListening.length > MAX_VISIBLE_ON_PAGE_WITHOUT_OVERFLOWING ? 'py-12' : 'pt-8'} h-full`}>
+            <CurrentlyPlaying expanded={true} songs={data.currentlyListening} lang={lang} />
         </div>
     )
 }

@@ -31,7 +31,7 @@ export default function MusicDashboardToday({ initialData, lang }: { initialData
 
     return (
         <div className='grid place-items-center mx-8 py-6 gap-4'>
-            <CurrentSummary listeners={data.currentlyPlaying.length} text={text.active_listeners} />
+            <CurrentSummary listeners={data.currentlyListening.length} text={text.active_listeners} />
             <div className='grid grid-cols-2 gap-4'>
                 <InnerTopFiveThisX extraPadding={true} open={true} dropdown={false} interval='today' data={data} lang={lang} />
                 <InnerTopFiveThisX extraPadding={true} open={true} dropdown={false} interval='yesterday' data={data} lang={lang} />
