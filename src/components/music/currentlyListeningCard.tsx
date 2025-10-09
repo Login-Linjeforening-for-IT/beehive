@@ -7,15 +7,15 @@ import ImageWithPlayer from './imageWithPlayer'
 import Link from 'next/link'
 import { useVisibility } from 'uibee/hooks'
 
-type InnerCurrentlyPlayingCardProps = {
-    song: CurrentlyPlaying
+type InnerCurrentlyListeningCardProps = {
+    song: CurrentlyListening
     progressPercent: number
     progressMs: number
     durationMs: number
     shouldRenderPlayer?: boolean
 }
 
-export default function CurrentlyPlayingCard({ song }: { song: CurrentlyPlaying }) {
+export default function CurrentlyListeningCard({ song }: { song: CurrentlyListening }) {
     const startMs = Date.parse(song.start)
     const endMs = Date.parse(song.end)
     const durationMs = endMs - startMs
@@ -50,7 +50,7 @@ export default function CurrentlyPlayingCard({ song }: { song: CurrentlyPlaying 
         return
     }
 
-    const style = `flex items-center gap-4 px-2 py-10 md:px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.sync_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[90px] h-[90px] max-h-[90px]`
+    const style = `flex items-center gap-4 px-2 py-10 md:px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none w-full ${song.song_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[90px] h-[90px] max-h-[90px]`
 
     function handleMouseEnter() {
         setShouldRenderPlayer(true)
@@ -60,10 +60,10 @@ export default function CurrentlyPlayingCard({ song }: { song: CurrentlyPlaying 
         setShouldRenderPlayer(false)
     }
 
-    if (!song.sync_id) {
+    if (!song.song_id) {
         return (
             <div className={style}>
-                <InnerCurrentlyPlayingCard
+                <InnerCurrentlyListeningCard
                     song={song}
                     durationMs={durationMs}
                     progressMs={progressMs}
@@ -75,14 +75,14 @@ export default function CurrentlyPlayingCard({ song }: { song: CurrentlyPlaying 
 
     return (
         <Link
-            href={`${config.url.SPOTIFY_URL}${song.sync_id}?utm_source=login`}
+            href={`${config.url.SPOTIFY_URL}${song.song_id}?utm_source=login`}
             target='_blank'
             className={style}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             ref={ref}
         >
-            <InnerCurrentlyPlayingCard
+            <InnerCurrentlyListeningCard
                 song={song}
                 durationMs={durationMs}
                 progressMs={progressMs}
@@ -93,13 +93,13 @@ export default function CurrentlyPlayingCard({ song }: { song: CurrentlyPlaying 
     )
 }
 
-function InnerCurrentlyPlayingCard({
+function InnerCurrentlyListeningCard({
     song,
     progressPercent,
     progressMs,
     durationMs,
     shouldRenderPlayer
-}: InnerCurrentlyPlayingCardProps) {
+}: InnerCurrentlyListeningCardProps) {
     return (
         <>
             <ImageWithPlayer song={{ ...song, name: song.song }} shouldRenderPlayer={shouldRenderPlayer} />

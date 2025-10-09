@@ -14,7 +14,7 @@ type TileCardProps = {
     children: React.ReactNode
     discord?: true
     user_id?: string
-    sync_id?: string
+    song_id?: string
     user?: boolean
     start?: string
     end?: string
@@ -37,13 +37,13 @@ export default function TileCard({
     children,
     discord,
     user_id,
-    sync_id,
+    song_id,
     start,
     end
 }: TileCardProps) {
     const src = discord ? `${config.url.DISCORD_AVATARS_API_URL}/${user_id}/${imageHash}?size=1024` : image ? image : `${config.url.SPOTIFY_IMAGE_API_URL}/${imageHash}`
-    const style = `flex items-center gap-4 px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none ${className} min-h-[90px] h-[90px] max-h-[90px] ${(sync_id || user_id || url) && 'transform transition hover:scale-102 hover:z-20 cursor-pointer'}`
-    const spotifyUrl = `${config.url.SPOTIFY_URL}${sync_id}`
+    const style = `flex items-center gap-4 px-2 rounded-lg bg-[var(--color-text-disabled)]/30 shadow-none ${className} min-h-[90px] h-[90px] max-h-[90px] ${(song_id || user_id || url) && 'transform transition hover:scale-102 hover:z-20 cursor-pointer'}`
+    const spotifyUrl = `${config.url.SPOTIFY_URL}${song_id}`
     const discordUrl = `${config.url.DISORD_USER_URL}${user_id}`
     const [shouldRenderPlayer, setShouldRenderPlayer] = useState(false)
     const { ref } = useVisibility<HTMLAnchorElement>(() => setShouldRenderPlayer(true))
@@ -56,12 +56,12 @@ export default function TileCard({
         setShouldRenderPlayer(false)
     }
 
-    if (sync_id || user_id || url) {
-        const song: MinimalSong = { start, end, sync_id, image, name }
+    if (song_id || user_id || url) {
+        const song: MinimalSong = { start, end, song_id, image, name }
         return (
             <Link
                 className={style}
-                href={url ?? (sync_id ? spotifyUrl : discordUrl)}
+                href={url ?? (song_id ? spotifyUrl : discordUrl)}
                 target='_blank'
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -82,7 +82,7 @@ export default function TileCard({
 function InnerTileCard({ src, children, user_id, song, shouldRenderPlayer }: InnerTileCardProps) {
     return (
         <>
-            {song?.sync_id
+            {song?.song_id
                 ? <ImageWithPlayer
                     src={src}
                     song={song}

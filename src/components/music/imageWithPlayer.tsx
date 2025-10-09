@@ -17,7 +17,7 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
     const [clicked, setClicked] = useState(false)
     const [left, setLeft] = useState(false)
     const [isInside, setIsinside] = useState(false)
-    const [frameKey, setFrameKey] = useState(song.sync_id)
+    const [frameKey, setFrameKey] = useState(song.song_id)
     const duration = new Date(song.end ?? '').getTime() - new Date(song.start ?? '').getTime()
     const isPodcast = duration > TWENTY_MINUTES
     const doNotTrack = !!navigator.doNotTrack
@@ -56,11 +56,11 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
 
     useEffect(() => {
         if (clicked && left) {
-            setFrameKey(`reload-${song.sync_id}-${Date.now()}`)
+            setFrameKey(`reload-${song.song_id}-${Date.now()}`)
             setClicked(false)
             setLeft(false)
         }
-    }, [clicked, left, song.sync_id])
+    }, [clicked, left, song.song_id])
 
     const url = src ?? `${config.url.SPOTIFY_IMAGE_API_URL}/${Array.isArray(song.image) ? song.image[0] : song.image}`
 
@@ -87,7 +87,7 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
-                {allowPlayer && <Frame key={frameKey} id={song.sync_id ?? ''} ref={iframeRef} />}
+                {allowPlayer && <Frame key={frameKey} id={song.song_id ?? ''} ref={iframeRef} />}
             </div>
         </>
     )

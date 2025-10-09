@@ -27,7 +27,7 @@ export default function TopTileMap({ text, items, dropdown = false, open = true,
                         key={index}
                         imageHash={song.image}
                         className={`${index === 0 ? 'md:col-span-2' : ''} w-full`}
-                        sync_id={song.sync_id}
+                        song_id={song.song_id}
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={song.song} />

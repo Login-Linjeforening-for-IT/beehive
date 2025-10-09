@@ -1,7 +1,7 @@
 'use client'
 
 import useSWR from 'swr'
-import CurrentlyPlaying from '@components/music/currentlyPlaying'
+import CurrentlyPlaying from '@components/music/currentlyListening'
 import { useEffect } from 'react'
 import { getCookie, removeCookie } from '@utils/cookies'
 

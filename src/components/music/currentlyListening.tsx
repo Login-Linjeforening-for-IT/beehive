@@ -1,11 +1,11 @@
 import Card from './card'
-import CurrentlyPlayingCard from './currentlyPlayingCard'
+import CurrentlyPlayingCard from './currentlyListeningCard'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
 import { useState } from 'react'
 
 type CurrentlyPlayingProps = {
-    songs: CurrentlyPlaying[]
+    songs: CurrentlyListening[]
     lang: Lang
     expanded?: boolean
 }

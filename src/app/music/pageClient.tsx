@@ -3,7 +3,7 @@
 import useSWR from 'swr'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
-import CurrentlyPlaying from '@components/music/currentlyPlaying'
+import CurrentlyListening from '@components/music/currentlyListening'
 import TopFiveThisX from '@components/music/topFiveThisX'
 import MostPlayed from '@components/music/mostPlayed'
 import TileInfo from '@components/music/tileInfo'
@@ -36,7 +36,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                 mostSkippingUsers={data.mostSkippingUsers}
                 currentlyListening={data.currentlyListening}
             />
-            <CurrentlyPlaying songs={data.currentlyListening} lang={lang} />
+            <CurrentlyListening songs={data.currentlyListening} lang={lang} />
             <MostX
                 lang={lang}
                 mostLikedAlbums={data.mostLikedAlbums}

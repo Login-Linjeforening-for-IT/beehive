@@ -221,21 +221,19 @@ type Music = {
     mostSkippedSongs: SkippedSong[]
 }
 
-type CurrentlyPlaying = {
+type CurrentlyListening = {
     id: number
-    song: string
-    artist: string
-    album: string
+    song_id: string
+    user_id: string
     start: string
     end: string
     source: string
-    user: string
-    timestamp: string
-    avatar: string
-    user_id: string
     skipped: boolean
+    timestamp: string
     image: string
-    sync_id: string
+    song: string
+    artist: string
+    album: string
 }
 
 type Activity = {
@@ -256,7 +254,7 @@ type Artist = {
     listens: number
     timestamp: string
     artist_id: string
-    sync_id: string
+    song_id: string
 }
 
 type ArtistPlayed = {
@@ -266,7 +264,7 @@ type ArtistPlayed = {
     top_song: string
     album: string
     image: string
-    sync_id: string
+    song_id: string
 }
 
 type Album = {
@@ -276,7 +274,7 @@ type Album = {
     listens: number
     top_song: string
     top_song_image: string
-    sync_id: string
+    song_id: string
 }
 
 type CountedSong = {
@@ -285,7 +283,7 @@ type CountedSong = {
     album: string
     listens: number
     image: string
-    sync_id: string
+    song_id: string
 }
 
 type SongDay = {
@@ -306,7 +304,7 @@ type TopXSong = {
     album: string
     listens: string
     image: string
-    sync_id: string
+    song_id: string
     start?: string
     end?: string
 }
@@ -335,7 +333,7 @@ type LikedAlbum = {
     total_skips: number
     like_ratio: number
     image: string
-    sync_id: string
+    song_id: string
 }
 
 type LikedArtist = {
@@ -345,7 +343,7 @@ type LikedArtist = {
     total_skips: number
     like_ratio: number
     image: string
-    sync_id: string
+    song_id: string
 }
 
 type LikedSong = {
@@ -356,7 +354,7 @@ type LikedSong = {
     listens: number
     image: string
     like_ratio: number
-    sync_id: string
+    song_id: string
 }
 
 type SkippedAlbum = {
@@ -366,7 +364,7 @@ type SkippedAlbum = {
     skips: number
     top_song: string
     top_song_image: string
-    sync_id: string
+    song_id: string
 }
 
 type SkippedArtist = {
@@ -376,7 +374,7 @@ type SkippedArtist = {
     top_song: string
     album: string
     image: string
-    sync_id: string
+    song_id: string
 }
 
 type SkippedSong = {
@@ -385,7 +383,7 @@ type SkippedSong = {
     album: string
     skips: number
     image: string
-    sync_id: string
+    song_id: string
 }
 
 type MusicStats = {
@@ -436,7 +434,7 @@ type MinimalSong = {
     start: string | undefined
     end: string | undefined
     image: string | undefined
-    sync_id: string | undefined
+    song_id: string | undefined
     name: string | undefined
 }
 

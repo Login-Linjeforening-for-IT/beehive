@@ -26,7 +26,7 @@ interface TileMapProps<T> {
 
 interface TileMapGeneric {
     artist?: string
-    sync_id?: string
+    song_id?: string
     start?: string
     end?: string
     name?: string
@@ -68,7 +68,7 @@ export default function TileMap<T extends TileMapGeneric>({
                         name={item.name}
                         start={item.start}
                         end={item.end}
-                        sync_id={item.sync_id}
+                        song_id={item.song_id}
                         key={`${getTitle(item)}-${index}`}
                         imageHash={getImageHash ? getImageHash(item) : undefined}
                         image={getImage ? getImage(item) : undefined}

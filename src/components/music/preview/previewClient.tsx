@@ -4,7 +4,7 @@ import Link from 'next/link'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import useSWR from 'swr'
-import CurrentlyPlayingCard from '../currentlyPlayingCard'
+import CurrentlyPlayingCard from '../currentlyListeningCard'
 import PlayIcon from '../playIcon'
 
 async function fetcher(url: string) {
