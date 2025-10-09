@@ -13,7 +13,9 @@ type CurrentlyPlayingProps = {
 export default function CurrentlyPlaying({ songs, lang, expanded }: CurrentlyPlayingProps) {
     const [open, setOpen] = useState(true)
     const text = (lang === 'no' ? no : en)
-    const uniqueSongs = Array.from(new Map(songs.map(s => [s.id, s])).values())
+    const uniqueSongs = Array.isArray(songs) && songs.length > 0
+        ? Array.from(new Map(songs.map(s => [s.id, s])).values())
+        : []
 
     return (
         <Card

@@ -62,7 +62,7 @@ export default function TileMap<T extends TileMapGeneric>({
             className={className}
         >
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full p-4'>
-                {items.map((item, index) => (
+                {Array.isArray(items) && items.length > 0 && items.map((item, index) => (
                     <TileCard
                         url={getUrl && getUrl(item)}
                         name={item.name}

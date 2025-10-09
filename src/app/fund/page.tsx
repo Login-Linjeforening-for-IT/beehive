@@ -100,7 +100,7 @@ export default async function Fund() {
                     </div>
                     <h3 className='heading-3'>{text.board.heading1}</h3>
                     <div className='flex flex-wrap gap-[2rem] justify-center py-[2rem] 800px:gap-[3rem]'>
-                        {actualBoardMembers.map(key => (
+                        {Array.isArray(actualBoardMembers) && actualBoardMembers.map(key => (
                             <div key={key}>
                                 <LogChamp
                                     img={boardMembers[key].img == '' ? 'assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fondet/${boardMembers[key].img}`}
