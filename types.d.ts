@@ -231,7 +231,7 @@ type CurrentlyListening = {
     skipped: boolean
     timestamp: string
     image: string
-    song: string
+    name: string
     artist: string
     album: string
 }

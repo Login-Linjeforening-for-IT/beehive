@@ -102,9 +102,9 @@ function InnerCurrentlyListeningCard({
 }: InnerCurrentlyListeningCardProps) {
     return (
         <>
-            <ImageWithPlayer song={{ ...song, name: song.song }} shouldRenderPlayer={shouldRenderPlayer} />
+            <ImageWithPlayer song={song} shouldRenderPlayer={shouldRenderPlayer} />
             <div className='flex flex-col flex-1 min-w-0'>
-                <Marquee text={song.song} className='truncate' innerClassName='font-medium text-base' />
+                <Marquee text={song.name} className='truncate' innerClassName='font-medium text-base' />
                 {song.artist === 'Unknown' ? <>
                     <Marquee text={song.album} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
                     <Marquee text={song.artist} className='truncate' innerClassName='text-xs text-[var(--color-text-discreet)]' />
