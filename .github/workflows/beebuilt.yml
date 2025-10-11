@@ -36,20 +36,20 @@ jobs:
           main_tag="$main_tag"
           dev_tag="$dev_tag"
           new_version=""
+          skip_commit=false
 
           # Split versions into arrays
           IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
           IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
 
-          # Count changed files for patch/minor logic
           git fetch origin main
+
           changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
           echo "Changed files: $changed_files"
 
-          # Case 1: Main and Dev are equal
+          # Case 1: Main = Dev
           if [ "$main_tag" = "$dev_tag" ]; then
             if [ "$branch" = "main" ]; then
-              # Bump both main and dev
               if [ "$changed_files" -lt 4 ]; then
                 patch=$((main_patch + 1))
                 minor=$main_minor
@@ -60,7 +60,6 @@ jobs:
               new_version="$main_major.$minor.$patch"
               echo "Main = Dev and branch is main. Bumping both Main and Dev to $new_version"
             elif [ "$branch" = "dev" ]; then
-              # Bump only dev
               if [ "$changed_files" -lt 4 ]; then
                 patch=$((dev_patch + 1))
                 minor=$dev_minor
@@ -75,36 +74,39 @@ jobs:
               echo "No version change for other branches."
             fi
 
-          # Case 2: Main is newer than Dev
+          # Case 2: Main > Dev
           elif [ "$main_major" -gt "$dev_major" ] || \
               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
-            # Dev should match main
             new_version="$main_tag"
             echo "Main ($main_tag) is newer than Dev ($dev_tag). Updating Dev to match Main."
 
-          # Case 3: Dev is newer than Main
+          # Case 3: Dev > Main
           elif [ "$dev_major" -gt "$main_major" ] || \
               { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -gt "$main_minor" ]; } || \
               { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -eq "$main_minor" ] && [ "$dev_patch" -gt "$main_patch" ]; }; then
             if [ "$branch" = "main" ]; then
+              echo "Dev ($dev_tag) is newer than Main ($main_tag) and branch is main. Merging dev into main..."
+              git fetch origin dev
+              git merge --no-ff origin/dev -m "Merge dev into main to sync version $dev_tag"
               new_version="$dev_tag"
-              echo "Dev ($dev_tag) is newer than Main ($main_tag) and branch is main. Updating Main to match Dev."
+              skip_commit=true
+              echo "Main is now synced with Dev. Skipping package.json commit."
             else
               new_version="$main_tag"
-              echo "Dev ($dev_tag) is newer than Main ($main_tag) but branch is not main. No update to Main."
+              echo "Dev ($dev_tag) is newer than Main ($main_tag) but branch is not main. No merge."
             fi
 
-          # Case 4: Rare edge case
+          # Case 4: Edge case
           else
             new_version="$main_tag"
             echo "Versions differ but neither is strictly newer. No automatic update."
           fi
 
-          # Export the calculated version
+          # Export calculated version and skip_commit flag
           echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "skip_commit=$skip_commit" >> $GITHUB_ENV
           echo "Calculated new_version: $new_version"
-
 
       - name: Update package.json
         run: |
@@ -136,11 +138,12 @@ jobs:
           ' _ {} "${new_version}" \;
 
       - name: Commit changes
+        if: env.skip_commit != 'true'
         run: |
           git config --global user.name "$GIT_USER_NAME"
           git config --global user.email "$GIT_USER_EMAIL"
           git add $(find . -name "package.json" -o -name "package-lock.json" | grep -v node_modules | grep -v vendor)
-          git commit -m "v$new_version" || echo "No changes to commit"
+          git commit -m "v${{ env.new_version }}" || echo "No changes to commit"
           git push origin $GITHUB_REF_NAME
 
       - name: Create Git Tag
