@@ -31,19 +31,36 @@ jobs:
       - name: Bump version
         id: bump
         run: |
-          version=${latest_tag#v}
-          IFS='.' read -r major minor patch <<< "$version"
-          changed_files=$(git diff --name-only $latest_tag..HEAD | wc -l)
-          if [ "$changed_files" -lt 4 ]; then
-            patch=$((patch+1))
-          else
-            minor=$((minor+1))
-            patch=0
-          fi
-          new_version="$major.$minor.$patch"
           if [ "$GITHUB_REF" == "refs/heads/main" ]; then
-            new_tag="$new_version"
+            dev_version=$(git show dev:package.json | jq -r '.version')
+            current_version=$latest_tag
+            if [ "$current_version" == "$dev_version" ]; then
+              version=${latest_tag#v}
+              IFS='.' read -r major minor patch <<< "$version"
+              changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
+              if [ "$changed_files" -lt 4 ]; then
+                patch=$((patch+1))
+              else
+                minor=$((minor+1))
+                patch=0
+              fi
+              new_version="$major.$minor.$patch"
+              new_tag="$new_version"
+            else
+              new_version="$dev_version"
+              new_tag="$new_version"
+            fi
           else
+            version=${latest_tag#v}
+            IFS='.' read -r major minor patch <<< "$version"
+            changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
+            if [ "$changed_files" -lt 4 ]; then
+              patch=$((patch+1))
+            else
+              minor=$((minor+1))
+              patch=0
+            fi
+            new_version="$major.$minor.$patch"
             new_tag="$new_version-dev"
           fi
           echo "new_tag=$new_tag" >> $GITHUB_ENV
