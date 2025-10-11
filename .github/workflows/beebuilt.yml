@@ -165,17 +165,6 @@ jobs:
       - name: Build with Docker Compose
         run: docker compose up -d --build
 
-  validate:
-    name: 🔍 Validate Deployment
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Wait for services
-        run: sleep 10
-
       - name: Check exposed ports
         run: |
           ports=$(docker compose ps --format json | jq -r '.[].Publishers[].PublishedPort')
@@ -236,17 +225,6 @@ jobs:
             echo "Capturing $name"
             docker logs $name > "logs/${name}.log" || true
           done
-
-  tag:
-    name: 🏷️ Tag & Push Image
-    runs-on: ubuntu-latest
-    needs: [build, validate, fix-version]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Log in to GitLab Registry
-        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login "${{ secrets.DOCKER_REGISTRY }}" -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Tag & Push
         run: |
