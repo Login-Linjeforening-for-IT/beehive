@@ -315,7 +315,7 @@ jobs:
             echo "repo_name=test-cluster" >> $GITHUB_ENV
           fi
 
-      - name: Checkout kube repo
+      - name: Checkout ${{ env.repo_name }}
         uses: actions/checkout@v4
         with:
           repository: Login-Linjeforening-for-IT/${{ env.repo_name }}
