@@ -30,36 +30,33 @@ jobs:
           echo "main_tag=$main_version" >> $GITHUB_ENV
           echo "dev_tag=$dev_version" >> $GITHUB_ENV
 
-      - name: Echo GITHUB_EVENT_NAME
-        run: echo "this: $GITHUB_EVENT_NAME"
-
       - name: New version
         run: |
-          branch=$(git rev-parse --abbrev-ref HEAD)
-          main_tag="$main_tag"
-          dev_tag="$dev_tag"
-          new_version=""
-          if [ "$branch" = "main" ]; then
-            if [ "$main_tag" != "$dev_tag" ]; then
-              new_version="$dev_tag"
-              echo "Main and dev versions differ. Syncing main to dev version: $dev_tag"
-            else
-              # main is same as dev, bump patch/minor
-              changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
-              echo "Changed files: $changed_files"
-              current_version=$(jq -r '.version' package.json)
-              IFS='.' read -r major minor patch <<< "$current_version"
-              if [ "$changed_files" -lt 4 ]; then
-                patch=$((patch + 1))
-                echo "Bumping patch version."
+            branch=$(git rev-parse --abbrev-ref HEAD)
+            main_tag="$main_tag"
+            dev_tag="$dev_tag"
+            new_version=""
+            if [ "$branch" = "main" ]; then
+              if [ "$GITHUB_EVENT_NAME" = "merge" ]; then
+                new_version="$dev_tag"
+                echo "Merge event detected. Syncing main to dev version: $dev_tag"
               else
-                minor=$((minor + 1))
-                patch=0
-                echo "Bumping minor version."
+                # main is same as dev, bump patch/minor
+                changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
+                echo "Changed files: $changed_files"
+                current_version=$(jq -r '.version' package.json)
+                IFS='.' read -r major minor patch <<< "$current_version"
+                if [ "$changed_files" -lt 4 ]; then
+                  patch=$((patch + 1))
+                  echo "Bumping patch version."
+                else
+                  minor=$((minor + 1))
+                  patch=0
+                  echo "Bumping minor version."
+                fi
+                new_version="$major.$minor.$patch"
               fi
-              new_version="$major.$minor.$patch"
-            fi
-          elif [ "$branch" = "dev" ]; then
+            elif [ "$branch" = "dev" ]; then
             # Always bump patch/minor on dev
             changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
             echo "Changed files: $changed_files"
