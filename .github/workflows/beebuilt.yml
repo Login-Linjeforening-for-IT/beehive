@@ -22,7 +22,7 @@ jobs:
       - name: Get latest tag
         id: get_tag
         run: |
-          latest=$(git describe --tags --abbrev=0)
+          latest=$(jq -r '.version' package.json)
           echo "latest_tag=$latest" >> $GITHUB_ENV
 
       - name: Bump version
