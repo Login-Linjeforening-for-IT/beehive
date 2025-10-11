@@ -120,6 +120,7 @@ jobs:
         run: |
           git config --global user.name "$GIT_USER_NAME"
           git config --global user.email "$GIT_USER_EMAIL"
+          git pull
           git add $(find . -name "package.json" -o -name "package-lock.json" | grep -v node_modules | grep -v vendor)
           git commit -m "v${{ env.new_version }}" || echo "No changes to commit"
           git push origin $GITHUB_REF_NAME
