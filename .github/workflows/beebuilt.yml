@@ -224,10 +224,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: [tag, fix-version]
     steps:
+      - name: Determine repo path
+        id: set_repo
+        run: |
+          if [ "${GITHUB_REF##*/}" = "here" ]; then
+            echo "repo_name=infra-prod-cluster" >> $GITHUB_ENV
+          else
+            echo "repo_name=test-cluster" >> $GITHUB_ENV
+          fi
+
       - name: Checkout kube repo
         uses: actions/checkout@v4
         with:
-          repository: your-org/kubernetes-repo
+          repository: Login-Linjeforening-for-IT/${{ env.repo_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
           path: kuberepo
 
