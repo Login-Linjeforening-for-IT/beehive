@@ -244,8 +244,6 @@ jobs:
 
       - name: Validate UI routes & elements
         run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
           echo "Curl path: $(which curl)"
           if nc -z localhost 3000; then
             echo "Port 3000 is open, proceeding with validation..."
