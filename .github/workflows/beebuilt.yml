@@ -248,7 +248,7 @@ jobs:
         run: |
           # Check if wget exists (fallback to install)
           if ! command -v wget >/dev/null 2>&1; then
-            echo "⚠️ wget not found, installing..."
+            echo "⚠️ wget not found, installing...abc"
             sudo apt-get update -y && sudo apt-get install -y wget
           fi
           if nc -z localhost 3000; then
