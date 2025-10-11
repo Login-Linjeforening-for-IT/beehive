@@ -31,3 +31,4 @@ Once you have installed the docker-engine and docker-compose on your machine you
 ## Docker image options
 
 `API_URL` sets the location to the public-api. It must have a schema.
+
