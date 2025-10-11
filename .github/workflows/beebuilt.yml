@@ -56,22 +56,21 @@ jobs:
             elif [ "$branch" = "dev" ]; then
               echo "Action: On dev branch, bump Dev version as needed."
             else
-              echo "no action."
+              echo "Action: On other branch, no action."
             fi
           else
             # Split versions into arrays
             IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
             IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
 
+            # Main is newer than Dev
             if [ "$main_major" -gt "$dev_major" ] || \
               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
               echo "⚠️ Main version ($main_tag) is newer than Dev ($dev_tag)"
-              if [ "$branch" = "dev" ]; then
-                echo "Action: Update Dev to match Main."
-              else
-                echo "Action: Not on dev branch, do not update Dev."
-              fi
+              echo "Action: Update Dev to match Main."
+
+            # Dev is newer than Main
             elif [ "$dev_major" -gt "$main_major" ] || \
                 { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -gt "$main_minor" ]; } || \
                 { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -eq "$main_minor" ] && [ "$dev_patch" -gt "$main_patch" ]; }; then
@@ -81,6 +80,8 @@ jobs:
               else
                 echo "Action: Not on main branch, do not update Main."
               fi
+
+            # Versions differ but neither is strictly newer (rare edge case)
             else
               echo "⚠️ Versions differ but neither is strictly newer."
               echo "Action: Manual check may be needed."
