@@ -274,7 +274,7 @@ jobs:
 
       - name: Tag & Push
         run: |
-          IMAGE="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev/${{ github.ref_name }}"
+          IMAGE="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev/"
           VERSION=${{ needs.fix-version.outputs.new_tag }}
 
           echo "Image: $IMAGE"
