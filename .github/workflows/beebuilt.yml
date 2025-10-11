@@ -61,8 +61,7 @@ jobs:
           
       - name: Use secrets
         run: |
-          echo "Docker user: $DOCKER_USER"
-          docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+          echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin registry.login.no
 
       - name: Create .env file
         run: |
