@@ -240,8 +240,8 @@ jobs:
         run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login "${{ secrets.DOCKER_REGISTRY }}" -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Tag & Push
-        run: |
-          IMAGE="${{ secrets.DOCKER_REGISTRY }}/${{ secrets.GITLAB_PROJECT }}"
+        run:
+          IMAGE="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev/${GITHUB_REF##*/}"
           VERSION=${{ needs.fix-version.outputs.new_tag }}
           docker compose build
           docker tag beebuilt_app $IMAGE:$VERSION
@@ -271,7 +271,7 @@ jobs:
       - name: Update image version
         run: |
           cd kuberepo
-          yq e -i '.spec.template.spec.containers[0].image = "${{ secrets.DOCKER_REGISTRY }}/${{ secrets.GITLAB_PROJECT }}:${{ needs.fix-version.outputs.new_tag }}"' deployment.yaml
+          yq e -i '.spec.template.spec.containers[0].image = "${{ secrets.DOCKER_REGISTRY }}/${GITHUB_REF##*/}:${{ needs.fix-version.outputs.new_tag }}"' deployment.yaml
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git commit -am "Update BeeBuilt image to ${{ needs.fix-version.outputs.new_tag }}"
