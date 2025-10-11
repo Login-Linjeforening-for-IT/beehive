@@ -188,12 +188,12 @@ jobs:
             echo "Port 3000 not open — skipping route validation."
           fi
 
-      - name: Take screenshots
+      - name: Collect logs
         run: |
-          mkdir -p screenshots
+          mkdir -p logs
           docker ps --format '{{.Names}}' | while read name; do
             echo "Capturing $name"
-            docker logs $name > "screenshots/${name}.log" || true
+            docker logs $name > "logs/${name}.log" || true
           done
 
   tag:
@@ -205,7 +205,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Log in to GitLab Registry
-        run: echo ${{ secrets.GITLAB_TOKEN }} | docker login registry.gitlab.com -u ${{ secrets.GITLAB_USER }} --password-stdin
+        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login "${{ secrets.DOCKER_REGISTRY }}" -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Tag & Push
         run: |
