@@ -41,9 +41,38 @@ jobs:
   build:
     name: 🐳 Build Containers
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install 1Password CLI
+        run: |
+          curl -sS https://downloads.1password.com/cli/linux/packages/op_linux_amd64_v2_latest.zip -o op.zip
+          unzip -q op.zip -d /usr/local/bin
+          chmod +x /usr/local/bin/op
+          op --version
+
+      - name: Sign in to 1Password
+        run: |
+          eval $(echo "export OP_SERVICE_ACCOUNT_TOKEN=${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}")
+          echo "Signed into 1Password"
+
+      - name: Load environment variables from 1Password
+        id: load_env
+        run: |
+          # Example: fetch secrets from a 1Password vault item
+          export $(op read "op://BeeBuilt/env/DOCKER_USER" | sed 's/^/DOCKER_USER=/')
+          export $(op read "op://BeeBuilt/env/DOCKER_PASS" | sed 's/^/DOCKER_PASS=/')
+          export $(op read "op://BeeBuilt/env/DISCORD_WEBHOOK" | sed 's/^/DISCORD_WEBHOOK=/')
+          echo "DOCKER_USER=$DOCKER_USER" >> $GITHUB_ENV
+          echo "DOCKER_PASS=$DOCKER_PASS" >> $GITHUB_ENV
+          echo "DISCORD_WEBHOOK=$DISCORD_WEBHOOK" >> $GITHUB_ENV
+
+      - name: Use secrets
+        run: |
+          echo "Docker user: $DOCKER_USER"
+          docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
 
       - name: Build with Docker Compose
         run: docker compose up -d --build
