@@ -302,60 +302,60 @@ jobs:
   #         done
 
   update:
-    name: 🔄 Update Kubernetes Repo
-    runs-on: ubuntu-latest
-    # needs: [build, fix-version]
-    steps:
-      - name: Determine repo path
-        id: set_repo
-        run: |
-          if [ "${GITHUB_REF##*/}" = "main" ]; then
-            echo "repo_name=infra-prod-cluster" >> $GITHUB_ENV
+  name: 🔄 Update Kubernetes Repo
+  runs-on: ubuntu-latest
+  # needs: [build, fix-version]
+  steps:
+    - name: Determine repo path
+      id: set_repo
+      run: |
+        if [ "${GITHUB_REF##*/}" = "main" ]; then
+          echo "repo_name=infra-prod-cluster" >> $GITHUB_ENV
+        else
+          echo "repo_name=test-cluster" >> $GITHUB_ENV
+        fi
+
+    - name: Checkout ${{ env.repo_name }}
+      uses: actions/checkout@v4
+      with:
+        repository: Login-Linjeforening-for-IT/${{ env.repo_name }}
+        token: ${{ secrets.PAT }}
+        path: ${{ env.repo_name }}
+
+    - name: Update image version
+      run: |
+        set -e
+        PROJECT_NAME="${GITHUB_REPOSITORY##*/}"
+        NEW_TAG="${{ needs.fix-version.outputs.new_tag }}"
+        REGISTRY="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev"
+        BRANCH="main"
+
+        cd "${{ env.repo_name }}/cluster/$PROJECT_NAME"
+        git checkout -B "$BRANCH"
+
+        echo "🔍 Searching for deployment.yaml files in $(pwd)..."
+        find . -type f -name "deployment.yaml" | while read -r FILE; do
+          echo "📄 Checking $FILE..."
+          
+          IMAGE_LINE=$(yq e '.spec.template.spec.containers[].image' "$FILE" 2>/dev/null || true)
+          if echo "$IMAGE_LINE" | grep -q "${REGISTRY}/${PROJECT_NAME}/"; then
+            echo "✅ Found matching image in $FILE"
+            yq e -i \
+              ".spec.template.spec.containers[].image |= sub(\":.*$\"; \":${NEW_TAG}\")" \
+              "$FILE"
+            git add "$FILE"
           else
-            echo "repo_name=test-cluster" >> $GITHUB_ENV
+            echo "↩️  Skipping $FILE (no matching image)"
           fi
+        done
 
-      - name: Update image version
-        run: |
-          set -e
-          PROJECT_NAME="${GITHUB_REPOSITORY##*/}"
-          NEW_TAG="${{ needs.fix-version.outputs.new_tag }}"
-          REGISTRY="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev"
+        git config --global user.name "$GIT_USER_NAME"
+        git config --global user.email "$GIT_USER_EMAIL"
 
-          cd "${{ env.repo_name }}/cluster/$PROJECT_NAME"
-
-          echo "🔍 Searching for deployment.yaml files in $(pwd)..."
-          find . -type f -name "deployment.yaml" | while read -r FILE; do
-            echo "📄 Checking $FILE..."
-            
-            # Extract all image lines
-            echo "denne ${REGISTRY}/${PROJECT_NAME}/"
-            IMAGE_LINE=$(yq e '.spec.template.spec.containers[].image' "$FILE" 2>/dev/null || true)
-            if echo "$IMAGE_LINE" | grep -q "${REGISTRY}/${PROJECT_NAME}/"; then
-              echo "✅ Found matching image in $FILE"
-
-              # Update the tag while keeping any digest (@sha256)
-              yq e -i \
-                ".spec.template.spec.containers[].image |=
-                  sub(
-                    \":.*$\"; 
-                    \":${NEW_TAG}\"
-                  )" \
-                "$FILE"
-
-              git add "$FILE"
-            else
-              echo "↩️  Skipping $FILE (no matching image)"
-            fi
-          done
-
-          git config --global user.name "$GIT_USER_NAME"
-          git config --global user.email "$GIT_USER_EMAIL"
-
-          if git diff --cached --quiet; then
-            echo "✅ No image updates needed."
-          else
-            git remote set-url origin https://Login-Linjeforening-for-IT:${{ secrets.PAT }}@github.com/Login-Linjeforening-for-IT/${{ env.repo_name }}.git
-            git commit -m "Update ${PROJECT_NAME} image tag to ${NEW_TAG}"
-            git push -u origin ${GITHUB_REF##*/}
-          fi
+        if git diff --cached --quiet; then
+          echo "✅ No image updates needed."
+        else
+          git remote set-url origin https://Login-Linjeforening-for-IT:${{ secrets.PAT }}@github.com/Login-Linjeforening-for-IT/${{ env.repo_name }}.git
+          git commit -m "Update ${PROJECT_NAME} image tag to ${NEW_TAG}"
+          git push -u origin "$BRANCH"
+        fi
