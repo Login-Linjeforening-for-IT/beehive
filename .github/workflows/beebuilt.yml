@@ -253,7 +253,7 @@ jobs:
               curl -s "http://localhost:3000$ROUTE" -o /tmp/page.html
               for ELEM in $(echo "$SPEC" | jq -r --arg path "$ROUTE" '.[$path][]'); do
                 echo "  Checking element $ELEM ..."
-                FOUND=$(pup "[data-testid=\"$ELEM\"]" < /tmp/page.html | wc -l)
+                FOUND=$(pup "[test-id=\"$ELEM\"]" < /tmp/page.html | wc -l)
                 if [ "$FOUND" -eq 0 ]; then
                   echo "❌ Element $ELEM not found at $ROUTE"
                   exit 1
