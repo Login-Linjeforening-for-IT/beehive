@@ -38,11 +38,9 @@ jobs:
           new_version=""
           skip_commit=false
 
-          # Fetch latest commits
           git fetch origin main
           git fetch origin dev
 
-          # Split versions into arrays
           IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
           IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
 
