@@ -324,12 +324,7 @@ jobs:
 
       - name: Update image version
         env:
-          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
-          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
           PAT: ${{ secrets.PAT }}
-          JFROG_EMAIL: ${{ secrets.JFROG_EMAIL }}
-          JFROG_TOKEN: ${{ secrets.JFROG_TOKEN }}
-          JFROG_ID: ${{ secrets.JFROG_ID }}
           DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
         run: |
           set -e
@@ -364,8 +359,8 @@ jobs:
             echo "✅ No image updates needed."
           else
             echo "🔑 Using PAT to push changes..."
-            echo "hello ${{ secrets.GIT_USER_NAME }}"
-            echo  "$GIT_USER_EMAIL"
+            echo "$GIT_USER_NAME"
+            echo "$GIT_USER_EMAIL"
             git remote set-url origin "https://Login-Linjeforening-for-IT:${PAT}@github.com/Login-Linjeforening-for-IT/${{ env.repo_name }}.git"
             git commit -m "Update ${PROJECT_NAME} image tag to ${NEW_TAG}"
             git push -u origin "$BRANCH"
