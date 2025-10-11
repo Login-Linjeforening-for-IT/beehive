@@ -1,126 +1,144 @@
-name: Terraform CI/CD Pipeline
+name: BeeBuilt CI/CD Pipeline
 
-# Defines actions to perform on push and pull requests
 on:
   push:
-    branches:
-      - "dev"
-      - "main"
+    branches: ["dev", "main"]
   pull_request:
-    branches:
-      - dev
-      - main
+    branches: ["dev", "main"]
 
-# Defines the jobs to perform
 jobs:
-  format-validate-lint:
-    # Latest available ubuntu system
+  fix-version:
+    name: 🧩 Fix & Update Version
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    # Steps to perform (linting, init, formatting, validating etc.)
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.4.0
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          latest=$(git describe --tags --abbrev=0 || echo "v0.0.0")
+          echo "latest_tag=$latest" >> $GITHUB_ENV
 
-      - name: Initialize Terraform
-        run: terraform init
+      - name: Bump version
+        id: bump
+        run: |
+          version=${latest_tag#v}
+          IFS='.' read -r major minor patch <<< "$version"
+          patch=$((patch+1))
+          new_tag="v$major.$minor.$patch"
+          echo "new_tag=$new_tag" >> $GITHUB_ENV
+          echo "Bumped to $new_tag"
 
-      - name: Format Check
-        run: terraform fmt -check -recursive
+      - name: Create Git Tag
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git tag ${{ env.new_tag }}
+          git push origin ${{ env.new_tag }}
 
-      - name: Validate
-        run: terraform validate
-
-      - name: TFLint
-        uses: terraform-linters/setup-tflint@v1
-        with:
-          version: latest
-
-      - name: Run TFLint
-        run: tflint
-
-      - name: Run tfsec Security Scan
-        uses: aquasecurity/tfsec-action@v1.0.3
-        with:
-          args: --soft-fail
-        continue-on-error: true
-  
-  # Actions to perform for non-prod env (init, plan, merge)
-  plan:
-    if: github.event_name == 'pull_request' && github.base_ref != 'prod'
+  build:
+    name: 🐳 Build Containers
     runs-on: ubuntu-latest
-    needs: format-validate-lint
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.4.0
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Build with Docker Compose
+        run: docker compose up -d --build
 
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Plan
-        run: terraform plan -var-file="terraform.tfvars.${{ github.event.pull_request.base.ref }}"
-
-  # Actions to perform for prod env (init, plan, merge pending approval)
-  apply:
-    if: github.event_name == 'push' && github.ref != 'refs/heads/prod'
+  validate:
+    name: 🔍 Validate Deployment
     runs-on: ubuntu-latest
-    needs: plan
+    needs: build
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.4.0
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Wait for services
+        run: sleep 10
 
-      - name: Terraform Init
-        run: terraform init 
+      - name: Check exposed ports
+        run: |
+          ports=$(docker compose ps --format json | jq -r '.[].Publishers[].PublishedPort')
+          for port in $ports; do
+            echo "Checking port $port..."
+            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port)
+            if [ "$code" != "200" ]; then
+              echo "❌ Port $port failed with code $code"
+              curl -H "Content-Type: application/json" \
+                -X POST \
+                -d "{\"embeds\":[{\"title\":\"Validation Failed\",\"description\":\"Port $port returned code $code\"}]}" \
+                ${{ secrets.DISCORD_WEBHOOK }}
+              exit 1
+            fi
+          done
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve -var-file="terraform.tfvars.${{ github.ref }}"
+      - name: Validate JSON structure
+        run: |
+          for file in $(find . -name "*.json"); do
+            echo "Checking $file..."
+            jq empty "$file" || exit 1
+          done
 
-  # Actions to apply the build to prod-env (init, plan, merge pending approval)
-  apply-prod:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/prod'
+      - name: Check dev site
+        run: |
+          url="https://dev.example.com"
+          code=$(curl -s -o /dev/null -w "%{http_code}" $url)
+          if [ "$code" != "200" ]; then
+            echo "❌ Dev site $url failed"
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{\"embeds\":[{\"title\":\"Dev site failed\",\"description\":\"$url returned $code\"}]}" \
+              ${{ secrets.DISCORD_WEBHOOK }}
+            exit 1
+          fi
+
+      - name: Take screenshots
+        run: |
+          mkdir -p screenshots
+          docker ps --format '{{.Names}}' | while read name; do
+            echo "Capturing $name"
+            docker logs $name > "screenshots/${name}.log" || true
+          done
+
+  tag:
+    name: 🏷️ Tag & Push Image
     runs-on: ubuntu-latest
-    needs: plan
-    environment:
-      name: production
+    needs: [build, validate]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+      - name: Log in to GitLab Registry
+        run: echo ${{ secrets.GITLAB_TOKEN }} | docker login registry.gitlab.com -u ${{ secrets.GITLAB_USER }} --password-stdin
+
+      - name: Tag & Push
+        run: |
+          IMAGE="registry.gitlab.com/${{ secrets.GITLAB_PROJECT }}"
+          VERSION=${{ env.new_tag || 'latest' }}
+          docker compose build
+          docker tag beebuilt_app $IMAGE:$VERSION
+          docker push $IMAGE:$VERSION
+
+  update:
+    name: 🔄 Update Kubernetes Repo
+    runs-on: ubuntu-latest
+    needs: [tag]
+    steps:
+      - name: Checkout kube repo
+        uses: actions/checkout@v4
         with:
-          terraform_version: 1.4.0
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          repository: your-org/kubernetes-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: kuberepo
 
-      - name: Terraform Init
-        run: terraform init 
-
-      - name: Terraform Apply with Approval
-        id: apply
-        run: terraform apply -var-file="terraform.tfvars.prod"
-
-      # Sets it to pending manual approval
-      - name: Request Manual Approval
-        if: github.event.pull_request.base.ref == 'prod'
-        uses: hmarr/auto-approve-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          APPROVER: ${{ secrets.PROD_APPROVER }}
+      - name: Update image version
+        run: |
+          cd kuberepo
+          yq e -i '.spec.template.spec.containers[0].image = "registry.gitlab.com/${{ secrets.GITLAB_PROJECT }}:${{ env.new_tag }}"' deployment.yaml
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git commit -am "Update BeeBuilt image to ${{ env.new_tag }}"
+          git push
