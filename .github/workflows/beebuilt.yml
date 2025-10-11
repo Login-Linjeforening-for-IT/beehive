@@ -32,12 +32,36 @@ jobs:
 
       - name: TYPE OF EVENT
         run: |
-          commit_sha=$(git rev-parse HEAD)
-          parent_count=$(git rev-list --count --parents -n 1 $commit_sha)
-          if [ "$parent_count" -gt 1 ]; then
-              echo "This commit is a merge commit"
+          echo "Main version: $main_tag"
+          echo "Dev version: $dev_tag"
+
+          # Compare versions
+          if [ -z "$main_tag" ]; then
+            echo "Main version not found. Probably first release."
+          fi
+
+          if [ -z "$dev_tag" ]; then
+            echo "Dev version not found. Probably first release."
+          fi
+
+          if [ "$main_tag" = "$dev_tag" ]; then
+            echo "✅ Main and Dev have the same version: $main_tag"
+            echo "Action: On main, no version bump. On dev, bump as needed."
           else
-              echo "This is a regular commit"
+            # Split versions into arrays
+            IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
+            IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
+
+            # Compare which is newer
+            if [ "$main_major" -gt "$dev_major" ] || \
+               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
+               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
+              echo "⚠️ Main version ($main_tag) is newer than Dev ($dev_tag)"
+              echo "Action: Update Dev to match Main."
+            else
+              echo "⚠️ Dev version ($dev_tag) is newer than Main ($main_tag)"
+              echo "Action: Update Main to match Dev."
+            fi
           fi
 
       - name: New version
