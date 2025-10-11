@@ -1,6 +1,6 @@
 {
   "name": "beehive",
-  "version": "4.7.10-dev",
+  "version": "4.7.11",
   "private": true,
   "type": "module",
   "scripts": {
