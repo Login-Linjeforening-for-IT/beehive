@@ -1,3 +1,4 @@
 {
-    "/": ["root", "events", "jobs", "music", "small", "hero"]
+    "/": ["root", "events", "jobs", "small", "hero"],
+    "/music": ["root"]
 }
