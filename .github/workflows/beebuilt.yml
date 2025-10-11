@@ -164,142 +164,142 @@ jobs:
           git pull --rebase
           git push origin dev
 
-  build:
-    name: 🐳 Build Containers
-    runs-on: ubuntu-latest
-    needs: fix-version
+  # build:
+  #   name: 🐳 Build Containers
+  #   runs-on: ubuntu-latest
+  #   needs: fix-version
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - name: 1Password Secrets Action
-        uses: 1Password/load-secrets-action@v2
-        with:
-          export-env: true
-        env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+  #     - name: 1Password Secrets Action
+  #       uses: 1Password/load-secrets-action@v2
+  #       with:
+  #         export-env: true
+  #       env:
+  #         OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
-      - name: List 1Password items in repo vault
-        run: |
-          REPO_NAME="${GITHUB_REPOSITORY##*/}"
-          echo "Looking for 1Password items in vault: $REPO_NAME"
+  #     - name: List 1Password items in repo vault
+  #       run: |
+  #         REPO_NAME="${GITHUB_REPOSITORY##*/}"
+  #         echo "Looking for 1Password items in vault: $REPO_NAME"
 
-      - name: Create .env file
-        run: |
-          echo "Generating .env file for Docker Compose"
-          cat <<EOF > .env
-          DOCKER_USER=${DOCKER_USER}
-          DOCKER_PASS=${DOCKER_PASS}
-          DISCORD_WEBHOOK=${DISCORD_WEBHOOK}
-          EOF
-          echo ".env file created:"
-          cat .env
+  #     - name: Create .env file
+  #       run: |
+  #         echo "Generating .env file for Docker Compose"
+  #         cat <<EOF > .env
+  #         DOCKER_USER=${DOCKER_USER}
+  #         DOCKER_PASS=${DOCKER_PASS}
+  #         DISCORD_WEBHOOK=${DISCORD_WEBHOOK}
+  #         EOF
+  #         echo ".env file created:"
+  #         cat .env
 
-      - name: Login to Docker
-        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login "${{ secrets.DOCKER_REGISTRY }}" -u "${{ secrets.DOCKER_USER }}" --password-stdin
+  #     - name: Login to Docker
+  #       run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login "${{ secrets.DOCKER_REGISTRY }}" -u "${{ secrets.DOCKER_USER }}" --password-stdin
         
-      - name: Build with Docker Compose
-        run: docker compose up -d --build
+  #     - name: Build with Docker Compose
+  #       run: docker compose up -d --build
 
-      - name: Check exposed ports
-        run: |
-          sudo apt-get install -y curl
-          ports=$(docker compose ps --format json \
-            | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
-            | sort -u)
+  #     - name: Check exposed ports
+  #       run: |
+  #         sudo apt-get install -y curl
+  #         ports=$(docker compose ps --format json \
+  #           | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
+  #           | sort -u)
 
-          for port in $ports; do
-            echo "🕓 Waiting for port $port to respond..."
+  #         for port in $ports; do
+  #           echo "🕓 Waiting for port $port to respond..."
 
-            # Try up to 10 times with 5 seconds between
-            for i in {1..10}; do
-              code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port || echo "000")
-              if [ "$code" = "200" ]; then
-                echo "✅ Port $port is ready (HTTP $code)"
-                break
-              else
-                echo "⏳ Attempt $i: got code $code, retrying in 5s..."
-                sleep 5
-              fi
-            done
+  #           # Try up to 10 times with 5 seconds between
+  #           for i in {1..10}; do
+  #             code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port || echo "000")
+  #             if [ "$code" = "200" ]; then
+  #               echo "✅ Port $port is ready (HTTP $code)"
+  #               break
+  #             else
+  #               echo "⏳ Attempt $i: got code $code, retrying in 5s..."
+  #               sleep 5
+  #             fi
+  #           done
 
-            if [ "$code" != "200" ]; then
-              echo "❌ Port $port failed with code $code after retries"
-              curl -H "Content-Type: application/json" \
-                -X POST \
-                -d "{\"embeds\":[{\"title\":\"Validation Failed\",\"description\":\"Port $port returned code $code after retries\"}]}" \
-                "$DISCORD_WEBHOOK"
-              exit 1
-            fi
-          done
+  #           if [ "$code" != "200" ]; then
+  #             echo "❌ Port $port failed with code $code after retries"
+  #             curl -H "Content-Type: application/json" \
+  #               -X POST \
+  #               -d "{\"embeds\":[{\"title\":\"Validation Failed\",\"description\":\"Port $port returned code $code after retries\"}]}" \
+  #               "$DISCORD_WEBHOOK"
+  #             exit 1
+  #           fi
+  #         done
 
-      - name: Install pup
-        run: |
-          curl -LO https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
-          unzip pup_v0.4.0_linux_amd64.zip
-          chmod +x pup
-          sudo mv pup /usr/local/bin/
-          pup --help
+  #     - name: Install pup
+  #       run: |
+  #         curl -LO https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
+  #         unzip pup_v0.4.0_linux_amd64.zip
+  #         chmod +x pup
+  #         sudo mv pup /usr/local/bin/
+  #         pup --help
 
-      - name: Validate UI routes & elements
-        run: |
-          echo "Curl path: $(which curl)"
-          if nc -z localhost 3000; then
-            echo "Port 3000 is open, proceeding with validation..."
-            SPEC=$(cat .test.json)
-            for ROUTE in $(echo "$SPEC" | jq -r 'keys[]'); do
-              echo "Checking $ROUTE ..."
-              curl -s "http://localhost:3000$ROUTE" -o /tmp/page.html
-              for ELEM in $(echo "$SPEC" | jq -r --arg path "$ROUTE" '.[$path][]'); do
-                echo "  Checking element $ELEM ..."
-                FOUND=$(pup "[test-id=\"$ELEM\"]" < /tmp/page.html | wc -l)
-                if [ "$FOUND" -eq 0 ]; then
-                  echo "❌ Element $ELEM not found at $ROUTE"
-                  exit 1
-                fi
-              done
-            done
-          else
-            echo "Port 3000 not open — skipping route validation."
-          fi
+  #     - name: Validate UI routes & elements
+  #       run: |
+  #         echo "Curl path: $(which curl)"
+  #         if nc -z localhost 3000; then
+  #           echo "Port 3000 is open, proceeding with validation..."
+  #           SPEC=$(cat .test.json)
+  #           for ROUTE in $(echo "$SPEC" | jq -r 'keys[]'); do
+  #             echo "Checking $ROUTE ..."
+  #             curl -s "http://localhost:3000$ROUTE" -o /tmp/page.html
+  #             for ELEM in $(echo "$SPEC" | jq -r --arg path "$ROUTE" '.[$path][]'); do
+  #               echo "  Checking element $ELEM ..."
+  #               FOUND=$(pup "[test-id=\"$ELEM\"]" < /tmp/page.html | wc -l)
+  #               if [ "$FOUND" -eq 0 ]; then
+  #                 echo "❌ Element $ELEM not found at $ROUTE"
+  #                 exit 1
+  #               fi
+  #             done
+  #           done
+  #         else
+  #           echo "Port 3000 not open — skipping route validation."
+  #         fi
 
-      - name: Collect logs
-        run: |
-          mkdir -p logs
-          docker ps --format '{{.Names}}' | while read name; do
-            echo "Capturing $name"
-            docker logs $name > "logs/${name}.log" || true
-          done
+  #     - name: Collect logs
+  #       run: |
+  #         mkdir -p logs
+  #         docker ps --format '{{.Names}}' | while read name; do
+  #           echo "Capturing $name"
+  #           docker logs $name > "logs/${name}.log" || true
+  #         done
 
-      - name: Tag & Push
-        run: |
-          IMAGE="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev/"
-          VERSION=${{ needs.fix-version.outputs.new_tag }}
+  #     - name: Tag & Push
+  #       run: |
+  #         IMAGE="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev/"
+  #         VERSION=${{ needs.fix-version.outputs.new_tag }}
 
-          echo "Image: $IMAGE"
-          echo "Version: $VERSION"
+  #         echo "Image: $IMAGE"
+  #         echo "Version: $VERSION"
 
-          docker compose build
+  #         docker compose build
 
-          SERVICES=$(docker compose config --services)
+  #         SERVICES=$(docker compose config --services)
 
-          if [ -z "$SERVICES" ]; then
-            echo "❌ No services found in docker-compose.yml"
-            exit 1
-          fi
+  #         if [ -z "$SERVICES" ]; then
+  #           echo "❌ No services found in docker-compose.yml"
+  #           exit 1
+  #         fi
 
-          for SERVICE in $SERVICES; do
-            echo "Processing service: $SERVICE"
-            IMAGE_ID=$(docker compose images -q $SERVICE)
-            if [ -z "$IMAGE_ID" ]; then
-              echo "❌ No image found for service $SERVICE"
-              exit 1
-            fi
+  #         for SERVICE in $SERVICES; do
+  #           echo "Processing service: $SERVICE"
+  #           IMAGE_ID=$(docker compose images -q $SERVICE)
+  #           if [ -z "$IMAGE_ID" ]; then
+  #             echo "❌ No image found for service $SERVICE"
+  #             exit 1
+  #           fi
 
-            docker tag "$IMAGE_ID" "$IMAGE$SERVICE:$VERSION"
-            docker push "$IMAGE$SERVICE:$VERSION"
-          done
+  #           docker tag "$IMAGE_ID" "$IMAGE$SERVICE:$VERSION"
+  #           docker push "$IMAGE$SERVICE:$VERSION"
+  #         done
 
   update:
     name: 🔄 Update Kubernetes Repo
