@@ -37,7 +37,7 @@ jobs:
           echo "Main version: $main_tag"
           echo "Dev version: $dev_tag"
 
-          # Handle missing versions  
+          # Handle missing versions bloat på dev
           if [ -z "$main_tag" ]; then
             echo "Main version not found. Probably first release."
             main_tag="0.0.0"
