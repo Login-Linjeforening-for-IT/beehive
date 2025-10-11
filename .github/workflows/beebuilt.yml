@@ -47,6 +47,13 @@ jobs:
           dev_tag="$dev_tag"
           new_version=""
           if [ "$branch" = "main" ]; then
+            commit_sha=$(git rev-parse HEAD)
+            parent_count=$(git rev-list --count --parents -n 1 $commit_sha)
+            if [ "$parent_count" -gt 1 ]; then
+                echo "This commit is a merge commit"
+            else
+                echo "This is a regular commit"
+            fi
             if [ "$GITHUB_EVENT_NAME" = "merge" ]; then
               new_version="$dev_tag"
               echo "Merge event detected. Syncing main to dev version: $dev_tag"
