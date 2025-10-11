@@ -20,7 +20,7 @@ export default async function SmallInfo() {
 
     return (
         <>
-            <div className='max-w-[75rem] w-full m-[3rem_auto] grid gap-x-[4rem] p-[1rem] grid-cols-1 800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-[4rem] 1000px:gap-[5rem] 1200px:gap-[6rem]'>
+            <div test-id='small' className='max-w-[75rem] w-full m-[3rem_auto] grid gap-x-[4rem] p-[1rem] grid-cols-1 800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-[4rem] 1000px:gap-[5rem] 1200px:gap-[6rem]'>
                 <div className='order-2 800px:col-span-3 w-full max-w-[31rem] m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.whoAreWe.title}</h2>
                     <p className='p--regular'>{text.whoAreWe.body}</p>

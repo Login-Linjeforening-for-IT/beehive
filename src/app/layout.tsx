@@ -25,7 +25,7 @@ export default async function layout({children}: {children: ReactNode}) {
     const dashboard = path.includes('dashboard')
 
     return (
-        <html lang='en' className={theme}>
+        <html test-id='root' lang='en' className={theme}>
             <body className={clsx('absolute top-0 h-[100vh] w-full bg-[var(--color-bg-body)]', dashboard && 'max-h-[100vh] overflow-hidden')}>
                 {page !== 'pwned' ?
                     <header className='main-header fixed top-0 z-900 w-full'>

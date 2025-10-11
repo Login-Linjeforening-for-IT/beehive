@@ -13,7 +13,7 @@ export default async function EventsPreview() {
 
     return (
         <>
-            <section className='pt-[2rem] max-w-[var(--w-page)] 800px:px-[1rem] 800px:mx-auto 1000px:w-full'>
+            <section  test-id='events' className='pt-[2rem] max-w-[var(--w-page)] 800px:px-[1rem] 800px:mx-auto 1000px:w-full'>
                 <div className='flex justify-between items-center px-[2rem] 1000px:px-[1rem]'>
                     <h2 className='py-[0.5rem] font-normal text-2xl'>
                         {text.eventsPreview.title}

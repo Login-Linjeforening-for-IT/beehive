@@ -13,7 +13,7 @@ export default async function LandingPage() {
     const text = lang === 'no' ? no : en
 
     return (
-        <div className='hero-section'>
+        <div test-id='hero' className='hero-section'>
             <div className='hero-section_container'>
                 <div className='hero-section_top'>
                     <div className='hero-section_logo'>
