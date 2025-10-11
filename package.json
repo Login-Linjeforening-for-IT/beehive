@@ -1,6 +1,10 @@
 {
   "name": "beehive",
+<<<<<<< HEAD
   "version": "4.7.34",
+=======
+  "version": "4.7.30",
+>>>>>>> e2dcb56 (v4.7.30)
   "private": true,
   "type": "module",
   "scripts": {
