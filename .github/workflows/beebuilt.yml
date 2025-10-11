@@ -31,6 +31,18 @@ jobs:
       - name: Bump version
         id: bump
         run: |
+            if git rev-parse --verify --quiet HEAD~2 >/dev/null 2>&1; then
+              new_version=$latest_tag
+              new_tag=$new_version
+            else
+            if git rev-parse --verify --quiet HEAD~2 >/dev/null 2>&1; then
+              new_version=$latest_tag
+              new_tag=$new_version
+            else
+            if git rev-parse --verify --quiet HEAD~2 >/dev/null 2>&1; then
+              new_version=$latest_tag
+              new_tag=$new_version
+            else
           if [ "$GITHUB_REF" == "refs/heads/main" ]; then
             dev_version=$(git show origin/dev:package.json 2>/dev/null | jq -r '.version' 2>/dev/null)
             current_version=$latest_tag
@@ -53,6 +65,7 @@ jobs:
               fi
             else
               version=${latest_tag#v}
+            fi
               IFS='.' read -r major minor patch <<< "$version"
               changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
               if [ "$changed_files" -lt 4 ]; then
@@ -68,11 +81,11 @@ jobs:
             version=${latest_tag#v}
             IFS='.' read -r major minor patch <<< "$version"
             changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
-            if [ "$changed_files" -lt 4 ]; then
               patch=$((patch+1))
-            else
               minor=$((minor+1))
               patch=0
+            fi
+            fi
             fi
             new_version="$major.$minor.$patch"
             new_tag="$new_version-dev"
@@ -162,6 +175,7 @@ jobs:
   build:
     name: 🐳 Build Containers
     runs-on: ubuntu-latest
+    needs: fix-version
 
     steps:
       - name: Checkout
