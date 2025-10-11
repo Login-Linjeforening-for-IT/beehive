@@ -97,7 +97,6 @@ jobs:
               echo "Dev ($dev_tag) is newer than Main ($main_tag) but branch is not main. No merge."
             fi
 
-          # Case 4: Edge case
           else
             new_version="$main_tag"
             echo "Versions differ but neither is strictly newer. No automatic update."
