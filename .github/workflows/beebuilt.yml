@@ -207,8 +207,12 @@ jobs:
 
       - name: Check exposed ports
         run: |
-          docker compose ps --format json
-          ports=$(docker compose ps --format json | jq -r '.Publishers? // [] | .[] | .PublishedPort')
+          ports=$(docker compose ps --format json \
+            | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
+            | sort -u)
+
+          echo ports
+
           for port in $ports; do
             echo "Checking port $port..."
             code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port)
