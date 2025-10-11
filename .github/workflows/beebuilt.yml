@@ -162,7 +162,7 @@ jobs:
       - name: Validate routes & elements
         run: |
           # Read the JSON spec
-          SPEC=$(cat routes.test.json)
+          SPEC=$(cat .test.json)
 
           # Loop over paths
           for PATH in $(echo "$SPEC" | jq -r 'keys[]'); do
