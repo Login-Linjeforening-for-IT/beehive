@@ -315,13 +315,6 @@ jobs:
             echo "repo_name=test-cluster" >> $GITHUB_ENV
           fi
 
-      - name: Checkout ${{ env.repo_name }}
-        uses: actions/checkout@v4
-        with:
-          repository: Login-Linjeforening-for-IT/${{ env.repo_name }}
-          token: ${{ secrets.PAT }}
-          path: ${{ env.repo_name }}
-
       - name: Update image version
         run: |
           set -e
