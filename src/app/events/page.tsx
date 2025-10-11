@@ -28,11 +28,16 @@ export default async function Page({searchParams}: PageProps) {
 
     const limit = 20
     const temp_events = await getEvents(filtersParams, limit, 0)
-    const events = (Array.isArray(temp_events) ? temp_events : []).filter((event: EventProps) => {
-        const start = new Date(event.time_end).getTime()
-        const now = new Date().getTime()
-        return start - now > 0
-    })
+    let events: EventProps[] = []
+    if (Array.isArray(temp_events?.events)) {
+        events = temp_events.events.filter((event: EventProps) => {
+            const start = new Date(event.time_end).getTime()
+            const now = new Date().getTime()
+            return start - now > 0
+        })
+    } else {
+        console.warn('Unable to load events:', temp_events)
+    }
     const { currentWeekEvents, nextWeekEvents, futureEvents } = groupEvents(events)
 
 
@@ -238,6 +243,7 @@ function getLabelKeyWithLang(key: string) {
 async function getCategoryFilters() {
     try {
         const categoryFilterData = await getEventCategoryFilters()
+
         if (typeof categoryFilterData === 'string') {
             throw new Error(categoryFilterData)
         }

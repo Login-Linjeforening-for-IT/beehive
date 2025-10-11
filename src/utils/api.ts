@@ -44,7 +44,7 @@ export async function getEvents(categories: string | null = null, limit = 20, of
 }
 
 export async function getEventCategoryFilters() {
-    const path = '/filters/events/categories'
+    const path = '/events/categories'
     return await _fetchWrapper(path)
 }
 
@@ -84,7 +84,6 @@ async function _fetchWrapper(path: string, options = {}) {
         if (!response.ok) {
             return null
         }
-
         return data
     // eslint-disable-next-line
     } catch (error: any) {
