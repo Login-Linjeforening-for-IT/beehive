@@ -106,10 +106,6 @@ jobs:
           # Use repo name as vault/item prefix
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           echo "Looking for 1Password items in vault: $REPO_NAME"
-          
-      - name: Use secrets
-        run: |
-          echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin registry.login.no
 
       - name: Create .env file
         run: |
@@ -123,7 +119,7 @@ jobs:
           cat .env
 
       - name: Login to Docker
-        run: echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login "${{ secrets.DOCKER_REGISTRY }}" -u "${{ secrets.DOCKER_USER }}" --password-stdin
         
       - name: Build with Docker Compose
         run: docker compose up -d --build
