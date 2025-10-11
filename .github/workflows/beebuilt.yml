@@ -362,6 +362,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "✅ No image updates needed."
           else
+            git remote set-url origin https://Login-Linjeforening-for-IT:${{ secrets.PAT }}@github.com/Login-Linjeforening-for-IT/${{ env.repo_name }}.git
             git commit -m "Update ${PROJECT_NAME} image tag to ${NEW_TAG}"
-            git push
+            git push -u origin ${GITHUB_REF##*/}
           fi
