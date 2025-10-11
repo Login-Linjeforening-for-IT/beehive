@@ -329,7 +329,7 @@ jobs:
           NEW_TAG="${{ needs.fix-version.outputs.new_tag }}"
           REGISTRY="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev"
 
-          cd "${{ env.repo_name }}/cluster"
+          cd "${{ env.repo_name }}/cluster/$PROJECT_NAME"
 
           echo "🔍 Searching for deployment.yaml files in $(pwd)..."
           find . -type f -name "deployment.yaml" | while read -r FILE; do
