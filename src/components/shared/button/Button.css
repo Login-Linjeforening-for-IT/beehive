@@ -232,23 +232,3 @@
 .button--icon-only .button_icon--leading {
   margin: 0;
 }
-  
-
-
-/* ButtonShowcase styles */
-.button-showcase {
-  margin: 0 auto;
-}
-
-.button-showcase_title {
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-.button-showcase_section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
-  align-items: flex-start;
-}
