@@ -74,15 +74,15 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.name "BeeBuilt Bot"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "beebuiltbot@login.no"
           git add $(find . -name "package.json" -o -name "package-lock.json" | grep -v node_modules | grep -v vendor)
-          git commit -m "Bump version to $new_tag" || echo "No changes to commit"
+          git commit -m "v$new_tag" || echo "No changes to commit"
           git push origin main
 
       - name: Create Git Tag
         run: |
           git config --global user.name "BeeBuilt Bot"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "beebuiltbot@login.no"
           git tag ${{ env.new_tag }}
           git push origin ${{ env.new_tag }}
 
