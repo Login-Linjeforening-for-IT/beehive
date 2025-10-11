@@ -322,7 +322,7 @@ jobs:
           token: ${{ secrets.PAT }}
           path: ${{ env.repo_name }}
 
-            - name: Update image version
+      - name: Update image version
         env:
           GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
