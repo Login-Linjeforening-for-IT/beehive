@@ -12,6 +12,7 @@ env:
 
 jobs:
   fix-version:
+
     name: 🧩 Fix & Update Version
     runs-on: ubuntu-latest
     outputs:
@@ -24,6 +25,7 @@ jobs:
 
       - name: Get latest tag for main and dev
         run: |
+          echo gubooo $GITHUB_EVENT_NAME
           main_version=$(git show origin/main:package.json 2>/dev/null | jq -r '.version' 2>/dev/null)
           dev_version=$(git show origin/dev:package.json 2>/dev/null | jq -r '.version' 2>/dev/null)
           echo "main_tag=$main_version" >> $GITHUB_ENV
