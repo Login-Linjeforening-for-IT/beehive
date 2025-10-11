@@ -119,12 +119,11 @@ jobs:
           branch=$(git rev-parse --abbrev-ref HEAD)
           main_tag="$new_version"
 
-          # Always tag main commit
-          git tag "$main_tag" || echo "Tag $main_tag already exists"
-          git push origin "$main_tag"
-
-          # If on main, ensure -dev tag exists
+          # If on main branch, tag main commit
           if [ "$branch" = "main" ]; then
+            git tag "$main_tag" || echo "Tag $main_tag already exists"
+            git push origin "$main_tag"
+
             dev_tag="${main_tag}-dev"
             if ! git tag -l | grep -q "^$dev_tag$"; then
               git tag "$dev_tag"
@@ -132,12 +131,10 @@ jobs:
             fi
           fi
 
-          # If on dev branch, tag dev commit
-          if [ "$branch" = "dev" ]; then
-            dev_tag="${new_version}-dev"
-            git tag "$dev_tag" || echo "Tag $dev_tag already exists"
-            git push origin "$dev_tag"
-          fi
+          # Always tag dev
+          dev_tag="${new_version}-dev"
+          git tag "$dev_tag" || echo "Tag $dev_tag already exists"
+          git push origin "$dev_tag"
 
           echo "::set-output name=new_tag::$new_version"
 
@@ -334,6 +331,3 @@ jobs:
           git config --global user.email "actions@github.com"
           git commit -am "Update BeeBuilt image to ${{ needs.fix-version.outputs.new_tag }}"
           git push
-
-
-# test
