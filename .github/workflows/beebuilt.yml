@@ -94,6 +94,15 @@ jobs:
           git tag ${{ env.new_tag }}
           git push origin ${{ env.new_tag }}
 
+      - name: Create dev tag if not exists
+        if: github.ref == 'refs/heads/main'
+        run: |
+          dev_tag="${{ env.new_tag }}-dev"
+          if ! git tag -l | grep -q "^${dev_tag}$"; then
+            git tag $dev_tag
+            git push origin $dev_tag
+          fi
+
   rebase:
     name: 🔄 Rebase from main to dev
     runs-on: ubuntu-latest
