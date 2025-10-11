@@ -96,8 +96,8 @@ jobs:
       - name: Update package.json and lock
         if: env.skip_commit != 'true'
         run: |
-          for file in $(find . -name "package.json" -o -name "package-lock.json" \
-                      -not -path "*/node_modules/*" -not -path "*/vendor/*"); do
+          for file in $(find . \( -name "package.json" -o -name "package-lock.json" \) \
+            -not -path "*/node_modules/*" -not -path "*/vendor/*"); do
             sed -i "s/\"version\": \".*\"/\"version\": \"${new_version}\"/" "$file"
           done
 
@@ -106,7 +106,7 @@ jobs:
         run: |
           git config --global user.name "$GIT_USER_NAME"
           git config --global user.email "$GIT_USER_EMAIL"
-          git add $(find . -name "package.json" -o -name "package-lock.json" \
+          git add $(find . \( -name "package.json" -o -name "package-lock.json" \) \
                       -not -path "*/node_modules/*" -not -path "*/vendor/*")
           git commit -m "v${new_version}" || echo "No changes to commit"
           git push origin $GITHUB_REF_NAME
