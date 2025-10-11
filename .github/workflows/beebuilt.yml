@@ -22,7 +22,7 @@ jobs:
       - name: Get latest tag
         id: get_tag
         run: |
-          latest=$(git describe --tags --abbrev=0 || echo "0.0.0")
+          latest=$(git describe --tags --abbrev=0)
           echo "latest_tag=$latest" >> $GITHUB_ENV
 
       - name: Bump version
@@ -73,7 +73,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.name "GitHub Actions"
+          git config --global user.name "BeeBuilt Bot"
           git config --global user.email "actions@github.com"
           git add $(find . -name "package.json" -o -name "package-lock.json" | grep -v node_modules | grep -v vendor)
           git commit -m "Bump version to $new_tag" || echo "No changes to commit"
@@ -81,7 +81,7 @@ jobs:
 
       - name: Create Git Tag
         run: |
-          git config --global user.name "GitHub Actions"
+          git config --global user.name "BeeBuilt Bot"
           git config --global user.email "actions@github.com"
           git tag ${{ env.new_tag }}
           git push origin ${{ env.new_tag }}
