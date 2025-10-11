@@ -211,17 +211,29 @@ jobs:
             | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
             | sort -u)
 
-          echo $ports
+          echo "Found ports: $ports"
 
           for port in $ports; do
-            echo "Checking port $port..."
-            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port)
+            echo "🕓 Waiting for port $port to respond..."
+
+            # Try up to 10 times with 5 seconds between
+            for i in {1..10}; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port || echo "000")
+              if [ "$code" = "200" ]; then
+                echo "✅ Port $port is ready (HTTP $code)"
+                break
+              else
+                echo "⏳ Attempt $i: got code $code, retrying in 5s..."
+                sleep 5
+              fi
+            done
+
             if [ "$code" != "200" ]; then
-              echo "❌ Port $port failed with code $code"
+              echo "❌ Port $port failed with code $code after retries"
               curl -H "Content-Type: application/json" \
                 -X POST \
-                -d "{\"embeds\":[{\"title\":\"Validation Failed\",\"description\":\"Port $port returned code $code\"}]}" \
-                ${{ secrets.DISCORD_WEBHOOK }}
+                -d "{\"embeds\":[{\"title\":\"Validation Failed\",\"description\":\"Port $port returned code $code after retries\"}]}" \
+                "$DISCORD_WEBHOOK"
               exit 1
             fi
           done
