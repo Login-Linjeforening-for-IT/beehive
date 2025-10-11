@@ -179,9 +179,6 @@ jobs:
           export-env: true
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-        
-      - name: Ensure curl exists
-        run: sudo apt-get update && sudo apt-get install -y curl
 
       - name: List 1Password items in repo vault
         run: |
@@ -207,6 +204,7 @@ jobs:
 
       - name: Check exposed ports
         run: |
+          sudo apt-get install -y curl
           ports=$(docker compose ps --format json \
             | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
             | sort -u)
@@ -246,6 +244,7 @@ jobs:
 
       - name: Validate UI routes & elements
         run: |
+          sudo apt-get install -y curl
           if nc -z localhost 3000; then
             echo "Port 3000 is open, proceeding with validation..."
             SPEC=$(cat .test.json)
