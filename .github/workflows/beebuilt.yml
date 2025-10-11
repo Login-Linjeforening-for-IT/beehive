@@ -199,9 +199,16 @@ jobs:
 
       - name: Check exposed ports
         run: |
-          docker compose ps --format json
-          ports=$(docker compose ps --format json | jq -r '.Publishers? // [] | .[] | .PublishedPort')
+          ports=$(docker compose ps --format json \
+            | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
+            | sort -u)
+
           for port in $ports; do
+            if [[ "$port" == "5432" || "$port" == "3306" ]]; then
+              echo "Skipping DB port $port"
+              continue
+            fi
+
             echo "Checking port $port..."
             code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port)
             if [ "$code" != "200" ]; then
