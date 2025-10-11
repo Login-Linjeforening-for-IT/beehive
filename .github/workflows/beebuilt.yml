@@ -160,7 +160,6 @@ jobs:
 
       - name: Rebase from main to dev
         run: |
-          git pull
           git rebase origin/main
 
       - name: Push dev
