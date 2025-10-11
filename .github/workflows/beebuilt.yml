@@ -31,23 +31,14 @@ jobs:
       - name: Bump version
         id: bump
         run: |
-            if git rev-parse --verify --quiet HEAD~2 >/dev/null 2>&1; then
-              new_version=$latest_tag
-              new_tag=$new_version
-            else
-            if git rev-parse --verify --quiet HEAD~2 >/dev/null 2>&1; then
-              new_version=$latest_tag
-              new_tag=$new_version
-            else
-            if git rev-parse --verify --quiet HEAD~2 >/dev/null 2>&1; then
-              new_version=$latest_tag
-              new_tag=$new_version
-            else
           if [ "$GITHUB_REF" == "refs/heads/main" ]; then
             dev_version=$(git show origin/dev:package.json 2>/dev/null | jq -r '.version' 2>/dev/null)
             current_version=$latest_tag
             if [ -n "$dev_version" ]; then
               if [ "$current_version" == "$dev_version" ]; then
+                new_version="$current_version"
+                new_tag="$new_version"
+              else
                 version=${latest_tag#v}
                 IFS='.' read -r major minor patch <<< "$version"
                 changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
@@ -59,13 +50,9 @@ jobs:
                 fi
                 new_version="$major.$minor.$patch"
                 new_tag="$new_version"
-              else
-                new_version="$dev_version"
-                new_tag="$new_version"
               fi
             else
               version=${latest_tag#v}
-            fi
               IFS='.' read -r major minor patch <<< "$version"
               changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
               if [ "$changed_files" -lt 4 ]; then
@@ -81,11 +68,11 @@ jobs:
             version=${latest_tag#v}
             IFS='.' read -r major minor patch <<< "$version"
             changed_files=$(git diff --name-only HEAD~1..HEAD | wc -l)
+            if [ "$changed_files" -lt 4 ]; then
               patch=$((patch+1))
+            else
               minor=$((minor+1))
               patch=0
-            fi
-            fi
             fi
             new_version="$major.$minor.$patch"
             new_tag="$new_version-dev"
@@ -213,16 +200,9 @@ jobs:
 
       - name: Check exposed ports
         run: |
-          ports=$(docker compose ps --format json \
-            | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
-            | sort -u)
-
+          docker compose ps --format json
+          ports=$(docker compose ps --format json | jq -r '.Publishers? // [] | .[] | .PublishedPort')
           for port in $ports; do
-            if [[ "$port" == "5432" || "$port" == "3306" ]]; then
-              echo "Skipping DB port $port"
-              continue
-            fi
-
             echo "Checking port $port..."
             code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:$port)
             if [ "$code" != "200" ]; then
