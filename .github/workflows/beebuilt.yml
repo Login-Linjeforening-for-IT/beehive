@@ -336,7 +336,7 @@ jobs:
             echo "📄 Checking $FILE..."
             
             # Extract all image lines
-            echo "denne ${REGISTRY}/${PROJECT_NAME}/
+            echo "denne ${REGISTRY}/${PROJECT_NAME}/"
             IMAGE_LINE=$(yq e '.spec.template.spec.containers[].image' "$FILE" 2>/dev/null || true)
             if echo "$IMAGE_LINE" | grep -q "${REGISTRY}/${PROJECT_NAME}/"; then
               echo "✅ Found matching image in $FILE"
