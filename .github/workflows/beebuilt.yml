@@ -40,14 +40,15 @@ jobs:
             minor=$((minor+1))
             patch=0
           fi
+          new_version="$major.$minor.$patch"
           if [ "$GITHUB_REF" == "refs/heads/main" ]; then
-            suffix=""
+            new_tag="$new_version"
           else
-            suffix="-dev"
+            new_tag="$new_version-dev"
           fi
-          new_tag="$major.$minor.$patch$suffix"
           echo "new_tag=$new_tag" >> $GITHUB_ENV
           echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
+          echo "new_version=$new_version" >> $GITHUB_ENV
           echo "Bumped to $new_tag"
 
       - name: Update package.json
@@ -60,7 +61,7 @@ jobs:
               exit 1
             fi
             sed -i "3s/\"version\": \"[^\"]*\"/\"version\": \"$new_ver\"/" "$file"
-          ' _ {} "${new_tag}" \;
+          ' _ {} "${new_version}" \;
 
       - name: Update lock file
         run: |
@@ -77,7 +78,7 @@ jobs:
             fi
             sed -i "3s/\"version\": \"[^\"]*\"/\"version\": \"$new_ver\"/" "$file"
             sed -i "9s/\"version\": \"[^\"]*\"/\"version\": \"$new_ver\"/" "$file"
-          ' _ {} "${new_tag}" \;
+          ' _ {} "${new_version}" \;
 
       - name: Commit changes
         run: |
