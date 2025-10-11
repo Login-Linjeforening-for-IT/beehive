@@ -33,35 +33,57 @@ jobs:
       - name: TYPE OF EVENT
         run: |
           branch=$(git rev-parse --abbrev-ref HEAD)
-          echo "Main version: $main_tag, branch: $branch"
-          echo "Dev version: $dev_tag, branch: $branch"
+          echo "Branch: $branch"
+          echo "Main version: $main_tag"
+          echo "Dev version: $dev_tag"
 
-          # Compare versions
+          # Handle missing versions
           if [ -z "$main_tag" ]; then
             echo "Main version not found. Probably first release."
+            main_tag="0.0.0"
           fi
 
           if [ -z "$dev_tag" ]; then
             echo "Dev version not found. Probably first release."
+            dev_tag="0.0.0"
           fi
 
+          # If main and dev are the same
           if [ "$main_tag" = "$dev_tag" ]; then
             echo "✅ Main and Dev have the same version: $main_tag"
-            echo "Action: On main, no version bump. On dev, bump as needed."
+            if [ "$branch" = "main" ]; then
+              echo "Action: On main branch, no version bump needed."
+            elif [ "$branch" = "dev" ]; then
+              echo "Action: On dev branch, bump version as needed."
+            else
+              echo "Action: On other branch, handle dev version bump if necessary."
+            fi
           else
             # Split versions into arrays
             IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
             IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
 
-            # Compare which is newer
             if [ "$main_major" -gt "$dev_major" ] || \
-               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
-               { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
+              { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
+              { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
               echo "⚠️ Main version ($main_tag) is newer than Dev ($dev_tag)"
-              echo "Action: Update Dev to match Main."
-            else
+              if [ "$branch" = "dev" ]; then
+                echo "Action: Update Dev to match Main."
+              else
+                echo "Action: Not on dev branch, do not update Dev."
+              fi
+            elif [ "$dev_major" -gt "$main_major" ] || \
+                { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -gt "$main_minor" ]; } || \
+                { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -eq "$main_minor" ] && [ "$dev_patch" -gt "$main_patch" ]; }; then
               echo "⚠️ Dev version ($dev_tag) is newer than Main ($main_tag)"
-              echo "Action: Update Main to match Dev."
+              if [ "$branch" = "main" ]; then
+                echo "Action: Update Main to match Dev."
+              else
+                echo "Action: Not on main branch, do not update Main."
+              fi
+            else
+              echo "⚠️ Versions differ but neither is strictly newer."
+              echo "Action: Manual check may be needed."
             fi
           fi
 
