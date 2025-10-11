@@ -122,20 +122,25 @@ jobs:
           git config --global user.name "$GIT_USER_NAME"
           git config --global user.email "$GIT_USER_EMAIL"
           git add $(find . -name "package.json" -o -name "package-lock.json" | grep -v node_modules | grep -v vendor)
-          git commit -m "v$new_tag" || echo "No changes to commit"
+          git commit -m "v$new_version" || echo "No changes to commit"
           git push origin $GITHUB_REF_NAME
 
       - name: Create Git Tag
         run: |
           git config --global user.name "$GIT_USER_NAME"
           git config --global user.email "$GIT_USER_EMAIL"
-          git tag ${{ env.new_tag }}
-          git push origin ${{ env.new_tag }}
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          tag="${{ env.new_version }}"
+          if [ "$branch" = "dev" ]; then
+            tag="${{ env.new_version }}-dev"
+          fi
+          git tag "$tag"
+          git push origin "$tag"
 
       - name: Create dev tag if not exists
         if: github.ref == 'refs/heads/main'
         run: |
-          dev_tag="${{ env.new_tag }}-dev"
+          dev_tag="${{ env.new_version }}-dev"
           if ! git tag -l | grep -q "^${dev_tag}$"; then
             git tag $dev_tag
             git push origin $dev_tag
