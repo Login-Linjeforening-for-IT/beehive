@@ -58,6 +58,20 @@ jobs:
           echo "Docker user: $DOCKER_USER"
           docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
 
+      - name: Create .env file
+        run: |
+          echo "Generating .env file for Docker Compose"
+          cat <<EOF > .env
+          DOCKER_USER=${DOCKER_USER}
+          DOCKER_PASS=${DOCKER_PASS}
+          DISCORD_WEBHOOK=${DISCORD_WEBHOOK}
+          EOF
+          echo ".env file created:"
+          cat .env
+
+      - name: Login to Docker
+        run: echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        
       - name: Build with Docker Compose
         run: docker compose up -d --build
 
