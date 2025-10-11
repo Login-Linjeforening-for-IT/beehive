@@ -52,11 +52,11 @@ jobs:
           if [ "$main_tag" = "$dev_tag" ]; then
             echo "✅ Main and Dev have the same version: $main_tag"
             if [ "$branch" = "main" ]; then
-              echo "Action: On main branch, no version bump needed."
+              echo "Action: On main branch, bump both Main and Dev versions by 1."
             elif [ "$branch" = "dev" ]; then
-              echo "Action: On dev branch, bump version as needed."
+              echo "Action: On dev branch, bump Dev version as needed."
             else
-              echo "Action: On other branch, handle dev version bump if necessary."
+              echo "no action."
             fi
           else
             # Split versions into arrays
