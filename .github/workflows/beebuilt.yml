@@ -52,6 +52,8 @@ jobs:
             # Check if main is behind dev
             if git merge-base --is-ancestor origin/main origin/dev; then
               echo "Main is behind Dev. Merging dev into main..."
+              git config --global user.name "$GIT_USER_NAME"
+              git config --global user.email "$GIT_USER_EMAIL"
               git merge --no-ff origin/dev -m "Merge dev into main to sync version $dev_tag"
               new_version="$dev_tag"
               skip_commit=true
