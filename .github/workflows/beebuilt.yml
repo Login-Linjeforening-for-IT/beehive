@@ -186,7 +186,6 @@ jobs:
 
       - name: List 1Password items in repo vault
         run: |
-          # Use repo name as vault/item prefix
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           echo "Looking for 1Password items in vault: $REPO_NAME"
 
@@ -283,10 +282,8 @@ jobs:
           echo "Image: $IMAGE"
           echo "Version: $VERSION"
 
-          # Build all services
           docker compose build
 
-          # Get all service names from docker-compose.yml
           SERVICES=$(docker compose config --services)
 
           if [ -z "$SERVICES" ]; then
@@ -294,7 +291,6 @@ jobs:
             exit 1
           fi
 
-          # Loop over services and tag/push each
           for SERVICE in $SERVICES; do
             echo "Processing service: $SERVICE"
             IMAGE_ID=$(docker compose images -q $SERVICE)
