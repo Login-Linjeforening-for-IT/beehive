@@ -324,9 +324,9 @@ jobs:
 
       - name: Update image version
         run: |
-          cd ${{ env.repo_name }}
+          cd ${env.repo_name}/cluster/${GITHUB_REPOSITORY##*/}
           yq e -i '.spec.template.spec.containers[0].image = "${{ secrets.DOCKER_REGISTRY }}/${GITHUB_REF##*/}:${{ needs.fix-version.outputs.new_tag }}"' deployment.yaml
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "$GIT_USER_NAME"
+          git config --global user.email "$GIT_USER_EMAIL"
           git commit -am "Update BeeBuilt image to ${{ needs.fix-version.outputs.new_tag }}"
           git push
