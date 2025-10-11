@@ -211,8 +211,6 @@ jobs:
             | jq -sr '.[] | .Publishers? // [] | .[] | .PublishedPort' \
             | sort -u)
 
-          echo "Found ports: $ports"
-
           for port in $ports; do
             echo "🕓 Waiting for port $port to respond..."
 
@@ -246,22 +244,19 @@ jobs:
           sudo mv pup /usr/local/bin/
           pup --help
 
-      - name: Validate routes & elements
+      - name: Validate UI routes & elements
         run: |
-          # Check if port 3000 is open
+          # Check if wget exists (fallback to install)
+          if ! command -v wget >/dev/null 2>&1; then
+            echo "⚠️ wget not found, installing..."
+            sudo apt-get update -y && sudo apt-get install -y wget
+          fi
           if nc -z localhost 3000; then
             echo "Port 3000 is open, proceeding with validation..."
-            
-            # Read the JSON spec
             SPEC=$(cat .test.json)
-
-            # Loop over paths
             for PATH in $(echo "$SPEC" | jq -r 'keys[]'); do
               echo "Checking $PATH ..."
-              # Request HTML
               HTML=$(curl -s "http://localhost:3000$PATH")
-              
-              # Loop over expected elements
               for ELEM in $(echo "$SPEC" | jq -r --arg path "$PATH" '.[$path][]'); do
                 echo "  Checking element $ELEM ..."
                 FOUND=$(echo "$HTML" | pup "[data-testid=\"$ELEM\"]" | wc -l)
