@@ -53,6 +53,12 @@ jobs:
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
+      - name: List 1Password items in repo vault
+        run: |
+          # Use repo name as vault/item prefix
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          echo "Looking for 1Password items in vault: $REPO_NAME"
+          
       - name: Use secrets
         run: |
           echo "Docker user: $DOCKER_USER"
