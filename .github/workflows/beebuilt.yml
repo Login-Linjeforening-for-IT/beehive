@@ -261,7 +261,7 @@ jobs:
   update:
     name: 🔄 Update Kubernetes Repo
     runs-on: ubuntu-latest
-    needs: [tag, fix-version]
+    needs: [build, fix-version]
     steps:
       - name: Determine repo path
         id: set_repo
