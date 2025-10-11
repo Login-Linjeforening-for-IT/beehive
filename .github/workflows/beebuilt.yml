@@ -32,8 +32,9 @@ jobs:
 
       - name: TYPE OF EVENT
         run: |
-          echo "Main version: $main_tag"
-          echo "Dev version: $dev_tag"
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          echo "Main version: $main_tag, branch: $branch"
+          echo "Dev version: $dev_tag, branch: $branch"
 
           # Compare versions
           if [ -z "$main_tag" ]; then
