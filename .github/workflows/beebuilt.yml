@@ -151,12 +151,17 @@ jobs:
             fi
           done
 
+
+      - name: Install pup
+        run: |
+          curl -LO https://github.com/EricChiang/pup/releases/download/v0.4.0/pup_linux_amd64.zip
+          unzip pup_linux_amd64.zip
+          chmod +x pup
+          sudo mv pup /usr/local/bin/
+          pup -v
+
       - name: Validate routes & elements
         run: |
-          # Install pup (HTML parser)
-          sudo apt-get update
-          sudo apt-get install -y pup jq
-
           # Read the JSON spec
           SPEC=$(cat routes.test.json)
 
