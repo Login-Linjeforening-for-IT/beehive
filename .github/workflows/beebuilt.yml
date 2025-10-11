@@ -12,134 +12,134 @@ env:
 
 jobs:
   fix-version:
-  name: 🧩 Fix & Update Version
-  runs-on: ubuntu-latest
-  outputs:
-    new_tag: ${{ steps.set_tag.outputs.new_tag }}
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+    name: 🧩 Fix & Update Version
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.set_tag.outputs.new_tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Get latest versions
-      id: get_versions
-      run: |
-        main_version=$(git show origin/main:package.json 2>/dev/null | jq -r '.version // "0.0.0"')
-        dev_version=$(git show origin/dev:package.json 2>/dev/null | jq -r '.version // "0.0.0"')
-        echo "main_tag=$main_version" >> $GITHUB_ENV
-        echo "dev_tag=$dev_version" >> $GITHUB_ENV
+      - name: Get latest versions
+        id: get_versions
+        run: |
+          main_version=$(git show origin/main:package.json 2>/dev/null | jq -r '.version // "0.0.0"')
+          dev_version=$(git show origin/dev:package.json 2>/dev/null | jq -r '.version // "0.0.0"')
+          echo "main_tag=$main_version" >> $GITHUB_ENV
+          echo "dev_tag=$dev_version" >> $GITHUB_ENV
 
-    - name: Calculate new version
-      id: bump
-      run: |
-        branch=$(git rev-parse --abbrev-ref HEAD)
-        main_tag="${main_tag:-0.0.0}"
-        dev_tag="${dev_tag:-0.0.0}"
-        skip_commit=false
+      - name: Calculate new version
+        id: bump
+        run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          main_tag="${main_tag:-0.0.0}"
+          dev_tag="${dev_tag:-0.0.0}"
+          skip_commit=false
 
-        IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
-        IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
+          IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
+          IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
 
-        main_major=${main_major:-0}
-        main_minor=${main_minor:-0}
-        main_patch=${main_patch:-0}
+          main_major=${main_major:-0}
+          main_minor=${main_minor:-0}
+          main_patch=${main_patch:-0}
 
-        dev_major=${dev_major:-0}
-        dev_minor=${dev_minor:-0}
-        dev_patch=${dev_patch:-0}
+          dev_major=${dev_major:-0}
+          dev_minor=${dev_minor:-0}
+          dev_patch=${dev_patch:-0}
 
-        changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
+          changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
 
-        if [ "$branch" = "main" ]; then
-          if git merge-base --is-ancestor origin/main origin/dev; then
-            # Main behind dev → merge dev
-            git config --global user.name "$GIT_USER_NAME"
-            git config --global user.email "$GIT_USER_EMAIL"
-            git merge --no-ff origin/dev -m "Merge dev into main to sync version $dev_tag"
-            new_version="$dev_tag"
-            skip_commit=true
-          else
-            # Main = Dev or Main > Dev
-            if [ "$main_tag" = "$dev_tag" ]; then
-              if [ "$changed_files" -lt 4 ]; then
-                patch=$((main_patch + 1))
-                minor=$main_minor
-              else
-                patch=0
-                minor=$((main_minor + 1))
-              fi
-              new_version="$main_major.$minor.$patch"
+          if [ "$branch" = "main" ]; then
+            if git merge-base --is-ancestor origin/main origin/dev; then
+              # Main behind dev → merge dev
+              git config --global user.name "$GIT_USER_NAME"
+              git config --global user.email "$GIT_USER_EMAIL"
+              git merge --no-ff origin/dev -m "Merge dev into main to sync version $dev_tag"
+              new_version="$dev_tag"
+              skip_commit=true
             else
-              # Main > Dev → bump dev to match main
-              new_version="$main_tag"
+              # Main = Dev or Main > Dev
+              if [ "$main_tag" = "$dev_tag" ]; then
+                if [ "$changed_files" -lt 4 ]; then
+                  patch=$((main_patch + 1))
+                  minor=$main_minor
+                else
+                  patch=0
+                  minor=$((main_minor + 1))
+                fi
+                new_version="$main_major.$minor.$patch"
+              else
+                # Main > Dev → bump dev to match main
+                new_version="$main_tag"
+              fi
+            fi
+          elif [ "$branch" = "dev" ]; then
+            if [ "$changed_files" -lt 4 ]; then
+              patch=$((dev_patch + 1))
+              minor=$dev_minor
+            else
+              patch=0
+              minor=$((dev_minor + 1))
+            fi
+            new_version="$dev_major.$minor.$patch"
+          else
+            new_version="$main_tag"
+          fi
+
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "skip_commit=$skip_commit" >> $GITHUB_ENV
+          echo "Calculated new_version: $new_version"
+          echo "::set-output name=new_tag::$new_version"
+
+      - name: Update package.json and lock
+        if: env.skip_commit != 'true'
+        run: |
+          for file in $(find . -name "package.json" -o -name "package-lock.json" \
+                      -not -path "*/node_modules/*" -not -path "*/vendor/*"); do
+            sed -i "s/\"version\": \".*\"/\"version\": \"${new_version}\"/" "$file"
+          done
+
+      - name: Commit changes
+        if: env.skip_commit != 'true'
+        run: |
+          git config --global user.name "$GIT_USER_NAME"
+          git config --global user.email "$GIT_USER_EMAIL"
+          git add $(find . -name "package.json" -o -name "package-lock.json" \
+                      -not -path "*/node_modules/*" -not -path "*/vendor/*")
+          git commit -m "v${new_version}" || echo "No changes to commit"
+          git push origin $GITHUB_REF_NAME
+
+      - name: Create Git Tags
+        id: set_tag
+        run: |
+          git config --global user.name "$GIT_USER_NAME"
+          git config --global user.email "$GIT_USER_EMAIL"
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          main_tag="$new_version"
+
+          # Always tag main commit
+          git tag "$main_tag" || echo "Tag $main_tag already exists"
+          git push origin "$main_tag"
+
+          # If on main, ensure -dev tag exists
+          if [ "$branch" = "main" ]; then
+            dev_tag="${main_tag}-dev"
+            if ! git tag -l | grep -q "^$dev_tag$"; then
+              git tag "$dev_tag"
+              git push origin "$dev_tag"
             fi
           fi
-        elif [ "$branch" = "dev" ]; then
-          if [ "$changed_files" -lt 4 ]; then
-            patch=$((dev_patch + 1))
-            minor=$dev_minor
-          else
-            patch=0
-            minor=$((dev_minor + 1))
-          fi
-          new_version="$dev_major.$minor.$patch"
-        else
-          new_version="$main_tag"
-        fi
 
-        echo "new_version=$new_version" >> $GITHUB_ENV
-        echo "skip_commit=$skip_commit" >> $GITHUB_ENV
-        echo "Calculated new_version: $new_version"
-        echo "::set-output name=new_tag::$new_version"
-
-    - name: Update package.json and lock
-      if: env.skip_commit != 'true'
-      run: |
-        for file in $(find . -name "package.json" -o -name "package-lock.json" \
-                     -not -path "*/node_modules/*" -not -path "*/vendor/*"); do
-          sed -i "s/\"version\": \".*\"/\"version\": \"${new_version}\"/" "$file"
-        done
-
-    - name: Commit changes
-      if: env.skip_commit != 'true'
-      run: |
-        git config --global user.name "$GIT_USER_NAME"
-        git config --global user.email "$GIT_USER_EMAIL"
-        git add $(find . -name "package.json" -o -name "package-lock.json" \
-                     -not -path "*/node_modules/*" -not -path "*/vendor/*")
-        git commit -m "v${new_version}" || echo "No changes to commit"
-        git push origin $GITHUB_REF_NAME
-
-    - name: Create Git Tags
-      id: set_tag
-      run: |
-        git config --global user.name "$GIT_USER_NAME"
-        git config --global user.email "$GIT_USER_EMAIL"
-        branch=$(git rev-parse --abbrev-ref HEAD)
-        main_tag="$new_version"
-
-        # Always tag main commit
-        git tag "$main_tag" || echo "Tag $main_tag already exists"
-        git push origin "$main_tag"
-
-        # If on main, ensure -dev tag exists
-        if [ "$branch" = "main" ]; then
-          dev_tag="${main_tag}-dev"
-          if ! git tag -l | grep -q "^$dev_tag$"; then
-            git tag "$dev_tag"
+          # If on dev branch, tag dev commit
+          if [ "$branch" = "dev" ]; then
+            dev_tag="${new_version}-dev"
+            git tag "$dev_tag" || echo "Tag $dev_tag already exists"
             git push origin "$dev_tag"
           fi
-        fi
 
-        # If on dev branch, tag dev commit
-        if [ "$branch" = "dev" ]; then
-          dev_tag="${new_version}-dev"
-          git tag "$dev_tag" || echo "Tag $dev_tag already exists"
-          git push origin "$dev_tag"
-        fi
-
-        echo "::set-output name=new_tag::$new_version"
+          echo "::set-output name=new_tag::$new_version"
 
   rebase:
     name: 🔄 Rebase from main to dev
