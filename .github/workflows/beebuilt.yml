@@ -49,7 +49,7 @@ jobs:
           dev_minor=${dev_minor:-0}
           dev_patch=${dev_patch:-0}
 
-          changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
+          changed_files=$(git diff --name-only origin/$branch...HEAD | wc -l)
 
           if [ "$branch" = "main" ]; then
             if git merge-base --is-ancestor origin/main origin/dev; then
