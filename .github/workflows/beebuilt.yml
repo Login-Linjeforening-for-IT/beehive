@@ -324,10 +324,43 @@ jobs:
 
       - name: Update image version
         run: |
-          cd "${env.repo_name}/cluster/beehive"
-          # cd "${env.repo_name}/cluster/${GITHUB_REPOSITORY##*/}"
-          yq e -i '.spec.template.spec.containers[0].image = "${{ secrets.DOCKER_REGISTRY }}/${GITHUB_REF##*/}:${{ needs.fix-version.outputs.new_tag }}"' deployment.yaml
+          set -e
+          PROJECT_NAME="${GITHUB_REPOSITORY##*/}"
+          NEW_TAG="${{ needs.fix-version.outputs.new_tag }}"
+          REGISTRY="${{ secrets.DOCKER_REGISTRY }}/tekkom/dev"
+
+          cd "${{ env.repo_name }}/cluster"
+
+          echo "🔍 Searching for deployment.yaml files in $(pwd)..."
+          find . -type f -name "deployment.yaml" | while read -r FILE; do
+            echo "📄 Checking $FILE..."
+            
+            # Extract all image lines
+            IMAGE_LINE=$(yq e '.spec.template.spec.containers[].image' "$FILE" 2>/dev/null || true)
+            if echo "$IMAGE_LINE" | grep -q "${REGISTRY}/${PROJECT_NAME}/"; then
+              echo "✅ Found matching image in $FILE"
+
+              # Update the tag while keeping any digest (@sha256)
+              yq e -i \
+                ".spec.template.spec.containers[].image |=
+                  sub(
+                    \":.*$\"; 
+                    \":${NEW_TAG}\"
+                  )" \
+                "$FILE"
+
+              git add "$FILE"
+            else
+              echo "↩️  Skipping $FILE (no matching image)"
+            fi
+          done
+
           git config --global user.name "$GIT_USER_NAME"
           git config --global user.email "$GIT_USER_EMAIL"
-          git commit -am "Update BeeBuilt image to ${{ needs.fix-version.outputs.new_tag }}"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "✅ No image updates needed."
+          else
+            git commit -m "Update ${PROJECT_NAME} image tag to ${NEW_TAG}"
+            git push
+          fi
