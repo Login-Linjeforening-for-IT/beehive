@@ -297,8 +297,8 @@ jobs:
               exit 1
             fi
 
-            docker tag "$IMAGE_ID" "$IMAGE-$SERVICE:$VERSION"
-            docker push "$IMAGE-$SERVICE:$VERSION"
+            docker tag "$IMAGE_ID" "$IMAGE$SERVICE:$VERSION"
+            docker push "$IMAGE$SERVICE:$VERSION"
           done
 
   update:
