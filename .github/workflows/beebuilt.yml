@@ -309,7 +309,7 @@ jobs:
       - name: Determine repo path
         id: set_repo
         run: |
-          if [ "${GITHUB_REF##*/}" = "here" ]; then
+          if [ "${GITHUB_REF##*/}" = "main" ]; then
             echo "repo_name=infra-prod-cluster" >> $GITHUB_ENV
           else
             echo "repo_name=test-cluster" >> $GITHUB_ENV
@@ -320,11 +320,11 @@ jobs:
         with:
           repository: Login-Linjeforening-for-IT/${{ env.repo_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: kuberepo
+          path: ${{ env.repo_name }}
 
       - name: Update image version
         run: |
-          cd kuberepo
+          cd ${{ env.repo_name }}
           yq e -i '.spec.template.spec.containers[0].image = "${{ secrets.DOCKER_REGISTRY }}/${GITHUB_REF##*/}:${{ needs.fix-version.outputs.new_tag }}"' deployment.yaml
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
