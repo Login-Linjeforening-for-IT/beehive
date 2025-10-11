@@ -30,122 +30,81 @@ jobs:
           echo "main_tag=$main_version" >> $GITHUB_ENV
           echo "dev_tag=$dev_version" >> $GITHUB_ENV
 
-      - name: TYPE OF EVENT
-        run: |
-          branch=$(git rev-parse --abbrev-ref HEAD)
-          echo "Branch: $branch"
-          echo "Main version: $main_tag"
-          echo "Dev version: $dev_tag"
-
-          # Handle missing versions bloat på dev
-          if [ -z "$main_tag" ]; then
-            echo "Main version not found. Probably first release."
-            main_tag="0.0.0"
-          fi
-
-          if [ -z "$dev_tag" ]; then
-            echo "Dev version not found. Probably first release."
-            dev_tag="0.0.0"
-          fi
-
-          # If main and dev are the same
-          if [ "$main_tag" = "$dev_tag" ]; then
-            echo "✅ Main and Dev have the same version: $main_tag"
-            if [ "$branch" = "main" ]; then
-              echo "Action: On main branch, bump both Main and Dev versions by 1."
-            elif [ "$branch" = "dev" ]; then
-              echo "Action: On dev branch, bump Dev version as needed."
-            else
-              echo "Action: On other branch, no action."
-            fi
-          else
-            # Split versions into arrays
-            IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
-            IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
-
-            # Main is newer than Dev
-            if [ "$main_major" -gt "$dev_major" ] || \
-              { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
-              { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
-              echo "⚠️ Main version ($main_tag) is newer than Dev ($dev_tag)"
-              echo "Action: Update Dev to match Main."
-
-            # Dev is newer than Main
-            elif [ "$dev_major" -gt "$main_major" ] || \
-                { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -gt "$main_minor" ]; } || \
-                { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -eq "$main_minor" ] && [ "$dev_patch" -gt "$main_patch" ]; }; then
-              echo "⚠️ Dev version ($dev_tag) is newer than Main ($main_tag)"
-              if [ "$branch" = "main" ]; then
-                echo "Action: Update Main to match Dev."
-              else
-                echo "Action: Not on main branch, do not update Main."
-              fi
-
-            # Versions differ but neither is strictly newer (rare edge case)
-            else
-              echo "⚠️ Versions differ but neither is strictly newer."
-              echo "Action: Manual check may be needed."
-            fi
-          fi
-
       - name: New version
         run: |
           branch=$(git rev-parse --abbrev-ref HEAD)
           main_tag="$main_tag"
           dev_tag="$dev_tag"
           new_version=""
-          if [ "$branch" = "main" ]; then
-            if [ "$GITHUB_EVENT_NAME" = "merge" ]; then
-              new_version="$dev_tag"
-              echo "Merge event detected. Syncing main to dev version: $dev_tag"
-            else
-              # main is same as dev, bump patch/minor
-              changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
-              echo "Changed files: $changed_files"
-              current_version=$(jq -r '.version' package.json)
-              IFS='.' read -r major minor patch <<< "$current_version"
+
+          # Split versions into arrays
+          IFS='.' read -r main_major main_minor main_patch <<< "$main_tag"
+          IFS='.' read -r dev_major dev_minor dev_patch <<< "$dev_tag"
+
+          # Count changed files for patch/minor logic
+          git fetch origin main
+          changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
+          echo "Changed files: $changed_files"
+
+          # Case 1: Main and Dev are equal
+          if [ "$main_tag" = "$dev_tag" ]; then
+            if [ "$branch" = "main" ]; then
+              # Bump both main and dev
               if [ "$changed_files" -lt 4 ]; then
-                patch=$((patch + 1))
-                echo "Bumping patch version."
+                patch=$((main_patch + 1))
+                minor=$main_minor
               else
-                minor=$((minor + 1))
                 patch=0
-                echo "Bumping minor version."
+                minor=$((main_minor + 1))
               fi
-              new_version="$major.$minor.$patch"
-            fi
-          elif [ "$branch" = "dev" ]; then
-            # Always bump patch/minor on dev
-            changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
-            echo "Changed files: $changed_files"
-            current_version=$(jq -r '.version' package.json)
-            IFS='.' read -r major minor patch <<< "$current_version"
-            if [ "$changed_files" -lt 4 ]; then
-              patch=$((patch + 1))
-              echo "Bumping patch version."
+              new_version="$main_major.$minor.$patch"
+              echo "Main = Dev and branch is main. Bumping both Main and Dev to $new_version"
+            elif [ "$branch" = "dev" ]; then
+              # Bump only dev
+              if [ "$changed_files" -lt 4 ]; then
+                patch=$((dev_patch + 1))
+                minor=$dev_minor
+              else
+                patch=0
+                minor=$((dev_minor + 1))
+              fi
+              new_version="$dev_major.$minor.$patch"
+              echo "Main = Dev and branch is dev. Bumping Dev version to $new_version"
             else
-              minor=$((minor + 1))
-              patch=0
-              echo "Bumping minor version."
+              new_version="$main_tag"
+              echo "No version change for other branches."
             fi
-            new_version="$major.$minor.$patch"
+
+          # Case 2: Main is newer than Dev
+          elif [ "$main_major" -gt "$dev_major" ] || \
+              { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -gt "$dev_minor" ]; } || \
+              { [ "$main_major" -eq "$dev_major" ] && [ "$main_minor" -eq "$dev_minor" ] && [ "$main_patch" -gt "$dev_patch" ]; }; then
+            # Dev should match main
+            new_version="$main_tag"
+            echo "Main ($main_tag) is newer than Dev ($dev_tag). Updating Dev to match Main."
+
+          # Case 3: Dev is newer than Main
+          elif [ "$dev_major" -gt "$main_major" ] || \
+              { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -gt "$main_minor" ]; } || \
+              { [ "$dev_major" -eq "$main_major" ] && [ "$dev_minor" -eq "$main_minor" ] && [ "$dev_patch" -gt "$main_patch" ]; }; then
+            if [ "$branch" = "main" ]; then
+              new_version="$dev_tag"
+              echo "Dev ($dev_tag) is newer than Main ($main_tag) and branch is main. Updating Main to match Dev."
+            else
+              new_version="$main_tag"
+              echo "Dev ($dev_tag) is newer than Main ($main_tag) but branch is not main. No update to Main."
+            fi
+
+          # Case 4: Rare edge case
           else
-            # For other branches, keep previous logic
-            changed_files=$(git diff --name-only origin/main...HEAD | wc -l)
-            echo "Changed files: $changed_files"
-            current_version=$(jq -r '.version' package.json)
-            IFS='.' read -r major minor patch <<< "$current_version"
-            if [ "$changed_files" -lt 4 ]; then
-              patch=$((patch + 1))
-              echo "Bumping patch version."
-            else
-              minor=$((minor + 1))
-              patch=0
-              echo "Bumping minor version."
-            fi
-            new_version="$major.$minor.$patch"
+            new_version="$main_tag"
+            echo "Versions differ but neither is strictly newer. No automatic update."
           fi
+
+          # Export the calculated version
           echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "Calculated new_version: $new_version"
+
 
       - name: Update package.json
         run: |
