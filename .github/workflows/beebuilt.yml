@@ -90,6 +90,30 @@ jobs:
           git tag ${{ env.new_tag }}
           git push origin ${{ env.new_tag }}
 
+  rebase:
+    name: 🔄 Rebase from main to dev
+    runs-on: ubuntu-latest
+    needs: fix-version
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config --global user.name "BeeBuilt Bot"
+          git config --global user.email "beebuiltbot@login.no"
+
+      - name: Rebase from main to dev
+        run: |
+          git rebase origin/main
+
+      - name: Push dev
+        run: git push origin dev
+
   build:
     name: 🐳 Build Containers
     runs-on: ubuntu-latest
