@@ -329,8 +329,7 @@ jobs:
         run: |
           set -e
           PROJECT_NAME="${GITHUB_REPOSITORY##*/}"
-          NEW_TAG="5.0.1"
-          # NEW_TAG="${{ needs.fix-version.outputs.new_tag }}"
+          NEW_TAG="${{ needs.fix-version.outputs.new_tag }}"
           REGISTRY="${DOCKER_REGISTRY}/tekkom/dev"
           BRANCH="main"
 
