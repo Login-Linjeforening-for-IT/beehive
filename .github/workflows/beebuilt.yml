@@ -263,7 +263,7 @@ jobs:
             SPEC=$(cat .test.json)
             for PATH in $(echo "$SPEC" | jq -r 'keys[]'); do
               echo "Checking $PATH ..."
-              HTML=$(wget -qO- "http://localhost:3000$PATH")
+              HTML=$(curl -qO- "http://localhost:3000$PATH")
               for ELEM in $(echo "$SPEC" | jq -r --arg path "$PATH" '.[$path][]'); do
                 echo "  Checking element $ELEM ..."
                 FOUND=$(echo "$HTML" | pup "[data-testid=\"$ELEM\"]" | wc -l)
