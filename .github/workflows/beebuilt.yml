@@ -151,25 +151,31 @@ jobs:
             fi
           done
 
-      - name: Validate JSON structure
+      - name: Validate routes & elements
         run: |
-          for file in $(find . -name "*.json"); do
-            echo "Checking $file..."
-            jq empty "$file" || exit 1
-          done
+          # Install pup (HTML parser)
+          sudo apt-get update
+          sudo apt-get install -y pup jq
 
-      - name: Check dev site
-        run: |
-          url="https://dev.example.com"
-          code=$(curl -s -o /dev/null -w "%{http_code}" $url)
-          if [ "$code" != "200" ]; then
-            echo "❌ Dev site $url failed"
-            curl -H "Content-Type: application/json" \
-              -X POST \
-              -d "{\"embeds\":[{\"title\":\"Dev site failed\",\"description\":\"$url returned $code\"}]}" \
-              ${{ secrets.DISCORD_WEBHOOK }}
-            exit 1
-          fi
+          # Read the JSON spec
+          SPEC=$(cat routes.test.json)
+
+          # Loop over paths
+          for PATH in $(echo "$SPEC" | jq -r 'keys[]'); do
+            echo "Checking $PATH ..."
+            # Request HTML
+            HTML=$(curl -s "http://localhost:3000$PATH")
+            
+            # Loop over expected elements
+            for ELEM in $(echo "$SPEC" | jq -r --arg path "$PATH" '.[$path][]'); do
+              echo "  Checking element $ELEM ..."
+              FOUND=$(echo "$HTML" | pup "[data-testid=\"$ELEM\"]" | wc -l)
+              if [ "$FOUND" -eq 0 ]; then
+                echo "❌ Element $ELEM not found at $PATH"
+                exit 1
+              fi
+            done
+          done
 
       - name: Take screenshots
         run: |
