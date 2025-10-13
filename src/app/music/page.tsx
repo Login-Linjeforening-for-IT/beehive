@@ -13,8 +13,8 @@ export default async function Music() {
     const text = (lang === 'no' ? no : en)
 
     const error = {
-        no: 'Vi opplever for tiden ustabilitet med Musikk APIet grunnet migrering av databasen for å kunne skalere bedre over tid. Problemene er forventet løst i løpet av kvelden.',
-        en: 'We are currently experiencing instability towards the Music API due to migration of the database to scale better over time. The incident is expected to be solved by midnight.'
+        no: 'Vi opplever for tiden ustabilitet med Musikk APIet grunnet migrering av databasen for å kunne skalere bedre over tid. Databasen er ferdig migrert, men dataen henger litt etter. Problemene er forventet å gå seg til gradvis.',
+        en: 'We are currently experiencing instability towards the Music API due to migration of the database to scale better over time. The migration is complete, but the data still partially follows the old schema. The problems are expected to gradually decay.'
     }
 
     return (
