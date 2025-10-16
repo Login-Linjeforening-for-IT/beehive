@@ -44,7 +44,7 @@ export async function getEvents(categories: string | null = null, limit = 20, of
 }
 
 export async function getEventCategoryFilters() {
-    const path = '/filters/events/categories'
+    const path = '/events/categories'
     return await _fetchWrapper(path)
 }
 
@@ -79,7 +79,9 @@ async function _fetchWrapper(path: string, options = {}) {
 
     try {
         const response = await fetch(`${baseUrl}${path}`, finalOptions)
-        const data = await response.json()
+        const data = await response.text()
+
+        console.log('API Response:', { path, status: response.status, data })
 
         if (!response.ok) {
             return null
