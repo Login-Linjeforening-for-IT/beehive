@@ -19,7 +19,7 @@ export default async function Music() {
 
     return (
         <div className='page-container'>
-            <div className='page-section--normal space-y-4'>
+            <div className='col-start-3 col-end-4 space-y-4'>
                 <div className='w-full bg-red-500 p-2 rounded-lg'>
                     <h1 className='flex gap-2 text-[var(--color-text-main)]'><MessageSquareWarning /> {lang === 'no' ? error.no : error.en}</h1>
                 </div>

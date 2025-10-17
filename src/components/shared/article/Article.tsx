@@ -21,12 +21,12 @@ export default async function Article({ title, publishTime, updateTime, informat
             <h1 className='article_header'>{title}</h1>
             <div className='article_meta-display'>
                 <span className='article_meta-date'>
-                    {lang === 'en' ? 'PUBLISHED: ' : 'PUBLISERT: '}
+                    {lang === 'en' ? 'Published: ' : 'Publisert: '}
                     {formatPublishedDate(publishTime, lang)}
                 </span>
                 {publishTime < updateTime &&
           <span className='article_meta-date'>
-              {lang === 'en' ? 'UPDATED: ' : 'OPPDATERT: '}
+              {lang === 'en' ? 'Updated: ' : 'Oppdatert: '}
               {formatPublishedDate(updateTime, lang)}
           </span>
                 }

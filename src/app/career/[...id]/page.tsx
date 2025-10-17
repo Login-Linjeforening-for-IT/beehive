@@ -200,7 +200,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
             {!jobad && (
                 <Alert
                     variant='danger'
-                    className='page-section--normal page-section--alert'
+                    className='col-start-3 col-end-4 page-section--alert'
                 >
                     {temp_empty}
                 </Alert>

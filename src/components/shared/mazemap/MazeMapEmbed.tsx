@@ -13,7 +13,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
     const defualtHeight = 320
     const [hasMounted, setHasMounted] = useState(false)
     useEffect(() => setHasMounted(true), [])
-    //import Mazemap dynamically to prevent ssr issues
+    // import Mazemap dynamically to prevent ssr issues
     // eslint-disable-next-line
     const [Mazemap, setMazemap] = useState<any[] | null>(null)
     // eslint-disable-next-line

@@ -63,9 +63,9 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
 
     return (
         <div className='page-container'>
-            <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>{text.title}</h1>
+            <h1 className='col-start-3 col-end-4 heading-1 heading-1--top-left-corner'>{text.title}</h1>
             {/* {loading && <Spinner width={50} height={50} />} */}
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <div className='1000px:grid 1000px:grid-cols-[20rem_auto] 1000px:gap-[3vw] 1000px:p-[2rem_0]'>
                     <div className='order-1'>
                         <FilterItem filterData={response} />
@@ -80,7 +80,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                             )) :
                                 <Alert
                                     variant='info'
-                                    className='page-section--normal page-section--alert'
+                                    className='col-start-3 col-end-4 page-section--alert'
                                 >
                                     {lang === 'no' ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?' : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'}
                                 </Alert>

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "../tailwind/glow.js";
 @config '../../tailwind.config.ts';
 
 @utility noscroll {
@@ -72,10 +72,6 @@
 .page-container {
 	display: grid;
 	grid-template-columns: 1fr 1rem minmax(0, var(--w-page)) 1rem 1fr;
-}
-
-.page-section--normal {
-	grid-column: 3;
 }
 
 .page-section--full-width {

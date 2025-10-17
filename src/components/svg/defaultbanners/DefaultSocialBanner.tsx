@@ -12,7 +12,7 @@ export default function DefaultSocialBanner({ color, transition = true, classNam
     }
 
     return (
-        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{background: gradient}}>
+        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{ background: gradient }}>
             <svg className='default-banner_svg' viewBox='0 0 500 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path fill={fillColor} fillRule='evenodd' clipRule='evenodd' d='M242.5 64.75C223.032 64.75 207.25 80.532 207.25 100C207.25 119.468 223.032 135.25 242.5 135.25C261.968 135.25 277.75 119.468 277.75 100C277.75 80.532 261.968 64.75 242.5 64.75ZM202.75 100C202.75 78.0467 220.547 60.25 242.5 60.25C264.453 60.25 282.25 78.0467 282.25 100C282.25 121.953 264.453 139.75 242.5 139.75C220.547 139.75 202.75 121.953 202.75 100Z' />
                 <path fill={fillColor} fillRule='evenodd' clipRule='evenodd' d='M240.25 62.5V47.5H244.75V62.5H240.25Z' />

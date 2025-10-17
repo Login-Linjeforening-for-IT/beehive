@@ -46,10 +46,10 @@ export default async function Page({searchParams}: PageProps) {
 
     return (
         <div className='page-container'>
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            <div className='hidden 1000px:flex justify-end pb-[1rem] page-section--normal'>
+            <div className='hidden 1000px:flex justify-end pb-[1rem] col-start-3 col-end-4'>
                 {/* @ts-ignore */}
                 <div className='justify-end'>
                     <GroupToggle

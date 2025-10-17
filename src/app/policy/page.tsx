@@ -9,7 +9,7 @@ export default async function Policy() {
 
     return (
         <div className='page-container'>
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <div className='max-w-[50rem] m-auto pb-[3rem] 800px:pb-[5rem]'>
                     <h1 className='heading-1 heading-1--top-left-corner'>{text.policy.title}</h1>
                     <section>

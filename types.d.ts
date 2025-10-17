@@ -186,7 +186,7 @@ type DetailedAdResponse = {
 
 type ColorTransitionClassNameProps = {
     color: string
-    transition: boolean
+    transition?: boolean
     className: string
 }
 

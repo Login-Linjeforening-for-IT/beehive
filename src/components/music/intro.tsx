@@ -10,7 +10,7 @@ export default function Intro({ text }: { text: MusicText }) {
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
                 <h1 className={`${comicNeue.className} text-right text-lg text-[var(--color-primary)] self-center`}>#LoginWrapped</h1>
             </div>
-            <section className='page-section--normal'>
+            <section className='col-start-3 col-end-4'>
                 <p className='p--highlighted'>{text.intro}</p>
             </section>
         </>

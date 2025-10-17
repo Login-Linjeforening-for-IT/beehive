@@ -21,6 +21,6 @@
         "canceled": "Arrangementet er avlyst",
         "notReady": "Påmeldingen er ikke klar, mer info kommer senere"
     },
-    "published" : "PUBLISERT",
-    "canceled": "AVLYST"
+    "published" : "Publisert",
+    "canceled": "Avlyst"
 }

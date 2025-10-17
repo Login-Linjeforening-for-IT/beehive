@@ -12,7 +12,7 @@ export default async function CompaniesPage() {
 
     return (
         <div className='page-container'>
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <h1 className='heading-1 heading-1--top-left-corner'>
                     {text.title}
                 </h1>

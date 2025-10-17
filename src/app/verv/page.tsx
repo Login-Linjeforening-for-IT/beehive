@@ -21,10 +21,10 @@ export default async function Verv() {
 
     return (
         <div className='verv-page page-container'>
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            <section className='mb-[2rem] 800px:mb-[5rem] verv-intro page-section--normal'>
+            <section className='mb-[2rem] 800px:mb-[5rem] verv-intro col-start-3 col-end-4'>
                 <p className='mt-0 p--highlighted'>
                     {text.intro}
                 </p>
@@ -36,12 +36,12 @@ export default async function Verv() {
                 {/* @ts-ignore */}
                 <ImageCarousel slides={slides} />
             </section>
-            <section className='verv-committees page-section--normal'>
+            <section className='verv-committees col-start-3 col-end-4'>
                 <h2 className='heading-2'>{text.committeeSection.title}</h2>
                 <p className='p--regular'>{text.committeeSection.intro}</p>
             </section>
             <VervTabs />
-            <section className='mb-[2rem] 800px:mb-[5rem] mt-[2rem] 400px:max-w-[50rem] mx-auto page-section--normal'>
+            <section className='mb-[2rem] 800px:mb-[5rem] mt-[2rem] 400px:max-w-[50rem] mx-auto col-start-3 col-end-4'>
                 <h2
                     className='heading-2'
                 >

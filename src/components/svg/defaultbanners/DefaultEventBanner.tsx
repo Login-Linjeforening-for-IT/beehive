@@ -14,11 +14,11 @@ export default function DefaultEventBanner({ color, transition = true, className
     }
 
     return (
-        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{background: gradient}}>
+        <div className={`default-banner ${transition ? 'default-banner--transition' : ''} ${className}`} style={{ background: gradient }}>
             <svg className='default-banner_svg' viewBox='0 0 500 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <rect width='500' height='200'/>
+                <rect width='500' height='200' />
                 <g clipPath='url(#clip0_328_310)'>
-                    <path fill={fillColor} d='M200 50H206.667V78.3333H200V50Z'/>
+                    <path fill={fillColor} d='M200 50H206.667V78.3333H200V50Z' />
                     <path fill={fillColor} d='M228.333 50V56.6667H200V50H228.333Z' />
                     <path fill={fillColor} d='M300 50V56.6667H271.667V50H300Z' />
                     <path fill={fillColor} d='M300 78.3333H293.333V50H300V78.3333Z' />
@@ -30,7 +30,7 @@ export default function DefaultEventBanner({ color, transition = true, className
                     <path fill={fillColor} d='M231.667 120H268.333V131.667H231.667V120Z' />
                 </g>
                 <clipPath id='clip0_328_310'>
-                    <rect width='100' height='100' fill='white' transform='translate(200 50)'/>
+                    <rect width='100' height='100' fill='white' transform='translate(200 50)' />
                 </clipPath>
             </svg>
         </div>

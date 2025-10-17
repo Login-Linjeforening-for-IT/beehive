@@ -13,10 +13,10 @@ export default async function About() {
 
     return (
         <div className='page-container'>
-            <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>
+            <h1 className='col-start-3 col-end-4 heading-1 heading-1--top-left-corner'>
                 {text.title}
             </h1>
-            <section className='page-section--normal 800px:mb-[5rem] about-intro'>
+            <section className='col-start-3 col-end-4 800px:mb-[5rem] about-intro'>
                 <p
                     className='mt-0 max-w-[50rem] p--highlighted'
                     dangerouslySetInnerHTML={{ __html: text.intro }}
@@ -34,7 +34,7 @@ export default async function About() {
                     />
                 </div>
             </section>
-            <section className='page-section--normal mb-[2rem] 800px:mb-[5rem]'>
+            <section className='col-start-3 col-end-4 mb-[2rem] 800px:mb-[5rem]'>
                 <h2 className='heading-2'>{text.about.title}</h2>
                 <div className='p--columns'>
                     <p
@@ -51,12 +51,12 @@ export default async function About() {
                     />
                 </div>
             </section>
-            <section className='page-section--normal about-committees'>
+            <section className='col-start-3 col-end-4 about-committees'>
                 <h2 className='heading-2'>{text.committeeSection.title}</h2>
                 <p className='p--regular'>{text.committeeSection.intro}</p>
             </section>
             <CommitteeTabs />
-            <section className='page-section--normal 800px:mb-[5rem]'>
+            <section className='col-start-3 col-end-4 800px:mb-[5rem]'>
                 <h2 className='heading-2'>{text.publicDocs.title}</h2>
                 <p
                     className='p--regular'
@@ -70,7 +70,7 @@ export default async function About() {
                     <li>{text.publicDocs.bulletPoints.bylaws}</li>
                 </ul>
             </section>
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <Contact />
             </div>
         </div>

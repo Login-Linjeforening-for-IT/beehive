@@ -1,10 +1,5 @@
 import DateTile from '@components/shared/datetile/DateTile'
 import Tags from '@components/shared/tags/Tags'
-import DefaultEventBanner from '@svg/defaultbanners/DefaultEventBanner'
-import DefaultCtfBanner from '@svg/defaultbanners/DefaultCtfBanner'
-import DefaultTekkomBanner from '@svg/defaultbanners/DefaultTekkomBanner'
-import DefaultBedpresBanner from '@svg/defaultbanners/DefaultBedpresBanner'
-import DefaultSocialBanner from '@svg/defaultbanners/DefaultSocialBanner'
 import config from '@config'
 import Link from 'next/link'
 import Pin from '@components/svg/symbols/Pin'
@@ -14,6 +9,7 @@ import { formatEventStartDate, isOngoing } from '@utils/DatetimeFormatter'
 import './EventItem.css'
 import Image from 'next/image'
 import { cookies } from 'next/headers'
+import getDefaultBanner from './getDefaultBanner'
 
 type EventListItemProps = {
     // eslint-disable-next-line
@@ -59,7 +55,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                     endDate={new Date(event.time_end)}
                                     color={event.category_color}
                                     opacity={0.5}
-                                    varient='overlay'
+                                    variant='overlay'
                                     useDayText={event.category_name_no === 'Fadderuka' ? true : false}
                                 />
                             </div>
@@ -125,24 +121,4 @@ export default async function EventListItem({ event, highlight = true, disableTa
             </div>
         </Link>
     )
-}
-
-function getDefaultBanner(category: string, color: string) {
-    switch (category) {
-        case 'Sosialt':
-            {/* @ts-ignore */}
-            return <DefaultSocialBanner color={color} className='event-item_img' />
-        case 'TekKom':
-            {/* @ts-ignore */}
-            return <DefaultTekkomBanner color={color} className='event-item_img' />
-        case 'CTF':
-            {/* @ts-ignore */}
-            return <DefaultCtfBanner color={color} className='event-item_img' />
-        case 'Bedpres':
-            {/* @ts-ignore */}
-            return <DefaultBedpresBanner color={color} className='event-item_img' />
-        default:
-            {/* @ts-ignore */}
-            return <DefaultEventBanner color={color} className='event-item_img' />
-    }
 }

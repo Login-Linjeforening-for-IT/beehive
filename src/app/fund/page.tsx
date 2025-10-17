@@ -21,10 +21,10 @@ export default async function Fund() {
 
     return (
         <div className='page-container'>
-            <div className='page-section--normal'>
+            <div className='col-start-3 col-end-4'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            <section className='page-section--normal mb-[2rem]'>
+            <section className='col-start-3 col-end-4 mb-[2rem]'>
                 <p className='p--highlighted'>{text.intro}</p>
             </section>
             <section className='page-section--without-gaps mb-[5rem] bg-[var(--color-bg-surface)] p-[1rem] 800px:p-[1rem_2rem_2rem_2rem] 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-[2rem] 1200px:rounded-[var(--border-radius-large)]'>
@@ -37,7 +37,7 @@ export default async function Fund() {
                 <h3 className='heading-4'>{text.support.heading3}</h3>
                 <p className='p--regular' dangerouslySetInnerHTML={{__html: text.support.body3}}/>
             </section>
-            <section className='page-section--normal mb-[5rem]'>
+            <section className='col-start-3 col-end-4 mb-[5rem]'>
                 <div className='fund-section_container 800px:grid 800px:grid-cols-2 800px:gap-[4rem]'>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>

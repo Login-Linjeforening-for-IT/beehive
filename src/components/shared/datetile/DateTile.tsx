@@ -6,12 +6,13 @@ import { createGradient, hexToRgba, isValidHex } from '@utils/ColorManipulation'
 import { getCookie } from '@utils/cookies'
 import { useEffect, useState } from 'react'
 import { language } from '../langtoggle/LangToggle'
+import getGlowStyle from '@utils/getGlowStyle'
 
 export default function DateTile({
     startDate,
     endDate,
     color,
-    varient = 'regular',
+    variant = 'regular',
     useDayText = false,
     // eslint-disable-next-line
 }: any) {
@@ -67,7 +68,7 @@ export default function DateTile({
     let background
 
     if (isValidHex(color)) {
-        if (varient === 'regular') {
+        if (variant === 'regular') {
             background = createGradient(color, 1)
         } else {
             background = hexToRgba(color, 0.75)
@@ -79,10 +80,10 @@ export default function DateTile({
     if (useDayText) {
         return (
             <div
-                className={`date-tile date-tile--${varient} ${
+                className={`date-tile date-tile--${variant} ${
                     sDate === eDate ? '' : 'date-tile--wide'
                 }`}
-                style={{ background: background }}
+                style={{ background, ...getGlowStyle(color) }}
             >
                 <div className='date-tile_date'>
                     <div className='date-tile_dayofweek'>
@@ -96,10 +97,10 @@ export default function DateTile({
     if (sMonth === eMonth) {
         return (
             <div
-                className={`date-tile date-tile--${varient} ${
+                className={`date-tile date-tile--${variant} ${
                     sDate === eDate ? '' : 'date-tile--wide'
                 }`}
-                style={{ background: background }}
+                style={{ background, ...getGlowStyle(color) }}
             >
                 <div className='date-tile_date'>
                     <div
@@ -117,8 +118,8 @@ export default function DateTile({
     } else {
         return (
             <div
-                className={`date-tile date-tile--wide date-tile--${varient}`}
-                style={{ background: background }}
+                className={`date-tile date-tile--wide date-tile--${variant}`}
+                style={{ background, ...getGlowStyle(color) }}
             >
                 <div className='date-tile_date'>
                     <div className='date-tile_day date-tile_day--wide'>{sDate}</div>

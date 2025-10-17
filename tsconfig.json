@@ -34,6 +34,6 @@
     },
     "forceConsistentCasingInFileNames": true,
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.js", "**/*.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.js", "**/*.jsx", "src/tailwind/glow.js"],
   "exclude": ["node_modules", "src/vendor"]
 }
