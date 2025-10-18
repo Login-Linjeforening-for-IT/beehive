@@ -262,7 +262,6 @@ async function EventBanner({event}: EventBannerProps) {
 
 
 function getDefaultBanner(category: string, color: string) {
-    console.log('Getting default banner for category:', category, color)
     switch (category) {
         case 'Sosialt':
             {/* @ts-ignore */}

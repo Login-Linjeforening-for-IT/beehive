@@ -16,32 +16,7 @@ import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Alert from '@components/shared/alert/Alert'
 import Wrench from '@components/svg/symbols/Wrench'
-
-const jobTypeTranslations = {
-    no: {
-        summer: 'Sommerjobb',
-        full_time: 'Fulltid',
-        verv: 'Verv',
-        part_time: 'Deltid'
-    },
-    en: {
-        summer: 'Sommer job',
-        full_time: 'Fulltime',
-        verv: 'Voluntary',
-        part_time: 'Parttime'
-    }
-}
-
-
-// eslint-disable-next-line
-function getJobTypeLabel(job_type: any, lang = 'no') {
-    // @ts-ignore
-    const labelNo = jobTypeTranslations['no'][job_type] || job_type
-    // @ts-ignore
-    const labelEn = jobTypeTranslations['en'][job_type] || labelNo
-
-    return lang === 'en' ? labelEn : labelNo
-}
+import DefaultJobBanner from '@components/svg/defaultbanners/DefaultJobBanner'
 
 function deadlineWarning(deadline: Date) {
     const now = new Date()
@@ -66,14 +41,18 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                 <div className={`jobad-page jobad-page--${jobad.banner_image ? 'banner' : 'noBanner'}`}>
                     <div className='jobad-details'>
                         <div className='flex flex-row flex-wrap gap-[1rem] mb-[2rem] 800px:flex-col'>
-                            <div className='jobad-details_image'>
-                                <Image
-                                    src={!jobad?.organization?.logo ? '/assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
-                                    alt={jobad.organization.logo ?? 'Organization logo'}
-                                    objectFit='cover'
-                                    width={300}
-                                    height={200}
-                                />
+                            <div className='aspect-[3/2]  jobad-details_image'>
+                                {jobad?.organization?.logo ? (
+                                    <Image
+                                        src={`${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
+                                        alt={jobad.organization.logo ?? 'Organization logo'}
+                                        objectFit='cover'
+                                        width={300}
+                                        height={200}
+                                    />
+                                ) : (
+                                    <DefaultJobBanner color='#545b5f' className='h-full w-full' transition={true} />
+                                )}
                             </div>
                             <div className='jobad-details_company-name'>
                                 {/* @ts-ignore */}
@@ -131,7 +110,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             </div>
                             <div className='jobad-details_value'>
                                 {/* @ts-ignore */}
-                                {getJobTypeLabel(jobad.job_type, lang)}
+                                {lang == 'en' ? jobad.job_type.name_en : jobad.job_type.name_no}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.cities && jobad.cities.length > 0 &&

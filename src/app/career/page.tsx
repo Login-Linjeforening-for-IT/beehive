@@ -118,8 +118,6 @@ async function getJobTypeFilters() {
             no: 'Type'
         }
 
-        console.log('jobTypeFilterData:', jobTypeFilterData)
-
         return prepFilter(jobTypeFilterData, 'jobtypes', label, 'id', getJobTypeLabel, 'total_count', 'check')
     } catch(error) {
         console.error('Error fetching job type filters:', error)

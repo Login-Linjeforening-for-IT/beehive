@@ -11,7 +11,7 @@ export default async function getActivity(): Promise<Music> {
         const data = await response.json()
         return data
     } catch (error) {
-        console.log(error)
+        console.error(error)
         return {
             stats: {
                 avg_seconds: 0,
