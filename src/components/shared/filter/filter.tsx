@@ -175,10 +175,10 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
             <div className='filter_title'>{ label[lang] }</div>
             <div className={`filter_items filter_items--${type}`}>
                 {/* @ts-ignore */}
-                {filter.sort((a, b) => b.count - a.count).map((filterItem) => {
+                {filter.sort((a, b) => b.count - a.count).map((filterItem, index) => {
                     return (
                         <FilterItem
-                            key={filterItem.id}
+                            key={`${filterItem.id}-${index}`}
                             filter={filterItem}
                             type={type}
                             showCount={showCount}

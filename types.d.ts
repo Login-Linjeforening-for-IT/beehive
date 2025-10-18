@@ -1,6 +1,5 @@
 declare global {
     type time_type = 'default' | 'no_end' | 'whole_day' | 'tbd'
-    type job_type = 'full' | 'part' | 'summer' | 'verv'
     type location_type = 'mazemap' | 'coords' | 'address' | 'digital'
     type embed_type = 'on' | 'off'
 
@@ -74,12 +73,11 @@ declare global {
         description_short_en: string
         description_long_no: string
         description_long_en: string
-        job_type: string
+        job_type: GetJobTypeProps
         time_publish: string
         time_expire: string
         banner_image: string | null
         application_url: string | null
-
     }
 
     type GetJobProps = Job & {
@@ -207,6 +205,15 @@ declare global {
         color: string
         created_at: string
         updated_at: string
+    }
+
+    // Job Type
+    type GetJobTypeProps = {
+        id: number
+        name_no: string
+        name_en: string
+        updated_at: string
+        created_at: string
     }
 
     // Categories

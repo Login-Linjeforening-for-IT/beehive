@@ -16,22 +16,6 @@ import './page.css'
 import { cookies } from 'next/headers'
 import FilterItem from '@components/shared/filter/filterItem'
 
-const jobTypeTranslations = {
-    no: {
-        summer: 'Sommerjobb',
-        full_time: 'Fulltid',
-        verv: 'Verv',
-        part_time: 'Deltid'
-    },
-    en: {
-        summer: 'Sommer job',
-        full_time: 'Fulltime',
-        verv: 'Voluntary',
-        part_time: 'Parttime'
-    }
-}
-
-
 export default async function Jobads({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
 
     const filters = (await searchParams)
@@ -61,8 +45,6 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
     const limit = 10
 
     const jobads = await getJobs(skills, cities, null, jobtypes, limit, 0)
-    console.log('Jobads fetched:', jobads)
-
     return (
         <div className='page-container'>
             <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>{text.title}</h1>
@@ -74,8 +56,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                     </div>
                     <div className='order-2'>
                         <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
-                            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                            {typeof jobads !== 'string' && Array.isArray(jobads.jobs) && jobads.jobs.length ? jobads.jobs.map((e: any, idx: number) => (
+                            {typeof jobads !== 'string' && Array.isArray(jobads.jobs) && jobads.jobs.length ? jobads.jobs.map((e: GetJobProps, idx: number) => (
                                 <li key={idx}>
                                     <JobadsListItem jobad={e} />
                                 </li>
@@ -120,13 +101,9 @@ function getLabelKey(key: string) {
 
 // eslint-disable-next-line
 function getJobTypeLabel(v: any) {
-    // @ts-ignore
-    const labelNo = jobTypeTranslations['no'][v['job_type']] || v['job_type']
-    // @ts-ignore
-    const labelEn = jobTypeTranslations['en'][v['job_type']] || labelNo
     return {
-        no: labelNo,
-        en: labelEn,
+        no: v.name_no,
+        en: v.name_en,
     }
 }
 
@@ -141,7 +118,9 @@ async function getJobTypeFilters() {
             no: 'Type'
         }
 
-        return prepFilter(jobTypeFilterData, 'jobtypes', label, 'job_type', getJobTypeLabel, 'count', 'check')
+        console.log('jobTypeFilterData:', jobTypeFilterData)
+
+        return prepFilter(jobTypeFilterData, 'jobtypes', label, 'id', getJobTypeLabel, 'total_count', 'check')
     } catch(error) {
         console.error('Error fetching job type filters:', error)
         return null
@@ -159,7 +138,7 @@ async function getCityFilters() {
             no: 'Byer'
         }
 
-        return prepFilter(jobCityFilterData, 'cities', label, 'city', getLabelKey('city'), 'count', 'tag')
+        return prepFilter(jobCityFilterData, 'cities', label, 'name', getLabelKey('name'), 'count', 'tag')
     } catch(error) {
         console.error('Error fetching city filters:', error)
         return null
@@ -177,7 +156,7 @@ async function getSkillFilters() {
             no: 'Ferdigheter'
         }
 
-        return prepFilter(jobSkillFilterData, 'skills', label, 'skill', getLabelKey('skill'), 'count', 'tag')
+        return prepFilter(jobSkillFilterData, 'skills', label, 'name', getLabelKey('name'), 'count', 'tag')
     } catch(error) {
         console.error('Error fetching skill filters:', error)
         return null

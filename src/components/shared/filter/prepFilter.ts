@@ -11,7 +11,7 @@ export default function prepFilter(data: any, id: string, label: any, idKey = 'i
             id: value[idKey],
             label: getLabel(value),
             // @ts-ignore
-            count: value[countKey],
+            count: value[countKey] || 1,
         }
     }
 

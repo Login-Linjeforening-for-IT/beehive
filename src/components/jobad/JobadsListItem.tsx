@@ -11,22 +11,6 @@ import HourglassBottom from '@components/svg/symbols/HourglassBottom'
 import './JobadsListItem.css'
 import { cookies } from 'next/headers'
 
-const jobTypeTranslations = {
-    no: {
-        summer: 'Sommerjobb',
-        full_time: 'Fulltid',
-        verv: 'Verv',
-        part_time: 'Deltid'
-    },
-    en: {
-        summer: 'Sommer job',
-        full_time: 'Fulltime',
-        verv: 'Voluntary',
-        part_time: 'Parttime'
-    }
-}
-
-// eslint-disable-next-line
 export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
 
@@ -80,10 +64,10 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
                                 <Apartment className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                 {lang === 'en' ? jobad.organization.name_en : jobad.organization.name_no}
                             </li>
-                            {jobad_type &&
+                            {jobad.job_type &&
                                 <li className='flex flex-row jobads-item_detail'>
                                     <WorkHistory className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
-                                    {getJobTypeLabel(jobad_type, lang)}
+                                    {lang === 'en' ? jobad.job_type.name_en : jobad.job_type.name_no}
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
@@ -100,25 +84,14 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
     )
 }
 
-// eslint-disable-next-line
-function getJobTypeLabel(job_type: any, lang = 'no') {
-    // @ts-ignore
-    const labelNo = jobTypeTranslations['no'][job_type] || job_type
-    // @ts-ignore
-    const labelEn = jobTypeTranslations['en'][job_type] || labelNo
-
-    return lang === 'en' && labelEn ? labelEn : labelNo
-}
-
-// eslint-disable-next-line
-function formatCities(cities: any[]) {
+function formatCities(cities: unknown[]) {
 
     const characterLimit = 30
     let counter = 0
     const arr = []
 
     for (let i = 0; i < cities.length; i++) {
-        counter += cities[i].length + 2
+        counter += (cities[i] as string).length + 2
 
         if (counter >= characterLimit) {
             return (
