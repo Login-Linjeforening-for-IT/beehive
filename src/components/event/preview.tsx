@@ -24,15 +24,15 @@ export default async function EventsPreview() {
                         </span>
                     </Link>
                 </div>
-                {Array.isArray(events) && events.length > 0 && (
+                {typeof events !== 'string' && Array.isArray(events.events) && events.events.length > 0 && (
                     <ul className='relative grid grid-flow-col list-none overflow-auto p-[0_1rem_1rem_1rem] snap-x snap-mandatory 400px:gap-[1rem] 800px:grid-cols-2 800px:grid-flow-row-dense 800px:gap-[2rem] 1000px:grid-cols-3 1000px:gap-[1rem] 1000px:p-0'>
                         {/* eslint-disable-next-line */}
-                        {events.map((e: any) => (
+                        {events.events.map((e: any) => (
                             <li key={e.id} className='snap-center w-[80vw] max-w-[22rem] min-w-[18rem] 800px:w-full 800px:max-w-[28rem] 1000px:m-[0_auto]'>
                                 <EventListItem event={e} variant='card' highlight={false} />
                             </li>
                         ))}
-                        {events.length > 2 && <EndCard path='/events' />}
+                        {events.events.length > 2 && <EndCard path='/events' />}
                     </ul>
                 )}
             </section>

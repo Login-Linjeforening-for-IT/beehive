@@ -20,17 +20,18 @@ import Wrench from '@components/svg/symbols/Wrench'
 const jobTypeTranslations = {
     no: {
         summer: 'Sommerjobb',
-        full: 'Fulltid',
+        full_time: 'Fulltid',
         verv: 'Verv',
-        part: 'Deltid'
+        part_time: 'Deltid'
     },
     en: {
         summer: 'Sommer job',
-        full: 'Fulltime',
+        full_time: 'Fulltime',
         verv: 'Voluntary',
-        part: 'Parttime'
+        part_time: 'Parttime'
     }
 }
+
 
 // eslint-disable-next-line
 function getJobTypeLabel(job_type: any, lang = 'no') {
@@ -62,13 +63,13 @@ export default async function JobadPage({ params }: PromisedPageProps) {
     return (
         <>
             {jobad && (
-                <div className={`jobad-page jobad-page--${jobad.job.banner_image ? 'banner' : 'noBanner'}`}>
+                <div className={`jobad-page jobad-page--${jobad.banner_image ? 'banner' : 'noBanner'}`}>
                     <div className='jobad-details'>
                         <div className='flex flex-row flex-wrap gap-[1rem] mb-[2rem] 800px:flex-col'>
                             <div className='jobad-details_image'>
                                 <Image
                                     src={!jobad?.organization?.logo ? '/assets/img/placeholders/jobad.svg' : `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
-                                    alt={jobad.organization.logo}
+                                    alt={jobad.organization.logo ?? 'Organization logo'}
                                     objectFit='cover'
                                     width={300}
                                     height={200}
@@ -103,16 +104,16 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             <div className='jobad-details_value'>
                                 {formatDeadlineDate(
                                     // @ts-ignore
-                                    new Date(jobad.job.application_deadline),
+                                    new Date(jobad.time_expire),
                                     lang
                                 )}
                                 {/* @ts-ignore */}
-                                {deadlineWarning(new Date(jobad.job.application_deadline)) && (
+                                {deadlineWarning(new Date(jobad.time_expire)) && (
                                     <Acute className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--warning'/>
                                 )}
                             </div>
                             {/* @ts-ignore */}
-                            {jobad.job.position_title_no &&
+                            {jobad.position_title_no &&
                                 <>
                                     <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
                                         <Badge className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color'/>
@@ -120,7 +121,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
-                                        {lang == 'en' && jobad.job.position_title_en ? jobad.job.position_title_en : jobad.job.position_title_no}
+                                        {lang == 'en' && jobad.position_title_en ? jobad.position_title_en : jobad.position_title_no}
                                     </div>
                                 </>
                             }
@@ -130,27 +131,27 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             </div>
                             <div className='jobad-details_value'>
                                 {/* @ts-ignore */}
-                                {getJobTypeLabel(jobad.job.job_type, lang)}
+                                {getJobTypeLabel(jobad.job_type, lang)}
                             </div>
                             {/* @ts-ignore */}
-                            {jobad.job.cities && jobad.job.cities.length > 0 &&
+                            {jobad.cities && jobad.cities.length > 0 &&
                                 <>
                                     <div className='flex-row items-center text-[var(--color-text-discreet)] inline-flex items-start'>
                                         <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color' />
                                         {/* @ts-ignore */}
-                                        {jobad.job.cities.length > 1
+                                        {jobad.cities.length > 1
                                             ? text.details.locations
                                             : text.details.location}
                                         :
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
-                                        {jobad.job.cities.join(', ')}
+                                        {jobad.cities.join(', ')}
                                     </div>
                                 </>
                             }
                             {/* @ts-ignore */}
-                            {jobad.job.skills && jobad.job.skills.length > 0 &&
+                            {jobad.skills && jobad.skills.length > 0 &&
                                 <>
                                     <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
                                         <Wrench className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color' />
@@ -158,41 +159,41 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
-                                        {jobad.job.skills.join(', ')}
+                                        {jobad.skills.join(', ')}
                                     </div>
                                 </>
                             }
                         </div>
                         {/* @ts-ignore */}
-                        {jobad.job.application_url && (
+                        {jobad.application_url && (
                             // @ts-ignore
                             <Button
                                 trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>}
                                 // @ts-ignore
-                                href={jobad.job.application_url}
+                                href={jobad.application_url}
                                 className='jobad-details_apply-btn w-full 400px:w-fit'
                             >
                                 {text.details.applyButton}
                             </Button>
                         )}
                     </div>
-                    {jobad.job.banner_image &&
+                    {jobad.banner_image &&
                             <div className='relative w-full aspect-[10/4] jobad-banner'>
                                 <Image
-                                    src={`${config.url.CDN_URL}/img/ads/${jobad.job.banner_image}`}
-                                    alt={jobad.job.banner_image}
+                                    src={`${config.url.CDN_URL}/img/ads/${jobad.banner_image}`}
+                                    alt={jobad.banner_image}
                                     fill={true}
                                 />
                             </div>
                     }
                     <div className='jobad-description'>
                         <Article
-                            title={lang == 'en' && jobad.job.title_en ? jobad.job.title_en : jobad.job.title_no}
-                            publishTime={new Date(jobad.job.time_publish)}
-                            updateTime={new Date(jobad.job.updated_at)}
+                            title={lang == 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}
+                            publishTime={new Date(jobad.time_publish)}
+                            updateTime={new Date(jobad.updated_at)}
                             informational={false}
-                            introduction={lang == 'en' && jobad.job.description_short_en ? jobad.job.description_short_en : jobad.job.description_short_no}
-                            description={lang == 'en' && jobad.job.description_long_en ? jobad.job.description_long_en : jobad.job.description_long_no}
+                            introduction={lang == 'en' && jobad.description_short_en ? jobad.description_short_en : jobad.description_short_no}
+                            description={lang == 'en' && jobad.description_long_en ? jobad.description_long_en : jobad.description_long_no}
                         />
                     </div>
                 </div>

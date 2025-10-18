@@ -19,17 +19,18 @@ import FilterItem from '@components/shared/filter/filterItem'
 const jobTypeTranslations = {
     no: {
         summer: 'Sommerjobb',
-        full: 'Fulltid',
+        full_time: 'Fulltid',
         verv: 'Verv',
-        part: 'Deltid'
+        part_time: 'Deltid'
     },
     en: {
         summer: 'Sommer job',
-        full: 'Fulltime',
+        full_time: 'Fulltime',
         verv: 'Voluntary',
-        part: 'Parttime'
+        part_time: 'Parttime'
     }
 }
+
 
 export default async function Jobads({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
 
@@ -60,6 +61,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
     const limit = 10
 
     const jobads = await getJobs(skills, cities, null, jobtypes, limit, 0)
+    console.log('Jobads fetched:', jobads)
 
     return (
         <div className='page-container'>
@@ -73,7 +75,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                     <div className='order-2'>
                         <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
                             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                            {Array.isArray(jobads) && jobads.length ? jobads.map((e: any, idx: number) => (
+                            {typeof jobads !== 'string' && Array.isArray(jobads.jobs) && jobads.jobs.length ? jobads.jobs.map((e: any, idx: number) => (
                                 <li key={idx}>
                                     <JobadsListItem jobad={e} />
                                 </li>

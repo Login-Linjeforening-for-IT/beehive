@@ -27,7 +27,6 @@ export default function DateTile({
         const temp = getCookie('lang')
         setLang( temp || 'no')
     }, [language])
-
     const months = {
         en: [
             'Jan',
@@ -44,18 +43,18 @@ export default function DateTile({
             'Dec',
         ],
         no: [
-            'jan',
-            'feb',
-            'mar',
-            'apr',
-            'mai',
-            'jun',
-            'jul',
-            'aug',
-            'sep',
-            'okt',
-            'nov',
-            'des',
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'Mai',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Okt',
+            'Nov',
+            'Des',
         ],
     }
 

@@ -14,20 +14,20 @@ import { cookies } from 'next/headers'
 const jobTypeTranslations = {
     no: {
         summer: 'Sommerjobb',
-        full: 'Fulltid',
+        full_time: 'Fulltid',
         verv: 'Verv',
-        part: 'Deltid'
+        part_time: 'Deltid'
     },
     en: {
         summer: 'Sommer job',
-        full: 'Fulltime',
+        full_time: 'Fulltime',
         verv: 'Voluntary',
-        part: 'Parttime'
+        part_time: 'Parttime'
     }
 }
 
 // eslint-disable-next-line
-export default async function JobadsListItem({ jobad }: any) {
+export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
 
     // eslint-disable-next-line
@@ -53,11 +53,11 @@ export default async function JobadsListItem({ jobad }: any) {
             </div>
                     }
                     <div className='relative h-full aspect-[3/2] 400px:h-[4.5rem] 600px:h-[7rem] 800px:h-[8rem] jobads-item_picture'>
-                        {jobad.organization_logo ? (
+                        {jobad.organization.logo ? (
                             <Image
                                 className='jobads-item_img'
-                                src={`${config.url.CDN_URL}/img/organizations/${jobad.organization_logo}`}
-                                alt={jobad.organization_logo}
+                                src={`${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
+                                alt={jobad.organization.logo}
                                 fill={true}
                             />
                         ) : (
@@ -74,16 +74,16 @@ export default async function JobadsListItem({ jobad }: any) {
                         <ul className='jobads-item_details'>
                             <li className='flex flex-row jobads-item_detail'>
                                 <HourglassBottom className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
-                                {formatDeadlineDate(new Date(jobad.application_deadline), lang)}
+                                {formatDeadlineDate(new Date(jobad.time_expire), lang)}
                             </li>
                             <li className='flex flex-row jobads-item_detail'>
                                 <Apartment className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
-                                {lang === 'en' && jobad.organization_name_en ? jobad.organization_name_en : jobad.organization_name_no}
+                                {lang === 'en' ? jobad.organization.name_en : jobad.organization.name_no}
                             </li>
-                            {jobad.job_type &&
+                            {jobad_type &&
                                 <li className='flex flex-row jobads-item_detail'>
                                     <WorkHistory className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
-                                    {getJobTypeLabel(jobad.job_type, lang)}
+                                    {getJobTypeLabel(jobad_type, lang)}
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&

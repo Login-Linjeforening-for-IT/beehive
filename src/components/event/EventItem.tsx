@@ -16,8 +16,7 @@ import Image from 'next/image'
 import { cookies } from 'next/headers'
 
 type EventListItemProps = {
-    // eslint-disable-next-line
-    event: any
+    event: GetEventProps
     highlight: boolean
     disableTags?: boolean
     variant: string
@@ -37,8 +36,8 @@ export default async function EventListItem({ event, highlight = true, disableTa
         return false
     }
 
-    const startDate = new Date(event.startDate)
-    const endDate = new Date(event.endDate)
+    const startDate = new Date(event.time_start)
+    const endDate = new Date(event.time_end)
 
     return (
         <Link href={`/events/${event.id}`}>
@@ -48,8 +47,8 @@ export default async function EventListItem({ event, highlight = true, disableTa
                         <DateTile
                             startDate={new Date(event.time_start)}
                             endDate={new Date(event.time_end)}
-                            color={event.category_color}
-                            day={event.category_name_no === 'Fadderuka' ? true : false}
+                            color={event.category.color}
+                            day={event.category.name_no.toLowerCase() === 'fadderuka' ? true : false}
                         />
                     ) : (
                         <div className='relative event-item_picture'>
@@ -57,10 +56,10 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                 <DateTile
                                     startDate={new Date(event.time_start)}
                                     endDate={new Date(event.time_end)}
-                                    color={event.category_color}
+                                    color={event.category.color}
                                     opacity={0.5}
                                     varient='overlay'
-                                    useDayText={event.category_name_no === 'Fadderuka' ? true : false}
+                                    useDayText={event.category.name_no.toLowerCase() === 'fadderuka' ? true : false}
                                 />
                             </div>
                             {event.image_small ? (
@@ -71,7 +70,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                     className='object-cover'
                                 />
                             ) : (
-                                getDefaultBanner(event.category_name_no, event.category_color)
+                                getDefaultBanner(event.category.name_no, event.category.color)
                             )}
                         </div>
                     )}
@@ -88,20 +87,20 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                     }
                                 </li>
                             }
-                            {event.location_name_no && (
+                            {event.location && (
                                 <li className='flex text-[0.9rem]'>
                                     <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)] event-item_icon' />
-                                    {lang && event.location_name_en ? event.location_name_en : event.location_name_no}
+                                    {lang === 'en' ? event.location.name_en : event.location.name_no}
                                 </li>
                             )}
                         </ul>
-                        {useTags(event.time_publish, event.highlight, event.canceled, event.full, isOngoing(startDate, endDate)) &&
+                        {useTags(event.time_publish, event.highlight, event.canceled, event.is_full, isOngoing(startDate, endDate)) &&
                             <div className='event-item_tags'>
                                 <Tags
                                     highlight={event.highlight}
                                     timePublish={new Date(event.time_publish)}
                                     canceled={event.canceled}
-                                    full={event.full}
+                                    full={event.is_full}
                                     ongoing={isOngoing(startDate, endDate)}
                                 />
                             </div>
@@ -117,7 +116,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                                     className='object-cover'
                                 />
                             ) : (
-                                getDefaultBanner(event.category_name_no, event.category_color)
+                                getDefaultBanner(event.category.name_no, event.category.color)
                             )}
                         </div>
                     }
@@ -128,17 +127,21 @@ export default async function EventListItem({ event, highlight = true, disableTa
 }
 
 function getDefaultBanner(category: string, color: string) {
+    console.log('Getting default banner for category:', category, color)
     switch (category) {
         case 'Sosialt':
+            {/* @ts-ignore */}
+            return <DefaultSocialBanner color={color} className='event-item_img' />
+        case 'EvntKom':
             {/* @ts-ignore */}
             return <DefaultSocialBanner color={color} className='event-item_img' />
         case 'TekKom':
             {/* @ts-ignore */}
             return <DefaultTekkomBanner color={color} className='event-item_img' />
-        case 'CTF':
+        case 'CTFKom':
             {/* @ts-ignore */}
             return <DefaultCtfBanner color={color} className='event-item_img' />
-        case 'Bedpres':
+        case 'BedKom':
             {/* @ts-ignore */}
             return <DefaultBedpresBanner color={color} className='event-item_img' />
         default:

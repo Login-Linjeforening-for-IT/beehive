@@ -27,8 +27,8 @@ export default async function Page({searchParams}: PageProps) {
     const text = lang === 'no' ? no : en
 
     const limit = 20
-    const temp_events = await getEvents(filtersParams, limit, 0)
-    const events = (Array.isArray(temp_events) ? temp_events : []).filter((event: EventProps) => {
+    const eventsResponse = await getEvents(filtersParams, limit, 0)
+    const events = (typeof eventsResponse === 'string' ? [] : (Array.isArray(eventsResponse.events) ? eventsResponse.events : [])).filter((event: GetEventProps) => {
         const start = new Date(event.time_end).getTime()
         const now = new Date().getTime()
         return start - now > 0
@@ -263,7 +263,7 @@ async function getCategoryFilters() {
     }
 }
 
-function groupEvents(eventsArray: EventProps[]) {
+function groupEvents(eventsArray: GetEventProps[]) {
     // Get the current date
     const currentDate = new Date()
 
@@ -283,9 +283,9 @@ function groupEvents(eventsArray: EventProps[]) {
     startOfWeekAfterNextWeek.setDate(startOfWeek.getDate() + 14)
 
     // group the dates
-    const currentWeekEvents: EventProps[] = []
-    const nextWeekEvents: EventProps[] = []
-    const futureEvents: EventProps[] = []
+    const currentWeekEvents: GetEventProps[] = []
+    const nextWeekEvents: GetEventProps[] = []
+    const futureEvents: GetEventProps[] = []
 
     eventsArray.forEach((event) => {
         const eventDate = new Date(event.time_start)

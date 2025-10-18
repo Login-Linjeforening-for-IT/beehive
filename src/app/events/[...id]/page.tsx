@@ -28,13 +28,9 @@ import './page.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-type InnerEventProps = {
-    event: EventProps
-}
-
 type EventBannerProps = {
     // eslint-disable-next-line
-    event: any
+    event: GetEventProps
 }
 
 export default async function EventPage({ params }: PromisedPageProps) {
@@ -48,7 +44,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
 
     return (
         <>
-            {event && <Event event={event} />}
+            {typeof event !== 'string'  && <Event event={event} />}
             {!event && (
                 <Alert
                     variant='danger'
@@ -61,7 +57,7 @@ export default async function EventPage({ params }: PromisedPageProps) {
     )
 }
 
-async function Event({event}: InnerEventProps) {
+async function Event({event}: {event: GetEventProps}) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
@@ -71,9 +67,9 @@ async function Event({event}: InnerEventProps) {
                 <div className='event-datetime-display'>
                     <DateTile
                         // @ts-ignore
-                        startDate={new Date(event.event.time_start)}
+                        startDate={new Date(event.time_start)}
                         // @ts-ignore
-                        endDate={new Date(event.event.time_end)}
+                        endDate={new Date(event.time_end)}
                         // @ts-ignore
                         color={event.category.color}
                     />
@@ -81,29 +77,29 @@ async function Event({event}: InnerEventProps) {
                         <div className='event-datetime-display_day'>
                             {isOngoing(
                                 // @ts-ignore
-                                new Date(event.event.time_start),
+                                new Date(event.time_start),
                                 // @ts-ignore
-                                new Date(event.event.time_end)
+                                new Date(event.time_end)
                             ) &&
                                 // @ts-ignore
                                 <span className='event-datetime-display_live-dot' />
                             }
                             {formatEventStatusDate(
                                 // @ts-ignore
-                                new Date(event.event.time_start),
+                                new Date(event.time_start),
                                 // @ts-ignore
-                                new Date(event.event.time_end),
+                                new Date(event.time_end),
                                 lang
                             )}
                         </div>
                         {/* @ts-ignore */}
-                        {event.event.time_type !== 'whole_day' &&
+                        {event.time_type !== 'whole_day' &&
                             <div className='flex flex-row items-center event-datetime-display_time'>
                                 <Schedule className='w-[1.8rem] h-[1.8rem] fill-[var(--color-text-main)] event-datetime-display_time-icon'/>
                                 {/* @ts-ignore */}
-                                {event.event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.event.time_start))}
+                                {event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.time_start))}
                                 {/* @ts-ignore */}
-                                {event.event.time_type === 'default' && ` - ${formatTimeHHMM(new Date(event.event.time_end))}`}
+                                {event.time_type === 'default' && ` - ${formatTimeHHMM(new Date(event.time_end))}`}
                             </div>
                         }
                     </div>
@@ -140,11 +136,11 @@ async function Event({event}: InnerEventProps) {
                     {/* @ts-ignore */}
                     {event.organizations?.length > 0 && (
                         <>
-                            <div className='event-details_lable'>
+                            <div className='flex flex-row items-center event-details_lable'>
                                 <Person className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                                 {text.info.organizer}:
                             </div>
-                            <div className='event-details_info'>
+                            <div className='flex flex-row items-center event-details_info'>
                                 {/* @ts-ignore */}
                                 {renderOrganizations(event.organizations)}
                             </div>
@@ -152,48 +148,48 @@ async function Event({event}: InnerEventProps) {
                     )}
 
                     {/* @ts-ignore */}
-                    {event.event.link_stream && (
+                    {event.link_stream && (
                         <>
-                            <div className='event-details_lable'>
+                            <div className='flex flex-row items-center event-details_lable'>
                                 <LiveTv className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                                 {text.info.stream}:
                             </div>
-                            <div className='event-details_info'>
+                            <div className='flex flex-row items-center event-details_info'>
                                 {/* @ts-ignore */}
-                                {link(event.event.link_stream, getURLAddress(event.event.link_stream))}
+                                {link(event.link_stream, getURLAddress(event.link_stream))}
                             </div>
                         </>
                     )}
 
                     {/* @ts-ignore */}
-                    {(event.event.link_discord || event.event.link_facebook) && (
+                    {(event.link_discord || event.link_facebook) && (
                         <>
-                            <div className='event-details_lable'>
+                            <div className='flex flex-row items-center event-details_lable'>
                                 <SVGLink className='fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color'/>
                                 {text.info.links}:
                             </div>
-                            <div className='event-details_info'>
+                            <div className='flex flex-row items-center event-details_info'>
                                 {/* @ts-ignore */}
-                                {event.event.link_discord && <>{link(event.event.link_discord, 'Discord')}<br/></>}
+                                {event.link_discord && <>{link(event.link_discord, 'Discord')}<br/></>}
                                 {/* @ts-ignore */}
-                                {event.event.link_facebook && link(event.event.link_facebook, 'Facebook')}
+                                {event.link_facebook && link(event.link_facebook, 'Facebook')}
                             </div>
                         </>
                     )}
                 </div>
                 <EventSignUp
                     // @ts-ignore
-                    cap={event.event.capacity}
+                    cap={event.capacity}
                     // @ts-ignore
-                    url={event.event.link_signup}
+                    url={event.link_signup}
                     // @ts-ignore
-                    full={event.event.full}
+                    full={event.full}
                     // @ts-ignore
-                    canceled={event.event.canceled}
+                    canceled={event.canceled}
                     // @ts-ignore
-                    signupRelease={new Date(event.event.time_signup_release)}
+                    signupRelease={new Date(event.time_signup_release)}
                     // @ts-ignore
-                    signupDeadline={new Date(event.event.time_signup_deadline)}
+                    signupDeadline={new Date(event.time_signup_deadline)}
                 />
             </div>
             <div className='event-banner'>
@@ -202,15 +198,15 @@ async function Event({event}: InnerEventProps) {
             <div className='event-description'>
                 <Article
                     // @ts-ignore
-                    title={(event.event.canceled ? `❌ (${text.canceled})` : '') + lang === 'en' ? event.event.name_en : event.event.name_no}
+                    title={(event.canceled ? `❌ (${text.canceled})` : '') + lang === 'en' ? event.name_en : event.name_no}
                     // @ts-ignore
-                    publishTime={new Date(event.event.time_publish)}
+                    publishTime={new Date(event.time_publish)}
                     // @ts-ignore
-                    updateTime={new Date(event.event.updated_at)}
+                    updateTime={new Date(event.updated_at)}
                     // @ts-ignore
-                    informational={lang === 'en' ? event.event.informational_en : event.event.informational_no}
+                    informational={lang === 'en' ? event.informational_en : event.informational_no}
                     // @ts-ignore
-                    description={lang === 'en' ? event.event.description_en : event.event.description_no}
+                    description={lang === 'en' ? event.description_en : event.description_no}
                 />
                 {/* @ts-ignore */}
                 {event.rule && (
@@ -245,7 +241,7 @@ async function Event({event}: InnerEventProps) {
 
 async function EventBanner({event}: EventBannerProps) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
-    const banner_url = `${config.url.CDN_URL}/img/events/banner/${event?.event?.image_banner}`
+    const banner_url = `${config.url.CDN_URL}/img/events/banner/${event.image_banner}`
     if (!event || !((await fetch(banner_url)).status === 200)) {
         // @ts-ignore
         return getDefaultBanner(event?.category?.name_no, event?.category?.color)
@@ -254,8 +250,8 @@ async function EventBanner({event}: EventBannerProps) {
     return (
         <>
             <Image
-                src={`${config.url.CDN_URL}/img/events/banner/${event?.event?.image_banner}`}
-                alt={lang === 'no' ? event?.event.name_no : event.event.name_en}
+                src={`${config.url.CDN_URL}/img/events/banner/${event.image_banner}`}
+                alt={lang === 'no' ? event.name_no : event.name_en}
                 width={1000}
                 height={400}
                 className='w-full rounded-var[(--border-radius)]'
@@ -266,24 +262,29 @@ async function EventBanner({event}: EventBannerProps) {
 
 
 function getDefaultBanner(category: string, color: string) {
+    console.log('Getting default banner for category:', category, color)
     switch (category) {
         case 'Sosialt':
-        // @ts-ignore
-            return <DefaultSocialBanner color={color} className='event-banner_image' />
+            {/* @ts-ignore */}
+            return <DefaultSocialBanner color={color} className='event-item_img' />
+        case 'EvntKom':
+            {/* @ts-ignore */}
+            return <DefaultSocialBanner color={color} className='event-item_img' />
         case 'TekKom':
-        // @ts-ignore
-            return <DefaultTekkomBanner color={color} className='event-banner_image' />
-        case 'CTF':
-        // @ts-ignore
-            return <DefaultCtfBanner color={color} className='event-banner_image' />
-        case 'Bedpres':
-        // @ts-ignore
-            return <DefaultBedpresBanner color={color} className='event-banner_image' />
+            {/* @ts-ignore */}
+            return <DefaultTekkomBanner color={color} className='event-item_img' />
+        case 'CTFKom':
+            {/* @ts-ignore */}
+            return <DefaultCtfBanner color={color} className='event-item_img' />
+        case 'BedKom':
+            {/* @ts-ignore */}
+            return <DefaultBedpresBanner color={color} className='event-item_img' />
         default:
-        // @ts-ignore
-            return <DefaultEventBanner color={color} className='event-banner_image' />
+            {/* @ts-ignore */}
+            return <DefaultEventBanner color={color} className='event-item_img' />
     }
 }
+
 
 function getURLAddress(url: string) {
     try {
@@ -302,7 +303,7 @@ function renderOrganizations(organizations: any[]) {
 function link(href: string, name: string) {
     return (
         <Link
-            className='link link--primary link--underscore-hover'
+            className='flex flex-row items-center link link--primary link--underscore-hover'
             href={href}
             target='_blank'
             rel='noreferrer'
