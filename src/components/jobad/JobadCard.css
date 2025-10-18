@@ -27,7 +27,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: .15rem solid var(--color-border-default);
 }
 
 .jobad-card_img {

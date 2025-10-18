@@ -10,6 +10,7 @@ import Apartment from '@components/svg/symbols/Apartment'
 import HourglassBottom from '@components/svg/symbols/HourglassBottom'
 import './JobadsListItem.css'
 import { cookies } from 'next/headers'
+import DefaultJobBanner from '@components/svg/defaultbanners/DefaultJobBanner'
 
 export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
@@ -45,12 +46,7 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
                                 fill={true}
                             />
                         ) : (
-                            <Image
-                                className='jobads-item_img'
-                                alt={'fallback image'}
-                                src='/assets/img/placeholders/jobad.svg'
-                                fill={true}
-                            />
+                            <DefaultJobBanner color={'#545b5f'} className='jobads-item_img' transition={false} />
                         )}
                     </div>
                     <div className='jobads-item_info'>

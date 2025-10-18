@@ -7,6 +7,7 @@ import { formatDeadlineDate } from '@utils/DatetimeFormatter'
 import { cookies } from 'next/headers'
 import './JobadCard.css'
 import Pin from '@components/svg/symbols/Pin'
+import DefaultJobBanner from '@components/svg/defaultbanners/DefaultJobBanner'
 
 // eslint-disable-next-line
 export default async function JobadCard({ jobad, highlight = true, disableTags = false }: any) {
@@ -24,12 +25,7 @@ export default async function JobadCard({ jobad, highlight = true, disableTags =
                                 className='object-contain jobad-card_img'
                             />
                         ) : (
-                            <Image
-                                src={'/assets/img/placeholders/jobad.svg'}
-                                alt={'Jobad placeholder'}
-                                fill={true}
-                                className='object-contain jobad-card_img'
-                            />
+                            <DefaultJobBanner color={'#545b5f'} className='jobad-card_img' transition={false} />
                         )}
                     </div>
                     <div className='jobad-card_info'>
@@ -37,7 +33,7 @@ export default async function JobadCard({ jobad, highlight = true, disableTags =
                         <ul className='jobad-card_details'>
                             <li className='flex jobad-card_detail'>
                                 <HourglassBottom className='jobad-card_icon w-6 fill-[var(--color-text-regular)]'/>
-                                {formatDeadlineDate(new Date(jobad.application_deadline), lang)}
+                                {formatDeadlineDate(new Date(jobad.time_expire), lang)}
                             </li>
                             {jobad.location && (
                                 <li className='flex jobad-card_detail'>
