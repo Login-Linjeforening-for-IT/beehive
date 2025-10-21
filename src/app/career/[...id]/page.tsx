@@ -41,14 +41,14 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                 <div className={`jobad-page jobad-page--${jobad.banner_image ? 'banner' : 'noBanner'}`}>
                     <div className='jobad-details'>
                         <div className='flex flex-row flex-wrap gap-[1rem] mb-[2rem] 800px:flex-col'>
-                            <div className='aspect-[3/2]  jobad-details_image'>
+                            <div className='jobad-details_image relative'>
                                 {jobad?.organization?.logo ? (
                                     <Image
                                         src={`${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
                                         alt={jobad.organization.logo ?? 'Organization logo'}
-                                        objectFit='cover'
-                                        width={300}
-                                        height={200}
+                                        fill
+                                        objectFit='contain'
+                                        objectPosition='top'
                                     />
                                 ) : (
                                     <DefaultJobBanner color='#545b5f' className='h-full w-full' transition={true} />
@@ -159,7 +159,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                     {jobad.banner_image &&
                             <div className='relative w-full aspect-[10/4] jobad-banner'>
                                 <Image
-                                    src={`${config.url.CDN_URL}/img/ads/${jobad.banner_image}`}
+                                    src={`${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
                                     alt={jobad.banner_image}
                                     fill={true}
                                 />

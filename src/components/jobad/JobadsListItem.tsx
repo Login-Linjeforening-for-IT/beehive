@@ -27,17 +27,17 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
             <div className={jobad.highlight ? 'jobads-item jobads-item--highlight' : 'jobads-item' }>
                 <div className={useTags(jobad.time_publish, jobad.highlight) ? 'jobads-item_wrapper jobads-item_wrapper--with-tags' : 'jobads-item_wrapper' }>
                     {useTags(jobad.time_publish, jobad.highlight) &&
-            <div className='jobads-item_tags'>
-                <Tags
-                    highlight={jobad.highlight}
-                    timePublish={new Date(jobad.time_publish)}
-                    canceled={false}
-                    full={false}
-                    ongoing={false}
-                />
-            </div>
+                        <div className='jobads-item_tags'>
+                            <Tags
+                                highlight={jobad.highlight}
+                                timePublish={new Date(jobad.time_publish)}
+                                canceled={false}
+                                full={false}
+                                ongoing={false}
+                            />
+                        </div>
                     }
-                    <div className='relative h-full aspect-[3/2] 400px:h-[4.5rem] 600px:h-[7rem] 800px:h-[8rem] jobads-item_picture'>
+                    <div className='relative aspect-[5/2] w-[12.5rem] h-[5rem] jobads-item_picture'>
                         {jobad.organization.logo ? (
                             <Image
                                 className='jobads-item_img'

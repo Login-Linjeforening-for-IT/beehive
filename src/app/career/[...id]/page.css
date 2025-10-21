@@ -43,7 +43,9 @@
 
 .jobad-details_image {
     display: block;
-    width: 7.5rem;
+    width: 10rem;
+    height: auto;
+    aspect-ratio: 5 / 2;
     border-radius: var(--border-radius);
     overflow: hidden;
 }
@@ -119,7 +121,9 @@
     }
 
     .jobad-details_image {
-        width: 10rem;
+        width: 12rem;
+        height: auto;
+        aspect-ratio: 5 / 2;
     }
 
     .jobad-details_apply-btn {
@@ -186,7 +190,9 @@
     }
 
     .jobad-details_image {
-        width: 12rem;
+        width: 14rem;
+        height: auto;
+        aspect-ratio: 5 / 2;
     }
 
     .jobad-details_apply-btn {
