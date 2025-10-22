@@ -40,7 +40,7 @@ export default async function EventSignUp({
         msg = text.signup.canceled
         showBtn = false
         warning = true
-    } else if (url === '') {
+    } else if (url === '' || url === null || url === undefined) {
         reqSignup = false
         showBtn = false
         msg = text.signup.none

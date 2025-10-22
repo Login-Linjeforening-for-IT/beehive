@@ -9,20 +9,25 @@ import './JobadCard.css'
 import Pin from '@components/svg/symbols/Pin'
 import DefaultJobBanner from '@components/svg/defaultbanners/DefaultJobBanner'
 
-// eslint-disable-next-line
-export default async function JobadCard({ jobad, highlight = true, disableTags = false }: any) {
+type JobadCardProps = {
+    jobad: GetJobProps
+    highlight?: boolean
+    disableTags?: boolean
+}
+
+export default async function JobadCard({ jobad, highlight = true, disableTags = false }: JobadCardProps) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     return (
         <Link href={`/career/${jobad.id}`}>
             <div className={`jobad-card ${highlight ? 'jobad-card--highlight' : ''}`}>
                 <div className='jobad-card_wrapper'>
                     <div className='relative jobad-card_picture'>
-                        {jobad.banner_image ? (
+                        {jobad.banner_image || jobad.organization.logo ? (
                             <Image
-                                src={`${config.url.CDN_URL}/img/organizations/${jobad.banner_image}`}
-                                alt={jobad.banner_image}
+                                src={jobad.organization.logo ? `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}` : `${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
+                                alt={jobad.banner_image ?? 'Job banner image'}
                                 fill={true}
-                                className='object-contain jobad-card_img'
+                                className='object-cover jobad-card_img'
                             />
                         ) : (
                             <DefaultJobBanner color={'#545b5f'} className='jobad-card_img' transition={false} />
@@ -35,10 +40,10 @@ export default async function JobadCard({ jobad, highlight = true, disableTags =
                                 <HourglassBottom className='jobad-card_icon w-6 fill-[var(--color-text-regular)]'/>
                                 {formatDeadlineDate(new Date(jobad.time_expire), lang)}
                             </li>
-                            {jobad.location && (
+                            {jobad.cities && (
                                 <li className='flex jobad-card_detail'>
                                     <Pin className='jobad-card_icon w-6 fill-[var(--color-text-regular)]'/>
-                                    {jobad.location}
+                                    {jobad.cities.join(' ')}
                                 </li>
                             )}
                         </ul>
