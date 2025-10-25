@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import TabNavItem from '@components/shared/tabs/TabNavItem'
-import TabContent from '@components/shared/tabs/TabContent'
-import LogChamp from '@components/shared/logchamp/LogChamp'
+import TabNavItem from '@components/tabs/TabNavItem'
+import TabContent from '@components/tabs/TabContent'
+import LogChamp from '@components/logchamp/LogChamp'
 import EvntkomLogo from '@components/svg/committeelogos/EvntkomLogo'
 import BedkomLogo from '@components/svg/committeelogos/BedkomLogo'
 import TekkomLogo from '@components/svg/committeelogos/TekkomLogo'
@@ -11,13 +11,13 @@ import CtfkomLogo from '@components/svg/committeelogos/CtfkomLogo'
 import SatkomLogo from '@components/svg/committeelogos/SatkomLogo'
 import PrLogo from '@components/svg/committeelogos/PrLogo'
 import config from '@config'
-import '@components/shared/tabs/tabs.css'
+import '@components/tabs/tabs.css'
 import en from '@text/verv/en.json'
 import no from '@text/verv/no.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import { getCookie } from '@utils/cookies'
-import { language } from '@components/shared/langtoggle/LangToggle'
+import { language } from '@components/langtoggle/LangToggle'
 
 export default function VervTabs() {
     const [activeTab, setActiveTab] = useState('event')

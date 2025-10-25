@@ -2,7 +2,7 @@ import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import Link from 'next/link'
 import EventListItem from '@components/event/EventItem'
-import EndCard from '@components/shared/endCard'
+import EndCard from '@components/endCard'
 import { getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 

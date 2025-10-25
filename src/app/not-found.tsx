@@ -1,7 +1,7 @@
 'use server'
 
 import config from '@config'
-import Button from '@components/shared/button/Button'
+import Button from '@components/button/Button'
 import no from '@text/404/no.json'
 import en from '@text/404/en.json'
 import Image from 'next/image'

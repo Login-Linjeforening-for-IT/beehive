@@ -1,9 +1,9 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import Button from '@components/shared/button/Button'
-import CheckBox from '@components/shared/checkbox/Checkbox'
-import CheckTag from '@components/shared/checktag/Checktag'
+import Button from '@components/button/Button'
+import CheckBox from '@components/checkbox/Checkbox'
+import CheckTag from '@components/checktag/Checktag'
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
 import './filter.css'

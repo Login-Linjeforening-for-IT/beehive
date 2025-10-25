@@ -1,6 +1,6 @@
 'use client'
 
-import Button from '@components/shared/button/Button'
+import Button from '@components/button/Button'
 import './GroupToggle.css'
 import { useSearchParams, usePathname } from 'next/navigation'
 

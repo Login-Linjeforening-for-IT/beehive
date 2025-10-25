@@ -1,5 +1,5 @@
 import config from '@config'
-import Tags from '@components/shared/tags/Tags'
+import Tags from '@components/tags/Tags'
 import Link from 'next/link'
 import { isNew } from '@utils/DatetimeFormatter'
 import { formatDeadlineDate } from '@utils/DatetimeFormatter'

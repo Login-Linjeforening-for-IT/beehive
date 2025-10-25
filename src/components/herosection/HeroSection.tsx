@@ -1,5 +1,5 @@
 import LoginLogo from '@components/svg/brandlogos/LoginLogo'
-import Button from '@components/shared/button/Button'
+import Button from '@components/button/Button'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import Calendar from '@components/svg/symbols/Calendar'

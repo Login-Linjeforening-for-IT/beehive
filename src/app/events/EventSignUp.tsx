@@ -1,5 +1,5 @@
-import Button from '@components/shared/button/Button'
-import Alert from '@components/shared/alert/Alert'
+import Button from '@components/button/Button'
+import Alert from '@components/alert/Alert'
 import no from '@text/eventPage/no.json'
 import en from '@text/eventPage/en.json'
 import { formatDeadlineDate, formatPublishedDate } from '@utils/DatetimeFormatter'

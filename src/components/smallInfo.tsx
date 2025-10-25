@@ -1,4 +1,4 @@
-import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
+import DecoratedPicture from '@components/images/decoratedpicture/DecoratedPicture'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import Link from 'next/link'

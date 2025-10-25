@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import config from '@config'
-import TabNavItem from '@components/shared/tabs/TabNavItem'
-import TabContent from '@components/shared/tabs/TabContent'
-import LogChamp from '@components/shared/logchamp/LogChamp'
+import TabNavItem from '@components/tabs/TabNavItem'
+import TabContent from '@components/tabs/TabContent'
+import LogChamp from '@components/logchamp/LogChamp'
 import EvntkomLogo from '@components/svg/committeelogos/EvntkomLogo'
 import BedkomLogo from '@components/svg/committeelogos/BedkomLogo'
 import TekkomLogo from '@components/svg/committeelogos/TekkomLogo'
@@ -16,7 +16,7 @@ import text_no from '@text/about/no.json'
 import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
-import '@components/shared/tabs/tabs.css'
+import '@components/tabs/tabs.css'
 import useLang from '@/hooks/useLang'
 
 const no = { ...text_no, board: board_no }

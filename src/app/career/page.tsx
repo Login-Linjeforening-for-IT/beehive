@@ -1,11 +1,8 @@
 // import { useState, useEffect, useRef } from 'react'
-// import Spinner from '@components/shared/spinner/spinner'
 import JobadsListItem from '@components/jobad/JobadsListItem'
-// import Button from '@components/shared/button/Button'
-// import FilterGroup from '@components/shared/filter/filter'
-import Alert from '@components/shared/alert/Alert'
+import Alert from '@components/alert/Alert'
 // import debounce from '@/utils/debounce'
-import prepFilter from '@components/shared/filter/prepFilter'
+import prepFilter from '@components/filter/prepFilter'
 import { getJobs, getJobCityFilters, getJobSkillFilters, getJobJobtypeFilters } from '@utils/api'
 import no from '@text/jobadList/no.json'
 import en from '@text/jobadList/en.json'
@@ -14,7 +11,7 @@ import './page.css'
 // import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
 // import { getCookie } from '@utils/cookies'
 import { cookies } from 'next/headers'
-import FilterItem from '@components/shared/filter/filterItem'
+import FilterItem from '@components/filter/filterItem'
 
 export default async function Jobads({searchParams}: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
 

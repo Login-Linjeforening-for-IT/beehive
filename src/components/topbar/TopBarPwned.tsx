@@ -1,6 +1,6 @@
 'use client'
 
-import LangToggle from '@components/shared/langtoggle/LangToggle'
+import LangToggle from '@components/langtoggle/LangToggle'
 import ThemeToggle from '../themetoggle/themeToggle'
 import './TopBar.css'
 import config from '@config'

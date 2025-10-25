@@ -1,14 +1,14 @@
 'use client'
 
-import AccordionItem from '@components/shared/accordion/AccordionItem'
-import AccordionContent from '@components/shared/accordion/AccordionContent'
+import AccordionItem from '@components/accordion/AccordionItem'
+import AccordionContent from '@components/accordion/AccordionContent'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import { getCookie } from '@utils/cookies'
-import { language } from '@components/shared/langtoggle/LangToggle'
+import { language } from '@components/langtoggle/LangToggle'
 
 export default function StudyProgramsAccordion() {
     const [activeAccordionItem, setActiveAccordionItem] = useState('bachelor')

@@ -1,4 +1,4 @@
-import Loader from '@components/shared/loader/loader'
+import Loader from '@components/loader/loader'
 import config from '@config'
 import { PlayIcon } from 'lucide-react'
 import Image from 'next/image'

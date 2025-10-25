@@ -1,5 +1,5 @@
 import config from '@config'
-import Tags from '@components/shared/tags/Tags'
+import Tags from '@components/tags/Tags'
 import Link from 'next/link'
 import Image from 'next/image'
 import HourglassBottom from '@components/svg/symbols/HourglassBottom'

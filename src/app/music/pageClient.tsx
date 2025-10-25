@@ -8,7 +8,7 @@ import TopFiveThisX from '@components/music/topFiveThisX'
 import MostPlayed from '@components/music/mostPlayed'
 import TileInfo from '@components/music/tileInfo'
 import MostX from '@components/music/mostx'
-import PrivacyDisclaimer from '@components/shared/privacy/disclaimer'
+import PrivacyDisclaimer from '@components/privacy/disclaimer'
 
 async function fetcher(url: string) {
     const response = await fetch(url)

@@ -1,5 +1,5 @@
-import DateTile from '@components/shared/datetile/DateTile'
-import Tags from '@components/shared/tags/Tags'
+import DateTile from '@components/datetile/DateTile'
+import Tags from '@components/tags/Tags'
 import DefaultEventBanner from '@svg/defaultbanners/DefaultEventBanner'
 import DefaultCtfBanner from '@svg/defaultbanners/DefaultCtfBanner'
 import DefaultTekkomBanner from '@svg/defaultbanners/DefaultTekkomBanner'

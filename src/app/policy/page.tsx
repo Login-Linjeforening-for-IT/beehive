@@ -1,4 +1,4 @@
-import Contact from '@components/shared/contact/Contact'
+import Contact from '@components/contact/Contact'
 import no from '@text/policy/no.json'
 import en from '@text/policy/en.json'
 import { cookies } from 'next/headers'

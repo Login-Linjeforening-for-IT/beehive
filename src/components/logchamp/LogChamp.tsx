@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import DecoratedPicture from '@components/shared/images/decoratedpicture/DecoratedPicture'
+import DecoratedPicture from '@components/images/decoratedpicture/DecoratedPicture'
 import './LogChamp.css'
 import Link from 'next/link'
 

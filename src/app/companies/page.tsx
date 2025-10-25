@@ -1,4 +1,4 @@
-import Contact from '@components/shared/contact/Contact'
+import Contact from '@components/contact/Contact'
 import no from '@text/companies/no.json'
 import en from '@text/companies/en.json'
 import Flowsheet from '@components/svg/symbols/Flowsheet'

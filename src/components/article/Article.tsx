@@ -1,5 +1,5 @@
-import MarkdownRender from '@components/shared/markdownrender/MarkdownRender'
-import Alert from '@components/shared/alert/Alert'
+import MarkdownRender from '@components/markdownrender/MarkdownRender'
+import Alert from '@components/alert/Alert'
 import { formatPublishedDate } from '@utils/DatetimeFormatter'
 import { cookies } from 'next/headers'
 import './Article.css'

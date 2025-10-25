@@ -1,6 +1,6 @@
 'use client'
 
-import MazeMapEmbed from '@components/shared/mazemap/MazeMapEmbed'
+import MazeMapEmbed from '@components/mazemap/MazeMapEmbed'
 import no from '@text/contact/no.json'
 import en from '@text/contact/en.json'
 import TravelExplore from '@components/svg/symbols/TravelExplore'
