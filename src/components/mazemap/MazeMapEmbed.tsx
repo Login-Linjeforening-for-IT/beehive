@@ -7,6 +7,7 @@ import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import Pin from '@components/svg/symbols/Pin'
 import Add from '@components/svg/symbols/Add'
 import Remove from '@components/svg/symbols/Remove'
+import { useDarkMode } from 'uibee/hooks'
 
 // eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
@@ -19,6 +20,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
     // eslint-disable-next-line
     const [map, setMap] = useState<any>(null)
     const [room, setRoom] = useState(null)
+    const isDarkMode = useDarkMode()
 
     useEffect(() => {
         const script = document.createElement('script')
@@ -62,6 +64,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
             touchZoomRotate: false,
             touchPitch: false,
             pitchWithRotate: false,
+            style: isDarkMode === true ? 'mapbox://styles/mapbox/dark-v11' : 'mapbox://styles/mapbox/light-v11',
         })
 
         embeddedMazemap.on('load', () => {
