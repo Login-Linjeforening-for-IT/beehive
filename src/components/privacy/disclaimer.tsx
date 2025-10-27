@@ -42,7 +42,7 @@ export default function PrivacyDisclaimer({ lang }: { lang: Lang }) {
     }
 
     return (
-        <div className='fixed z-1000 top-24 right-4 bg-[var(--color-bg-surface)] rounded-lg w-[25rem] p-2 grid gap-2'>
+        <div className='fixed z-1000 top-24 right-4 bg-[var(--color-bg-surface)] rounded-lg w-[25rem] max-w-[90vw] p-2 grid gap-2'>
             <div className='flex w-full justify-between'>
                 <h1 className='font-semibold'>{text.title}</h1>
                 <X color='#fd8738' className='cursor-pointer' onClick={handleHide} />
