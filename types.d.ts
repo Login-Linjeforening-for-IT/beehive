@@ -1,5 +1,5 @@
 declare global {
-    type time_type = 'default' | 'no_end' | 'whole_day' | 'tbd'
+    type time_type = 'default' | 'no_end' | 'whole_day' | 'to_be_determined'
     type location_type = 'mazemap' | 'coords' | 'address' | 'digital'
     type embed_type = 'on' | 'off'
 
@@ -338,7 +338,7 @@ declare global {
         description_en: string
         informational_no: string
         informational_en: string
-        time_type: 'default' | 'no_end' | 'whole_day' | 'tbd'
+        time_type: 'default' | 'no_end' | 'whole_day' | 'to_be_determined'
         time_start: string
         time_end: string
         time_publish: string

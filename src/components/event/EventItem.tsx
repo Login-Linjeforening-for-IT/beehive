@@ -80,7 +80,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             {(event.time_type.toLowerCase() != 'whole_day') &&
                                 <li className='flex text-[0.9rem]'>
                                     <Schedule className='w-[22px] h-[22px] event-item_icon fill-[var(--color-text-main)]' />
-                                    {event.time_type.toLowerCase() != 'tbd' ?
+                                    {event.time_type.toLowerCase() != 'to_be_determined' ?
                                         formatEventStartDate(new Date(event.time_start), lang)
                                         :
                                         'TBD'

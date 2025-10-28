@@ -29,7 +29,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 type EventBannerProps = {
-    // eslint-disable-next-line
     event: GetEventProps
 }
 
@@ -97,7 +96,7 @@ async function Event({event}: {event: GetEventProps}) {
                             <div className='flex flex-row items-center event-datetime-display_time'>
                                 <Schedule className='w-[1.8rem] h-[1.8rem] fill-[var(--color-text-main)] event-datetime-display_time-icon'/>
                                 {/* @ts-ignore */}
-                                {event.time_type === 'tbd' ? 'TBD' : formatTimeHHMM(new Date(event.time_start))}
+                                {event.time_type === 'to_be_determined' ? 'TBD' : formatTimeHHMM(new Date(event.time_start))}
                                 {/* @ts-ignore */}
                                 {event.time_type === 'default' && ` - ${formatTimeHHMM(new Date(event.time_end))}`}
                             </div>
