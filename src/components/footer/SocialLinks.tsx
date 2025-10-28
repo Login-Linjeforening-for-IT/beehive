@@ -22,7 +22,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--instagram logfont-instagram hover:bg-[radial-gradient(circle_at_30%_107%,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] hover:bg-clip-text hover:text-transparent`} />
+                <i className={`${iconStyle} footer-social-links_icon--instagram logfont-instagram bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text hover:text-transparent`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'
