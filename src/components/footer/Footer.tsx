@@ -2,7 +2,6 @@ import config from '@config'
 import SocialLinks from './SocialLinks'
 import no from '@text/layout/no.json'
 import en from '@text/layout/en.json'
-import './Footer.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cookies } from 'next/headers'
@@ -14,40 +13,40 @@ export default async function Footer() {
     const text = lang === 'no' ? no : en
 
     return (
-        <div className='footer-content'>
-            <div className='footer-content_logos-conteiner'>
-                <div className='footer-content_logo'>
-                    <div className='footer-content_logo-picture'>
+        <div className='mt-40 mx-auto pt-16 px-4 pb-4 md:max-w-[calc(var(--w-page)+4rem)] md:pt-20 md:px-12 md:pb-4 md:grid md:grid-cols-[18rem_1fr] md:gap-x-12'>
+            <div className='grid gap-16 max-w-60 w-full mx-auto md:row-span-2 md:max-w-72 md:gap-20'>
+                <div>
+                    <div className='block w-full'>
                         <Image
                             src={`${config.url.CDN_URL}/img/logo/logo-tekst-white.svg`}
-                            className='footer-content_logo-image'
+                            className='block w-full'
                             alt='Login - Linjeforeningen for IT'
                             width={800}
                             height={200}
                         />
                     </div>
                 </div>
-                <div className='footer-content_logo'>
+                <div>
                     <Link href='https://www.mnemonic.io/' target='_blank'>
-                        <div className='footer-content_logo-picture'>
+                        <div className='block w-full'>
                             <Image
                                 src={`${config.url.CDN_URL}/img/company/mnemonic-logo_light-nopayoff-2021.svg`}
-                                className='footer-content_logo-image'
+                                className='block w-full'
                                 alt='mnemonic'
                                 width={800}
                                 height={200}
                             />
                         </div>
                     </Link>
-                    <p className='footer-content_logo-text'>{text.footer.sponsor}</p>
+                    <p className='text-center text-[var(--color-text-footer-discret)] pt-8'>{text.footer.sponsor}</p>
                 </div>
             </div>
-            <div className='footer-content_contact'>
-                <div className='footer-content_contact-section'>
-                    <h4 className='footer-content_contact-header'>
+            <div className='grid w-full max-w-60 mt-16 gap-8 sm:grid-cols-2 sm:max-w-[22rem] sm:justify-items-end sm:justify-self-end md:col-start-2 md:row-start-1 md:max-w-[34rem] md:justify-self-end md:mt-0 md:gap-0'>
+                <div className='sm:justify-self-center md:justify-self-end'>
+                    <h4 className='text-[var(--color-text-footer-discret)] font-medium text-sm tracking-widest pb-2'>
                         {text.footer.contactInfo.address.header}
                     </h4>
-                    <p className='footer-content_contact-text'>
+                    <p className='text-[var(--color-text-footer)]'>
                         {text.footer.contactInfo.address.info1}
                         <br />
                         {text.footer.contactInfo.address.info2}
@@ -55,13 +54,13 @@ export default async function Footer() {
                         {text.footer.contactInfo.address.info3}
                     </p>
                 </div>
-                <div className='footer-content_contact-section'>
-                    <h4 className='footer-content_contact-header'>
+                <div className='sm:justify-self-center md:justify-self-end'>
+                    <h4 className='text-[var(--color-text-footer-discret)] font-medium text-sm tracking-widest pb-2'>
                         {text.footer.contactInfo.email}
                     </h4>
-                    <p className='footer-content_contact-text'>
+                    <p className='text-[var(--color-text-footer)]'>
                         <a
-                            className='footer-content_contact-link link--underscore-hover'
+                            className='text-[var(--color-text-footer)] link--underscore-hover'
                             href={`mailto:${config.url.MAIL_URL}`}
                         >
                             {config.url.MAIL_URL}
@@ -69,19 +68,19 @@ export default async function Footer() {
                     </p>
                 </div>
             </div>
-            <div className='footer-content_social-links'>
+            <div className='md:col-start-2 md:row-start-2 md:justify-self-end'>
                 <SocialLinks />
             </div>
-            <div className='footer-content_bottom'>
+            <div className='grid grid-cols-[auto_min-content] gap-8 mt-24 items-end md:col-span-2 md:row-start-3'>
                 <p
-                    className='footer-content_bottom-text'
+                    className='text-[var(--color-text-footer-discret)] text-xs'
                     dangerouslySetInnerHTML={{
                         __html: ` ${text.footer.copy1} ${currentYear} ${text.footer.copy2}`,
                     }}
                 />
                 {typeof config.version !== 'undefined' ? (
                     <Link
-                        className='footer-content_version-tag'
+                        className='bg-[rgba(200,200,200,0.1)] px-[0.6rem] py-[0.4rem] rounded-[var(--border-radius)] text-white tracking-wide font-semibold'
                         target='_blank'
                         href={`${config.url.GITLAB_URL}/tekkom/web/beehive/frontend/-/tags/${config.version}`}
                     >
