@@ -4,8 +4,7 @@ export default function SocialLinks() {
     const iconStyle = 'leading-8 text-[1.5rem] transition-all duration-200 text-center block text-[var(--color-text-footer)]'
 
     return (
-    // @ts-ignore
-        <div className='grid justify-between mx-auto mt-20 mb-12 sm:grid-cols-6 grid-cols-3 gap-6 w-fit' target='_blank' rel='noreferrer'>
+        <div className='grid justify-between mx-auto mt-20 mb-12 sm:grid-cols-6 grid-cols-3 gap-6 w-fit'>
             <a
                 className='block w-8 h-8 mx-auto'
                 title='Discord'
