@@ -29,6 +29,7 @@ export default function LogChamp({name, position, img, discord, discordLink}: Lo
                 cornerSize={36}
                 width={100}
                 height={100}
+                cover
             />
             <div className='logchamp_info'>
                 <p className='logchamp_title'>{position}</p>
