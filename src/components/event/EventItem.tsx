@@ -127,7 +127,6 @@ export default async function EventListItem({ event, highlight = true, disableTa
 }
 
 function getDefaultBanner(category: string, color: string) {
-    console.log('Getting default banner for category:', category, color)
     switch (category) {
         case 'Sosialt':
             {/* @ts-ignore */}
