@@ -2,12 +2,13 @@
 
 import './MazeMapEmbed.css'
 import { useEffect, useState } from 'react'
-import '@/vendor/mazemap/mazemap.min.css'
+import './mazemap.min.css'
 import ArrowOutward from '@components/svg/symbols/ArrowOutward'
 import Pin from '@components/svg/symbols/Pin'
 import Add from '@components/svg/symbols/Add'
 import Remove from '@components/svg/symbols/Remove'
 import { useDarkMode } from 'uibee/hooks'
+import Script from 'next/script'
 
 // eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
@@ -22,23 +23,22 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
     const [room, setRoom] = useState(null)
     const isDarkMode = useDarkMode()
 
+    const [scriptLoaded, setScriptLoaded] = useState(false)
+
+    const handleScriptLoad = () => {
+        // @ts-ignore
+        setMazemap(window.Mazemap)
+        setScriptLoaded(true)
+    }
+
     useEffect(() => {
-        const script = document.createElement('script')
-        script.src = '/vendor/mazemap.min.js'
-        script.onload = () => {
+        // @ts-ignore
+        if (window.Mazemap && !Mazemap) {
             // @ts-ignore
             setMazemap(window.Mazemap)
+            setScriptLoaded(true)
         }
-
-        script.onerror = (error) => {
-            console.error('Failed to load Mazemap script:', error)
-        }
-
-        document.body.appendChild(script)
-        return () => {
-            document.body.removeChild(script)
-        }
-    }, [])
+    }, [Mazemap])
 
     // initialize map only once, poi will probably not change
     useEffect(() => {
@@ -68,6 +68,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
         })
 
         embeddedMazemap.on('load', () => {
+
             // Initialize a Highlighter for POIs
             // Storing the object on the map just makes it easy to access for other things
             // @ts-ignore
@@ -85,6 +86,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                 // @ts-ignore
                 const lngLat = Mazemap.Util.getPoiLngLat(poi)
                 embeddedMazemap.highlighter.highlight(poi)
+                embeddedMazemap.setZLevel(poi.properties.zLevel)
 
                 embeddedMazemap.jumpTo({
                     center: lngLat,
@@ -126,6 +128,14 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
 
     return (
         <>
+            {!scriptLoaded && (
+                <Script
+                    src='/vendor/mazemap.min.js'
+                    strategy='afterInteractive'
+                    onLoad={handleScriptLoad}
+                    onError={(error) => console.error('Failed to load Mazemap script:', error)}
+                />
+            )}
             <div
                 className='mazemap-container'
                 style={{ height: props.height || defualtHeight }}
