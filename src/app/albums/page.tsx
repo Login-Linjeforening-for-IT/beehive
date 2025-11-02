@@ -32,6 +32,9 @@ export default async function Page({ searchParams }: PageProps) {
                 <h1 className='heading-1 heading-1--top-left-corner'>
                     {text.title}
                 </h1>
+                <pre className='p--highlighted'>
+                    {text.privacy_notice}
+                </pre>
                 <div className='flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {albums.map((album: GetAlbumProps) => (
                         <Link
