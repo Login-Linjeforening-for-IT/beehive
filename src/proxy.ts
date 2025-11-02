@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
     const theme = req.cookies.get('theme')?.value || 'dark'
     const lang = req.cookies.get('lang')?.value || 'no'
     const pwned = Math.floor(Math.random() * 23)
