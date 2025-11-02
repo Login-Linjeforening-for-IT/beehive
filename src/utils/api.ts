@@ -87,7 +87,6 @@ export async function getAlbums({ search, offset, limit, orderBy, sort }: GetPar
     if (sort)       queryParts.append('sort', String(sort))
 
     const path = `/albums?${queryParts.toString()}`
-    console.log(path)
     return await fetchWrapper(path)
 }
 

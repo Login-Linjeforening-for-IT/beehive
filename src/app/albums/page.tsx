@@ -6,6 +6,7 @@ import config from '@config'
 import Link from 'next/link'
 import { getAlbums } from '@utils/api'
 import Button from '@components/button/Button'
+import EvntkomLogo from '@components/svg/committeelogos/EvntkomLogo'
 
 type PageProps = {
     searchParams: Promise<{ [key: string]: string | undefined }>
@@ -39,37 +40,40 @@ export default async function Page({ searchParams }: PageProps) {
                             className='hover:bg-(--color-bg-surface) rounded-lg p-6 h-fit'
                         >
                             <div className='relative flex items-center justify-center h-64 mb-2'>
-                                {album.images.slice(0, 5).map((image, index) => {
-                                    const positions = [
-                                        { left: '50%', top: '50%', rotation: 0, scale: 1, zIndex: 3 }, // center
-                                        { left: '45%', top: '45%', rotation: -6, scale: 0.95, zIndex: 2 }, // up and left
-                                        { left: '55%', top: '55%', rotation: 6, scale: 0.95, zIndex: 1 }, // down and right
-                                    ]
-                                    const pos = positions[index] || positions[0]
-                                    return (
+                                {album.images
+                                    ? cardStack(Math.min(album.images.length, 3), (index, className) => (
                                         <Image
                                             key={index}
-                                            src={`${config.url.CDN_URL}/albums/${album.id}/${image}`}
+                                            src={`${config.url.CDN_URL}/albums/${album.id}/${album.images[index]}`}
                                             alt={lang === 'no' ? album.name_no : album.name_en}
-                                            className='absolute aspect-3/2 rounded-lg shadow-lg transition-all duration-300'
-                                            style={{
-                                                left: pos.left,
-                                                top: pos.top,
-                                                transform: `translate(-50%, -50%) rotate(${pos.rotation}deg) scale(${pos.scale})`,
-                                                zIndex: pos.zIndex,
-                                            }}
+                                            className={className}
                                             width={280}
                                             height={180}
                                         />
-                                    )
-                                })}
+                                    ))
+                                    : cardStack(3, (index, className) => (
+                                        <div
+                                            key={index}
+                                            className={`${className} flex items-center justify-center w-[280px] h-[180px] 
+                                                bg-(--color-bg-surface-raised) ring-2 ring-(--color-bg-surface)/20
+                                            `}
+                                        >
+                                            <div className='w-32 h-32'>
+                                                <EvntkomLogo />
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
                             <div className='text-center'>
-                                <h2 className='text-xl font-semibold mb-2 text-text-main'>
-                                    {lang === 'no' ? album.name_no : album.name_en} - {album.year}
+                                <h2 className='text-xl font-semibold mb-2 text-text-main truncate'>
+                                    {lang === 'no' ? album.name_no : album.name_en}
                                 </h2>
-                                <p className='text-sm text-text-discreet'>
-                                    {album.images.length} images
+                                <h3 className='text-lg'>
+                                    {album.year}
+                                </h3>
+                                <p>
+                                    {album.images ? album.images.length : 0} {lang === 'no' ? text.images : text.images}
                                 </p>
                             </div>
                         </Link>
@@ -108,4 +112,17 @@ export default async function Page({ searchParams }: PageProps) {
             </div>
         </div>
     )
+}
+
+function cardStack(count: number, renderItem: (index: number, className: string) => React.ReactNode) {
+    const getPositionClasses = (index: number) => {
+        const baseClasses = 'absolute aspect-3/2 rounded-lg shadow-2xl transition-all duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
+        const positionClasses =
+            index === 0 ? 'z-30 rotate-0 scale-100' :
+                index === 1 ? 'z-20 -rotate-6 scale-95 -translate-x-[55%] -translate-y-[55%]' :
+                    'z-10 rotate-6 scale-95 -translate-x-[45%] -translate-y-[45%]'
+        return `${baseClasses} ${positionClasses}`
+    }
+
+    return Array.from({ length: count }).map((_, index) => renderItem(index, getPositionClasses(index)))
 }
