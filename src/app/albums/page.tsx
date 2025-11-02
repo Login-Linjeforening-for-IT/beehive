@@ -26,8 +26,8 @@ export default async function Page({ searchParams }: PageProps) {
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className='page-container h-full'>
-            <div className='page-section--normal h-full flex flex-col'>
+        <div className='page-container min-h-[calc(100vh-var(--h-topbar))]'>
+            <div className='page-section--normal flex flex-col'>
                 <h1 className='heading-1 heading-1--top-left-corner'>
                     {text.title}
                 </h1>

@@ -26,7 +26,7 @@ export default async function layout({children}: {children: ReactNode}) {
 
     return (
         <html test-id='root' lang='en' className={theme}>
-            <body className={clsx('absolute top-0 h-screen w-full bg-(--color-bg-body)', dashboard && 'max-h-screen overflow-hidden')}>
+            <body className={clsx('min-h-screen w-full bg-(--color-bg-body)', dashboard && 'max-h-screen overflow-hidden')}>
                 {page !== 'pwned' ?
                     <header className='main-header fixed top-0 z-900 w-full'>
                         <TopBar onlyLogo={dashboard} lang={lang} theme={theme} token={token} />
@@ -36,7 +36,7 @@ export default async function layout({children}: {children: ReactNode}) {
                         <TopBarPwned lang={lang} theme={theme} />
                     </header>
                 }
-                <main className='w-full mx-auto mt-(--h-topbar) h-[calc(100vh-var(--h-topbar))]'>
+                <main className='w-full mx-auto mt-(--h-topbar) min-h-[calc(100vh-var(--h-topbar))]'>
                     {children}
                 </main>
                 {page !== 'pwned' && !path.includes('dashboard') &&
