@@ -267,6 +267,32 @@ declare global {
         id: number
     }
 
+    // Albums
+    type AlbumProps = {
+        name_no: string
+        name_en: string
+        description_no: string
+        description_en: string
+        year: number
+    }
+
+    type GetAlbumProps = AlbumProps & {
+        id: number
+        event: {
+            id: number
+            name_no: string
+            name_en: string
+        }
+        images: string[]
+        created_at: string
+        updated_at: string
+    }
+
+    type GetAlbumsProps = {
+        albums: GetAlbumProps[]
+        total_count: number
+    }
+
     // Enum types
     type GetTypesProps = {
         en: string

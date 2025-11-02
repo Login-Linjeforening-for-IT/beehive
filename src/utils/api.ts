@@ -2,6 +2,15 @@ import config from '@config'
 
 const baseUrl = config.url.API_URL
 
+type GetParamsProps = {
+    type?: string
+    search?: string
+    offset?: number
+    limit?: number
+    orderBy?: string
+    sort?: 'asc' | 'desc'
+}
+
 export async function getJob(jobID: number): Promise<GetJobProps | string> {
     const path = `/jobs/${jobID}`
     return await fetchWrapper(path)
@@ -65,6 +74,25 @@ export async function getJobCityFilters() {
 
 export async function getJobOrganizationFilters() {
     const path = '/filters/jobs/organizations'
+    return await fetchWrapper(path)
+}
+
+// Albums
+export async function getAlbums({ search, offset, limit, orderBy, sort }: GetParamsProps = {}): Promise<GetAlbumsProps | string> {
+    const queryParts = new URLSearchParams()
+    if (search)     queryParts.append('search', String(search))
+    if (offset)     queryParts.append('offset', String(offset))
+    if (limit)      queryParts.append('limit', String(limit))
+    if (orderBy)    queryParts.append('orderBy', String(orderBy))
+    if (sort)       queryParts.append('sort', String(sort))
+
+    const path = `/albums?${queryParts.toString()}`
+    console.log(path)
+    return await fetchWrapper(path)
+}
+
+export async function getAlbum(albumID: number): Promise<GetAlbumProps | string> {
+    const path = `/albums/${albumID}`
     return await fetchWrapper(path)
 }
 
