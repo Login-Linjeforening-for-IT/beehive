@@ -12,6 +12,7 @@ type NavigationProps = {
     lang: Lang
 }
 import config from '@config'
+import { Images } from 'lucide-react'
 
 export default function Navigation({lang}: NavigationProps) {
     const text = lang === 'no' ? no : en
@@ -99,6 +100,16 @@ export default function Navigation({lang}: NavigationProps) {
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
                                     <Office className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)] mr-[0.7rem]' />
                                     {text.nav.fondet}
+                                </li>
+                            </Link>
+                            <Link
+                                href='/albums'
+                                ref={navItemRefs.current[2] as Ref<HTMLAnchorElement>}
+                                onClick={handleClick}
+                            >
+                                <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
+                                    <Images className='w-6 h-6 stroke-(--color-text-regular) mr-[0.7rem]' />
+                                    {text.nav.albums}
                                 </li>
                             </Link>
                             <Link
