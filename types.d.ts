@@ -282,6 +282,8 @@ declare global {
             id: number
             name_no: string
             name_en: string
+            time_start: string
+            time_end: string
         }
         images: string[]
         created_at: string
