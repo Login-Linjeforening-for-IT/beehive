@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import config from '@config'
-import { ArrowUpRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 export default async function AlbumPage({ params }: PromisedPageProps) {
     const { id } = await params
@@ -32,7 +32,7 @@ export default async function AlbumPage({ params }: PromisedPageProps) {
                     >
                         <span className='flex items-center gap-1'>
                             {lang === 'no' ? album.name_no : album.name_en}
-                            <ArrowUpRight className='size-16'/>
+                            <ChevronRight className='size-16'/>
                         </span>
                     </Link>
                     :
