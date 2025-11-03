@@ -91,6 +91,13 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
                         <li className='mobile-nav-dropdown_item'>{text.nav.fondet}</li>
                     </Link>
                     <Link
+                        onClick={close}
+                        href='/albums'
+                        tabIndex={open && isDropdownOpen ? 0 : -1}
+                    >
+                        <li className='mobile-nav-dropdown_item'>{text.nav.albums}</li>
+                    </Link>
+                    <Link
                         title='Wiki'
                         href={config.url.WIKI_URL}
                         target='_blank'
