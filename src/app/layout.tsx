@@ -8,6 +8,7 @@ import '@assets/fonts/style.css'
 import '@assets/fonts/logfont/style.css'
 import './globals.css'
 import clsx from '@utils/clsx'
+import Alerts from '@components/alerts/alerts'
 
 export const metadata: Metadata = {
     title: 'Login',
@@ -44,6 +45,7 @@ export default async function layout({children}: {children: ReactNode}) {
                         <Footer />
                     </footer>
                 }
+                <Alerts />
             </body>
         </html>
     )

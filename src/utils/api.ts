@@ -90,6 +90,12 @@ export async function getAlbums({ search, offset, limit, orderBy, sort }: GetPar
     return await fetchWrapper(path)
 }
 
+// Alerts
+export async function getAlerts(alertPath: string): Promise<GetAlertProps | string> {
+    const path = `/alerts/beehive?page=${alertPath}`
+    return await fetchWrapper(path)
+}
+
 export async function getAlbum(albumID: number): Promise<GetAlbumProps | string> {
     const path = `/albums/${albumID}`
     return await fetchWrapper(path)

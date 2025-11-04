@@ -295,6 +295,19 @@ declare global {
         total_count: number
     }
 
+    // Alerts
+    type GetAlertProps = {
+        id: number
+        service: string
+        page: string
+        title_no: string
+        title_en: string
+        description_no: string
+        description_en: string
+        updated_at: string
+        created_at: string
+    }
+
     // Enum types
     type GetTypesProps = {
         en: string
