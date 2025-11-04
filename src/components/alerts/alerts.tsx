@@ -15,10 +15,8 @@ export default function Alerts() {
 
     useEffect(() => {
         const fetchAlert = async () => {
-            console.log('Fetching alerts for path:', pathname)
             try {
                 const result = await getAlerts(pathname)
-                console.log('Alert result:', result)
                 if (typeof result !== 'string' && result) {
                     setAlert(result)
                     setShowToast(true)
