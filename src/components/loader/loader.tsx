@@ -1,7 +1,7 @@
 type LoaderProps = {
     duration?: number
     className?: string
-    radius: number
+    radius?: number
     stroke?: string
 }
 
