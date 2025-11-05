@@ -1,12 +1,16 @@
-import React from 'react'
+type LoaderProps = {
+    duration?: number
+    className?: string
+    radius: number
+    stroke?: string
+}
 
-export default function Loader({ duration = 30, className }: { duration?: number, className?: string }) {
-    const radius = 50
+export default function Loader({ duration = 30, className, radius = 50, stroke }: LoaderProps) {
     const circumference = 2 * Math.PI * radius
 
     return (
         <svg
-            className={`w-15 h-15 ${className}`}
+            className={`${className || 'w-15 h-15'}`}
             viewBox='0 0 120 120'
         >
             {/* Background circle */}
@@ -14,7 +18,7 @@ export default function Loader({ duration = 30, className }: { duration?: number
                 cx='60'
                 cy='60'
                 r={radius}
-                stroke='#3a3a3a78'
+                stroke={stroke || '#3a3a3a78'}
                 strokeWidth='10'
                 fill='none'
             />
