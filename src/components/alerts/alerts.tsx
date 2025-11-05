@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getAlerts } from '@utils/api'
 import Alert from '@components/alert/Alert'
 import { getCookie } from '@utils/cookies'
 import { usePathname } from 'next/navigation'
@@ -16,11 +15,19 @@ export default function Alerts() {
     useEffect(() => {
         const fetchAlert = async () => {
             try {
-                const result = await getAlerts(pathname)
-                if (typeof result !== 'string' && result) {
-                    setAlert(result)
-                    setShowToast(true)
-                    setProgress(0)
+                const response = await fetch(`/api/alerts?page=${encodeURIComponent(pathname)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                if (response.ok) {
+                    const result = await response.json()
+                    if (typeof result !== 'string' && result) {
+                        setAlert(result)
+                        setShowToast(true)
+                        setProgress(0)
+                    }
                 }
             } catch (error) {
                 console.error('Error fetching alerts:', error)
