@@ -8,7 +8,7 @@ import TopFiveThisX from '@components/music/topFiveThisX'
 import MostPlayed from '@components/music/mostPlayed'
 import TileInfo from '@components/music/tileInfo'
 import MostX from '@components/music/mostx'
-import PrivacyDisclaimer from '@components/privacy/disclaimer'
+// import PrivacyDisclaimer from '@components/privacy/disclaimer'
 
 async function fetcher(url: string) {
     const response = await fetch(url)
@@ -25,7 +25,7 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
 
     return (
         <section className='flex flex-col justify-center items-center gap-4'>
-            <PrivacyDisclaimer lang={lang} />
+            {/* <PrivacyDisclaimer lang={lang} /> */}
             <TileInfo data={data} text={text} />
             <MostPlayed
                 lang={lang}
