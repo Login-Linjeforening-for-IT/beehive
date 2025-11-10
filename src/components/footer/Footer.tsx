@@ -38,15 +38,15 @@ export default async function Footer() {
                             />
                         </div>
                     </Link>
-                    <p className='text-center text-[var(--color-text-footer-discret)] pt-8'>{text.footer.sponsor}</p>
+                    <p className='text-center text-(--color-text-footer-discret) pt-8'>{text.footer.sponsor}</p>
                 </div>
             </div>
-            <div className='grid w-full max-w-60 mt-16 gap-8 sm:grid-cols-2 sm:max-w-[22rem] sm:justify-items-end sm:justify-self-end md:col-start-2 md:row-start-1 md:max-w-[34rem] md:justify-self-end md:mt-0 md:gap-0'>
+            <div className='grid w-full max-w-60 mt-16 gap-8 sm:grid-cols-2 sm:max-w-88 sm:justify-items-end sm:justify-self-end md:col-start-2 md:row-start-1 md:max-w-136 md:justify-self-end md:mt-0 md:gap-0'>
                 <div className='sm:justify-self-center md:justify-self-end'>
-                    <h4 className='text-[var(--color-text-footer-discret)] font-medium text-sm tracking-widest pb-2'>
+                    <h4 className='text-(--color-text-footer-discret) font-medium text-sm tracking-widest pb-2'>
                         {text.footer.contactInfo.address.header}
                     </h4>
-                    <p className='text-[var(--color-text-footer)]'>
+                    <p className='text-(--color-text-footer)'>
                         {text.footer.contactInfo.address.info1}
                         <br />
                         {text.footer.contactInfo.address.info2}
@@ -55,12 +55,12 @@ export default async function Footer() {
                     </p>
                 </div>
                 <div className='sm:justify-self-center md:justify-self-end'>
-                    <h4 className='text-[var(--color-text-footer-discret)] font-medium text-sm tracking-widest pb-2'>
+                    <h4 className='text-(--color-text-footer-discret) font-medium text-sm tracking-widest pb-2'>
                         {text.footer.contactInfo.email}
                     </h4>
-                    <p className='text-[var(--color-text-footer)]'>
+                    <p className='text-(--color-text-footer)'>
                         <a
-                            className='text-[var(--color-text-footer)] link--underscore-hover'
+                            className='text-(--color-text-footer) link--underscore-hover'
                             href={`mailto:${config.url.MAIL_URL}`}
                         >
                             {config.url.MAIL_URL}
@@ -73,14 +73,14 @@ export default async function Footer() {
             </div>
             <div className='grid grid-cols-[auto_min-content] gap-8 mt-24 items-end md:col-span-2 md:row-start-3'>
                 <p
-                    className='text-[var(--color-text-footer-discret)] text-xs'
+                    className='text-(--color-text-footer-discret) text-xs'
                     dangerouslySetInnerHTML={{
                         __html: ` ${text.footer.copy1} ${currentYear} ${text.footer.copy2}`,
                     }}
                 />
                 {typeof config.version !== 'undefined' ? (
                     <Link
-                        className='bg-[rgba(200,200,200,0.1)] px-[0.6rem] py-[0.4rem] rounded-[var(--border-radius)] text-white tracking-wide font-semibold'
+                        className='bg-[rgba(200,200,200,0.1)] px-[0.6rem] py-[0.4rem] rounded-(--border-radius) text-white tracking-wide font-semibold'
                         target='_blank'
                         href={`${config.url.GITLAB_URL}/tekkom/web/beehive/frontend/-/tags/${config.version}`}
                     >

@@ -12,7 +12,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--discord logfont-discord hover:text-[#6571fd]`} />
+                <i className={`${iconStyle} logfont-discord hover:text-[#6571fd]`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'
@@ -21,7 +21,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--instagram logfont-instagram bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text hover:text-transparent`} />
+                <i className={`${iconStyle} logfont-instagram bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text hover:text-transparent`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'
@@ -30,7 +30,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--facebook logfont-facebook hover:text-[#2c87ff]`} />
+                <i className={`${iconStyle} logfont-facebook hover:text-[#2c87ff]`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'
@@ -39,7 +39,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--linkedin logfont-linkedin hover:text-[#1a7bdd]`} />
+                <i className={`${iconStyle} logfont-linkedin hover:text-[#1a7bdd]`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'
@@ -48,7 +48,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--gitlab logfont-gitlab hover:text-[#f6492e]`} />
+                <i className={`${iconStyle} logfont-gitlab hover:text-[#f6492e]`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'
@@ -57,7 +57,7 @@ export default function SocialLinks() {
                 target='_blank'
                 rel='noreferrer'
             >
-                <i className={`${iconStyle} footer-social-links_icon--wikijs logfont-wikijs hover:text-[rgb(5,186,243)]`} />
+                <i className={`${iconStyle} logfont-wikijs hover:text-[rgb(5,186,243)]`} />
             </a>
         </div>
     )
