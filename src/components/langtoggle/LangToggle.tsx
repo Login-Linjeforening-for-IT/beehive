@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import './LangToggle.css'
 import Language from '@components/svg/symbols/Language'
-import { getCookie, setCookie } from '@utils/cookies'
+import { getCookie, setCookie } from 'uibee/utils'
 import { useRouter } from 'next/navigation'
 
 export let language = 'no'

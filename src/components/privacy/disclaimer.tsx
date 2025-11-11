@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import no from '@text/privacy/no.json'
 import en from '@text/privacy/en.json'
 import { X } from 'lucide-react'
-import { getCookie, setCookie } from '@utils/cookies'
+import { getCookie, setCookie } from 'uibee/utils'
 
 export default function PrivacyDisclaimer({ lang }: { lang: Lang }) {
     const [privacyWarning, setPrivacyWarning] = useState(false)

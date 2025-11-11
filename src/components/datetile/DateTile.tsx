@@ -1,9 +1,9 @@
 'use client'
 
-// import { getCookie } from '@utils/cookies'
+// import { getCookie } from 'uibee/utils'
 import './DateTile.css'
 import { createGradient, hexToRgba, isValidHex } from '@utils/ColorManipulation'
-import { getCookie } from '@utils/cookies'
+import { getCookie } from 'uibee/utils'
 import { useEffect, useState } from 'react'
 import { language } from '../langtoggle/LangToggle'
 
