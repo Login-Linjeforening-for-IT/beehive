@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Alert from '@components/alert/Alert'
+import Alert from '@components/alert/alert'
 import { getCookie, setCookie } from 'uibee/utils'
 import { usePathname } from 'next/navigation'
 import { X } from 'lucide-react'

@@ -1,16 +1,16 @@
-import EventListItem from '@components/event/EventItem'
-import GroupToggle from '@components/grouptoggle/GroupToggle'
+import EventListItem from '@components/event/eventItem'
+import GroupToggle from '@components/grouptoggle/groupToggle'
 import prepFilter from '@components/filter/prepFilter'
 import no from '@text/eventList/no.json'
 import en from '@text/eventList/en.json'
-import GridView from '@components/svg/symbols/GridView'
-// import ArrowDownWard from '@components/svg/symbols/ArrowDownWard'
-import ListBulleted from '@components/svg/symbols/ListBulleted'
+import GridView from '@components/svg/symbols/gridView'
+// import ArrowDownWard from '@components/svg/symbols/arrowDownWard'
+import ListBulleted from '@components/svg/symbols/listBulleted'
 import { getEventCategoryFilters, getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 import FilterItem from '@components/filter/filterItem'
-import Button from '@components/button/Button'
-import Download from '@components/svg/symbols/Download'
+import Button from '@components/button/button'
+import Download from '@components/svg/symbols/download'
 
 type PageProps = {
     searchParams: Promise<{ [key: string]: string | undefined }>

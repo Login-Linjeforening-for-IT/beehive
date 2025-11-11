@@ -1,6 +1,6 @@
 import { getCookie } from 'uibee/utils'
 import { useEffect, useState } from 'react'
-import { language } from '@components/langtoggle/LangToggle'
+import { language } from '@components/langtoggle/langToggle'
 
 export default function useLang<T extends object>(no: T, en: T) {
     const [lang, setLang] = useState('no')

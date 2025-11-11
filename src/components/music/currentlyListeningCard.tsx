@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import Marquee from './Marquee'
+import Marquee from './marquee'
 import config from '@config'
 import ImageWithPlayer from './imageWithPlayer'
 import Link from 'next/link'

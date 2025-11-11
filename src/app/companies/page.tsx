@@ -1,9 +1,9 @@
-import Contact from '@components/contact/Contact'
+import Contact from '@components/contact/contact'
 import no from '@text/companies/no.json'
 import en from '@text/companies/en.json'
-import Flowsheet from '@components/svg/symbols/Flowsheet'
-import Megaphone from '@components/svg/symbols/Megaphone'
-import Wrench from '@components/svg/symbols/Wrench'
+import Flowsheet from '@components/svg/symbols/flowsheet'
+import Megaphone from '@components/svg/symbols/megaphone'
+import Wrench from '@components/svg/symbols/wrench'
 import { cookies } from 'next/headers'
 
 export default async function CompaniesPage() {

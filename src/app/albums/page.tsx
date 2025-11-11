@@ -5,8 +5,8 @@ import Image from 'next/image'
 import config from '@config'
 import Link from 'next/link'
 import { getAlbums } from '@utils/api'
-import Button from '@components/button/Button'
-import EvntkomLogo from '@components/svg/committeelogos/EvntkomLogo'
+import Button from '@components/button/button'
+import EvntkomLogo from '@components/svg/committeelogos/evntkomLogo'
 
 type PageProps = {
     searchParams: Promise<{ [key: string]: string | undefined }>

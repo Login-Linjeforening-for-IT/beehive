@@ -2,7 +2,7 @@ import Link from 'next/link'
 import no from '@text/landing/no.json'
 import en from '@text/landing/en.json'
 import EndCard from '@components/endCard'
-import JobadCard from './JobadCard'
+import JobadCard from './jobadCard'
 import { getJobs } from '@utils/api'
 import { cookies } from 'next/headers'
 

@@ -1,4 +1,4 @@
-import HeroSection from '@components/herosection/HeroSection'
+import HeroSection from '@components/herosection/heroSection'
 import EventsPreview from '@components/event/preview'
 import JobadsPreview from '@components/jobad/preview'
 import SmallInfo from '@components/smallInfo'

@@ -1,8 +1,8 @@
 'use client'
 
 import FilterGroup from '@components/filter/filter'
-import Button from '@components/button/Button'
-import List from '@components/svg/symbols/List'
+import Button from '@components/button/button'
+import List from '@components/svg/symbols/list'
 import { useState } from 'react'
 
 

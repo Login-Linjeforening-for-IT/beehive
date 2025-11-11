@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 import Card from './card'
-import Marquee from './Marquee'
+import Marquee from './marquee'
 import PlayIcon from './playIcon'
 import TileCard from './tileCard'
 import clsx from '@utils/clsx'

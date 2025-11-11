@@ -1,16 +1,16 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import Button from '@components/button/Button'
-import CheckBox from '@components/checkbox/Checkbox'
-import CheckTag from '@components/checktag/Checktag'
+import Button from '@components/button/button'
+import CheckBox from '@components/checkbox/checkbox'
+import CheckTag from '@components/checktag/checktag'
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
 import './filter.css'
-import KeyboardArrowUp from '@components/svg/symbols/KeyboardArrowUp'
-import Replay from '@components/svg/symbols/Replay'
+import KeyboardArrowUp from '@components/svg/symbols/keyboardArrowUp'
+import Replay from '@components/svg/symbols/replay'
 import { getCookie } from 'uibee/utils'
-import { language } from '../langtoggle/LangToggle'
+import { language } from '../langtoggle/langToggle'
 import { usePathname, useRouter } from 'next/navigation'
 
 // eslint-disable-next-line
