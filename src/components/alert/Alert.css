@@ -2,7 +2,7 @@
 .alert {
     display: grid;
     grid-template-columns: min-content auto;
-    border-radius: var(--border-radius);
+    border-radius: 0.5rem;
     padding: 0.5em 1em 0.5em 0.8em;
     align-items: start;
 }
