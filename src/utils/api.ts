@@ -9,6 +9,8 @@ type GetParamsProps = {
     limit?: number
     orderBy?: string
     sort?: 'asc' | 'desc'
+    categories?: string
+    highlighted?: boolean
 }
 
 export async function getJob(jobID: number): Promise<GetJobProps | string> {
@@ -43,12 +45,17 @@ export async function getEventRow(eventID: number) {
     return await fetchWrapper(path)
 }
 
-export async function getEvents(categories: string | null = null, limit = 20, offset = 0, highlighted = false): Promise<GetEventsProps | string> {
-    const queryParams = new URLSearchParams({ limit: String(limit), offset: String(offset) })
+export async function getEvents({ search, offset, limit, orderBy, sort, categories, highlighted }: GetParamsProps = {}): Promise<GetEventsProps | string> {
+    const queryParts = new URLSearchParams()
+    if (search)     queryParts.append('search', String(search))
+    if (offset)     queryParts.append('offset', String(offset))
+    if (limit)      queryParts.append('limit', String(limit))
+    if (orderBy)    queryParts.append('order_by', String(orderBy))
+    if (sort)       queryParts.append('sort', String(sort))
+    if (categories) queryParts.append('categories', categories)
+    if (highlighted) queryParts.append('highlighted', String(highlighted))
 
-    if (categories) queryParams.append('categories', categories)
-    if (highlighted) queryParams.append('highlighted', String(highlighted))
-    const path = `/events/?${queryParams.toString()}`
+    const path = `/events/?${queryParts.toString()}`
     return await fetchWrapper(path)
 }
 
@@ -83,7 +90,7 @@ export async function getAlbums({ search, offset, limit, orderBy, sort }: GetPar
     if (search)     queryParts.append('search', String(search))
     if (offset)     queryParts.append('offset', String(offset))
     if (limit)      queryParts.append('limit', String(limit))
-    if (orderBy)    queryParts.append('orderBy', String(orderBy))
+    if (orderBy)    queryParts.append('order_by', String(orderBy))
     if (sort)       queryParts.append('sort', String(sort))
 
     const path = `/albums?${queryParts.toString()}`

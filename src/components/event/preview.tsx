@@ -7,7 +7,12 @@ import { getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 
 export default async function EventsPreview() {
-    const events = await getEvents(null, 3, 0, true)
+    const events = await getEvents({
+        limit: 3,
+        offset: 0,
+        highlighted: true,
+        orderBy: 'time_start'
+    })
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 

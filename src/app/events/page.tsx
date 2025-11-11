@@ -20,13 +20,18 @@ export default async function Page({searchParams}: PageProps) {
     const filters = (await searchParams)
 
     const eventsView = filters.view ? `${filters.view}-view` : 'list-view'
-    const filtersParams = typeof filters.categories === 'string' ? filters.categories : null
+    const filtersParams = typeof filters.categories === 'string' ? filters.categories : undefined
 
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
 
     const limit = 20
-    const eventsResponse = await getEvents(filtersParams, limit, 0)
+    const eventsResponse = await getEvents({
+        categories: filtersParams,
+        orderBy: 'time_start',
+        limit
+    })
+
     const events = (typeof eventsResponse === 'string' ? [] : (Array.isArray(eventsResponse.events) ? eventsResponse.events : [])).filter((event: GetEventProps) => {
         const start = new Date(event.time_end).getTime()
         const now = new Date().getTime()
