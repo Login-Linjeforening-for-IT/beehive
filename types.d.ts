@@ -48,17 +48,6 @@ declare global {
         total_count: number
     }
 
-    type PostEventProps = Event & {
-        category_id: number
-        location_id: number | null
-        parent_id: number | null
-        rule_id: number | null
-        audience_id: number | null
-        organization_id: number | null
-    }
-
-    type PutEventProps = PostEventProps
-
     // Jobs
     type Job = {
         visible: boolean
@@ -96,8 +85,6 @@ declare global {
         organization_id: number
     }
 
-    type PutJobProps = PostJobProps
-
     // Organizations
     type Organization = {
         name_no: string
@@ -116,14 +103,6 @@ declare global {
         created_at: string
         updated_at: string
     }
-
-    type GetOrganizationsProps = {
-        organizations: GetOrganizationProps[]
-        total_count: number
-    }
-
-    type PostOrganizationProps = Organization
-    type PutOrganizationProps = Organization
 
     // Locations
     type Location = {
@@ -146,14 +125,6 @@ declare global {
         updated_at: string
     }
 
-    type GetLocationsProps = {
-        locations: GetLocationProps[]
-        total_count: number
-    }
-
-    type PostLocationProps = Location
-    type PutLocationProps = Location
-
     // Rules
     type Rule = {
         name_no: string
@@ -168,14 +139,6 @@ declare global {
         updated_at: string
     }
 
-    type GetRulesProps = {
-        rules: GetRuleProps[]
-        total_count: number
-    }
-
-    type PostRuleProps = Rule
-    type PutRuleProps = Rule
-
     // Audience
     type GetAudienceProps = {
         id: number
@@ -184,18 +147,6 @@ declare global {
         created_at: string
         updated_at: string
     }
-
-    type GetAudiencesProps = {
-        audiences: GetAudienceProps[]
-        total_count: number
-    }
-
-    type PostAudienceProps = {
-        name_no: string
-        name_en: string
-    }
-
-    type PutAudienceProps = PostAudienceProps
 
     // Categories
     type GetCategoryProps = {
@@ -214,57 +165,6 @@ declare global {
         name_en: string
         updated_at: string
         created_at: string
-    }
-
-    // Categories
-    type GetCategoriesProps = {
-        categories: GetCategoryProps[]
-        total_count: number
-    }
-
-    // Announcements
-    type GetAnnouncementProps = {
-        id: number
-        title: string
-        description: string
-        channel: string
-        roles: string[]
-        embed: boolean
-        color: string
-        interval: string
-        time: string | null
-    }
-
-    type PostAnnouncementProps = {
-        title: string
-        description: string
-        channel: string
-        roles: string[]
-        embed: boolean
-        color: string
-        interval: string
-        time: string | null
-        active: true
-    }
-
-    type PostAnnouncementPropsUnparsed = {
-        title: string
-        description: string
-        channel: string
-        roles: string
-        embed: boolean
-        color: string
-        interval: string
-        time: string | null
-        active: true
-    }
-
-    type PutAnnouncementProps = PostAnnouncementProps & {
-        id: number
-    }
-
-    type PutAnnouncementPropsUnparsed = PostAnnouncementPropsUnparsed & {
-        id: number
     }
 
     // Albums
@@ -306,68 +206,6 @@ declare global {
         description_en: string
         updated_at: string
         created_at: string
-    }
-
-    // Enum types
-    type GetTypesProps = {
-        en: string
-        no: string
-    }[]
-
-    // Images
-    type GetImageProps = {
-        filepath: string
-        name: string
-        size: number
-    }[]
-
-    type PostImageProps = {
-        file: File
-    }
-
-    // Other types
-
-    type Coupon = {
-        id: string
-        user: string
-        image: string | StaticImport
-    }
-
-    type AdProps = {
-        id: number
-        highlight: boolean
-        title_no: string
-        title_en: string
-        position_title_no: string
-        position_title_en: string
-        job_type: string
-        time_publish: string
-        application_deadline: string
-        organization_shortname: string
-        organization_name_no: string
-        organization_name_en: string
-        organization_logo: string
-        skills: string[] | undefined
-        cities: string[] | undefined
-    }
-
-    type EventProps = {
-        id: number
-        name_no: string
-        name_en: string
-        highlight: boolean
-        canceled: boolean
-        full: boolean
-        time_type: string
-        time_start: string
-        time_end: string
-        time_publish: string
-        image_small: string
-        location_name_no: string
-        location_name_en: string
-        category_color: string
-        category_name_no: string
-        category_name_en: string
     }
 
     type DetailedEventData = {
@@ -499,20 +337,6 @@ declare global {
         cities: string[] | undefined
     }
 
-    type DetailedEventResponse = {
-        event: DetailedEventData
-        category: Category
-        location: EventLocation | undefined
-        rule: Rule | undefined
-        organizations: Organization[]
-        audiences: Audience[]
-    } | undefined
-
-    type DetailedAdResponse = {
-        job: DetailedAd
-        organization: Organization
-    } | undefined
-
     type ColorTransitionClassNameProps = {
         color: string
         transition: boolean
@@ -565,27 +389,6 @@ declare global {
         album: string
     }
 
-    type Activity = {
-        id: string
-        song: string
-        artist: string
-        album: string
-        start: string
-        end: string
-        source: string
-        user: string
-        timestamp: string
-    }
-
-    type Artist = {
-        id: number
-        name: string
-        listens: number
-        timestamp: string
-        artist_id: string
-        song_id: string
-    }
-
     type ArtistPlayed = {
         artist: string
         artist_id: string
@@ -619,12 +422,6 @@ declare global {
         day: string
         songs_played: string
         albums: Album[]
-    }
-
-    type ActiveUser = {
-        user: string
-        total_minutes: number
-        image: string
     }
 
     type TopXSong = {
