@@ -76,8 +76,8 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
                 />
                 {isInsideAndNotPodcast && allowPlayer && (
                     <div className='absolute inset-0 bg-black/50 rounded-lg pt-2'>
-                        {playIconClickable ? <PlayIcon className='h-[40px] w-[40px] fill-white/90 stroke-0 z-10 ml-[12px] mt-[5px] cursor-events-none' />
-                            : <div className='-mt-[5px] pl-[2px]'><Loader /></div>
+                        {playIconClickable ? <PlayIcon className='h-10 w-10 fill-white/90 stroke-0 z-10 ml-3 mt-[5px] cursor-events-none' />
+                            : <div className='-mt-[5px] pl-0.5'><Loader /></div>
                         }
                     </div>
                 )}
