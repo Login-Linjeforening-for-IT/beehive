@@ -25,6 +25,9 @@ export default function Alerts() {
 
     useEffect(() => {
         async function fetchAlert() {
+            setAlert(null)
+            setShowToast(false)
+            setProgress(0)
             try {
                 const response = await fetch(`/api/alerts?page=${encodeURIComponent(pathname)}`, {
                     method: 'GET',
