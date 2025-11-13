@@ -4,7 +4,7 @@ export default function SocialLinks() {
     const iconStyle = 'leading-8 text-[1.5rem] transition-all duration-200 text-center block text-[var(--color-text-footer)]'
 
     return (
-        <div className='grid justify-between mx-auto mt-20 mb-12 sm:grid-cols-6 grid-cols-3 gap-6 w-fit'>
+        <div className='grid justify-between mx-auto mt-20 mb-12 sm:grid-cols-7 grid-cols-3 gap-6 w-fit'>
             <a
                 className='block w-8 h-8 mx-auto'
                 title='Discord'
@@ -40,6 +40,15 @@ export default function SocialLinks() {
                 rel='noreferrer'
             >
                 <i className={`${iconStyle} logfont-linkedin hover:text-[#1a7bdd]`} />
+            </a>
+            <a
+                className='block w-8 h-8 mx-auto'
+                title='Github'
+                href={config.url.GITHUB_URL}
+                target='_blank'
+                rel='noreferrer'
+            >
+                <i className={`${iconStyle} logfont-github hover:text-white`} />
             </a>
             <a
                 className='block w-8 h-8 mx-auto'

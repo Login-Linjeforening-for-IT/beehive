@@ -9,6 +9,7 @@ const config = {
         CDN_URL: env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
         EXAM_URL: 'https://exam.login.no',
         WIKI_URL: 'https://wiki.login.no',
+        GITHUB_URL: 'https://github.com/Login-Linjeforening-for-IT',
         GITLAB_URL: 'https://gitlab.login.no',
         LINKEDIN_URL: 'https://www.linkedin.com/company/linjeforeningen-login/about',
         MAIL_URL: 'kontakt@login.no',
