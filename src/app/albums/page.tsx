@@ -49,7 +49,7 @@ export default async function Page({ searchParams }: PageProps) {
                                             key={index}
                                             src={`${config.url.CDN_URL}/albums/${album.id}/${album.images[index]}`}
                                             alt={lang === 'no' ? album.name_no : album.name_en}
-                                            className={className}
+                                            className={className + ' bg-(--color-bg-surface-raised)'}
                                             width={280}
                                             height={180}
                                         />

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import config from '@config'
@@ -15,10 +15,12 @@ type AlbumImagesProps = {
 
 export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn, lang }: AlbumImagesProps) {
     const [currentIndex, setCurrentIndex] = useState<number | null>(null)
+    const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set())
 
     useEffect(() => {
         if (currentIndex !== null) {
             document.body.classList.add('overflow-hidden')
+            preloadAdjacentImages(currentIndex)
         } else {
             document.body.classList.remove('overflow-hidden')
         }
@@ -27,6 +29,27 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
             document.body.classList.remove('overflow-hidden')
         }
     }, [currentIndex])
+
+    const preloadAdjacentImages = useCallback((index: number) => {
+        const imagesToPreload = []
+        const prevIndex = (index - 1 + images.length) % images.length
+        const nextIndex = (index + 1) % images.length
+
+        if (!preloadedImages.has(prevIndex)) {
+            imagesToPreload.push(prevIndex)
+        }
+        if (!preloadedImages.has(nextIndex)) {
+            imagesToPreload.push(nextIndex)
+        }
+
+        imagesToPreload.forEach(imgIndex => {
+            const img = new window.Image()
+            img.src = `${config.url.CDN_URL}/albums/${albumId}/${images[imgIndex]}`
+            img.onload = () => {
+                setPreloadedImages(prev => new Set([...prev, imgIndex]))
+            }
+        })
+    }, [images, albumId, preloadedImages])
 
     const goToPrevious = () => {
         if (currentIndex !== null) {
@@ -46,12 +69,16 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                 <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {images.map((image: string, index: number) => (
                         <div key={index} className='relative aspect-3/2 cursor-pointer' onClick={() => setCurrentIndex(index)}>
+                            <div className='absolute inset-0 bg-(--color-bg-surface-raised) rounded-lg animate-pulse' />
                             <Image
                                 src={`${config.url.CDN_URL}/albums/${albumId}/${image}`}
                                 alt={lang === 'no' ? albumNameNo : albumNameEn}
                                 className='w-full h-full rounded-lg shadow-md hover:opacity-80 transition-opacity object-cover'
                                 fill={true}
                                 loading='lazy'
+                                sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                                quality={75}
+                                decoding='async'
                             />
                         </div>
                     ))}
@@ -81,6 +108,9 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                             className='w-full h-full object-contain rounded-2xl'
                             fill={true}
                             priority
+                            sizes='100vw'
+                            quality={95}
+                            decoding='async'
                         />
                         <button
                             className='absolute top-5 right-5 cursor-pointer bg-(--color-bg-body)/90 rounded-full p-1 sm:bg-none'
