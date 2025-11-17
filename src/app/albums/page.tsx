@@ -36,7 +36,7 @@ export default async function Page({ searchParams }: PageProps) {
                     {text.privacy_notice}
                 </pre>
                 <div className='flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                    {albums.map((album: GetAlbumProps) => (
+                    {albums.map((album: GetAlbumProps, albumIndex: number) => (
                         <Link
                             key={album.id}
                             href={`/albums/${album.id}`}
@@ -52,6 +52,9 @@ export default async function Page({ searchParams }: PageProps) {
                                             className={className + ' bg-(--color-bg-surface-raised)'}
                                             width={280}
                                             height={180}
+                                            sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                                            priority={albumIndex === 0}
+                                            quality={80}
                                         />
                                     ))
                                     : cardStack(3, (index, className) => (

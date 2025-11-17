@@ -74,17 +74,38 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
         })
     }, [images, albumId, preloadedImages])
 
-    const goToPrevious = () => {
+    const goToPrevious = useCallback(() => {
         if (currentIndex !== null) {
             setCurrentIndex((currentIndex - 1 + images.length) % images.length)
         }
-    }
+    }, [currentIndex, images.length])
 
-    const goToNext = () => {
+    const goToNext = useCallback(() => {
         if (currentIndex !== null) {
             setCurrentIndex((currentIndex + 1) % images.length)
         }
-    }
+    }, [currentIndex, images.length])
+
+    useEffect(() => {
+        if (currentIndex === null) return
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            switch (e.key) {
+                case 'ArrowLeft':
+                    goToPrevious()
+                    break
+                case 'ArrowRight':
+                    goToNext()
+                    break
+                case 'Escape':
+                    setCurrentIndex(null)
+                    break
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown)
+        return () => document.removeEventListener('keydown', handleKeyDown)
+    }, [currentIndex, goToPrevious, goToNext])
 
     return (
         <>
