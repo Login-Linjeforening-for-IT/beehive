@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import config from '@config'
@@ -16,6 +16,8 @@ type AlbumImagesProps = {
 export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn, lang }: AlbumImagesProps) {
     const [currentIndex, setCurrentIndex] = useState<number | null>(null)
     const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set())
+    const [visibleCount, setVisibleCount] = useState(12)
+    const sentinelRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (currentIndex !== null) {
@@ -29,6 +31,27 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
             document.body.classList.remove('overflow-hidden')
         }
     }, [currentIndex])
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && visibleCount < images.length) {
+                    setVisibleCount(prev => Math.min(prev + 12, images.length))
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (sentinelRef.current) {
+            observer.observe(sentinelRef.current)
+        }
+
+        return () => {
+            if (sentinelRef.current) {
+                observer.unobserve(sentinelRef.current)
+            }
+        }
+    }, [visibleCount, images.length])
 
     const preloadAdjacentImages = useCallback((index: number) => {
         const imagesToPreload = []
@@ -67,7 +90,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
         <>
             {images && images.length > 0 ? (
                 <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {images.map((image: string, index: number) => (
+                    {images.slice(0, visibleCount).map((image: string, index: number) => (
                         <div key={index} className='relative aspect-3/2 cursor-pointer' onClick={() => setCurrentIndex(index)}>
                             <div className='absolute inset-0 bg-(--color-bg-surface-raised) rounded-lg animate-pulse' />
                             <Image
@@ -82,6 +105,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                             />
                         </div>
                     ))}
+                    <div ref={sentinelRef} className='col-span-full h-4' />
                 </div>
             ) : (
                 <p className='p--regular mt-4'>
