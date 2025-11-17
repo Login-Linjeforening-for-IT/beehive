@@ -119,7 +119,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                                 alt={lang === 'no' ? albumNameNo : albumNameEn}
                                 className='w-full h-full rounded-lg shadow-md hover:opacity-80 transition-opacity object-cover'
                                 fill={true}
-                                loading='lazy'
+                                loading='eager'
                                 sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
                                 quality={75}
                                 decoding='async'
@@ -153,6 +153,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                             className='w-full h-full object-contain rounded-2xl'
                             fill={true}
                             priority
+                            loading='eager'
                             sizes='100vw'
                             quality={95}
                             decoding='async'

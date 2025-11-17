@@ -54,6 +54,7 @@ export default async function Page({ searchParams }: PageProps) {
                                             height={180}
                                             sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
                                             priority={albumIndex === 0}
+                                            loading='eager'
                                             quality={80}
                                         />
                                     ))
