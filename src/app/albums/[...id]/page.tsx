@@ -1,10 +1,9 @@
 import { getAlbum } from '@utils/api'
 import { cookies } from 'next/headers'
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import config from '@config'
 import { ChevronRight } from 'lucide-react'
+import AlbumImages from '@components/albumImages'
 
 export default async function AlbumPage({ params }: PromisedPageProps) {
     const { id } = await params
@@ -42,34 +41,17 @@ export default async function AlbumPage({ params }: PromisedPageProps) {
                 }
                 <section>
                     <p className='p--highlighted'>
-                        {album.event.time_start ? `${formatter.format(new Date(album.event.time_start))} - ` : ''}
+                        {album.event && album.event.time_start ? `${formatter.format(new Date(album.event.time_start))} - ` : ''}
                         {lang === 'no' ? album.description_no : album.description_en}
                     </p>
                 </section>
-                {
-                    album.images && album.images.length > 0 ? (
-                        <div className='mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                            {album.images.map((image: string, index: number) => (
-                                <div key={index} className='relative aspect-3/2'>
-                                    <Image
-                                        src={`${config.url.CDN_URL}/albums/${album.id}/${image}`}
-                                        alt={lang === 'no' ? album.name_no : album.name_en}
-                                        className='w-full h-full rounded-lg shadow-md'
-                                        width={600}
-                                        height={400}
-                                        loading='lazy'
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <p className='p--regular mt-4'>
-                            {lang === 'no'
-                                ? 'Ingen bilder tilgjengelig i dette albumet.'
-                                : 'No images available in this album.'}
-                        </p>
-                    )
-                }
+                <AlbumImages
+                    images={album.images}
+                    albumId={album.id}
+                    albumNameNo={album.name_no}
+                    albumNameEn={album.name_en}
+                    lang={lang}
+                />
             </div>
         </div>
     )
