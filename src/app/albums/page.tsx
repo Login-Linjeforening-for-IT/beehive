@@ -79,7 +79,7 @@ export default async function Page({ searchParams }: PageProps) {
                                     {album.year}
                                 </h3>
                                 <p>
-                                    {album.images ? album.images.length : 0} {lang === 'no' ? text.images : text.images}
+                                    {album.images ? album.image_count : 0} {lang === 'no' ? text.images : text.images}
                                 </p>
                             </div>
                         </Link>

@@ -186,6 +186,7 @@ declare global {
             time_end: string
         }
         images: string[]
+        image_count: number
         created_at: string
         updated_at: string
     }
