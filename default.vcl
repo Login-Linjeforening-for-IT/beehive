@@ -11,6 +11,11 @@ sub vcl_recv {
         set req.http.X-Lang = regsub(req.http.Cookie, ".*lang=([^;]+);?.*", "\1");
     }
 
+    if (req.url ~ "^/_next/image") {
+        set req.http.X-Theme = "";
+        set req.http.X-Lang = "";
+    }
+
     return (hash);
 }
 
@@ -20,6 +25,15 @@ sub vcl_hash {
 }
 
 sub vcl_backend_response {
+    if (bereq.url ~ "^/_next/image") {
+        set beresp.ttl = 24h;
+        if (beresp.http.Set-Cookie) {
+            unset beresp.http.Set-Cookie;
+        }
+        set beresp.http.Cache-Control = "public, max-age=86400, s-maxage=86400";
+        return (deliver);
+    }
+
     set beresp.ttl = 1m;
     return (deliver);
 }
