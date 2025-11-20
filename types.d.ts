@@ -218,7 +218,7 @@ declare global {
         description_en: string
         informational_no: string
         informational_en: string
-        time_type: 'default' | 'no_end' | 'whole_day' | 'to_be_determined'
+        time_type: time_type
         time_start: string
         time_end: string
         time_publish: string
@@ -259,7 +259,7 @@ declare global {
         id: number
         name_no: string
         name_en: string
-        type: 'mazmap' | 'coords' | 'address' | 'none'
+        type: location_type
         mazemap_campus_id: number | null
         mazemap_poi_id: number | null
         address_street: string
