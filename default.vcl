@@ -39,7 +39,7 @@ sub vcl_backend_response {
 }
 
 sub vcl_deliver {
-    set resp.http.Via = "Login Cache";
+    set resp.http.Via = "login-cache";
 
     if (obj.hits > 0) {
         set resp.http.X-Cache = "HIT:" + obj.hits;
