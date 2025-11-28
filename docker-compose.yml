@@ -1,7 +1,8 @@
 services:
   beehive:
-    restart: always
     container_name: beehive
+    image: beehive
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
