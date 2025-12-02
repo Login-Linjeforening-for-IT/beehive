@@ -24,7 +24,7 @@ export default async function Verv() {
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            <section className='mb-[2rem] 800px:mb-[5rem] verv-intro page-section--normal'>
+            <section className='mb-8 800px:mb-20 verv-intro page-section--normal'>
                 <p className='mt-0 p--highlighted'>
                     {text.intro}
                 </p>
@@ -32,7 +32,7 @@ export default async function Verv() {
                     {text.intro2}
                 </p>
             </section>
-            <section className='mb-[2rem] 800px:mb-[5rem] page-section--full-width'>
+            <section className='mb-8 800px:mb-20 page-section--full-width'>
                 {/* @ts-ignore */}
                 <ImageCarousel slides={slides} />
             </section>
@@ -41,7 +41,7 @@ export default async function Verv() {
                 <p className='p--regular'>{text.committeeSection.intro}</p>
             </section>
             <VervTabs />
-            <section className='mb-[2rem] 800px:mb-[5rem] mt-[2rem] 400px:max-w-[50rem] mx-auto page-section--normal'>
+            <section className='mb-8 800px:mb-20 mt-8 400px:max-w-200 mx-auto page-section--normal'>
                 <h2
                     className='heading-2'
                 >
@@ -55,7 +55,7 @@ export default async function Verv() {
                 <Button
                     href='https://forms.gle/nQrJuqo3C9URLRM29'
                     size='xl'
-                    className='mt-[2rem] w-full 400px:text[1.3rem] 400px:mx-auto 400px:mt-[2rem] 400px:mb-0 400px:block 400px:w-fit'
+                    className='mt-8 w-full 400px:text[1.3rem] 400px:mx-auto 400px:mt-8 400px:mb-0 400px:block 400px:w-fit'
                 >
                     {text.apply.action}
                 </Button>

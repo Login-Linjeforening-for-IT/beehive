@@ -37,7 +37,7 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
                             />
                         </div>
                     }
-                    <div className='relative aspect-[5/2] w-[12.5rem] h-[5rem] jobads-item_picture'>
+                    <div className='relative aspect-[5/2] w-50 h-20 jobads-item_picture'>
                         {jobad.organization.logo ? (
                             <Image
                                 className='jobads-item_img'
@@ -53,22 +53,22 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
                         <div className='jobads-item_name'>{lang === 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}</div>
                         <ul className='jobads-item_details'>
                             <li className='flex flex-row jobads-item_detail'>
-                                <HourglassBottom className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
+                                <HourglassBottom className='w-6 h-6 fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                 {formatDeadlineDate(new Date(jobad.time_expire), lang)}
                             </li>
                             <li className='flex flex-row jobads-item_detail'>
-                                <Apartment className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
+                                <Apartment className='w-6 h-6 fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                 {lang === 'en' ? jobad.organization.name_en : jobad.organization.name_no}
                             </li>
                             {jobad.job_type &&
                                 <li className='flex flex-row jobads-item_detail'>
-                                    <WorkHistory className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon'/>
+                                    <WorkHistory className='w-6 h-6 fill-[var(--color-text-discreet)] jobads-item_icon'/>
                                     {lang === 'en' ? jobad.job_type.name_en : jobad.job_type.name_no}
                                 </li>
                             }
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <li className='flex flex-row items-center jobads-item_detail'>
-                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobads-item_icon' />
+                                    <Pin className='w-6 h-6 fill-[var(--color-text-discreet)] jobads-item_icon' />
                                     {formatCities(jobad.cities)}
                                 </li>
                             }

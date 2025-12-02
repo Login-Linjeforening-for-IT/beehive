@@ -37,7 +37,7 @@ export default function Navigation({lang}: NavigationProps) {
     }, [navItemRefs])
 
     return (
-        <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-[50rem]'>
+        <nav className='hidden 800px:flex 800px:justify-between 800px:items-center 800px:w-fill max-w-200'>
             <Link href='/events'>
                 <li className='list-none block no-underline text-base leading-4 p-3 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.events}
@@ -61,14 +61,14 @@ export default function Navigation({lang}: NavigationProps) {
             <Link target='_blank' href={config.url.EXAM_URL}>
                 <li className='flex flex-row items-center list-none no-underline text-base leading-4 p-3 pr-2 font-medium cursor-pointer link--corner-hover'>
                     {text.nav.exam}
-                    <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
+                    <ArrowOutward className='w-6 h-6 fill-primary-500'/>
                 </li>
             </Link>
             <div className='main-nav-dropdown'>
                 <div className='main-nav-dropdown_toggle' tabIndex={0}>
                     <div className='list-none no-underline text-base leading-4 p-3 font-medium cursor-pointer flex flex-row items-center '>
                         {text.nav.about}
-                        <ArrowDown className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
+                        <ArrowDown className='w-6 h-6 fill-primary-500'/>
                     </div>
                     <div className='main-nav-dropdown_wrapper'>
                         <ul className='main-nav-dropdown_items'>
@@ -88,7 +88,7 @@ export default function Navigation({lang}: NavigationProps) {
                                 onClick={handleClick}
                             >
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
-                                    <Heart className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)] mr-[0.7rem]' />
+                                    <Heart className='w-6 h-6 fill-(--color-text-regular) mr-[0.7rem]' />
                                     {text.nav.verv}
                                 </li>
                             </Link>
@@ -98,7 +98,7 @@ export default function Navigation({lang}: NavigationProps) {
                                 onClick={handleClick}
                             >
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
-                                    <Office className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)] mr-[0.7rem]' />
+                                    <Office className='w-6 h-6 fill-(--color-text-regular) mr-[0.7rem]' />
                                     {text.nav.fondet}
                                 </li>
                             </Link>
@@ -122,9 +122,9 @@ export default function Navigation({lang}: NavigationProps) {
                                 onClick={handleClick}
                             >
                                 <li className='flex flex-row items-center main-nav-dropdown_item link--corner-hover'>
-                                    <Book className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)] mr-[0.7rem]' />
+                                    <Book className='w-6 h-6 fill-(--color-text-regular) mr-[0.7rem]' />
                                     Wiki
-                                    <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
+                                    <ArrowOutward className='w-6 h-6 fill-primary-500'/>
                                 </li>
                             </Link>
                         </ul>

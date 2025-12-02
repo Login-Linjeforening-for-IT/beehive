@@ -53,19 +53,19 @@ export default async function Page({searchParams}: PageProps) {
             <div className='page-section--normal'>
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
-            <div className='hidden 1000px:flex justify-end pb-[1rem] page-section--normal'>
+            <div className='hidden 1000px:flex justify-end pb-4 page-section--normal'>
                 {/* @ts-ignore */}
                 <div className='justify-end'>
                     <GroupToggle
                         options={[
                             {
                                 leadingIcon: (
-                                    <GridView className='w-[1.5rem] fill-[var(--color-text-main)]' />
+                                    <GridView className='w-6 fill-[var(--color-text-main)]' />
                                 ),
                                 name: 'grid'
                             },
                             {
-                                leadingIcon: (<ListBulleted className='w-[1.5rem] fill-[var(--color-text-main)]' />),
+                                leadingIcon: (<ListBulleted className='w-6 fill-[var(--color-text-main)]' />),
                                 name: 'list'
                             },
                         ]}
@@ -82,29 +82,29 @@ export default async function Page({searchParams}: PageProps) {
                     <div className='1000px:order-1 flex flex-row'>
                         <div className='w-full'>
                             <FilterItem filterData={response} />
-                            <div className='hidden 1000px:block pt-[2rem]'>
-                                <Button size='medium' variant='secondary-outlined' target='_self' trailingIcon={<Download className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'>
+                            <div className='hidden 1000px:block pt-8'>
+                                <Button size='medium' variant='secondary-outlined' target='_self' trailingIcon={<Download className='w-6 h-6 fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'>
                                     {text.calendar}
                                 </Button>
                             </div>
                         </div>
-                        <div className='flex gap-2 items-center right-0 left-[7rem] justify-between absolute mx-[0.5rem] 400px:mx-[1rem] 800px:mx-[2rem] 1000px:hidden'>
+                        <div className='flex gap-2 items-center right-0 left-28 justify-between absolute mx-2 400px:mx-4 800px:mx-8 1000px:hidden'>
                             <div className='hidden 500px:inline-flex'>
-                                <Button size='medium' variant='secondary-outlined' target='_self' trailingIcon={<Download className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'>
+                                <Button size='medium' variant='secondary-outlined' target='_self' trailingIcon={<Download className='w-6 h-6 fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'>
                                     {text.calendar}
                                 </Button>
                             </div>
-                            <Button className='500px:hidden' size='medium' variant='secondary-outlined' target='_self' leadingIcon={<Download className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'/>
+                            <Button className='500px:hidden' size='medium' variant='secondary-outlined' target='_self' leadingIcon={<Download className='w-6 h-6 fill-[var(--color-text-regular)]'/>} href='https://workerbee.login.no/api/calendar'/>
                             <GroupToggle
                                 options={[
                                     {
                                         leadingIcon: (
-                                            <GridView className='w-[1.5rem] fill-[var(--color-text-main)]' />
+                                            <GridView className='w-6 fill-[var(--color-text-main)]' />
                                         ),
                                         name: 'grid'
                                     },
                                     {
-                                        leadingIcon: (<ListBulleted className='w-[1.5rem] fill-[var(--color-text-main)]' />),
+                                        leadingIcon: (<ListBulleted className='w-6 fill-[var(--color-text-main)]' />),
                                         name: 'list'
                                     },
                                 ]}
@@ -117,15 +117,15 @@ export default async function Page({searchParams}: PageProps) {
                     </div>
                     <div className='1000px:order-2'>
                         <ul
-                            className={`list-none pt-[1rem] 1000px:pt-0 events_list${
-                                eventsView === 'grid-view' ? '--grid-view grid grid-cols-1 gap-[1rem] 600px:grid-cols-2 800px:gap-[2rem]' : '--list-view'
+                            className={`list-none pt-4 1000px:pt-0 events_list${
+                                eventsView === 'grid-view' ? '--grid-view grid grid-cols-1 gap-4 600px:grid-cols-2 800px:gap-8' : '--list-view'
                             }`}
                         >
 
                             {currentWeekEvents?.length > 0 && (
                                 <>
                                     {eventsView == 'list-view' && (
-                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem] mt-[0.2rem]'>
+                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-4 600px:ml-4 mt-[0.2rem]'>
                                             <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                 {text.thisWeek}
                                             </p>
@@ -152,7 +152,7 @@ export default async function Page({searchParams}: PageProps) {
                             {nextWeekEvents?.length > 0 && (
                                 <>
                                     {eventsView == 'list-view' && (
-                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
+                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-4 600px:ml-4'>
                                             <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                 {text.nextWeek}
                                             </p>
@@ -179,7 +179,7 @@ export default async function Page({searchParams}: PageProps) {
                             {futureEvents?.length > 0 && (
                                 <>
                                     {eventsView == 'list-view' && currentWeekEvents?.length + nextWeekEvents?.length > 0 && (
-                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-[1rem] 600px:ml-[1rem]'>
+                                        <div className='relative m-[1.2rem_0.5rem_0.2rem_0.5rem] before:content-[""] before:absolute before:top-[50%] before:w-full before:h-[0.13rem] before:bg-[var(--color-border-default)] 600px:mr-4 600px:ml-4'>
                                             <p className='bg-[var(--color-bg-body)] text-[var(--color-text-discreet)] font-medium text-[0.9rem] tracking-[0.15em] w-fit p-[0_1rem] m-[0_auto] z-2 block relative'>
                                                 {text.later}
                                             </p>

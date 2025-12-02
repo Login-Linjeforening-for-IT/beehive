@@ -122,7 +122,7 @@ export default function FilterGroup({ filters, close }: any) {
                     href={pathname+'?'+params()}
                     target='_self'
                     variant='secondary-outlined'
-                    trailingIcon={<Replay className='w-[1.25rem] h-[1.25rem] fill-[var(--color-text-regular)]'/>}
+                    trailingIcon={<Replay className='w-5 h-5 fill-[var(--color-text-regular)]'/>}
                     onClick={onReset}
                     size='medium'
                     className='filter-groups_reset'
@@ -135,7 +135,7 @@ export default function FilterGroup({ filters, close }: any) {
                         href=''
                         target='_self'
                         variant='secondary-outlined'
-                        leadingIcon={<KeyboardArrowUp className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-regular)]'/>}
+                        leadingIcon={<KeyboardArrowUp className='w-6 h-6 fill-[var(--color-text-regular)]'/>}
                         onClick={close}
                         size='medium'
                         className='filter-groups_close'

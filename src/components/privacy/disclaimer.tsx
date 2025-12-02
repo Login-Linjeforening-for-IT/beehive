@@ -42,7 +42,7 @@ export default function PrivacyDisclaimer({ lang }: { lang: Lang }) {
     }
 
     return (
-        <div className='fixed z-1000 top-24 right-4 bg-[var(--color-bg-surface)] rounded-lg w-[25rem] max-w-[90vw] p-2 grid gap-2'>
+        <div className='fixed z-1000 top-24 right-4 bg-(--color-bg-surface) rounded-lg w-100 max-w-[90vw] p-2 grid gap-2'>
             <div className='flex w-full justify-between'>
                 <h1 className='font-semibold'>{text.title}</h1>
                 <X color='#fd8738' className='cursor-pointer' onClick={handleHide} />
@@ -50,9 +50,9 @@ export default function PrivacyDisclaimer({ lang }: { lang: Lang }) {
             <h1 className='text-xs'>{text.description}</h1>
             <h1
                 onClick={handleHideForever}
-                className='text-xs text-[var(--color-primary-500)] cursor-pointer'
+                className='text-xs text-primary-500 cursor-pointer'
             >{text.noshow}</h1>
-            <div className='h-1 bg-[var(--color-primary-500)] w-0 mb-1 animate-slide-line rounded-lg' />
+            <div className='h-1 bg-primary-500 w-0 mb-1 animate-slide-line rounded-lg' />
         </div>
     )
 }

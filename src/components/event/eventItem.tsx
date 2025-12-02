@@ -89,7 +89,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             }
                             {event.location && (
                                 <li className='flex text-[0.9rem]'>
-                                    <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)] event-item_icon' />
+                                    <Pin className='w-6 h-6 fill-[var(--color-text-main)] event-item_icon' />
                                     {lang === 'en' ? event.location.name_en : event.location.name_no}
                                 </li>
                             )}

@@ -39,7 +39,7 @@ export default async function EventsPreview() {
                     <ul className='relative grid grid-flow-col list-none overflow-auto p-[0_1rem_1rem_1rem] snap-x snap-mandatory 400px:gap-4 800px:grid-cols-2 800px:grid-flow-row-dense 800px:gap-8 1000px:grid-cols-3 1000px:gap-4 1000px:p-0'>
                         {/* eslint-disable-next-line */}
                         {events.map((e: any) => (
-                            <li key={e.id} className='snap-center w-[80vw] max-w-88 min-w-[18rem] 800px:w-full 800px:max-w-md 1000px:m-[0_auto]'>
+                            <li key={e.id} className='snap-center w-[80vw] max-w-88 min-w-72 800px:w-full 800px:max-w-md 1000px:m-[0_auto]'>
                                 <EventListItem event={e} variant='card' highlight={false} />
                             </li>
                         ))}

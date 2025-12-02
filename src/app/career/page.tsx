@@ -52,7 +52,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                         <FilterItem filterData={response} />
                     </div>
                     <div className='order-2'>
-                        <ul className='list-none pt-[1.5rem] 1000px:pt-0'>
+                        <ul className='list-none pt-6 1000px:pt-0'>
                             {typeof jobads !== 'string' && Array.isArray(jobads.jobs) && jobads.jobs.length ? jobads.jobs.map((e: GetJobProps, idx: number) => (
                                 <li key={idx}>
                                     <JobadsListItem jobad={e} />
@@ -72,7 +72,7 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                             //     <Button
                             //         onClick={loadItems}
                             //         variant='secondary'
-                            //         className='m-[2rem_0] 400px:w-fit 400px:min-w-[12rem] 400px:mx-auto'
+                            //         className='m-[2rem_0] 400px:w-fit 400px:min-w-48 400px:mx-auto'
                             //         trailingIcon={<ArrowDownWard className=''/>}
                             //     >
                             //         {text.loadMore}

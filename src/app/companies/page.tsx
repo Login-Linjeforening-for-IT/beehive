@@ -19,10 +19,10 @@ export default async function CompaniesPage() {
                 <section>
                     <p className='p--highlighted'>{text.intro}</p>
                 </section>
-                <div className='grid grid-cols-1 gap-y-[1rem] max-w-[45rem] mb-[3rem] 1000px:grid-cols-2 1000px:gap-x-[4rem] 1000px:gap-y-[2rem] 1000px:mb-[5rem] 1000px:max-w-none'>
+                <div className='grid grid-cols-1 gap-y-4 max-w-180 mb-12 1000px:grid-cols-2 1000px:gap-x-16 1000px:gap-y-8 1000px:mb-20 1000px:max-w-none'>
                     <section>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Flowsheet className='w-[3rem] h-[3rem] fill-[var(--color-text-main)] mr-[0.4em]' />
+                            <Flowsheet className='w-12 h-12 fill-[var(--color-text-main)] mr-[0.4em]' />
                             <span>{text.bedpres.title}</span>
                         </h2>
                         <p className='p--regular'>{text.bedpres.body}</p>
@@ -63,14 +63,14 @@ export default async function CompaniesPage() {
                     </section>
                     <section>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Megaphone className='w-[3rem] h-[3rem] fill-[var(--color-text-main)] mr-[0.4em]' />
+                            <Megaphone className='w-12 h-12 fill-[var(--color-text-main)] mr-[0.4em]' />
                             <span>{text.profiling.title}</span>
                         </h2>
                         <p className='p--regular'>{text.profiling.body}</p>
                     </section>
                     <section>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Wrench className='w-[3rem] h-[3rem] fill-[var(--color-text-main)] mr-[0.4em]' />
+                            <Wrench className='w-12 h-12 fill-[var(--color-text-main)] mr-[0.4em]' />
                             <span>{text.workshop.title}</span>
                         </h2>
                         <p className='p--regular'>{text.workshop.body}</p>

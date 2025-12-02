@@ -40,7 +40,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
             {jobad && (
                 <div className={`jobad-page jobad-page--${jobad.banner_image ? 'banner' : 'noBanner'}`}>
                     <div className='jobad-details'>
-                        <div className='flex flex-row flex-wrap gap-[1rem] mb-[2rem] 800px:flex-col'>
+                        <div className='flex flex-row flex-wrap gap-4 mb-8 800px:flex-col'>
                             <div className='jobad-details_image relative'>
                                 {jobad?.organization?.logo ? (
                                     <Image
@@ -75,7 +75,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 )}
                             </div>
                         </div>
-                        <div className='grid grid-cols-[min-content_auto] gap-[1rem] mb-[3rem]'>
+                        <div className='grid grid-cols-[min-content_auto] gap-4 mb-12'>
                             <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
                                 <HourglassBottom className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color'/>
                                 {text.details.deadline}:
@@ -116,7 +116,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <>
                                     <div className='flex-row items-center text-[var(--color-text-discreet)] inline-flex items-start'>
-                                        <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color' />
+                                        <Pin className='w-6 h-6 fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color' />
                                         {/* @ts-ignore */}
                                         {jobad.cities.length > 1
                                             ? text.details.locations
@@ -147,7 +147,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                         {jobad.application_url && (
                             // @ts-ignore
                             <Button
-                                trailingIcon={<ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-white'/>}
+                                trailingIcon={<ArrowOutward className='w-6 h-6 fill-white'/>}
                                 // @ts-ignore
                                 href={jobad.application_url}
                                 className='jobad-details_apply-btn w-full 400px:w-fit'

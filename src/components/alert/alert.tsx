@@ -42,7 +42,7 @@ function getTextColor(variant: string): string {
 export default function Alert({ children, variant = 'info', className = '' }: AlertProps) {
     return (
         <div className={`flex gap-2 alert alert--${variant} ${className}`}>
-            <ErrorSymbol className={`w-[2rem] h-[2rem] ${getIconColor(variant)}`} />
+            <ErrorSymbol className={`w-8 h-8 ${getIconColor(variant)}`} />
             <div className={`alert_content ${getTextColor(variant)}`}>{children}</div>
         </div>
     )

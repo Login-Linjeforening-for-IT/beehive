@@ -16,9 +16,9 @@ export default async function About() {
             <h1 className='page-section--normal heading-1 heading-1--top-left-corner'>
                 {text.title}
             </h1>
-            <section className='page-section--normal 800px:mb-[5rem] about-intro'>
+            <section className='page-section--normal 800px:mb-20 about-intro'>
                 <p
-                    className='mt-0 max-w-[50rem] p--highlighted'
+                    className='mt-0 max-w-200 p--highlighted'
                     dangerouslySetInnerHTML={{ __html: text.intro }}
                 />
                 <div className='flex flex-wrap items-start justify-center gap-[5%] 800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'>
@@ -30,11 +30,11 @@ export default async function About() {
                         width={300}
                         height={200}
                         cover={true}
-                        className='max-w-[33rem] w-full m-[3rem_0_1rem_0] 800px:m-0'
+                        className='max-w-132 w-full m-[3rem_0_1rem_0] 800px:m-0'
                     />
                 </div>
             </section>
-            <section className='page-section--normal mb-[2rem] 800px:mb-[5rem]'>
+            <section className='page-section--normal mb-8 800px:mb-20'>
                 <h2 className='heading-2'>{text.about.title}</h2>
                 <div className='p--columns'>
                     <p
@@ -56,7 +56,7 @@ export default async function About() {
                 <p className='p--regular'>{text.committeeSection.intro}</p>
             </section>
             <CommitteeTabs />
-            <section className='page-section--normal 800px:mb-[5rem]'>
+            <section className='page-section--normal 800px:mb-20'>
                 <h2 className='heading-2'>{text.publicDocs.title}</h2>
                 <p
                     className='p--regular'

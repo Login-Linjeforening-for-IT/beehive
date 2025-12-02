@@ -108,7 +108,7 @@ export default async function EventSignUp({
             {msg && (
                 <Alert
                     variant={warning ? 'warning' : 'info'}
-                    className='mb-4 400px:w-fit 400px:max-w-[20rem] 800px:group-valid:m-[0_auto_0_0] 800px:max-w-68 800px:w-fit 800px:ml-auto'
+                    className='mb-4 400px:w-fit 400px:max-w-80 800px:group-valid:m-[0_auto_0_0] 800px:max-w-68 800px:w-fit 800px:ml-auto'
                 >
                     {msg}
                 </Alert>

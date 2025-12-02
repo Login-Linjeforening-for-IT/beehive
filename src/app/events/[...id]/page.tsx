@@ -109,7 +109,7 @@ async function Event({event}: {event: GetEventProps}) {
                     {event.location && (
                         <>
                             <div className='flex flex-row items-center event-details_lable'>
-                                <Pin className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color' />
+                                <Pin className='w-6 h-6 fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color' />
                                 {text.info.location}:
                             </div>
                             <div className='event-details_info'>
@@ -214,7 +214,7 @@ async function Event({event}: {event: GetEventProps}) {
                             title={
                                 <>
                                     {/* @ts-ignore */}
-                                    <Gavel className='fill-[var(--color-text-main)] h-[1.75rem]'/> {lang === 'en' ? event.rule.name_en : event.rule.name_no}
+                                    <Gavel className='fill-[var(--color-text-main)] h-7'/> {lang === 'en' ? event.rule.name_en : event.rule.name_no}
                                 </>
                             }
                         >
@@ -306,7 +306,7 @@ function link(href: string, name: string) {
             target='_blank'
             rel='noreferrer'
         >
-            {name} <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-discreet)]'/>
+            {name} <ArrowOutward className='w-6 h-6 fill-[var(--color-text-discreet)]'/>
         </Link>
     )
 }

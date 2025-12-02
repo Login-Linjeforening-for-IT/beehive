@@ -49,7 +49,7 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
             <Link target='_blank' onClick={close} href={config.url.EXAM_URL} tabIndex={open ? 0 : -1}>
                 <li className='flex flex-row gap-2 mobile-nav_item'>
                     {text.nav.exam}
-                    <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]' />
+                    <ArrowOutward className='w-6 h-6 fill-primary-500' />
                 </li>
 
             </Link>
@@ -65,7 +65,7 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
                 >
                     <li className='flex flex-row gap-2 items-center mobile-nav_item'>
                         {text.nav.about}
-                        <ArrowDown className={`w-[1.5rem] h-[1.5rem] fill-white transition-transform duration-400 ${isDropdownOpen ? 'rotate-180' : ''}`}/>
+                        <ArrowDown className={`w-6 h-6 fill-white transition-transform duration-400 ${isDropdownOpen ? 'rotate-180' : ''}`}/>
                     </li>
                 </button>
                 <div className='mobile-nav-dropdown_items'>
@@ -106,7 +106,7 @@ export default function MobileNavigation({ lang, open, setIsOpen }: MobileNaviga
                     >
                         <li className='flex flex-row gap-2 mobile-nav-dropdown_item'>
                             Wiki
-                            <ArrowOutward className='w-[1.5rem] h-[1.5rem] fill-[var(--color-primary-500)]'/>
+                            <ArrowOutward className='w-6 h-6 fill-primary-500'/>
                         </li>
                     </Link>
                 </div>

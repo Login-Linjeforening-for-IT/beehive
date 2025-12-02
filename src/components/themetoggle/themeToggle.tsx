@@ -27,7 +27,7 @@ export default function ThemeSwitch() {
     }
 
     return (
-        <div className='grid place-items-center justify-end rounded-[var(--border-radius)] hover:bg-[#6464641a]'>
+        <div className='grid place-items-center justify-end rounded-(--border-radius) hover:bg-[#6464641a]'>
             <label className='cursor-pointer'>
                 <input
                     type='checkbox'

@@ -29,7 +29,7 @@ export default async function LandingPage() {
                             {/* @ts-ignore */}
                             <Button
                                 href='events'
-                                leadingIcon={<Calendar className='w-[1.5rem] h-[1.5rem] fill-white'/>}
+                                leadingIcon={<Calendar className='w-6 h-6 fill-white'/>}
                                 variant='primary'
                                 target=''
                             >
@@ -38,7 +38,7 @@ export default async function LandingPage() {
                             {/* @ts-ignore */}
                             <Button
                                 href='about'
-                                leadingIcon={<School className='w-[1.5rem] h-[1.5rem] fill-[var(--color-text-main)]'/>}
+                                leadingIcon={<School className='w-6 h-6 fill-[var(--color-text-main)]'/>}
                                 variant='ghost'
                                 target=''
                             >

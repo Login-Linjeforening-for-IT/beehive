@@ -34,10 +34,10 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
 
     return (
         <>
-            <section className='pt-[2rem] max-w-[var(--w-page)] 800px:px-[1rem] 800px:mx-auto 1000px:w-full'>
-                <div className='flex justify-between items-center px-[2rem] 1000px:px-[1rem]'>
+            <section className='pt-8 max-w-[var(--w-page)] 800px:px-4 800px:mx-auto 1000px:w-full'>
+                <div className='flex justify-between items-center px-8 1000px:px-4'>
                     <div className='gap-2 flex place-items-center'>
-                        <h2 className='py-[0.5rem] font-normal text-2xl'>
+                        <h2 className='py-2 font-normal text-2xl'>
                             {text.musicPreview.title}
                         </h2>
                         <PlayIcon />
@@ -52,7 +52,7 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
                     <SongPreview />
                 </div>
             </section>
-            <hr className='hidden 800px:block 800px:border-0 800px:h-[0.15rem] 800px:bg-[var(--color-border-default)] 800px:my-0 800px:mx-[3rem] 1000px:my-[2rem] 1000px:mx-auto 1000px:max-w-[calc(var(--w-page)-4rem)]' />
+            <hr className='hidden 800px:block 800px:border-0 800px:h-[0.15rem] 800px:bg-[var(--color-border-default)] 800px:my-0 800px:mx-12 1000px:my-8 1000px:mx-auto 1000px:max-w-[calc(var(--w-page)-4rem)]' />
         </>
     )
 }

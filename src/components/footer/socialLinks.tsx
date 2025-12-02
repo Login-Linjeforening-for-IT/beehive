@@ -53,7 +53,7 @@ const socialLinks: SocialLink[] = [
 ]
 
 export default function SocialLinks() {
-    const baseIconStyle = 'leading-8 text-[1.5rem] transition-all duration-200 text-center block text-[var(--color-text-footer)]'
+    const baseIconStyle = 'leading-8 text-6 transition-all duration-200 text-center block text-[var(--color-text-footer)]'
 
     return (
         <div className='grid justify-between mx-auto mt-20 mb-12 sm:grid-cols-7 grid-cols-3 gap-6 w-fit'>

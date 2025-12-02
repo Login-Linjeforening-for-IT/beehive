@@ -21,7 +21,7 @@ export default async function Page() {
                 />
             </div>
             <div className='block w-full mt-4 800px:w-fit 800px:m-auto 800px:text-left 800px:pr-4'>
-                <h1 className='text-[2rem]'>{text.header1}</h1>
+                <h1 className='text-8'>{text.header1}</h1>
                 <p className='p--regular'>
                     {text.msg}
                 </p>
