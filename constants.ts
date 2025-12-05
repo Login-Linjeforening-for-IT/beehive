@@ -24,7 +24,8 @@ const config = {
         SPOTIFY_URL: 'https://open.spotify.com/track/',
         SPOTIFY_EMBED_URL: 'https://open.spotify.com/embed/track',
         SPOTIFY_ALBUM_URL: 'https://open.spotify.com/album',
-        SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist'
+        SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist',
+        BEEKEEPER_URL: 'https://api.beekeeper.login.no/api'
     },
     auth: {
         BASE_URL: env.BASE_URL,
@@ -40,7 +41,8 @@ const config = {
         TOKEN_URL: `${env.AUTHENTIK_URL}/application/o/token/`,
         USERINFO_URL: `${env.AUTHENTIK_URL}/application/o/userinfo/`,
     },
-    version: packageInfo.version
+    version: packageInfo.version,
+    timeout: 5000
 }
 
 export default config

@@ -108,26 +108,36 @@ export async function getAlbum(albumID: number): Promise<GetAlbumProps | string>
     return await fetchWrapper(path)
 }
 
+// Status
+export async function getStatus(): Promise<Status> {
+    return await fetchWrapper(`${config.url.BEEKEEPER_URL}/status`)
+}
+
 async function fetchWrapper(path: string, options = {}) {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), config.timeout)
     const defaultOptions = {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
+        signal: controller.signal
     }
     const finalOptions = { ...defaultOptions, ...options }
 
     try {
-        const response = await fetch(`${baseUrl}${path}`, finalOptions)
+        const response = await fetch(path.includes('http') ? path : `${baseUrl}${path}`, finalOptions)
         const data = await response.text()
 
         if (!response.ok) {
             throw new Error(data)
         }
 
+        clearTimeout(timeout)
         return JSON.parse(data)
     // eslint-disable-next-line
     } catch (error: any) {
+        clearTimeout(timeout)
         return JSON.stringify(error.message) || 'Unknown error! Please contact TekKom'
     }
 }

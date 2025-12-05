@@ -565,9 +565,72 @@ declare global {
         name: string | undefined
     }
 
+    type StatusStarting = {
+        prod: {
+            status: {
+                number: number
+                message: string
+                info: string
+            },
+            services: { name: string, status: ServiceStatusHuman }[]
+            meta: ServiceStatusHuman
+        }
+        dev: {
+            status: {
+                number: number
+                message: string
+                info: string
+            }
+            services: { name: string, status: ServiceStatusHuman }[]
+            meta: ServiceStatusHuman
+        }
+    }
+
+    type StatusDegraded = {
+        prod: {
+            status: {
+                number: number
+                message: string
+                error: string
+            },
+            services: never[]
+            meta: ServiceStatusHuman
+        }
+        dev: {
+            status: {
+                number: number
+                message: string
+                error: string
+            }
+            services: never[]
+            meta: ServiceStatusHuman
+        }
+    }
+
+    type StatusOperational = {
+        prod: {
+            status: {
+                number: number
+                message: ServiceStatusHuman
+            },
+            services: { name: string, status: ServiceStatusHuman }[]
+            meta: ServiceStatusHuman
+        }
+        dev: {
+            status: {
+                number: number
+                message: ServiceStatusHuman
+            },
+            services: { name: string, status: ServiceStatusHuman }[]
+            meta: string
+        }
+    }
+
+    type Status = StatusOperational | StatusStarting | StatusDegraded
+
     interface ExtendedNavigator extends Navigator {
         globalPrivacyControl: boolean
     }
 }
 
-export {}
+export { }
