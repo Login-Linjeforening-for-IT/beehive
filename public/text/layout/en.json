@@ -9,7 +9,9 @@
     "albums": "Albums",
     "general": "Who are we?",
     "exam": "Exam",
-    "music": "Music"
+    "music": "Music",
+    "more": "More",
+    "status": "Status"
   },
   "footer": {
     "contactInfo": {

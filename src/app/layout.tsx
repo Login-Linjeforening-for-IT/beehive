@@ -6,6 +6,7 @@ import { ReactNode } from 'react'
 import { cookies, headers } from 'next/headers'
 import '@assets/fonts/style.css'
 import '@assets/fonts/logfont/style.css'
+import 'uibee/styles'
 import './globals.css'
 import clsx from '@utils/clsx'
 import Alerts from '@components/alerts/alerts'
@@ -18,7 +19,6 @@ export const metadata: Metadata = {
 export default async function layout({children}: {children: ReactNode}) {
     const Cookies = await cookies()
     const theme = Cookies.get('theme')?.value || 'dark'
-    const token = Cookies.get('access_token')?.value || null
     const lang = (Cookies.get('lang')?.value || 'no') as Lang
     const Headers = headers()
     const path = (await Headers).get('x-current-path') || ''
@@ -29,8 +29,8 @@ export default async function layout({children}: {children: ReactNode}) {
         <html test-id='root' lang='en' className={theme}>
             <body className={clsx('min-h-screen w-full bg-(--color-bg-body)', dashboard && 'max-h-screen overflow-hidden')}>
                 {page !== 'pwned' ?
-                    <header className='main-header fixed top-0 z-900 w-full'>
-                        <TopBar onlyLogo={dashboard} lang={lang} theme={theme} token={token} />
+                    <header className='fixed top-0 z-900 w-full'>
+                        <TopBar onlyLogo={dashboard} />
                     </header>
                     :
                     page === 'pwned' && <header className='main-header fixed top-0 z-900 w-full'>
