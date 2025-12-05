@@ -1,0 +1,19 @@
+{
+  "title": "System Status",
+  "production": "Production",
+  "development": "Development",
+  "noServices": "No services listed",
+  "issues": {
+    "domains": "Unstable server connection",
+    "server": "System outage: service is currently unavailable",
+    "pods": "Subsystem degradation detected",
+    "logs": "Increased errors identified in logs",
+    "unknown": "Unknown issue"
+  },
+  "statuses": {
+    "operational": "Operational",
+    "degraded": "Degraded",
+    "inactive": "Inactive",
+    "down": "Down"
+  }
+}

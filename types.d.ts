@@ -565,6 +565,8 @@ declare global {
         name: string | undefined
     }
 
+    type ServiceStatusHuman = 'operational' | 'degraded' | 'down' | 'inactive'
+
     type StatusStarting = {
         prod: {
             status: {
@@ -593,7 +595,7 @@ declare global {
                 message: string
                 error: string
             },
-            services: never[]
+            services: { name: string, status: ServiceStatusHuman, issues?: Issue[] }[]
             meta: ServiceStatusHuman
         }
         dev: {
@@ -602,7 +604,7 @@ declare global {
                 message: string
                 error: string
             }
-            services: never[]
+            services: { name: string, status: ServiceStatusHuman, issues?: Issue[] }[]
             meta: ServiceStatusHuman
         }
     }
@@ -613,7 +615,7 @@ declare global {
                 number: number
                 message: ServiceStatusHuman
             },
-            services: { name: string, status: ServiceStatusHuman }[]
+            services: { name: string, status: ServiceStatusHuman, issues?: Issue[] }[]
             meta: ServiceStatusHuman
         }
         dev: {
@@ -621,12 +623,14 @@ declare global {
                 number: number
                 message: ServiceStatusHuman
             },
-            services: { name: string, status: ServiceStatusHuman }[]
-            meta: string
+            services: { name: string, status: ServiceStatusHuman, issues?: Issue[] }[]
+            meta: ServiceStatusHuman
         }
     }
 
     type Status = StatusOperational | StatusStarting | StatusDegraded
+
+    type Issue = 'domains' | 'logs' | 'server' | 'pods'
 
     interface ExtendedNavigator extends Navigator {
         globalPrivacyControl: boolean

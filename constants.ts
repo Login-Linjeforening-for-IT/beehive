@@ -25,7 +25,7 @@ const config = {
         SPOTIFY_EMBED_URL: 'https://open.spotify.com/embed/track',
         SPOTIFY_ALBUM_URL: 'https://open.spotify.com/album',
         SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist',
-        BEEKEEPER_URL: 'https://api.beekeeper.login.no/api'
+        BEEKEEPER_URL: 'https://beekeeper.login.no/api'
     },
     auth: {
         BASE_URL: env.BASE_URL,

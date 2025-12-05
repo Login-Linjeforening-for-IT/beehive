@@ -1,0 +1,19 @@
+{
+  "title": "Systemstatus",
+  "production": "Produksjon",
+  "development": "Utvikling",
+  "noServices": "Ingen tjenester oppført",
+  "issues": {
+    "domains": "Ustabil servertilkobling",
+    "server": "Systemutfall: tjenesten er for øyeblikket utilgjengelig",
+    "pods": "Delvis funksjonssvikt i subsystemet",
+    "logs": "Økte feil i logger",
+    "unknown": "Ukjent problem"
+  },
+  "statuses": {
+    "operational": "Operativ",
+    "degraded": "Nedgradert",
+    "inactive": "Inaktiv",
+    "down": "Nede"
+  }
+}
