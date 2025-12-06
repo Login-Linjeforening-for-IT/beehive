@@ -88,6 +88,7 @@ const nextConfig: NextConfig = {
                 pathname: '/avatars/**',
             }
         ],
+        qualities: [25, 50, 75],
     },
     async headers() {
         return [

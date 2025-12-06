@@ -14,165 +14,198 @@ type AlbumImagesProps = {
 }
 
 export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn, lang }: AlbumImagesProps) {
-    const [currentIndex, setCurrentIndex] = useState<number | null>(null)
-    const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set())
-    const [visibleCount, setVisibleCount] = useState(12)
-    const sentinelRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        if (currentIndex !== null) {
-            document.body.classList.add('overflow-hidden')
-            preloadAdjacentImages(currentIndex)
-        } else {
-            document.body.classList.remove('overflow-hidden')
-        }
-
-        return () => {
-            document.body.classList.remove('overflow-hidden')
-        }
-    }, [currentIndex])
+    const [visibleCount, setVisibleCount] = useState(20)
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+    const [isImageLoading, setIsImageLoading] = useState(false)
+    const [showPlaceholder, setShowPlaceholder] = useState(false)
+    const loadMoreRef = useRef<HTMLDivElement>(null)
+    const lightboxRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                if (entries[0].isIntersecting && visibleCount < images.length) {
-                    setVisibleCount(prev => Math.min(prev + 12, images.length))
+                if (entries[0].isIntersecting) {
+                    setVisibleCount((prev) => Math.min(prev + 20, images.length))
                 }
             },
-            { threshold: 0.1 }
+            { rootMargin: '200px' }
         )
 
-        if (sentinelRef.current) {
-            observer.observe(sentinelRef.current)
+        if (loadMoreRef.current) {
+            observer.observe(loadMoreRef.current)
         }
 
-        return () => {
-            if (sentinelRef.current) {
-                observer.unobserve(sentinelRef.current)
-            }
-        }
-    }, [visibleCount, images.length])
-
-    const preloadAdjacentImages = useCallback((index: number) => {
-        const imagesToPreload = []
-        const prevIndex = (index - 1 + images.length) % images.length
-        const nextIndex = (index + 1) % images.length
-
-        if (!preloadedImages.has(prevIndex)) {
-            imagesToPreload.push(prevIndex)
-        }
-        if (!preloadedImages.has(nextIndex)) {
-            imagesToPreload.push(nextIndex)
-        }
-
-        imagesToPreload.forEach(imgIndex => {
-            const img = new window.Image()
-            img.src = `${config.url.CDN_URL}/albums/${albumId}/${images[imgIndex]}`
-            img.onload = () => {
-                setPreloadedImages(prev => new Set([...prev, imgIndex]))
-            }
-        })
-    }, [images, albumId, preloadedImages])
-
-    const goToPrevious = useCallback(() => {
-        if (currentIndex !== null) {
-            setCurrentIndex((currentIndex - 1 + images.length) % images.length)
-        }
-    }, [currentIndex, images.length])
-
-    const goToNext = useCallback(() => {
-        if (currentIndex !== null) {
-            setCurrentIndex((currentIndex + 1) % images.length)
-        }
-    }, [currentIndex, images.length])
+        return () => observer.disconnect()
+    }, [images.length])
 
     useEffect(() => {
-        if (currentIndex === null) return
+        if (lightboxIndex === null) return
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            switch (e.key) {
-                case 'ArrowLeft':
-                    goToPrevious()
-                    break
-                case 'ArrowRight':
-                    goToNext()
-                    break
-                case 'Escape':
-                    setCurrentIndex(null)
-                    break
-            }
+            if (e.key === 'Escape') setLightboxIndex(null)
+            if (e.key === 'ArrowLeft') navigate(-1)
+            if (e.key === 'ArrowRight') navigate(1)
         }
 
-        document.addEventListener('keydown', handleKeyDown)
-        return () => document.removeEventListener('keydown', handleKeyDown)
-    }, [currentIndex, goToPrevious, goToNext])
+        window.addEventListener('keydown', handleKeyDown)
+        document.body.style.overflow = 'hidden'
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = ''
+        }
+    }, [lightboxIndex])
+
+    useEffect(() => {
+        if (lightboxIndex !== null && lightboxRef.current) {
+            lightboxRef.current.focus()
+        }
+    }, [lightboxIndex])
+
+    const navigate = useCallback((direction: number) => {
+        setLightboxIndex((prev) => {
+            if (prev === null) return null
+            const next = prev + direction
+            if (next < 0) return 0
+            if (next >= images.length) return images.length - 1
+            return next
+        })
+    }, [images.length])
+
+    useEffect(() => {
+        if (lightboxIndex !== null) {
+            setIsImageLoading(true)
+            setShowPlaceholder(false)
+        }
+    }, [lightboxIndex])
+
+    useEffect(() => {
+        let timer: NodeJS.Timeout
+        if (isImageLoading) {
+            timer = setTimeout(() => setShowPlaceholder(true), 100)
+        } else {
+            setShowPlaceholder(false)
+        }
+        return () => clearTimeout(timer)
+    }, [isImageLoading])
+
+    const getImageUrl = (filename: string) => `${config.url.CDN_URL}/albums/${albumId}/${filename}`
+
+    const visibleImages = images.slice(0, visibleCount)
 
     return (
         <>
-            {images && images.length > 0 ? (
-                <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {images.slice(0, visibleCount).map((image: string, index: number) => (
-                        <div key={index} className='relative aspect-3/2 cursor-pointer' onClick={() => setCurrentIndex(index)}>
-                            <div className='absolute inset-0 bg-(--color-bg-surface-raised) rounded-lg animate-pulse' />
-                            <Image
-                                src={`${config.url.CDN_URL}/albums/${albumId}/${image}`}
-                                alt={lang === 'no' ? albumNameNo : albumNameEn}
-                                className='w-full h-full rounded-lg shadow-md hover:opacity-80 transition-opacity object-cover'
-                                fill={true}
-                                loading='eager'
-                                sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                                quality={75}
-                                decoding='async'
-                            />
-                        </div>
-                    ))}
-                    <div ref={sentinelRef} className='col-span-full h-4' />
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                {visibleImages.map((img, index) => (
+                    <div
+                        key={img}
+                        className='relative aspect-3/2 cursor-pointer overflow-hidden rounded-lg bg-gray-100 hover:opacity-90 transition-opacity'
+                        onClick={() => setLightboxIndex(index)}
+                    >
+                        <div className='absolute inset-0 bg-(--color-bg-surface-raised) animate-pulse' />
+                        <Image
+                            src={getImageUrl(img)}
+                            alt={`${lang === 'no' ? albumNameNo : albumNameEn} - ${index + 1}`}
+                            fill
+                            sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                            className='object-cover'
+                            loading='lazy'
+                            quality={50}
+                        />
+                    </div>
+                ))}
+            </div>
+
+            {visibleCount < images.length && (
+                <div ref={loadMoreRef} className='h-20 w-full flex items-center justify-center'>
+                    <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900'></div>
                 </div>
-            ) : (
-                <p className='p--regular mt-4'>
-                    {lang === 'no'
-                        ? 'Ingen bilder tilgjengelig i dette albumet.'
-                        : 'No images available in this album.'}
-                </p>
             )}
 
-            {currentIndex !== null && (
-                <div className='fixed inset-0 bg-black/80 flex items-center justify-center z-900' onClick={() => setCurrentIndex(null)}>
-                    <div className='relative w-screen sm:w-[70vw] h-auto aspect-3/2 p-2 md:p-20 px-2 md:px-30 rounded-2xl bg-(--color-bg-body) m-4 md:m-10' onClick={(e) => e.stopPropagation()}>
-                        {currentIndex !> 0 && (
-                            <button
-                                className='absolute left-5 top-1/2 transform -translate-y-1/2 justify-center z-10 cursor-pointer bg-(--color-bg-body)/90 rounded-full p-1 sm:bg-none'
-                                onClick={(e) => { e.stopPropagation(); goToPrevious() }}
-                            >
-                                <ChevronLeft size={30} />
-                            </button>
+            {lightboxIndex !== null && (
+                <div
+                    className='fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm'
+                    onClick={(e) => {
+                        if (e.target === e.currentTarget) setLightboxIndex(null)
+                    }}
+                    role='dialog'
+                    aria-modal='true'
+                    ref={lightboxRef}
+                    tabIndex={-1}
+                >
+                    <div style={{ display: 'none' }}>
+                        {lightboxIndex + 1 < images.length && (
+                            <Image
+                                src={getImageUrl(images[lightboxIndex + 1])}
+                                alt='preload next'
+                                fill
+                                sizes='100vw'
+                                priority
+                                unoptimized
+                            />
                         )}
-                        <Image
-                            src={`${config.url.CDN_URL}/albums/${albumId}/${images[currentIndex!]}`}
-                            alt={lang === 'no' ? albumNameNo : albumNameEn}
-                            className='w-full h-full object-contain rounded-2xl'
-                            fill={true}
-                            priority
-                            loading='eager'
-                            sizes='100vw'
-                            quality={95}
-                            decoding='async'
-                        />
-                        <button
-                            className='absolute top-5 right-5 cursor-pointer bg-(--color-bg-body)/90 rounded-full p-1 sm:bg-none'
-                            onClick={() => setCurrentIndex(null)}
-                        >
-                            <X size={30} />
-                        </button>
-                        {currentIndex !< images.length - 1 && (
-                            <button
-                                className='absolute right-5 top-1/2 transform -translate-y-1/2 justify-center z-10 cursor-pointer bg-(--color-bg-body)/90 rounded-full p-1 sm:bg-none'
-                                onClick={(e) => { e.stopPropagation(); goToNext() }}
-                            >
-                                <ChevronRight size={30} />
-                            </button>
+                        {lightboxIndex - 1 >= 0 && (
+                            <Image
+                                src={getImageUrl(images[lightboxIndex - 1])}
+                                alt='preload prev'
+                                fill
+                                sizes='100vw'
+                                priority
+                                unoptimized
+                            />
                         )}
                     </div>
+
+                    <button
+                        onClick={() => setLightboxIndex(null)}
+                        className='absolute top-4 right-4 p-2 text-white/75 hover:text-white transition-colors z-50'
+                        aria-label='Close'
+                    >
+                        <X size={32} />
+                    </button>
+
+                    {lightboxIndex > 0 && (
+                        <button
+                            onClick={(e) => { e.stopPropagation(); navigate(-1) }}
+                            className='absolute left-4 p-2 text-white/75 hover:text-white transition-colors z-50 hidden md:block'
+                            aria-label='Previous image'
+                        >
+                            <ChevronLeft size={48} />
+                        </button>
+                    )}
+
+                    <div className='relative w-full h-full max-w-6xl max-h-[90vh] mx-4 flex items-center justify-center'>
+                        {showPlaceholder && (
+                            <div className='absolute inset-0 bg-(--color-bg-surface-raised) animate-pulse rounded-lg z-10' />
+                        )}
+                        <Image
+                            src={getImageUrl(images[lightboxIndex])}
+                            alt={`${lang === 'no' ? albumNameNo : albumNameEn} - ${lightboxIndex + 1}`}
+                            fill
+                            className={`object-contain transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                            sizes='100vw'
+                            priority
+                            onLoad={() => setIsImageLoading(false)}
+                            unoptimized
+                        />
+                    </div>
+
+                    {lightboxIndex < images.length - 1 && (
+                        <button
+                            onClick={(e) => { e.stopPropagation(); navigate(1) }}
+                            className='absolute right-4 p-2 text-white/75 hover:text-white transition-colors z-50 hidden md:block'
+                            aria-label='Next image'
+                        >
+                            <ChevronRight size={48} />
+                        </button>
+                    )}
+
+                    {lightboxIndex > 0 && (
+                        <div className='absolute inset-y-0 left-0 w-1/4 z-40 md:hidden' onClick={(e) => { e.stopPropagation(); navigate(-1) }} />
+                    )}
+                    {lightboxIndex < images.length - 1 && (
+                        <div className='absolute inset-y-0 right-0 w-1/4 z-40 md:hidden' onClick={(e) => { e.stopPropagation(); navigate(1) }} />
+                    )}
                 </div>
             )}
         </>

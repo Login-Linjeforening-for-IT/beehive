@@ -52,12 +52,6 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
                         {text.nav.fondet}
                     </div>
                 </NavItem>
-                <NavItem href='/albums'>
-                    <div className='flex flex-row items-center'>
-                        <Images className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
-                        {text.nav.albums}
-                    </div>
-                </NavItem>
                 <NavItem href={config.url.WIKI_URL} external target='_blank'>
                     <div className='flex flex-row items-center'>
                         <BookOpen className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
@@ -70,6 +64,12 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
                     <div className='flex flex-row items-center'>
                         <BookMarked className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
                         {text.nav.exam}
+                    </div>
+                </NavItem>
+                <NavItem href='/albums'>
+                    <div className='flex flex-row items-center'>
+                        <Images className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
+                        {text.nav.albums}
                     </div>
                 </NavItem>
                 <NavItem href='/music'>
