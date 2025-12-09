@@ -10,11 +10,8 @@ import 'uibee/styles'
 import './globals.css'
 import clsx from '@utils/clsx'
 import Alerts from '@components/alerts/alerts'
-
-export const metadata: Metadata = {
-    title: 'Login',
-    description: ' Login - Linjeforeningen for IT',
-}
+export { default as metadata } from './metadata'
+export { default as viewport } from './metadata'
 
 export default async function layout({children}: {children: ReactNode}) {
     const Cookies = await cookies()
