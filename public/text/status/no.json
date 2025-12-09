@@ -5,8 +5,8 @@
   "noServices": "Ingen tjenester oppført",
   "issues": {
     "domains": "Ustabil servertilkobling",
-    "server": "Systemutfall: tjenesten er for øyeblikket utilgjengelig",
-    "pods": "Delvis funksjonssvikt i subsystemet",
+    "server": "Tjenesten er utilgjengelig for øyeblikket",
+    "pods": "Ustabile subsystemer",
     "logs": "Økte feil i logger",
     "unknown": "Ukjent problem"
   },

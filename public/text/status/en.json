@@ -5,8 +5,8 @@
   "noServices": "No services listed",
   "issues": {
     "domains": "Unstable server connection",
-    "server": "System outage: service is currently unavailable",
-    "pods": "Subsystem degradation detected",
+    "server": "Service is currently unavailable",
+    "pods": "Ustable subsystems",
     "logs": "Increased errors identified in logs",
     "unknown": "Unknown issue"
   },
