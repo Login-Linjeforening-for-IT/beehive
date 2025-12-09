@@ -4,7 +4,7 @@ const { env } = process
 
 const config = {
     url: {
-        MAIN_URL: 'login.no',
+        MAIN_URL: 'https://login.no',
         API_URL: env.NEXT_PUBLIC_API_URL ?? 'https://workerbee.login.no/api',
         CDN_URL: env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
         EXAM_URL: 'https://exam.login.no',
