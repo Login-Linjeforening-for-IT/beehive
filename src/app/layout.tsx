@@ -1,7 +1,6 @@
 import TopBar from '@components/topbar/topBar'
 import TopBarPwned from '@components/topbar/topBarPwned'
 import Footer from '@components/footer/footer'
-import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import { cookies, headers } from 'next/headers'
 import '@assets/fonts/style.css'
