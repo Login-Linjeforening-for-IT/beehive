@@ -411,12 +411,12 @@ declare global {
     }
 
     type CountedSong = {
-        song: string
+        name: string
         artist: string
         album: string
         listens: number
         image: string
-        song_id: string
+        id: string
     }
 
     type SongDay = {

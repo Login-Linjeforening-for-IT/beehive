@@ -62,7 +62,7 @@ export default function MostPlayed({
                 text={text.most_played_songs}
                 items={mostPlayedSongs}
                 getImageHash={a => a.image}
-                getTitle={a => a.song}
+                getTitle={a => a.name}
                 getFirstLine={a => a.album}
                 getSecondLine={a => a.artist}
                 getCount={a => a.listens}
