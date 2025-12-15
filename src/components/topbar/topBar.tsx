@@ -30,9 +30,6 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
             <NavItem href='/companies'>
                 {text.nav.companies}
             </NavItem>
-            <NavItem href='/profile'>
-                {text.nav.events}
-            </NavItem>
             <NavDropdown title={text.nav.about} className='bg-(--color-bg-topbar-fallback)!'>
                 <NavItem href='/about'>
                     <div>
