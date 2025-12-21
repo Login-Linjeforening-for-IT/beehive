@@ -16,7 +16,7 @@ export default async function LandingPage() {
             <div className='hero-section_container'>
                 <div className='hero-section_top'>
                     <div className='hero-section_logo'>
-                        <LoginLogo />
+                        <LoginLogo christmas />
                     </div>
                     <div className='hero-section_content'>
                         <span className='hero-section_top-text'>
