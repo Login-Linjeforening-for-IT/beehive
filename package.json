@@ -17,6 +17,7 @@
     "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",
     "react-router": "^7.11.0",
+    "react-snowfall": "^2.4.0",
     "remark-gfm": "^4.0.1",
     "swr": "^2.3.8",
     "uibee": "^2.4.13"
