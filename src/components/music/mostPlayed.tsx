@@ -38,7 +38,7 @@ export default function MostPlayed({
                 getUrl={a => `${config.url.SPOTIFY_ALBUM_URL}/${a.album_id}`}
                 getFirstLine={a => a.top_song}
                 getSecondLine={a => a.artist}
-                getCount={a => a.listens}
+                getCount={a => a.total_listens}
                 dropdown={true}
                 open={openOne}
                 setOpen={setOpenOne}

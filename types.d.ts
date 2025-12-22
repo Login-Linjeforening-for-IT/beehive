@@ -404,7 +404,7 @@ declare global {
         album: string
         album_id: string
         artist: string
-        listens: number
+        total_listens: number
         top_song: string
         top_song_image: string
         song_id: string
