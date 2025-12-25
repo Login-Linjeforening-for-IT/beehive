@@ -93,7 +93,7 @@ export function formatPublishedDate(dateTime: Date, lang='en') {
     }
 
     if (minutesAgo < 60) {
-        return `${minutesAgo} ${timeExpration[lang][0]}`
+        return `${minutesAgo} ${timeExpration[lang]![0]!}`
     }
 
     const hours = dateTime.getHours()
@@ -101,24 +101,23 @@ export function formatPublishedDate(dateTime: Date, lang='en') {
     const timeStr = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
 
     if (dateTime.toDateString() === now.toDateString()) {
-        return `${dayExpration[lang][0]}, ${timeStr}`
+        return `${dayExpration[lang]![0]!}, ${timeStr}`
     }
     if (dayDif === 1) {
-        return `${dayExpration[lang][1]}, ${timeStr}`
+        return `${dayExpration[lang]![1]!}, ${timeStr}`
     }
     if (dayDif < 6) {
-        return `${daysOfWeek[lang][dateTime.getDay()]}, ${timeStr}`
+        return `${daysOfWeek[lang]![dateTime.getDay()]!}, ${timeStr}`
     }
 
-    const year = dateTime.getFullYear()
-    const date = dateTime.getDate()
-    const month = dateTime.getMonth()
+    const day = dateTime.getDate()
+    const month = months[lang]![dateTime.getMonth()]!
 
-    if (year === now.getFullYear()) {
-        return `${date}. ${months[lang][month]}, ${timeStr}`
+    if (dateTime.getFullYear() === now.getFullYear()) {
+        return `${day}. ${month}, ${timeStr}`
     }
 
-    return `${year}, ${date}. ${months[lang][month]}, ${timeStr}`
+    return `${dateTime.getFullYear()}, ${day}. ${month}, ${timeStr}`
 }
 
 
@@ -143,20 +142,20 @@ export function formatDeadlineDate(dateTime: Date, lang='en') {
         no: ['I dag', 'I morgen']
     }
 
-    if(offsetDays === 0) return `${dayExpration[lang][0]}, ${timeStr}`
+    if(offsetDays === 0) return `${dayExpration[lang]![0]!}, ${timeStr}`
 
-    if(offsetDays === 1) return `${dayExpration[lang][1]}, ${timeStr}`
+    if(offsetDays === 1) return `${dayExpration[lang]![1]!}, ${timeStr}`
 
     const daysOfWeek: KeyStringArray = {
         en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
     }
-    const dayOfWeek = daysOfWeek[lang][dateTime.getDay()]
+    const dayOfWeek = daysOfWeek[lang]![dateTime.getDay()]!
     const months: KeyStringArray = {
         en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         no: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des']
     }
-    const month = months[lang][dateTime.getMonth()]
+    const month = months[lang]![dateTime.getMonth()]!
     const oneYear = 365 * 24 * 60 * 60 * 1000
 
     // if less than a year dif display: "DoW, DoM. month and time"
@@ -199,19 +198,19 @@ export function formatEventStatusDate(startDate: Date, endDate: Date, lang='no')
 
     if (offsetDays === 0) {
         if (now > endDate) return lang === 'no' ? 'Ferdig' : 'Finished'
-        return dayExpration[lang][0]
+        return dayExpration[lang]![0]!
     }
     if (offsetDays === 1) {
-        return dayExpration[lang][1]
+        return dayExpration[lang]![1]!
     }
     if (offsetDays === -1) {
-        return dayExpration[lang][2]
+        return dayExpration[lang]![2]!
     }
     if (offsetDays <= -1) {
-        return Math.abs(offsetDays) + dayExpration[lang][3]
+        return Math.abs(offsetDays) + dayExpration[lang]![3]!
     }
 
-    return daysOfWeek[lang][startDate.getDay()]
+    return daysOfWeek[lang]![startDate.getDay()]!
 }
 
 
@@ -227,7 +226,7 @@ export function formatEventStartDate(dateTime: Date, lang='en') {
         en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
     }
-    const dayOfWeek = daysOfWeek[lang][dateTime.getDay()]
+    const dayOfWeek = daysOfWeek[lang]![dateTime.getDay()]!
     const oneYear = 365 * 24 * 60 * 60 * 1000
 
     if((Math.abs(now.getTime() - dateTime.getTime())) < oneYear) {

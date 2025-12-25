@@ -2,7 +2,7 @@ import { Heart, Play, SkipForward, PlayIcon } from 'lucide-react'
 import Card from './card'
 import Marquee from './marquee'
 import TileCard from './tileCard'
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
 interface TileMapProps<T> {
     text: string

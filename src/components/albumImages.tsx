@@ -24,7 +24,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                if (entries[0].isIntersecting) {
+                if (entries[0]?.isIntersecting) {
                     setVisibleCount((prev) => Math.min(prev + 20, images.length))
                 }
             },
@@ -136,7 +136,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                     <div style={{ display: 'none' }}>
                         {lightboxIndex + 1 < images.length && (
                             <Image
-                                src={getImageUrl(images[lightboxIndex + 1])}
+                                src={getImageUrl(images[lightboxIndex + 1]!)}
                                 alt='preload next'
                                 fill
                                 sizes='100vw'
@@ -146,7 +146,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                         )}
                         {lightboxIndex - 1 >= 0 && (
                             <Image
-                                src={getImageUrl(images[lightboxIndex - 1])}
+                                src={getImageUrl(images[lightboxIndex - 1]!)}
                                 alt='preload prev'
                                 fill
                                 sizes='100vw'
@@ -179,7 +179,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                             <div className='absolute inset-0 bg-(--color-bg-surface-raised) animate-pulse rounded-lg z-10' />
                         )}
                         <Image
-                            src={getImageUrl(images[lightboxIndex])}
+                            src={getImageUrl(images[lightboxIndex]!)}
                             alt={`${lang === 'no' ? albumNameNo : albumNameEn} - ${lightboxIndex + 1}`}
                             fill
                             className={`object-contain transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}

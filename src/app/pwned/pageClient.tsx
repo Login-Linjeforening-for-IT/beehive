@@ -39,14 +39,16 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
         return () => clearInterval(interval)
     }, [])
 
+    const meme = memes.pwned[pwnedNumber] || memes.pwned[0] || { text: 'Pwned!', image: '' }
+
     return (
         <div className='h-[calc(100vh-var(--h-topbar))] w-full grid grid-rows-[auto,1fr,auto] justify-items-center items-center'>
             <h1 className='text-xl font-semibold px-8 max-w-240 text-center'>
-                {memes.pwned[pwnedNumber].text}
+                {meme.text}
             </h1>
             <div className='relative max-h-100 m-8'>
                 <Image
-                    src={`${config.url.CDN_URL}/img/pwned/${memes.pwned[pwnedNumber].image}`}
+                    src={`${config.url.CDN_URL}/img/pwned/${meme.image}`}
                     className='object-contain w-auto h-100'
                     alt='meme'
                     width={400}

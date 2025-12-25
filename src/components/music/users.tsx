@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import { useState, type Dispatch, type SetStateAction } from 'react'
 import Card from './card'
 import Marquee from './marquee'
 import PlayIcon from './playIcon'

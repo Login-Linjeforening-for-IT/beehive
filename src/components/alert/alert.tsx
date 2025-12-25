@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import './alert.css'
 import ErrorSymbol from '@components/svg/symbols/error'
 

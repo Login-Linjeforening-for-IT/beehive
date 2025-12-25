@@ -1,6 +1,6 @@
 'use client'
 
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 import { ChevronDown } from 'lucide-react'
 import PlayIcon from './playIcon'
 import clsx from '@utils/clsx'
@@ -51,12 +51,12 @@ export default function Card<T>({
     function toggleChange(e: React.MouseEvent<HTMLHeadingElement, MouseEvent>) {
         e.stopPropagation()
         if (handleChange && changeValues) {
-            handleChange((prev) => prev === changeValues[0] ? changeValues[1] : changeValues[0])
+            handleChange((prev) => prev === changeValues[0] ? changeValues[1]! : changeValues[0]!)
         }
     }
 
-    const display = current === 'listens' ? text[0] : text[1]
-    const opposite = current === 'listens' ? text[1] : text[0]
+    const display = current === 'listens' ? (Array.isArray(text) ? text[0] : text) : (Array.isArray(text) ? text[1] : text)
+    const opposite = current === 'listens' ? (Array.isArray(text) ? text[1] : text) : (Array.isArray(text) ? text[0] : text)
 
     return (
         <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${removePadding ? '' : 'p-4'} ${className}`}>

@@ -1,7 +1,7 @@
 import TopTileMap from './topTileMap'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { useState, type Dispatch, type SetStateAction } from 'react'
 
 type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear' | 'lastWeek' | 'lastMonth' | 'lastYear'
 

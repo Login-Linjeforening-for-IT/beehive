@@ -4,14 +4,16 @@
 export default function prepFilter(data: any, id: string, label: any, idKey = 'id', getLabel: any, countKey = 'count', type: any, showCount = false) {
     const filters = {}
 
-    for (const value of Object.values(data)) {
-        // @ts-ignore
-        filters[value[idKey]] = {
+    if (data && typeof data === 'object') {
+        for (const value of Object.values(data)) {
             // @ts-ignore
-            id: value[idKey],
-            label: getLabel(value),
-            // @ts-ignore
-            count: value[countKey] || 1,
+            filters[value[idKey]] = {
+                // @ts-ignore
+                id: value[idKey],
+                label: getLabel(value),
+                // @ts-ignore
+                count: value[countKey] || 1,
+            }
         }
     }
 

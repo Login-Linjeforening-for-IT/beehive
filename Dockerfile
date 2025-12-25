@@ -1,12 +1,14 @@
-FROM node:lts-alpine
+FROM oven/bun:alpine
 
 WORKDIR /app
 
 RUN apk add --no-cache varnish
 
-COPY package*.json ./
+COPY package.json ./
 
-RUN npm install
+COPY bun.lock ./
+
+RUN bun install
 
 COPY default.vcl /etc/varnish/default.vcl
 
@@ -14,7 +16,7 @@ COPY entrypoint.sh ./entrypoint.sh
 
 COPY . .
 
-RUN npm run build
+RUN bun run build
 
 EXPOSE 3000
 

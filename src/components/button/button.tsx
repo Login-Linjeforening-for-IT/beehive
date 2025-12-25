@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import './button.css'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 type ButtonProps = {
     children?: ReactNode

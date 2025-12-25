@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react'
+import React, { type SetStateAction } from 'react'
 
 type TabNavItemProps = {
     id: string

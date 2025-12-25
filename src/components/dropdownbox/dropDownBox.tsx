@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import './dropDownBox.css'
 import ChevronRight from '@components/svg/symbols/chevronRight'
 
