@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import getActivity from '@utils/music/getActivity'
+import { getActivity } from '@utils/api'
 import MusicDashboardCurrent from './dashboards/current'
 import MusicDashboardAll from './dashboards/all'
 import MusicDashboardToday from './dashboards/today'

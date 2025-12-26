@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import getActivity from '@utils/music/getActivity'
+import { getActivity } from '@utils/api'
 import MusicClient from './pageClient'
 import Intro from '@components/music/intro'
 import no from '@text/music/no.json'

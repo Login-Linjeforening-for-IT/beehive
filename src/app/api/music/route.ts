@@ -1,4 +1,4 @@
-import getActivity from '@utils/music/getActivity'
+import { getActivity } from '@utils/api'
 import { NextResponse } from 'next/server'
 
 export async function GET() {

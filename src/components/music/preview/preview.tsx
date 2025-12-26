@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import getActivity from '@utils/music/getActivity'
+import { getActivity } from '@utils/api'
 import MusicPreviewClient from './previewClient'
 
 export default async function MusicPreview() {

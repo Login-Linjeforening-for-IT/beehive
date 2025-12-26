@@ -113,6 +113,46 @@ export async function getStatus(): Promise<Status> {
     return await fetchWrapper(`${config.url.BEEKEEPER_URL}/status`)
 }
 
+// Music
+export async function getActivity(): Promise<Music> {
+    const response = await fetchWrapper(`${config.url.TEKKOM_BOT_API_URL}/activity`)
+
+    if (typeof response === 'string') {
+        console.error(response)
+        return {
+            stats: {
+                avg_seconds: 0,
+                total_minutes: 0,
+                total_minutes_this_year: 0,
+                total_songs: 0,
+            },
+            currentlyListening: [],
+            mostPlayedAlbums: [],
+            mostPlayedArtists: [],
+            mostPlayedSongs: [],
+            mostPlayedSongsPerDay: [],
+            topFiveToday: [],
+            topFiveYesterday: [],
+            topFiveThisWeek: [],
+            topFiveLastWeek: [],
+            topFiveThisMonth: [],
+            topFiveLastMonth: [],
+            topFiveThisYear: [],
+            topFiveLastYear: [],
+            mostActiveUsers: [],
+            mostSkippingUsers: [],
+            mostLikedAlbums: [],
+            mostLikedArtists: [],
+            mostLikedSongs: [],
+            mostSkippedAlbums: [],
+            mostSkippedArtists: [],
+            mostSkippedSongs: []
+        }
+    }
+
+    return response as Music
+}
+
 async function fetchWrapper(path: string, options = {}) {
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), config.timeout)
