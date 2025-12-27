@@ -11,7 +11,12 @@
     "most_played_episodes": "Most Played Episodes",
     "currently_playing": "Currently Playing",
     "active_listeners": "Active Listeners",
-    "activity": "Listens Per Day",
+    "activity": {
+        "songs_played": "Songs played today",
+        "most_played": "Most played song",
+        "listens": "Listens",
+        "no_data": "No data available"
+    },
     "users": ["Most Active Users", "Most skipping users"],
     "mostx": {
         "most_liked_albums": "Most Liked Albums",

@@ -11,7 +11,12 @@
     "most_played_episodes": "Mest spilte episoder",
     "currently_playing": "Spilles nå",
     "active_listeners": "Aktive lyttere",
-    "activity": "Avspillinger per dag",
+    "activity": {
+        "songs_played": "Sanger spilt",
+        "most_played": "Mest spilte sang",
+        "listens": "Avspillinger",
+        "no_data": "Ingen data"
+    },
     "users": ["Mest aktive brukere", "Mest skippende brukere"],
     "mostx": {
         "most_liked_albums": "Mest likte album",

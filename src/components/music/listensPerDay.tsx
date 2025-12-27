@@ -1,7 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import Chart from './chart'
 
-export default function ListensPerDayChart({ data }: { data: SongDay[] }) {
+type ListensPerDayProps = {
+    data: SongDay[]
+    text: {
+        songs_played: string
+        most_played: string
+        listens: string
+        no_data: string
+    }
+}
+
+export default function ListensPerDayChart({ data, text }: ListensPerDayProps) {
     const scrollRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -11,7 +21,7 @@ export default function ListensPerDayChart({ data }: { data: SongDay[] }) {
     }, [data])
 
     if (!data || data.length === 0) {
-        return <div className='p-4 text-sm text-muted-foreground'>No data available</div>
+        return <div className='p-4 text-sm text-muted-foreground'>{text.no_data}</div>
     }
 
     const chartData = data.map((d) => ({
@@ -76,12 +86,9 @@ export default function ListensPerDayChart({ data }: { data: SongDay[] }) {
         return false
     })
 
-    // Selected & hover states
     const defaultItem = chartData[chartData.length - 1].raw
     const [selected, setSelected] = useState<SongDay | null>(defaultItem)
     const [hover, setHover] = useState<SongDay | null>(null)
-
-    // Final display item = hovered OR selected
     const display = hover ?? selected ?? defaultItem
 
     return (
@@ -146,11 +153,11 @@ export default function ListensPerDayChart({ data }: { data: SongDay[] }) {
 
                 <div className='font-semibold text-sm flex gap-1'>
                     <p>{new Date(display.day).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
-                    <p className='opacity-50'>· {display.total_songs_played} Songs played</p>
+                    <p className='opacity-50'>· {display.total_songs_played} {text.songs_played}</p>
                 </div>
                 <div className='space-y-1'>
-                    <p className='font-semibold text-md'>Most played song</p>
-                    <p>{display.listens} listens</p>
+                    <p className='font-semibold text-md'>{text.most_played}</p>
+                    <p>{display.listens} {text.listens}</p>
                     <p className='opacity-80'>{display.song} — {display.artist}</p>
                     <p className='opacity-60'>{display.album}</p>
                 </div>
