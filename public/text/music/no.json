@@ -8,8 +8,10 @@
     "most_played_albums": "Mest spilte albumer",
     "most_played_artists": "Mest spilte artister",
     "most_played_songs": "Mest spilte sanger",
+    "most_played_episodes": "Mest spilte episoder",
     "currently_playing": "Spilles nå",
     "active_listeners": "Aktive lyttere",
+    "activity": "Avspillinger per dag",
     "users": ["Mest aktive brukere", "Mest skippende brukere"],
     "mostx": {
         "most_liked_albums": "Mest likte album",
@@ -17,7 +19,9 @@
         "most_liked_artists": "Mest likte artister",
         "most_skipped_artists": "Mest hoppet over artist",
         "most_liked_songs": "Mest likte sanger",
-        "most_skipped_songs": "Mest hoppet over sanger"
+        "most_skipped_songs": "Mest hoppet over sanger",
+        "most_liked_episodes": "Mest likte episoder",
+        "most_skipped_episodes": "Mest hoppet over episoder"
     },
     "topx": {
         "intro": "Topp fem",
@@ -28,7 +32,9 @@
         "thisMonth": "denne måneden",
         "lastMonth": "forrige måned",
         "thisYear": "i år",
-        "lastYear": "i fjor"
+        "lastYear": "i fjor",
+        "episodesThisMonth": "episoder denne måneden",
+        "episodesLastMonth": "episoder forrige måned"
     },
     "dashboard": {
         "today": "Dashbord i dag",

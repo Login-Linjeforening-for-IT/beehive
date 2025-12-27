@@ -8,8 +8,10 @@
     "most_played_albums": "Most Played Albums",
     "most_played_artists": "Most Played Artists",
     "most_played_songs": "Most Played Songs",
+    "most_played_episodes": "Most Played Episodes",
     "currently_playing": "Currently Playing",
     "active_listeners": "Active Listeners",
+    "activity": "Listens Per Day",
     "users": ["Most Active Users", "Most skipping users"],
     "mostx": {
         "most_liked_albums": "Most Liked Albums",
@@ -17,7 +19,9 @@
         "most_liked_artists": "Most Liked Artists",
         "most_skipped_artists": "Most Skipped Artists",
         "most_liked_songs": "Most Liked Songs",
-        "most_skipped_songs": "Most Skipped Songs"
+        "most_skipped_songs": "Most Skipped Songs",
+        "most_liked_episodes": "Most Liked Episodes",
+        "most_skipped_episodes": "Most Skipped Episodes"
     },
     "topx": {
         "intro": "Top Five",
@@ -28,7 +32,9 @@
         "thisMonth": "This Month",
         "lastMonth": "Last Month",
         "thisYear": "This Year",
-        "lastYear": "Last Year"
+        "lastYear": "Last Year",
+        "episodesThisMonth": "Episodes This Month",
+        "episodesLastMonth": "Episodes Last Month"
     },
     "dashboard": {
         "today": "Dashboard Today",

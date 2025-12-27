@@ -4,15 +4,18 @@ import en from '@text/music/en.json'
 import { Users } from './users'
 import { useState } from 'react'
 import config from '@config'
+import { Activity } from './activity'
 
 type MostPlayedProps = {
     lang: Lang
     mostPlayedAlbums: Album[]
     mostPlayedArtists: ArtistPlayed[]
     mostPlayedSongs: CountedSong[]
+    mostPlayedEpisodes: Episode[]
     mostActiveUsers: MusicUser[]
     mostSkippingUsers: MusicSkipUser[]
     currentlyListening: CurrentlyListening[]
+    activity: SongDay[]
 }
 
 export default function MostPlayed({
@@ -20,16 +23,37 @@ export default function MostPlayed({
     mostPlayedAlbums,
     mostPlayedArtists,
     mostPlayedSongs,
+    mostPlayedEpisodes,
     mostActiveUsers,
     mostSkippingUsers,
-    currentlyListening
+    currentlyListening,
+    activity
 }: MostPlayedProps) {
     const text = (lang === 'no' ? no : en)
     const [openOne, setOpenOne] = useState(true)
     const [openTwo, setOpenTwo] = useState(true)
+    const [openThree, setOpenThree] = useState(true)
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-4 w-full justify-items-center'>
+            <Activity
+                text={text.activity}
+                activity={activity}
+                dropdown={true}
+                open={openOne}
+                setOpen={setOpenOne}
+            />
+
+            <Users
+                text={text.users}
+                mostActiveUsers={mostActiveUsers}
+                mostSkippingUsers={mostSkippingUsers}
+                currentlyListening={currentlyListening}
+                dropdown={true}
+                open={openOne}
+                setOpen={setOpenOne}
+            />
+
             <TileMap
                 text={text.most_played_albums}
                 items={mostPlayedAlbums}
@@ -40,8 +64,8 @@ export default function MostPlayed({
                 getSecondLine={a => a.artist}
                 getCount={a => a.total_listens}
                 dropdown={true}
-                open={openOne}
-                setOpen={setOpenOne}
+                open={openTwo}
+                setOpen={setOpenTwo}
             />
 
             <TileMap
@@ -54,8 +78,8 @@ export default function MostPlayed({
                 getSecondLine={a => a.top_song}
                 getCount={a => a.listens}
                 dropdown={true}
-                open={openOne}
-                setOpen={setOpenOne}
+                open={openTwo}
+                setOpen={setOpenTwo}
             />
 
             <TileMap
@@ -67,20 +91,21 @@ export default function MostPlayed({
                 getSecondLine={a => a.artist}
                 getCount={a => a.listens}
                 dropdown={true}
-                open={openTwo}
-                setOpen={setOpenTwo}
+                open={openThree}
+                setOpen={setOpenThree}
             />
 
-            <Users
-                text={text.users}
-                mostActiveUsers={mostActiveUsers}
-                mostSkippingUsers={mostSkippingUsers}
-                currentlyListening={currentlyListening}
+            <TileMap
+                text={text.most_played_episodes}
+                items={mostPlayedEpisodes}
+                getImageHash={a => a.image}
+                getTitle={a => a.name}
+                getFirstLine={a => a.show}
+                getCount={a => a.listens}
                 dropdown={true}
-                open={openTwo}
-                setOpen={setOpenTwo}
+                open={openThree}
+                setOpen={setOpenThree}
             />
-
         </div>
     )
 }

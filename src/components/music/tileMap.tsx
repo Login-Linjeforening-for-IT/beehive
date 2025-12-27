@@ -91,13 +91,13 @@ export default function TileMap<T extends TileMapGeneric>({
                         {getCountWithIcons && (
                             <div className={`flex flex-row items-center gap-2 ${!getSecondLine && !getFirstLine && 'mb-6'}`}>
                                 <span className='flex items-center text-neutral-500'>
-                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-500 fill-neutral-500 pb-[2px]' />
+                                    {getCountWithIcons(item).likeRatio}% <Heart className='w-4 stroke-neutral-500 fill-neutral-500 pb-0.5' />
                                 </span>
                                 <span className='flex items-center text-neutral-500'>
-                                    {getCountWithIcons(item).totalListens} <Play className='w-4 stroke-neutral-500 fill-neutral-500 pb-[2px]' />
+                                    {getCountWithIcons(item).totalListens} <Play className='w-4 stroke-neutral-500 fill-neutral-500 pb-0.5' />
                                 </span>
                                 <span className='flex items-center text-neutral-500'>
-                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-500 fill-neutral-500 pb-[2px]' />
+                                    {getCountWithIcons(item).totalSkips} <SkipForward className='w-4 stroke-neutral-500 fill-neutral-500 pb-0.5' />
                                 </span>
                             </div>
                         )}
@@ -116,8 +116,8 @@ function TopRight<T extends TileMapGeneric>({ getCount, item, skip }: { item: T,
     return (
         <>
             <p className='text-neutral-400 pl-2'>{getCount(item)}</p>
-            {!skip && <PlayIcon className='fill-neutral-400 stroke-0 p-[2px] -ml-[2px] pb-[4px]' />}
-            {skip && <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400 pb-[2px]' />}
+            {!skip && <PlayIcon className='fill-neutral-400 stroke-0 p-0.5 -ml-0.5 pb-1' />}
+            {skip && <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400 pb-0.5' />}
         </>
     )
 }

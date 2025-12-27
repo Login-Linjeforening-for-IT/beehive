@@ -41,7 +41,7 @@ export default function Card<T>({
     extraPadding
 }: CardProps<T>) {
     const titleStyle = `${smallText ? `${changeValues && 'text-xs sm:text-sm'} text-neutral-400 self-center mb-1` : `${changeValues && 'text-xs sm:text-base'} font-semibold`} ${centerText && 'text-center w-full'}`
-    const secondStyle = `select-none font-semibold text-neutral-400 bg-[var(--color-music-change)] px-2 rounded-lg self-center ${changeValues && 'text-xs sm:text-base'}`
+    const secondStyle = `select-none font-semibold text-neutral-400 bg-(--color-music-change) px-2 rounded-lg self-center ${changeValues && 'text-xs sm:text-base'}`
     function toggleOpen() {
         if (dropdown && setOpen) {
             setOpen(!open)
@@ -59,7 +59,7 @@ export default function Card<T>({
     const opposite = current === 'listens' ? (Array.isArray(text) ? text[1] : text) : (Array.isArray(text) ? text[0] : text)
 
     return (
-        <div className={`bg-[var(--color-bg-surface)] rounded-lg w-full ${removePadding ? '' : 'p-4'} ${className}`}>
+        <div className={`bg-(--color-bg-surface) rounded-lg w-full ${removePadding ? '' : 'p-4'} ${className}`}>
             <div
                 className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-pb-4', removePadding && !open && 'pb-4', extraPadding && 'pb-2')}
                 onClick={toggleOpen}

@@ -356,12 +356,15 @@ declare global {
         mostPlayedAlbums: Album[]
         mostPlayedArtists: ArtistPlayed[]
         mostPlayedSongs: CountedSong[]
+        mostPlayedEpisodes: Episode[]
         mostPlayedSongsPerDay: SongDay[]
         topFiveToday: TopXSong[]
         topFiveYesterday: TopXSong[]
         topFiveThisWeek: TopXSong[]
         topFiveLastWeek: TopXSong[]
         topFiveThisMonth: TopXSong[]
+        topFiveEpisodesThisMonth: TopXEpisode[]
+        topFiveEpisodesLastMonth: TopXEpisode[]
         topFiveLastMonth: TopXSong[]
         topFiveThisYear: TopXSong[]
         topFiveLastYear: TopXSong[]
@@ -370,9 +373,11 @@ declare global {
         mostLikedAlbums: LikedAlbum[]
         mostLikedArtists: LikedArtist[]
         mostLikedSongs: LikedSong[]
+        mostLikedEpisodes: LikedEpisode[]
         mostSkippedAlbums: SkippedAlbum[]
         mostSkippedArtists: SkippedArtist[]
         mostSkippedSongs: SkippedSong[]
+        mostSkippedEpisodes: SkippedEpisode[]
     }
 
     type CurrentlyListening = {
@@ -410,6 +415,14 @@ declare global {
         song_id: string
     }
 
+    type Episode = {
+        name: string
+        show: string
+        listens: number
+        image: string
+        id: string
+    }
+
     type CountedSong = {
         name: string
         artist: string
@@ -421,8 +434,13 @@ declare global {
 
     type SongDay = {
         day: string
-        songs_played: string
-        albums: Album[]
+        song: string
+        artist: string
+        album: string
+        image: string
+        listens: number
+        total_songs_played: number
+        id: string
     }
 
     type TopXSong = {
@@ -434,6 +452,14 @@ declare global {
         song_id: string
         start?: string
         end?: string
+    }
+
+    type TopXEpisode = {
+        name: string
+        show: string
+        image: string
+        id: string
+        listens: number
     }
 
     type MusicUser = {
@@ -484,6 +510,16 @@ declare global {
         song_id: string
     }
 
+    type LikedEpisode = {
+        id: string
+        name: string
+        show: string
+        listens: number
+        skips: number
+        image: string
+        like_ratio: number
+    }
+
     type SkippedAlbum = {
         album: string
         album_id: string
@@ -511,6 +547,15 @@ declare global {
         skips: number
         image: string
         song_id: string
+    }
+
+    type SkippedEpisode = {
+        name: string
+        show: string
+        skips: number
+        listens: string
+        image: string
+        id: string
     }
 
     type MusicStats = {

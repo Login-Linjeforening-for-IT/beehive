@@ -9,9 +9,11 @@ type MostLikedProps = {
     mostLikedAlbums: LikedAlbum[]
     mostLikedArtists: LikedArtist[]
     mostLikedSongs: LikedSong[]
+    mostLikedEpisodes: LikedEpisode[]
     mostSkippedAlbums: SkippedAlbum[]
     mostSkippedArtists: SkippedArtist[]
     mostSkippedSongs: SkippedSong[]
+    mostSkippedEpisodes: SkippedEpisode[]
 }
 
 export default function MostX({
@@ -19,14 +21,17 @@ export default function MostX({
     mostLikedAlbums,
     mostLikedArtists,
     mostLikedSongs,
+    mostLikedEpisodes,
     mostSkippedAlbums,
     mostSkippedArtists,
-    mostSkippedSongs
+    mostSkippedSongs,
+    mostSkippedEpisodes
 }: MostLikedProps) {
     const text = lang === 'no' ? no : en
     const [openOne, setOpenOne] = useState(false)
     const [openTwo, setOpenTwo] = useState(false)
     const [openThree, setOpenThree] = useState(false)
+    const [openFour, setOpenFour] = useState(false)
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
@@ -95,13 +100,13 @@ export default function MostX({
             <TileMap
                 text={text.mostx.most_liked_songs}
                 items={mostLikedSongs}
-                getImageHash={a => a.image}
-                getTitle={a => a.song}
-                getFirstLine={a => a.artist}
-                getCountWithIcons={a => ({
-                    likeRatio: Math.round(a.like_ratio * 100),
-                    totalListens: a.listens,
-                    totalSkips: a.skips
+                getImageHash={s => s.image}
+                getTitle={s => s.song}
+                getFirstLine={s => s.artist}
+                getCountWithIcons={s => ({
+                    likeRatio: Math.round(s.like_ratio * 100),
+                    totalListens: s.listens,
+                    totalSkips: s.skips
                 })}
                 dropdown={true}
                 open={openThree}
@@ -111,14 +116,43 @@ export default function MostX({
             <TileMap
                 text={text.mostx.most_skipped_songs}
                 items={mostSkippedSongs}
-                getImageHash={a => a.image}
-                getTitle={a => a.song}
-                getFirstLine={a => a.album}
-                getSecondLine={a => a.artist}
-                getCount={a => a.skips}
+                getImageHash={s => s.image}
+                getTitle={s => s.song}
+                getFirstLine={s => s.album}
+                getSecondLine={s => s.artist}
+                getCount={s => s.skips}
                 dropdown={true}
                 open={openThree}
                 setOpen={setOpenThree}
+                skip={true}
+            />
+
+            <TileMap
+                text={text.mostx.most_liked_episodes}
+                items={mostLikedEpisodes}
+                getImageHash={e => e.image}
+                getTitle={e => e.name}
+                getFirstLine={e => e.show}
+                getCountWithIcons={e => ({
+                    likeRatio: Math.round(e.like_ratio * 100),
+                    totalListens: e.listens,
+                    totalSkips: e.skips
+                })}
+                dropdown={true}
+                open={openFour}
+                setOpen={setOpenFour}
+            />
+
+            <TileMap
+                text={text.mostx.most_skipped_episodes}
+                items={mostSkippedEpisodes}
+                getImageHash={e => e.image}
+                getTitle={e => e.name}
+                getFirstLine={e => e.show}
+                getCount={e => e.skips}
+                dropdown={true}
+                open={openFour}
+                setOpen={setOpenFour}
                 skip={true}
             />
         </div>

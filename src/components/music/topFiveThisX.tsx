@@ -3,7 +3,17 @@ import no from '@text/music/no.json'
 import en from '@text/music/en.json'
 import { useState, type Dispatch, type SetStateAction } from 'react'
 
-type IntervalKey = 'today' | 'yesterday' | 'thisWeek' | 'thisMonth' | 'thisYear' | 'lastWeek' | 'lastMonth' | 'lastYear'
+type IntervalKey =
+    'today'
+    | 'yesterday'
+    | 'thisWeek'
+    | 'thisMonth'
+    | 'thisYear'
+    | 'lastWeek'
+    | 'lastMonth'
+    | 'lastYear'
+    | 'episodesThisMonth'
+    | 'episodesLastMonth'
 
 type InnerTopFiveThisXProps = {
     interval: IntervalKey
@@ -20,6 +30,7 @@ export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }
     const [openTwo, setOpenTwo] = useState(false)
     const [openThree, setOpenThree] = useState(false)
     const [openFour, setOpenFour] = useState(false)
+    const [openFive, setOpenFive] = useState(false)
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
@@ -31,13 +42,15 @@ export default function TopFiveThisX({ data, lang }: { data: Music, lang: Lang }
             <InnerTopFiveThisX interval='lastMonth' open={openThree} setOpen={setOpenThree} data={data} lang={lang} />
             <InnerTopFiveThisX interval='thisYear' open={openFour} setOpen={setOpenFour} data={data} lang={lang} />
             <InnerTopFiveThisX interval='lastYear' open={openFour} setOpen={setOpenFour} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='episodesThisMonth' open={openFive} setOpen={setOpenFive} data={data} lang={lang} />
+            <InnerTopFiveThisX interval='episodesLastMonth' open={openFive} setOpen={setOpenFive} data={data} lang={lang} />
         </div>
     )
 }
 
 export function InnerTopFiveThisX({ interval, data, lang, open, setOpen, dropdown, extraPadding }: InnerTopFiveThisXProps) {
     const text = lang === 'no' ? no : en
-    const lookup: Record<IntervalKey, { data: TopXSong[], text: string }> = {
+    const lookup: Record<IntervalKey, { data: (TopXSong | TopXEpisode)[], text: string }> = {
         today: { data: data.topFiveToday, text: text.topx.today },
         yesterday: { data: data.topFiveYesterday, text: text.topx.yesterday },
         thisWeek: { data: data.topFiveThisWeek, text: text.topx.thisWeek },
@@ -46,6 +59,8 @@ export function InnerTopFiveThisX({ interval, data, lang, open, setOpen, dropdow
         lastMonth: { data: data.topFiveLastMonth, text: text.topx.lastMonth },
         thisYear: { data: data.topFiveThisYear, text: text.topx.thisYear },
         lastYear: { data: data.topFiveLastYear, text: text.topx.lastYear },
+        episodesThisMonth: { data: data.topFiveEpisodesThisMonth, text: text.topx.episodesThisMonth },
+        episodesLastMonth: { data: data.topFiveEpisodesLastMonth, text: text.topx.episodesLastMonth },
     }
 
     const songsToShow = lookup[interval] ?? []
