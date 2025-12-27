@@ -130,12 +130,15 @@ export async function getActivity(): Promise<Music> {
             mostPlayedAlbums: [],
             mostPlayedArtists: [],
             mostPlayedSongs: [],
+            mostPlayedEpisodes: [],
             mostPlayedSongsPerDay: [],
             topFiveToday: [],
             topFiveYesterday: [],
             topFiveThisWeek: [],
             topFiveLastWeek: [],
             topFiveThisMonth: [],
+            topFiveEpisodesThisMonth: [],
+            topFiveEpisodesLastMonth: [],
             topFiveLastMonth: [],
             topFiveThisYear: [],
             topFiveLastYear: [],
@@ -144,9 +147,11 @@ export async function getActivity(): Promise<Music> {
             mostLikedAlbums: [],
             mostLikedArtists: [],
             mostLikedSongs: [],
+            mostLikedEpisodes: [],
             mostSkippedAlbums: [],
             mostSkippedArtists: [],
-            mostSkippedSongs: []
+            mostSkippedSongs: [],
+            mostSkippedEpisodes: []
         }
     }
 
