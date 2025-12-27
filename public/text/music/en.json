@@ -12,7 +12,7 @@
     "currently_playing": "Currently Playing",
     "active_listeners": "Active Listeners",
     "activity": {
-        "songs_played": "Songs played today",
+        "songs_played": "Songs played",
         "most_played": "Most played song",
         "listens": "Listens",
         "no_data": "No data available"
