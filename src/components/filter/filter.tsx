@@ -9,7 +9,7 @@ import en from '@text/filter/en.json'
 import './filter.css'
 import KeyboardArrowUp from '@components/svg/symbols/keyboardArrowUp'
 import Replay from '@components/svg/symbols/replay'
-import { getCookie } from 'uibee/utils'
+import { getCookie } from 'utilbee/utils'
 import { language } from '../langtoggle/langToggle'
 import { usePathname, useRouter } from 'next/navigation'
 

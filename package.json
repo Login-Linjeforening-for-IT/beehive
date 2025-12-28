@@ -21,7 +21,8 @@
     "react-snowfall": "^2.4.0",
     "remark-gfm": "^4.0.1",
     "swr": "^2.3.8",
-    "uibee": "^2.5.7"
+    "uibee": "^2.6.0",
+    "utilbee": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",

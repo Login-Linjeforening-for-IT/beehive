@@ -1,7 +1,7 @@
 'use client'
 
 import useSWR from 'swr'
-import { getCookie, removeCookie } from 'uibee/utils'
+import { getCookie, removeCookie } from 'utilbee/utils'
 import { useEffect } from 'react'
 import TileInfo from '@components/music/tileInfo'
 import no from '@text/music/no.json'

@@ -7,7 +7,7 @@ import Link from 'next/link'
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
 import ArrowOutward from '@components/svg/symbols/arrowOutward'
-import { getCookie } from 'uibee/utils'
+import { getCookie } from 'utilbee/utils'
 import { language } from '@components/langtoggle/langToggle'
 
 export default function StudyProgramsAccordion() {

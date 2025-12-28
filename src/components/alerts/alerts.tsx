@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Alert from '@components/alert/alert'
-import { getCookie, setCookie } from 'uibee/utils'
+import { getCookie, setCookie } from 'utilbee/utils'
 import { usePathname } from 'next/navigation'
 import { X } from 'lucide-react'
 

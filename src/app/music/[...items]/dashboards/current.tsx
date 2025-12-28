@@ -3,7 +3,7 @@
 import useSWR from 'swr'
 import CurrentlyPlaying from '@components/music/currentlyListening'
 import { useEffect } from 'react'
-import { getCookie, removeCookie } from 'uibee/utils'
+import { getCookie, removeCookie } from 'utilbee/utils'
 
 const MAX_VISIBLE_ON_PAGE_WITHOUT_OVERFLOWING = 12
 

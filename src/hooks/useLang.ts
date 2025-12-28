@@ -1,4 +1,4 @@
-import { getCookie } from 'uibee/utils'
+import { getCookie } from 'utilbee/utils'
 import { useEffect, useState } from 'react'
 import { language } from '@components/langtoggle/langToggle'
 

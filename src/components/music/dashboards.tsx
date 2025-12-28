@@ -1,6 +1,6 @@
 'use client'
 
-import { setCookie } from 'uibee/utils'
+import { setCookie } from 'utilbee/utils'
 import Link from 'next/link'
 import no from '@text/music/no.json'
 import en from '@text/music/en.json'

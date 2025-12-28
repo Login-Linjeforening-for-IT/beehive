@@ -9,7 +9,7 @@ import en from '@text/jobadList/en.json'
 import './page.css'
 // import List from '@components/svg/symbols/list'
 // import ArrowDownWard from '@components/svg/symbols/arrowDownWard'
-// import { getCookie } from 'uibee/utils'
+// import { getCookie } from 'utilbee/utils'
 import { cookies } from 'next/headers'
 import FilterItem from '@components/filter/filterItem'
 

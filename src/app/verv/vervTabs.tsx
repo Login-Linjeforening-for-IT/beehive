@@ -16,7 +16,7 @@ import en from '@text/verv/en.json'
 import no from '@text/verv/no.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
-import { getCookie } from 'uibee/utils'
+import { getCookie } from 'utilbee/utils'
 import { language } from '@components/langtoggle/langToggle'
 
 export default function VervTabs() {
