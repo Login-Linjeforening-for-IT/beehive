@@ -9,7 +9,7 @@ import PlayIcon from '../playIcon'
 import Snowfall from 'react-snowfall'
 
 const month = new Date().getMonth()
-const winter = month > 10 && month < 2
+const winter = month > 10 || month < 2
 
 async function fetcher(url: string) {
     const response = await fetch(url)
