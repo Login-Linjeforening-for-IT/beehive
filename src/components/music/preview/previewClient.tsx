@@ -8,6 +8,9 @@ import CurrentlyPlayingCard from '../currentlyListeningCard'
 import PlayIcon from '../playIcon'
 import Snowfall from 'react-snowfall'
 
+const month = new Date().getMonth()
+const winter = month > 10 && month < 2
+
 async function fetcher(url: string) {
     const response = await fetch(url)
     const data = await response.json()
@@ -35,7 +38,7 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
 
     return (
         <>
-            <Snowfall color='#82C3D9' />
+            {winter && <Snowfall color='#82C3D9' />}
             <section className='pt-8 max-w-(--w-page) 800px:px-4 800px:mx-auto 1000px:w-full'>
                 <div className='flex justify-between items-center px-8 1000px:px-4'>
                     <div className='gap-2 flex place-items-center'>
