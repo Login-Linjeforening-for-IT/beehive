@@ -5,7 +5,7 @@ import ErrorSymbol from '@components/svg/symbols/error'
 type AlertProps = {
     children: ReactNode
     variant: string
-    className: string
+    className?: string
 }
 
 // helper functions to get colors to make sure tailwind compiles them

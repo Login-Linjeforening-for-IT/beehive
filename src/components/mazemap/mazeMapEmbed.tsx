@@ -9,6 +9,7 @@ import Add from '@components/svg/symbols/add'
 import Remove from '@components/svg/symbols/remove'
 import { useDarkMode } from 'uibee/hooks'
 import Script from 'next/script'
+import Alert from '@components/alert/alert'
 
 // eslint-disable-next-line
 export default function MazeMapEmbed({ poi, ...props }: any) {
@@ -24,6 +25,7 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
     const isDarkMode = useDarkMode()
 
     const [scriptLoaded, setScriptLoaded] = useState(false)
+    const [webGLSupported, setWebGLSupported] = useState(true)
 
     const handleScriptLoad = () => {
         // @ts-ignore
@@ -43,6 +45,16 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
     // initialize map only once, poi will probably not change
     useEffect(() => {
         if (!Mazemap || !hasMounted) return
+
+        // Check WebGL support
+        const canvas = document.createElement('canvas')
+        const gl = canvas.getContext('webgl')
+        if (!gl) {
+            setWebGLSupported(false)
+            return
+        } else {
+            setWebGLSupported(true)
+        }
 
         // @ts-ignore
         const embeddedMazemap = new Mazemap.Map({
@@ -136,35 +148,48 @@ export default function MazeMapEmbed({ poi, ...props }: any) {
                     onError={(error) => console.error('Failed to load Mazemap script:', error)}
                 />
             )}
-            <div
-                className='mazemap-container'
-                style={{ height: props.height || defualtHeight }}
-            >
-                <div id='mazemap' className='mazemap'>
-                    <a
-                        href={'https://use.mazemap.com/#v=1&sharepoitype=poi&campusid=1&sharepoi=' + poi}
-                        rel='noreferrer noopener'
-                        target='_blank'
-                        className='mazemap_link mazemap_overlay-item'
-                    >
-                        <ArrowOutward className='w-6 h-6 fill-white'/>
-                    </a>
-                    {room &&
-                        <div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
-                            <Pin className='w-6 h-6 fill-white mazemap_location-name-icon' />
-                            {room}
-                        </div>
-                    }
-                    <div className='mazemap_controls mazemap_overlay-item'>
-                        <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'>
-                            <Add className='w-6 h-6 fill-white'/>
-                        </button>
-                        <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'>
-                            <Remove className='w-6 h-6 fill-white' />
-                        </button>
+            {!webGLSupported ? (
+                <div
+                    className='mazemap-container'
+                    style={{ height: props.height || defualtHeight }}
+                >
+                    <div className='flex items-center justify-center h-full p-4'>
+                        <Alert variant='warning'>
+                            WebGL is required for the map to display. Please enable WebGL in your browser settings.
+                        </Alert>
                     </div>
                 </div>
-            </div>
+            ) : (
+                <div
+                    className='mazemap-container'
+                    style={{ height: props.height || defualtHeight }}
+                >
+                    <div id='mazemap' className='mazemap'>
+                        <a
+                            href={'https://use.mazemap.com/#v=1&sharepoitype=poi&campusid=1&sharepoi=' + poi}
+                            rel='noreferrer noopener'
+                            target='_blank'
+                            className='mazemap_link mazemap_overlay-item'
+                        >
+                            <ArrowOutward className='w-6 h-6 fill-white'/>
+                        </a>
+                        {room &&
+                            <div className='flex flex-row items-center mazemap_location-name mazemap_overlay-item'>
+                                <Pin className='w-6 h-6 fill-white mazemap_location-name-icon' />
+                                {room}
+                            </div>
+                        }
+                        <div className='mazemap_controls mazemap_overlay-item'>
+                            <button onClick={zoomIn} className='mazemap_zoom-btn mazemap_zoom-btn--top'>
+                                <Add className='w-6 h-6 fill-white'/>
+                            </button>
+                            <button onClick={zoomOut} className='mazemap_zoom-btn mazemap_zoom-btn--bottom'>
+                                <Remove className='w-6 h-6 fill-white' />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     )
 }
