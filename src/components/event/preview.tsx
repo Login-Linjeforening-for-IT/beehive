@@ -6,7 +6,7 @@ import EndCard from '@components/endCard'
 import { getEvents } from '@utils/api'
 import { cookies } from 'next/headers'
 import { Egg } from '@components/decoration/easter'
-import { Easter } from '@components/decoration/wrapper'
+import { Decoration } from '@components/decoration/wrapper'
 
 export default async function EventsPreview() {
     const eventsResponse = await getEvents({
@@ -27,11 +27,11 @@ export default async function EventsPreview() {
     return (
         <>
             <section  test-id='events' className='pt-8 max-w-(--w-page) 800px:px-4 800px:mx-auto 1000px:w-full relative'>
-                <Easter>
+                <Decoration type='easter'>
                     <div className='absolute -left-4 bottom-20 hidden lg:block opacity-80 pointer-events-none'>
                         <Egg color='#b5ead7' className='w-12' rotation={-10} />
                     </div>
-                </Easter>
+                </Decoration>
                 <div className='flex justify-between items-center px-8 1000px:px-4'>
                     <h2 className='py-2 font-normal text-2xl'>
                         {text.eventsPreview.title}

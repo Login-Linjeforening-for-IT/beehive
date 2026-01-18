@@ -1,4 +1,4 @@
-export function isEasterSeason(date: Date = new Date()): boolean {
+export function isEaster(date: Date = new Date()): boolean {
     const inputYear = date.getFullYear()
     const a = inputYear % 19
     const b = Math.floor(inputYear / 100)
@@ -20,4 +20,25 @@ export function isEasterSeason(date: Date = new Date()): boolean {
     const easterEnd = new Date(easterDate).setDate(easterDate.getDate() + 7)
 
     return date.getTime() >= easterStart && date.getTime() <= easterEnd
+}
+
+export function isChristmas(date: Date = new Date()): boolean {
+    return date.getMonth() === 11
+}
+
+export function isWinter(date: Date = new Date()): boolean {
+    const month = date.getMonth()
+    return month > 10 || month < 2
+}
+
+export function isValentine(date: Date = new Date()): boolean {
+    return date.getMonth() === 1 && date.getDate() === 14
+}
+
+export function isNewYear(date: Date = new Date()): boolean {
+    return (date.getMonth() === 0 && date.getDate() === 1) || (date.getMonth() === 11 && date.getDate() === 31)
+}
+
+export function isHalloween(date: Date = new Date()): boolean {
+    return date.getMonth() === 9 && date.getDate() === 31
 }

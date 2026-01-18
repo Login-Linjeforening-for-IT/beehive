@@ -10,15 +10,13 @@ import './heroSection.css'
 export default async function LandingPage() {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
-    const month = new Date().getMonth()
-    const christmas = month === 11
 
     return (
         <div test-id='hero' className='hero-section'>
             <div className='hero-section_container'>
                 <div className='hero-section_top'>
                     <div className='hero-section_logo'>
-                        <LoginLogo christmas={christmas} />
+                        <LoginLogo />
                     </div>
                     <div className='hero-section_content'>
                         <span className='hero-section_top-text'>
