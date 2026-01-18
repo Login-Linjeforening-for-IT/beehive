@@ -1,9 +1,20 @@
+import { Easter } from '@components/decoration/wrapper'
 import './logo.css'
 
 export default function LoginLogo({ christmas }: { christmas?: boolean }) {
     return (
 
         <svg className='landing-logo' viewBox='0 0 147.02299 59.20511'>
+            <Easter>
+                <g transform='translate(34.5 -1) scale(1)'>
+                    <path
+                        d='M8 15C6 10 6 3 9 3C11 3 11.5 7 11 15H13C12.5 7 13 3 15 3C18 3 18 10 16 15Z'
+                        fill='#ffb7b2'
+                        stroke='white'
+                        strokeWidth='0.5'
+                    />
+                </g>
+            </Easter>
             <path className='landing-logo_letter' d='m 28.77713,58.37738 v 0.76465 H 25.531 v -5.61816 h 0.91309 v 4.85351 z' />
             <path className='landing-logo_letter' d='m 30.47831,59.142 h -0.917 v -5.61813 h 0.917 z' />
             <path className='landing-logo_letter' d='M 36.46268,53.52387 V 59.142 H 35.99881 A 0.36347,0.36347 0 0 1 35.6785,58.98185 L 32.59256,55.018 c 0.0078,0.07617 0.01368,0.15039 0.01758,0.22461 0.0039,0.07422 0.0059,0.14258 0.0059,0.20508 V 59.142 h -0.80371 v -5.61813 h 0.47656 a 0.71321,0.71321 0 0 1 0.09864,0.0059 0.3128,0.3128 0 0 1 0.07617,0.02148 0.22919,0.22919 0 0 1 0.0664,0.04688 0.63781,0.63781 0 0 1 0.06641,0.07812 l 3.08984,3.96779 c -0.0078,-0.08105 -0.01367,-0.16015 -0.01757,-0.23828 -0.0039,-0.07813 -0.0059,-0.15039 -0.0059,-0.21875 v -3.6631 z' />
