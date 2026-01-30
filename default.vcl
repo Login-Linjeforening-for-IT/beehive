@@ -26,11 +26,11 @@ sub vcl_hash {
 
 sub vcl_backend_response {
     if (bereq.url ~ "^/_next/image") {
-        set beresp.ttl = 24h;
+        set beresp.ttl = 180d;
         if (beresp.http.Set-Cookie) {
             unset beresp.http.Set-Cookie;
         }
-        set beresp.http.Cache-Control = "public, max-age=86400, s-maxage=86400";
+        set beresp.http.Cache-Control = "public, max-age=15552000, s-maxage=15552000, immutable";
         return (deliver);
     }
 

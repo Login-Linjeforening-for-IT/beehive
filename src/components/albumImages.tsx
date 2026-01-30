@@ -109,8 +109,9 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                             fill
                             sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
                             className='object-cover'
-                            loading='lazy'
-                            quality={50}
+                            loading='eager'
+                            priority={index < 6}
+                            quality={80}
                         />
                     </div>
                 ))}
@@ -141,7 +142,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                                 fill
                                 sizes='100vw'
                                 priority
-                                unoptimized
+                                loading='eager'
                             />
                         )}
                         {lightboxIndex - 1 >= 0 && (
@@ -151,7 +152,7 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                                 fill
                                 sizes='100vw'
                                 priority
-                                unoptimized
+                                loading='eager'
                             />
                         )}
                     </div>
@@ -185,8 +186,8 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                             className={`object-contain transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
                             sizes='100vw'
                             priority
+                            loading='eager'
                             onLoad={() => setIsImageLoading(false)}
-                            unoptimized
                         />
                     </div>
 

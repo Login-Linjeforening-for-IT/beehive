@@ -3,7 +3,7 @@
 # THIS IS THE FRONTEND ENTRYPOINT. SEE /api/entrypoint.sh FOR THE API ENTRYPOINT.
 
 # Starts varnish
-varnishd -a :3000 -f /etc/varnish/default.vcl -s malloc,512m &
+varnishd -a :3000 -f /etc/varnish/default.vcl -s malloc,1g &
 
 echo "-------------------- NOTE --------------------"
 echo ""
