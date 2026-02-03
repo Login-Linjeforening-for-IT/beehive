@@ -271,7 +271,7 @@ function getDefaultBanner(category: string, color: string) {
         case 'TekKom':
             {/* @ts-ignore */}
             return <DefaultTekkomBanner color={color} className='event-item_img' />
-        case 'CTFKom':
+        case 'CTF':
             {/* @ts-ignore */}
             return <DefaultCtfBanner color={color} className='event-item_img' />
         case 'BedKom':
