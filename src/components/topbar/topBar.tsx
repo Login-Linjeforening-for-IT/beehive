@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { Navbar, NavDropdown, NavItem } from 'uibee/components'
-import NO from '@text/layout/en.json'
-import EN from '@text/layout/no.json'
+import en from '@text/layout/en.json'
+import no from '@text/layout/no.json'
 import config from '@config'
 import { Activity, BookMarked, BookOpen, Heart, Images, Music } from 'lucide-react'
 import Office from '@components/svg/symbols/office'
@@ -11,7 +11,7 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
     const accessToken = Cookies.get('access_token')?.value || null
     const theme = Cookies.get('theme')?.value || 'dark'
     const lang = (Cookies.get('lang')?.value || 'no') as Lang
-    const text = lang === 'no' ? NO : EN
+    const text = lang === 'no' ? no : en
 
     return (
         <Navbar
