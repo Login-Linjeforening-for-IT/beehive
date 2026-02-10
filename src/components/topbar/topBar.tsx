@@ -3,7 +3,7 @@ import { Navbar, NavDropdown, NavItem } from 'uibee/components'
 import en from '@text/layout/en.json'
 import no from '@text/layout/no.json'
 import config from '@config'
-import { Activity, BookMarked, BookOpen, Heart, Images, Music } from 'lucide-react'
+import { Activity, BookMarked, BookOpen, Heart, Images, Music, Lock } from 'lucide-react'
 import Office from '@components/svg/symbols/office'
 
 export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
@@ -81,6 +81,14 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
                         {text.nav.status}
                     </div>
                 </NavItem>
+                {accessToken &&
+                    <NavItem href='/internal'>
+                        <div className='flex flex-row items-center'>
+                            <Lock className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
+                            {text.nav.internal}
+                        </div>
+                    </NavItem>
+                }
             </NavDropdown>
         </Navbar>
     )

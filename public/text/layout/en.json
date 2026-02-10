@@ -11,7 +11,8 @@
     "exam": "Exam",
     "music": "Music",
     "more": "More",
-    "status": "Status"
+    "status": "Status",
+    "internal": "Internal"
   },
   "footer": {
     "contactInfo": {
