@@ -1,34 +1,38 @@
-# Frontend
+# 🐝 Beehive
 
-Our frontend is made using ReactJS
+## 🏁 Quick start
+1. Install dependencies:
 
-TODO: Write more about React and a local development environment
+```bash
+npm install
+```
 
-## Setting up a development environment
+2. Run development server:
 
-In order to follow these steps you need to install docker on your machine.
-Here are guides for installation on some common systems:
+```bash
+npm run dev
+```
 
-- [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-- [Fedora](https://docs.docker.com/engine/install/fedora/)
-- [Mac](https://docs.docker.com/desktop/mac/install/)
-- [Windows](https://docs.docker.com/desktop/windows/install/)
+3. Build for production:
 
-You will also need docker-compose (it is included in Docker Desktop for Mac and Windows):
-https://docs.docker.com/compose/install/
+```bash
+npm run build
+```
 
-Once you have installed the docker-engine and docker-compose on your machine you can follow the following steps in order to set up the development environment:
+4. Start production server locally:
 
-1. Clone git repository.<br/>
-   `git@gitlab.login.no:tekkom/web/beehive/frontend.git`
-2. Move to the cloned repository.<br/>
-   `cd frontend`
-3. Change to desired branch.<br/>
-   e.g. `git checkout dev` or `git checkout -b <branch name>` for new branch
-4. Start the development server using docker-compose<br/>
-   `docker-compose --profile dev up`
+```bash
+npm run start
+```
 
-## Docker image options
+## 🐳 Docker
+```bash
+docker compose up --build
+```
 
-`API_URL` sets the location to the public-api. It must have a schema.
-
+## 📂 Project structure (high level)
+- `src/app` - Next.js app routes and pages
+- `src/components` - React components
+- `src/hooks` - custom hooks
+- `src/utils` - helper utilities
+- `public` - static assets and localized text
