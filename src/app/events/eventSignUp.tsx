@@ -2,6 +2,7 @@ import Button from '@components/button/button'
 import Alert from '@components/alert/alert'
 import no from '@text/eventPage/no.json'
 import en from '@text/eventPage/en.json'
+import EventSignUpLiveCount from './eventSignUpLiveCount'
 import { formatDeadlineDate, formatPublishedDate } from '@utils/datetimeFormatter'
 import ArrowOutward from '@components/svg/symbols/arrowOutward'
 import ConfirmationNumber from '@components/svg/symbols/confirmationNumber'
@@ -29,6 +30,10 @@ export default async function EventSignUp({
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
     const now = new Date()
+    const isFormsLoginNo = !!url && url.includes('forms.login.no')
+    const formName = isFormsLoginNo
+    ? url.split('/').filter(Boolean).pop() ?? null
+    : null
     let msg = ''
     let reqSignup = true
     let ready = true
@@ -66,8 +71,9 @@ export default async function EventSignUp({
 
             {!canceled && ready && reqSignup && (
                 <div className='event-details_list'>
-                    {/* @ts-ignore */}
-                    {cap > 0 && (
+                    {isFormsLoginNo && formName ? (
+                        <EventSignUpLiveCount formName={formName} lang={lang} />
+                    ) : (
                         <>
                             <div className='event-details_lable'>
                                 <ConfirmationNumber className='fill-(--color-text-discreet) event-details_icon event-details_icon--lable-color' />
