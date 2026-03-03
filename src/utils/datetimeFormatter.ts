@@ -214,7 +214,7 @@ export function formatEventStatusDate(startDate: Date, endDate: Date, lang='no')
 }
 
 
-// retur exampel: "Mon, 12:00"
+// return example: "Mon, 12:00"
 // if more than a year dif: "2020, Mon, 12:00"
 export function formatEventStartDate(dateTime: Date, lang='en') {
     const now = new Date()
@@ -226,6 +226,11 @@ export function formatEventStartDate(dateTime: Date, lang='en') {
         en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
     }
+
+    if (isNaN(Number(lang))) {
+        return 'Loading...'
+    }
+
     const dayOfWeek = daysOfWeek[lang]![dateTime.getDay()]!
     const oneYear = 365 * 24 * 60 * 60 * 1000
 
