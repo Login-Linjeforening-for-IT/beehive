@@ -227,11 +227,7 @@ export function formatEventStartDate(dateTime: Date, lang='en') {
         no: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør']
     }
 
-    if (isNaN(Number(lang))) {
-        return 'Loading...'
-    }
-
-    const dayOfWeek = daysOfWeek[lang]![dateTime.getDay()]!
+    const dayOfWeek = daysOfWeek[lang][dateTime.getDay()]
     const oneYear = 365 * 24 * 60 * 60 * 1000
 
     if((Math.abs(now.getTime() - dateTime.getTime())) < oneYear) {
