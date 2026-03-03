@@ -49,6 +49,9 @@ export default function Music({ initialData, lang }: { initialData: Music, lang:
                 mostSkippedArtists={data.mostSkippedArtists}
                 mostSkippedSongs={data.mostSkippedSongs}
                 mostSkippedEpisodes={data.mostSkippedEpisodes}
+                // tbd
+                // mostInspiredEpisodes={data.mostInspiredEpisodes}
+                mostInspiredSongs={data.mostInspiredSongs}
             />
             <TopFiveThisX lang={lang} data={data} />
         </section>

@@ -378,6 +378,23 @@ declare global {
         mostSkippedArtists: SkippedArtist[]
         mostSkippedSongs: SkippedSong[]
         mostSkippedEpisodes: SkippedEpisode[]
+        mostInspiredEpisodes: InspiredEpisode[]
+        mostInspiredSongs: InspiredSong[]
+    }
+
+    // type InspiredEpisode = {
+    //     // tbd
+    // }
+
+    type InspiredSong = {
+        song: string
+        artist: string
+        album: string
+        skips: number
+        listens: number
+        id: string
+        image: string
+        like_ratio: number
     }
 
     type CurrentlyListening = {

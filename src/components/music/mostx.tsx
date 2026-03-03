@@ -14,6 +14,7 @@ type MostLikedProps = {
     mostSkippedArtists: SkippedArtist[]
     mostSkippedSongs: SkippedSong[]
     mostSkippedEpisodes: SkippedEpisode[]
+    mostInspiredSongs: InspiredSong[]
 }
 
 export default function MostX({
@@ -25,13 +26,15 @@ export default function MostX({
     mostSkippedAlbums,
     mostSkippedArtists,
     mostSkippedSongs,
-    mostSkippedEpisodes
+    mostSkippedEpisodes,
+    mostInspiredSongs
 }: MostLikedProps) {
     const text = lang === 'no' ? no : en
     const [openOne, setOpenOne] = useState(false)
     const [openTwo, setOpenTwo] = useState(false)
     const [openThree, setOpenThree] = useState(false)
     const [openFour, setOpenFour] = useState(false)
+    const [openFive, setOpenFive] = useState(false)
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full'>
@@ -153,6 +156,33 @@ export default function MostX({
                 dropdown={true}
                 open={openFour}
                 setOpen={setOpenFour}
+                skip={true}
+            />
+
+            {/* <TileMap
+                text={text.mostx.most_inspired_episodes}
+                items={mostInspiredEpisodes}
+                getImageHash={e => e.image}
+                getTitle={e => e.name}
+                getFirstLine={e => e.show}
+                getCount={e => e.skips}
+                dropdown={true}
+                open={openFive}
+                setOpen={setOpenFive}
+                skip={true}
+            /> */}
+
+            <TileMap
+                text={text.mostx.most_inspired_songs}
+                items={mostInspiredSongs}
+                getImageHash={e => e.image}
+                getTitle={e => e.song}
+                getFirstLine={e => e.album}
+                getSecondLine={e => e.artist}
+                getCount={e => e.skips}
+                dropdown={true}
+                open={openFive}
+                setOpen={setOpenFive}
                 skip={true}
             />
         </div>
