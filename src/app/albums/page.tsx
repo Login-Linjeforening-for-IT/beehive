@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: PageProps) {
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
 
-    const response = await getAlbums({ limit, offset })
+    const response = await getAlbums({ limit, offset, sort: 'desc' })
     const albums = typeof response === 'string' ? [] : (response.albums || [])
     const totalCount = typeof response === 'string' ? 0 : (response.total_count || 0)
     const totalPages = Math.ceil(totalCount / limit)
