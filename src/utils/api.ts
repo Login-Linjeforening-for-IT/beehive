@@ -151,7 +151,9 @@ export async function getActivity(): Promise<Music> {
             mostSkippedAlbums: [],
             mostSkippedArtists: [],
             mostSkippedSongs: [],
-            mostSkippedEpisodes: []
+            mostSkippedEpisodes: [],
+            mostInspiredEpisodes: [],
+            mostInspiredSongs: []
         }
     }
 
