@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: PageProps) {
     const params = await searchParams
     const currentPage = parseInt(params.page || '1', 10)
     const limit = 6
-    const offset = (currentPage - 1) * limit
+    const offset = (currentPage - 1)
 
     const lang = (await cookies()).get('lang')?.value || 'no'
     const text = lang === 'no' ? no : en
