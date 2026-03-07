@@ -4,9 +4,10 @@ const { env } = process
 
 const config = {
     url: {
-        MAIN_URL: 'login.no',
-        API_URL: env.NEXT_PUBLIC_API_URL ?? 'https://workerbee.login.no/api/v2',
-        CDN_URL: env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
+        WORKERBEE_API_URL:  env.WORKERBEE_API_URL   ?? 'https://workerbee.login.no/api/v2',
+        TEKKOM_BOT_API_URL: env.TEKKOM_BOT_API_URL  ?? 'https://bot.login.no/api',
+        BEEKEEPER_URL:      env.BEEKEEPER_API_URL   ?? 'https://beekeeper.login.no/api',
+        CDN_URL:            env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
         EXAM_URL: 'https://exam.login.no',
         WIKI_URL: 'https://wiki.login.no',
         GITHUB_URL: 'https://github.com/Login-Linjeforening-for-IT',
@@ -17,15 +18,13 @@ const config = {
         INSTAGRAM_URL: 'https://www.instagram.com/login_linjeforening/',
         DISCORD_URL: 'https://discord.gg/login-ntnu',
         DISORD_USER_URL: 'https://discord.com/users/',
-        TEKKOM_BOT_API_URL: 'https://bot.login.no/api',
-        // TEKKOM_BOT_API_URL: 'http://localhost:8080/api',
         SPOTIFY_IMAGE_API_URL: 'https://i.scdn.co/image',
         DISCORD_AVATARS_API_URL: 'https://cdn.discordapp.com/avatars',
         SPOTIFY_URL: 'https://open.spotify.com/track/',
         SPOTIFY_EMBED_URL: 'https://open.spotify.com/embed/track',
         SPOTIFY_ALBUM_URL: 'https://open.spotify.com/album',
         SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist',
-        BEEKEEPER_URL: 'https://beekeeper.login.no/api'
+        MAIN_URL: 'login.no'
     },
     auth: {
         BASE_URL: env.BASE_URL,

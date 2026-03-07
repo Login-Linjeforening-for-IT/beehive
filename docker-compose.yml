@@ -12,9 +12,15 @@ services:
       - .env
     networks:
       - workerbee_default
+      - tekkom_bot_default
+      - beekeeper_default
     mem_limit: 2g
     cpus: "2.0"
 
 networks:
   workerbee_default:
+    external: true
+  tekkom_bot_default:
+    external: true
+  beekeeper_default:
     external: true

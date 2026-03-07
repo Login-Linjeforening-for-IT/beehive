@@ -1,6 +1,6 @@
 import config from '@config'
 
-const baseUrl = config.url.API_URL
+const baseUrl = config.url.WORKERBEE_API_URL
 
 type GetParamsProps = {
     type?: string
