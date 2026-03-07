@@ -40,8 +40,11 @@ export default function Card<T>({
     removePadding,
     extraPadding
 }: CardProps<T>) {
-    const titleStyle = `${smallText ? `${changeValues && 'text-xs sm:text-sm'} text-neutral-400 self-center mb-1` : `${changeValues && 'text-xs sm:text-base'} font-semibold`} ${centerText && 'text-center w-full'}`
-    const secondStyle = `select-none font-semibold text-neutral-400 bg-(--color-music-change) px-2 rounded-lg self-center ${changeValues && 'text-xs sm:text-base'}`
+    const titleStyle = `${smallText
+        ? `${changeValues && 'text-xs sm:text-sm'} text-neutral-400 self-center mb-1`
+        : `${changeValues && 'text-xs sm:text-base'} font-semibold`} ${centerText && 'text-center w-full'}`
+    const secondStyle = `select-none font-semibold text-neutral-400 bg-(--color-music-change)
+        px-2 rounded-lg self-center ${changeValues && 'text-xs sm:text-base'}`
     function toggleOpen() {
         if (dropdown && setOpen) {
             setOpen(!open)
@@ -55,13 +58,24 @@ export default function Card<T>({
         }
     }
 
-    const display = current === 'listens' ? (Array.isArray(text) ? text[0] : text) : (Array.isArray(text) ? text[1] : text)
-    const opposite = current === 'listens' ? (Array.isArray(text) ? text[1] : text) : (Array.isArray(text) ? text[0] : text)
+    const display = current === 'listens'
+        ? (Array.isArray(text) ? text[0] : text)
+        : (Array.isArray(text) ? text[1] : text)
+    const opposite = current === 'listens'
+        ? (Array.isArray(text) ? text[1] : text)
+        : (Array.isArray(text) ? text[0] : text)
 
     return (
         <div className={`bg-(--color-bg-surface) rounded-lg w-full ${removePadding ? '' : 'p-4'} ${className}`}>
             <div
-                className={clsx('flex items-center justify-between', dropdown && 'cursor-pointer', removePadding && 'px-4 pt-4', removePadding && open && '-pb-4', removePadding && !open && 'pb-4', extraPadding && 'pb-2')}
+                className={clsx(
+                    'flex items-center justify-between',
+                    dropdown && 'cursor-pointer',
+                    removePadding && 'px-4 pt-4',
+                    removePadding && open && '-pb-4',
+                    removePadding && !open && 'pb-4',
+                    extraPadding && 'pb-2'
+                )}
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2 w-full'>
@@ -81,7 +95,9 @@ export default function Card<T>({
                     />
                 )}
             </div>
-            <div className={`grid place-items-center overflow-hidden transition-all duration-400 ease-in-out ${dropdown ? (open ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}>
+            <div className={`grid place-items-center overflow-hidden transition-all
+                duration-400 ease-in-out ${dropdown ? (open ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0') : ''}`}
+            >
                 {children}
             </div>
         </div>

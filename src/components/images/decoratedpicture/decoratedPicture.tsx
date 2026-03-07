@@ -13,7 +13,9 @@ type DecoratedPictureProps = {
     className?: string
 }
 
-export default function DecoratedPicture({ imgUrl, variant, width, height, cornerSize, cover = false, className = '' }: DecoratedPictureProps) {
+export default function DecoratedPicture({
+    imgUrl, variant, width, height, cornerSize, cover = false, className = ''
+}: DecoratedPictureProps) {
     const [isLoaded, setIsLoaded] = useState(false)
     const maskID = `mask-${variant}-${width}-${height}`
 
@@ -30,9 +32,9 @@ export default function DecoratedPicture({ imgUrl, variant, width, height, corne
                     <>
                         <clipPath id={maskID}>
                             <polygon
-                                points={`0,${cornerSize} ${cornerSize / 3},${cornerSize} ${
-                                    cornerSize / 3
-                                },${cornerSize / 3} ${cornerSize},${cornerSize / 3} ${cornerSize},0 ${width},0 ${width},${height} 0,${height}`}
+                                points={`0,${cornerSize} ${cornerSize / 3},${cornerSize}
+                                    ${cornerSize / 3},${cornerSize / 3} ${cornerSize},${cornerSize / 3}
+                                    ${cornerSize},0 ${width},0 ${width},${height} 0,${height}`}
                             />
                         </clipPath>
                         <rect

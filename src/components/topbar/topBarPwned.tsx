@@ -14,7 +14,10 @@ type TopBarProps = {
 
 export default function TopBar({lang, theme}: TopBarProps) {
     return (
-        <div className={'flex max-w-[calc(var(--w-page)+2rem)] w-full m-auto p-2 h-(--h-topbar) transition duration-500 800px:justify-between 800px:p-4'}>
+        <div
+            className={'flex max-w-[calc(var(--w-page)+2rem)] w-full m-auto p-2 '
+                + 'h-(--h-topbar) transition duration-500 800px:justify-between 800px:p-4'}
+        >
             <div className='flex items-center h-12 p-[0.2rem] 800px:p-0'>
                 <Link href='/' onClick={(e) => { e.preventDefault(); window.location.href = '/' }}>
                     <Image

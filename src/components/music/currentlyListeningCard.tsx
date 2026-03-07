@@ -68,7 +68,11 @@ export default function CurrentlyListeningCard({ song }: { song: CurrentlyListen
         return
     }
 
-    const style = `flex items-center gap-4 px-2 py-10 md:px-2 rounded-lg ${done ? 'bg-[var(--color-text-disabled)]/10' : 'bg-[var(--color-text-disabled)]/30'} shadow-none w-full ${song.song_id && 'transform transition hover:scale-[1.015] hover:z-20'} min-h-[90px] h-[90px] max-h-[90px]`
+    const style = `flex items-center gap-4 px-2 py-10 md:px-2 rounded-lg
+        ${done ? 'bg-[var(--color-text-disabled)]/10' : 'bg-[var(--color-text-disabled)]/30'}
+        shadow-none w-full
+        ${song.song_id && 'transform transition hover:scale-[1.015] hover:z-20'}
+        min-h-[90px] h-[90px] max-h-[90px]`
 
     function handleMouseEnter() {
         setShouldRenderPlayer(true)
@@ -121,14 +125,28 @@ function InnerCurrentlyListeningCard({
     durationMs,
     shouldRenderPlayer
 }: InnerCurrentlyListeningCardProps) {
-    const innerTextStyle = `text-xs ${done ? 'text-(--color-text-discreet)/50' : 'text-(--color-text-discreet)'}`
+    const innerTextStyle = `text-xs ${done
+        ? 'text-(--color-text-discreet)/50'
+        : 'text-(--color-text-discreet)'}`
     return (
         <>
             <ImageWithPlayer song={song} shouldRenderPlayer={shouldRenderPlayer} />
             <div className='flex flex-col flex-1 min-w-0 relative'>
-                {done && <Loader radius={20} className='absolute -top-3 -right-3.5 h-12 w-12' stroke='#0a0a0a50' />}
+                {done && (
+                    <Loader
+                        radius={20}
+                        className='absolute -top-3 -right-3.5 h-12 w-12'
+                        stroke='#0a0a0a50'
+                    />
+                )}
                 <div className='flex justify-between items-center'>
-                    <Marquee text={song.name} className='truncate' innerClassName={`font-medium ${done ? 'text-(--color-text-main)/50' : 'text-(--color-text-main)'}`} />
+                    <Marquee
+                        text={song.name}
+                        className='truncate'
+                        innerClassName={`font-medium ${done
+                            ? 'text-(--color-text-main)/50'
+                            : 'text-(--color-text-main)'}`}
+                    />
                 </div>
                 {song.artist === 'Unknown' ? <>
                     <Marquee text={song.album} className='truncate' innerClassName={innerTextStyle} />
@@ -138,16 +156,24 @@ function InnerCurrentlyListeningCard({
                     <Marquee text={song.album} className='truncate' innerClassName={innerTextStyle} />
                 </>}
                 <div className='mt-2 flex items-center w-full gap-2'>
-                    <span className={`text-xs ${done ? 'text-(--color-text-discreet)/50' : 'text-(--color-text-discreet)'} min-w-10 text-right`}>
+                    <span className={`text-xs ${done
+                        ? 'text-(--color-text-discreet)/50'
+                        : 'text-(--color-text-discreet)'} min-w-10 text-right`}
+                    >
                         {msToMinSec(progressMs)}
                     </span>
                     <div className='h-1.5 flex-1 bg-(--color-progressbar-unfilled)/20 rounded-full overflow-hidden relative'>
                         <div
-                            className={`h-full ${done ? 'bg-(--color-progressbar)/20' : 'bg-(--color-progressbar)'} transition-all duration-1000 ease-linear`}
+                            className={`h-full ${done
+                                ? 'bg-(--color-progressbar)/20'
+                                : 'bg-(--color-progressbar)'} transition-all duration-1000 ease-linear`}
                             style={{ width: `${progressPercent}%` }}
                         />
                     </div>
-                    <span className={`text-xs ${done ? 'text-(--color-text-discreet)/50' : 'text-(--color-text-discreet)'} min-w-10 text-left`}>
+                    <span className={`text-xs ${done
+                        ? 'text-(--color-text-discreet)/50'
+                        : 'text-(--color-text-discreet)'} min-w-10 text-left`}
+                    >
                         {msToMinSec(durationMs)}
                     </span>
                 </div>

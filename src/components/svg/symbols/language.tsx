@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 type LanguageProps = {
     className: string
 }

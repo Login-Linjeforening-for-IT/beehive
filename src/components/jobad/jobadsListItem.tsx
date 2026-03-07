@@ -25,7 +25,10 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
     return (
         <Link href={`/career/${jobad.id}`}>
             <div className={jobad.highlight ? 'jobads-item jobads-item--highlight' : 'jobads-item' }>
-                <div className={useTags(jobad.time_publish, jobad.highlight) ? 'jobads-item_wrapper jobads-item_wrapper--with-tags' : 'jobads-item_wrapper' }>
+                <div className={useTags(jobad.time_publish, jobad.highlight)
+                    ? 'jobads-item_wrapper jobads-item_wrapper--with-tags'
+                    : 'jobads-item_wrapper' }
+                >
                     {useTags(jobad.time_publish, jobad.highlight) &&
                         <div className='jobads-item_tags'>
                             <Tags

@@ -53,16 +53,19 @@ export default async function Jobads({searchParams}: { searchParams: Promise<{ [
                     </div>
                     <div className='order-2'>
                         <ul className='list-none pt-6 1000px:pt-0'>
-                            {typeof jobads !== 'string' && Array.isArray(jobads.jobs) && jobads.jobs.length ? jobads.jobs.map((e: GetJobProps, idx: number) => (
-                                <li key={idx}>
-                                    <JobadsListItem jobad={e} />
-                                </li>
-                            )) :
+                            {typeof jobads !== 'string' && Array.isArray(jobads.jobs) && jobads.jobs.length
+                                ? jobads.jobs.map((e: GetJobProps, idx: number) => (
+                                    <li key={idx}>
+                                        <JobadsListItem jobad={e} />
+                                    </li>
+                                )) :
                                 <Alert
                                     variant='info'
                                     className='page-section--normal page-section--alert'
                                 >
-                                    {lang === 'no' ? 'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?' : 'Oh! Looks empty... Maybe your company would be interested in advertising here?'}
+                                    {lang === 'no' ?
+                                        'Oi! Her var det tomt... Kanskje din bedrift kunne vært interessert i å annonsere her?' :
+                                        'Oh! Looks empty... Maybe your company would be interested in advertising here?'}
                                 </Alert>
                             }
                         </ul>

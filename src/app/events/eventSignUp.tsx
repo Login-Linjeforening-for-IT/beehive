@@ -32,8 +32,8 @@ export default async function EventSignUp({
     const now = new Date()
     const isFormsLoginNo = !!url && url.includes('forms.login.no')
     const formName = isFormsLoginNo
-    ? url.split('/').filter(Boolean).pop() ?? null
-    : null
+        ? url.split('/').filter(Boolean).pop() ?? null
+        : null
     let msg = ''
     let reqSignup = true
     let ready = true
@@ -65,7 +65,17 @@ export default async function EventSignUp({
 
     return (
         <div
-            className={`mt-[1.8rem] pt-[1.2rem] border-t-[0.2rem] border-solid border-(--color-border-default) 800px:relative 800px:after:content-[""] 800px:after:w-[2.6rem] 800px:after:h-[2.6rem] 800px:after:absolute 800px:after:border-(--color-border-default) 800px:after:bottom-0 800px:after:transition 800px:after:duration-100 event-signup--${showBtn ? '800px:after:left-0 800px:after:border-b-[0.7rem] 800px:after:border-l-[0.7rem]  800px:after:border-solid' : 'group 800px:pb-12 800px:after:border-r-[0.7rem] 800px:after:border-b-[0.7rem] 800px:after:border-solid 800px:after:right-0'}`}
+            className={`mt-[1.8rem] pt-[1.2rem] border-t-[0.2rem] border-solid
+                border-(--color-border-default) 800px:relative
+                800px:after:content-[""] 800px:after:w-[2.6rem]
+                800px:after:h-[2.6rem] 800px:after:absolute
+                800px:after:border-(--color-border-default)
+                800px:after:bottom-0 800px:after:transition
+                800px:after:duration-100 event-signup--${showBtn
+            ? '800px:after:left-0 800px:after:border-b-[0.7rem] 800px:after:border-l-[0.7rem] 800px:after:border-solid'
+            : `group 800px:pb-12 800px:after:border-r-[0.7rem] 800px:after:border-b-[0.7rem] 800px:after:border-solid
+                800px:after:right-0`}`
+            }
         >
             <div className='mb-4 text-[1.2rem] font-medium'>{text.signup.title}:</div>
 
@@ -76,7 +86,10 @@ export default async function EventSignUp({
                     ) : (
                         <>
                             <div className='event-details_lable'>
-                                <ConfirmationNumber className='fill-(--color-text-discreet) event-details_icon event-details_icon--lable-color' />
+                                <ConfirmationNumber
+                                    className='fill-(--color-text-discreet)
+                                        event-details_icon event-details_icon--lable-color'
+                                />
                                 {text.info.capacity}:
                             </div>
                             <div className='event-details_info'>{cap}</div>
@@ -85,7 +98,10 @@ export default async function EventSignUp({
                     {ready && (
                         <>
                             <div className='event-details_lable'>
-                                <ExitToApp className='fill-(--color-text-discreet) event-details_icon event-details_icon--lable-color' />
+                                <ExitToApp
+                                    className='fill-(--color-text-discreet)
+                                        event-details_icon event-details_icon--lable-color'
+                                />
                                 {now < signupRelease
                                     ? text.signup.opens
                                     : text.signup.hasOpened}
@@ -101,7 +117,10 @@ export default async function EventSignUp({
                     {ready && now < signupDeadline && (
                         <>
                             <div className='event-details_lable'>
-                                <DisabledByDefault className='fill-(--color-text-discreet) event-details_icon event-details_icon--lable-color ' />
+                                <DisabledByDefault
+                                    className='fill-(--color-text-discreet)
+                                        event-details_icon event-details_icon--lable-color'
+                                />
                                 {text.signup.closes}:
                             </div>
                             <div className='event-details_info'>
@@ -114,7 +133,9 @@ export default async function EventSignUp({
             {msg && (
                 <Alert
                     variant={warning ? 'warning' : 'info'}
-                    className='mb-4 400px:w-fit 400px:max-w-80 800px:group-valid:m-[0_auto_0_0] 800px:max-w-68 800px:w-fit 800px:ml-auto'
+                    className='mb-4 400px:w-fit 400px:max-w-80
+                        800px:group-valid:m-[0_auto_0_0] 800px:max-w-68
+                        800px:w-fit 800px:ml-auto'
                 >
                     {msg}
                 </Alert>

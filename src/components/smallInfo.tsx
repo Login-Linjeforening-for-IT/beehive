@@ -20,7 +20,12 @@ export default async function SmallInfo() {
 
     return (
         <>
-            <div test-id='small' className='max-w-300 w-full m-[3rem_auto] grid gap-x-16 p-4 grid-cols-1 800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-16 1000px:gap-20 1200px:gap-24'>
+            <div
+                test-id='small'
+                className='max-w-300 w-full m-[3rem_auto] grid gap-x-16 p-4 grid-cols-1
+                    800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-16
+                    1000px:gap-20 1200px:gap-24'
+            >
                 <div className='order-2 800px:col-span-3 w-full max-w-124 m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.whoAreWe.title}</h2>
                     <p className='p--regular'>{text.whoAreWe.body}</p>
@@ -42,7 +47,10 @@ export default async function SmallInfo() {
                 />
             </div>
 
-            <div className='max-w-300 w-full m-[3rem_auto] grid gap-x-16 p-4 grid-cols-1 800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-16 1000px:gap-20 1200px:gap-24'>
+            <div className='max-w-300 w-full m-[3rem_auto] grid gap-x-16 p-4 grid-cols-1
+                800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-16
+                1000px:gap-20 1200px:gap-24'
+            >
                 <div className='order-2 800px:order-1 800px:col-span-3 w-full max-w-124 m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.companiesInfo.title}</h2>
                     <p className='p--regular'>{text.companiesInfo.body}</p>
@@ -64,7 +72,10 @@ export default async function SmallInfo() {
                 />
             </div>
 
-            <div className='max-w-300 w-full m-[3rem_auto] grid gap-x-16 p-4 grid-cols-1 800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-16 1000px:gap-20 1200px:gap-24'>
+            <div className='max-w-300 w-full m-[3rem_auto] grid gap-x-16 p-4 grid-cols-1
+                800px:p-[8rem_2rem_0] 800px:grid-cols-7 800px:gap-16
+                1000px:gap-20 1200px:gap-24'
+            >
                 <div className='order-2 800px:col-span-3 w-full max-w-124 m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.sponsor.title}</h2>
                     <p className='p--regular'>{text.sponsor.body}</p>

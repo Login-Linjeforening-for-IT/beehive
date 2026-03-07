@@ -13,7 +13,10 @@ export default async function Footer() {
     const text = lang === 'no' ? no : en
 
     return (
-        <div className='mt-40 mx-auto pt-16 px-4 pb-4 md:max-w-[calc(var(--w-page)+4rem)] md:pt-20 md:px-12 md:pb-4 md:grid md:grid-cols-[18rem_1fr] md:gap-x-12'>
+        <div className='mt-40 mx-auto pt-16 px-4 pb-4
+            md:max-w-[calc(var(--w-page)+4rem)] md:pt-20 md:px-12 md:pb-4
+            md:grid md:grid-cols-[18rem_1fr] md:gap-x-12'
+        >
             <div className='grid gap-16 max-w-60 w-full mx-auto md:row-span-2 md:max-w-72 md:gap-20'>
                 <div>
                     <div className='block w-full'>
@@ -41,7 +44,11 @@ export default async function Footer() {
                     <p className='text-center text-(--color-text-footer-discret) pt-8'>{text.footer.sponsor}</p>
                 </div>
             </div>
-            <div className='grid w-full max-w-60 mt-16 gap-8 sm:grid-cols-2 sm:max-w-88 sm:justify-items-end sm:justify-self-end md:col-start-2 md:row-start-1 md:max-w-136 md:justify-self-end md:mt-0 md:gap-0'>
+            <div className='grid w-full max-w-60 mt-16 gap-8 sm:grid-cols-2
+                sm:max-w-88 sm:justify-items-end sm:justify-self-end
+                md:col-start-2 md:row-start-1 md:max-w-136
+                md:justify-self-end md:mt-0 md:gap-0'
+            >
                 <div className='sm:justify-self-center md:justify-self-end'>
                     <h4 className='text-(--color-text-footer-discret) font-medium text-sm tracking-widest pb-2'>
                         {text.footer.contactInfo.address.header}
@@ -80,7 +87,8 @@ export default async function Footer() {
                 />
                 {typeof config.version !== 'undefined' ? (
                     <Link
-                        className='bg-[rgba(200,200,200,0.1)] px-[0.6rem] py-[0.4rem] rounded-(--border-radius) text-white tracking-wide font-semibold'
+                        className='bg-[rgba(200,200,200,0.1)] px-[0.6rem] py-[0.4rem]
+                            rounded-(--border-radius) text-white tracking-wide font-semibold'
                         target='_blank'
                         href={`${config.url.GITLAB_URL}/tekkom/web/beehive/frontend/-/tags/${config.version}`}
                     >

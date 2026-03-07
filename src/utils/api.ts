@@ -23,7 +23,11 @@ export async function getJobRow(jobID: number) {
     return await fetchWrapper(path)
 }
 
-export async function getJobs(skills: string | null = null, cities: string | null = null, organizations: string | null = null, jobtypes: string | null = null, limit = 20, offset = 0): Promise<GetJobsProps | string> {
+export async function getJobs(
+    skills: string | null = null, cities: string | null = null,
+    organizations: string | null = null, jobtypes: string | null = null,
+    limit = 20, offset = 0
+): Promise<GetJobsProps | string> {
     const queryParts = new URLSearchParams({ limit: String(limit), offset: String(offset) })
 
     if (skills) queryParts.append('skills', skills)
@@ -45,7 +49,9 @@ export async function getEventRow(eventID: number) {
     return await fetchWrapper(path)
 }
 
-export async function getEvents({ search, offset, limit, orderBy, sort, categories, highlighted }: GetParamsProps = {}): Promise<GetEventsProps | string> {
+export async function getEvents({
+    search, offset, limit, orderBy, sort, categories, highlighted
+}: GetParamsProps = {}): Promise<GetEventsProps | string> {
     const queryParts = new URLSearchParams()
     if (search)     queryParts.append('search', String(search))
     if (offset)     queryParts.append('offset', String(offset))

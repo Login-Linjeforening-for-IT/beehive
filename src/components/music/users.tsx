@@ -58,17 +58,29 @@ export function Users({
                         <TileCard
                             key={`${index}-${item.user_id}`}
                             imageHash={item.avatar}
-                            className={clsx('hover:scale-102 transition transform', index === 0 && 'md:col-span-2 outline-2 outline-(--color-music-outline) mx-0.5 -outline-offset-2')}
+                            className={clsx(
+                                'hover:scale-102 transition transform',
+                                index === 0 && 'md:col-span-2 outline-2 outline-(--color-music-outline) mx-0.5 -outline-offset-2'
+                            )}
                             discord={true}
                             user_id={item.user_id}
                             user={true}
                         >
                             <div className='flex w-full justify-between text-neutral-400 items-top'>
                                 <div className={clsx('flex gap-2', isCurrentlyListening ? 'max-w-[85%]' : 'max-w-full')}>
-                                    <Marquee className='truncate' innerClassName='font-semibold text-lg' text={item.name} />
+                                    <Marquee
+                                        className='truncate'
+                                        innerClassName='font-semibold text-lg'
+                                        text={item.name}
+                                    />
                                     {isCurrentlyListening && <PlayIcon noColor />}
                                 </div>
-                                <Trophy className={`px-px w-6 ${index === 0 ? 'stroke-(--color-music-outline)' : index === 1 ? 'stroke-gray-400' : index === 2 ? 'stroke-yellow-800' : 'hidden'}`} />
+                                <Trophy
+                                    className={`px-px w-6 ${index === 0
+                                        ? 'stroke-(--color-music-outline)'
+                                        : index === 1 ? 'stroke-gray-400'
+                                            : index === 2 ? 'stroke-yellow-800' : 'hidden'}`}
+                                />
                             </div>
                             <div className='text-sm text-neutral-400 truncate mb-6'>
                                 {count} {suffix}{count === 1 ? '' : 's'}

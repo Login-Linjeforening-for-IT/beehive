@@ -27,7 +27,11 @@ export default async function Fund() {
             <section className='page-section--normal mb-8'>
                 <p className='p--highlighted'>{text.intro}</p>
             </section>
-            <section className='page-section--without-gaps mb-20 bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem] 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8 1200px:rounded-[var(--border-radius-large)]'>
+            <section className='page-section--without-gaps mb-20
+                bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
+                1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
+                1200px:rounded-[var(--border-radius-large)]'
+            >
                 <h2 className='heading-2'>{text.support.title}</h2>
                 <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.support.intro}}/>
                 <h3 className='heading-4'>{text.support.heading1}</h3>
@@ -75,7 +79,11 @@ export default async function Fund() {
                     </div>
                 </div>
             </section>
-            <section className='page-section--without-gaps mb-20 bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem] 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8 1200px:rounded-[var(--border-radius-large)]'>
+            <section className='page-section--without-gaps mb-20
+                bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
+                1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
+                1200px:rounded-[var(--border-radius-large)]'
+            >
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
                         <Office className='w-12 h-12 fill-[var(--color-text-main)] heading-2_icon'/>
@@ -103,8 +111,12 @@ export default async function Fund() {
                         {Array.isArray(actualBoardMembers) && actualBoardMembers.map(key => (
                             <div key={key}>
                                 <LogChamp
-                                    img={boardMembers[key].img == '' ? 'assets/img/placeholders/portrett_placeholder.svg' : `${config.url.CDN_URL}/img/fund/${boardMembers[key].img}`}
-                                    name={boardMembers[key].name == '' ? boardMembers[key].title : boardMembers[key].name}
+                                    img={boardMembers[key].img == ''
+                                        ? 'assets/img/placeholders/portrett_placeholder.svg'
+                                        : `${config.url.CDN_URL}/img/fund/${boardMembers[key].img}`}
+                                    name={boardMembers[key].name == ''
+                                        ? boardMembers[key].title
+                                        : boardMembers[key].name}
                                     position={boardMembers[key].title}
                                     discord={boardMembers[key].dctag}
                                     discordLink={boardMembers[key].dclink}

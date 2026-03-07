@@ -36,16 +36,26 @@ export default function TopTileMap({ text, items, dropdown = false, open = true,
                         song_id={'song_id' in item ? item.song_id : item.id}
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
-                            <Marquee className='truncate' innerClassName='font-semibold text-lg' text={'song' in item ? item.song : item.name} />
+                            <Marquee
+                                className='truncate'
+                                innerClassName='font-semibold text-lg'
+                                text={'song' in item ? item.song : item.name}
+                            />
                             <p className='text-neutral-400 pl-2'>{item.listens}</p>
                             <PlayIcon className='fill-neutral-400 stroke-0 p-0.5 -ml-0.5 pb-1' />
                         </div>
-                        <Marquee className='truncate' innerClassName='text-sm text-neutral-500' text={'artist' in item ? item.artist : item.show} />
-                        {'song' in item && <Marquee
+                        <Marquee
                             className='truncate'
-                            innerClassName={`text-sm text-neutral-500 ${item.artist === 'Unknown' && 'mb-6'}`}
-                            text={item.album}
-                        />}
+                            innerClassName='text-sm text-neutral-500'
+                            text={'artist' in item ? item.artist : item.show}
+                        />
+                        {'song' in item && (
+                            <Marquee
+                                className='truncate'
+                                innerClassName={`text-sm text-neutral-500 ${item.artist === 'Unknown' && 'mb-6'}`}
+                                text={item.album}
+                            />
+                        )}
                     </TileCard>
                 ))}
             </div>

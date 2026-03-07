@@ -42,7 +42,9 @@ export default async function EventListItem({ event, highlight = true, disableTa
 
     return (
         <Link href={`/events/${event.id}`}>
-            <div className={`event-item ${highlight ? 'event-item--highlight' : ''} ${variant === 'card' ? 'event-item--card' : 'event-item--list-item'}`}>
+            <div className={`event-item ${highlight ? 'event-item--highlight' : ''}
+                ${variant === 'card' ? 'event-item--card' : 'event-item--list-item'}`}
+            >
                 <div className='event-item_wrapper'>
                     {variant === 'list-item' ? (
                         <DateTile

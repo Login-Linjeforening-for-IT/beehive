@@ -28,7 +28,7 @@ export function LogoConsoleOutput() {
         '   ╚══════╝\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t╚══════╝%c\n\n' +
         '\t\t\t\t\t\t\t\t\t\t\t\t\t- Laget av TekKom med 🍕 og ❤️'
 
-    let str = ''
+    let str
 
     if(navigator.userAgent.indexOf('Chrome') != -1) {
         str = chromeStr

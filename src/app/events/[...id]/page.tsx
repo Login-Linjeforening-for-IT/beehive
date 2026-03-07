@@ -109,12 +109,16 @@ async function Event({event}: {event: GetEventProps}) {
                     {event.location && (
                         <>
                             <div className='flex flex-row items-center event-details_lable'>
-                                <Pin className='w-6 h-6 fill-[var(--color-text-discreet)] event-details_icon event-details_icon--lable-color' />
+                                <Pin className='w-6 h-6 fill-[var(--color-text-discreet)]
+                                    event-details_icon event-details_icon--lable-color'
+                                />
                                 {text.info.location}:
                             </div>
                             <div className='event-details_info'>
                                 {/* @ts-ignore */}
-                                {lang === 'en' && event.location.name_en ? event.location.name_en : event.location.name_no}
+                                {lang === 'en' && event.location.name_en
+                                    ? event.location.name_en
+                                    : event.location.name_no}
                                 {/* @ts-ignore */}
                                 {event.location.city_name && `, ${event.location.city_name}`}
                             </div>
@@ -197,7 +201,8 @@ async function Event({event}: {event: GetEventProps}) {
             <div className='event-description'>
                 <Article
                     // @ts-ignore
-                    title={(event.canceled ? `❌ (${text.canceled})` : '') + lang === 'en' ? event.name_en : event.name_no}
+                    title={(event.canceled ? `❌ (${text.canceled})` : '')
+                        + (lang === 'en' ? event.name_en : event.name_no)}
                     // @ts-ignore
                     publishTime={new Date(event.time_publish)}
                     // @ts-ignore
@@ -214,7 +219,8 @@ async function Event({event}: {event: GetEventProps}) {
                             title={
                                 <>
                                     {/* @ts-ignore */}
-                                    <Gavel className='fill-[var(--color-text-main)] h-7'/> {lang === 'en' ? event.rule.name_en : event.rule.name_no}
+                                    <Gavel className='fill-[var(--color-text-main)] h-7'/>
+                                    {lang === 'en' ? event.rule.name_en : event.rule.name_no}
                                 </>
                             }
                         >

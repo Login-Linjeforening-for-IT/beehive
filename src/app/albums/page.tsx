@@ -123,7 +123,8 @@ export default async function Page({ searchParams }: PageProps) {
 
 function cardStack(count: number, renderItem: (index: number, className: string) => React.ReactNode) {
     const getPositionClasses = (index: number) => {
-        const baseClasses = 'absolute aspect-3/2 rounded-lg shadow-2xl transition-all duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
+        const baseClasses = 'absolute aspect-3/2 rounded-lg shadow-2xl transition-all duration-300 '
+            + 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
         const positionClasses =
             index === 0 ? 'z-30 rotate-0 scale-100' :
                 index === 1 ? 'z-20 -rotate-6 scale-95 -translate-x-[55%] -translate-y-[55%]' :

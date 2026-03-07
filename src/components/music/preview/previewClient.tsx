@@ -47,7 +47,16 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
                         </h2>
                         <PlayIcon />
                     </div>
-                    <Link href='/music' className='group relative block p-[.5em_1.5em_.5em_1em] leading-[1.4em] text-[1.2rem] font-medium h-[2.4em] after:content-[""] after:absolute after:w-[0.6em] after:h-[0.6em] after:top-[0.85em] after:right-[0.5em] after:border-r-[0.18em] after:border-b-[0.18em] after:border-solid after:border-(--color-link-primary) after:transform after:-rotate-45 after:z-5 after:transition-all'>
+                    <Link
+                        href='/music'
+                        className='group relative block p-[.5em_1.5em_.5em_1em]
+                            leading-[1.4em] text-[1.2rem] font-medium h-[2.4em]
+                            after:content-[""] after:absolute after:w-[0.6em]
+                            after:h-[0.6em] after:top-[0.85em] after:right-[0.5em]
+                            after:border-r-[0.18em] after:border-b-[0.18em]
+                            after:border-solid after:border-(--color-link-primary)
+                            after:transform after:-rotate-45 after:z-5 after:transition-all'
+                    >
                         <span className='hidden 350px:block group-hover:text-(--color-link-primary)'>
                             {text.musicPreview.seeAll}
                         </span>
@@ -57,7 +66,11 @@ export default function MusicPreviewClient({ initialData, lang }: { initialData:
                     <SongPreview />
                 </div>
             </section>
-            <hr className='hidden 800px:block 800px:border-0 800px:h-[0.15rem] 800px:bg-(--color-border-default) 800px:my-0 800px:mx-12 1000px:my-8 1000px:mx-auto 1000px:max-w-[calc(var(--w-page)-4rem)]' />
+            <hr
+                className='hidden 800px:block 800px:border-0 800px:h-[0.15rem]
+                    800px:bg-(--color-border-default) 800px:my-0 800px:mx-12
+                    1000px:my-8 1000px:mx-auto 1000px:max-w-[calc(var(--w-page)-4rem)]'
+            />
         </>
     )
 }

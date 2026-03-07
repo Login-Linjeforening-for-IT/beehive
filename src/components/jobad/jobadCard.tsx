@@ -24,7 +24,9 @@ export default async function JobadCard({ jobad, highlight = true, disableTags =
                     <div className='relative jobad-card_picture'>
                         {jobad.banner_image || jobad.organization.logo ? (
                             <Image
-                                src={jobad.organization.logo ? `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}` : `${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
+                                src={jobad.organization.logo
+                                    ? `${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`
+                                    : `${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
                                 alt={jobad.banner_image ?? 'Job banner image'}
                                 fill={true}
                                 className='object-cover jobad-card_img'

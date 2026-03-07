@@ -72,7 +72,8 @@ function StatusSection({ title, data, text }: { title: string, data: StatusData,
                                         {service.issues.map((issue, index) => (
                                             <div key={index} className='text-sm text-(--color-text-discreet)'>
                                                 {(
-                                                    (text.issues as Record<string, string>)[issue] || (text.issues as Record<string, string>)['unknown']
+                                                    (text.issues as Record<string, string>)[issue]
+                                                        || (text.issues as Record<string, string>)['unknown']
                                                 )}
                                             </div>
                                         ))}

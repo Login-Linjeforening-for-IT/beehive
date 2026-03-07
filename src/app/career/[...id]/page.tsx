@@ -65,19 +65,26 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                         rel='noreferrer'
                                     >
                                         {/* @ts-ignore */}
-                                        {lang && jobad.organization.name_en ? jobad.organization.name_en : jobad.organization.name_no + ' '}
+                                        {lang && jobad.organization.name_en
+                                            ? jobad.organization.name_en
+                                            : jobad.organization.name_no + ' '}
                                         <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-[var(--color-text-main)]'/>
                                     </a>
                                 ) : (
                                     <>
-                                        {lang ? jobad.organization.name_en : jobad.organization.name_no}
+                                        {lang
+                                            ? jobad.organization.name_en
+                                            : jobad.organization.name_no}
                                     </>
                                 )}
                             </div>
                         </div>
                         <div className='grid grid-cols-[min-content_auto] gap-4 mb-12'>
                             <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
-                                <HourglassBottom className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color'/>
+                                <HourglassBottom
+                                    className='fill-[var(--color-text-discreet)]
+                                        jobad-details_icon jobad-details_icon--lable-color'
+                                />
                                 {text.details.deadline}:
                             </div>
                             <div className='jobad-details_value'>
@@ -88,35 +95,53 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 )}
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.time_expire)) && (
-                                    <Acute className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--warning'/>
+                                    <Acute
+                                        className='fill-[var(--color-text-discreet)]
+                                            jobad-details_icon jobad-details_icon--warning'
+                                    />
                                 )}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.position_title_no &&
                                 <>
                                     <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
-                                        <Badge className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color'/>
+                                        <Badge
+                                            className='fill-[var(--color-text-discreet)]
+                                                jobad-details_icon jobad-details_icon--lable-color'
+                                        />
                                         {text.details.position}:
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
-                                        {lang == 'en' && jobad.position_title_en ? jobad.position_title_en : jobad.position_title_no}
+                                        {lang == 'en' && jobad.position_title_en
+                                            ? jobad.position_title_en
+                                            : jobad.position_title_no}
                                     </div>
                                 </>
                             }
                             <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
-                                <WorkHistory className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color'/>
+                                <WorkHistory
+                                    className='fill-[var(--color-text-discreet)]
+                                        jobad-details_icon jobad-details_icon--lable-color'
+                                />
                                 {text.details.type}:
                             </div>
                             <div className='jobad-details_value'>
                                 {/* @ts-ignore */}
-                                {lang == 'en' ? jobad.job_type.name_en : jobad.job_type.name_no}
+                                {lang == 'en'
+                                    ? jobad.job_type.name_en
+                                    : jobad.job_type.name_no}
                             </div>
                             {/* @ts-ignore */}
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <>
-                                    <div className='flex-row items-center text-[var(--color-text-discreet)] inline-flex items-start'>
-                                        <Pin className='w-6 h-6 fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color' />
+                                    <div className='flex-row items-center text-[var(--color-text-discreet)]
+                                        inline-flex items-start'
+                                    >
+                                        <Pin
+                                            className='w-6 h-6 fill-[var(--color-text-discreet)]
+                                                jobad-details_icon jobad-details_icon--lable-color'
+                                        />
                                         {/* @ts-ignore */}
                                         {jobad.cities.length > 1
                                             ? text.details.locations
@@ -133,7 +158,10 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {jobad.skills && jobad.skills.length > 0 &&
                                 <>
                                     <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
-                                        <Wrench className='fill-[var(--color-text-discreet)] jobad-details_icon jobad-details_icon--lable-color' />
+                                        <Wrench
+                                            className='fill-[var(--color-text-discreet)]
+                                                jobad-details_icon jobad-details_icon--lable-color'
+                                        />
                                         {text.details.skills}:
                                     </div>
                                     <div className='jobad-details_value'>
@@ -167,12 +195,18 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                     }
                     <div className='jobad-description'>
                         <Article
-                            title={lang == 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}
+                            title={lang == 'en' && jobad.title_en
+                                ? jobad.title_en
+                                : jobad.title_no}
                             publishTime={new Date(jobad.time_publish)}
                             updateTime={new Date(jobad.updated_at)}
                             informational={false}
-                            introduction={lang == 'en' && jobad.description_short_en ? jobad.description_short_en : jobad.description_short_no}
-                            description={lang == 'en' && jobad.description_long_en ? jobad.description_long_en : jobad.description_long_no}
+                            introduction={lang == 'en' && jobad.description_short_en
+                                ? jobad.description_short_en
+                                : jobad.description_short_no}
+                            description={lang == 'en' && jobad.description_long_en
+                                ? jobad.description_long_en
+                                : jobad.description_long_no}
                         />
                     </div>
                 </div>

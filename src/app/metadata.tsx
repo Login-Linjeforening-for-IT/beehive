@@ -2,7 +2,10 @@ import type { Viewport, Metadata } from 'next'
 
 const metadata: Metadata = {
     title: 'Login',
-    keywords: ['login', 'linjeforeningen', 'IT', 'NTNU', 'Gjøvik', 'pwned', 'events', 'arrangementer', 'bedriftspresentasjon', 'sosialt', 'nettverk', 'karriere'],
+    keywords: [
+        'login', 'linjeforeningen', 'IT', 'NTNU', 'Gjøvik', 'pwned', 'events',
+        'arrangementer', 'bedriftspresentasjon', 'sosialt', 'nettverk', 'karriere',
+    ],
     authors: [{ name: 'Login - Linjeforeningen for IT', url: 'https://login.no' }],
     description: 'Login - Linjeforeningen for IT ved NTNU i Gjøvik.',
     creator: 'Login - Linjeforeningen for IT',

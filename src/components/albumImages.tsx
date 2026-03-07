@@ -99,13 +99,17 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                 {visibleImages.map((img, index) => (
                     <div
                         key={img}
-                        className='relative aspect-3/2 cursor-pointer overflow-hidden rounded-lg bg-gray-100 hover:opacity-90 transition-opacity'
+                        className='relative aspect-3/2 cursor-pointer
+                            overflow-hidden rounded-lg bg-gray-100
+                            hover:opacity-90 transition-opacity'
                         onClick={() => setLightboxIndex(index)}
                     >
                         <div className='absolute inset-0 bg-(--color-bg-surface-raised) animate-pulse' />
                         <Image
                             src={getImageUrl(img)}
-                            alt={`${lang === 'no' ? albumNameNo : albumNameEn} - ${index + 1}`}
+                            alt={`${lang === 'no'
+                                ? albumNameNo
+                                : albumNameEn} - ${index + 1}`}
                             fill
                             sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
                             className='object-cover'
@@ -181,7 +185,9 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                         )}
                         <Image
                             src={getImageUrl(images[lightboxIndex]!)}
-                            alt={`${lang === 'no' ? albumNameNo : albumNameEn} - ${lightboxIndex + 1}`}
+                            alt={`${lang === 'no'
+                                ? albumNameNo
+                                : albumNameEn} - ${lightboxIndex + 1}`}
                             fill
                             className={`object-contain transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
                             sizes='100vw'
@@ -202,10 +208,16 @@ export default function AlbumImages({ images, albumId, albumNameNo, albumNameEn,
                     )}
 
                     {lightboxIndex > 0 && (
-                        <div className='absolute inset-y-0 left-0 w-1/4 z-40 md:hidden' onClick={(e) => { e.stopPropagation(); navigate(-1) }} />
+                        <div
+                            className='absolute inset-y-0 left-0 w-1/4 z-40 md:hidden'
+                            onClick={(e) => { e.stopPropagation(); navigate(-1) }}
+                        />
                     )}
                     {lightboxIndex < images.length - 1 && (
-                        <div className='absolute inset-y-0 right-0 w-1/4 z-40 md:hidden' onClick={(e) => { e.stopPropagation(); navigate(1) }} />
+                        <div
+                            className='absolute inset-y-0 right-0 w-1/4 z-40 md:hidden'
+                            onClick={(e) => { e.stopPropagation(); navigate(1) }}
+                        />
                     )}
                 </div>
             )}

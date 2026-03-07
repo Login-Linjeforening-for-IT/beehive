@@ -114,5 +114,9 @@ export function createGradient(color: string, opacity = 1) {
     // 30% darker
     const darkerRgb = adjustBrightnessRGB(rgb, -0.3)
 
-    return `linear-gradient(120deg, rgba(${lighterRgb.r}, ${lighterRgb.g}, ${lighterRgb.b}, ${opacity}), rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity}), rgba(${darkerRgb.r}, ${darkerRgb.g}, ${darkerRgb.b}, ${opacity}))`
+    return `linear-gradient(120deg,
+        rgba(${lighterRgb.r}, ${lighterRgb.g}, ${lighterRgb.b}, ${opacity}),
+        rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity}),
+        rgba(${darkerRgb.r}, ${darkerRgb.g}, ${darkerRgb.b}, ${opacity})
+    )`
 }

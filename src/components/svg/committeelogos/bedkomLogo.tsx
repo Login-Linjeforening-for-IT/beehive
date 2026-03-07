@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import './bedkomLogoAnimation.css'
 
 export default function bedkomLogo() {

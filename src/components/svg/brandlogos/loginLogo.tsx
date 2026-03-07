@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import { Decoration } from '@components/decoration/wrapper'
 import './logo.css'
 

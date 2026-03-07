@@ -28,7 +28,10 @@ export default function CurrentlyPlaying({ songs, lang, expanded }: CurrentlyPla
             setOpen={setOpen}
             playIcon={true}
         >
-            <div className={`grid grid-cols-1 md:grid-cols-2 px-4 pt-2 pb-4 ${expanded && 'pt-4'} gap-x-4 gap-y-2 place-items-center ${expanded ? 'max-h-[77.64vh] overflow-auto' : 'max-h-[69vh] overflow-auto'} noscroll w-full`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 px-4 pt-2 pb-4 ${expanded && 'pt-4'}
+                gap-x-4 gap-y-2 place-items-center noscroll w-full
+                ${expanded ? 'max-h-[77.64vh] overflow-auto' : 'max-h-[69vh] overflow-auto'}`}
+            >
                 {uniqueSongs.map((song) => <CurrentlyPlayingCard key={song.id} song={song} />)}
             </div>
         </Card>

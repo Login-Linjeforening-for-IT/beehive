@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import { adjustBrightnessHex, createGradient, isValidHex } from '@/utils/colorManipulation'
 import './defualt-banner.css'
 

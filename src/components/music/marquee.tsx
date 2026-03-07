@@ -36,7 +36,11 @@ export default function Marquee({ text, className = '', innerClassName = '' }: M
             <div
                 ref={textRef}
                 className={`${shouldScroll ? 'animate-marquee' : ''} ${innerClassName}`}
-                style={{ display: 'block', '--scroll-distance': `${scrollDistance}px`, '--duration': `${duration}s` } as React.CSSProperties}
+                style={{
+                    display: 'block',
+                    '--scroll-distance': `${scrollDistance}px`,
+                    '--duration': `${duration}s`
+                } as React.CSSProperties}
             >
                 {text}
             </div>

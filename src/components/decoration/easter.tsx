@@ -1,4 +1,11 @@
-export function Egg({ className, color, rotation = 0, width = 100, height = 135, outlineColor = 'rgba(0,0,0,0.2)', outlineWidth = 3 }: { className?: string; color: string; rotation?: number; width?: number; height?: number; outlineColor?: string; outlineWidth?: number }) {
+export function Egg({
+    className, color, rotation = 0, width = 100, height = 135,
+    outlineColor = 'rgba(0,0,0,0.2)', outlineWidth = 3
+}: {
+    className?: string; color: string; rotation?: number;
+    width?: number; height?: number; outlineColor?: string;
+    outlineWidth?: number
+}) {
     return (
         <svg
             viewBox='0 0 100 135'

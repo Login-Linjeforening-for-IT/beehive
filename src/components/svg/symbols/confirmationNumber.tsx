@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 export default function ConfirmationNumber({ className }: { className: string }) {
     return (
         <svg

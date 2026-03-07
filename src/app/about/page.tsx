@@ -21,7 +21,8 @@ export default async function About() {
                     className='mt-0 max-w-200 p--highlighted'
                     dangerouslySetInnerHTML={{ __html: text.intro }}
                 />
-                <div className='flex flex-wrap items-start justify-center gap-[5%] 800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'>
+                <div className={'flex flex-wrap items-start justify-center gap-[5%] ' +
+                    '800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'}>
                     <StudyProgramsAcordion />
                     <DecoratedPicture
                         imgUrl={`${config.url.CDN_URL}/img/board/gruppebilde.JPG`}

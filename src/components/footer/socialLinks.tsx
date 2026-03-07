@@ -67,7 +67,11 @@ export default function SocialLinks() {
                     aria-label={`Visit our ${link.name} page`}
                     title={link.name}
                 >
-                    <i className={`${baseIconStyle} ${link.iconClass} ${link.hoverClass} ${link.iconClass === 'logfont-instagram' ? 'bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text' : ''}`} />
+                    <i className={`${baseIconStyle} ${link.iconClass} ${link.hoverClass}
+                        ${link.iconClass === 'logfont-instagram'
+                    ? 'bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text' : ''}`
+                    }
+                    />
                 </a>
             ))}
         </div>
