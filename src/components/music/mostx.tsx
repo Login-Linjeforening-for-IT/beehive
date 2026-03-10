@@ -15,6 +15,7 @@ type MostLikedProps = {
     mostSkippedSongs: SkippedSong[]
     mostSkippedEpisodes: SkippedEpisode[]
     mostInspiredSongs: InspiredSong[]
+    mostInspiredEpisodes: InspiredEpisode[]
 }
 
 export default function MostX({
@@ -27,7 +28,8 @@ export default function MostX({
     mostSkippedArtists,
     mostSkippedSongs,
     mostSkippedEpisodes,
-    mostInspiredSongs
+    mostInspiredSongs,
+    mostInspiredEpisodes
 }: MostLikedProps) {
     const text = lang === 'no' ? no : en
     const [openOne, setOpenOne] = useState(false)
@@ -159,26 +161,26 @@ export default function MostX({
                 skip={true}
             />
 
-            {/* <TileMap
+            <TileMap
+                text={text.mostx.most_inspired_songs}
+                items={mostInspiredSongs}
+                getImageHash={s => s.image}
+                getTitle={s => s.song}
+                getFirstLine={s => s.album}
+                getSecondLine={s => s.artist}
+                getCount={s => s.inspired}
+                dropdown={true}
+                open={openFive}
+                setOpen={setOpenFive}
+                inspired
+            />
+
+            <TileMap
                 text={text.mostx.most_inspired_episodes}
                 items={mostInspiredEpisodes}
                 getImageHash={e => e.image}
                 getTitle={e => e.name}
                 getFirstLine={e => e.show}
-                getCount={e => e.skips}
-                dropdown={true}
-                open={openFive}
-                setOpen={setOpenFive}
-                inspired
-            /> */}
-
-            <TileMap
-                text={text.mostx.most_inspired_songs}
-                items={mostInspiredSongs}
-                getImageHash={e => e.image}
-                getTitle={e => e.song}
-                getFirstLine={e => e.album}
-                getSecondLine={e => e.artist}
                 getCount={e => e.inspired}
                 dropdown={true}
                 open={openFive}

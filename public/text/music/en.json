@@ -27,7 +27,8 @@
         "most_skipped_songs": "Most Skipped Songs",
         "most_liked_episodes": "Most Liked Episodes",
         "most_skipped_episodes": "Most Skipped Episodes",
-        "most_inspired_songs": "Most Inspired Song"
+        "most_inspired_songs": "Most Inspired Songs",
+        "most_inspired_episodes": "Most Inspired Episodes"
     },
     "topx": {
         "intro": "Top Five",

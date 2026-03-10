@@ -27,7 +27,8 @@
         "most_skipped_songs": "Mest hoppet over sanger",
         "most_liked_episodes": "Mest likte episoder",
         "most_skipped_episodes": "Mest hoppet over episoder",
-        "most_inspired_songs": "Mest inspirerte sang"
+        "most_inspired_songs": "Mest inspirerte sanger",
+        "most_inspired_episodes": "Mest inspirerte episoder"
     },
     "topx": {
         "intro": "Topp fem",

@@ -382,9 +382,16 @@ declare global {
         mostInspiredSongs: InspiredSong[]
     }
 
-    // type InspiredEpisode = {
-    //     // tbd
-    // }
+    type InspiredEpisode = {
+        // incomplete but api endpoint is missing so unknown what other properties will exist
+        id: string
+        name: string
+        show: string
+        image: string
+        listens: number
+        skips: number
+        inspired: number
+    }
 
     type InspiredSong = {
         song: string
