@@ -26,12 +26,11 @@ const config = {
         SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist',
         MAIN_URL: 'login.no'
     },
-    auth: {
-        BASE_URL: env.BASE_URL,
-        LOGIN_URL: `${env.BASE_URL}/api/login`,
-        REDIRECT_URL: `${env.BASE_URL}/api/callback`,
-        TOKEN_URL: `${env.BASE_URL}/api/token`,
-        LOGOUT_URL: `${env.BASE_URL}/api/logout`,
+    authPath: {
+        login: '/api/auth/login',
+        callback: '/api/auth/callback',
+        token: '/api/auth/token',
+        logout: '/api/auth/logout'
     },
     authentik: {
         CLIENT_ID: env.AUTHENTIK_CLIENT_ID,

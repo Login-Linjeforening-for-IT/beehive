@@ -18,6 +18,8 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
             lang={lang}
             theme={theme}
             token={accessToken}
+            loginPath={config.authPath.login}
+            logoutPath={config.authPath.logout}
             onlyLogo={onlyLogo}
             className='bg-transparent!'
         >

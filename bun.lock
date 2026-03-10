@@ -14,7 +14,7 @@
         "react-snowfall": "^2.4.0",
         "remark-gfm": "^4.0.1",
         "swr": "^2.4.1",
-        "uibee": "^2.8.7",
+        "uibee": "2.9.2",
         "utilbee": "^1.4.1",
       },
       "devDependencies": {
@@ -575,7 +575,7 @@
 
     "typescript-eslint": ["typescript-eslint@8.56.1", "", { "dependencies": { "@typescript-eslint/eslint-plugin": "8.56.1", "@typescript-eslint/parser": "8.56.1", "@typescript-eslint/typescript-estree": "8.56.1", "@typescript-eslint/utils": "8.56.1" }, "peerDependencies": { "eslint": "^8.57.0 || ^9.0.0 || ^10.0.0", "typescript": ">=4.8.4 <6.0.0" } }, "sha512-U4lM6pjmBX7J5wk4szltF7I1cGBHXZopnAXCMXb3+fZ3B/0Z3hq3wS/CCUB2NZBNAExK92mCU2tEohWuwVMsDQ=="],
 
-    "uibee": ["uibee@2.8.7", "", { "dependencies": { "lucide-react": "^0.562.0", "react-dom": "19.2.3", "react-markdown": "^10.1.0", "utilbee": "^1.1.0" }, "peerDependencies": { "next": "^16.0.10", "react": "^19.2.3" } }, "sha512-0gxIXFvZ1yF59nXvP6vvuur+wVpaPOdXRSMSjyRf+nkQSM0fvx0tpW4qm0s4HDvFtDplNZTOI+hnumPDZHr9PQ=="],
+    "uibee": ["uibee@2.9.2", "", { "dependencies": { "lucide-react": "^0.562.0", "react-dom": "19.2.3", "react-markdown": "^10.1.0", "utilbee": "^1.1.0" }, "peerDependencies": { "next": "^16.0.10", "react": "^19.2.3" } }, "sha512-5u05DFZOWdTQjX8iIc9tWb13MmkOp4pbotCdxn2hJKLB94XcHmFcyyA3BTc3/PJFGm5Mclj0Qt1NhdUGlrhtyg=="],
 
     "undici-types": ["undici-types@7.18.2", "", {}, "sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w=="],
 
