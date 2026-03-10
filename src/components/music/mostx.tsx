@@ -169,7 +169,7 @@ export default function MostX({
                 dropdown={true}
                 open={openFive}
                 setOpen={setOpenFive}
-                skip={true}
+                inspired
             /> */}
 
             <TileMap
@@ -179,11 +179,11 @@ export default function MostX({
                 getTitle={e => e.song}
                 getFirstLine={e => e.album}
                 getSecondLine={e => e.artist}
-                getCount={e => e.skips}
+                getCount={e => e.inspired}
                 dropdown={true}
                 open={openFive}
                 setOpen={setOpenFive}
-                skip={true}
+                inspired
             />
         </div>
     )

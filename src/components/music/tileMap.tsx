@@ -1,4 +1,4 @@
-import { Heart, Play, SkipForward, PlayIcon } from 'lucide-react'
+import { Heart, Play, SkipForward, PlayIcon, Lightbulb } from 'lucide-react'
 import Card from './card'
 import Marquee from './marquee'
 import TileCard from './tileCard'
@@ -19,6 +19,7 @@ interface TileMapProps<T> {
     open?: boolean
     setOpen?: Dispatch<SetStateAction<boolean>>
     skip?: boolean
+    inspired?: boolean
     className?: string
     innerClassName?: string
     extraPadding?: boolean
@@ -30,6 +31,13 @@ interface TileMapGeneric {
     start?: string
     end?: string
     name?: string
+}
+
+type TopRightProps<T> = {
+    item: T
+    getCount?: (item: T) => string | number
+    skip: boolean
+    inspired: boolean
 }
 
 export default function TileMap<T extends TileMapGeneric>({
@@ -47,6 +55,7 @@ export default function TileMap<T extends TileMapGeneric>({
     open = false,
     setOpen = () => { },
     skip = false,
+    inspired = false,
     className,
     innerClassName,
     extraPadding
@@ -76,7 +85,7 @@ export default function TileMap<T extends TileMapGeneric>({
                     >
                         <div className='flex w-full justify-between text-neutral-400 items-top'>
                             <Marquee className='truncate' innerClassName='font-semibold text-lg' text={`${getTitle(item)}`} />
-                            <TopRight item={item} getCount={getCount} skip={skip} />
+                            <TopRight item={item} getCount={getCount} skip={skip} inspired={inspired} />
                         </div>
                         <Marquee
                             className='truncate'
@@ -113,7 +122,7 @@ export default function TileMap<T extends TileMapGeneric>({
     )
 }
 
-function TopRight<T extends TileMapGeneric>({ getCount, item, skip }: { item: T, getCount?: (item: T) => string | number, skip: boolean }) {
+function TopRight<T extends TileMapGeneric>({ getCount, item, skip, inspired }: TopRightProps<T>) {
     if (!getCount) {
         return
     }
@@ -121,8 +130,9 @@ function TopRight<T extends TileMapGeneric>({ getCount, item, skip }: { item: T,
     return (
         <>
             <p className='text-neutral-400 pl-2'>{getCount(item)}</p>
-            {!skip && <PlayIcon className='fill-neutral-400 stroke-0 p-0.5 -ml-0.5 pb-1' />}
+            {!skip && !inspired && <PlayIcon className='fill-neutral-400 stroke-0 p-0.5 -ml-0.5 pb-1' />}
             {skip && <SkipForward className='w-4 stroke-neutral-400 fill-neutral-400 pb-0.5' />}
+            {inspired && <Lightbulb className='w-4 stroke-neutral-400 fill-neutral-400 pb-0.5' />}
         </>
     )
 }

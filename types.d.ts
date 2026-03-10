@@ -392,6 +392,7 @@ declare global {
         album: string
         skips: number
         listens: number
+        inspired: number
         id: string
         image: string
         like_ratio: number
