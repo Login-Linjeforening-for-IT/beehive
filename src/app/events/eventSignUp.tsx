@@ -83,7 +83,7 @@ export default async function EventSignUp({
                 <div className='event-details_list'>
                     {isFormsLoginNo && formName ? (
                         <EventSignUpLiveCount formName={formName} lang={lang} />
-                    ) : (
+                    ) : cap !== null &&
                         <>
                             <div className='event-details_lable'>
                                 <ConfirmationNumber
@@ -94,7 +94,7 @@ export default async function EventSignUp({
                             </div>
                             <div className='event-details_info'>{cap}</div>
                         </>
-                    )}
+                    }
                     {ready && (
                         <>
                             <div className='event-details_lable'>
