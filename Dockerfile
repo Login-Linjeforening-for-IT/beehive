@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apk add --no-cache varnish
 
-COPY package.json bun.lock* ./
+COPY package.json bun.lock ./
 
 RUN bun install --frozen-lockfile
 
