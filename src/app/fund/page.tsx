@@ -8,10 +8,12 @@ import Group from '@components/svg/symbols/group'
 import Diversity from '@components/svg/symbols/diversity'
 import ChartDetailed from '@components/svg/symbols/chartDetailed'
 import Office from '@components/svg/symbols/office'
+import HoldingsTotalLive from './holdings'
 import { cookies } from 'next/headers'
 
 export default async function Fund() {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
+    const locale = lang === 'en' ? 'en-GB' : 'nb-NO'
     // eslint-disable-next-line
     const text: any = lang === 'en' ? {...en} : {...no}
 
@@ -26,6 +28,18 @@ export default async function Fund() {
             </div>
             <section className='page-section--normal mb-8'>
                 <p className='p--highlighted'>{text.intro}</p>
+            </section>
+            <section className='page-section--without-gaps mb-20
+                bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
+                1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
+                1200px:rounded-[var(--border-radius-large)]'
+            >
+                <h2 className='heading-2'>{lang === 'en' ? 'Total holdings value' : 'Total beholdningsverdi'}</h2>
+                <HoldingsTotalLive
+                    lang={lang}
+                    locale={locale}
+                    refreshMs={10000}
+                />
             </section>
             <section className='page-section--without-gaps mb-20
                 bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
