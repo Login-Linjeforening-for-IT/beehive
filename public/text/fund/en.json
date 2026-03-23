@@ -39,31 +39,31 @@
         "members": {
             "boardLeader": {
                 "title": "Board Leader",
-                "name": "Brynjar Innvær",
-                "dctag": "bryinn",
-                "dclink": "https://discord.com/users/224571927337893888",
-                "img": "portrait-brynjar.jpg"
-            },
-            "boardMember1": {
-                "title": "Board Member",
                 "name": "Lennart Krogh",
                 "dctag": "lenny8400",
                 "dclink": "https://discord.com/users/304274425992314880",
                 "img": "portrait-lennart.jpg"
             },
+            "boardMember1": {
+                "title": "Board Member",
+                "name": "Aksel Wiersdalen",
+                "dctag": "masterjeb",
+                "dclink": "https://discord.com/users/376790335419842582",
+                "img": ""
+            },
             "boardMember2": {
                 "title": "Board Member",
-                "name": "Kevin Haug",
-                "dctag": "kevinno",
-                "dclink": "https://discord.com/users/132937993353691137",
-                "img": "portrait-kevin.jpg"
+                "name": "Jonas",
+                "dctag": "kaarstoned",
+                "dclink": "https://discord.com/users/366977958092472320",
+                "img": ""
             },
             "boardMember3": {
                 "title": "Board Member",
-                "name": "Jørgen Arnesen-Lerudsmoen",
-                "dctag": "jorgen03",
-                "dclink": "https://discord.com/users/163668247982505984",
-                "img": "portrait-jorgen.png"
+                "name": "",
+                "dctag": "",
+                "dclink": "",
+                "img": ""
             }
         }
     }
