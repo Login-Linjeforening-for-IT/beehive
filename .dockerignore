@@ -1,9 +1,6 @@
-.git
-Dockerfile
 node_modules
-build
-docker-compose.yml
-.dockerignore
-README.md
 .next
 .env
+.git
+.gitignore
+Dockerfile
