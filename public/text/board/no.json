@@ -1,65 +1,32 @@
 {    
     "leader": {
-        "title": "Leder",
-        "name": "Johan Wilvang",
-        "dctag": "johan_w",
-        "dclink": "https://discordapp.com/users/382587377022926848",
-        "img": "leder.png"
+        "title": "Leder"
     },
     "deputyLeader": {
-        "title": "Nestleder",
-        "name": "Sebastian Marterer",
-        "dctag": "coldfridge.",
-        "dclink": "https://discordapp.com/users/486788989097869314",
-        "img": "nestleder.png"
+        "title": "Nestleder"
     },
     "secretary": {
-        "title": "Sekretær",
-        "name": "Amanda Nyseth",
-        "dctag": "amandavn05",
-        "dclink": "https://discordapp.com/users/1273571773463658552",
-        "img": "sekretær.png"
+        "title": "Sekretær"
     },
     "evntkomLeader": {
-        "title": "Evntkom Leder",
-        "name": "Peder Gintal",
-        "dctag": "pergint",
-        "dclink": "https://discordapp.com/users/249630146678620172",
-        "img": "evntkom_leder.png"
+        "title": "Evntkom Leder"
     },
     "bedkomLeader": {
-        "title": "Bedkom Leder",
-        "name": "Daoud Chaudhry",
-        "dctag": "dahood018784",
-        "dclink": "https://discordapp.com/users/428285256467087383",
-        "img": "bedkom_leder.png"
+        "title": "Bedkom Leder"
     },
     "tekkomLeader": {
-        "title": "TekKom Leder",
-        "name": "Gjermund H. Pedersen",
-        "dctag": "turtleman02",
-        "dclink": "https://discordapp.com/users/260370482757500938",
-        "img": "tekkom_leder.png"
+        "title": "TekKom Leder"
     },
     "ctfkomLeader": {
-        "title": "CTFkom Leder",
-        "name": "Maja Melby",
-        "dctag": "majam_",
-        "dclink": "https://discordapp.com/users/1011661501536407552",
-        "img": "ctfkom_leder.png"
+        "title": "CTFkom Leder"
     },
     "satkomLeader": {
-        "title": "SATkom Leder",
-        "name": "Sivert Hovemoen",
-        "dctag": "sivsiv01",
-        "dclink": "https://discordapp.com/users/208903111975239681",
-        "img": "satkom_leder.png"
+        "title": "SATkom Leder"
     },
     "prLeader": {
-        "title": "PR Leder",
-        "name": "Halvard Holen",
-        "dctag": "cosinus8455",
-        "dclink": "https://discordapp.com/users/184282867579224064",
-        "img": "pr_leder.png"
+        "title": "PR Leder"
+    },
+    "barkomLeader": {
+        "title": "BarKom Leder"
     }
 }

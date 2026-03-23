@@ -16,6 +16,7 @@ import text_no from '@text/about/no.json'
 import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
+import data from '@text/board/data.json'
 import '@components/tabs/tabs.css'
 import useLang from '@/hooks/useLang'
 
@@ -50,11 +51,11 @@ export default function CommitteeTabs() {
                     {actualBoard.map((key) => (
                         <LogChamp
                             key={key}
-                            img={`${config.url.CDN_URL}/img/board/portraits/${text.board[key].img}`}
-                            name={text.board[key].name}
+                            img={`${config.url.CDN_URL}/img/board/portraits/${data[key].img}`}
+                            name={data[key].name}
                             position={text.board[key].title}
-                            discord={text.board[key].dctag}
-                            discordLink={text.board[key].dclink}
+                            discord={data[key].dctag}
+                            discordLink={data[key].dclink}
                         />
                     ))}
                 </div>
@@ -69,11 +70,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.evntkom.body }} />
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.evntkomLeader.img}`}
-                        name={text.board.evntkomLeader.name}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${data.evntkomLeader.img}`}
+                        name={data.evntkomLeader.name}
                         position={text.board.evntkomLeader.title}
-                        discord={text.board.evntkomLeader.dctag}
-                        discordLink={text.board.evntkomLeader.dclink}
+                        discord={data.evntkomLeader.dctag}
+                        discordLink={data.evntkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -87,11 +88,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.tekkomLeader.img}`}
-                        name={text.board.tekkomLeader.name}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${data.tekkomLeader.img}`}
+                        name={data.tekkomLeader.name}
                         position={text.board.tekkomLeader.title}
-                        discord={text.board.tekkomLeader.dctag}
-                        discordLink={text.board.tekkomLeader.dclink}
+                        discord={data.tekkomLeader.dctag}
+                        discordLink={data.tekkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -105,11 +106,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.bedkomLeader.img}`}
-                        name={text.board.bedkomLeader.name}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${data.bedkomLeader.img}`}
+                        name={data.bedkomLeader.name}
                         position={text.board.bedkomLeader.title}
-                        discord={text.board.bedkomLeader.dctag}
-                        discordLink={text.board.bedkomLeader.dclink}
+                        discord={data.bedkomLeader.dctag}
+                        discordLink={data.bedkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -123,11 +124,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.ctfkom.body }} />
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.ctfkomLeader.img}`}
-                        name={text.board.ctfkomLeader.name}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${data.ctfkomLeader.img}`}
+                        name={data.ctfkomLeader.name}
                         position={text.board.ctfkomLeader.title}
-                        discord={text.board.ctfkomLeader.dctag}
-                        discordLink={text.board.ctfkomLeader.dclink}
+                        discord={data.ctfkomLeader.dctag}
+                        discordLink={data.ctfkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -141,11 +142,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.satkomLeader.img}`}
-                        name={text.board.satkomLeader.name}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${data.satkomLeader.img}`}
+                        name={data.satkomLeader.name}
                         position={text.board.satkomLeader.title}
-                        discord={text.board.satkomLeader.dctag}
-                        discordLink={text.board.satkomLeader.dclink}
+                        discord={data.satkomLeader.dctag}
+                        discordLink={data.satkomLeader.dclink}
                     />
                 </div>
             </TabContent>
@@ -159,11 +160,11 @@ export default function CommitteeTabs() {
                         <p className='p--regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${text.board.prLeader.img}`}
-                        name={text.board.prLeader.name}
+                        img={`${config.url.CDN_URL}/img/board/portraits/${data.prLeader.img}`}
+                        name={data.prLeader.name}
                         position={text.board.prLeader.title}
-                        discord={text.board.prLeader.dctag}
-                        discordLink={text.board.prLeader.dclink}
+                        discord={data.prLeader.dctag}
+                        discordLink={data.prLeader.dclink}
                     />
                 </div>
             </TabContent>
