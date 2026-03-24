@@ -14,13 +14,15 @@ WORKDIR /app
 
 RUN apk add --no-cache varnish \
     && addgroup -S app && adduser -S app -G app
-USER app
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
 COPY default.vcl /etc/varnish/default.vcl
+
+RUN chown -R app:app /app
+USER app
 
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
