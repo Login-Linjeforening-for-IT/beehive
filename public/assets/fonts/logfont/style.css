@@ -97,6 +97,15 @@
 .logfont-pr-filled:before {
   content: "\e95e";
 }
+.logfont-barkom-corners:before {
+  content: "\e958";
+}
+.logfont-barkom:before {
+  content: "\e906";
+}
+.logfont-barkom-filled:before {
+  content: "\e955";
+}
 .logfont-ntnu:before {
   content: "\e94c";
 }
