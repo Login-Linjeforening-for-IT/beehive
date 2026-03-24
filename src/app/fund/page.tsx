@@ -9,6 +9,7 @@ import Diversity from '@components/svg/symbols/diversity'
 import ChartDetailed from '@components/svg/symbols/chartDetailed'
 import Office from '@components/svg/symbols/office'
 import HoldingsTotalLive from './holdings'
+import HoldingsHistory from './holdingsHistory'
 import { cookies } from 'next/headers'
 
 export default async function Fund() {
@@ -34,11 +35,16 @@ export default async function Fund() {
                 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
                 1200px:rounded-(--border-radius-large)'
             >
-                <h2 className='heading-2'>{lang === 'en' ? 'Total holdings value' : 'Total beholdningsverdi'}</h2>
+                <h2 className='heading-2'>{text.holdings.title}</h2>
                 <HoldingsTotalLive
-                    lang={lang}
                     locale={locale}
+                    text={text.holdings}
                     refreshMs={10000}
+                />
+                <HoldingsHistory
+                    locale={locale}
+                    text={text.holdings.history}
+                    refreshMs={300000}
                 />
             </section>
             <section className='page-section--without-gaps mb-20
