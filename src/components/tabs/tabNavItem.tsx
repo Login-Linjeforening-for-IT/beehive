@@ -8,7 +8,6 @@ type TabNavItemProps = {
 }
 
 export default function TabNavItem({ id, title, activeTab, setActiveTab }: TabNavItemProps) {
-
     function handleClick() {
         setActiveTab(id)
     }

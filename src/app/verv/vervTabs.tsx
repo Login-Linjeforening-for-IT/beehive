@@ -38,13 +38,14 @@ export default function VervTabs() {
 
     return (
         <div className='mb-8 800px:mb-20 tabs page-section--without-gaps'>
-            <ul className='grid grid-cols-4 gap-2 p-2 450px:grid-cols-6 1200px:px-8'>
-                <TabNavItem title={<EvntkomLogo/>} id='event' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<TekkomLogo/>} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<BedkomLogo/>} id='bedkom' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<CtfkomLogo/>} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<SatkomLogo/>} id='sat' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<PrLogo/>} id='pr' activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <ul className='grid grid-cols-4 gap-2 p-2 450px:grid-cols-8 1200px:px-8'>
+                <TabNavItem title={<EvntkomLogo />} id='evnt' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<TekkomLogo />} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<BedkomLogo />} id='bed' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<CtfkomLogo />} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<SatkomLogo />} id='sat' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<PrLogo />} id='pr' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<PrLogo />} id='bar' activeTab={activeTab} setActiveTab={setActiveTab}/>
             </ul>
             <TabContent id='event' activeTab={activeTab}>
                 <h3 className='heading-3 flex items-center gap-2'>
@@ -82,7 +83,7 @@ export default function VervTabs() {
                     />
                 </div>
             </TabContent>
-            <TabContent id='bedkom' activeTab={activeTab}>
+            <TabContent id='bed' activeTab={activeTab}>
                 <h3 className='heading-3 flex items-center gap-2'>
                     <i className='logfont-bedkom text-4xl' /> {text.committeeSection.bedkom.title}
                 </h3>
@@ -151,6 +152,24 @@ export default function VervTabs() {
                         position={text.prLeader.title}
                         discord={data.prLeader.dctag}
                         discordLink={data.prLeader.dclink}
+                    />
+                </div>
+            </TabContent>
+            <TabContent id='bar' activeTab={activeTab}>
+                <h3 className='heading-3 flex items-center gap-2'>
+                    <i className='logfont-pr text-4xl' /> {text.committeeSection.barkom.title}
+                </h3>
+                <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
+                    <div className='max-w-180'>
+                        <p className='p-highlighted' dangerouslySetInnerHTML={{__html: text.committeeSection.barkom.intro}} />
+                        <p className='p-regular'>{text.committeeSection.barkom.body}</p>
+                    </div>
+                    <LogChamp
+                        img={`${config.url.PORTRAIT_URL}/${data.barkomLeader.img}`}
+                        name={data.barkomLeader.name}
+                        position={text.barkomLeader.title}
+                        discord={data.barkomLeader.dctag}
+                        discordLink={data.barkomLeader.dclink}
                     />
                 </div>
             </TabContent>
