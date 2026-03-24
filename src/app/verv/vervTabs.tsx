@@ -39,7 +39,7 @@ export default function VervTabs() {
 
     return (
         <div className='mb-8 800px:mb-20 tabs page-section--without-gaps'>
-            <ul className='grid grid-cols-4 gap-2 p-2 450px:grid-cols-8 1200px:px-8'>
+            <ul className='grid grid-cols-4 gap-2 p-2 450px:grid-cols-7 1200px:px-8'>
                 <TabNavItem title={<EvntkomLogo />} id='evnt' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<TekkomLogo />} id='tek' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<BedkomLogo />} id='bed' activeTab={activeTab} setActiveTab={setActiveTab}/>
