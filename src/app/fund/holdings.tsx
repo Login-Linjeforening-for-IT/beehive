@@ -5,7 +5,9 @@ import useSWR from 'swr'
 
 type HoldingsTotalLiveProps = {
     locale: string
-    lang: Lang
+    text: {
+        updatedAtLabel: string
+    }
     refreshMs?: number
     totalBase?: number
     currency?: string
@@ -28,17 +30,19 @@ async function fetcher(url: string): Promise<HoldingsTotalResponse> {
     return response.json()
 }
 
-function formatCurrency(value: number, currency: string, locale: string) {
-    return new Intl.NumberFormat(locale, {
-        style: 'currency',
-        currency,
-        maximumFractionDigits: 2
+function formatCurrency(value: number) {
+    const formattedNumber = new Intl.NumberFormat('nb-NO', {
+        style: 'decimal',
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2
     }).format(value)
+
+    return `${formattedNumber} NOK`
 }
 
 export default function HoldingsTotalLive({
     locale,
-    lang,
+    text,
     refreshMs = 10_000,
     totalBase,
     currency = 'NOK',
@@ -56,7 +60,6 @@ export default function HoldingsTotalLive({
     })
 
     const nextTotal = data?.totalBase ?? totalBase ?? 0
-    const nextCurrency = data?.currency ?? currency
     const nextUpdatedAt = data?.updatedAt ?? updatedAt
 
     const [displayTotal, setDisplayTotal] = useState(nextTotal)
@@ -87,7 +90,7 @@ export default function HoldingsTotalLive({
                     isAnimating ? 'opacity-100 translate-y-0' : 'opacity-90 translate-y-px'
                 }`}
             >
-                {formatCurrency(displayTotal, nextCurrency, locale)}
+                {formatCurrency(displayTotal)}
             </p>
             {displayUpdatedAt && (
                 <p
@@ -95,7 +98,7 @@ export default function HoldingsTotalLive({
                         isAnimating ? 'opacity-80' : 'opacity-70'
                     }`}
                 >
-                    {lang === 'en' ? 'Updated:' : 'Oppdatert:'}{' '}
+                    {text.updatedAtLabel}{' '}
                     {new Date(displayUpdatedAt).toLocaleTimeString(locale)}
                 </p>
             )}

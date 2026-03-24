@@ -31,6 +31,19 @@
         "title": "Investeringer",
         "body": "Her vil grafer og visualiseringer av investeringer og verdiutvikling komme når det er ferdigstilt. <br><br> Fondsstyret sikter mot en offentliggjøring av en oversikt over de til enhver tid gjeldende investeringene og den tilhørende verdiutviklingen. Hvorvidt Fondets verdi offentliggjøres i form av kroner og ører eller i prosent er ikke avgjort."
     },
+    "holdings": {
+        "title": "Total beholdningsverdi",
+        "updatedAtLabel": "Oppdatert:",
+        "history": {
+            "rangeTitle1m": "Siste måned",
+            "rangeTitle6m": "Siste 6 måneder",
+            "rangeChange1m": "Endring siste måned:",
+            "rangeChange6m": "Endring siste 6 måneder:",
+            "rangeOption1m": "1 måned",
+            "rangeOption6m": "6 måneder",
+            "noHistory": "Ingen historikkdata er tilgjengelig ennå."
+        }
+    },
     "board": {
         "title": "Fondsstyret",
         "intro": "Fondsstyret er Fondets øverste organ, og har ansvar for å forvalte Fondets midler i tråd med Fondets formål.",
@@ -53,7 +66,7 @@
             },
             "boardMember2": {
                 "title": "Styremedlem",
-                "name": "Jonas",
+                "name": "Jonas Kaarstein",
                 "dctag": "kaarstoned",
                 "dclink": "https://discord.com/users/366977958092472320",
                 "img": ""

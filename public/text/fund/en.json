@@ -31,6 +31,19 @@
         "title": "Investments",
         "body": "Here, graphs and visualizations of investments and value development will be available once completed. <br><br> The fund board aims to publish an overview of the current investments and their associated value development. Whether the Fund's value will be publicly disclosed in the form of actual amounts or percentages has not been decided."
     },
+    "holdings": {
+        "title": "Total holdings value",
+        "updatedAtLabel": "Updated:",
+        "history": {
+            "rangeTitle1m": "Last month",
+            "rangeTitle6m": "Last 6 months",
+            "rangeChange1m": "1-month change:",
+            "rangeChange6m": "6-month change:",
+            "rangeOption1m": "1 month",
+            "rangeOption6m": "6 months",
+            "noHistory": "No history data available yet."
+        }
+    },
     "board": {
         "title": "Fund Board",
         "intro": "The Fund Board is the highest authority of the Fund and is responsible for managing the Fund's assets in accordance with its purpose.",
@@ -53,7 +66,7 @@
             },
             "boardMember2": {
                 "title": "Board Member",
-                "name": "Jonas",
+                "name": "Jonas Kaarstein",
                 "dctag": "kaarstoned",
                 "dclink": "https://discord.com/users/366977958092472320",
                 "img": ""
