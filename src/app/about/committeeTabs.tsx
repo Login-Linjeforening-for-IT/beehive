@@ -11,6 +11,7 @@ import TekkomLogo from '@components/svg/committeelogos/tekkomLogo'
 import CtfkomLogo from '@components/svg/committeelogos/ctfkomLogo'
 import StyretLogo from '@components/svg/committeelogos/styretLogo'
 import SatkomLogo from '@components/svg/committeelogos/satkomLogo'
+import BarkomLogo from '@components/svg/committeelogos/barkomLogo'
 import PrLogo from '@components/svg/committeelogos/prLogo'
 import text_no from '@text/about/no.json'
 import text_en from '@text/about/en.json'
@@ -39,7 +40,7 @@ export default function CommitteeTabs() {
                 <TabNavItem title={<CtfkomLogo />} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab} />
                 <TabNavItem title={<SatkomLogo />} id='sat' activeTab={activeTab} setActiveTab={setActiveTab} />
                 <TabNavItem title={<PrLogo />} id='pr' activeTab={activeTab} setActiveTab={setActiveTab} />
-                <TabNavItem title={<PrLogo />} id='bar' activeTab={activeTab} setActiveTab={setActiveTab} />
+                <TabNavItem title={<BarkomLogo />} id='bar' activeTab={activeTab} setActiveTab={setActiveTab} />
             </ul>
             <TabContent id='styret' activeTab={activeTab}>
                 <div className='grid grid-cols-1 justify-around 432px:gap-4 432px:grid-cols-[repeat(auto-fit,11rem)] 800px:gap-16'>

@@ -9,6 +9,7 @@ import BedkomLogo from '@components/svg/committeelogos/bedkomLogo'
 import TekkomLogo from '@components/svg/committeelogos/tekkomLogo'
 import CtfkomLogo from '@components/svg/committeelogos/ctfkomLogo'
 import SatkomLogo from '@components/svg/committeelogos/satkomLogo'
+import BarkomLogo from '@components/svg/committeelogos/barkomLogo'
 import PrLogo from '@components/svg/committeelogos/prLogo'
 import config from '@config'
 import '@components/tabs/tabs.css'
@@ -45,7 +46,7 @@ export default function VervTabs() {
                 <TabNavItem title={<CtfkomLogo />} id='ctf' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<SatkomLogo />} id='sat' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<PrLogo />} id='pr' activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <TabNavItem title={<PrLogo />} id='bar' activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <TabNavItem title={<BarkomLogo />} id='bar' activeTab={activeTab} setActiveTab={setActiveTab}/>
             </ul>
             <TabContent id='event' activeTab={activeTab}>
                 <h3 className='heading-3 flex items-center gap-2'>
