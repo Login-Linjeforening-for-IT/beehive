@@ -25,10 +25,10 @@ export default async function Verv() {
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
             <section className='mb-8 800px:mb-20 verv-intro page-section--normal'>
-                <p className='mt-0 p--highlighted'>
+                <p className='mt-0 p-highlighted'>
                     {text.intro}
                 </p>
-                <p className='mt-0 p--regular'>
+                <p className='mt-0 p-regular'>
                     {text.intro2}
                 </p>
             </section>
@@ -38,7 +38,7 @@ export default async function Verv() {
             </section>
             <section className='verv-committees page-section--normal'>
                 <h2 className='heading-2'>{text.committeeSection.title}</h2>
-                <p className='p--regular'>{text.committeeSection.intro}</p>
+                <p className='p-regular'>{text.committeeSection.intro}</p>
             </section>
             <VervTabs />
             <section className='mb-8 800px:mb-20 mt-8 400px:max-w-200 mx-auto page-section--normal'>
@@ -48,7 +48,7 @@ export default async function Verv() {
                     {text.apply.title}
                 </h2>
                 <p
-                    className='p--regular'
+                    className='p-regular'
                     dangerouslySetInnerHTML={{ __html:  text.apply.body }}
                 />
                 {/* @ts-ignore */}

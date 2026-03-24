@@ -221,18 +221,18 @@ a {
 /* ------------ Paragraphs ----------- */
 /* ----------------------------------- */
 
-.p--regular {
+.p-regular {
 	padding-bottom: 1.2rem;
 	line-height: 1.8em;
 	color: var(--color-text-regular);
 	max-width: 50rem;
 }
 
-.p--regular i {
+.p-regular i {
 	color: var(--color-text-regular);
 }
 
-.p--highlighted {
+.p-highlighted {
 	padding: .5rem 0;
 	margin-bottom: 1.2rem;
 	margin-top: 1.2rem;
@@ -246,41 +246,41 @@ a {
 	max-width: 50rem;
 }
 
-.p--highlighted i {
+.p-highlighted i {
 	color: var(--color-text-main);
 }
 
 @media only screen and (min-width: 800px) {
 
 	/* Split wide paragraphs into two columns */
-	.p--columns {
+	.p-columns {
 		column-count: 2;
 		column-gap: 4rem;
 		column-rule: .2rem solid var(--color-border-default);
 		margin: 1rem 0;
 	}
 
-	.p--columns .p--highlighted {
+	.p-columns .p-highlighted {
 		margin-top: 0;
 	}
 }
 
 /* could not get this container query working, dont know why...
-.p--columns {
+.p-columns {
     display: block;
     container-type: inline-size;
     container-name: p-columns;
 }
 
 @container p-columns (width > 800px) {
-    .p--columns {
+    .p-columns {
     column-count: 2;
     column-gap: 4rem;
     column-rule: 0.2rem solid var(--color-border-default); 
     margin: 1rem 0;
     }
 
-    .p--columns .p--highlighted {
+    .p-columns .p-highlighted {
     margin-top: 0;
     }
 }*/

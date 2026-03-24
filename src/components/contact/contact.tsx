@@ -19,7 +19,7 @@ export default function Contact() {
             <div className='flex flex-col 800px:flex-row gap-4 justify-between w-full'>
                 <div className='w-fit min-w-64'>
                     <h4 className='heading-4'>{text.contact.address}:</h4>
-                    <p className='p--regular'>
+                    <p className='p-regular'>
                         Login - Linjeforeningen for IT
                         <br/>
                         Teknologivegen 22
@@ -29,7 +29,7 @@ export default function Contact() {
                         2815 GJØVIK
                     </p>
                     <h4 className='heading-4'>{text.contact.email}:</h4>
-                    <p className='p--regular'>
+                    <p className='p-regular'>
                         <a
                             className='link link--primary link--underscore-hover'
                             href={`mailto:${config.url.MAIL_URL}`}

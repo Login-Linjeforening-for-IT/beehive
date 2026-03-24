@@ -68,7 +68,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                         {lang && jobad.organization.name_en
                                             ? jobad.organization.name_en
                                             : jobad.organization.name_no + ' '}
-                                        <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-[var(--color-text-main)]'/>
+                                        <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-(--color-text-main)'/>
                                     </a>
                                 ) : (
                                     <>
@@ -80,9 +80,9 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             </div>
                         </div>
                         <div className='grid grid-cols-[min-content_auto] gap-4 mb-12'>
-                            <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
+                            <div className='text-(--color-text-discreet) inline-flex items-start'>
                                 <HourglassBottom
-                                    className='fill-[var(--color-text-discreet)]
+                                    className='fill-(--color-text-discreet)
                                         jobad-details_icon jobad-details_icon--lable-color'
                                 />
                                 {text.details.deadline}:
@@ -96,7 +96,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.time_expire)) && (
                                     <Acute
-                                        className='fill-[var(--color-text-discreet)]
+                                        className='fill-(--color-text-discreet)
                                             jobad-details_icon jobad-details_icon--warning'
                                     />
                                 )}
@@ -104,9 +104,9 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.position_title_no &&
                                 <>
-                                    <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
+                                    <div className='text-(--color-text-discreet) inline-flex items-start'>
                                         <Badge
-                                            className='fill-[var(--color-text-discreet)]
+                                            className='fill-(--color-text-discreet)
                                                 jobad-details_icon jobad-details_icon--lable-color'
                                         />
                                         {text.details.position}:
@@ -119,9 +119,9 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     </div>
                                 </>
                             }
-                            <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
+                            <div className='text-(--color-text-discreet) inline-flex items-start'>
                                 <WorkHistory
-                                    className='fill-[var(--color-text-discreet)]
+                                    className='fill-(--color-text-discreet)
                                         jobad-details_icon jobad-details_icon--lable-color'
                                 />
                                 {text.details.type}:
@@ -135,11 +135,11 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.cities && jobad.cities.length > 0 &&
                                 <>
-                                    <div className='flex-row items-center text-[var(--color-text-discreet)]
-                                        inline-flex items-start'
+                                    <div className='flex-row text-(--color-text-discreet)
+                                        inline-flex'
                                     >
                                         <Pin
-                                            className='w-6 h-6 fill-[var(--color-text-discreet)]
+                                            className='w-6 h-6 fill-(--color-text-discreet)
                                                 jobad-details_icon jobad-details_icon--lable-color'
                                         />
                                         {/* @ts-ignore */}
@@ -157,9 +157,9 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             {/* @ts-ignore */}
                             {jobad.skills && jobad.skills.length > 0 &&
                                 <>
-                                    <div className='text-[var(--color-text-discreet)] inline-flex items-start'>
+                                    <div className='text-(--color-text-discreet) inline-flex items-start'>
                                         <Wrench
-                                            className='fill-[var(--color-text-discreet)]
+                                            className='fill-(--color-text-discreet)
                                                 jobad-details_icon jobad-details_icon--lable-color'
                                         />
                                         {text.details.skills}:
@@ -185,7 +185,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                         )}
                     </div>
                     {jobad.banner_image &&
-                            <div className='relative w-full aspect-[10/4] jobad-banner'>
+                            <div className='relative w-full aspect-10/4 jobad-banner'>
                                 <Image
                                     src={`${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
                                     alt={jobad.banner_image}

@@ -40,7 +40,7 @@ export default async function AlbumPage({ params }: PromisedPageProps) {
                     </h1>
                 }
                 <section>
-                    <p className='p--highlighted'>
+                    <p className='p-highlighted'>
                         {album.event && album.event.time_start ? `${formatter.format(new Date(album.event.time_start))} - ` : ''}
                         {lang === 'no' ? album.description_no : album.description_en}
                     </p>

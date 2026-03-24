@@ -28,7 +28,7 @@ export default async function SmallInfo() {
             >
                 <div className='order-2 800px:col-span-3 w-full max-w-124 m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.whoAreWe.title}</h2>
-                    <p className='p--regular'>{text.whoAreWe.body}</p>
+                    <p className='p-regular'>{text.whoAreWe.body}</p>
                     <Link
                         className='mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
                         href='about'
@@ -37,7 +37,7 @@ export default async function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={`${config.url.CDN_URL}/img/board/gruppebilde.JPG`}
+                    imgUrl={`${config.url.CDN_URL}/img/board/group/styret_2026.jpg`}
                     variant={4}
                     cornerSize={40}
                     width={150}
@@ -53,7 +53,7 @@ export default async function SmallInfo() {
             >
                 <div className='order-2 800px:order-1 800px:col-span-3 w-full max-w-124 m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.companiesInfo.title}</h2>
-                    <p className='p--regular'>{text.companiesInfo.body}</p>
+                    <p className='p-regular'>{text.companiesInfo.body}</p>
                     <Link
                         className='mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
                         href='companies'
@@ -78,7 +78,7 @@ export default async function SmallInfo() {
             >
                 <div className='order-2 800px:col-span-3 w-full max-w-124 m-auto p-[1rem_0]'>
                     <h2 className='heading-2'>{text.sponsor.title}</h2>
-                    <p className='p--regular'>{text.sponsor.body}</p>
+                    <p className='p-regular'>{text.sponsor.body}</p>
                     <a
                         className='mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
                         href='https://www.mnemonic.io/'

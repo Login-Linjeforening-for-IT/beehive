@@ -22,10 +22,10 @@ export default async function InternalPage() {
                 </h1>
 
                 <section className='max-w-3xl'>
-                    <p className='p--highlighted mb-4'>
+                    <p className='p-highlighted mb-4'>
                         {text.welcome}
                     </p>
-                    <p className='p--regular mb-8'>
+                    <p className='p-regular mb-8'>
                         {text.description}
                     </p>
                 </section>

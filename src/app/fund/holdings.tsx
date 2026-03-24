@@ -91,7 +91,7 @@ export default function HoldingsTotalLive({
             </p>
             {displayUpdatedAt && (
                 <p
-                    className={`p--regular mt-2 transition-opacity duration-500 ease-out ${
+                    className={`p-regular mt-2 transition-opacity duration-500 ease-out ${
                         isAnimating ? 'opacity-80' : 'opacity-70'
                     }`}
                 >

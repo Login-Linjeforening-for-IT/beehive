@@ -34,11 +34,12 @@ export default async function Article({ title, publishTime, updateTime, informat
             {informational && (
                 <div className='article_informational'>
                     {/* <i className='article_informational-icon material-symbols-sharp'>
-            info
-          </i>
-          <div className='article_informational-msg' >
-            {informational}
-          </div> */}
+                            info
+                        </i>
+                        <div className='article_informational-msg' >
+                            {informational}
+                        </div> 
+                    */}
                     {/* @ts-ignore */}
                     <Alert className='article_informational-alert'>
                         {informational}
@@ -47,7 +48,7 @@ export default async function Article({ title, publishTime, updateTime, informat
             )}
             {introduction &&
         <article
-            className='article_intro p--highlighted'
+            className='article_intro p-highlighted'
             dangerouslySetInnerHTML={{ __html: introduction }}
         />
             }

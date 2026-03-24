@@ -32,7 +32,7 @@ export default async function Page({ searchParams }: PageProps) {
                 <h1 className='heading-1 heading-1--top-left-corner'>
                     {text.title}
                 </h1>
-                <pre className='p--highlighted'>
+                <pre className='p-highlighted'>
                     {text.privacy_notice}
                 </pre>
                 <div className='flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -61,7 +61,7 @@ export default async function Page({ searchParams }: PageProps) {
                                     : cardStack(3, (index, className) => (
                                         <div
                                             key={index}
-                                            className={`${className} flex items-center justify-center w-[280px] h-[180px] 
+                                            className={`${className} flex items-center justify-center w-70 h-45
                                                 bg-(--color-bg-surface-raised) ring-2 ring-(--color-bg-surface)/20
                                             `}
                                         >

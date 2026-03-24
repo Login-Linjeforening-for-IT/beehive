@@ -2,12 +2,13 @@ import packageInfo from './package.json'
 
 const { env } = process
 
+const CDN_URL = env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no'
 const config = {
     url: {
         WORKERBEE_API_URL:  env.WORKERBEE_API_URL   ?? 'https://workerbee.login.no/api/v2',
         TEKKOM_BOT_API_URL: env.TEKKOM_BOT_API_URL  ?? 'https://bot.login.no/api',
         BEEKEEPER_URL:      env.BEEKEEPER_API_URL   ?? 'https://beekeeper.login.no/api',
-        CDN_URL:            env.NEXT_PUBLIC_CDN_URL ?? 'https://cdn.login.no',
+        CDN_URL,
         EXAM_URL: 'https://exam.login.no',
         WIKI_URL: 'https://wiki.login.no',
         GITHUB_URL: 'https://github.com/login-linjeforeningen-for-it',
@@ -24,7 +25,8 @@ const config = {
         SPOTIFY_EMBED_URL: 'https://open.spotify.com/embed/track',
         SPOTIFY_ALBUM_URL: 'https://open.spotify.com/album',
         SPOTIFY_ARTIST_URL: 'https://open.spotify.com/artist',
-        MAIN_URL: 'login.no'
+        MAIN_URL: 'login.no',
+        PORTRAIT_URL: `${CDN_URL}/img/board/portraits/2026`
     },
     authPath: {
         login: '/api/auth/login',

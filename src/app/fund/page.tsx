@@ -27,12 +27,12 @@ export default async function Fund() {
                 <h1 className='heading-1 heading-1--top-left-corner'>{text.title}</h1>
             </div>
             <section className='page-section--normal mb-8'>
-                <p className='p--highlighted'>{text.intro}</p>
+                <p className='p-highlighted'>{text.intro}</p>
             </section>
             <section className='page-section--without-gaps mb-20
-                bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
+                bg-(--color-bg-surface) p-4 800px:p-[1rem_2rem_2rem_2rem]
                 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
-                1200px:rounded-[var(--border-radius-large)]'
+                1200px:rounded-(--border-radius-large)'
             >
                 <h2 className='heading-2'>{lang === 'en' ? 'Total holdings value' : 'Total beholdningsverdi'}</h2>
                 <HoldingsTotalLive
@@ -42,72 +42,72 @@ export default async function Fund() {
                 />
             </section>
             <section className='page-section--without-gaps mb-20
-                bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
+                bg-(--color-bg-surface) p-4 800px:p-[1rem_2rem_2rem_2rem]
                 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
-                1200px:rounded-[var(--border-radius-large)]'
+                1200px:rounded-(--border-radius-large)'
             >
                 <h2 className='heading-2'>{text.support.title}</h2>
-                <p className='p--highlighted' dangerouslySetInnerHTML={{__html: text.support.intro}}/>
+                <p className='p-highlighted' dangerouslySetInnerHTML={{__html: text.support.intro}}/>
                 <h3 className='heading-4'>{text.support.heading1}</h3>
-                <p className='p--regular'>{text.support.body1}</p>
+                <p className='p-regular'>{text.support.body1}</p>
                 <h3 className='heading-4'>{text.support.heading2}</h3>
-                <p className='p--regular'>{text.support.body2}</p>
+                <p className='p-regular'>{text.support.body2}</p>
                 <h3 className='heading-4'>{text.support.heading3}</h3>
-                <p className='p--regular' dangerouslySetInnerHTML={{__html: text.support.body3}}/>
+                <p className='p-regular' dangerouslySetInnerHTML={{__html: text.support.body3}}/>
             </section>
             <section className='page-section--normal mb-20'>
                 <div className='fund-section_container 800px:grid 800px:grid-cols-2 800px:gap-16'>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='flex flex-row heading-2 heading-2--icon'>
-                            <Chart className='w-12 h-12 fill-[var(--color-text-main)] mr-4'/>
+                            <Chart className='w-12 h-12 fill-(--color-text-main) mr-4'/>
                             <span>{text.purpose.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
+                        <p className='p-regular' dangerouslySetInnerHTML={{__html: text.purpose.body}}/>
                     </div>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Group className='w-12 h-12 fill-[var(--color-text-main)] mr-4'/>
+                            <Group className='w-12 h-12 fill-(--color-text-main) mr-4'/>
                             <span>{text.meeting.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
+                        <p className='p-regular' dangerouslySetInnerHTML={{__html: text.meeting.body}}/>
                     </div>
                 </div>
                 <div className='fund-section_container 800px:grid 800px:grid-cols-2 800px:gap-16'>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <Diversity className='w-12 h-12 fill-[var(--color-text-main)] mr-4'/>
+                            <Diversity className='w-12 h-12 fill-(--color-text-main) mr-4'/>
                             <span>{text.application.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
+                        <p className='p-regular' dangerouslySetInnerHTML={{__html: text.application.body}}/>
                     </div>
                     {/* @ts-ignore */}
                     <div className='fund-section_container--grid-item'>
                         <h2 className='heading-2 heading-2--icon'>
-                            <ChartDetailed className='w-12 h-12 fill-[var(--color-text-main)] mr-4'/>
+                            <ChartDetailed className='w-12 h-12 fill-(--color-text-main) mr-4'/>
                             <span>{text.yield.title}</span>
                         </h2>
-                        <p className='p--regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
+                        <p className='p-regular' dangerouslySetInnerHTML={{__html: text.yield.body}}/>
                     </div>
                 </div>
             </section>
             <section className='page-section--without-gaps mb-20
-                bg-[var(--color-bg-surface)] p-4 800px:p-[1rem_2rem_2rem_2rem]
+                bg-(--color-bg-surface) p-4 800px:p-[1rem_2rem_2rem_2rem]
                 1200px:p-[1rem_3rem_2rem_3rem] 1200px:mx-8
-                1200px:rounded-[var(--border-radius-large)]'
+                1200px:rounded-(--border-radius-large)'
             >
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
-                        <Office className='w-12 h-12 fill-[var(--color-text-main)] heading-2_icon'/>
+                        <Office className='w-12 h-12 fill-(--color-text-main) heading-2_icon'/>
                         <span>{text.board.title}</span>
                     </h2>
                     <div className='flex flex-wrap justify-center gap-12 mb-16'>
                         {/* @ts-ignore */}
                         <div className='box-border flex-[1_1_20rem] m-auto'>
-                            <p className='p--highlighted'>{text.board.intro}</p>
-                            <p className='p--regular' dangerouslySetInnerHTML={{__html: text.board.body}}/>
+                            <p className='p-highlighted'>{text.board.intro}</p>
+                            <p className='p-regular' dangerouslySetInnerHTML={{__html: text.board.body}}/>
                         </div>
                         <div className='box-border flex-[1_1_20rem] my-auto max-w-132'>
                             <DecoratedPicture

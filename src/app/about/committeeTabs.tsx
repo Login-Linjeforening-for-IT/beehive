@@ -46,12 +46,12 @@ export default function CommitteeTabs() {
                         <h3 className='heading-3 flex items-center gap-2'>
                             <i className='logfont-styret-filled text-4xl' /> {text.committeeSection.board.title}
                         </h3>
-                        <p className='p--highlighted'>{text.committeeSection.board.body}</p>
+                        <p className='p-highlighted'>{text.committeeSection.board.body}</p>
                     </div>
                     {actualBoard.map((key) => (
                         <LogChamp
                             key={key}
-                            img={`${config.url.CDN_URL}/img/board/portraits/${data[key].img}`}
+                            img={`${config.url.PORTRAIT_URL}/${data[key].img}`}
                             name={data[key].name}
                             position={text.board[key].title}
                             discord={data[key].dctag}
@@ -66,11 +66,11 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-180'>
-                        <p className='p--highlighted'>{text.committeeSection.evntkom.intro}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.evntkom.body }} />
+                        <p className='p-highlighted'>{text.committeeSection.evntkom.intro}</p>
+                        <p className='p-regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.evntkom.body }} />
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${data.evntkomLeader.img}`}
+                        img={`${config.url.PORTRAIT_URL}/${data.evntkomLeader.img}`}
                         name={data.evntkomLeader.name}
                         position={text.board.evntkomLeader.title}
                         discord={data.evntkomLeader.dctag}
@@ -84,11 +84,11 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-180'>
-                        <p className='p--highlighted'>{text.committeeSection.tekkom.intro}</p>
-                        <p className='p--regular'>{text.committeeSection.tekkom.body}</p>
+                        <p className='p-highlighted'>{text.committeeSection.tekkom.intro}</p>
+                        <p className='p-regular'>{text.committeeSection.tekkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${data.tekkomLeader.img}`}
+                        img={`${config.url.PORTRAIT_URL}/${data.tekkomLeader.img}`}
                         name={data.tekkomLeader.name}
                         position={text.board.tekkomLeader.title}
                         discord={data.tekkomLeader.dctag}
@@ -102,11 +102,11 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-180'>
-                        <p className='p--highlighted'>{text.committeeSection.bedkom.intro}</p>
-                        <p className='p--regular'>{text.committeeSection.bedkom.body}</p>
+                        <p className='p-highlighted'>{text.committeeSection.bedkom.intro}</p>
+                        <p className='p-regular'>{text.committeeSection.bedkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${data.bedkomLeader.img}`}
+                        img={`${config.url.PORTRAIT_URL}/${data.bedkomLeader.img}`}
                         name={data.bedkomLeader.name}
                         position={text.board.bedkomLeader.title}
                         discord={data.bedkomLeader.dctag}
@@ -120,11 +120,11 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-180'>
-                        <p className='p--highlighted'>{text.committeeSection.ctfkom.intro}</p>
-                        <p className='p--regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.ctfkom.body }} />
+                        <p className='p-highlighted'>{text.committeeSection.ctfkom.intro}</p>
+                        <p className='p-regular' dangerouslySetInnerHTML={{ __html: text.committeeSection.ctfkom.body }} />
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${data.ctfkomLeader.img}`}
+                        img={`${config.url.PORTRAIT_URL}/${data.ctfkomLeader.img}`}
                         name={data.ctfkomLeader.name}
                         position={text.board.ctfkomLeader.title}
                         discord={data.ctfkomLeader.dctag}
@@ -138,11 +138,11 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-180'>
-                        <p className='p--highlighted' dangerouslySetInnerHTML={{ __html: text.committeeSection.satkom.intro }} />
-                        <p className='p--regular'>{text.committeeSection.satkom.body}</p>
+                        <p className='p-highlighted' dangerouslySetInnerHTML={{ __html: text.committeeSection.satkom.intro }} />
+                        <p className='p-regular'>{text.committeeSection.satkom.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${data.satkomLeader.img}`}
+                        img={`${config.url.PORTRAIT_URL}/${data.satkomLeader.img}`}
                         name={data.satkomLeader.name}
                         position={text.board.satkomLeader.title}
                         discord={data.satkomLeader.dctag}
@@ -156,11 +156,11 @@ export default function CommitteeTabs() {
                 </h3>
                 <div className='grid grid-cols-1 gap-12 items-start 800px:grid-cols-[auto_11rem]'>
                     <div className='max-w-180'>
-                        <p className='p--highlighted' dangerouslySetInnerHTML={{ __html: text.committeeSection.pr.intro }} />
-                        <p className='p--regular'>{text.committeeSection.pr.body}</p>
+                        <p className='p-highlighted' dangerouslySetInnerHTML={{ __html: text.committeeSection.pr.intro }} />
+                        <p className='p-regular'>{text.committeeSection.pr.body}</p>
                     </div>
                     <LogChamp
-                        img={`${config.url.CDN_URL}/img/board/portraits/${data.prLeader.img}`}
+                        img={`${config.url.PORTRAIT_URL}/${data.prLeader.img}`}
                         name={data.prLeader.name}
                         position={text.board.prLeader.title}
                         discord={data.prLeader.dctag}

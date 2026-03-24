@@ -18,14 +18,14 @@ export default async function About() {
             </h1>
             <section className='page-section--normal 800px:mb-20 about-intro'>
                 <p
-                    className='mt-0 max-w-200 p--highlighted'
+                    className='mt-0 max-w-200 p-highlighted'
                     dangerouslySetInnerHTML={{ __html: text.intro }}
                 />
                 <div className={'flex flex-wrap items-start justify-center gap-[5%] ' +
                     '800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'}>
                     <StudyProgramsAcordion />
                     <DecoratedPicture
-                        imgUrl={`${config.url.CDN_URL}/img/board/gruppebilde.JPG`}
+                        imgUrl={`${config.url.CDN_URL}/img/board/group/styret_2026.jpg`}
                         variant={3}
                         cornerSize={90}
                         width={300}
@@ -37,30 +37,30 @@ export default async function About() {
             </section>
             <section className='page-section--normal mb-8 800px:mb-20'>
                 <h2 className='heading-2'>{text.about.title}</h2>
-                <div className='p--columns'>
+                <div className='p-columns'>
                     <p
-                        className='p--highlighted'
+                        className='p-highlighted'
                         dangerouslySetInnerHTML={{ __html: text.about.intro }}
                     />
                     <p
-                        className='p--regular'
+                        className='p-regular'
                         dangerouslySetInnerHTML={{ __html: text.about.body.p1 }}
                     />
                     <p
-                        className='p--regular'
+                        className='p-regular'
                         dangerouslySetInnerHTML={{ __html: text.about.body.p2 }}
                     />
                 </div>
             </section>
             <section className='page-section--normal about-committees'>
                 <h2 className='heading-2'>{text.committeeSection.title}</h2>
-                <p className='p--regular'>{text.committeeSection.intro}</p>
+                <p className='p-regular'>{text.committeeSection.intro}</p>
             </section>
             <CommitteeTabs />
             <section className='page-section--normal 800px:mb-20'>
                 <h2 className='heading-2'>{text.publicDocs.title}</h2>
                 <p
-                    className='p--regular'
+                    className='p-regular'
                     dangerouslySetInnerHTML={{ __html: text.publicDocs.body }}
                 />
                 <ul className='list'>
