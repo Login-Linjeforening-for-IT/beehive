@@ -53,14 +53,14 @@ const socialLinks: SocialLink[] = [
 ]
 
 export default function SocialLinks() {
-    const baseIconStyle = 'leading-8 text-6 transition-all duration-200 text-center block text-[var(--color-text-footer)]'
+    const baseIconStyle = 'text-[1.5rem] leading-none transition-all duration-200 text-center block text-[var(--color-text-footer)]'
 
     return (
         <div className='grid justify-between mx-auto mt-20 mb-12 sm:grid-cols-7 grid-cols-3 gap-6 w-fit'>
             {socialLinks.map((link) => (
                 <a
                     key={link.name}
-                    className='block w-8 h-8 mx-auto'
+                    className='flex items-center justify-center w-8 h-8 mx-auto'
                     href={link.url}
                     target='_blank'
                     rel='noreferrer'
