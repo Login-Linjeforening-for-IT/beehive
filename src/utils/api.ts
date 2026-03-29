@@ -166,6 +166,14 @@ export async function getActivity(): Promise<Music> {
     return response as Music
 }
 
+export async function getSafeActivity(): Promise<Music> {
+    const data = await getActivity()
+    data.mostActiveUsers = []
+    data.mostSkippingUsers = []
+    data.currentlyListening = data.currentlyListening.map(song => ({ ...song, user_id: undefined })) as CurrentlyListening[]
+    return data
+}
+
 async function fetchWrapper(path: string, options = {}) {
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), config.timeout)

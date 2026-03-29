@@ -17,7 +17,7 @@
         "listens": "Avspillinger",
         "no_data": "Ingen data"
     },
-    "users": ["Mest aktive brukere", "Mest skippende brukere"],
+    "users": ["Mest aktive brukere", "Mest skippende brukere", "Last inn brukere"],
     "mostx": {
         "most_liked_albums": "Mest likte album",
         "most_skipped_albums": "Mest hoppet over album",

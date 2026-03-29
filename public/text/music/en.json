@@ -17,7 +17,7 @@
         "listens": "Listens",
         "no_data": "No data available"
     },
-    "users": ["Most Active Users", "Most skipping users"],
+    "users": ["Most Active Users", "Most skipping users", "Load Users"],
     "mostx": {
         "most_liked_albums": "Most Liked Albums",
         "most_skipped_albums": "Most Skipped Albums",
