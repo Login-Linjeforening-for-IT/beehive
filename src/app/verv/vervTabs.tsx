@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import TabNavItem from '@components/tabs/tabNavItem'
 import TabContent from '@components/tabs/tabContent'
 import LogChamp from '@components/logchamp/logChamp'
@@ -18,24 +18,10 @@ import no from '@text/verv/no.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import data from '@text/board/data.json'
-import { getCookie } from 'utilbee/utils'
-import { language } from '@components/langtoggle/langToggle'
+export default function VervTabs({ lang }: { lang: Lang }) {
+    const [activeTab, setActiveTab] = useState('evnt')
+    const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no } as any
 
-export default function VervTabs() {
-    const [activeTab, setActiveTab] = useState('event')
-    const [lang, setLang] = useState('no')
-    const [text, setText] = useState({ ...no, ...board_no })
-
-    useEffect(() => {
-        const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
-        // eslint-disable-next-line
-        setText(text as any)
-    }, [lang])
-
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [language])
 
     return (
         <div className='mb-8 800px:mb-20 tabs page-section--without-gaps'>
@@ -48,7 +34,7 @@ export default function VervTabs() {
                 <TabNavItem title={<PrLogo />} id='pr' activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title={<BarkomLogo />} id='bar' activeTab={activeTab} setActiveTab={setActiveTab}/>
             </ul>
-            <TabContent id='event' activeTab={activeTab}>
+            <TabContent id='evnt' activeTab={activeTab}>
                 <h3 className='heading-3 flex items-center gap-2'>
                     <i className='logfont-evntkom text-4xl' /> {text.committeeSection.evntkom.title}
                 </h3>

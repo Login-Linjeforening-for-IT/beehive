@@ -2,23 +2,16 @@
 
 import AccordionItem from '@components/accordion/accordionItem'
 import AccordionContent from '@components/accordion/accordionContent'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import no from '@text/about/no.json'
 import en from '@text/about/en.json'
 import ArrowOutward from '@components/svg/symbols/arrowOutward'
-import { getCookie } from 'utilbee/utils'
-import { language } from '@components/langtoggle/langToggle'
 
-export default function StudyProgramsAccordion() {
+export default function StudyProgramsAccordion({ lang }: { lang: Lang }) {
     const [activeAccordionItem, setActiveAccordionItem] = useState('bachelor')
-    const [lang, setLang] = useState('no')
     const text = lang === 'no' ? no : en
 
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang( temp || 'no')
-    }, [language])
 
     return(
         <ul className='w-full accordion'>

@@ -1,20 +1,21 @@
 import { getCookie } from 'utilbee/utils'
 import { useEffect, useState } from 'react'
-import { language } from '@components/langtoggle/langToggle'
+
 
 export default function useLang<T extends object>(no: T, en: T) {
     const [lang, setLang] = useState('no')
-    const [text, setText] = useState(no)
 
     useEffect(() => {
-        const text = lang === 'en' ? en : no
-        setText(text)
-    }, [lang])
+        const currentLang = getCookie('lang') || 'no'
+        setLang(currentLang)
 
-    useEffect(() => {
-        const temp = getCookie('lang')
-        setLang(temp || 'no')
-    }, [language])
+        const handleLanguageChange = () => {
+            setLang(getCookie('lang') || 'no')
+        }
 
-    return text
+        window.addEventListener('language-change', handleLanguageChange)
+        return () => window.removeEventListener('language-change', handleLanguageChange)
+    }, [])
+
+    return lang === 'en' ? en : no
 }

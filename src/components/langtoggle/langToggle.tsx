@@ -32,6 +32,7 @@ export default function LangToggle({serverLang}: LangToggleProps) {
         language = newLang
         setJump(true)
         setTimeout(() => setJump(false), 400)
+        window.dispatchEvent(new Event('language-change'))
         router.refresh()
     }
 

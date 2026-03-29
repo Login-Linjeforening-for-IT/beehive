@@ -40,7 +40,7 @@ export default async function Verv() {
                 <h2 className='heading-2'>{text.committeeSection.title}</h2>
                 <p className='p-regular'>{text.committeeSection.intro}</p>
             </section>
-            <VervTabs />
+            <VervTabs lang={lang} />
             <section className='mb-8 800px:mb-20 mt-8 400px:max-w-200 mx-auto page-section--normal'>
                 <h2
                     className='heading-2'

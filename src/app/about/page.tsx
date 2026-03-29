@@ -23,7 +23,7 @@ export default async function About() {
                 />
                 <div className={'flex flex-wrap items-start justify-center gap-[5%] ' +
                     '800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'}>
-                    <StudyProgramsAcordion />
+                    <StudyProgramsAcordion lang={lang} />
                     <DecoratedPicture
                         imgUrl={`${config.url.CDN_URL}/img/board/group/styret_2026.jpg`}
                         variant={3}
@@ -56,7 +56,7 @@ export default async function About() {
                 <h2 className='heading-2'>{text.committeeSection.title}</h2>
                 <p className='p-regular'>{text.committeeSection.intro}</p>
             </section>
-            <CommitteeTabs />
+            <CommitteeTabs lang={lang} />
             <section className='page-section--normal 800px:mb-20'>
                 <h2 className='heading-2'>{text.publicDocs.title}</h2>
                 <p

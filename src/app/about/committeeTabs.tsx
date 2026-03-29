@@ -19,15 +19,15 @@ import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import data from '@text/board/data.json'
 import '@components/tabs/tabs.css'
-import useLang from '@/hooks/useLang'
 
 const no = { ...text_no, board: board_no }
 const en = { ...text_en, board: board_en }
 
-export default function CommitteeTabs() {
+export default function CommitteeTabs({ lang }: { lang: Lang }) {
     const [activeTab, setActiveTab] = useState('styret')
-    const text = useLang(no, en)
+    const text = lang === 'en' ? en : no
     const boardKeys = Object.keys(text.board) as Array<keyof typeof text.board>
+
     const actualBoard = Array.isArray(boardKeys) ? boardKeys : []
 
     return (
