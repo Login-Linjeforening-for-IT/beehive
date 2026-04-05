@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import './imageCarousel.css'
 import CarouselImage from './carouselImage'
 
 type NavigateButtonProps = {

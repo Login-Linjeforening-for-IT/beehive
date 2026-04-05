@@ -6,7 +6,6 @@ import CheckBox from '@components/checkbox/checkbox'
 import CheckTag from '@components/checktag/checktag'
 import no from '@text/filter/no.json'
 import en from '@text/filter/en.json'
-import './filter.css'
 import KeyboardArrowUp from '@components/svg/symbols/keyboardArrowUp'
 import Replay from '@components/svg/symbols/replay'
 import { getCookie } from 'utilbee/utils'
@@ -92,7 +91,7 @@ export default function FilterGroup({ filters, close }: any) {
     const actualFilters = Array.isArray(filterKeys) ? filterKeys : []
 
     return (
-        <div className='filter-groups'>
+        <div className='@container/filter-groups flex min-h-20 flex-col gap-y-8'>
             {
                 // eslint-disable-next-line
                 actualFilters.map(([filterGroupItemID, filterGroupItem]) => {
@@ -116,16 +115,16 @@ export default function FilterGroup({ filters, close }: any) {
                     }
                 })
             }
-            <div className='filter-groups_buttons'>
+            <div className='mt-auto flex justify-between gap-4'>
                 {/* @ts-ignore */}
                 <Button
                     href={pathname+'?'+params()}
                     target='_self'
                     variant='secondary-outlined'
-                    trailingIcon={<Replay className='w-5 h-5 fill-[var(--color-text-regular)]'/>}
+                    trailingIcon={<Replay className='h-5 w-5 fill-(--color-text-regular)'/>}
                     onClick={onReset}
                     size='medium'
-                    className='filter-groups_reset'
+                    className='w-full 400px:w-fit'
                 >
                     {text.reset}
                 </Button>
@@ -135,10 +134,10 @@ export default function FilterGroup({ filters, close }: any) {
                         href=''
                         target='_self'
                         variant='secondary-outlined'
-                        leadingIcon={<KeyboardArrowUp className='w-6 h-6 fill-[var(--color-text-regular)]'/>}
+                        leadingIcon={<KeyboardArrowUp className='h-6 w-6 fill-(--color-text-regular)'/>}
                         onClick={close}
                         size='medium'
-                        className='filter-groups_close'
+                        className='1000px:hidden'
                     />
                 }
             </div>
@@ -164,6 +163,9 @@ function getFilterItemOnSelect(onSelect: any, filterID: any) {
 // eslint-disable-next-line
 function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any) {
     const [lang, setLang] = useState('no')
+    const itemContainerClassName = type === 'check'
+        ? 'mt-4 flex flex-col gap-y-2'
+        : 'mt-[.7rem] flex flex-row flex-wrap gap-[.7rem]'
 
     useEffect(() => {
         const temp = getCookie('lang')
@@ -172,8 +174,8 @@ function Filter({ label, filter, showCount, onSelect, type, resetTrigger }: any)
 
     return (
         <div className='filter'>
-            <div className='filter_title'>{ label[lang] }</div>
-            <div className={`filter_items filter_items--${type}`}>
+            <div className='text-[.9rem] font-medium tracking-[.15em] text-(--color-text-discreet)'>{ label[lang] }</div>
+            <div className={itemContainerClassName}>
                 {/* @ts-ignore */}
                 {filter.sort((a, b) => b.count - a.count).map((filterItem, index) => {
                     return (

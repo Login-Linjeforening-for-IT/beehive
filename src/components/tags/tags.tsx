@@ -3,7 +3,6 @@ import no from '@text/tags/no.json'
 import en from '@text/tags/en.json'
 import { isNew } from '@utils/datetimeFormatter'
 import { cookies } from 'next/headers'
-import './tags.css'
 
 type TagsProps = {
     highlight: boolean,

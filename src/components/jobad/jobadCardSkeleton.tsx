@@ -1,11 +1,9 @@
-import './jobadCardSkeleton.css'
-
 export default function JobadCardSkeleton() {
     return (
-        <div className='jobad-card-skeleton'>
-            <div className='jobad-card-skeleton_image skeleton' />
-            <div className='jobad-card-skeleton_name skeleton' />
-            <div className='jobad-card-skeleton_details skeleton' />
+        <div className='h-full w-full p-4 transition-all duration-200'>
+            <div className='skeleton aspect-3/2 w-full' />
+            <div className='skeleton my-4 h-[1.4rem] w-[80%]' />
+            <div className='skeleton h-[1.2rem] w-[60%]' />
         </div>
     )
 }

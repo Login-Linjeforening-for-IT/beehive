@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import './langToggle.css'
 import Language from '@components/svg/symbols/language'
 import { getCookie, setCookie } from 'utilbee/utils'
 import { useRouter } from 'next/navigation'
+import clsx from '@utils/clsx'
 
 export let language = 'no'
 
@@ -37,9 +37,18 @@ export default function LangToggle({serverLang}: LangToggleProps) {
     }
 
     return(
-        <button value={lang} onClick={handleClick} className='lang-toggle flex flex-row items-center justify-center gap-1'>
-            <i className={`lang-toggle_icon ${jump ? 'lang-toggle_icon--jump' : ''}`}>
-                <Language className='lang-icon w-[1.4rem] h-[1.4rem]'/>
+        <button
+            value={lang}
+            onClick={handleClick}
+            className={clsx(
+                'flex w-[4.3rem] cursor-pointer flex-row items-center justify-center gap-1',
+                'rounded-(--border-radius) border-none bg-transparent p-2 text-[1rem]',
+                'leading-8 text-(--color-text-main) hover:bg-[#6464641a]',
+                'in-[.topbar--open]:text-white'
+            )}
+        >
+            <i className={clsx('mt-[-0.1rem] text-[1.4rem] leading-8', jump && 'animate-[lang-jump_0.4s_1]')}>
+                <Language className='h-[1.4rem] w-[1.4rem] fill-(--color-text-main) in-[.topbar--open]:fill-white'/>
             </i>
             {' ' + lang}
         </button>

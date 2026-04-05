@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
-import './alert.css'
 import ErrorSymbol from '@components/svg/symbols/error'
+import clsx from '@utils/clsx'
 
 type AlertProps = {
     children: ReactNode
@@ -24,6 +24,21 @@ function getIconColor(variant: string): string {
     }
 }
 
+function getBackgroundColor(variant: string): string {
+    switch (variant) {
+        case 'info':
+            return 'bg-[var(--color-alert-info-bg)]'
+        case 'success':
+            return 'bg-[var(--color-alert-success-bg)]'
+        case 'warning':
+            return 'bg-[var(--color-alert-warning-bg)]'
+        case 'danger':
+            return 'bg-[var(--color-alert-danger-bg)]'
+        default:
+            return 'bg-[var(--color-alert-info-bg)]'
+    }
+}
+
 function getTextColor(variant: string): string {
     switch (variant) {
         case 'info':
@@ -41,9 +56,15 @@ function getTextColor(variant: string): string {
 
 export default function Alert({ children, variant = 'info', className = '' }: AlertProps) {
     return (
-        <div className={`flex gap-2 alert alert--${variant} ${className}`}>
+        <div
+            className={clsx(
+                'grid grid-cols-[min-content_auto] items-start gap-2 rounded-[0.5rem] px-[1em] py-[0.5em] pl-[0.8em]',
+                getBackgroundColor(variant),
+                className
+            )}
+        >
             <ErrorSymbol className={`w-8 h-8 ${getIconColor(variant)}`} />
-            <div className={`alert_content ${getTextColor(variant)}`}>{children}</div>
+            <div className={clsx('self-center', getTextColor(variant))}>{children}</div>
         </div>
     )
 }

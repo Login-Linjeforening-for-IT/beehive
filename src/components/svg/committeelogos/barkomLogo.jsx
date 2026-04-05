@@ -1,5 +1,3 @@
-import './barkomLogoAnimation.css'
-
 export default function BarkomLogo() {
     return (
         <svg className='barkom-logo committee-logo block mx-auto' viewBox='-2.5 -3 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>

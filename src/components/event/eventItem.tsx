@@ -11,7 +11,6 @@ import Pin from '@components/svg/symbols/pin'
 import Schedule from '@components/svg/symbols/schedule'
 import { isNew } from '@utils/datetimeFormatter'
 import { formatEventStartDate, isOngoing } from '@utils/datetimeFormatter'
-import './eventItem.css'
 import Image from 'next/image'
 import { cookies } from 'next/headers'
 

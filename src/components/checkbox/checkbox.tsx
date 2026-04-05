@@ -1,4 +1,4 @@
-import './checkbox.css'
+import clsx from '@utils/clsx'
 
 type CheckboxProps = {
     id: string
@@ -12,18 +12,30 @@ type CheckboxProps = {
 
 export default function Checkbox({ id, label, count = false, checked, onChange }: CheckboxProps) {
     return (
-        <label className='checkbox'>
+        <label className='group grid w-fit cursor-pointer grid-cols-[max-content_1fr]'>
             <input
-                className='checkbox_input'
+                className='peer absolute h-0 w-0 cursor-pointer opacity-0'
                 type='checkbox'
                 id={id}
                 checked={checked}
                 onChange={onChange}
             />
-            <span className='checkbox_box' />
-            <div className='checkbox_name'>
+            <span
+                className={clsx(
+                    'relative mr-[0.5rem] inline-block h-[1.4rem] w-[1.4rem]',
+                    'rounded-[0.1rem] border-[0.13rem] border-[var(--color-checkbox-outline)]',
+                    'transition-all duration-100 ease-in group-hover:bg-[var(--color-checkbox-bg-hover)]',
+                    'peer-checked:border-[var(--color-primary)] peer-checked:bg-[var(--color-primary)]',
+                    'peer-focus-visible:ring-[0.1rem] peer-focus-visible:ring-[rgb(0,42,255)]',
+                    'after:absolute after:left-1/2 after:top-[45%] after:h-[0.8rem] after:w-[0.4rem]',
+                    'after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45',
+                    'after:border-r-[0.18rem] after:border-b-[0.18rem] after:border-[var(--color-text-on-primary)]',
+                    'after:content-[\'\'] after:opacity-0 peer-checked:after:opacity-100'
+                )}
+            />
+            <div>
                 {label}
-                {count && <span className='checkbox_item-count'> ({count})</span>}
+                {count && <span className='text-[var(--color-text-discreet)]'> ({count})</span>}
             </div>
         </label>
     )

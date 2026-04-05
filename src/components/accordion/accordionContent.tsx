@@ -1,3 +1,4 @@
+import clsx from '@utils/clsx'
 import type { ReactNode } from 'react'
 
 type AccordionContentProps = {
@@ -8,7 +9,12 @@ type AccordionContentProps = {
 
 export default function AccordionContent({id, activeAccordionItem, children}: AccordionContentProps) {
     return (
-        <div className={`accordion_content ${activeAccordionItem  === id ? 'accordion_content--open' : ''}`}>
+        <div
+            className={clsx(
+                'max-h-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0,1,0,1)]',
+                activeAccordionItem === id && 'h-auto max-h-400 ease-[cubic-bezier(1,0,1,0)]'
+            )}
+        >
             { children }
         </div>
     )

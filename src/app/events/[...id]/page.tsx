@@ -24,7 +24,6 @@ import Schedule from '@components/svg/symbols/schedule'
 import { getEvent } from '@utils/api'
 import { formatEventStatusDate, formatTimeHHMM, isOngoing } from '@utils/datetimeFormatter'
 import { cookies } from 'next/headers'
-import './page.css'
 import Link from 'next/link'
 import Image from 'next/image'
 

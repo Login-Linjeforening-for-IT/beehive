@@ -82,7 +82,7 @@ export default async function Page({searchParams}: PageProps) {
             </div>
             <div className='page-section--without-gaps'>
                 <div className='p-[0_0.5rem] 400px:p-[0_1rem] 800px:p-[0_2rem] 1000px:grid 1000px:grid-cols-[17rem_auto] 1000px:gap-[3vw]'>
-                    <div className='1000px:order-1 flex flex-row'>
+                    <div className='1000px:order-1 flex flex-col'>
                         <div className='w-full'>
                             <FilterItem filterData={response} />
                             <div className='hidden 1000px:block pt-8'>

@@ -1,12 +1,11 @@
 'use client'
 
 import Button from '@components/button/button'
-import './groupToggle.css'
 import { useSearchParams, usePathname } from 'next/navigation'
 
 type GroupToggleProps = {
     // eslint-disable-next-line
-    options: any, 
+    options: any,
     defaultActiveOptionIndex?: number
     size: string
     groupVariant?: string
@@ -46,6 +45,7 @@ export default function GroupToggle({
             {options.map((option: any, index: number) => {
                 const isActive = activeOptionIndex === index
                 const { text, leadingIcon, trailingIcon, ...restButtonProps } = option
+                const isIconOnly = !text && (leadingIcon || trailingIcon)
 
                 return (
                     <Button
@@ -54,10 +54,9 @@ export default function GroupToggle({
                         target='_self'
                         variant={buttonVariant}
                         size={size}
-                        className={`group-toggle_button ${
-                            index === 0 ? 'group-toggle_button--first' :
+                        className={`group-toggle_button ${isIconOnly ? 'button--icon-only' : ''} ${isActive ? 'active [&_svg]:!fill-[var(--color-primary)] [&_svg_*]:!fill-[var(--color-primary)] [&_i]:!text-[var(--color-primary)] !text-[var(--color-primary)]' : ''} ${index === 0 ? 'group-toggle_button--first' :
                                 index === options.length - 1 ? 'group-toggle_button--last' : ''
-                        }`}
+                            }`}
                         leadingIcon={leadingIcon}
                         trailingIcon={trailingIcon}
                         aria-pressed={isActive}

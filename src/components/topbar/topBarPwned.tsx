@@ -2,7 +2,6 @@
 
 import LangToggle from '@components/langtoggle/langToggle'
 import ThemeToggle from '../themetoggle/themeToggle'
-import './topBar.css'
 import config from '@config'
 import Image from 'next/image'
 import Link from 'next/link'

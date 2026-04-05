@@ -18,7 +18,6 @@ import text_en from '@text/about/en.json'
 import board_no from '@text/board/no.json'
 import board_en from '@text/board/en.json'
 import data from '@text/board/data.json'
-import '@components/tabs/tabs.css'
 
 const no = { ...text_no, board: board_no }
 const en = { ...text_en, board: board_en }
