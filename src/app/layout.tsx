@@ -12,7 +12,7 @@ import Alerts from '@components/alerts/alerts'
 export { default as metadata } from './metadata'
 export { default as viewport } from './metadata'
 
-export default async function layout({children}: {children: ReactNode}) {
+export default async function layout({ children }: { children: ReactNode }) {
     const Cookies = await cookies()
     const theme = Cookies.get('theme')?.value || 'dark'
     const lang = (Cookies.get('lang')?.value || 'no') as Lang
@@ -20,27 +20,30 @@ export default async function layout({children}: {children: ReactNode}) {
     const path = (await Headers).get('x-current-path') || ''
     const page = path.split('/').pop()
     const dashboard = path.includes('dashboard')
+    const pwnedHeaderClassName = 'fixed top-0 z-900 w-full bg-(--color-bg-topbar-fallback) '
+        + 'supports-[backdrop-filter:blur(0px)]:bg-(--color-bg-topbar) '
+        + 'supports-[backdrop-filter:blur(0px)]:backdrop-blur-[20px]'
 
     return (
         <html test-id='root' lang='en' className={theme}>
             <body className={clsx('min-h-screen w-full bg-(--color-bg-body)', dashboard && 'max-h-screen overflow-hidden')}>
-                {page !== 'pwned' ?
+                {page !== 'pwned' ? (
                     <header className='fixed top-0 z-900 w-full'>
                         <TopBar onlyLogo={dashboard} />
                     </header>
-                    :
-                    page === 'pwned' && <header className='main-header fixed top-0 z-900 w-full'>
-                        <TopBarPwned lang={lang} theme={theme} />
-                    </header>
-                }
-                <main className='w-full mx-auto mt-(--h-topbar) min-h-[calc(100vh-var(--h-topbar))]'>
-                    {children}
-                </main>
-                {page !== 'pwned' && !path.includes('dashboard') &&
-                    <footer className='bg-(--color-bg-footer) main-footer'>
+                ) : (
+                    page === 'pwned' && (
+                        <header className={pwnedHeaderClassName}>
+                            <TopBarPwned lang={lang} theme={theme} />
+                        </header>
+                    )
+                )}
+                <main className='w-full mx-auto mt-(--h-topbar) min-h-[calc(100vh-var(--h-topbar))]'>{children}</main>
+                {page !== 'pwned' && !path.includes('dashboard') && (
+                    <footer className='bg-(--color-bg-footer)'>
                         <Footer />
                     </footer>
-                }
+                )}
                 <Alerts />
             </body>
         </html>

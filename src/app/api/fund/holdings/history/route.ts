@@ -12,11 +12,6 @@ type YahooQuote = {
     currency?: string
 }
 
-type YahooHistorical = {
-    date?: Date
-    close?: number | null
-}
-
 type HistoryPoint = {
     date: string
     totalBase: number

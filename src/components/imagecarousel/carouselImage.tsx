@@ -4,7 +4,7 @@ export default function CarouselImage({ image, title }: { image: string, title: 
     return (
         <>
             <Image
-                className='rounded-[var(--border-radius)]'
+                className='rounded-(--border-radius)'
                 src={image}
                 alt={title}
                 fill={true}

@@ -26,7 +26,8 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
 
     const wrapperClassName = clsx(
         'z-50 grid w-full items-center gap-y-2 rounded-(--border-radius) bg-(--color-bg-body)',
-        'p-4 transition-all duration-200 group-hover:bg-(--color-bg-surface) word-break',
+        'p-4 transition-all duration-200 group-hover:bg-(--color-bg-surface)',
+        'whitespace-pre-line hyphens-auto wrap-break-word',
         'grid-cols-1 [grid-template-areas:\'pic\'\'info\']',
         '400px:grid-cols-[auto_1fr] 400px:gap-x-4 400px:p-3',
         '400px:[grid-template-areas:\'pic_info\']',
@@ -51,7 +52,10 @@ export default async function JobadsListItem({ jobad }: {jobad: GetJobProps}) {
                 className={clsx(
                     'group mx-auto mb-6 cursor-pointer rounded-[0.4rem] p-[0.13rem] transition-all duration-200',
                     '400px:max-w-full',
-                    jobad.highlight && 'jobads-item--highlight 400px:mb-4 1000px:mb-8'
+                    jobad.highlight && [
+                        'bg-(--gradient-highlight) hover:bg-(--gradient-highlight-hover)',
+                        'transition-[background] duration-200 400px:mb-4 1000px:mb-8'
+                    ]
                 )}
             >
                 <div className={wrapperClassName}

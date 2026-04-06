@@ -27,20 +27,41 @@ function deadlineWarning(deadline: Date) {
 
 export default async function JobadPage({ params }: PromisedPageProps) {
     const id = (await params).id
-    const jobads = (await getJob(id))
+    const jobads = await getJob(id)
     const jobad = typeof jobads === 'object' ? jobads : null
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
-    const temp_empty = lang === 'no'
-        ? 'Oi! Her var det tomt... '
-        : 'Oh! Looks empty... '
+    const temp_empty = lang === 'no' ? 'Oi! Her var det tomt... ' : 'Oh! Looks empty... '
+    const jobadPageLayoutClass =
+        'grid items-start grid-cols-1 ' +
+        (jobad?.banner_image
+            ? '[grid-template-areas:\'ban\'\'det\'\'des\'] 800px:[grid-template-areas:\'det_ban\'\'det_des\'] '
+            : '[grid-template-areas:\'det\'\'des\'] 800px:[grid-template-areas:\'det_des\'\'det_.\'] ') +
+        '800px:grid-cols-[20rem_auto] 800px:gap-x-[5%] 800px:pt-12 800px:px-8 ' +
+        '800px:max-w-[calc(var(--w-page)+4rem)] 800px:mx-auto'
     return (
         <>
             {jobad && (
-                <div className={`jobad-page jobad-page--${jobad.banner_image ? 'banner' : 'noBanner'}`}>
-                    <div className='jobad-details'>
+                <div className={jobadPageLayoutClass}>
+                    <div
+                        className='[grid-area:det] w-full py-8 px-4 bg-(--color-bg-surface) relative 450px:p-8
+                            800px:p-0 800px:bg-none
+                            800px:before:content-[""] 800px:before:w-[2.6rem] 800px:before:h-[2.6rem]
+                            800px:before:absolute 800px:before:border-[0.7rem]
+                            800px:before:border-(--color-border-default)
+                            800px:before:border-solid 800px:before:border-b-0 800px:before:border-l-0
+                            800px:before:top-0 800px:before:right-0 800px:before:transition
+                            800px:after:content-[""] 800px:after:w-[2.6rem] 800px:after:h-[2.6rem]
+                            800px:after:absolute 800px:after:border-[0.7rem]
+                            800px:after:border-(--color-border-default)
+                            800px:after:border-solid 800px:after:border-t-0 800px:after:border-r-0
+                            800px:after:bottom-0 800px:after:left-0 800px:after:transition'
+                    >
                         <div className='flex flex-row flex-wrap gap-4 mb-8 800px:flex-col'>
-                            <div className='jobad-details_image relative'>
+                            <div
+                                className='relative block w-40 h-auto aspect-5/2 rounded-(--border-radius) overflow-hidden
+                                    450px:w-48 800px:w-56'
+                            >
                                 {jobad?.organization?.logo ? (
                                     <Image
                                         src={`${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
@@ -53,36 +74,29 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                     <DefaultJobBanner color='#545b5f' className='h-full w-full' transition={true} />
                                 )}
                             </div>
-                            <div className='jobad-details_company-name'>
+                            <div className='text-[1.5rem] my-auto leading-[1.4em] whitespace-pre-line wrap-break-word hyphens-auto'>
                                 {/* @ts-ignore */}
                                 {jobad.organization.link_homepage ? (
                                     <a
-                                        className='flex flex-row items-center link--underscore-hover'
+                                        className='flex flex-row items-center hover:underline'
                                         // @ts-ignore
                                         href={jobad.organization.link_homepage}
                                         target='_blank'
                                         rel='noreferrer'
                                     >
                                         {/* @ts-ignore */}
-                                        {lang && jobad.organization.name_en
-                                            ? jobad.organization.name_en
-                                            : jobad.organization.name_no + ' '}
-                                        <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-(--color-text-main)'/>
+                                        {lang && jobad.organization.name_en ? jobad.organization.name_en : jobad.organization.name_no + ' '}
+                                        <ArrowOutward className='w-[1.6rem] h-[1.6rem] fill-(--color-text-main)' />
                                     </a>
                                 ) : (
-                                    <>
-                                        {lang
-                                            ? jobad.organization.name_en
-                                            : jobad.organization.name_no}
-                                    </>
+                                    <>{lang ? jobad.organization.name_en : jobad.organization.name_no}</>
                                 )}
                             </div>
                         </div>
                         <div className='grid grid-cols-[min-content_auto] gap-4 mb-12'>
                             <div className='text-(--color-text-discreet) inline-flex items-start'>
                                 <HourglassBottom
-                                    className='fill-(--color-text-discreet)
-                                        jobad-details_icon jobad-details_icon--lable-color'
+                                    className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)'
                                 />
                                 {text.details.deadline}:
                             </div>
@@ -90,76 +104,65 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                 {formatDeadlineDate(
                                     // @ts-ignore
                                     new Date(jobad.time_expire),
-                                    lang
+                                    lang,
                                 )}
                                 {/* @ts-ignore */}
                                 {deadlineWarning(new Date(jobad.time_expire)) && (
                                     <Acute
-                                        className='fill-(--color-text-discreet)
-                                            jobad-details_icon jobad-details_icon--warning'
+                                        className='w-fit pr-0 ml-2 text-center leading-6 fill-(--color-text-primary)'
                                     />
                                 )}
                             </div>
                             {/* @ts-ignore */}
-                            {jobad.position_title_no &&
+                            {jobad.position_title_no && (
                                 <>
                                     <div className='text-(--color-text-discreet) inline-flex items-start'>
                                         <Badge
-                                            className='fill-(--color-text-discreet)
-                                                jobad-details_icon jobad-details_icon--lable-color'
+                                            className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)'
                                         />
                                         {text.details.position}:
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
-                                        {lang == 'en' && jobad.position_title_en
-                                            ? jobad.position_title_en
-                                            : jobad.position_title_no}
+                                        {lang == 'en' && jobad.position_title_en ? jobad.position_title_en : jobad.position_title_no}
                                     </div>
                                 </>
-                            }
+                            )}
                             <div className='text-(--color-text-discreet) inline-flex items-start'>
                                 <WorkHistory
-                                    className='fill-(--color-text-discreet)
-                                        jobad-details_icon jobad-details_icon--lable-color'
+                                    className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)'
                                 />
                                 {text.details.type}:
                             </div>
                             <div className='jobad-details_value'>
                                 {/* @ts-ignore */}
-                                {lang == 'en'
-                                    ? jobad.job_type.name_en
-                                    : jobad.job_type.name_no}
+                                {lang == 'en' ? jobad.job_type.name_en : jobad.job_type.name_no}
                             </div>
                             {/* @ts-ignore */}
-                            {jobad.cities && jobad.cities.length > 0 &&
+                            {jobad.cities && jobad.cities.length > 0 && (
                                 <>
-                                    <div className='flex-row text-(--color-text-discreet)
+                                    <div
+                                        className='flex-row text-(--color-text-discreet)
                                         inline-flex'
                                     >
                                         <Pin
-                                            className='w-6 h-6 fill-(--color-text-discreet)
-                                                jobad-details_icon jobad-details_icon--lable-color'
+                                            className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)'
                                         />
                                         {/* @ts-ignore */}
-                                        {jobad.cities.length > 1
-                                            ? text.details.locations
-                                            : text.details.location}
-                                        :
+                                        {jobad.cities.length > 1 ? text.details.locations : text.details.location}:
                                     </div>
                                     <div className='jobad-details_value'>
                                         {/* @ts-ignore */}
                                         {jobad.cities.join(', ')}
                                     </div>
                                 </>
-                            }
+                            )}
                             {/* @ts-ignore */}
-                            {jobad.skills && jobad.skills.length > 0 &&
+                            {jobad.skills && jobad.skills.length > 0 && (
                                 <>
                                     <div className='text-(--color-text-discreet) inline-flex items-start'>
                                         <Wrench
-                                            className='fill-(--color-text-discreet)
-                                                jobad-details_icon jobad-details_icon--lable-color'
+                                            className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)'
                                         />
                                         {text.details.skills}:
                                     </div>
@@ -168,53 +171,59 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                                         {jobad.skills.join(', ')}
                                     </div>
                                 </>
-                            }
+                            )}
                         </div>
                         {/* @ts-ignore */}
                         {jobad.application_url && (
                             // @ts-ignore
                             <Button
-                                trailingIcon={<ArrowOutward className='w-6 h-6 fill-white'/>}
+                                trailingIcon={<ArrowOutward className='w-6 h-6 fill-white' />}
                                 // @ts-ignore
                                 href={jobad.application_url}
-                                className='jobad-details_apply-btn w-full 400px:w-fit'
+                                className='w-full 400px:w-fit 450px:w-fit 800px:min-w-48 800px:float-right 800px:mt-0'
                             >
                                 {text.details.applyButton}
                             </Button>
                         )}
                     </div>
-                    {jobad.banner_image &&
-                            <div className='relative w-full aspect-10/4 jobad-banner'>
-                                <Image
-                                    src={`${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
-                                    alt={jobad.banner_image}
-                                    fill={true}
-                                />
-                            </div>
-                    }
-                    <div className='jobad-description'>
+                    {jobad.banner_image && (
+                        <div className='relative w-full aspect-10/4 [grid-area:ban] 800px:mb-8'>
+                            <Image
+                                src={`${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
+                                alt={jobad.banner_image}
+                                fill={true}
+                                className='800px:rounded-(--border-radius)'
+                            />
+                        </div>
+                    )}
+                    <div
+                        className='[grid-area:des] p-4 relative 450px:p-8 800px:pt-0 800px:pr-10 800px:pb-4 800px:pl-0
+                            800px:after:content-[""] 800px:after:w-[2.6rem] 800px:after:h-[2.6rem]
+                            800px:after:absolute 800px:after:border-[0.7rem]
+                            800px:after:border-(--color-border-default)
+                            800px:after:border-solid 800px:after:border-b-0 800px:after:border-l-0
+                            800px:after:top-0 800px:after:right-0 800px:after:transition
+                            800px:before:content-[""] 800px:before:w-[2.6rem] 800px:before:h-[2.6rem]
+                            800px:before:absolute 800px:before:border-[0.7rem]
+                            800px:before:border-(--color-border-default)
+                            800px:before:border-solid 800px:before:border-t-0 800px:before:border-l-0
+                            800px:before:bottom-0 800px:before:right-0 800px:before:transition'
+                    >
                         <Article
-                            title={lang == 'en' && jobad.title_en
-                                ? jobad.title_en
-                                : jobad.title_no}
+                            title={lang == 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}
                             publishTime={new Date(jobad.time_publish)}
                             updateTime={new Date(jobad.updated_at)}
                             informational={false}
-                            introduction={lang == 'en' && jobad.description_short_en
-                                ? jobad.description_short_en
-                                : jobad.description_short_no}
-                            description={lang == 'en' && jobad.description_long_en
-                                ? jobad.description_long_en
-                                : jobad.description_long_no}
+                            introduction={
+                                lang == 'en' && jobad.description_short_en ? jobad.description_short_en : jobad.description_short_no
+                            }
+                            description={lang == 'en' && jobad.description_long_en ? jobad.description_long_en : jobad.description_long_no}
                         />
                     </div>
                 </div>
             )}
             {!jobad && (
-                <Alert
-                    variant='danger'
-                    className='page-section--normal page-section--alert'
-                >
+                <Alert variant='danger' className='page-section--normal mt-32 mx-auto max-w-160'>
                     {temp_empty}
                 </Alert>
             )}

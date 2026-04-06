@@ -6,12 +6,15 @@ import config from '@config'
 import { Activity, BookMarked, BookOpen, Heart, Images, Music, Lock } from 'lucide-react'
 import Office from '@components/svg/symbols/office'
 
-export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
+export default async function Topbar({ onlyLogo }: { onlyLogo: boolean }) {
     const Cookies = await cookies()
     const accessToken = Cookies.get('access_token')?.value || null
     const theme = Cookies.get('theme')?.value || 'dark'
     const lang = (Cookies.get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
+    const navbarClassName = 'bg-transparent! max-800px:[&.topbar--open]:h-screen '
+        + 'max-800px:[&.topbar--open]:bg-(--color-bg-topbar-open) '
+        + '800px:[&.topbar--open]:h-(--h-topbar)'
 
     return (
         <Navbar
@@ -21,21 +24,15 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
             loginPath={config.authPath.login}
             logoutPath={config.authPath.logout}
             onlyLogo={onlyLogo}
-            className='bg-transparent!'
+            className={navbarClassName}
         >
-            <NavItem href='/events'>
-                {text.nav.events}
-            </NavItem>
-            <NavItem href='/career'>
-                {text.nav.jobad}
-            </NavItem>
-            <NavItem href='/companies'>
-                {text.nav.companies}
-            </NavItem>
+            <NavItem href='/events'>{text.nav.events}</NavItem>
+            <NavItem href='/career'>{text.nav.jobad}</NavItem>
+            <NavItem href='/companies'>{text.nav.companies}</NavItem>
             <NavDropdown title={text.nav.about} className='bg-(--color-bg-topbar-fallback)!'>
                 <NavItem href='/about'>
                     <div>
-                        <i className='logfont-login main-nav-dropdown_leading-icon' />
+                        <i className='logfont-login pr-[0.7rem] text-[1.3rem] leading-6 align-middle ml-[0.1rem]' />
                         {text.nav.general}
                     </div>
                 </NavItem>
@@ -83,14 +80,14 @@ export default async function Topbar({onlyLogo}: {onlyLogo: boolean}) {
                         {text.nav.status}
                     </div>
                 </NavItem>
-                {accessToken &&
+                {accessToken && (
                     <NavItem href='/internal'>
                         <div className='flex flex-row items-center'>
                             <Lock className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
                             {text.nav.internal}
                         </div>
                     </NavItem>
-                }
+                )}
             </NavDropdown>
         </Navbar>
     )

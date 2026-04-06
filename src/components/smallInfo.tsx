@@ -9,6 +9,11 @@ export default async function SmallInfo() {
     const theme = (await cookies()).get('theme')?.value || 'dark'
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en
+    const readMoreLinkClassName = 'mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary relative '
+        + 'after:content-[""] after:absolute after:w-[0.8em] after:h-[0.8em] after:bottom-[0.4em] after:right-[0.4em] '
+        + 'after:border-r-[0.2em] after:border-b-[0.2em] after:border-r-transparent after:border-b-transparent '
+        + 'after:transition-all after:duration-200 hover:after:border-r-(--color-link-primary) '
+        + 'hover:after:border-b-(--color-link-primary) hover:after:right-0 hover:after:bottom-0'
 
     function getSponsorPath() {
         if (theme === 'light') {
@@ -30,7 +35,7 @@ export default async function SmallInfo() {
                     <h2 className='heading-2'>{text.whoAreWe.title}</h2>
                     <p className='p-regular'>{text.whoAreWe.body}</p>
                     <Link
-                        className='mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
+                        className={readMoreLinkClassName}
                         href='about'
                     >
                         {text.readMore}
@@ -55,7 +60,7 @@ export default async function SmallInfo() {
                     <h2 className='heading-2'>{text.companiesInfo.title}</h2>
                     <p className='p-regular'>{text.companiesInfo.body}</p>
                     <Link
-                        className='mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
+                        className={readMoreLinkClassName}
                         href='companies'
                     >
                         {text.readMore}
@@ -80,7 +85,7 @@ export default async function SmallInfo() {
                     <h2 className='heading-2'>{text.sponsor.title}</h2>
                     <p className='p-regular'>{text.sponsor.body}</p>
                     <a
-                        className='mt-4 p-[.7rem_1rem_.7rem_0] text-[1.3rem] w-fit block link link--primary link--corner-hover'
+                        className={readMoreLinkClassName}
                         href='https://www.mnemonic.io/'
                         target='_blank'
                     >

@@ -103,7 +103,7 @@ function CustomLink({ href, children }: CustomLinkProps) {
 
     return (
         <Link
-            className='link link--primary link--underscore-hover'
+            className='link link--primary hover:underline'
             href={String(href)}
             target='_blank'
             rel='noopener noreferrer'

@@ -58,8 +58,10 @@ export default async function LandingPage() {
                                 WebkitTextFillColor: 'transparent'
                             }}
                             className={clsx(
-                                'hero-login-wordmark inline-block bg-clip-text text-[3.5rem]',
+                                'inline-block bg-clip-text text-[3.5rem]',
                                 'pb-[0.08em] font-bold leading-[1.1em] text-transparent',
+                                'selection:bg-(--color-primary) selection:text-white',
+                                'selection:[-webkit-text-fill-color:white]',
                                 '800px:text-[4.4rem] 1000px:text-[5rem]',
                                 '1200px:text-[5.6rem]'
                             )}

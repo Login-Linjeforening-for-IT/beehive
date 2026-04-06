@@ -106,7 +106,7 @@ export default async function Fund() {
             >
                 <div className='fund-section_container fund-board'>
                     <h2 className='heading-2 heading-2--icon'>
-                        <Office className='w-12 h-12 fill-(--color-text-main) heading-2_icon'/>
+                        <Office className='w-12 h-12 fill-(--color-text-main) mr-[0.4em] text-[1.2em] leading-[inherit] align-top'/>
                         <span>{text.board.title}</span>
                     </h2>
                     <div className='flex flex-wrap justify-center gap-12 mb-16'>

@@ -67,7 +67,7 @@ export default async function Footer() {
                     </h4>
                     <p className='text-(--color-text-footer)'>
                         <a
-                            className='text-(--color-text-footer) link--underscore-hover'
+                            className='text-(--color-text-footer) hover:underline'
                             href={`mailto:${config.url.MAIL_URL}`}
                         >
                             {config.url.MAIL_URL}

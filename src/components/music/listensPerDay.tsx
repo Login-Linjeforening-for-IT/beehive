@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Chart from './chart'
+import clsx from '@utils/clsx'
 
 type ListensPerDayProps = {
     data: SongDay[]
@@ -108,7 +109,13 @@ export default function ListensPerDayChart({ data, text }: ListensPerDayProps) {
                         </text>
                     ))}
                 </div>
-                <div ref={scrollRef} className='w-full overflow-x-auto overflow-y-hidden noscroll'>
+                <div
+                    ref={scrollRef}
+                    className={clsx(
+                        'w-full overflow-x-auto overflow-y-hidden',
+                        '[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden'
+                    )}
+                >
                     <div style={{ width: `${width}px` }}>
 
                         <svg

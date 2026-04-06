@@ -52,7 +52,12 @@ export default async function JobadCard({ jobad, highlight = true, disableTags =
                         )}
                     </div>
                     <div>
-                        <div className='word-break mt-4 inline-block text-[1.1rem] leading-[1.3em] 400px:text-[1.3rem] 800px:text-[1.4rem]'>
+                        <div
+                            className={clsx(
+                                'mt-4 inline-block whitespace-pre-line hyphens-auto wrap-break-word',
+                                'text-[1.1rem] leading-[1.3em] 400px:text-[1.3rem] 800px:text-[1.4rem]'
+                            )}
+                        >
                             {lang === 'en' && jobad.title_en ? jobad.title_en : jobad.title_no}
                         </div>
                         <ul className='my-2 flex list-none flex-wrap gap-x-4'>

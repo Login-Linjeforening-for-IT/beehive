@@ -55,9 +55,9 @@ export function Users({
                 removePadding={true}
                 extraPadding={extraPadding}
             >
-                <div className='flex justify-center items-center p-8 w-full min-h-[300px]'>
+                <div className='flex justify-center items-center p-8 w-full min-h-75'>
                     {shouldFetch || isValidating ? <Loader /> : (
-                        <Button 
+                        <Button
                             href='#'
                             onClick={(e) => {
                                 e.preventDefault()

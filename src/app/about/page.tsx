@@ -37,9 +37,9 @@ export default async function About() {
             </section>
             <section className='page-section--normal mb-8 800px:mb-20'>
                 <h2 className='heading-2'>{text.about.title}</h2>
-                <div className='p-columns'>
+                <div className='800px:my-4 800px:columns-2 800px:gap-16 800px:[column-rule:0.2rem_solid_var(--color-border-default)]'>
                     <p
-                        className='p-highlighted'
+                        className='p-highlighted 800px:mt-0'
                         dangerouslySetInnerHTML={{ __html: text.about.intro }}
                     />
                     <p
@@ -63,7 +63,11 @@ export default async function About() {
                     className='p-regular'
                     dangerouslySetInnerHTML={{ __html: text.publicDocs.body }}
                 />
-                <ul className='list'>
+                <ul
+                    className='list-none [&>li]:text-(--color-text-regular) [&>li]:before:content-["\2022"]
+                        [&>li]:before:text-(--color-primary) [&>li]:before:font-bold
+                        [&>li]:before:inline-block [&>li]:before:w-[1em] [&>li]:before:ml-[0.5em]'
+                >
                     <li>{text.publicDocs.bulletPoints.agendas}</li>
                     <li>{text.publicDocs.bulletPoints.minutes}</li>
                     <li>{text.publicDocs.bulletPoints.budgets}</li>

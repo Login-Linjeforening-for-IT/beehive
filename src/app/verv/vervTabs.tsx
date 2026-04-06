@@ -19,7 +19,7 @@ import board_en from '@text/board/en.json'
 import data from '@text/board/data.json'
 export default function VervTabs({ lang }: { lang: Lang }) {
     const [activeTab, setActiveTab] = useState('evnt')
-    const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no } as any
+    const text = lang === 'en' ? { ...en, ...board_en } : { ...no, ...board_no }
 
 
     return (

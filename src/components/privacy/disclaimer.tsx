@@ -52,7 +52,7 @@ export default function PrivacyDisclaimer({ lang }: { lang: Lang }) {
                 onClick={handleHideForever}
                 className='text-xs text-primary-500 cursor-pointer'
             >{text.noshow}</h1>
-            <div className='h-1 bg-primary-500 w-0 mb-1 animate-slide-line rounded-lg' />
+            <div className='h-1 bg-primary-500 w-0 mb-1 rounded-lg animate-[slide_8s_linear_forwards]' />
         </div>
     )
 }

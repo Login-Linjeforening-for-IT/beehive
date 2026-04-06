@@ -32,7 +32,7 @@ export default async function Verv() {
                     {text.intro2}
                 </p>
             </section>
-            <section className='mb-8 800px:mb-20 page-section--full-width'>
+            <section className='mb-8 800px:mb-20 col-span-full'>
                 {/* @ts-ignore */}
                 <ImageCarousel slides={slides} />
             </section>
