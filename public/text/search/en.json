@@ -19,6 +19,7 @@
       "brave": "Brave Search"
     },
     "playback": {
+      "title": "Login Search",
       "idle": "Ready",
       "typing": "Typing query...",
       "submitting": "Submitting search...",

@@ -11,7 +11,11 @@ import useSWR from 'swr'
 import Button from '../button/button'
 
 type UsersProps = {
-    text: string[]
+    text: {
+        active: string
+        skipping: string
+        reveal: string
+    }
     mostActiveUsers?: MusicUser[]
     dropdown?: boolean
     open?: boolean
@@ -32,9 +36,7 @@ export function Users({
 }: UsersProps) {
     const musicUserCategories: MusicUserCategory[] = ['listens', 'skips']
     const [category, setCategory] = useState(only ?? 'listens' as MusicUserCategory)
-
     const [shouldFetch, setShouldFetch] = useState(false)
-
     const { data: usersData, isValidating } = useSWR(
         shouldFetch ? 'music_dashboard_users' : null,
         () => fetchUsers(),
@@ -65,7 +67,7 @@ export function Users({
                             }}
                             leadingIcon={<UsersIcon />}
                         >
-                            {text[2] || 'Load Users'}
+                            {text.reveal}
                         </Button>
                     )}
                 </div>

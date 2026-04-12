@@ -601,7 +601,11 @@ declare global {
         most_played_artists: string
         most_played_songs: string
         currently_playing: string
-        users: string[]
+        users: {
+            active: string
+            skipping: string
+            reveal: string
+        }
         mostx: MostX
         topx: TopX
     }
@@ -701,6 +705,8 @@ declare global {
     type Status = StatusOperational | StatusStarting | StatusDegraded
 
     type Issue = 'domains' | 'logs' | 'server' | 'pods'
+
+    type EngineKey = 'google' | 'duckduckgo' | 'brave'
 
     interface ExtendedNavigator extends Navigator {
         globalPrivacyControl: boolean

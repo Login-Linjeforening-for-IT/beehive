@@ -6,7 +6,11 @@ import PlayIcon from './playIcon'
 import clsx from '@utils/clsx'
 
 type CardProps<T> = {
-    text: string | string[]
+    text: {
+        active: string
+        skipping: string
+        reveal: string
+    }
     dropdown?: boolean
     open?: boolean
     setOpen?: Dispatch<SetStateAction<boolean>>
@@ -58,12 +62,8 @@ export default function Card<T>({
         }
     }
 
-    const display = current === 'listens'
-        ? (Array.isArray(text) ? text[0] : text)
-        : (Array.isArray(text) ? text[1] : text)
-    const opposite = current === 'listens'
-        ? (Array.isArray(text) ? text[1] : text)
-        : (Array.isArray(text) ? text[0] : text)
+    const display = current === 'listens' ? text.active : text.skipping
+    const opposite = current === 'listens' ? text.skipping : text.active
 
     return (
         <div className={`bg-(--color-bg-surface) rounded-lg w-full ${removePadding ? '' : 'p-4'} ${className}`}>
@@ -79,7 +79,7 @@ export default function Card<T>({
                 onClick={toggleOpen}
             >
                 <div className='flex gap-2 w-full'>
-                    {!changeValues && <h1 className={titleStyle}>{text}</h1>}
+                    {!changeValues && <h1 className={titleStyle}>{text.reveal}</h1>}
                     {changeValues && current && <h1 className={titleStyle}>
                         {display}
                     </h1>}

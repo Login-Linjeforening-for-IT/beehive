@@ -16,9 +16,10 @@
     "engines": {
       "google": "Google",
       "duckduckgo": "DuckDuckGo",
-      "brave": "Brave Search"
+      "brave": "Brave Søk"
     },
     "playback": {
+      "title": "Login Søk",
       "idle": "Klar",
       "typing": "Skriver søk...",
       "submitting": "Sender søk...",
