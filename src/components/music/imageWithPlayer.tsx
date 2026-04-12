@@ -76,14 +76,14 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
                 />
                 {isInsideAndNotPodcast && allowPlayer && (
                     <div className='absolute inset-0 bg-black/50 rounded-lg pt-2'>
-                        {playIconClickable ? <PlayIcon className='h-10 w-10 fill-white/90 stroke-0 z-10 ml-3 mt-[5px] cursor-events-none' />
-                            : <div className='-mt-[5px] pl-0.5'><Loader /></div>
+                        {playIconClickable ? <PlayIcon className='h-10 w-10 fill-white/90 stroke-0 z-10 ml-3 mt-1.25 cursor-events-none' />
+                            : <div className='-mt-1.25 pl-0.5'><Loader /></div>
                         }
                     </div>
                 )}
             </div>
             <div
-                className='absolute w-[70px] h-[70px] overflow-hidden'
+                className='absolute w-17.5 h-17.5 overflow-hidden'
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
@@ -95,8 +95,8 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
 
 const Frame = forwardRef<HTMLIFrameElement, { id: string }>(
     ({ id }, ref) => (
-        <div className='absolute w-[70px] h-[70px] overflow-hidden'>
-            <div className='max-w-[70px] h-[70px] overflow-hidden'
+        <div className='absolute w-17.5 h-17.5 overflow-hidden'>
+            <div className='max-w-17.5 h-17.5 overflow-hidden'
                 style={{
                     position: 'absolute',
                     top: 0,

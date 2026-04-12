@@ -92,7 +92,10 @@ export default function Alerts() {
                 </div>
             </Alert>
             <button
-                onClick={() => {setShowToast(false); setCookie('alertDismissed-' + alert.id, 'true', 1)}}
+                onClick={() => {
+                    setShowToast(false)
+                    setCookie('alertDismissed-' + alert.id, 'true', 1)
+                }}
                 className='absolute top-2 right-2 p-1 transition-colors cursor-pointer'
                 aria-label='Close alert'
             >

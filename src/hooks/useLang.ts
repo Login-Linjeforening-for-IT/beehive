@@ -9,7 +9,7 @@ export default function useLang<T extends object>(no: T, en: T) {
         const currentLang = getCookie('lang') || 'no'
         setLang(currentLang)
 
-        const handleLanguageChange = () => {
+        function handleLanguageChange() {
             setLang(getCookie('lang') || 'no')
         }
 
