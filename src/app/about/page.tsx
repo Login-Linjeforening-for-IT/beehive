@@ -25,7 +25,7 @@ export default async function About() {
                     '800px:flex-nowrap 800px:p-[1rem_0] about-intro_grid-container'}>
                     <StudyProgramsAcordion lang={lang} />
                     <DecoratedPicture
-                        imgUrl={`${config.url.CDN_URL}/img/board/group/styret_2026.jpg`}
+                        imgUrl={`${config.url.cdn}/img/board/group/styret_2026.jpg`}
                         variant={3}
                         cornerSize={90}
                         width={300}

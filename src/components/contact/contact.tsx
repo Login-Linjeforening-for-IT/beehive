@@ -32,9 +32,9 @@ export default function Contact() {
                     <p className='p-regular'>
                         <a
                             className='link link--primary hover:underline'
-                            href={`mailto:${config.url.MAIL_URL}`}
+                            href={`mailto:${config.url.mail}`}
                         >
-                            {config.url.MAIL_URL}
+                            {config.url.mail}
                         </a>
                     </p>
                 </div>

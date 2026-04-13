@@ -107,7 +107,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                             </div>
                             {event.image_small ? (
                                 <Image
-                                    src={config.url.CDN_URL + '/img/events/' + event.image_small}
+                                    src={config.url.cdn + '/img/events/' + event.image_small}
                                     alt={event.image_small}
                                     fill={true}
                                     className={bannerImageClassName}
@@ -157,7 +157,7 @@ export default async function EventListItem({ event, highlight = true, disableTa
                         <div className={listPictureClassName}>
                             {event.image_small ? (
                                 <Image
-                                    src={`${config.url.CDN_URL}/img/events/${event.image_small}`}
+                                    src={`${config.url.cdn}/img/events/${event.image_small}`}
                                     alt={event.image_small}
                                     fill={true}
                                     className={bannerImageClassName}

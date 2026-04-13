@@ -64,7 +64,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                             >
                                 {jobad?.organization?.logo ? (
                                     <Image
-                                        src={`${config.url.CDN_URL}/img/organizations/${jobad.organization.logo}`}
+                                        src={`${config.url.cdn}/img/organizations/${jobad.organization.logo}`}
                                         alt={jobad.organization.logo ?? 'Organization logo'}
                                         fill
                                         objectFit='contain'
@@ -189,7 +189,7 @@ export default async function JobadPage({ params }: PromisedPageProps) {
                     {jobad.banner_image && (
                         <div className='relative w-full aspect-10/4 [grid-area:ban] 800px:mb-8'>
                             <Image
-                                src={`${config.url.CDN_URL}/img/jobs/${jobad.banner_image}`}
+                                src={`${config.url.cdn}/img/jobs/${jobad.banner_image}`}
                                 alt={jobad.banner_image}
                                 fill={true}
                                 className='800px:rounded-(--border-radius)'

@@ -48,7 +48,7 @@ export default async function Topbar({ onlyLogo }: { onlyLogo: boolean }) {
                         {text.nav.fondet}
                     </div>
                 </NavItem>
-                <NavItem href={config.url.WIKI_URL} external target='_blank'>
+                <NavItem href={config.url.wiki} external target='_blank'>
                     <div className='flex flex-row items-center'>
                         <BookOpen className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
                         Wiki
@@ -56,7 +56,7 @@ export default async function Topbar({ onlyLogo }: { onlyLogo: boolean }) {
                 </NavItem>
             </NavDropdown>
             <NavDropdown title={text.nav.more} className='bg-(--color-bg-topbar-fallback)!'>
-                <NavItem href={config.url.EXAM_URL} external target='_blank'>
+                <NavItem href={config.url.exam} external target='_blank'>
                     <div className='flex flex-row items-center'>
                         <BookMarked className='size-6 stroke-(--color-text-regular) mr-[0.7rem]' />
                         {text.nav.exam}

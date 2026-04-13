@@ -42,7 +42,7 @@ export default async function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={`${config.url.CDN_URL}/img/board/group/styret_2026.jpg`}
+                    imgUrl={`${config.url.cdn}/img/board/group/styret_2026.jpg`}
                     variant={4}
                     cornerSize={40}
                     width={150}
@@ -67,7 +67,7 @@ export default async function SmallInfo() {
                     </Link>
                 </div>
                 <DecoratedPicture
-                    imgUrl={`${config.url.CDN_URL}/img/cyberdagen_preben.jpg`}
+                    imgUrl={`${config.url.cdn}/img/cyberdagen_preben.jpg`}
                     variant={2}
                     cornerSize={40}
                     width={150}
@@ -93,7 +93,7 @@ export default async function SmallInfo() {
                     </a>
                 </div>
                 <DecoratedPicture
-                    imgUrl={`${config.url.CDN_URL}${getSponsorPath()}`}
+                    imgUrl={`${config.url.cdn}${getSponsorPath()}`}
                     variant={0}
                     cornerSize={0}
                     width={100}

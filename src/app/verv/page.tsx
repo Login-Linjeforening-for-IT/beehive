@@ -13,7 +13,7 @@ export default async function Verv() {
 
     for (let i = 1; i <= 15; i++) {
         slides.push({
-            imgSrc: `${config.url.CDN_URL}/img/imagecarousel/${i}.jpg`,
+            imgSrc: `${config.url.cdn}/img/imagecarousel/${i}.jpg`,
             title: text.imageCarousel[String(i) as keyof typeof text.imageCarousel].title,
             description: text.imageCarousel[String(i) as keyof typeof text.imageCarousel].description,
         })

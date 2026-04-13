@@ -287,7 +287,7 @@ async function Event({ event }: { event: GetEventProps }) {
 
 async function EventBanner({ event }: EventBannerProps) {
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
-    const banner_url = `${config.url.CDN_URL}/img/events/${event.image_banner}`
+    const banner_url = `${config.url.cdn}/img/events/${event.image_banner}`
     if (!event || !((await fetch(banner_url)).status === 200)) {
         // @ts-ignore
         return getDefaultBanner(event?.category?.name_no, event?.category?.color)
@@ -296,7 +296,7 @@ async function EventBanner({ event }: EventBannerProps) {
     return (
         <>
             <Image
-                src={`${config.url.CDN_URL}/img/events/${event.image_banner}`}
+                src={`${config.url.cdn}/img/events/${event.image_banner}`}
                 alt={lang === 'no' ? event.name_no : event.name_en}
                 width={1000}
                 height={400}

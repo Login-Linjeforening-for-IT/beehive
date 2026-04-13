@@ -62,7 +62,7 @@ export default function ImageWithPlayer({ song, src, shouldRenderPlayer }: Playe
         }
     }, [clicked, left, song.song_id])
 
-    const url = src ?? `${config.url.SPOTIFY_IMAGE_API_URL}/${Array.isArray(song.image) ? song.image[0] : song.image}`
+    const url = src ?? `${config.url.spotifyImage}/${Array.isArray(song.image) ? song.image[0] : song.image}`
 
     return (
         <>
@@ -109,7 +109,7 @@ const Frame = forwardRef<HTMLIFrameElement, { id: string }>(
 
             <iframe
                 ref={ref}
-                src={`${config.url.SPOTIFY_EMBED_URL}/${id}?utm_source=login&theme=0`}
+                src={`${config.url.spotifyEmbed}/${id}?utm_source=login&theme=0`}
                 width='300'
                 height='80'
                 style={{

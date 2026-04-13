@@ -117,7 +117,7 @@ export default async function Fund() {
                         </div>
                         <div className='box-border flex-[1_1_20rem] my-auto max-w-132'>
                             <DecoratedPicture
-                                imgUrl={config.url.CDN_URL+'/img/fund/group.jpg'}
+                                imgUrl={config.url.cdn+'/img/fund/group.jpg'}
                                 variant={4}
                                 cornerSize={90}
                                 width={300}
@@ -133,7 +133,7 @@ export default async function Fund() {
                                 <LogChamp
                                     img={boardMembers[key].img == ''
                                         ? 'assets/img/placeholders/portrett_placeholder.svg'
-                                        : `${config.url.CDN_URL}/img/fund/${boardMembers[key].img}`}
+                                        : `${config.url.cdn}/img/fund/${boardMembers[key].img}`}
                                     name={boardMembers[key].name == ''
                                         ? boardMembers[key].title
                                         : boardMembers[key].name}

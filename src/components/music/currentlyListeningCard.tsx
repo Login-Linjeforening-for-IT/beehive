@@ -98,7 +98,7 @@ export default function CurrentlyListeningCard({ song }: { song: CurrentlyListen
 
     return (
         <Link
-            href={`${config.url.SPOTIFY_URL}${song.song_id}?utm_source=login`}
+            href={`${config.url.spotify}${song.song_id}?utm_source=login`}
             target='_blank'
             className={style}
             onMouseEnter={handleMouseEnter}

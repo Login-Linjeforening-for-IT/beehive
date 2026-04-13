@@ -59,7 +59,7 @@ export default function MostPlayed({
                 items={mostPlayedAlbums}
                 getImageHash={a => a.top_song_image}
                 getTitle={a => a.album}
-                getUrl={a => `${config.url.SPOTIFY_ALBUM_URL}/${a.album_id}`}
+                getUrl={a => `${config.url.spotifyAlbum}/${a.album_id}`}
                 getFirstLine={a => a.top_song}
                 getSecondLine={a => a.artist}
                 getCount={a => a.total_listens}
@@ -71,7 +71,7 @@ export default function MostPlayed({
             <TileMap
                 text={text.most_played_artists}
                 items={mostPlayedArtists}
-                getUrl={a => `${config.url.SPOTIFY_ARTIST_URL}/${a.artist_id}`}
+                getUrl={a => `${config.url.spotifyArtist}/${a.artist_id}`}
                 getImageHash={a => a.image}
                 getTitle={a => a.artist}
                 getFirstLine={a => a.album}

@@ -48,7 +48,7 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
             </h1>
             <div className='relative max-h-100 m-8'>
                 <Image
-                    src={`${config.url.CDN_URL}/img/pwned/${meme.image}`}
+                    src={`${config.url.cdn}/img/pwned/${meme.image}`}
                     className='object-contain w-auto h-100'
                     alt='meme'
                     width={400}
@@ -60,7 +60,7 @@ export default function PageClient({pwnedNumber, lang}: PageClientProps){
                     {memes.text.replace('{time}', `${String(time)} ${seconds}`)}
                 </p>
                 <Image
-                    src={`${config.url.CDN_URL}/img/login_shitty_thicc${isDark ? '_white' : ''}.png`}
+                    src={`${config.url.cdn}/img/login_shitty_thicc${isDark ? '_white' : ''}.png`}
                     className='object-contain w-6 h-6'
                     alt='meme'
                     width={40}

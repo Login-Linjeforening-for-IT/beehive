@@ -10,43 +10,37 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
     {
         name: 'Discord',
-        url: config.url.DISCORD_URL,
+        url: config.url.discord,
         iconClass: 'logfont-discord',
         hoverClass: 'hover:text-[#6571fd]'
     },
     {
         name: 'Instagram',
-        url: config.url.INSTAGRAM_URL,
+        url: config.url.instagram,
         iconClass: 'logfont-instagram',
         hoverClass: 'hover:text-transparent'
     },
     {
         name: 'Facebook',
-        url: config.url.FACEBOOK_URL,
+        url: config.url.facebook,
         iconClass: 'logfont-facebook',
         hoverClass: 'hover:text-[#2c87ff]'
     },
     {
         name: 'LinkedIn',
-        url: config.url.LINKEDIN_URL,
+        url: config.url.linkedin,
         iconClass: 'logfont-linkedin',
         hoverClass: 'hover:text-[#1a7bdd]'
     },
     {
         name: 'GitHub',
-        url: config.url.GITHUB_URL,
+        url: config.url.github,
         iconClass: 'logfont-github',
         hoverClass: 'hover:text-white'
     },
     {
-        name: 'GitLab',
-        url: config.url.GITLAB_URL,
-        iconClass: 'logfont-gitlab',
-        hoverClass: 'hover:text-[#f6492e]'
-    },
-    {
         name: 'Wiki',
-        url: config.url.WIKI_URL,
+        url: config.url.wiki,
         iconClass: 'logfont-wikijs',
         hoverClass: 'hover:text-[rgb(5,186,243)]'
     }

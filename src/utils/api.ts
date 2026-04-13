@@ -1,6 +1,6 @@
 import config from '@config'
 
-const baseUrl = config.url.WORKERBEE_API_URL
+const baseUrl = config.url.workerbee
 
 type GetParamsProps = {
     type?: string
@@ -116,12 +116,12 @@ export async function getAlbum(albumID: number): Promise<GetAlbumProps | string>
 
 // Status
 export async function getStatus(): Promise<Status> {
-    return await fetchWrapper(`${config.url.BEEKEEPER_URL}/status`)
+    return await fetchWrapper(`${config.url.beekeeper}/status`)
 }
 
 // Music
 export async function getActivity(): Promise<Music> {
-    const response = await fetchWrapper(`${config.url.TEKKOM_BOT_API_URL}/activity`)
+    const response = await fetchWrapper(`${config.url.tekkomBot}/activity`)
 
     if (typeof response === 'string') {
         console.error(response)
