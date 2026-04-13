@@ -13,7 +13,8 @@
     "more": "Mer",
     "status": "Status",
     "search": "Søk",
-    "internal": "Internside"
+    "internal": "Internside",
+    "ai": "Login GPT"
   },
   "footer": {
     "contactInfo": {
@@ -26,7 +27,7 @@
       "email": "Epost"
     },
     "sponsor": "Hovedsamarbeidspartner",
-    "copy1": "Opphavsrett &copy; ",
+    "copy1": "Opphavsrett &copy;",
     "copy2": " Login - Linjeforeningen for IT, NO 811 940 372"
   }
 }

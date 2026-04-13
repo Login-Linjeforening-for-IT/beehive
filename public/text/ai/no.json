@@ -1,0 +1,21 @@
+{
+    "help": "Hvordan kan jeg hjelpe?",
+    "models": "Tilgjengelige modeller",
+    "metrics": "Statistikk",
+    "user": "bruker",
+    "users": "brukere",
+    "active": "aktive",
+    "online": "Pålogget",
+    "offline": "Frakoblet",
+    "ask": [
+        "Spør om hva som helst.",
+        "Spør om en oblig.",
+        "Spør om et emne.",
+        "Spør om algmet."
+    ],
+    "empty": {
+        "title": "Ingen tilgjengelige modeller.",
+        "description": "Denne siden oppdateres når en modell blir tilgjengelig.",
+        "contact": "Kontakt TekKom dersom feilen vedvarer."
+    }
+}

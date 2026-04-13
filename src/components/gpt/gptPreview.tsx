@@ -1,17 +1,51 @@
-import { Sparkles } from 'lucide-react'
+import { ArrowUp, Sparkles } from 'lucide-react'
+import no from '@text/ai/no.json'
+import en from '@text/ai/en.json'
+import { getCookie } from 'utilbee'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import findHighestTPSClient from '@utils/findHighestTPSClient'
 
-export default function GPTPreview({ gpt }: { gpt: GPT }) {
+export default function GPTPreview({ gpt, random }: { gpt: GPT, random: number }) {
+    const [input, setInput] = useState('')
+    const lang = (getCookie('lang') || 'no') as Lang
+    const text = lang === 'no' ? no : en
     const model = 'Gjermund AI 1.0.0'
     const active = gpt.participants - gpt.clients.length - 1
+    const router = useRouter()
+
     function averageLoad(values: number[]) {
         return values.length
             ? Math.ceil(values.reduce((sum, value) => sum + value, 0) / values.length)
             : 0
     }
+
     function averageValue(values: number[]) {
         return values.length
             ? values.reduce((sum, value) => sum + value, 0) / values.length
             : 0
+    }
+
+    function handleSubmit(e: React.SubmitEvent<HTMLFormElement> | React.MouseEvent<HTMLSpanElement>) {
+        e.preventDefault()
+
+        if (!input.trim()) {
+            return
+        }
+
+        const client = gpt.activeClient || findHighestTPSClient(gpt.clients)
+        if (!client) {
+            return
+        }
+
+        let id = gpt.chatSession?.conversationId
+        if (!id) {
+            id = gpt.openChat(client)
+        }
+
+        gpt.sendPrompt(input)
+        setInput('')
+        router.push(`/ai/${id}`)
     }
 
     const totalLoad = {
@@ -34,27 +68,38 @@ export default function GPTPreview({ gpt }: { gpt: GPT }) {
                 justify-center gap-5'
         >
             <div className='w-full justify-center items-center mt-12'>
-                <h1 className='w-full text-center text-[1.35rem] mt-40'>Hvordan kan jeg hjelpe?</h1>
+                <h1 className='w-full text-center text-[1.35rem] mt-40'>{text.help}</h1>
             </div>
             <div
                 className='mx-auto w-full max-w-5xl rounded-full
                     border border-(--color-border-default)
                     bg-(--color-bg-surface) px-4 py-3 600px:px-8'
             >
-                <div className='flex items-center gap-3'>
+                <form onSubmit={handleSubmit} className='flex items-center gap-3'>
                     <Sparkles className='h-5 stroke-primary-500' />
                     <input
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
                         className='inline-block outline-none w-full'
-                        placeholder='Spør om hva som helst'
+                        placeholder={text.ask[random]}
                     />
                     {model && <span
                         className='rounded-full border border-(--color-border-default)
-                            bg-(--color-bg-body) px-3 py-1 text-[0.75rem] font-semibold
+                            bg-(--color-bg-body) px-4 py-2 text-[0.75rem] font-semibold
                             uppercase tracking-widest text-(--color-text-discreet) shrink-0'
                     >
                         {model}
                     </span>}
-                </div>
+                    {input.length > 0 && <span
+                        onClick={handleSubmit}
+                        className='rounded-full border cursor-pointer
+                            border-(--color-border-default) shrink-0
+                            bg-(--color-bg-body) p-2 text-[0.75rem] font-semibold
+                            uppercase tracking-widest text-(--color-text-discreet)'
+                    >
+                        <ArrowUp className='w-4 h-4' />
+                    </span>}
+                </form>
             </div>
 
             <div className='mx-auto flex items-center gap-2'>
@@ -63,20 +108,19 @@ export default function GPTPreview({ gpt }: { gpt: GPT }) {
                     animate-pulse h-2 w-2 rounded-full
                     `} />
                 <p className='text-center text-[1rem] font-semibold text-(--color-text-main)'>
-                    {!gpt ? 'Loading' : gpt.isConnected ? 'Online' : 'Offline'}
+                    {!gpt ? 'Loading' : gpt.isConnected ? text.online : text.offline}
                 </p>
             </div>
 
             <div className='mx-auto grid w-full max-w-5xl gap-3 1000px:grid-cols-2'>
-                <article
-                    className='rounded-(--border-radius) border border-(--color-border-default)
-                        bg-(--color-bg-surface) p-3'
+                <article className='rounded-(--border-radius) border
+                    border-(--color-border-default) bg-(--color-bg-surface) p-3'
                 >
                     <div className='w-40 rounded-full'>
-                        <h1 className='font-semibold'>Metrics</h1>
+                        <h1 className='font-semibold'>{text.metrics}</h1>
                     </div>
                     <div className='mt-0.5 w-full rounded-full opacity-85'>
-                        <h1 className='text-sm'>{active} {active === 1 ? 'user' : 'users'} active</h1>
+                        <h1 className='text-sm'>{active} {active === 1 ? text.user : text.users} {text.active}</h1>
                     </div>
                     <div className='h-px w-[85%] my-2 bg-linear-to-r from-(--color-text-disabled) to-transparent' />
                     <div className='mt-0.5 w-full rounded-full opacity-85 grid grid-cols-4'>
@@ -98,17 +142,15 @@ export default function GPTPreview({ gpt }: { gpt: GPT }) {
                         </div>
                     </div>
                 </article>
-                <article
-                    className='rounded-(--border-radius) border border-(--color-border-default)
-                        bg-(--color-bg-surface) p-3'
+                <article className='rounded-(--border-radius) border
+                    border-(--color-border-default) bg-(--color-bg-surface) p-3'
                 >
-                    <div
-                        className='w-56 rounded-full'
-                    ><h1>Available Models</h1></div>
-                    <div
-                        className='mt-2 w-full rounded-full
-                            opacity-85'
-                    >{gpt.clients.map((client) => <h1 key={client.name}>{client.name}</h1>)}</div>
+                    <div className='w-56 rounded-full'>
+                        <h1>{text.models}</h1>
+                    </div>
+                    <div className='mt-2 w-full rounded-full opacity-85'>
+                        {gpt.clients.map((client) => <h1 key={client.name}>{client.name}</h1>)}
+                    </div>
                 </article>
             </div>
         </div>

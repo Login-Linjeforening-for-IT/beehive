@@ -345,7 +345,7 @@ declare global {
     }
 
     type PromisedPageProps = {
-        params: Promise<{ id: number }>
+        params: Promise<{ id: number | string }>
     }
 
     type Lang = 'en' | 'no'
@@ -771,6 +771,7 @@ declare global {
         client?: GPT_Client
         conversationId?: string
         clientName?: string | null
+        messages?: GPT_ChatMessage[]
         delta?: string
         content?: string
         error?: string
@@ -783,7 +784,7 @@ declare global {
         clients: GPT_Client[]
         closeChat: () => void
         isConnected: boolean
-        openChat: (client: GPT_Client) => void
+        openChat: (client: GPT_Client) => string
         participants: number
         sendPrompt: (content: string) => void
     }

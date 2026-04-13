@@ -1,5 +1,5 @@
 import config from '@config'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import defaultModelMetrics from './defaultModelMetrics'
 import normalizeClient from './normalizeClient'
 
@@ -18,6 +18,7 @@ export default function useGptPageState() {
     const [isConnected, setIsConnected] = useState(false)
     const [participants, setParticipants] = useState(1)
     const [chatSession, setChatSession] = useState<ChatSession | null>(null)
+    const requestedConversationIdRef = useRef<string | null>(null)
     const socketRef = useRef<WebSocket | null>(null)
 
     useEffect(() => {
@@ -41,7 +42,13 @@ export default function useGptPageState() {
 
         ws.onmessage = (event) => {
             try {
-                handleSocketMessage(JSON.parse(event.data) as GptSocketMessage, setChatSession, setClients, setParticipants)
+                handleSocketMessage(
+                    JSON.parse(event.data) as GptSocketMessage,
+                    setChatSession,
+                    setClients,
+                    setParticipants,
+                    requestedConversationIdRef.current
+                )
             } catch (error) {
                 console.error('Invalid message from server:', error)
             }
@@ -61,16 +68,39 @@ export default function useGptPageState() {
     }, [isConnected])
 
     function openChat(client: GPT_Client) {
+        const id = crypto.randomUUID()
         setChatSession((prev) => prev?.clientName === client.name
             ? { ...prev, metrics: client.model }
             : {
                 clientName: client.name,
-                conversationId: crypto.randomUUID(),
+                conversationId: id,
                 messages: [],
                 isSending: false,
-                metrics: client.model || defaultModelMetrics(),
-            })
+                metrics: client.model || defaultModelMetrics()
+            }
+        )
+
+        return id
     }
+
+    const restoreChat = useCallback((conversationId: string) => {
+        if (!socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
+            return
+        }
+
+        const client = clients[0]
+        if (!client) {
+            return
+        }
+
+        requestedConversationIdRef.current = conversationId
+
+        socketRef.current.send(JSON.stringify({
+            type: 'history_request',
+            conversationId,
+            clientName: client.name,
+        }))
+    }, [clients])
 
     function sendPrompt(content: string) {
         if (!chatSession || !socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
@@ -117,6 +147,7 @@ export default function useGptPageState() {
         openChat,
         participants,
         sendPrompt,
+        restoreChat,
     }
 }
 
@@ -124,11 +155,15 @@ function handleSocketMessage(
     msg: GptSocketMessage,
     setChatSession: React.Dispatch<React.SetStateAction<ChatSession | null>>,
     setClients: React.Dispatch<React.SetStateAction<GPT_Client[]>>,
-    setParticipants: React.Dispatch<React.SetStateAction<number>>
+    setParticipants: React.Dispatch<React.SetStateAction<number>>,
+    requestedConversationId: string | null
 ) {
     switch (msg.type) {
         case 'update': {
-            if (!msg.client) return
+            if (!msg.client) {
+                return
+            }
+
             const normalizedClient = normalizeClient(msg.client)
             setParticipants(msg.participants || 0)
             setClients((prev) => {
@@ -149,14 +184,44 @@ function handleSocketMessage(
         case 'join':
             setParticipants(msg.participants || 0)
             return
+
         case 'prompt_started':
             return setChatSession((prev) => updatePromptStart(prev, msg))
+
         case 'prompt_delta':
             return setChatSession((prev) => updatePromptDelta(prev, msg))
+
         case 'prompt_complete':
             return setChatSession((prev) => updatePromptComplete(prev, msg))
+
         case 'prompt_error':
             return setChatSession((prev) => updatePromptError(prev, msg))
+
+        case 'history_provided': {
+            if (!msg.clientName || !msg.conversationId || !msg.messages) {
+                return
+            }
+
+            const clientName = msg.clientName
+            const conversationId = msg.conversationId
+            const messages = msg.messages
+            const metrics = msg.metrics || defaultModelMetrics()
+
+            return setChatSession((prev) => {
+                if (requestedConversationId && conversationId !== requestedConversationId) {
+                    return prev
+                }
+
+                return {
+                    clientName,
+                    conversationId,
+                    messages,
+                    isSending: false,
+                    metrics,
+                }
+            })
+        }
+
         default:
             return
     }
@@ -181,7 +246,7 @@ function updatePromptDelta(session: ChatSession | null, msg: GptSocketMessage) {
     if (lastMessage?.role === 'assistant') {
         messages[messages.length - 1] = {
             ...lastMessage,
-            content: msg.content || `${lastMessage.content}${msg.delta || ''}`,
+            content: msg.content ?? `${lastMessage.content}${msg.delta || ''}`,
             pending: true,
         }
     }
@@ -196,7 +261,7 @@ function updatePromptComplete(session: ChatSession | null, msg: GptSocketMessage
     if (lastMessage?.role === 'assistant') {
         messages[messages.length - 1] = {
             ...lastMessage,
-            content: msg.content || lastMessage.content,
+            content: msg.content ?? lastMessage.content,
             pending: false,
         }
     }

@@ -1,0 +1,21 @@
+{
+    "help": "How may I help?",
+    "models": "Available Models",
+    "metrics": "Metrics",
+    "user": "user",
+    "users": "users",
+    "active": "active",
+    "online": "Online",
+    "offline": "Pålogget",
+    "ask": [
+        "Ask about anything.",
+        "Ask about an oblig.",
+        "Ask about a course.",
+        "Ask about algmet."
+    ],
+    "empty": {
+        "title": "No GPTs connected",
+        "description": "This page will automatically update when a model becomes available.",
+        "contact": "Contact TekKom if the issue persists."
+    }
+}

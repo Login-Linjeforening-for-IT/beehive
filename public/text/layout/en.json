@@ -13,7 +13,8 @@
     "more": "More",
     "status": "Status",
     "search": "Search",
-    "internal": "Internal"
+    "internal": "Internal",
+    "ai": "Login GPT"
   },
   "footer": {
     "contactInfo": {
@@ -26,7 +27,7 @@
       "email": "Email"
     },
     "sponsor": "Main partner",
-    "copy1": "Copyright &copy; ",
+    "copy1": "Copyright &copy;",
     "copy2": " Login - Linjeforeningen for IT, NO 811 940 372"
   }
 }
