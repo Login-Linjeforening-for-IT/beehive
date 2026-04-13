@@ -7,7 +7,7 @@ import AlbumImages from '@components/albumImages'
 
 export default async function AlbumPage({ params }: PromisedPageProps) {
     const { id } = await params
-    const album = await getAlbum(id)
+    const album = await getAlbum(Number(id))
 
     if (typeof album === 'string') {
         notFound()

@@ -27,7 +27,7 @@ function deadlineWarning(deadline: Date) {
 
 export default async function JobadPage({ params }: PromisedPageProps) {
     const id = (await params).id
-    const jobads = await getJob(id)
+    const jobads = await getJob(Number(id))
     const jobad = typeof jobads === 'object' ? jobads : null
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
     const text = lang === 'no' ? no : en

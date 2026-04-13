@@ -33,9 +33,8 @@ type EventBannerProps = {
 
 export default async function EventPage({ params }: PromisedPageProps) {
     const id = (await params).id
-    const event = await getEvent(id)
+    const event = await getEvent(Number(id))
     const lang = ((await cookies()).get('lang')?.value || 'no') as Lang
-
     const errorMsg = lang === 'no' ? 'Oi! Her var det tomt... ' : 'Oh! Looks empty... '
 
     return (
