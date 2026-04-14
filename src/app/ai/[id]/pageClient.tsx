@@ -7,11 +7,13 @@ export default function PageClient({ id }: { id: string }) {
     const { isConnected, clients, restoreChat, chatSession } = useGptPageState()
 
     useEffect(() => {
-        if (!isConnected) return
-        if (!clients.length) return
-
+        console.log('1 before is connected')
+        if (!isConnected || !clients.length) return
+        console.log('2 before restore chat')
         restoreChat(id)
     }, [id, isConnected, clients.length, restoreChat])
+
+    console.log(chatSession?.messages)
 
     return (
         <div>

@@ -88,17 +88,10 @@ export default function useGptPageState() {
             return
         }
 
-        const client = clients[0]
-        if (!client) {
-            return
-        }
-
         requestedConversationIdRef.current = conversationId
-
         socketRef.current.send(JSON.stringify({
             type: 'history_request',
             conversationId,
-            clientName: client.name,
         }))
     }, [clients])
 
@@ -147,7 +140,7 @@ export default function useGptPageState() {
         openChat,
         participants,
         sendPrompt,
-        restoreChat,
+        restoreChat
     }
 }
 
@@ -198,9 +191,11 @@ function handleSocketMessage(
             return setChatSession((prev) => updatePromptError(prev, msg))
 
         case 'history_provided': {
+            console.log('10 received history')
             if (!msg.clientName || !msg.conversationId || !msg.messages) {
                 return
             }
+            console.log('11 history_provided after initial checks')
 
             const clientName = msg.clientName
             const conversationId = msg.conversationId

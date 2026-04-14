@@ -8,7 +8,7 @@ const config = {
         workerbee:  env.WORKERBEE_API_URL ?? 'https://workerbee.login.no/api/v2',
         tekkomBot: env.TEKKOM_BOT_API_URL ?? 'https://bot.login.no/api',
         beekeeper: env.BEEKEEPER_API_URL ?? 'https://beekeeper.login.no/api',
-        beekeeper_wss: env.BEEKEEPER_API_URL ?? 'https://beekeeper.login.no/api',
+        beekeeper_wss: 'wss://beekeeper.login.no/api',
         cdn,
         exam: 'https://exam.login.no',
         wiki: 'https://wiki.login.no',

@@ -10,8 +10,6 @@ const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 export default function page({ random }: { random: number }) {
     const gpt = useGptPageState()
 
-    // console.log(gpt)
-    // {gpt.clients.length ? <GPT_Content clients={gpt.clients} onTestClient={gpt.openChat} /> : <GPT_EmptyState />}
     return (
         <div className='page-container min-h-[calc(100vh-var(--h-topbar))]'>
             <div className='page-section--normal flex flex-col'>
