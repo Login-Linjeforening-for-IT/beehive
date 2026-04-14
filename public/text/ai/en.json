@@ -11,7 +11,14 @@
         "Ask about anything.",
         "Ask about an oblig.",
         "Ask about a course.",
-        "Ask about algmet."
+        "Ask about algmet.",
+        "Ask about Frode.",
+        "Ask about Frodes large numbers.",
+        "Ask about Frodekode.",
+        "Ask about FFST.",
+        "Ask about TekKom.",
+        "Ask about Login.",
+        "Ask about Gjermund."
     ],
     "empty": {
         "title": "No GPTs connected",

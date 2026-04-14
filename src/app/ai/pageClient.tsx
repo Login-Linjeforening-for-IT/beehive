@@ -7,7 +7,7 @@ import { Comic_Neue } from 'next/font/google'
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
-export default function page({ random }: { random: number }) {
+export default function page({ clients, random, lang }: { clients: number, random: number, lang: Lang }) {
     const gpt = useGptPageState()
 
     return (
@@ -17,7 +17,7 @@ export default function page({ random }: { random: number }) {
                     Login AI
                 </h1>
                 <h1 className={`${comicNeue.className} text-right text-lg pr-18 -mt-25 text-(--color-primary)`}>#GjermundAI</h1>
-                {gpt.clients.length ? <GPTPreview gpt={gpt} random={random}  /> : <GPT_EmptyState />}
+                {clients > 0 ? <GPTPreview gpt={gpt} random={random} lang={lang}  /> : <GPT_EmptyState />}
             </div>
         </div>
     )

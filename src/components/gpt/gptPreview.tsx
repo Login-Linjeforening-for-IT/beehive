@@ -1,14 +1,12 @@
 import { ArrowUp, Sparkles } from 'lucide-react'
 import no from '@text/ai/no.json'
 import en from '@text/ai/en.json'
-import { getCookie } from 'utilbee'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import findHighestTPSClient from '@utils/findHighestTPSClient'
 
-export default function GPTPreview({ gpt, random }: { gpt: GPT, random: number }) {
+export default function GPTPreview({ gpt, random, lang }: { gpt: GPT, random: number, lang: Lang }) {
     const [input, setInput] = useState('')
-    const lang = (getCookie('lang') || 'no') as Lang
     const text = lang === 'no' ? no : en
     const model = 'Gjermund AI 1.0.0'
     const active = gpt.participants - gpt.clients.length - 1

@@ -11,7 +11,14 @@
         "Spør om hva som helst.",
         "Spør om en oblig.",
         "Spør om et emne.",
-        "Spør om algmet."
+        "Spør om algmet.",
+        "Spør om Frode.",
+        "Spør om Frodes store tall.",
+        "Spør om Frodekode.",
+        "Spør om FFST.",
+        "Spør om TekKom.",
+        "Spør om Login.",
+        "Spør om Gjermund."
     ],
     "empty": {
         "title": "Ingen tilgjengelige modeller.",
