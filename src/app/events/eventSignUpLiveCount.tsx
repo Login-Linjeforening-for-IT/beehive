@@ -41,16 +41,18 @@ export default function EventSignUpLiveCount({ formName, lang }: Props) {
 
     return (
         <>
-            <div className='inline-flex text-(--color-text-discreet)'>
-                <ConfirmationNumber className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)' />
-                {registeredLabel}:
-            </div>
-            <div className='font-medium text-(--color-text-regular) wrap-break-word hyphens-auto'>
-                {data.limit !== null
-                    ? `${data.registered_count} / ${data.limit}`
-                    : data.registered_count}
-            </div>
-            {data.spaces_left !== null && (
+            {data.limit && data.limit !== null && (
+                <>
+                    <div className='inline-flex text-(--color-text-discreet)'>
+                        <ConfirmationNumber className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)' />
+                        {registeredLabel}:
+                    </div>
+                    <div className='font-medium text-(--color-text-regular) wrap-break-word hyphens-auto'>
+                        {data.registered_count} / {data.limit}
+                    </div>
+                </>
+            )}
+            {data.spaces_left && data.spaces_left !== null && (
                 <>
                     <div className='inline-flex text-(--color-text-discreet) text-nowrap'>
                         <Group className='w-8 pr-2 text-center leading-6 fill-(--color-text-discreet)' />
