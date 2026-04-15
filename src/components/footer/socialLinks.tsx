@@ -3,8 +3,11 @@ import config from '@config'
 interface SocialLink {
     name: string
     url: string
-    iconClass: string
-    hoverClass: string
+    iconClass?: string
+    hoverClass?: string
+    logoSrc?: string
+    logoContainerClass?: string
+    logoClass?: string
 }
 
 const socialLinks: SocialLink[] = [
@@ -43,6 +46,13 @@ const socialLinks: SocialLink[] = [
         url: config.url.wiki,
         iconClass: 'logfont-wikijs',
         hoverClass: 'hover:text-[rgb(5,186,243)]'
+    },
+    {
+        name: 'Norsk Tipping',
+        url: config.url.norskTipping,
+        logoSrc: '/img/Norsk_Tipping.svg',
+        logoContainerClass: 'w-[1.5rem] h-[1.5rem]',
+        logoClass: 'w-[1.5rem] h-[1.5rem]'
     }
 ]
 
@@ -54,18 +64,33 @@ export default function SocialLinks() {
             {socialLinks.map((link) => (
                 <a
                     key={link.name}
-                    className='flex items-center justify-center w-8 h-8 mx-auto'
+                    className='flex items-center justify-center w-8 h-8 mx-auto group'
                     href={link.url}
                     target='_blank'
                     rel='noreferrer'
                     aria-label={`Visit our ${link.name} page`}
                     title={link.name}
                 >
-                    <i className={`${baseIconStyle} ${link.iconClass} ${link.hoverClass}
-                        ${link.iconClass === 'logfont-instagram'
-                    ? 'bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text' : ''}`
-                    }
-                    />
+                    {link.logoSrc ? (
+                        <span
+                            aria-hidden='true'
+                            className={`flex items-center justify-center transition-all duration-200 ${link.logoContainerClass ?? ''} 
+                                brightness-0 invert opacity-100 group-hover:brightness-100 group-hover:invert-0`}
+                        >
+                            <img
+                                src={link.logoSrc}
+                                alt=''
+                                className={`block ${link.logoClass ?? ''}`}
+                            />
+                        </span>
+                    ) : (
+                        <i
+                            className={`${baseIconStyle} ${link.iconClass ?? ''} ${link.hoverClass ?? ''}
+                                ${link.iconClass === 'logfont-instagram'
+                            ? 'bg-[linear-gradient(45deg,#fff695_0%,#fff695_5%,#ff5445_45%,#ff37c0_60%,#3d6dff_90%)] bg-clip-text' : ''}`
+                            }
+                        />
+                    )}
                 </a>
             ))}
         </div>
