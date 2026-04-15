@@ -7,7 +7,8 @@ export const size = {
 }
 export const contentType = 'image/png'
 
-const wideBannerSrc = new URL('../../public/img/logo/logo-tekst-white.svg', import.meta.url).href
+const baseUrl = 'https://login.no'
+const wideBannerSrc = new URL('/img/logo/logo-tekst-white.svg', baseUrl).toString()
 
 export default function OpenGraphImage() {
     return new ImageResponse(
