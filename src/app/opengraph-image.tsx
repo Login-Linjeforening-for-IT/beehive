@@ -7,8 +7,7 @@ export const size = {
 }
 export const contentType = 'image/png'
 
-const logoSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><defs><style>.a{fill:#f08640;}.b{fill:#fff;}</style></defs><title>base-white</title><rect class="a" width="40" height="170"/><rect class="a" x="65" y="-65" width="40" height="170" transform="translate(105 -65) rotate(90)"/><rect class="a" x="495" y="-65" width="40" height="170" transform="translate(535 -495) rotate(90)"/><rect class="a" x="560" width="40" height="170" transform="translate(1160 170) rotate(180)"/><rect class="a" x="65" y="495" width="40" height="170" transform="translate(-495 665) rotate(-90)"/><rect class="a" y="430" width="40" height="170"/><rect class="a" x="560" y="430" width="40" height="170" transform="translate(1160 1030) rotate(180)"/><rect class="a" x="495" y="495" width="40" height="170" transform="translate(-65 1095) rotate(-90)"/><rect class="b" x="190" y="110" width="70" height="380"/><rect class="b" x="190" y="420" width="220" height="70"/></svg>'
-const logoDataUri = `data:image/svg+xml;utf8,${encodeURIComponent(logoSvg)}`
+const wideBannerSrc = new URL('../../public/img/logo/logo-tekst-white.svg', import.meta.url).href
 
 export default function OpenGraphImage() {
     return new ImageResponse(
@@ -27,25 +26,14 @@ export default function OpenGraphImage() {
                 }}
             >
                 <img
-                    src={logoDataUri}
-                    alt='Login Logo'
-                    width={340}
-                    height={340}
+                    src={wideBannerSrc}
+                    alt='Login Wide Banner'
+                    width={980}
+                    height={386}
                     style={{
-                        marginBottom: 26,
+                        objectFit: 'contain',
                     }}
                 />
-                <div
-                    style={{
-                        color: '#ffffff',
-                        fontSize: 46,
-                        fontWeight: 700,
-                        letterSpacing: 2,
-                        textAlign: 'center',
-                    }}
-                >
-                    LOGIN
-                </div>
             </div>
         ),
         {
