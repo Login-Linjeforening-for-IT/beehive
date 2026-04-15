@@ -18,7 +18,7 @@ const config = {
         mail: 'kontakt@login.no',
         facebook: 'https://facebook.com/LogNTNU',
         instagram: 'https://www.instagram.com/login_linjeforening/',
-        norskTipping: 'https://www.norsk-tipping.no',
+        norskTipping: 'https://www.norsk-tipping.no/grasrotandelen/din-mottaker/811940372',
         discord: 'https://discord.gg/login-ntnu',
         discordUser: 'https://discord.com/users/',
         spotifyImage: 'https://i.scdn.co/image',
