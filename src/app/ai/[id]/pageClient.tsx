@@ -2,7 +2,7 @@
 
 import en from '@text/ai/en.json'
 import no from '@text/ai/no.json'
-import { ArrowUp, Bot, MessageSquarePlus, Sparkles } from 'lucide-react'
+import { ArrowUp, Bot, MessageSquarePlus } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -10,6 +10,8 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import useGptPageState from '@components/gpt/useGptPageState'
 import findHighestTPSClient from '@utils/findHighestTPSClient'
+
+const SCROLL_FOLLOW_THRESHOLD = 96
 
 export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
     const {
@@ -28,12 +30,19 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
     const [selectedClient, setSelectedClient] = useState('')
     const [isSwitching, setIsSwitching] = useState(false)
     const router = useRouter()
+    const messageViewportRef = useRef<HTMLDivElement | null>(null)
     const textareaRef = useRef<HTMLTextAreaElement | null>(null)
-    const messagesEndRef = useRef<HTMLDivElement | null>(null)
+    const shouldFollowRef = useRef(true)
+    const hasPlacedInitialScrollRef = useRef(false)
 
     useEffect(() => {
         void restoreChat(id)
     }, [id, restoreChat])
+
+    useEffect(() => {
+        hasPlacedInitialScrollRef.current = false
+        shouldFollowRef.current = true
+    }, [id])
 
     useEffect(() => {
         const textarea = textareaRef.current
@@ -46,8 +55,42 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
     }, [input])
 
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-    }, [chatSession?.messages])
+        const viewport = messageViewportRef.current
+        if (!viewport) {
+            return
+        }
+
+        const handleScroll = () => {
+            const distanceFromBottom = viewport.scrollHeight - viewport.scrollTop - viewport.clientHeight
+            shouldFollowRef.current = distanceFromBottom < SCROLL_FOLLOW_THRESHOLD
+        }
+
+        handleScroll()
+        viewport.addEventListener('scroll', handleScroll)
+
+        return () => viewport.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    useEffect(() => {
+        const viewport = messageViewportRef.current
+        if (!viewport || !chatSession) {
+            return
+        }
+
+        if (!hasPlacedInitialScrollRef.current) {
+            viewport.scrollTop = viewport.scrollHeight
+            hasPlacedInitialScrollRef.current = true
+            shouldFollowRef.current = true
+            return
+        }
+
+        if (chatSession.isSending && shouldFollowRef.current) {
+            viewport.scrollTo({
+                top: viewport.scrollHeight,
+                behavior: 'smooth',
+            })
+        }
+    }, [chatSession?.conversationId, chatSession?.isSending, chatSession?.messages])
 
     const isActiveClientAvailable = useMemo(() => {
         if (!chatSession) {
@@ -74,13 +117,11 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
-        if (!chatSession || !input.trim()) {
+        if (!chatSession || !input.trim() || !isActiveClientAvailable) {
             return
         }
 
-        if (!isActiveClientAvailable) {
-            return
-        }
+        shouldFollowRef.current = true
 
         const didSend = sendPrompt(input, chatSession)
         if (didSend) {
@@ -95,31 +136,42 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
 
         try {
             setIsSwitching(true)
+            shouldFollowRef.current = true
             await switchConversationClient(chatSession.conversationId, selectedClient)
         } finally {
             setIsSwitching(false)
         }
     }
 
+    function getConversationClassName(isActive: boolean) {
+        return isActive
+            ? 'border-(--color-primary) bg-(--color-bg-body)'
+            : `border-transparent bg-transparent
+                hover:border-(--color-border-default)
+                hover:bg-(--color-bg-body)`
+    }
+
     return (
-        <div className='page-container min-h-[calc(100vh-var(--h-topbar))]'>
-            <div className='page-section--normal h-[calc(100vh-var(--h-topbar)-2rem)] py-6'>
-                <div className='grid h-full gap-4 lg:grid-cols-[minmax(260px,20%)_minmax(0,80%)]'>
+        <div>
+            <div className='page-section--without-gaps h-[calc(100vh-var(--h-topbar))]'>
+                <div className='grid h-full min-h-0 grid-cols-1 1000px:grid-cols-[18rem_minmax(0,1fr)]'>
                     <aside
-                        className='flex h-full min-h-0 flex-col rounded-4xl border
-                            border-(--color-border-default) bg-(--color-bg-surface) p-4'
+                        className='flex min-h-0 flex-col border-b border-(--color-border-default)
+                            bg-(--color-bg-surface) px-4 py-4 1000px:border-r
+                            1000px:border-b-0 1000px:px-5'
                     >
                         <Link
                             href='/ai'
-                            className='flex items-center justify-center gap-2 rounded-2xl border border-(--color-border-default)
-                                bg-(--color-bg-body) px-4 py-3 text-sm font-semibold text-(--color-text-main) transition hover:opacity-85'
+                            className='flex items-center gap-2 rounded-lg
+                                py-2 text-sm font-semibold text-(--color-text-main)
+                                transition hover:bg-(--color-bg-main)'
                         >
                             <MessageSquarePlus className='h-4 w-4' />
                             {text.newChat}
                         </Link>
 
                         <div className='mt-5 flex items-center justify-between'>
-                            <h2 className='text-xs font-semibold uppercase tracking-[0.18em] text-(--color-text-discreet)'>
+                            <h2 className='text-xs font-semibold tracking-[0.18em] text-(--color-text-discreet)'>
                                 {text.previousChats}
                             </h2>
                             <span className='text-xs text-(--color-text-discreet)'>
@@ -135,61 +187,24 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                     <button
                                         key={conversation.id}
                                         onClick={() => router.push(`/ai/${conversation.id}`)}
-                                        className={`w-full rounded-2xl border p-3 text-left transition
-                                            ${isActive
-                                        ? 'border-(--color-primary) bg-(--color-bg-body)'
-                                        : 'border-(--color-border-default) bg-transparent hover:bg-(--color-bg-body)'}`}
+                                        className={`w-full p-3 rounded-lg
+                                            text-left transition cursor-pointer
+                                         ${getConversationClassName(isActive)}`}
                                     >
                                         <div className='flex items-start justify-between gap-3'>
                                             <p className='line-clamp-2 text-sm font-semibold text-(--color-text-main)'>
                                                 {conversation.title}
                                             </p>
-                                            <Sparkles className='mt-0.5 h-4 w-4 shrink-0 text-(--color-primary)' />
                                         </div>
-                                        <p className='mt-2 text-xs text-(--color-text-discreet)'>
-                                            {conversation.activeClientName}
-                                        </p>
-                                        <p className='mt-2 line-clamp-2 text-xs text-(--color-text-discreet)'>
-                                            {conversation.lastMessagePreview || text.noMessages}
-                                        </p>
                                     </button>
                                 )
                             })}
                         </div>
                     </aside>
 
-                    <section
-                        className='flex h-full min-h-0 flex-col rounded-4xl border
-                            border-(--color-border-default) bg-(--color-bg-surface)'
-                    >
-                        <header
-                            className='flex flex-col gap-4 border-b border-(--color-border-default)
-                                px-6 py-5 lg:flex-row lg:items-center lg:justify-between'
-                        >
-                            <div>
-                                <h1 className='text-2xl font-semibold text-(--color-text-main)'>
-                                    {chatSession?.title || text.titleFallback}
-                                </h1>
-                                <p className='mt-1 text-sm text-(--color-text-discreet)'>
-                                    {chatSession
-                                        ? `${text.agent}: ${chatSession.clientName}`
-                                        : isLoadingChat
-                                            ? text.loadingConversation
-                                            : text.notFound}
-                                </p>
-                            </div>
-
-                            <div className='flex items-center gap-3 text-sm text-(--color-text-discreet)'>
-                                <span
-                                    className={`h-2.5 w-2.5 rounded-full
-                                        ${isConnected ? 'bg-emerald-500' : 'bg-red-500'}`}
-                                />
-                                {isConnected ? text.liveConnection : text.reconnecting}
-                            </div>
-                        </header>
-
+                    <section className='flex min-h-0 flex-col bg-(--color-bg-main)'>
                         {!isActiveClientAvailable && chatSession ? (
-                            <div className='border-b border-(--color-border-default) bg-amber-50/50 px-6 py-4'>
+                            <div className='border-b border-(--color-border-default) bg-amber-50/50 px-5 py-4 1000px:px-8'>
                                 <div className='flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between'>
                                     <div>
                                         <p className='font-semibold text-amber-900'>
@@ -204,8 +219,8 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                         <select
                                             value={selectedClient}
                                             onChange={(event) => setSelectedClient(event.target.value)}
-                                            className='rounded-xl border border-amber-300 bg-white
-                                                px-3 py-2 text-sm text-slate-900 outline-none'
+                                            className='rounded-(--border-radius) border border-amber-300
+                                                bg-white px-3 py-2 text-sm text-slate-900 outline-none'
                                         >
                                             {clients.map((client) => (
                                                 <option key={client.name} value={client.name}>
@@ -217,9 +232,9 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                             type='button'
                                             onClick={handleSwitchClient}
                                             disabled={!selectedClient || isSwitching || !clients.length}
-                                            className='rounded-xl bg-amber-500 px-4 py-2 text-sm
-                                                font-semibold text-white disabled:cursor-not-allowed
-                                                disabled:opacity-60'
+                                            className='rounded-(--border-radius) bg-amber-500 px-4 py-2
+                                                text-sm font-semibold text-white
+                                                disabled:cursor-not-allowed disabled:opacity-60'
                                         >
                                             {isSwitching ? text.switching : text.continueOnAnotherModel}
                                         </button>
@@ -228,7 +243,10 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                             </div>
                         ) : null}
 
-                        <div className='flex-1 overflow-y-auto px-4 py-5 lg:px-6'>
+                        <div
+                            ref={messageViewportRef}
+                            className='flex-1 overflow-y-auto px-5 py-5 1000px:px-8'
+                        >
                             {isLoadingChat ? (
                                 <div className='flex h-full items-center justify-center text-sm text-(--color-text-discreet)'>
                                     {text.loadingConversation}
@@ -246,21 +264,12 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                     </div>
                                 </div>
                             ) : (
-                                <div className='mx-auto flex max-w-4xl flex-col gap-4'>
+                                <div className='mx-auto flex min-h-full w-full max-w-5xl flex-col justify-end gap-4'>
                                     {chatSession.messages.map((message) => (
                                         <article
                                             key={message.id}
-                                            className={`max-w-[92%] rounded-[1.75rem] px-4 py-3 shadow-sm
-                                                ${message.role === 'user'
-                                            ? 'ml-auto bg-(--color-primary) text-white'
-                                            : message.role === 'system'
-                                                ? `mx-auto w-full max-w-full border border-dashed
-                                                            border-(--color-border-default)
-                                                            bg-(--color-bg-body)
-                                                            text-(--color-text-discreet)`
-                                                : message.error
-                                                    ? 'border border-red-200 bg-red-50 text-red-900'
-                                                    : 'bg-(--color-bg-body) text-(--color-text-main)'}`}
+                                            className={`max-w-[90%] rounded-(--border-radius-large)
+                                                px-4 py-3 ${getMessageClassName(message)}`}
                                         >
                                             <div
                                                 className='mb-2 flex items-center gap-2 text-[0.7rem]
@@ -273,8 +282,8 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                             <div
                                                 className='prose prose-sm max-w-none text-current
                                                     prose-p:my-2 prose-pre:overflow-x-auto
-                                                    prose-pre:rounded-2xl prose-pre:bg-black/80
-                                                    prose-pre:p-4'
+                                                    prose-pre:rounded-(--border-radius)
+                                                    prose-pre:bg-black/80 prose-pre:p-4'
                                             >
                                                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                                     {message.content || '...'}
@@ -282,16 +291,16 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                             </div>
                                         </article>
                                     ))}
-                                    <div ref={messagesEndRef} />
                                 </div>
                             )}
                         </div>
 
-                        <div className='border-t border-(--color-border-default) px-4 py-4 lg:px-6'>
+                        <div className='px-5 py-4 1000px:px-8'>
                             <form
                                 onSubmit={handleSubmit}
-                                className='mx-auto flex max-w-4xl items-end gap-3 rounded-[1.75rem]
-                                    border border-(--color-border-default) bg-(--color-bg-body) p-3'
+                                className='mx-auto flex w-full max-w-5xl items-end gap-3
+                                    rounded-full border
+                                    border-(--color-border-default) bg-(--color-bg-surface) p-2 px-6'
                             >
                                 <textarea
                                     ref={textareaRef}
@@ -308,8 +317,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                     placeholder={chatSession && isActiveClientAvailable
                                         ? text.askFollowup
                                         : text.connectToModel}
-                                    className='min-h-7 w-full resize-none overflow-y-auto
-                                        bg-transparent outline-none'
+                                    className='min-h-7.5 w-full resize-none overflow-y-auto bg-transparent outline-none'
                                 />
                                 <button
                                     type='submit'
@@ -319,16 +327,54 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                         || !isActiveClientAvailable
                                         || chatSession.isSending
                                     }
-                                    className='rounded-full bg-(--color-primary) p-3 text-white
-                                        transition disabled:cursor-not-allowed disabled:opacity-50'
+                                    className='rounded-full bg-(--color-primary) p-3
+                                        text-white transition disabled:cursor-not-allowed
+                                        disabled:opacity-50'
                                 >
                                     <ArrowUp className='h-4 w-4' />
                                 </button>
                             </form>
+                        </div>
+                        <div className='p-2 w-full h-12'>
+                            <div className='bg-(--color-bg-surface) rounded-lg w-full h-full flex gap-2 justify-center items-center'>
+                                <div className='flex items-center gap-3 text-sm text-(--color-text-discreet)'>
+                                    <span
+                                        className={`h-2.5 w-2.5 rounded-full
+                                            ${isConnected ? 'bg-emerald-500' : 'bg-red-500'}`}
+                                    />
+                                    {isConnected ? text.liveConnection : text.reconnecting}
+                                </div>
+                                <div className='w-px h-[70%] bg-(--color-bg-surface-raised)' />
+                                <p className='text-sm text-(--color-text-discreet)'>
+                                    {chatSession
+                                        ? `${text.agent}: ${chatSession.clientName}`
+                                        : isLoadingChat
+                                            ? text.loadingConversation
+                                            : text.notFound}
+                                </p>
+                            </div>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     )
+}
+
+function getMessageClassName(message: GPT_ChatMessage) {
+    if (message.role === 'user') {
+        return 'ml-auto bg-(--color-primary) text-white'
+    }
+
+    if (message.role === 'system') {
+        return `mx-auto w-full max-w-full border border-dashed shadow-none
+            border-(--color-border-default) bg-(--color-bg-body)
+            text-(--color-text-discreet)`
+    }
+
+    if (message.error) {
+        return 'border border-red-200 bg-red-50 text-red-900 shadow-none'
+    }
+
+    return 'border border-(--color-border-default) bg-(--color-bg-surface) text-(--color-text-main)'
 }

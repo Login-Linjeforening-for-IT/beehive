@@ -22,7 +22,12 @@ export default function useGptPageState() {
     const [isLoadingConversations, setIsLoadingConversations] = useState(true)
     const [isLoadingChat, setIsLoadingChat] = useState(false)
     const [chatSession, setChatSession] = useState<ChatSession | null>(null)
+    const clientsRef = useRef<GPT_Client[]>([])
     const socketRef = useRef<WebSocket | null>(null)
+
+    useEffect(() => {
+        clientsRef.current = clients
+    }, [clients])
 
     useEffect(() => {
         const ws = new WebSocket(`${config.url.beekeeper_wss}/client/ws/beeswarm`)
@@ -124,7 +129,7 @@ export default function useGptPageState() {
             const conversation = await getAiConversation(conversationId)
             setChatSession(mapStoredConversationToSession(
                 conversation,
-                clients.find((client) => client.name === conversation.activeClientName) || null
+                clientsRef.current.find((client) => client.name === conversation.activeClientName) || null
             ))
         } catch (error) {
             console.error('Failed to restore chat', error)
@@ -132,7 +137,7 @@ export default function useGptPageState() {
         } finally {
             setIsLoadingChat(false)
         }
-    }, [clients])
+    }, [])
 
     async function switchConversationClient(conversationId: string, clientName: string) {
         try {

@@ -27,7 +27,7 @@
     },
     "conversation": {
         "newChat": "New chat",
-        "previousChats": "Previous chats",
+        "previousChats": "Previous",
         "loading": "Loading...",
         "noMessages": "No messages yet.",
         "titleFallback": "Conversation",

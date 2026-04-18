@@ -27,7 +27,7 @@
     },
     "conversation": {
         "newChat": "Ny samtale",
-        "previousChats": "Tidligere samtaler",
+        "previousChats": "Nylige",
         "loading": "Laster...",
         "noMessages": "Ingen meldinger ennå.",
         "titleFallback": "Samtale",
