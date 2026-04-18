@@ -160,6 +160,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                             bg-(--color-bg-surface) px-4 py-4 1000px:border-r
                             1000px:border-b-0 1000px:px-5'
                     >
+                        {/* new chat */}
                         <Link
                             href='/ai'
                             className='flex items-center gap-2 rounded-lg
@@ -170,6 +171,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                             {text.newChat}
                         </Link>
 
+                        {/* previous chats header */}
                         <div className='mt-5 flex items-center justify-between'>
                             <h2 className='text-xs font-semibold tracking-[0.18em] text-(--color-text-discreet)'>
                                 {text.previousChats}
@@ -179,6 +181,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                             </span>
                         </div>
 
+                        {/* previous chats */}
                         <div className='mt-4 flex-1 space-y-2 overflow-y-auto pr-1'>
                             {conversations.map((conversation) => {
                                 const isActive = conversation.id === id
@@ -243,6 +246,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                             </div>
                         ) : null}
 
+                        {/* messages */}
                         <div
                             ref={messageViewportRef}
                             className='flex-1 overflow-y-auto px-5 py-5 1000px:px-8'
@@ -268,17 +272,9 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                     {chatSession.messages.map((message) => (
                                         <article
                                             key={message.id}
-                                            className={`max-w-[90%] rounded-(--border-radius-large)
+                                            className={`max-w-[90%] rounded-lg
                                                 px-4 py-3 ${getMessageClassName(message)}`}
                                         >
-                                            <div
-                                                className='mb-2 flex items-center gap-2 text-[0.7rem]
-                                                    font-semibold uppercase tracking-[0.18em] opacity-70'
-                                            >
-                                                <span>{message.role}</span>
-                                                {message.clientName ? <span>{message.clientName}</span> : null}
-                                                {message.pending ? <span>{text.thinking}</span> : null}
-                                            </div>
                                             <div
                                                 className='prose prose-sm max-w-none text-current
                                                     prose-p:my-2 prose-pre:overflow-x-auto
@@ -295,6 +291,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                             )}
                         </div>
 
+                        {/* prompt field */}
                         <div className='px-5 py-4 1000px:px-8'>
                             <form
                                 onSubmit={handleSubmit}
@@ -335,6 +332,8 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
                                 </button>
                             </form>
                         </div>
+
+                        {/* footer */}
                         <div className='p-2 w-full h-12'>
                             <div className='bg-(--color-bg-surface) rounded-lg w-full h-full flex gap-2 justify-center items-center'>
                                 <div className='flex items-center gap-3 text-sm text-(--color-text-discreet)'>
@@ -363,7 +362,7 @@ export default function PageClient({ id, lang }: { id: string, lang: Lang }) {
 
 function getMessageClassName(message: GPT_ChatMessage) {
     if (message.role === 'user') {
-        return 'ml-auto bg-(--color-primary) text-white'
+        return 'ml-auto bg-(--color-bg-surface)/80 text-white'
     }
 
     if (message.role === 'system') {
@@ -376,5 +375,5 @@ function getMessageClassName(message: GPT_ChatMessage) {
         return 'border border-red-200 bg-red-50 text-red-900 shadow-none'
     }
 
-    return 'border border-(--color-border-default) bg-(--color-bg-surface) text-(--color-text-main)'
+    return ''
 }
