@@ -1,7 +1,7 @@
 import { ArrowUp, Sparkles } from 'lucide-react'
 import no from '@text/ai/no.json'
 import en from '@text/ai/en.json'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import findHighestTPSClient from '@utils/findHighestTPSClient'
 
@@ -11,6 +11,17 @@ export default function GPTPreview({ gpt, random, lang }: { gpt: GPT, random: nu
     const model = 'Gjermund AI 1.0.0'
     const active = gpt.participants - gpt.clients.length - 1
     const router = useRouter()
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+
+    useEffect(() => {
+        const textarea = textareaRef.current
+        if (!textarea) {
+            return
+        }
+
+        textarea.style.height = '0px'
+        textarea.style.height = `${Math.min(textarea.scrollHeight, 220)}px`
+    }, [input])
 
     function averageLoad(values: number[]) {
         return values.length
@@ -24,7 +35,7 @@ export default function GPTPreview({ gpt, random, lang }: { gpt: GPT, random: nu
             : 0
     }
 
-    function handleSubmit(e: React.SubmitEvent<HTMLFormElement> | React.MouseEvent<HTMLSpanElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
         if (!input.trim()) {
@@ -36,14 +47,18 @@ export default function GPTPreview({ gpt, random, lang }: { gpt: GPT, random: nu
             return
         }
 
-        let id = gpt.chatSession?.conversationId
-        if (!id) {
-            id = gpt.openChat(client)
+        let session = gpt.chatSession
+        if (!session) {
+            session = await gpt.openChat(client)
         }
 
-        gpt.sendPrompt(input)
+        if (!session) {
+            return
+        }
+
+        gpt.sendPrompt(input, session)
         setInput('')
-        router.push(`/ai/${id}`)
+        router.push(`/ai/${session.conversationId}`)
     }
 
     const totalLoad = {
@@ -73,12 +88,20 @@ export default function GPTPreview({ gpt, random, lang }: { gpt: GPT, random: nu
                     border border-(--color-border-default)
                     bg-(--color-bg-surface) px-4 py-3 600px:px-8'
             >
-                <form onSubmit={handleSubmit} className='flex items-center gap-3'>
+                <form onSubmit={handleSubmit} className='flex items-end gap-3'>
                     <Sparkles className='h-5 stroke-primary-500' />
-                    <input
+                    <textarea
+                        ref={textareaRef}
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        className='inline-block outline-none w-full'
+                        rows={1}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey) {
+                                e.preventDefault()
+                                e.currentTarget.form?.requestSubmit()
+                            }
+                        }}
+                        className='inline-block w-full resize-none overflow-y-auto bg-transparent outline-none'
                         placeholder={text.ask[random]}
                     />
                     {model && <span
@@ -88,15 +111,15 @@ export default function GPTPreview({ gpt, random, lang }: { gpt: GPT, random: nu
                     >
                         {model}
                     </span>}
-                    {input.length > 0 && <span
-                        onClick={handleSubmit}
+                    {input.length > 0 && <button
+                        type='submit'
                         className='rounded-full border cursor-pointer
                             border-(--color-border-default) shrink-0
                             bg-(--color-bg-body) p-2 text-[0.75rem] font-semibold
                             uppercase tracking-widest text-(--color-text-discreet)'
                     >
                         <ArrowUp className='w-4 h-4' />
-                    </span>}
+                    </button>}
                 </form>
             </div>
 

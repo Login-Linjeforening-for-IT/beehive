@@ -1,4 +1,5 @@
 import config from '@config'
+import { createAiConversation, getAiConversation, listAiConversations, switchAiConversationClient } from '@utils/ai'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import defaultModelMetrics from './defaultModelMetrics'
 import normalizeClient from './normalizeClient'
@@ -17,8 +18,10 @@ export default function useGptPageState() {
     const [reconnect, setReconnect] = useState(false)
     const [isConnected, setIsConnected] = useState(false)
     const [participants, setParticipants] = useState(1)
+    const [conversations, setConversations] = useState<ChatConversationSummary[]>([])
+    const [isLoadingConversations, setIsLoadingConversations] = useState(true)
+    const [isLoadingChat, setIsLoadingChat] = useState(false)
     const [chatSession, setChatSession] = useState<ChatSession | null>(null)
-    const requestedConversationIdRef = useRef<string | null>(null)
     const socketRef = useRef<WebSocket | null>(null)
 
     useEffect(() => {
@@ -47,7 +50,7 @@ export default function useGptPageState() {
                     setChatSession,
                     setClients,
                     setParticipants,
-                    requestedConversationIdRef.current
+                    () => void loadConversations()
                 )
             } catch (error) {
                 console.error('Invalid message from server:', error)
@@ -67,60 +70,129 @@ export default function useGptPageState() {
         return () => clearTimeout(timeout)
     }, [isConnected])
 
-    function openChat(client: GPT_Client) {
-        const id = crypto.randomUUID()
-        setChatSession((prev) => prev?.clientName === client.name
-            ? { ...prev, metrics: client.model }
-            : {
-                clientName: client.name,
-                conversationId: id,
-                messages: [],
-                isSending: false,
-                metrics: client.model || defaultModelMetrics()
-            }
-        )
-
-        return id
-    }
-
-    const restoreChat = useCallback((conversationId: string) => {
-        if (!socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
-            return
+    const loadConversations = useCallback(async () => {
+        try {
+            setIsLoadingConversations(true)
+            setConversations(await listAiConversations())
+        } catch (error) {
+            console.error('Failed to load conversations', error)
+        } finally {
+            setIsLoadingConversations(false)
         }
+    }, [])
 
-        requestedConversationIdRef.current = conversationId
-        socketRef.current.send(JSON.stringify({
-            type: 'history_request',
-            conversationId,
-        }))
+    useEffect(() => {
+        void loadConversations()
+    }, [loadConversations])
+
+    useEffect(() => {
+        setChatSession((prev) => {
+            if (!prev) {
+                return prev
+            }
+
+            const activeClient = clients.find((client) => client.name === prev.clientName)
+            return activeClient
+                ? { ...prev, metrics: activeClient.model || prev.metrics }
+                : prev
+        })
     }, [clients])
 
-    function sendPrompt(content: string) {
-        if (!chatSession || !socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
-            return
+    async function openChat(client: GPT_Client | string) {
+        const clientName = typeof client === 'string' ? client : client.name
+
+        try {
+            const conversation = await createAiConversation(clientName)
+            const session = mapStoredConversationToSession(
+                conversation,
+                typeof client === 'string'
+                    ? clients.find((entry) => entry.name === clientName) || null
+                    : client
+            )
+            setChatSession(session)
+            await loadConversations()
+            return session
+        } catch (error) {
+            console.error('Failed to create conversation', error)
+            return null
+        }
+    }
+
+    const restoreChat = useCallback(async (conversationId: string) => {
+        try {
+            setIsLoadingChat(true)
+            const conversation = await getAiConversation(conversationId)
+            setChatSession(mapStoredConversationToSession(
+                conversation,
+                clients.find((client) => client.name === conversation.activeClientName) || null
+            ))
+        } catch (error) {
+            console.error('Failed to restore chat', error)
+            setChatSession(null)
+        } finally {
+            setIsLoadingChat(false)
+        }
+    }, [clients])
+
+    async function switchConversationClient(conversationId: string, clientName: string) {
+        try {
+            const conversation = await switchAiConversationClient(conversationId, clientName)
+            const session = mapStoredConversationToSession(
+                conversation,
+                clients.find((client) => client.name === conversation.activeClientName) || null
+            )
+            setChatSession(session)
+            await loadConversations()
+            return session
+        } catch (error) {
+            console.error('Failed to switch conversation client', error)
+            return null
+        }
+    }
+
+    function sendPrompt(content: string, sessionOverride?: ChatSession | null) {
+        const session = sessionOverride || chatSession
+        if (!session || !socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
+            return false
         }
 
-        const userMessage: GPT_ChatMessage = { id: crypto.randomUUID(), role: 'user', content }
-        const requestMessages = [...chatSession.messages, userMessage]
-            .filter(message => message.role === 'user' || message.role === 'assistant')
+        const userMessage: GPT_ChatMessage = {
+            id: crypto.randomUUID(),
+            role: 'user',
+            content,
+            createdAt: new Date().toISOString(),
+        }
+        const requestMessages = [...session.messages, userMessage]
+            .filter((message) =>
+                message.role === 'system'
+                || message.role === 'user'
+                || message.role === 'assistant')
             .map(message => ({ role: message.role, content: message.content }))
 
         setChatSession((prev) => prev
+            && prev.conversationId === session.conversationId
             ? {
                 ...prev,
                 isSending: true,
                 messages: [...prev.messages, userMessage, createPendingAssistantMessage(prev.conversationId)],
             }
-            : prev)
+            : {
+                ...session,
+                isSending: true,
+                messages: [...session.messages, userMessage, createPendingAssistantMessage(session.conversationId)],
+            })
 
         socketRef.current.send(JSON.stringify({
             type: 'prompt_request',
-            conversationId: chatSession.conversationId,
-            clientName: chatSession.clientName,
+            conversationId: session.conversationId,
+            clientName: session.clientName,
             messages: requestMessages,
             maxTokens: 512,
             temperature: 0.7,
         }))
+
+        void loadConversations()
+        return true
     }
 
     const activeClient = useMemo(() => {
@@ -136,11 +208,17 @@ export default function useGptPageState() {
         chatSession,
         clients,
         closeChat: () => setChatSession(null),
+        conversations,
         isConnected,
+        isLoadingChat,
+        isLoadingConversations,
+        createConversation: openChat,
+        loadConversations,
         openChat,
         participants,
         sendPrompt,
-        restoreChat
+        restoreChat,
+        switchConversationClient
     }
 }
 
@@ -149,7 +227,7 @@ function handleSocketMessage(
     setChatSession: React.Dispatch<React.SetStateAction<ChatSession | null>>,
     setClients: React.Dispatch<React.SetStateAction<GPT_Client[]>>,
     setParticipants: React.Dispatch<React.SetStateAction<number>>,
-    requestedConversationId: string | null
+    refreshConversations: () => void
 ) {
     switch (msg.type) {
         case 'update': {
@@ -185,37 +263,12 @@ function handleSocketMessage(
             return setChatSession((prev) => updatePromptDelta(prev, msg))
 
         case 'prompt_complete':
+            refreshConversations()
             return setChatSession((prev) => updatePromptComplete(prev, msg))
 
         case 'prompt_error':
+            refreshConversations()
             return setChatSession((prev) => updatePromptError(prev, msg))
-
-        case 'history_provided': {
-            console.log('10 received history')
-            if (!msg.clientName || !msg.conversationId || !msg.messages) {
-                return
-            }
-            console.log('11 history_provided after initial checks')
-
-            const clientName = msg.clientName
-            const conversationId = msg.conversationId
-            const messages = msg.messages
-            const metrics = msg.metrics || defaultModelMetrics()
-
-            return setChatSession((prev) => {
-                if (requestedConversationId && conversationId !== requestedConversationId) {
-                    return prev
-                }
-
-                return {
-                    clientName,
-                    conversationId,
-                    messages,
-                    isSending: false,
-                    metrics,
-                }
-            })
-        }
 
         default:
             return
@@ -231,6 +284,20 @@ function updatePromptStart(session: ChatSession | null, msg: GptSocketMessage) {
         messages: session.messages.some(message => message.role === 'assistant' && message.pending)
             ? session.messages
             : [...session.messages, createPendingAssistantMessage(session.conversationId)],
+    }
+}
+
+function mapStoredConversationToSession(conversation: StoredConversation, activeClient: GPT_Client | null): ChatSession {
+    return {
+        title: conversation.title,
+        originalClientName: conversation.originalClientName,
+        clientName: conversation.activeClientName,
+        conversationId: conversation.id,
+        messages: conversation.messages,
+        isSending: false,
+        metrics: activeClient?.model || defaultModelMetrics(),
+        createdAt: conversation.createdAt,
+        updatedAt: conversation.updatedAt,
     }
 }
 

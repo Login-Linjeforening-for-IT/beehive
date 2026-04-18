@@ -24,5 +24,26 @@
         "title": "No GPTs connected",
         "description": "This page will automatically update when a model becomes available.",
         "contact": "Contact TekKom if the issue persists."
+    },
+    "conversation": {
+        "newChat": "New chat",
+        "previousChats": "Previous chats",
+        "loading": "Loading...",
+        "noMessages": "No messages yet.",
+        "titleFallback": "Conversation",
+        "agent": "Agent",
+        "loadingConversation": "Loading conversation...",
+        "notFound": "Conversation not found.",
+        "liveConnection": "Live connection",
+        "reconnecting": "Reconnecting",
+        "modelUnavailable": "is currently unavailable.",
+        "handoffDescription": "If you continue on another model, the previous context summary will be added first so the new agent can pick up where this one left off.",
+        "switching": "Switching...",
+        "continueOnAnotherModel": "Continue on another model",
+        "notFoundTitle": "Conversation not found",
+        "notFoundDescription": "Choose another chat on the left or start a new one.",
+        "thinking": "Thinking...",
+        "askFollowup": "Ask a follow-up question...",
+        "connectToModel": "Connect to an available model to continue this chat."
     }
 }

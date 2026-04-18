@@ -755,14 +755,36 @@ declare global {
         content: string
         pending?: boolean
         error?: boolean
+        clientName?: string | null
+        createdAt?: string
+    }
+
+    type ChatConversationSummary = {
+        id: string
+        title: string
+        originalClientName: string
+        activeClientName: string
+        createdAt: string
+        updatedAt: string
+        lastMessagePreview: string | null
+        lastMessageRole: GPT_ChatRole | null
+        messageCount: number
+    }
+
+    type StoredConversation = ChatConversationSummary & {
+        messages: GPT_ChatMessage[]
     }
 
     type ChatSession = {
+        title: string
+        originalClientName: string
         clientName: string
         conversationId: string
         messages: GPT_ChatMessage[]
         isSending: boolean
         metrics: GPT_ModelMetrics
+        createdAt: string
+        updatedAt: string
     }
 
     type GptSocketMessage = {
@@ -783,10 +805,17 @@ declare global {
         chatSession: ChatSession | null
         clients: GPT_Client[]
         closeChat: () => void
+        conversations: ChatConversationSummary[]
+        createConversation: (client: GPT_Client | string) => Promise<ChatSession | null>
         isConnected: boolean
-        openChat: (client: GPT_Client) => string
+        isLoadingChat: boolean
+        isLoadingConversations: boolean
+        loadConversations: () => Promise<void>
+        openChat: (client: GPT_Client) => Promise<ChatSession | null>
         participants: number
-        sendPrompt: (content: string) => void
+        restoreChat: (conversationId: string) => Promise<void>
+        sendPrompt: (content: string, sessionOverride?: ChatSession | null) => boolean
+        switchConversationClient: (conversationId: string, clientName: string) => Promise<ChatSession | null>
     }
 
     interface ExtendedNavigator extends Navigator {

@@ -24,5 +24,26 @@
         "title": "Ingen tilgjengelige modeller.",
         "description": "Denne siden oppdateres når en modell blir tilgjengelig.",
         "contact": "Kontakt TekKom dersom feilen vedvarer."
+    },
+    "conversation": {
+        "newChat": "Ny samtale",
+        "previousChats": "Tidligere samtaler",
+        "loading": "Laster...",
+        "noMessages": "Ingen meldinger ennå.",
+        "titleFallback": "Samtale",
+        "agent": "Agent",
+        "loadingConversation": "Laster samtale...",
+        "notFound": "Fant ikke samtalen.",
+        "liveConnection": "Direkte tilkobling",
+        "reconnecting": "Kobler til på nytt",
+        "modelUnavailable": "er ikke tilgjengelig akkurat nå.",
+        "handoffDescription": "Hvis du fortsetter med en annen modell, legges først et sammendrag av den tidligere konteksten inn slik at den nye agenten kan fortsette der den andre slapp.",
+        "switching": "Bytter...",
+        "continueOnAnotherModel": "Fortsett på en annen modell",
+        "notFoundTitle": "Fant ikke samtalen",
+        "notFoundDescription": "Velg en annen samtale til venstre eller start en ny.",
+        "thinking": "Tenker...",
+        "askFollowup": "Still et oppfølgingsspørsmål...",
+        "connectToModel": "Koble til en tilgjengelig modell for å fortsette denne samtalen."
     }
 }
